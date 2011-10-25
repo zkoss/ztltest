@@ -30,7 +30,9 @@ Usage:
 	<target name="clean">
 		<delete dir="${target.dir}" />
 		<delete dir="${report.dir}" />
-		<delete dir="${codegen.dir}"/>
+		<delete includeemptydirs="true">
+			<fileset dir="${codegen.dir}" includes="**/*" />
+		</delete>
 		<delete dir="${test.dir}"/>
 		<!--<delete dir="${javadoc.dir}"/>-->
 	</target>
@@ -38,7 +40,6 @@ Usage:
 		<delete dir="${target.dir}" />
 		<mkdir dir="${report.dir}" />
 		<mkdir dir="${test.dir}"/>
-		<mkdir dir="${codegen.dir}"/>
 	
 		<taskdef resource="scala/tools/ant/antlib.xml">
 			<classpath refid="dependency.classpath" />
