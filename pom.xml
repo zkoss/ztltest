@@ -15,6 +15,10 @@
             <name>Scala-tools Maven2 Repository</name>
             <url>http://scala-tools.org/repo-releases</url>
         </repository>
+		<repository>
+			<id>zk repository</id>
+			<url>http://mavensync.zkoss.org/maven2</url>
+		</repository>
     </repositories>
 	<licenses>
 		<license>
