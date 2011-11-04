@@ -1,0 +1,66 @@
+<test tags="zbind">
+	<case id="va11">
+		<server><!--
+	<window title="new page title" border="normal"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@bind(vm='test3.composer.validator.Va11')">
+		va1.
+		<label multiline="true">
+			Validator + Command. save before submit.
+
+			1. input a negative number, not save
+			2. input 1
+			3. input 15, less than 18
+			4. input 22, over 18
+		</label>
+		Age :
+		<intbox id="ageBox"
+			value="@bind(init=vm.negativeOne ,save=vm.age before 'classify') @validator(vm.nonNegative)" />
+		<button id="submitButton" label="classify" onClick="@bind('classify')" />
+		<separator/>
+		CLASSIFY: 
+		<label id="less13" value="Less than 13"
+			visible="@bind(load = vm.lessThanThirteen after 'classify')" />
+		<label id="less18" value="Less than 18"
+			visible="@bind(load=vm.lessThanEighteen after 'classify')" />
+		<label id="over18" value="Over 18"
+			visible="@bind(init=vm.overEighteen,load=vm.overEighteen after 'classify')" />
+		<separator/>
+
+	</window>
+		--></server>
+		<client>
+				final String LESS_13 = "Less than 13";
+				final String LESS_18 = "Less than 18";
+				final String OVER_18 = "Over 18";
+				
+				type(ageBox, "-1");
+				click(submitButton);
+				waitResponse();
+				verifyEquals("true", less13.get("visible"));
+				verifyEquals("true", less18.get("visible"));
+				verifyEquals("false", over18.get("visible"));
+
+				type(ageBox, "1");
+				click(submitButton);
+				waitResponse();
+				verifyEquals("true", less13.get("visible"));
+				verifyEquals("true", less18.get("visible"));
+				verifyEquals("false", over18.get("visible"));
+				
+				type(ageBox, "15");
+				click(submitButton);
+				waitResponse();
+				verifyEquals("false", less13.get("visible"));
+				verifyEquals("true", less18.get("visible"));
+				verifyEquals("false", over18.get("visible"));
+				
+				type(ageBox, "18");
+				click(submitButton);
+				waitResponse();
+				verifyEquals("false", less13.get("visible"));
+				verifyEquals("false", less18.get("visible"));
+				verifyEquals("true", over18.get("visible"));				
+		</client>
+	</case>
+</test>

@@ -1,0 +1,76 @@
+<test tags="zbind">
+	<case id="f1">
+		<server><!--
+	<vbox apply="org.zkoss.bind.BindComposer"
+		viewModel="@bind(vm='test3.composer.form.F1')" width="400px">
+	<label multiline="true">
+	f1.
+	form, command+argument, validator+argument,notifychange
+	1. click register, message doesn't change.
+	2. input account "john", password "1", retype password "2"
+	3. register, message no change.
+	4. input password "1", register, message show account.
+	5. input birthday 1978/1/1, register, message show "..are adult." 
+	</label>
+	<grid self="@form(id='fx', load=vm.user, save=vm.user before 'register') @validator(vm.f1Validator)">
+		<rows>
+			<row>
+				<label value="Account" />
+				<textbox id="accountBox"
+					value="@bind(fx.account)" />
+			</row>
+			<row>
+				<label value="Password" />
+				<textbox id="passwordBox" type="password"
+					value="@bind(fx.password) " />
+			</row>
+			<row>
+				<label value="Retype Password " />
+				<textbox id="passwordBox2" type="password"
+					value="@bind(fx.password2) " />
+			</row>
+			<row>
+				Birthday
+				<datebox sid="birthdayBox" value="@bind(save=fx.adult) @converter(vm.birthdayAdultConverter)"/>
+			</row>
+			<row>
+			</row>			
+			<row>
+				<label value="" />
+				<button id="registerButton" label="Register"
+					onClick="@bind('register')" />
+			</row>
+
+		</rows>
+
+	</grid>
+	<label id="message" value="@bind(vm.message)"/>
+
+	</vbox>
+		--></server>
+		<client>
+				
+			
+				click(registerButton);
+				verifyEquals("NOT an adult.", getValue(message));
+
+				type(accountBox, "john");
+				type(passwordBox, "1");
+				type(passwordBox2, "2");
+				click(registerButton);
+				waitResponse();
+				verifyEquals("NOT an adult.", getValue(message));
+				
+				type(passwordBox2, "1");
+				click(registerButton);
+				waitResponse();
+				verifyEquals("Hi, john: You are NOT an adult.", getValue(message));
+				
+				type(birthdayBox, "1978/1/1");
+				click(registerButton);
+				waitResponse();
+				verifyEquals("Hi, john: You are an adult.", getValue(message));
+								
+		</client>
+	</case>
+</test>
