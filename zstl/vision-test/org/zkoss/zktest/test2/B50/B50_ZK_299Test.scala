@@ -110,7 +110,7 @@ class B50_ZK_299Test extends ZTL4ScalaTestCase {
 			runZTL(
 				<zk></zk>,
 				() => {
-					for (theme <- List("breeze", "classicblue", "sapphire", "silvertail")) {
+					for (theme <- List("breeze", "sapphire", "silvertail")) {
 						runRawZscript({
 							"""<zk>
 								<zscript><![CDATA[
