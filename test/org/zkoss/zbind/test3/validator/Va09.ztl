@@ -24,12 +24,12 @@
 		<client>
 				
 				type(keywordBox, "123");
-				click(keywordLabel);
+				click(lengthBox); //to change focus
 				waitResponse();
 				verifyEquals("123", getValue(keywordLabel));
 
 				type(keywordBox, "1234");
-				click(keywordLabel);
+				click(lengthBox);
 				waitResponse();
 				verifyEquals("123", getValue(keywordLabel));
 				

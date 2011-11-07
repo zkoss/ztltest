@@ -37,30 +37,30 @@
 				type(ageBox, "-1");
 				click(submitButton);
 				waitResponse();
-				verifyEquals("true", less13.get("visible"));
-				verifyEquals("true", less18.get("visible"));
-				verifyEquals("false", over18.get("visible"));
+				verifyEquals(true, isVisible(less13));
+				verifyEquals(true, isVisible(less18));
+				verifyEquals(false, isVisible(over18));
 
 				type(ageBox, "1");
 				click(submitButton);
 				waitResponse();
-				verifyEquals("true", less13.get("visible"));
-				verifyEquals("true", less18.get("visible"));
-				verifyEquals("false", over18.get("visible"));
+				verifyEquals(true, isVisible(less13));
+				verifyEquals(true, isVisible(less18));
+				verifyEquals(false, isVisible(over18));				
 				
 				type(ageBox, "15");
 				click(submitButton);
 				waitResponse();
-				verifyEquals("false", less13.get("visible"));
-				verifyEquals("true", less18.get("visible"));
-				verifyEquals("false", over18.get("visible"));
+				verifyEquals(false, isVisible(less13));
+				verifyEquals(true, isVisible(less18));
+				verifyEquals(false, isVisible(over18));
 				
 				type(ageBox, "18");
 				click(submitButton);
 				waitResponse();
-				verifyEquals("false", less13.get("visible"));
-				verifyEquals("false", less18.get("visible"));
-				verifyEquals("true", over18.get("visible"));				
+				verifyEquals(false, isVisible(less13));
+				verifyEquals(false, isVisible(less18));
+				verifyEquals(true, isVisible(over18));								
 		</client>
 	</case>
 </test>
