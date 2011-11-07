@@ -28,14 +28,10 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
         windowMaximize();
         _engine = new Widget(new StringBuffer("zk.Desktop._dt"))
 
-        runZscript(
-          zscript 
-          toString()
-          trim()
-          replace("\\", "\\\\")
-          replace("'", "\\'")
-          replaceAll("\r", "")
-          replaceAll("\n", "\\\\n"))
+        if (!zscript.isEmpty())
+	        runRawZscript(
+	          zscript 
+	          toString())
 
         waitResponse();
 
@@ -46,6 +42,15 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
     }  	  
   }
   
+  def runRawZscript(zscript: String) {
+	runZscript(
+		zscript
+			trim ()
+			replace ("\\", "\\\\")
+			replace ("'", "\\'")
+			replaceAll ("\r", "")
+			replaceAll ("\n", "\\\\n"))
+  }
   def runZTL(zscript: scala.xml.Elem, executor: () => Unit){
 	runZTL(zscript.toString(),executor);
   }  

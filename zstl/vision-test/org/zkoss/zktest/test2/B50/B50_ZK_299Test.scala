@@ -130,16 +130,6 @@ class B50_ZK_299Test extends ZTL4ScalaTestCase {
 		} finally {
 			resetTheme("breeze")
 		}
-
 	}
 
-	def runRawZscript(zscript: String) {
-		runZscript(
-			zscript
-				trim ()
-				replace ("\\", "\\\\")
-				replace ("'", "\\'")
-				replaceAll ("\r", "")
-				replaceAll ("\n", "\\\\n"))
-	}
 }
