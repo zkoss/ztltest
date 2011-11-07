@@ -19,12 +19,14 @@
 		<client>
 				
 				type(keywordBox, "123");
-				click(keywordLabel);
+				sendKeys(keywordBox, Keys.TAB); //change focus
+				//click(keywordLabel);
 				waitResponse();
 				verifyEquals("123", getValue(keywordLabel));
 
 				type(keywordBox, "1234");
-				click(keywordLabel);
+				sendKeys(keywordBox, Keys.TAB);
+				//click(keywordLabel);
 				waitResponse();
 				verifyEquals("123", getValue(keywordLabel));
 				

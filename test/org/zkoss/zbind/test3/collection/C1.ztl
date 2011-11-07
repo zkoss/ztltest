@@ -12,7 +12,7 @@
 			<comboitem label="@bind(n)" value="@bind(n)"></comboitem>
 			</template>
 		</combobox>
-		<listbox id="contentListbox" visible="@bind(load=vm.single) compute" model="@bind(vm.listNameList)" checkmark="true" multiple="true">
+		<listbox visible="@bind(load=vm.single) compute" model="@bind(vm.listNameList)" checkmark="true" multiple="true">
 			<listitem>
 				<template name="model" var="n">
 				<listcell>
@@ -22,7 +22,7 @@
 			</listitem>
 		</listbox>
 		<label value="List Content:"/>
-		<listbox model="@bind(vm.selectedList)">
+		<listbox id="contentListbox" model="@bind(vm.selectedList)">
 			<template name="model" var="f">
 				<listitem>
 					<listcell label="@bind(f)"></listcell>
@@ -35,17 +35,15 @@
 	</vbox>
 		--></server>
 		<client>
-				select(singleBox,"Car Mark");
+				type(singleBox.$n("real"),"Car Mark");
+				sendKeys(singleBox.$n("real"), Keys.TAB);
 				waitResponse();
-				select(contentListbox,"Nissan");
-				waitResponse();
-				verifyEquals("Nissan", getSelectedLabel(contentListbox));
+				verifyEquals("TOYOTA", contentListbox.firstChild().get("label"));
 				
-				select(singleBox,"Fruit");
+				type(singleBox.$n("real"),"Fruit");
+				sendKeys(singleBox.$n("real"), Keys.TAB);
 				waitResponse();
-				select(contentListbox,"Apple");
-				waitResponse();
-				verifyEquals("Apple", getSelectedLabel(contentListbox));
+				verifyEquals("Apple", contentListbox.firstChild().get("label"));
 		</client>
 	</case>
 </test>
