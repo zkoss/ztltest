@@ -2,7 +2,7 @@
 	<case id="va07">
 		<server><!--
 	<window title="new page title" border="normal"
-		apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='test3.composer.validator.Va07')">
+		apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='org.zkoss.zktest.zbind.viewmodel.validator.Va07')">
 		
 		va7. validator + init:
 		<separator/>

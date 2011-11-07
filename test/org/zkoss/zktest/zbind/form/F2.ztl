@@ -2,7 +2,7 @@
 	<case id="f2">
 		<server><!--
 	<vbox apply="org.zkoss.bind.BindComposer"
-		viewModel="@bind(vm='test3.composer.form.F2')" width="400px">
+		viewModel="@bind(vm='org.zkoss.zktest.zbind.viewmodel.form.F2')" width="400px">
 	<label multiline="true">
 	f1.
 	form, command+argument, validator+argument,notifychange

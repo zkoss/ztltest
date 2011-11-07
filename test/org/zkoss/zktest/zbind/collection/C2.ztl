@@ -1,7 +1,7 @@
 <test tags="zbind">
 	<case id="c2">
 		<server><!--
-	<vbox apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='test3.composer.collection.C2')">
+	<vbox apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='org.zkoss.zktest.zbind.viewmodel.collection.C2')">
 		<label multiline="true">
 		c2.
 		1. delete row entry with button one by one.

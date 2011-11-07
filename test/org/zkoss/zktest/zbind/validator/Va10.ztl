@@ -1,7 +1,7 @@
 <test tags="zbind">
 	<case id="va10">
 		<server><!--
-		<groupbox apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='test3.composer.validator.Va10')">
+		<groupbox apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='org.zkoss.zktest.zbind.viewmodel.validator.Va10')">
 		<caption label="va10. multiple field validation"/>
 		<label multiline="true">
 		va10.
