@@ -1,7 +1,7 @@
 <test tags="zbind">
 	<case id="c1">
 		<server><!--
-	<vbox apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='test3.composer.collection.C1')">
+	<vbox apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='org.zkoss.zktest.zbind.viewmodel.collection.C1')">
 		<label multiline="true">
 		c1.
 		1. select combobox

@@ -2,7 +2,7 @@
 	<case id="va06">
 		<server><!--
 	<window title="new page title" border="normal"
-		apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='test3.composer.validator.Va06')">
+		apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='org.zkoss.zktest.zbind.viewmodel.validator.Va06')">
 		<label multiline="true">
 		v6.command, before, converter input with argument
 		1. input -1, not save

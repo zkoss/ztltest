@@ -3,7 +3,7 @@
 		<server><!--
 	<window title="new page title" border="normal"
 		apply="org.zkoss.bind.BindComposer"
-		viewModel="@bind(vm='test3.composer.validator.Va11')">
+		viewModel="@bind(vm='org.zkoss.zktest.zbind.viewmodel.validator.Va11')">
 		va1.
 		<label multiline="true">
 			Validator + Command. save before submit.

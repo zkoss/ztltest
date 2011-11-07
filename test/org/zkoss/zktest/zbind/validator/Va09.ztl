@@ -2,7 +2,7 @@
 	<case id="va09">
 		<server><!--
 	<window title="new page title" border="normal"
-		apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='test3.composer.validator.Va09')">
+		apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='org.zkoss.zktest.zbind.viewmodel.validator.Va09')">
 		va9. validator + arguments from another binding: <separator/>
 		<label multiline="true">
 		1. input max length is 3

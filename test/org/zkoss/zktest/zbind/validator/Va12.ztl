@@ -3,7 +3,7 @@
 		<server><!--
 	<window border="normal" width="400px"
 		apply="org.zkoss.bind.BindComposer"
-		viewModel="@bind(vm='test3.composer.validator.Va12')">
+		viewModel="@bind(vm='org.zkoss.zktest.zbind.viewmodel.validator.Va12')">
 		va12
 		<label multiline="true">
 			argument Validator + argument Command, dependsOn
