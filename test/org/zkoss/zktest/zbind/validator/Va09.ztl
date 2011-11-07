@@ -1,0 +1,43 @@
+<test tags="zbind">
+	<case id="va09">
+		<server><!--
+	<window title="new page title" border="normal"
+		apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='test3.composer.validator.Va09')">
+		va9. validator + arguments from another binding: <separator/>
+		<label multiline="true">
+		1. input max length is 3
+		2. input 123, show 123
+		3. input 1234, show 123
+		4. input max length is 5
+		5. input 12345, show 12345
+		</label>
+		max length is: <intbox id="lengthBox" value="@bind(vm.maxLength)"/>
+		<separator />
+		intput: <textbox id="keywordBox"
+			value="@bind(save=vm.keyword) @validator(vm.maxLengthValidator, length=vm.maxLength)">
+		</textbox>
+		<separator />
+		you enter:<label id="keywordLabel" value="@bind(load=vm.keyword)" />
+		
+	</window>
+		--></server>
+		<client>
+				
+				type(keywordBox, "123");
+				click(lengthBox); //to change focus
+				waitResponse();
+				verifyEquals("123", getValue(keywordLabel));
+
+				type(keywordBox, "1234");
+				click(lengthBox);
+				waitResponse();
+				verifyEquals("123", getValue(keywordLabel));
+				
+				type(lengthBox, "5");
+				type(keywordBox, "12345");
+				click(keywordLabel);
+				waitResponse();
+				verifyEquals("12345", getValue(keywordLabel));				
+		</client>
+	</case>
+</test>

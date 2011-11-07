@@ -1,0 +1,44 @@
+<test tags="zbind, va06">
+	<case id="va06">
+		<server><!--
+	<window title="new page title" border="normal"
+		apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='test3.composer.validator.Va06')">
+		<label multiline="true">
+		v6.command, before, converter input with argument
+		1. input -1, not save
+		2. input 22, adult is checked
+		3. input 1, adult no checked
+		</label>
+		<intbox id="ageBox"
+			value="@bind(init=vm.negativeOne ,save=vm.adult before 'checkAdult') @converter(vm.adultConverter) @validator(vm.booleanValidator)" />
+		<button id="checkButton" label="checkAdult" onClick="@bind('checkAdult')" />
+		<checkbox id="adultBox" checked="@bind(load=vm.adult)" label="Is Adult"/>			
+		
+	</window>
+		--></server>
+		<client>
+				
+				final String UNDER_AGE="Under Age";
+				final String ADULT="Adult";
+				final String NEGATIVE_ONE = "-1";
+				
+				Widget checkBox = engine.$f("adultBox");
+				
+				type(ageBox, "-1");
+				click(checkButton);
+				waitResponse();
+				verifyEquals("false", checkBox.get("checked"));
+
+				type(ageBox, "22");
+				click(checkButton);
+				waitResponse();
+				verifyEquals("true", checkBox.get("checked"));
+								
+				type(ageBox, "1");
+				click(checkButton);
+				waitResponse();
+				verifyEquals("false", checkBox.get("checked"));
+				
+		</client>
+	</case>
+</test>
