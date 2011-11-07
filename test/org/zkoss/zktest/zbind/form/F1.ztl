@@ -31,7 +31,7 @@
 			</row>
 			<row>
 				Birthday
-				<datebox sid="birthdayBox" value="@bind(save=fx.adult) @converter(vm.birthdayAdultConverter)"/>
+				<datebox id="birthdayBox" value="@bind(save=fx.adult) @converter(vm.birthdayAdultConverter)"/>
 			</row>
 			<row>
 			</row>			
