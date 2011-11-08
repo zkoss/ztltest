@@ -8,10 +8,10 @@
     }
 </n:style>
 
-	<panel title="panel" border="normal" width="800px" >
-		<panelchildren style="overflow:auto;position:relative;" hflex="1">
+	<panel title="panel" border="normal" width="800px">
+		<panelchildren style="overflow:auto;position:relative;">
 			<listbox sizedByContent="true"
-				style="border: 0;" hflex="min">
+				style="border: 0;" hflex="1">
 				<listhead sizable="true">
 					<listheader label="Message Time" width="150px"></listheader>
 					<listheader label="Level" width="75px"
