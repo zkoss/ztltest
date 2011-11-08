@@ -18,14 +18,14 @@
 		--></server>
 		<client>
 				
-				type(start, "Nov 2, 2011");
-				type(end, "Nov 3, 2011");
+				type(start.$n("real"), "2011/11/02");
+				type(end.$n("real"), "2011/11/03");
 				click(okButton);
 				waitResponse();
 				verifyEquals("Wed Nov 02 00:00:00 CST 2011", getValue(startLabel));
 				verifyEquals("Thu Nov 03 00:00:00 CST 2011", getValue(endLabel));
 
-				type(end, "Nov 1, 2011");
+				type(end.$n("real"), "2011/11/01");
 				click(okButton);
 				waitResponse();
 				verifyEquals("Wed Nov 02 00:00:00 CST 2011", getValue(startLabel));
