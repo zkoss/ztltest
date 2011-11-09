@@ -62,32 +62,32 @@
 				
 				click(computeButton);
 				waitResponse();
-				verifyEquals("30", getValue(total));
+				assertEquals("30", getValue(total));
 
 			
 				type(quantityABox, "10");
 				click(subtotalA);
 				waitResponse();
-				verifyEquals("100", getValue(subtotalA));
+				assertEquals("100", getValue(subtotalA));
 				
 				type(quantityBBox, "11");
 				click(subtotalB);
 				waitResponse();
-				verifyEquals("20", getValue(subtotalB));
+				assertEquals("20", getValue(subtotalB));
 				
 				type(quantityBBox, "10");
 				click(subtotalB);
 				waitResponse();
-				verifyEquals("200", getValue(subtotalB));
+				assertEquals("200", getValue(subtotalB));
 
 				click(computeButton);
 				waitResponse();
-				verifyEquals("300", getValue(total));
+				assertEquals("300", getValue(total));
 				
 				type(offBox, "90");
 				click(computeButton);
 				waitResponse();
-				verifyEquals("270", getValue(total));											
+				assertEquals("270", getValue(total));											
 		</client>
 	</case>
 </test>

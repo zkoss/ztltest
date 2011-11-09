@@ -27,17 +27,17 @@
 				type(ageBox, "-1");
 				click(checkButton);
 				waitResponse();
-				verifyEquals("false", checkBox.get("checked"));
+				assertEquals("false", checkBox.get("checked"));
 
 				type(ageBox, "22");
 				click(checkButton);
 				waitResponse();
-				verifyEquals("true", checkBox.get("checked"));
+				assertEquals("true", checkBox.get("checked"));
 								
 				type(ageBox, "1");
 				click(checkButton);
 				waitResponse();
-				verifyEquals("false", checkBox.get("checked"));
+				assertEquals("false", checkBox.get("checked"));
 				
 		</client>
 	</case>

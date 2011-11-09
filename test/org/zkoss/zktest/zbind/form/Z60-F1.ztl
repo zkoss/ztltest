@@ -52,24 +52,24 @@
 				
 			
 				click(registerButton);
-				verifyEquals("NOT an adult.", getValue(message));
+				assertEquals("NOT an adult.", getText(message));
 
 				type(accountBox, "john");
 				type(passwordBox, "1");
 				type(passwordBox2, "2");
 				click(registerButton);
 				waitResponse();
-				verifyEquals("NOT an adult.", getValue(message));
+				assertEquals("NOT an adult.", getText(message));
 				
 				type(passwordBox2, "1");
 				click(registerButton);
 				waitResponse();
-				verifyEquals("Hi, john: You are NOT an adult.", getValue(message));
+				assertEquals("Hi, john: You are NOT an adult.", getText(message));
 				
-				type(birthdayBox, "1978/1/1");
+				type(birthdayBox.$n("real"), "1978/1/1");
 				click(registerButton);
 				waitResponse();
-				verifyEquals("Hi, john: You are an adult.", getValue(message));
+				assertEquals("Hi, john: You are an adult.", getText(message));
 								
 		</client>
 	</case>

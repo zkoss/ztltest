@@ -22,13 +22,13 @@
 				sendKeys(keywordBox, Keys.TAB); //change focus
 				//click(keywordLabel);
 				waitResponse();
-				verifyEquals("123", getValue(keywordLabel));
+				assertEquals("123", getValue(keywordLabel));
 
 				type(keywordBox, "1234");
 				sendKeys(keywordBox, Keys.TAB);
 				//click(keywordLabel);
 				waitResponse();
-				verifyEquals("123", getValue(keywordLabel));
+				assertEquals("123", getValue(keywordLabel));
 				
 		</client>
 	</case>
