@@ -34,6 +34,11 @@ B50-3026819.ztl
 B50-3058028.ztl
 F50-0000001.ztl
 }
+### selenium 2.5.0 cannot support firefix7 well
+firefox7={
+B50-3214754.ztl
+B50-2916148.ztl
+}
 opera={
 // unsupported
 B36-2797773.ztl
