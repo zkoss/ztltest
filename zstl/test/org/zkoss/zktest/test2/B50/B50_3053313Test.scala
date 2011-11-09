@@ -81,15 +81,17 @@ class B50_3053313Test extends ZTL4ScalaTestCase {
         for (j <- 0 until l.size()) {
             var td = l.get(j).get(0);
             var clsnm: String = td.get("className")
-            dt1 = Integer.parseInt(td.get("innerHTML"));
-            if (!foundToday) {
-                verifyFalse("for third datebox, today and all pass day should be selectable",
-                    clsnm.contains("z-calendar-disd"));
-                foundToday = (dt1 == today) && (!clsnm.contains("z-outside"));
-            } else {
-                verifyTrue("for third datebox, all future day should be unselectable",
-                    clsnm.contains("z-calendar-disd"));
-            }
+	          if (jq(td).isVisible()) {
+	            dt1 = Integer.parseInt(td.get("innerHTML"));
+	            if (!foundToday) {
+	              verifyFalse("for third datebox, today and all pass day should be selectable",
+	                clsnm.contains("z-calendar-disd"));
+	              foundToday = (dt1 == today) && (!clsnm.contains("z-outside"));
+	            } else {
+	              verifyTrue("for third datebox, all future day should be unselectable",
+	                clsnm.contains("z-calendar-disd"));
+	            }
+	          }
         }
 
         click(dtbx2.$n("btn"));
