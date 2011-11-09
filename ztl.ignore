@@ -83,6 +83,26 @@ B30-1914104-2.ztl
 #zbind
 #ignore for browser difference issue
 opera,chrome={
+//basic
+Z60-Basic-Arg.ztl
+Z60-Basic-Load.ztl
+Z60-Basic-LoadForm.ztl
+Z60-Basic-LoadFormIndirect.ztl
+Z60-Basic-LoadIndirect.ztl
+Z60-Basic-LoadIndirect2.ztl
+Z60-Basic-Validation.ztl
+Z60-Basic-VmInit.ztl
+Z60-Issue-B0004.ztl
+Z60-Issue-B0020.ztl
+Z60-Issue-F0002.ztl
+Z60-Issue-F0010.ztl
+Z60-Issue-F0011-1.ztl
+Z60-Issue-F0011-2.ztl
+Z60-Issue-F0011-3.ztl
+Z60-Issue-F0011.ztl
+Z60-Issue-F0013.ztl
+Z60-Issue-F0015.ztl
+//view model
 Z60-C1.ztl
 Z60-C2.ztl
 Z60-F1.ztl
