@@ -27,154 +27,239 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 @Tags(tags = "zbind")
 class Z60_Basic_Load extends ZTL4ScalaTestCase {
   def testBasic() = {
-    //the following import tag is not XML format, hence can NOT put in val zul 
-    val header = "<?init class=\"org.zkoss.zktest.zbind.basic.ViewModelInit\"?> \n" +
-    			"<?import class=\"org.zkoss.bind.BindComposer\"?> \n"+
-    			"<?import class=\"org.zkoss.zktest.zbind.basic.ViewModelInit$SubViewModel\"?>\n"
-    val zul = {
+    val zul = {//load.zul
 <window apply="org.zkoss.zktest.zbind.basic.LoadComposer">
 	<custom-attributes composerName="vm"/>
-<grid width="1000px" >
+<grid width="500px" >
 	<columns>
 		<column label="First Name"></column>
 		<column label="Last Name"></column>
 		<column label="Full Name"></column>
-		<column label="Address.street"></column>
+		<column label="Street"></column>
 	</columns>
 	<rows>
-		<row id="row1">
+		<row id="row1" value="@bind(vm.p1)">
 			<textbox id="l1" value="@bind(vm.p1.firstName)"/>
 			<label id="l2" value="@bind(vm.p1.lastName)"/>
 			<label id="l3" value="@bind(vm.p1.fullName)"/>
 			<label id="l4" value="@bind(vm.p1.address.street)"/>
-		</row>	
-		<row id="row2" self="@form(id='fx', load=vm.p1, save=vm.p1 before 'saveForm')">
-			<textbox id="l5" value="@bind(fx.firstName)"/>
-			<label id="l6" value="@bind(fx.lastName)"/>
-			<label id="l7" value="@bind(fx.fullName)"/>
-			<label id="l8" value="@bind(fx.address.street)"/>
+		</row>
+		<row id="row2" value="@bind(vm.selected)">
+			<label id="l5" value="@bind(vm.selected.firstName)"/>
+			<label id="l6" value="@bind(vm.selected.lastName)"/>
+			<label id="l7" value="@bind(vm.selected.fullName)"/>
+			<label id="l8" value="@bind(vm.selected.address.street)"/>
 		</row>
 	</rows>
 </grid>
 <hbox>
-	bind to p2, p2 will be create when click save form
-	<textbox id="l9" value="@bind(vm.p2.firstName)"/>
-	<label id="la" value="@bind(vm.p2.lastName)"/>
-	<label id="lb" value="@bind(vm.p2.fullName)"/>
-	<label id="lc" value="@bind(vm.p2.address.street)"/>
+<button id="btn1" label="change firstName1" onClick="@bind('changeFirstName1')"/>
+<button id="btn2" label="change lastName1" onClick="@bind('changeLastName1')"/>
+
+<button id="btn3" label="change firstName2" onClick="@bind('changeFirstName2')"/>
+<button id="btn4" label="change lastName2" onClick="@bind('changeLastName2')"/>
+
+<button id="btn5" label="event change lastName1" onClick="vm.changeLastName1()"/>
+<button id="btn6" label="event change lastName2" onClick="vm.changeLastName2()"/>
 </hbox>
 <hbox>
-<button id="btn1" label="save form" onClick="@bind('saveForm')"/>
+<button id="btn7" label="p1 only" onClick="@bind('notifyP1')"/>
+<button id="btn8" label="selected only" onClick="@bind('notifySelected')"/>
 </hbox>
-
 <button label="Dump" onClick="binder.getTracker().dump()"/>
 </window>
     }
-    runZTL(header+zul, () => {
+    runZTL(zul, () => {
     	val t1 = engine $f "l1"
     	val l2 = engine $f "l2"
     	val l3 = engine $f "l3"
-    	val t5 = engine $f "l5"
+    	val l4 = engine $f "l4"
+    	val l5 = engine $f "l5"
     	val l6 = engine $f "l6"
     	val l7 = engine $f "l7"
-    	val t9 = engine $f "l9"
-    	val la = engine $f "la"
-    	val lb = engine $f "lb"
+    	val l8 = engine $f "l8"
     	
-
     	ZKSeleneseTestCase.assertEquals("First1", getValue(t1));
     	ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
     	ZKSeleneseTestCase.assertEquals("First1 Last1", getText(l3));
-    	ZKSeleneseTestCase.assertEquals("First1", getValue(t5));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l4));
+    	ZKSeleneseTestCase.assertEquals("First1", getText(l5));
     	ZKSeleneseTestCase.assertEquals("Last1", getText(l6));
     	ZKSeleneseTestCase.assertEquals("First1 Last1", getText(l7));
-    	ZKSeleneseTestCase.assertEquals("", getValue(t9));
-    	ZKSeleneseTestCase.assertEquals("", getText(la));
-    	ZKSeleneseTestCase.assertEquals("", getText(lb)); 
-//		Assert.assertEquals("First1", findWidget("$l1").getAttribute("value"));
-//		Assert.assertEquals("Last1", findWidget("$l2").getAttribute("value"));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l8));
+    	
+//    	Assert.assertEquals("First1",findWidget("$l1").getAttribute("value"));
+//		Assert.assertEquals("Last1",findWidget("$l2").getAttribute("value"));
 //		Assert.assertEquals("First1 Last1",findWidget("$l3").getAttribute("value"));
-//		Assert.assertEquals("First1", findWidget("$l5").getAttribute("value"));
-//		Assert.assertEquals("Last1", findWidget("$l6").getAttribute("value"));
-//		Assert.assertEquals("First1 Last1", findWidget("$l7").getAttribute("value"));
-//		Assert.assertEquals("", findWidget("$l9").getAttribute("value"));
-//		Assert.assertEquals("", findWidget("$la").getAttribute("value"));
-//		Assert.assertEquals("", findWidget("$lb").getAttribute("value"));
-
-    	`type`(t1,"XXX")
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l4").getAttribute("value"));
+//		Assert.assertEquals("First1",findWidget("$l5").getAttribute("value"));
+//		Assert.assertEquals("Last1",findWidget("$l6").getAttribute("value"));
+//		Assert.assertEquals("First1 Last1",findWidget("$l7").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l8").getAttribute("value"));
+		
+    	val btn1 = engine $f "btn1"
+    	click(btn1)
     	waitResponse()
-    	ZKSeleneseTestCase.assertEquals("XXX", getValue(t1));
+    	ZKSeleneseTestCase.assertEquals("Dennis", getValue(t1));
     	ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
-    	ZKSeleneseTestCase.assertEquals("XXX Last1", getText(l3));
-//		findWidget("$l1").clear().keys("XXX");
-//		findWidget("$btn1").focus();
-//		Assert.assertEquals("XXX", findWidget("$l1").getAttribute("value"));
-//		Assert.assertEquals("Last1", findWidget("$l2").getAttribute("value"));
-//		Assert.assertEquals("XXX Last1", findWidget("$l3")
-//				.getAttribute("value"));
-
-		// spec change, p1.first change will not effect p1 -> fx
-    	ZKSeleneseTestCase.assertEquals("First1", getValue(t5));
+    	ZKSeleneseTestCase.assertEquals("Dennis Last1", getText(l3));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l4));
+    	ZKSeleneseTestCase.assertEquals("Dennis", getText(l5));
     	ZKSeleneseTestCase.assertEquals("Last1", getText(l6));
-    	ZKSeleneseTestCase.assertEquals("First1 Last1", getText(l7));
-    	ZKSeleneseTestCase.assertEquals("", getValue(t9));
-    	ZKSeleneseTestCase.assertEquals("", getText(la));
-    	ZKSeleneseTestCase.assertEquals("", getText(lb));    	
-//		Assert.assertEquals("First1", findWidget("$l5").getAttribute("value"));
-//		Assert.assertEquals("Last1", findWidget("$l6").getAttribute("value"));
-//		Assert.assertEquals("First1 Last1",	findWidget("$l7").getAttribute("value"));
-//		Assert.assertEquals("", findWidget("$l9").getAttribute("value"));
-//		Assert.assertEquals("", findWidget("$la").getAttribute("value"));
-//		Assert.assertEquals("", findWidget("$lb").getAttribute("value"));
-
-    	`type`(t5,"YYY")
-    	waitResponse()
-    	ZKSeleneseTestCase.assertEquals("XXX", getValue(t1));
-    	ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
-    	ZKSeleneseTestCase.assertEquals("XXX Last1", getText(l3));
-    	ZKSeleneseTestCase.assertEquals("YYY", getValue(t5));
-    	ZKSeleneseTestCase.assertEquals("Last1", getText(l6));
-    	ZKSeleneseTestCase.assertEquals("First1 Last1", getText(l7));
-    	ZKSeleneseTestCase.assertEquals("", getValue(t9));
-    	ZKSeleneseTestCase.assertEquals("", getText(la));
-    	ZKSeleneseTestCase.assertEquals("", getText(lb));    	
-//		findWidget("$l5").clear().keys("YYY");
-//		findWidget("$btn1").focus();
-//		Assert.assertEquals("XXX", findWidget("$l1").getAttribute("value"));
-//		Assert.assertEquals("Last1", findWidget("$l2").getAttribute("value"));
-//		Assert.assertEquals("XXX Last1", findWidget("$l3")
-//				.getAttribute("value"));
-//		Assert.assertEquals("YYY", findWidget("$l5").getAttribute("value"));
-//		Assert.assertEquals("Last1", findWidget("$l6").getAttribute("value"));
-//		Assert.assertEquals("First1 Last1",	findWidget("$l7").getAttribute("value"));
-//		Assert.assertEquals("", findWidget("$l9").getAttribute("value"));
-//		Assert.assertEquals("", findWidget("$la").getAttribute("value"));
-//		Assert.assertEquals("", findWidget("$lb").getAttribute("value"));
-
-    	click(engine $f "btn1")
-    	waitResponse()
-    	ZKSeleneseTestCase.assertEquals("YYY", getValue(t1));
-    	ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
-    	ZKSeleneseTestCase.assertEquals("YYY Last1", getText(l3));
-    	ZKSeleneseTestCase.assertEquals("YYY", getValue(t5));
-    	ZKSeleneseTestCase.assertEquals("Last1", getText(l6));
-    	ZKSeleneseTestCase.assertEquals("YYY Last1", getText(l7));
-    	ZKSeleneseTestCase.assertEquals("YYY", getValue(t9));
-    	ZKSeleneseTestCase.assertEquals("Last1", getText(la));
-    	ZKSeleneseTestCase.assertEquals("YYY Last1", getText(lb));       	
+    	ZKSeleneseTestCase.assertEquals("Dennis Last1", getText(l7));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l8));
 //		findWidget("$btn1").click();
-//		Assert.assertEquals("YYY", findWidget("$l1").getAttribute("value"));
-//		Assert.assertEquals("Last1", findWidget("$l2").getAttribute("value"));
-//		Assert.assertEquals("YYY Last1", findWidget("$l3")
-//				.getAttribute("value"));
-//		Assert.assertEquals("YYY", findWidget("$l5").getAttribute("value"));
-//		Assert.assertEquals("Last1", findWidget("$l6").getAttribute("value"));
-//		Assert.assertEquals("YYY Last1", findWidget("$l7")
-//				.getAttribute("value"));
-//		Assert.assertEquals("YYY", findWidget("$l9").getAttribute("value"));
-//		Assert.assertEquals("Last1", findWidget("$la").getAttribute("value"));
-//		Assert.assertEquals("YYY Last1", findWidget("$lb")
-//				.getAttribute("value"));
+//		Assert.assertEquals("Dennis",findWidget("$l1").getAttribute("value"));
+//		Assert.assertEquals("Last1",findWidget("$l2").getAttribute("value"));
+//		Assert.assertEquals("Dennis Last1",findWidget("$l3").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l4").getAttribute("value"));
+//		Assert.assertEquals("Dennis",findWidget("$l5").getAttribute("value"));
+//		Assert.assertEquals("Last1",findWidget("$l6").getAttribute("value"));
+//		Assert.assertEquals("Dennis Last1",findWidget("$l7").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l8").getAttribute("value"));
+		
+    	click(engine $f "btn2")
+    	waitResponse()
+    	ZKSeleneseTestCase.assertEquals("Dennis", getValue(t1));
+    	ZKSeleneseTestCase.assertEquals("Chen", getText(l2));
+    	ZKSeleneseTestCase.assertEquals("Dennis Chen", getText(l3));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l4));
+    	ZKSeleneseTestCase.assertEquals("Dennis", getText(l5));
+    	ZKSeleneseTestCase.assertEquals("Chen", getText(l6));
+    	ZKSeleneseTestCase.assertEquals("Dennis Chen", getText(l7));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l8));
+//		findWidget("$btn2").click();
+//		Assert.assertEquals("Dennis",findWidget("$l1").getAttribute("value"));
+//		Assert.assertEquals("Chen",findWidget("$l2").getAttribute("value"));
+//		Assert.assertEquals("Dennis Chen",findWidget("$l3").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l4").getAttribute("value"));
+//		Assert.assertEquals("Dennis",findWidget("$l5").getAttribute("value"));
+//		Assert.assertEquals("Chen",findWidget("$l6").getAttribute("value"));
+//		Assert.assertEquals("Dennis Chen",findWidget("$l7").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l8").getAttribute("value"));
+		
+    	click(engine $f "btn3")
+    	waitResponse()
+    	ZKSeleneseTestCase.assertEquals("Alex", getValue(t1));
+    	ZKSeleneseTestCase.assertEquals("Chen", getText(l2));
+    	ZKSeleneseTestCase.assertEquals("Alex Chen", getText(l3));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l4));
+    	ZKSeleneseTestCase.assertEquals("Alex", getText(l5));
+    	ZKSeleneseTestCase.assertEquals("Chen", getText(l6));
+    	ZKSeleneseTestCase.assertEquals("Alex Chen", getText(l7));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l8));
+//		findWidget("$btn3").click();
+//		Assert.assertEquals("Alex",findWidget("$l1").getAttribute("value"));
+//		Assert.assertEquals("Chen",findWidget("$l2").getAttribute("value"));
+//		Assert.assertEquals("Alex Chen",findWidget("$l3").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l4").getAttribute("value"));
+//		Assert.assertEquals("Alex",findWidget("$l5").getAttribute("value"));
+//		Assert.assertEquals("Chen",findWidget("$l6").getAttribute("value"));
+//		Assert.assertEquals("Alex Chen",findWidget("$l7").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l8").getAttribute("value"));
+		
+    	click(engine $f "btn4")
+    	waitResponse()
+    	ZKSeleneseTestCase.assertEquals("Alex", getValue(t1));
+    	ZKSeleneseTestCase.assertEquals("Wang", getText(l2));
+    	ZKSeleneseTestCase.assertEquals("Alex Wang", getText(l3));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l4));
+    	ZKSeleneseTestCase.assertEquals("Alex", getText(l5));
+    	ZKSeleneseTestCase.assertEquals("Wang", getText(l6));
+    	ZKSeleneseTestCase.assertEquals("Alex Wang", getText(l7));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l8));
+//		findWidget("$btn4").click();
+//		Assert.assertEquals("Alex",findWidget("$l1").getAttribute("value"));
+//		Assert.assertEquals("Wang",findWidget("$l2").getAttribute("value"));
+//		Assert.assertEquals("Alex Wang",findWidget("$l3").getAttribute("value"));
+//		Assert.assertEquals("Alex",findWidget("$l5").getAttribute("value"));
+//		Assert.assertEquals("Wang",findWidget("$l6").getAttribute("value"));
+//		Assert.assertEquals("Alex Wang",findWidget("$l7").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l8").getAttribute("value"));
+		
+    	click(engine $f "btn5")
+    	waitResponse()
+    	ZKSeleneseTestCase.assertEquals("Alex", getValue(t1));
+    	ZKSeleneseTestCase.assertEquals("Chen", getText(l2));
+    	ZKSeleneseTestCase.assertEquals("Alex Chen", getText(l3));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l4));
+    	ZKSeleneseTestCase.assertEquals("Alex", getText(l5));
+    	ZKSeleneseTestCase.assertEquals("Chen", getText(l6));
+    	ZKSeleneseTestCase.assertEquals("Alex Chen", getText(l7));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l8));		
+//		findWidget("$btn5").click();
+//		Assert.assertEquals("Alex",findWidget("$l1").getAttribute("value"));
+//		Assert.assertEquals("Chen",findWidget("$l2").getAttribute("value"));
+//		Assert.assertEquals("Alex Chen",findWidget("$l3").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l4").getAttribute("value"));
+//		Assert.assertEquals("Alex",findWidget("$l5").getAttribute("value"));
+//		Assert.assertEquals("Chen",findWidget("$l6").getAttribute("value"));
+//		Assert.assertEquals("Alex Chen",findWidget("$l7").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l8").getAttribute("value"));
+		
+    	click(engine $f "btn6")
+    	waitResponse()
+    	ZKSeleneseTestCase.assertEquals("Alex", getValue(t1));
+    	ZKSeleneseTestCase.assertEquals("Wang", getText(l2));
+    	ZKSeleneseTestCase.assertEquals("Alex Wang", getText(l3));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l4));
+    	ZKSeleneseTestCase.assertEquals("Alex", getText(l5));
+    	ZKSeleneseTestCase.assertEquals("Wang", getText(l6));
+    	ZKSeleneseTestCase.assertEquals("Alex Wang", getText(l7));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l8));	
+//		findWidget("$btn6").click();
+//		Assert.assertEquals("Alex",findWidget("$l1").getAttribute("value"));
+//		Assert.assertEquals("Wang",findWidget("$l2").getAttribute("value"));
+//		Assert.assertEquals("Alex Wang",findWidget("$l3").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l4").getAttribute("value"));
+//		Assert.assertEquals("Alex",findWidget("$l5").getAttribute("value"));
+//		Assert.assertEquals("Wang",findWidget("$l6").getAttribute("value"));
+//		Assert.assertEquals("Alex Wang",findWidget("$l7").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l8").getAttribute("value"));
+		
+
+		//we have spec change here since 10/29, revision 18, notify p1 will also cause selected reload(they are same instance)
+    	click(engine $f "btn7")
+    	waitResponse()
+    	ZKSeleneseTestCase.assertEquals("Ian", getValue(t1));
+    	ZKSeleneseTestCase.assertEquals("Tasi", getText(l2));
+    	ZKSeleneseTestCase.assertEquals("Ian Tasi", getText(l3));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l4));
+    	ZKSeleneseTestCase.assertEquals("Ian", getText(l5));
+    	ZKSeleneseTestCase.assertEquals("Tasi", getText(l6));
+    	ZKSeleneseTestCase.assertEquals("Ian Tasi", getText(l7));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l8));	    	
+//		findWidget("$btn7").click();
+//		Assert.assertEquals("Ian",findWidget("$l1").getAttribute("value"));
+//		Assert.assertEquals("Tasi",findWidget("$l2").getAttribute("value"));
+//		Assert.assertEquals("Ian Tasi",findWidget("$l3").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l4").getAttribute("value"));
+//		Assert.assertEquals("Ian",findWidget("$l5").getAttribute("value"));
+//		Assert.assertEquals("Tasi",findWidget("$l6").getAttribute("value"));
+//		Assert.assertEquals("Ian Tasi",findWidget("$l7").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l8").getAttribute("value"));
+		
+		//we have spec change here since 10/29, revision 18, notify selected will also cause p1 reload(they are same instance)
+    	click(engine $f "btn8")
+    	waitResponse()
+    	ZKSeleneseTestCase.assertEquals("Jumper", getValue(t1));
+    	ZKSeleneseTestCase.assertEquals("Chen", getText(l2));
+    	ZKSeleneseTestCase.assertEquals("Jumper Chen", getText(l3));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l4));
+    	ZKSeleneseTestCase.assertEquals("Jumper", getText(l5));
+    	ZKSeleneseTestCase.assertEquals("Chen", getText(l6));
+    	ZKSeleneseTestCase.assertEquals("Jumper Chen", getText(l7));
+    	ZKSeleneseTestCase.assertEquals("87 Zhengzhou Road #11F-2 Taipei", getText(l8));	    	
+//		findWidget("$btn8").click();
+//		Assert.assertEquals("Jumper",findWidget("$l1").getAttribute("value"));
+//		Assert.assertEquals("Chen",findWidget("$l2").getAttribute("value"));
+//		Assert.assertEquals("Jumper Chen",findWidget("$l3").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l4").getAttribute("value"));
+//		Assert.assertEquals("Jumper",findWidget("$l5").getAttribute("value"));
+//		Assert.assertEquals("Chen",findWidget("$l6").getAttribute("value"));
+//		Assert.assertEquals("Jumper Chen",findWidget("$l7").getAttribute("value"));
+//		Assert.assertEquals("87 Zhengzhou Road #11F-2 Taipei",findWidget("$l8").getAttribute("value"));      
+
     })
   }
 }
