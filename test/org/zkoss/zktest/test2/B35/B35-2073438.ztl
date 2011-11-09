@@ -35,16 +35,14 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				
 			//Notice here we got the browser window , not the window widget.
-			jq("window").scrollTop(jq("window").height());			
-			int scrollTop= jq("window").scrollTop();
-			
+			getEval("document.body.parentNode.scrollTop = " + jq("html").height());
+			int scrollTop= jq("html").scrollTop();
 			verifyTrue(jq("@menu").exists());
 			focus(jq("@menu"));
 			click(jq("@menu"));
 			sleep(500);
-			
 			//we assumed the scrolltop should not change after click
-			verifyEquals(scrollTop, jq("window").scrollTop());
+			verifyEquals(scrollTop, jq("html").scrollTop());
 		
 		]]></client>
 	</case>
