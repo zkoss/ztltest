@@ -16,8 +16,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.zbind.issue
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
+import org.zkoss.ztl.ZKSeleneseTestCase
 
 /**
  * @author Hawk
@@ -58,12 +59,12 @@ class Z60_Issue_F0010 extends ZTL4ScalaTestCase {
     	val t1 = engine $f "t1"
     	val t2 = engine $f "t2"
     	
-    	verifyEquals("A-toUI-c0",l0)
-    	verifyEquals("B-toUI-c1",l1)
-    	verifyEquals("C-toUI-c2",l2)
-    	verifyEquals("A-toUI-c0",t0)
-    	verifyEquals("B-toUI-c1",t1)
-    	verifyEquals("C-toUI-c2",t2)
+    	ZKSeleneseTestCase.assertEquals("A-toUI-c0",l0)
+    	ZKSeleneseTestCase.assertEquals("B-toUI-c1",l1)
+    	ZKSeleneseTestCase.assertEquals("C-toUI-c2",l2)
+    	ZKSeleneseTestCase.assertEquals("A-toUI-c0",t0)
+    	ZKSeleneseTestCase.assertEquals("B-toUI-c1",t1)
+    	ZKSeleneseTestCase.assertEquals("C-toUI-c2",t2)
 //		Assert.assertEquals("A-toUI-c0",findWidget("$l0").getValue());
 //		Assert.assertEquals("B-toUI-c1",findWidget("$l1").getValue());
 //		Assert.assertEquals("C-toUI-c2",findWidget("$l2").getValue());
@@ -74,12 +75,12 @@ class Z60_Issue_F0010 extends ZTL4ScalaTestCase {
     	`type`(t0, "I")
     	sendKeys(t0, Keys.TAB)
     	waitResponse()
-    	verifyEquals("I-toBean-c0-toUI-c0",l0)
-    	verifyEquals("B-toUI-c1",l1)
-    	verifyEquals("C-toUI-c2",l2)
-    	verifyEquals("I-toBean-c0-toUI-c0",t0)
-    	verifyEquals("B-toUI-c1",t1)
-    	verifyEquals("C-toUI-c2",t2)
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",l0)
+    	ZKSeleneseTestCase.assertEquals("B-toUI-c1",l1)
+    	ZKSeleneseTestCase.assertEquals("C-toUI-c2",l2)
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",t0)
+    	ZKSeleneseTestCase.assertEquals("B-toUI-c1",t1)
+    	ZKSeleneseTestCase.assertEquals("C-toUI-c2",t2)
 //		findWidget("$t0").clear().keys("I").tab();
 //		Assert.assertEquals("I-toBean-c0-toUI-c0",findWidget("$l0").getValue());
 //		Assert.assertEquals("B-toUI-c1",findWidget("$l1").getValue());
@@ -91,12 +92,12 @@ class Z60_Issue_F0010 extends ZTL4ScalaTestCase {
     	`type`(t1, "J")
     	sendKeys(t1, Keys.TAB)
     	waitResponse()
-    	verifyEquals("I-toBean-c0-toUI-c0",l0)
-    	verifyEquals("J-toBean-c1-toUI-c1",l1)
-    	verifyEquals("C-toUI-c2",l2)
-    	verifyEquals("I-toBean-c0-toUI-c0",t0)
-    	verifyEquals("J-toBean-c1-toUI-c1",t1)
-    	verifyEquals("C-toUI-c2",t2)    	
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",l0)
+    	ZKSeleneseTestCase.assertEquals("J-toBean-c1-toUI-c1",l1)
+    	ZKSeleneseTestCase.assertEquals("C-toUI-c2",l2)
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",t0)
+    	ZKSeleneseTestCase.assertEquals("J-toBean-c1-toUI-c1",t1)
+    	ZKSeleneseTestCase.assertEquals("C-toUI-c2",t2)    	
 //		findWidget("$t1").clear().keys("J").tab();
 //		Assert.assertEquals("I-toBean-c0-toUI-c0",findWidget("$l0").getValue());
 //		Assert.assertEquals("J-toBean-c1-toUI-c1",findWidget("$l1").getValue());
@@ -108,12 +109,12 @@ class Z60_Issue_F0010 extends ZTL4ScalaTestCase {
     	`type`(t2, "K")
     	sendKeys(t2, Keys.TAB)
     	waitResponse()
-    	verifyEquals("I-toBean-c0-toUI-c0",l0)
-    	verifyEquals("J-toBean-c1-toUI-c1",l1)
-    	verifyEquals("K-toBean-c2-toUI-c2",l2)
-    	verifyEquals("I-toBean-c0-toUI-c0",t0)
-    	verifyEquals("J-toBean-c1-toUI-c1",t1)
-    	verifyEquals("K-toBean-c2-toUI-c2",t2)    	
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",l0)
+    	ZKSeleneseTestCase.assertEquals("J-toBean-c1-toUI-c1",l1)
+    	ZKSeleneseTestCase.assertEquals("K-toBean-c2-toUI-c2",l2)
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",t0)
+    	ZKSeleneseTestCase.assertEquals("J-toBean-c1-toUI-c1",t1)
+    	ZKSeleneseTestCase.assertEquals("K-toBean-c2-toUI-c2",t2)    	
 //		findWidget("$t2").clear().keys("K").tab();
 //		Assert.assertEquals("I-toBean-c0-toUI-c0",findWidget("$l0").getValue());
 //		Assert.assertEquals("J-toBean-c1-toUI-c1",findWidget("$l1").getValue());
@@ -126,12 +127,12 @@ class Z60_Issue_F0010 extends ZTL4ScalaTestCase {
     	`type`(t1, "X")
     	sendKeys(t1, Keys.TAB)
     	waitResponse()
-    	verifyEquals("I-toBean-c0-toUI-c0",l0)
-    	verifyEquals("X-toBean-c1-toUI-c1",l1)
-    	verifyEquals("K-toBean-c2-toUI-c2",l2)
-    	verifyEquals("I-toBean-c0-toUI-c0",t0)
-    	verifyEquals("X-toBean-c1-toUI-c1",t1)
-    	verifyEquals("K-toBean-c2-toUI-c2",t2)      	
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",l0)
+    	ZKSeleneseTestCase.assertEquals("X-toBean-c1-toUI-c1",l1)
+    	ZKSeleneseTestCase.assertEquals("K-toBean-c2-toUI-c2",l2)
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",t0)
+    	ZKSeleneseTestCase.assertEquals("X-toBean-c1-toUI-c1",t1)
+    	ZKSeleneseTestCase.assertEquals("K-toBean-c2-toUI-c2",t2)      	
 		//test converter dependency
 //		findWidget("$t1").clear().keys("X").tab();
 //		Assert.assertEquals("I-toBean-c0-toUI-c0",findWidget("$l0").getValue());
@@ -143,12 +144,12 @@ class Z60_Issue_F0010 extends ZTL4ScalaTestCase {
 		
     	click(engine $f "btn1")
     	waitResponse()
-    	verifyEquals("I-toBean-c0-toUI-c0",l0)
-    	verifyEquals("X-toBean-c1-toUI-c3",l1)
-    	verifyEquals("K-toBean-c2-toUI-c2",l2)
-    	verifyEquals("I-toBean-c0-toUI-c0",t0)
-    	verifyEquals("X-toBean-c1-toUI-c3",t1)
-    	verifyEquals("K-toBean-c2-toUI-c2",t2)    	
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",l0)
+    	ZKSeleneseTestCase.assertEquals("X-toBean-c1-toUI-c3",l1)
+    	ZKSeleneseTestCase.assertEquals("K-toBean-c2-toUI-c2",l2)
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",t0)
+    	ZKSeleneseTestCase.assertEquals("X-toBean-c1-toUI-c3",t1)
+    	ZKSeleneseTestCase.assertEquals("K-toBean-c2-toUI-c2",t2)    	
 //    	findWidget("$btn1").click();
 //		Assert.assertEquals("I-toBean-c0-toUI-c0",findWidget("$l0").getValue());
 //		Assert.assertEquals("X-toBean-c1-toUI-c3",findWidget("$l1").getValue());
@@ -160,12 +161,12 @@ class Z60_Issue_F0010 extends ZTL4ScalaTestCase {
     	`type`(t1, "X")
     	sendKeys(t1, Keys.TAB)
     	waitResponse()
-    	verifyEquals("I-toBean-c0-toUI-c0",l0)
-    	verifyEquals("X-toBean-c3-toUI-c3",l1)
-    	verifyEquals("K-toBean-c2-toUI-c2",l2)
-    	verifyEquals("I-toBean-c0-toUI-c0",t0)
-    	verifyEquals("X-toBean-c3-toUI-c3",t1)
-    	verifyEquals("K-toBean-c2-toUI-c2",t2) 
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",l0)
+    	ZKSeleneseTestCase.assertEquals("X-toBean-c3-toUI-c3",l1)
+    	ZKSeleneseTestCase.assertEquals("K-toBean-c2-toUI-c2",l2)
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",t0)
+    	ZKSeleneseTestCase.assertEquals("X-toBean-c3-toUI-c3",t1)
+    	ZKSeleneseTestCase.assertEquals("K-toBean-c2-toUI-c2",t2) 
 //		findWidget("$t1").clear().keys("X").tab();
 //		Assert.assertEquals("I-toBean-c0-toUI-c0",findWidget("$l0").getValue());
 //		Assert.assertEquals("X-toBean-c3-toUI-c3",findWidget("$l1").getValue());//
@@ -176,12 +177,12 @@ class Z60_Issue_F0010 extends ZTL4ScalaTestCase {
     	
     	click(engine $f "btn1")
     	waitResponse()
-    	verifyEquals("I-toBean-c0-toUI-c0",l0)
-    	verifyEquals("X-toBean-c3-toUI-c4",l1)
-    	verifyEquals("K-toBean-c2-toUI-c2",l2)
-    	verifyEquals("I-toBean-c0-toUI-c0",t0)
-    	verifyEquals("X-toBean-c3-toUI-c4",t1)
-    	verifyEquals("K-toBean-c2-toUI-c2",t2) 
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",l0)
+    	ZKSeleneseTestCase.assertEquals("X-toBean-c3-toUI-c4",l1)
+    	ZKSeleneseTestCase.assertEquals("K-toBean-c2-toUI-c2",l2)
+    	ZKSeleneseTestCase.assertEquals("I-toBean-c0-toUI-c0",t0)
+    	ZKSeleneseTestCase.assertEquals("X-toBean-c3-toUI-c4",t1)
+    	ZKSeleneseTestCase.assertEquals("K-toBean-c2-toUI-c2",t2) 
 //		findWidget("$btn2").click();
 //		Assert.assertEquals("I-toBean-c0-toUI-c0",findWidget("$l0").getValue());
 //		Assert.assertEquals("X-toBean-c3-toUI-c4",findWidget("$l1").getValue());//

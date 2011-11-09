@@ -16,8 +16,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.zbind.issue
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
+import org.zkoss.ztl.ZKSeleneseTestCase
 
 /**
  * @author Hawk
@@ -68,11 +69,11 @@ class Z60_Issue_B0004 extends ZTL4ScalaTestCase {
     	val msg2 = engine $f "msg2"
     	val msg3 = engine $f "msg3"
     	
-    	verifyEquals("0", getValue(l11));
-    	verifyEquals("", getValue(l12));
-    	verifyEquals("", getValue(msg1));
-    	verifyEquals("", getValue(msg2));
-    	verifyEquals("", getValue(msg3));
+    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
+    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));
     	
 //		Assert.assertEquals("0",findWidget("$l11").getValue());
 //		Assert.assertEquals("",findWidget("$l12").getValue());
@@ -82,11 +83,11 @@ class Z60_Issue_B0004 extends ZTL4ScalaTestCase {
 		
     	click(engine $f "btn1")
     	waitResponse()
-    	verifyEquals("0", getValue(l11));
-    	verifyEquals("", getValue(l12));
-    	verifyEquals("value 1 have to large than 10", getValue(msg1));
-    	verifyEquals("", getValue(msg2));
-    	verifyEquals("", getValue(msg3));    	
+    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
+    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
+    	ZKSeleneseTestCase.assertEquals("value 1 have to large than 10", getValue(msg1));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));    	
 //		findWidget("$btn1").click();
 //		Assert.assertEquals("0",findWidget("$l11").getValue());
 //		Assert.assertEquals("",findWidget("$l12").getValue());
@@ -98,11 +99,11 @@ class Z60_Issue_B0004 extends ZTL4ScalaTestCase {
     	`type`(t21, "32")
     	sendKeys(t21, Keys.TAB)
     	waitResponse()
-    	verifyEquals("0", getValue(l11));
-    	verifyEquals("", getValue(l12));
-    	verifyEquals("", getValue(msg1));
-    	verifyEquals("", getValue(msg2));
-    	verifyEquals("", getValue(msg3));    	
+    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
+    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));    	
 //		findWidget("$t21").clear().keys("32").tab();
 //		Assert.assertEquals("0",findWidget("$l11").getValue());
 //		Assert.assertEquals("",findWidget("$l12").getValue());
@@ -112,11 +113,11 @@ class Z60_Issue_B0004 extends ZTL4ScalaTestCase {
 		
 		click(engine $f "btn1")
     	waitResponse()
-    	verifyEquals("0", getValue(l11));
-    	verifyEquals("", getValue(l12));
-    	verifyEquals("", getValue(msg1));
-    	verifyEquals("value 2 is not valid For input string: \"\"", getValue(msg2));
-    	verifyEquals("", getValue(msg3));  		
+    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
+    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
+    	ZKSeleneseTestCase.assertEquals("value 2 is not valid For input string: \"\"", getValue(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));  		
 //    	findWidget("$btn1").click();
 //		Assert.assertEquals("0",findWidget("$l11").getValue());
 //		Assert.assertEquals("",findWidget("$l12").getValue());
@@ -128,11 +129,11 @@ class Z60_Issue_B0004 extends ZTL4ScalaTestCase {
     	`type`(t22, "13")
     	sendKeys(t22, Keys.TAB)
     	waitResponse()
-    	verifyEquals("0", getValue(l11));
-    	verifyEquals("", getValue(l12));
-    	verifyEquals("", getValue(msg1));
-    	verifyEquals("value 2 have to large than 20", getValue(msg2));
-    	verifyEquals("", getValue(msg3));      	
+    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
+    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
+    	ZKSeleneseTestCase.assertEquals("value 2 have to large than 20", getValue(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));      	
 //		findWidget("$t22").clear().keys("13").tab();
 //		Assert.assertEquals("0",findWidget("$l11").getValue());
 //		Assert.assertEquals("",findWidget("$l12").getValue());
@@ -143,11 +144,11 @@ class Z60_Issue_B0004 extends ZTL4ScalaTestCase {
     	`type`(t22, "22")
     	sendKeys(t22, Keys.TAB)
     	waitResponse()    
-    	verifyEquals("0", getValue(l11));
-    	verifyEquals("", getValue(l12));
-    	verifyEquals("", getValue(msg1));
-    	verifyEquals("", getValue(msg2));
-    	verifyEquals("", getValue(msg3));      	
+    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
+    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));      	
 //		findWidget("$t22").clear().keys("22").tab();
 //		Assert.assertEquals("0",findWidget("$l11").getValue());
 //		Assert.assertEquals("",findWidget("$l12").getValue());
@@ -157,11 +158,11 @@ class Z60_Issue_B0004 extends ZTL4ScalaTestCase {
 		
 		click(engine $f "btn1")
     	waitResponse()
-    	verifyEquals("0", getValue(l11));
-    	verifyEquals("", getValue(l12));
-    	verifyEquals("", getValue(msg1));
-    	verifyEquals("value 2 have to large than value 1", getValue(msg2));
-    	verifyEquals("", getValue(msg3));  			
+    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
+    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
+    	ZKSeleneseTestCase.assertEquals("value 2 have to large than value 1", getValue(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));  			
 //    	findWidget("$btn1").click();
 //		Assert.assertEquals("0",findWidget("$l11").getValue());
 //		Assert.assertEquals("",findWidget("$l12").getValue());
@@ -172,11 +173,11 @@ class Z60_Issue_B0004 extends ZTL4ScalaTestCase {
     	`type`(t22, "42")
     	sendKeys(t22, Keys.TAB)
     	waitResponse()    
-    	verifyEquals("0", getValue(l11));
-    	verifyEquals("", getValue(l12));
-    	verifyEquals("", getValue(msg1));
-    	verifyEquals("", getValue(msg2));
-    	verifyEquals("", getValue(msg3));  
+    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
+    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));  
 //    	findWidget("$t22").clear().keys("42").tab();
 //		Assert.assertEquals("0",findWidget("$l11").getValue());
 //		Assert.assertEquals("",findWidget("$l12").getValue());
@@ -186,11 +187,11 @@ class Z60_Issue_B0004 extends ZTL4ScalaTestCase {
 		
 		click(engine $f "btn1")
     	waitResponse()
-    	verifyEquals("32", getValue(l11));
-    	verifyEquals("42", getValue(l12));
-    	verifyEquals("", getValue(msg1));
-    	verifyEquals("value 2 have to large than value 1", getValue(msg2));
-    	verifyEquals("execute command 1", getValue(msg3));  				
+    	ZKSeleneseTestCase.assertEquals("32", getValue(l11));
+    	ZKSeleneseTestCase.assertEquals("42", getValue(l12));
+    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
+    	ZKSeleneseTestCase.assertEquals("value 2 have to large than value 1", getValue(msg2));
+    	ZKSeleneseTestCase.assertEquals("execute command 1", getValue(msg3));  				
 //		findWidget("$btn1").click();
 //		Assert.assertEquals("32",findWidget("$l11").getValue());
 //		Assert.assertEquals("42",findWidget("$l12").getValue());

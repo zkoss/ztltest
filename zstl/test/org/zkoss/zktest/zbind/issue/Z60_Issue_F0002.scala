@@ -16,8 +16,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.zbind.issue
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
+import org.zkoss.ztl.ZKSeleneseTestCase
 
 /**
  * @author Hawk
@@ -63,10 +64,10 @@ class Z60_Issue_F0002 extends ZTL4ScalaTestCase {
     	val tb2 = engine $f "tb2"
     	val l2 = engine $f "l2"
     	
-    	verifyEquals("0", getValue(tb1));
-    	verifyEquals("", getValue(l1));
-    	verifyEquals("", getValue(tb2));
-    	verifyEquals("", getValue(l2));
+    	ZKSeleneseTestCase.assertEquals("0", getValue(tb1));
+    	ZKSeleneseTestCase.assertEquals("", getValue(l1));
+    	ZKSeleneseTestCase.assertEquals("", getValue(tb2));
+    	ZKSeleneseTestCase.assertEquals("", getValue(l2));
     	
 //		Assert.assertEquals("A",findWidget("$tb1").getValue());
 //		Assert.assertEquals("A",findWidget("$l1").getValue());
@@ -76,10 +77,10 @@ class Z60_Issue_F0002 extends ZTL4ScalaTestCase {
     	`type`(tb1, "XX")
     	sendKeys(tb1, Keys.TAB)
     	waitResponse()
-    	verifyEquals("XX", getValue(tb1));
-    	verifyEquals("XX", getValue(l1));
-    	verifyEquals("A", getValue(tb2));
-    	verifyEquals("A", getValue(l2));    	
+    	ZKSeleneseTestCase.assertEquals("XX", getValue(tb1));
+    	ZKSeleneseTestCase.assertEquals("XX", getValue(l1));
+    	ZKSeleneseTestCase.assertEquals("A", getValue(tb2));
+    	ZKSeleneseTestCase.assertEquals("A", getValue(l2));    	
 //		findWidget("$tb1").clear().keys("XX").tab();
 //		Assert.assertEquals("XX",findWidget("$tb1").getValue());
 //		Assert.assertEquals("XX",findWidget("$l1").getValue());
@@ -89,10 +90,10 @@ class Z60_Issue_F0002 extends ZTL4ScalaTestCase {
     	`type`(tb2, "YY")
     	sendKeys(tb2, Keys.TAB)
     	waitResponse()
-    	verifyEquals("XX", getValue(tb1));
-    	verifyEquals("XX", getValue(l1));
-    	verifyEquals("YY", getValue(tb2));
-    	verifyEquals("A", getValue(l2));    	
+    	ZKSeleneseTestCase.assertEquals("XX", getValue(tb1));
+    	ZKSeleneseTestCase.assertEquals("XX", getValue(l1));
+    	ZKSeleneseTestCase.assertEquals("YY", getValue(tb2));
+    	ZKSeleneseTestCase.assertEquals("A", getValue(l2));    	
 //		findWidget("$tb2").clear().keys("YY").tab();
 //		Assert.assertEquals("XX",findWidget("$tb1").getValue());
 //		Assert.assertEquals("XX",findWidget("$l1").getValue());
@@ -101,10 +102,10 @@ class Z60_Issue_F0002 extends ZTL4ScalaTestCase {
 		
     	click(engine $f "btn1")
     	waitResponse()
-    	verifyEquals("YY", getValue(tb1));
-    	verifyEquals("YY", getValue(l1));
-    	verifyEquals("YY", getValue(tb2));
-    	verifyEquals("YY", getValue(l2));       	
+    	ZKSeleneseTestCase.assertEquals("YY", getValue(tb1));
+    	ZKSeleneseTestCase.assertEquals("YY", getValue(l1));
+    	ZKSeleneseTestCase.assertEquals("YY", getValue(tb2));
+    	ZKSeleneseTestCase.assertEquals("YY", getValue(l2));       	
 //		findWidget("$btn1").click();
 //		Assert.assertEquals("YY",findWidget("$tb1").getValue());
 //		Assert.assertEquals("YY",findWidget("$l1").getValue());
@@ -116,9 +117,9 @@ class Z60_Issue_F0002 extends ZTL4ScalaTestCase {
     	val l31 = engine $f "l31"
     	val l32 = engine $f "l32"
     	waitResponse()
-    	verifyEquals("B", getValue(tb3));
-    	verifyEquals("B", getValue(l31));
-    	verifyEquals("B", getValue(l32));    	
+    	ZKSeleneseTestCase.assertEquals("B", getValue(tb3));
+    	ZKSeleneseTestCase.assertEquals("B", getValue(l31));
+    	ZKSeleneseTestCase.assertEquals("B", getValue(l32));    	
 //		Assert.assertEquals("B",findWidget("$tb3").getValue());
 //		Assert.assertEquals("B",findWidget("$l31").getValue());
 //		Assert.assertEquals("B",findWidget("$l32").getValue());
@@ -126,9 +127,9 @@ class Z60_Issue_F0002 extends ZTL4ScalaTestCase {
     	`type`(tb3, "ZZ")
     	sendKeys(tb3, Keys.TAB)
     	waitResponse()
-    	verifyEquals("ZZ", getValue(tb3));
-    	verifyEquals("B", getValue(l31));
-    	verifyEquals("B", getValue(l32));    	
+    	ZKSeleneseTestCase.assertEquals("ZZ", getValue(tb3));
+    	ZKSeleneseTestCase.assertEquals("B", getValue(l31));
+    	ZKSeleneseTestCase.assertEquals("B", getValue(l32));    	
 //		findWidget("$tb3").clear().keys("ZZ").tab();
 //		Assert.assertEquals("ZZ",findWidget("$tb3").getValue());
 //		Assert.assertEquals("B",findWidget("$l31").getValue());
@@ -136,9 +137,9 @@ class Z60_Issue_F0002 extends ZTL4ScalaTestCase {
 		
     	click(engine $f "btn2")
     	waitResponse()
-    	verifyEquals("ZZ", getValue(tb3));
-    	verifyEquals("ZZ", getValue(l31));
-    	verifyEquals("ZZ", getValue(l32));     	
+    	ZKSeleneseTestCase.assertEquals("ZZ", getValue(tb3));
+    	ZKSeleneseTestCase.assertEquals("ZZ", getValue(l31));
+    	ZKSeleneseTestCase.assertEquals("ZZ", getValue(l32));     	
 //		findWidget("$btn2").click();
 //		Assert.assertEquals("ZZ",findWidget("$tb3").getValue());
 //		Assert.assertEquals("ZZ",findWidget("$l31").getValue());
@@ -152,43 +153,43 @@ class Z60_Issue_F0002 extends ZTL4ScalaTestCase {
       
 		//test property init
     	waitResponse()
-    	verifyEquals(5,jq("@button").length())
+    	ZKSeleneseTestCase.assertEquals(5,jq("@button").length())
     	click(jq("@button").first())
 //		Assert.assertEquals(5,findWidgets("@button").size());
 //		Widget b = findWidget("@button");
 //		b.click();
 		
     	waitResponse()
-    	verifyEquals(4,jq("@button").length())
+    	ZKSeleneseTestCase.assertEquals(4,jq("@button").length())
     	click(jq("@button").first())
 //		Assert.assertEquals(4,findWidgets("@button").size());
 //		b = findWidget("@button");
 //		b.click();
 		
     	waitResponse()
-    	verifyEquals(3,jq("@button").length())
+    	ZKSeleneseTestCase.assertEquals(3,jq("@button").length())
     	click(jq("@button").first())
 //		Assert.assertEquals(3,findWidgets("@button").size());
 //		b = findWidget("@button");
 //		b.click();
 		
     	waitResponse()
-    	verifyEquals(2,jq("@button").length())
+    	ZKSeleneseTestCase.assertEquals(2,jq("@button").length())
     	click(jq("@button").first())
 //		Assert.assertEquals(2,findWidgets("@button").size());
 //		b = findWidget("@button");
 //		b.click();
 		
     	waitResponse()
-    	verifyEquals(1,jq("@button").length())
+    	ZKSeleneseTestCase.assertEquals(1,jq("@button").length())
     	click(jq("@button").first())
 //		Assert.assertEquals(1,findWidgets("@button").size());
 //		b = findWidget("@button");
 //		b.click();
 		
     	waitResponse()
-    	verifyEquals(0,jq("@button").length())
-    	verifyEquals(null, jq("@button").first())
+    	ZKSeleneseTestCase.assertEquals(0,jq("@button").length())
+    	ZKSeleneseTestCase.assertEquals(null, jq("@button").first())
 //		Assert.assertEquals(0,findWidgets("@button").size());
 //		b = findWidget("@button");
 //		Assert.assertNull(b);

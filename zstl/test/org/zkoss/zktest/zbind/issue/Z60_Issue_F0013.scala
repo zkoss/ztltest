@@ -16,8 +16,10 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.zbind.issue
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
-import org.openqa.selenium.Keys
+import org.zkoss.ztl.Tags
+import com.thoughtworks.selenium.SeleneseTestBase
+import org.zkoss.ztl.ZKClientTestCase
+import org.zkoss.ztl.ZKSeleneseTestCase
 
 /**
  * @author Hawk
@@ -55,24 +57,24 @@ class Z60_Issue_F0013 extends ZTL4ScalaTestCase {
 			val l2 = engine $f "l2"
 			val t1 = engine $f "t1"
 			val t2 = engine $f "t2"
-
-			verifyEquals("A",l1)
-			verifyEquals("B",l2)
-			verifyEquals("A",t1)
-			verifyEquals("B",t2)
+			val a =null
+			ZKSeleneseTestCase.assertEquals("A",getText(l1))
+			ZKSeleneseTestCase.assertEquals("B",getText(l2))
+			ZKSeleneseTestCase.assertEquals("A",getValue(t1))
+			ZKSeleneseTestCase.assertEquals("B",getValue(t2))
 //			Assert.assertEquals("A",findWidget("$l1").getValue());
 //			Assert.assertEquals("B",findWidget("$l2").getValue());
 //			Assert.assertEquals("A",findWidget("$t1").getValue());
 //			Assert.assertEquals("B",findWidget("$t2").getValue());
 
 			`type`(t1,"Dennis")
-			`type`(t1,"Chen")
+			`type`(t2,"Chen")
 			click(engine $f "btn1")
 			waitResponse()
-			verifyEquals("Dennis-cmd1",l1)
-			verifyEquals("Chen-cmd1",l2)
-			verifyEquals("Dennis",t1)
-			verifyEquals("Chen",t2)
+			ZKSeleneseTestCase.assertEquals("Dennis-cmd1",getText(l1))
+			ZKSeleneseTestCase.assertEquals("Chen-cmd1",getText(l2))
+			ZKSeleneseTestCase.assertEquals("Dennis",getValue(t1))
+			ZKSeleneseTestCase.assertEquals("Chen",getValue(t2))
 //			findWidget("$t1").clear().keys("Dennis");
 //			findWidget("$t2").clear().keys("Chen");
 //			findWidget("$btn1").click();
@@ -84,10 +86,11 @@ class Z60_Issue_F0013 extends ZTL4ScalaTestCase {
 			`type`(t1,"Alice")
 			`type`(t2,"Wu")
 			click(engine $f "btn2")
-			verifyEquals("Alice-cmd2",l1)
-			verifyEquals("Wu-cmd2",l2)
-			verifyEquals("Alice-cmd2",t1)
-			verifyEquals("Wu-cmd2",t2)			
+			waitResponse()
+			ZKSeleneseTestCase.assertEquals("Alice-cmd2",getText(l1))
+			ZKSeleneseTestCase.assertEquals("Wu-cmd2",getText(l2))
+			ZKSeleneseTestCase.assertEquals("Alice-cmd2",getValue(t1))
+			ZKSeleneseTestCase.assertEquals("Wu-cmd2",getValue(t2))			
 //			findWidget("$t1").clear().keys("Alice");
 //			findWidget("$t2").clear().keys("Wu");
 //			findWidget("$btn2").click();
@@ -99,11 +102,11 @@ class Z60_Issue_F0013 extends ZTL4ScalaTestCase {
 			`type`(t1,"Jumper")
 			`type`(t2,"Tj")
 			click(engine $f "btn3")
-			verifyEquals("Jumper-cmd3",l1)
-			verifyEquals("Tj-cmd3",l2)
-			verifyEquals("Jumper-cmd3",t1)
-			verifyEquals("Tj-cmd3",t2)
-			
+			waitResponse()
+			ZKSeleneseTestCase.assertEquals("Jumper-cmd3",getText(l1))
+			ZKSeleneseTestCase.assertEquals("Tj-cmd3",getText(l2))
+			ZKSeleneseTestCase.assertEquals("Jumper-cmd3",getValue(t1))
+			ZKSeleneseTestCase.assertEquals("Tj-cmd3",getValue(t2))
 //			findWidget("$t1").clear().keys("Jumper");
 //			findWidget("$t2").clear().keys("Tj");
 //			findWidget("$btn3").click();

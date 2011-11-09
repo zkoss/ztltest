@@ -23,23 +23,23 @@
 				
 				click(jq("@button").first());
 				waitResponse();
-				verifyEquals(jq("@button").length(), 4);
+				assertEquals(jq("@button").length(), 4);
 				
 				click(jq("@button").first());
 				waitResponse();
-				verifyEquals(jq("@button").length(), 3);
+				assertEquals(jq("@button").length(), 3);
 				
 				click(jq("@button").first());
 				waitResponse();
-				verifyEquals(jq("@button").length(), 2);
+				assertEquals(jq("@button").length(), 2);
 												
 				click(jq("@button").first());
 				waitResponse();
-				verifyEquals(jq("@button").length(), 1);
+				assertEquals(jq("@button").length(), 1);
 								
 				click(jq("@button").first());
 				waitResponse();
-				verifyEquals(jq("@button").exists(), false);
+				assertEquals(jq("@button").exists(), false);
 				
 		</client>
 	</case>

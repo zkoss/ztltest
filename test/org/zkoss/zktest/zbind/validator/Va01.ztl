@@ -24,23 +24,23 @@
 				final String ADULT="Adult";
 				final String NEGATIVE_ONE = "-1";
 				
-				verifyEquals(NEGATIVE_ONE, getValue(ageBox));
+				assertEquals(NEGATIVE_ONE, getValue(ageBox));
 
 				type(ageBox, "22");
 				click(submitButton);
 				waitResponse();
-				verifyEquals(ADULT, getValue(adultLabel));
+				assertEquals(ADULT, getValue(adultLabel));
 
 				type(ageBox, "-1");
 				click(submitButton);
 				waitResponse();
-				verifyEquals(ADULT, getValue(adultLabel));
+				assertEquals(ADULT, getValue(adultLabel));
 
 				
 				type(ageBox, "11");
 				click(submitButton);
 				waitResponse();
-				verifyEquals(UNDER_AGE, getValue(adultLabel));
+				assertEquals(UNDER_AGE, getValue(adultLabel));
 		</client>
 	</case>
 </test>
