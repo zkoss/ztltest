@@ -27,7 +27,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
  *
  */
 @Tags(tags = "zbind")
-class Z60_Issue_F0011_1 extends ZTL4ScalaTestCase {
+class Z60_Issue_F0011_3 extends ZTL4ScalaTestCase {
   def testIssue() = {
     val zul = {
 <window apply="org.zkoss.zktest.zbind.issue.F0011" xmlns:n="http://www.zkoss.org/2005/zk/native">
@@ -76,56 +76,60 @@ class Z60_Issue_F0011_1 extends ZTL4ScalaTestCase {
 </window>
     }
     runZTL(zul, () => {
-		val tb31 = engine $f "tb31"
-    	val tb32 = engine $f "tb32"
-    	val lb31 = engine $f "lb31"
-    	val lb32 = engine $f "lb32"
 		//validate property before command
-		ZKSeleneseTestCase.assertEquals("",getValue(tb31))
-		ZKSeleneseTestCase.assertEquals("",getValue(tb32))
-		ZKSeleneseTestCase.assertEquals("",getText(lb31))
-		ZKSeleneseTestCase.assertEquals("",getText(lb32))
-//		Assert.assertEquals("",findWidget("$tb31").getValue());
-//		Assert.assertEquals("",findWidget("$tb32").getValue());
-//		Assert.assertEquals("",findWidget("$lb31").getValue());
-//		Assert.assertEquals("",findWidget("$lb32").getValue());
+    	val tb51 = engine $f "tb51"
+    	val tb52 = engine $f "tb52"
+    	val lb51 = engine $f "lb51"
+    	val lb52 = engine $f "lb52"
+		ZKSeleneseTestCase.assertEquals("",getValue(tb51))
+		ZKSeleneseTestCase.assertEquals("",getValue(tb52))
+		ZKSeleneseTestCase.assertEquals("",getText(lb51))
+		ZKSeleneseTestCase.assertEquals("",getText(lb52))		
+//		Assert.assertEquals("",findWidget("$tb51").getValue());
+//		Assert.assertEquals("",findWidget("$tb52").getValue());
+//		Assert.assertEquals("",findWidget("$lb51").getValue());
+//		Assert.assertEquals("",findWidget("$lb52").getValue());
 		
-		val btn1 = engine $f "btn1"
-		click(btn1)
+		val btn3 = engine $f "btn3"
+		click(btn3)
 		waitResponse()
-		ZKSeleneseTestCase.assertEquals("value1 is empty",getText(lb32))
-//		findWidget("$btn1").click();
-//		Assert.assertEquals("value1 is empty",findWidget("$lb32").getValue());
+		ZKSeleneseTestCase.assertEquals("do Command3",getText(lb52))
+//		findWidget("$btn3").click();
+//		Assert.assertEquals("do Command3",findWidget("$lb52").getValue());
 		
-		`type`(tb31,"abc")
+		`type`(tb51,"abc")
 		waitResponse()
-		ZKSeleneseTestCase.assertEquals("",getText(lb31))
-		ZKSeleneseTestCase.assertEquals("value1 is empty",getText(lb32))		
-//		findWidget("$tb31").keys("abc").tab();
-//		Assert.assertEquals("",findWidget("$lb31").getValue());
-//		Assert.assertEquals("value1 is empty",findWidget("$lb32").getValue());
+		ZKSeleneseTestCase.assertEquals("",getText(lb51))
+		ZKSeleneseTestCase.assertEquals("do Command3",getText(lb52))
+//		findWidget("$tb51").keys("abc").tab();
+//		Assert.assertEquals("",findWidget("$lb51").getValue());
+//		Assert.assertEquals("do Command3",findWidget("$lb52").getValue());
 		
-		click(btn1)
-		waitResponse()
-		ZKSeleneseTestCase.assertEquals("value2 must euqlas to value 1",getText(lb32))
-//		findWidget("$btn1").click();
-//		Assert.assertEquals("value2 must euqlas to value 1",findWidget("$lb32").getValue());
+		click(btn3)
+		ZKSeleneseTestCase.assertEquals("value2 must euqlas to value 1",getText(lb52))
+//		findWidget("$btn3").click();
+//		Assert.assertEquals("value2 must euqlas to value 1",findWidget("$lb52").getValue());
 		
-		`type`(tb32,"abc")
+		`type`(tb52,"def")
+		click(btn3)
 		waitResponse()
-		ZKSeleneseTestCase.assertEquals("",getText(lb31))
-		ZKSeleneseTestCase.assertEquals("value2 must euqlas to value 1",getText(lb32))
-//		findWidget("$tb32").keys("abc").tab();
-//		Assert.assertEquals("",findWidget("$lb31").getValue());
-//		Assert.assertEquals("value2 must euqlas to value 1",findWidget("$lb32").getValue());
+		ZKSeleneseTestCase.assertEquals("",getText(lb51))
+		ZKSeleneseTestCase.assertEquals("value2 must euqlas to value 1",getText(lb52))		
+//		findWidget("$tb52").clear().keys("def");
+//		findWidget("$btn3").click();
+//		Assert.assertEquals("",findWidget("$lb51").getValue());
+//		Assert.assertEquals("value2 must euqlas to value 1",findWidget("$lb52").getValue());
 		
-		click(btn1)
+
+		`type`(tb52,"abc")
+		click(btn3)
 		waitResponse()
-		ZKSeleneseTestCase.assertEquals("abc",getText(lb31))
-		ZKSeleneseTestCase.assertEquals("do Command1",getText(lb32))
-//		findWidget("$btn1").click();
-//		Assert.assertEquals("abc",findWidget("$lb31").getValue());
-//		Assert.assertEquals("do Command1",findWidget("$lb32").getValue());      
+		ZKSeleneseTestCase.assertEquals("abc",getText(lb51))
+		ZKSeleneseTestCase.assertEquals("do Command3",getText(lb52))
+//		findWidget("$tb52").clear().keys("abc").tab();
+//		findWidget("$btn3").click();
+//		Assert.assertEquals("abc",findWidget("$lb51").getValue());
+//		Assert.assertEquals("do Command3",findWidget("$lb52").getValue());
       
     })
   }
