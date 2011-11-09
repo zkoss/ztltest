@@ -23,12 +23,12 @@
 				type(ageBox, "-1");
 				click(ageLabel);
 				waitResponse();
-				verifyEquals("0", getValue(ageLabel));
+				assertEquals("0", getValue(ageLabel));
 
 				type(ageBox, "2");
 				click(ageLabel);
 				waitResponse();
-				verifyEquals("2", getValue(ageLabel));
+				assertEquals("2", getValue(ageLabel));
 											
 		</client>
 	</case>

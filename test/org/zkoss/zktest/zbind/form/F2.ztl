@@ -65,20 +65,20 @@
 				type(quantityBBox, "5");
 				click(computeButton);
 				waitResponse();
-				verifyEquals("50", getValue(subtotalA));
-				verifyEquals("100", getValue(subtotalB));
-				verifyEquals("150", getValue(total));
+				assertEquals("50", getText(subtotalA));
+				assertEquals("100", getText(subtotalB));
+				assertEquals("150", getText(total));
 
 				type(quantityABox, "11");
 				click(computeButton);
 				waitResponse();
-				verifyEquals("150", getValue(total));
+				assertEquals("150", getText(total));
 				
 				type(quantityABox, "5");
-				type(offBox, "50");
+				type(offBox.$n("real"), "50");
 				click(computeButton);
 				waitResponse();
-				verifyEquals("75", getValue(total));
+				assertEquals("75", getText(total));
 
 		</client>
 	</case>

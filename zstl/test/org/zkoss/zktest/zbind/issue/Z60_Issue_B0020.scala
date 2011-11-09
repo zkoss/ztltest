@@ -16,8 +16,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.zbind.issue
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
-import org.openqa.selenium.Keys
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.ZKSeleneseTestCase
 
 /**
  * @author Hawk
@@ -46,43 +46,43 @@ class Z60_Issue_B0020 extends ZTL4ScalaTestCase {
     runZTL(zul, () => {
 		//test property init
     	waitResponse()
-    	verifyEquals(5,jq("@button").length())
+    	ZKSeleneseTestCase.assertEquals(5,jq("@button").length())
     	click(jq("@button").first())
 //		Assert.assertEquals(5,findWidgets("@button").size());
 //		Widget b = findWidget("@button");
 //		b.click();
 		
     	waitResponse()
-    	verifyEquals(4,jq("@button").length())
+    	ZKSeleneseTestCase.assertEquals(4,jq("@button").length())
     	click(jq("@button").first())
 //		Assert.assertEquals(4,findWidgets("@button").size());
 //		b = findWidget("@button");
 //		b.click();
 		
     	waitResponse()
-    	verifyEquals(3,jq("@button").length())
+    	ZKSeleneseTestCase.assertEquals(3,jq("@button").length())
     	click(jq("@button").first())
 //		Assert.assertEquals(3,findWidgets("@button").size());
 //		b = findWidget("@button");
 //		b.click();
 		
     	waitResponse()
-    	verifyEquals(2,jq("@button").length())
+    	ZKSeleneseTestCase.assertEquals(2,jq("@button").length())
     	click(jq("@button").first())
 //		Assert.assertEquals(2,findWidgets("@button").size());
 //		b = findWidget("@button");
 //		b.click();
 		
     	waitResponse()
-    	verifyEquals(1,jq("@button").length())
+    	ZKSeleneseTestCase.assertEquals(1,jq("@button").length())
     	click(jq("@button").first())
 //		Assert.assertEquals(1,findWidgets("@button").size());
 //		b = findWidget("@button");
 //		b.click();
 		
     	waitResponse()
-    	verifyEquals(0,jq("@button").length())
-    	verifyEquals(null, jq("@button").first())
+    	ZKSeleneseTestCase.assertEquals(0,jq("@button").length())
+    	ZKSeleneseTestCase.assertEquals(null, jq("@button").first())
 //		Assert.assertEquals(0,findWidgets("@button").size());
 //		b = findWidget("@button");
 //		Assert.assertNull(b);

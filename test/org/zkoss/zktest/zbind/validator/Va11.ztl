@@ -37,30 +37,30 @@
 				type(ageBox, "-1");
 				click(submitButton);
 				waitResponse();
-				verifyEquals(true, isVisible(less13));
-				verifyEquals(true, isVisible(less18));
-				verifyEquals(false, isVisible(over18));
+				assertEquals(true, isVisible(less13));
+				assertEquals(true, isVisible(less18));
+				assertEquals(false, isVisible(over18));
 
 				type(ageBox, "1");
 				click(submitButton);
 				waitResponse();
-				verifyEquals(true, isVisible(less13));
-				verifyEquals(true, isVisible(less18));
-				verifyEquals(false, isVisible(over18));				
+				assertEquals(true, isVisible(less13));
+				assertEquals(true, isVisible(less18));
+				assertEquals(false, isVisible(over18));				
 				
 				type(ageBox, "15");
 				click(submitButton);
 				waitResponse();
-				verifyEquals(false, isVisible(less13));
-				verifyEquals(true, isVisible(less18));
-				verifyEquals(false, isVisible(over18));
+				assertEquals(false, isVisible(less13));
+				assertEquals(true, isVisible(less18));
+				assertEquals(false, isVisible(over18));
 				
 				type(ageBox, "18");
 				click(submitButton);
 				waitResponse();
-				verifyEquals(false, isVisible(less13));
-				verifyEquals(false, isVisible(less18));
-				verifyEquals(true, isVisible(over18));								
+				assertEquals(false, isVisible(less13));
+				assertEquals(false, isVisible(less18));
+				assertEquals(true, isVisible(over18));								
 		</client>
 	</case>
 </test>
