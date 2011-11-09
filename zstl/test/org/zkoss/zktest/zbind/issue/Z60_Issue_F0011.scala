@@ -39,7 +39,6 @@ class Z60_Issue_F0011 extends ZTL4ScalaTestCase {
 	4.row 4 string value of row4 have to equals, and could not empty, doValidate<n:br/>
 	4.row 5 string value of row5 have to equals, value 1 could be empty, doValidate after cmd3<n:br/>
 	</div>
-	<datebox id="start"/>
 	<hbox>Row 1
 		<datebox id="db1" value="@bind(vm.bday1) @validator('validator1', format='yyyy/MM/dd')"/>
 		<label id="lb11" value="@bind(vm.bday1) @converter('formatedDate', format='yyyy/MM/dd')"/>
@@ -77,9 +76,6 @@ class Z60_Issue_F0011 extends ZTL4ScalaTestCase {
 </window>
     }
     runZTL(zul, () => {
-    	val start = engine $f "start"
-    	`type`(start, "2011/11/07")
-    	
 		val sdf = new SimpleDateFormat("yyyy/MM/dd");
 		var now = new Date()
 		val today = sdf.format(now).toString();
