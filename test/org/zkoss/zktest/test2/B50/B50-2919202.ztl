@@ -19,7 +19,7 @@
 				</listbox>
 				<button id="show" label="show" onClick='throw new WrongValueException(mylistbox,
 				"error")'/>
-				<button id="close" label="close" onClick="Clients.closeErrorBox(mylistbox)"/>
+				<button id="close" label="close" onClick="Clients.clearWrongValue(mylistbox)"/>
 				<button id="toggle" label="toggle" onClick="mylistbox.visible = !mylistbox.visible"/>
 				</vbox>			
 			-->
