@@ -52,24 +52,25 @@
 				
 			
 				click(registerButton);
-				assertEquals("NOT an adult.", getText(message));
+				verifyEquals("NOT an adult.", jq(message).text());
 
 				type(accountBox, "john");
 				type(passwordBox, "1");
 				type(passwordBox2, "2");
 				click(registerButton);
 				waitResponse();
-				assertEquals("NOT an adult.", getText(message));
+				verifyEquals("NOT an adult.", jq(message).text());
 				
 				type(passwordBox2, "1");
 				click(registerButton);
 				waitResponse();
-				assertEquals("Hi, john: You are NOT an adult.", getText(message));
+				verifyEquals("Hi, john: You are NOT an adult.", jq(message).text());
 				
 				type(birthdayBox.$n("real"), "1978/01/01");
+				verifyEquals("1978/01/01", jq(birthdayBox.$n("real")).val());
 				click(registerButton);
 				waitResponse();
-				assertEquals("Hi, john: You are an adult.", getText(message));
+				verifyEquals("Hi, john: You are an adult.", jq(message).text());
 								
 		</client>
 	</case>
