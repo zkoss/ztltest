@@ -30,22 +30,22 @@
 				type(ageBox, "-1");
 				click(submitButton);
 				waitResponse();
-				assertEquals(UNDER_AGE+" "+getValue(limitBox), getValue(messageLabel));
+				assertEquals(UNDER_AGE+" "+getValue(limitBox), getText(messageLabel));
 				
 				type(ageBox, "11");
 				click(submitButton);
 				waitResponse();
-				assertEquals(OVER_AGE+" "+getValue(limitBox), getValue(messageLabel));
+				assertEquals(OVER_AGE+" "+getValue(limitBox), getText(messageLabel));
 				
 				type(limitBox, "20");
 				click(submitButton);
 				waitResponse();
-				assertEquals(UNDER_AGE+" "+getValue(limitBox), getValue(messageLabel));
+				assertEquals(UNDER_AGE+" "+getValue(limitBox), getText(messageLabel));
 
-				type(limitBox, "22");
+				type(ageBox, "22");
 				click(submitButton);
 				waitResponse();
-				assertEquals(OVER_AGE+" "+getValue(limitBox), getValue(messageLabel));
+				assertEquals(OVER_AGE+" "+getValue(limitBox), getText(messageLabel));
 		</client>
 	</case>
 </test>

@@ -9,8 +9,8 @@
 		1. input start date 2011/11/02, end date 2011/11/03, click ok, display date
 		2. change end date to 2011/11/01, click ok, display unchaged.
 		</label>
-		start: <datebox id="start"  value="@bind(save=vm.startDate before 'ok')"/>
-		end: <datebox id="end" value="@bind(save=vm.endDate before 'ok') @validator(vm.durationValidator, start='startDate', end='endDate'))"/>
+		start: <datebox id="start" format="yyyy/MM/dd" value="@bind(save=vm.startDate before 'ok')"/>
+		end: <datebox id="end" format="yyyy/MM/dd" value="@bind(save=vm.endDate before 'ok') @validator(vm.durationValidator, start='startDate', end='endDate'))"/>
 		<button id="okButton" label="OK" onClick="@bind('ok')"/><separator/>
 		start:<label id="startLabel" value="@bind(vm.startDate)"/><separator/>
 		end:<label id="endLabel" value="@bind(vm.endDate)"/>
@@ -22,14 +22,14 @@
 				type(end.$n("real"), "2011/11/03");
 				click(okButton);
 				waitResponse();
-				assertEquals("Wed Nov 02 00:00:00 CST 2011", getValue(startLabel));
-				assertEquals("Thu Nov 03 00:00:00 CST 2011", getValue(endLabel));
+				assertEquals("Wed Nov 02 00:00:00 CST 2011", getText(startLabel));
+				assertEquals("Thu Nov 03 00:00:00 CST 2011", getText(endLabel));
 
 				type(end.$n("real"), "2011/11/01");
 				click(okButton);
 				waitResponse();
-				assertEquals("Wed Nov 02 00:00:00 CST 2011", getValue(startLabel));
-				assertEquals("Thu Nov 03 00:00:00 CST 2011", getValue(endLabel));
+				assertEquals("Wed Nov 02 00:00:00 CST 2011", getText(startLabel));
+				assertEquals("Thu Nov 03 00:00:00 CST 2011", getText(endLabel));
 								
 		</client>
 	</case>

@@ -29,18 +29,18 @@
 				type(ageBox, "22");
 				click(submitButton);
 				waitResponse();
-				assertEquals(ADULT, getValue(adultLabel));
+				assertEquals(ADULT, getText(adultLabel));
 
 				type(ageBox, "-1");
 				click(submitButton);
 				waitResponse();
-				assertEquals(ADULT, getValue(adultLabel));
+				assertEquals(ADULT, getText(adultLabel));
 
 				
 				type(ageBox, "11");
 				click(submitButton);
 				waitResponse();
-				assertEquals(UNDER_AGE, getValue(adultLabel));
+				assertEquals(UNDER_AGE, getText(adultLabel));
 		</client>
 	</case>
 </test>

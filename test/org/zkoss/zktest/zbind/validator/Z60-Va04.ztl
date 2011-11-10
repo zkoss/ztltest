@@ -32,19 +32,19 @@
 				type(ageBox, "1");
 				click(addButton);
 				waitResponse();
-				assertEquals("1", getValue(originalAge));
-				assertEquals("11", getValue(afterAge));
+				assertEquals("1", getText(originalAge));
+				assertEquals("11", getText(afterAge));
 				
 				
 				type(ageBox, "22");
 				click(addButton);
 				waitResponse();
-				assertEquals(ADULT, getValue(adultLabel));
+				assertEquals(ADULT, getText(adultLabel));
 				
 				type(ageBox, "33");
 				click(addButton);
 				waitResponse();
-				assertEquals(ADULT, getValue(adultLabel));
+				assertEquals(ADULT, getText(adultLabel));
 
 		</client>
 	</case>

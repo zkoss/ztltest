@@ -30,19 +30,19 @@
 				
 				assertEquals(NEGATIVE_ONE, getValue(ageBox));
 				click(addButton);
-				assertEquals(UNDER_AGE, getValue(adultLabel));
+				assertEquals(UNDER_AGE, getText(adultLabel));
 				
 				type(ageBox, "1");
 				click(addButton);
 				waitResponse();
-				assertEquals("1", getValue(beforeAge));
-				assertEquals("11", getValue(ageLabel));
-				assertEquals(UNDER_AGE, getValue(adultLabel));
+				assertEquals("1", getText(beforeAge));
+				assertEquals("11", getText(ageLabel));
+				assertEquals(UNDER_AGE, getText(adultLabel));
 
 				type(ageBox, "18");
 				click(addButton);
 				waitResponse();
-				assertEquals(ADULT, getValue(adultLabel));
+				assertEquals(ADULT, getText(adultLabel));
 
 		</client>
 	</case>
