@@ -65,6 +65,8 @@ class B50_3343001Test extends ZTL4ScalaTestCase {
         def clickThenVerify () {
         	click(jq(tree.$n("rows")).find(".z-tree-root-close").get(0));
         	waitResponse();
+        	if (ZK is ("ie < 8"))
+        	  sleep(200)
         	var bodyHeight: Int = jq(tree.$n("body")).outerHeight();
         	var rowsHeight: Int = jq(tree.$n("rows")).outerHeight();
         	verifyTrue("body height ("+bodyHeight+") should larger then rows height ("+rowsHeight+")",
