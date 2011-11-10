@@ -26,18 +26,18 @@
 				type(keywordBox, "123");
 				click(lengthBox); //to change focus
 				waitResponse();
-				assertEquals("123", getValue(keywordLabel));
+				assertEquals("123", getText(keywordLabel));
 
 				type(keywordBox, "1234");
 				click(lengthBox);
 				waitResponse();
-				assertEquals("123", getValue(keywordLabel));
+				assertEquals("123", getText(keywordLabel));
 				
 				type(lengthBox, "5");
 				type(keywordBox, "12345");
 				click(keywordLabel);
 				waitResponse();
-				assertEquals("12345", getValue(keywordLabel));				
+				assertEquals("12345", getText(keywordLabel));				
 		</client>
 	</case>
 </test>

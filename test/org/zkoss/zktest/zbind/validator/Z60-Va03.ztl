@@ -29,14 +29,14 @@
 				type(ageBox, "1");
 				click(minusButton);
 				waitResponse();
-				assertEquals(UNDER_AGE, getValue(adultLabel));
+				assertEquals(UNDER_AGE, getText(adultLabel));
 				
 				
 				type(ageBox, "28");
 				click(minusButton);
 				waitResponse();
-				assertEquals(ADULT, getValue(adultLabel));
-				assertEquals("18", getValue(ageLabel));
+				assertEquals(ADULT, getText(adultLabel));
+				assertEquals("18", getText(ageLabel));
 
 		</client>
 	</case>
