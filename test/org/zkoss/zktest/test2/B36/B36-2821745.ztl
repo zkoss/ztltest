@@ -22,7 +22,7 @@
 		waitResponse();
 		click(jq("@listcell[label=\"option 5\"] div.z-overflow-hidden"));
 		waitResponse();
-		verifyEquals("block", jq("@groupbox .z-groupbox-cnt").css("display"));
+		verifyEquals("block", jq("@groupbox .z-groupbox-3d-cnt").css("display"));
 		]]></client>
 	</case>
 </test>
