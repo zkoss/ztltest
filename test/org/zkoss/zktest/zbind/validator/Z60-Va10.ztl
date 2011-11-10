@@ -20,16 +20,20 @@
 				
 				type(start.$n("real"), "2011/11/02");
 				type(end.$n("real"), "2011/11/03");
+				//check input is correct
+				verifyEquals("2011/11/02", jq(start.$n("real")).val());
+				verifyEquals("2011/11/03", jq(end.$n("real")).val());
 				click(okButton);
 				waitResponse();
-				assertEquals("Wed Nov 02 00:00:00 CST 2011", getText(startLabel));
-				assertEquals("Thu Nov 03 00:00:00 CST 2011", getText(endLabel));
+				verifyEquals("Wed Nov 02 00:00:00 CST 2011", jq(startLabel).text());
+				verifyEquals("Thu Nov 03 00:00:00 CST 2011", jq(endLabel).text());
 
 				type(end.$n("real"), "2011/11/01");
+				verifyEquals("2011/11/01", jq(end.$n("real")).val());
 				click(okButton);
 				waitResponse();
-				assertEquals("Wed Nov 02 00:00:00 CST 2011", getText(startLabel));
-				assertEquals("Thu Nov 03 00:00:00 CST 2011", getText(endLabel));
+				verifyEquals("Wed Nov 02 00:00:00 CST 2011", jq(startLabel).text());
+				verifyEquals("Thu Nov 03 00:00:00 CST 2011", jq(endLabel).text());
 								
 		</client>
 	</case>
