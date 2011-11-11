@@ -38,41 +38,31 @@ B30-1914104-1.ztl
 B30-1914104-2.ztl
 }
 ie9={
-B30-1820180.ztl
+// unsupported
 B30-1822564.ztl
 B30-1822585.ztl
-B30-1823207.ztl
-B30-1823226.ztl
 B30-1823354.ztl
 Z30-grid-0005.ztl
-B50-3006313.ztl
-B50-3166873.ztl
 Z30-grid-0001.ztl
-B50-2976323.ztl
 B36-2813877.ztl
-B50-3303684.ztl
-// unstable
-B36-2818308.ztl
-B50-2925493.ztl
-B50-2941554.ztl
 }
 ie8={
 // unstable
-B30-1876292.ztl
-B36-2796144.ztl
+#B30-1876292.ztl
+#B36-2796144.ztl
 }
 ie7={
 // unstable
-Form.ztl
+#Form.ztl
 }
 ie6={
 // unstable
-B30-1876292.ztl
-B50-3006762.ztl
+#B30-1876292.ztl
+#B50-3006762.ztl
 }
 chrome={
 // unstable
-B36-2818308.ztl
+#B36-2818308.ztl
 // unsupported
 B30-1914104-1.ztl
 B30-1914104-2.ztl
