@@ -30,20 +30,10 @@ B35-2580752.ztl
 ### ignore all firefox
 firefox*={
 // unsupported
-B50-3026819.ztl
-B50-3058028.ztl
 F50-0000001.ztl
-}
-### selenium 2.5.0 cannot support firefix7 well
-firefox7={
-B50-3214754.ztl
-B50-2916148.ztl
-B30-1877111.ztl
-B30-1914104.ztl
 }
 opera={
 // unsupported
-B36-2797773.ztl
 B30-1914104-1.ztl
 B30-1914104-2.ztl
 }

@@ -7,7 +7,7 @@
 	<name>ZTL Test cases</name>
 	<description>A sets of testing cases for ZK project</description>
 	<properties>
-		<selenium.version>2.5.0</selenium.version>
+		<selenium.version>2.12.0</selenium.version>
 	</properties>
 	<repositories>
         <repository>
@@ -71,7 +71,7 @@
 		<dependency>
 			<groupId>com.opera</groupId>
 			<artifactId>operadriver</artifactId>
-			<version>0.6</version>
+			<version>0.7.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.scalatest</groupId>
