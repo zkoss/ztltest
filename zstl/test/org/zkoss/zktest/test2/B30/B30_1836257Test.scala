@@ -69,18 +69,26 @@ class B30_1836257Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
         () => {
         
-            click(jq("@button"));
+        	waitResponse();
+        	//Verify row stripe before hide row
+        	verifyFalse(jq("@listitem:eq(0)").hasClass("z-listbox-odd"));
+            verifyTrue(jq("@listitem:eq(1)").hasClass("z-listbox-odd"));
+            verifyFalse(jq("@listitem:eq(2)").hasClass("z-listbox-odd"));
+            verifyTrue(jq("@listitem:eq(3)").hasClass("z-listbox-odd"));
+          
+        	click(jq("@button"));
             waitResponse();
             //row1 must be invisible
             verifyTrue(!jq("$row1").isVisible());
-            
+                 
+            verifyFalse(jq("@listitem:eq(0)").hasClass("z-listbox-odd"));
+            verifyTrue(jq("@listitem:eq(1)").hasClass("z-listbox-odd"));
+            verifyFalse(jq("@listitem:eq(3)").hasClass("z-listbox-odd"));
+                        
+            //Verify row after row uhide
             click(jq("@button"));
             waitResponse();
             
-            verifyFalse(jq("@listitem:eq(0)").hasClass("z-listbox-odd"));
-            verifyTrue(jq("@listitem:eq(1)").hasClass("z-listbox-odd"));
-            verifyFalse(jq("@listitem:eq(2)").hasClass("z-listbox-odd"));
-                        
             //row1 must be visible
             verifyTrue(jq("$row1").isVisible());
             
