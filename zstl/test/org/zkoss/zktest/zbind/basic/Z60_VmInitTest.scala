@@ -25,7 +25,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
  *
  */
 @Tags(tags = "zbind")
-class Z60_Basic_VmInit extends ZTL4ScalaTestCase {
+class Z60_VmInitTest extends ZTL4ScalaTestCase {
   def testBasic() = {
     //the following import tag is not XML format, hence can NOT put in val zul 
     val header = "<?init class=\"org.zkoss.zktest.zbind.basic.ViewModelInit\"?> \n" +

@@ -25,7 +25,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
  *
  */
 @Tags(tags = "zbind")
-class Z60_Basic_LoadForm extends ZTL4ScalaTestCase {
+class Z60_LoadFormTest extends ZTL4ScalaTestCase {
   def testBasic() = {
     val zul = {//load-form.zul
 <window apply="org.zkoss.zktest.zbind.basic.LoadComposer">

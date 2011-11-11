@@ -25,7 +25,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
  *
  */
 @Tags(tags = "zbind")
-class Z60_Basic_Converter extends ZTL4ScalaTestCase {
+class Z60_ConverterTest extends ZTL4ScalaTestCase {
   def testBasic() = {
     val zul = {//converter.zul
 <window apply="org.zkoss.zktest.zbind.basic.ConverterComposer">

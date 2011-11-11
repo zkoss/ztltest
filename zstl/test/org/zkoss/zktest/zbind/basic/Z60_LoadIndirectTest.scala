@@ -19,14 +19,13 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.ZKSeleneseTestCase
-import org.zkoss.ztl.ClientWidget
 
 /**
  * @author Hawk
  *
  */
 @Tags(tags = "zbind")
-class Z60_Basic_LoadIndirect2 extends ZTL4ScalaTestCase {
+class Z60_LoadIndirectTest extends ZTL4ScalaTestCase {
   def testBasic() = {
     val zul = {//load-indirect.zul
 <window apply="org.zkoss.zktest.zbind.basic.LoadIndirectComposer">
@@ -68,20 +67,21 @@ class Z60_Basic_LoadIndirect2 extends ZTL4ScalaTestCase {
     	val l2 = engine $f "l2"
     	val l3 = engine $f "l3"
     	val l4 = engine $f "l4"
-    	val selectBox = (engine $f "select")
+    	val select = engine $f "select"
     	
+          	
     	ZKSeleneseTestCase.assertEquals("First1", getValue(t1));
     	ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
     	ZKSeleneseTestCase.assertEquals("First1 Last1", getText(l3));
     	ZKSeleneseTestCase.assertEquals("First1", getText(l4));
-    	ZKSeleneseTestCase.assertEquals("0", getSelectedIndex(selectBox));
+    	ZKSeleneseTestCase.assertEquals("0", getSelectedIndex(select));
 //		Assert.assertEquals("First1",findWidget("$l1").getAttribute("value"));
 //		Assert.assertEquals("Last1",findWidget("$l2").getAttribute("value"));
 //		Assert.assertEquals("First1 Last1",findWidget("$l3").getAttribute("value"));
 //		Assert.assertEquals("First1",findWidget("$l4").getAttribute("value"));
 //		Assert.assertEquals(0L,findWidget("$select").getAttribute("selectedIndex"));
 		
-    	`type`(t1, "AAA")
+		`type`(t1, "AAA")
 		click(engine $f "btn1")
 		waitResponse()
 		ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
@@ -93,15 +93,14 @@ class Z60_Basic_LoadIndirect2 extends ZTL4ScalaTestCase {
 //		Assert.assertEquals("AAA Last1",findWidget("$l3").getAttribute("value"));
 //		Assert.assertEquals("AAA",findWidget("$l4").getAttribute("value"));
 		
-    	
-		select(selectBox,"lastName")
-		waitResponse()
+		
+		click(engine $f "btn2")
 		ZKSeleneseTestCase.assertEquals("AAA", getValue(t1));
     	ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
     	ZKSeleneseTestCase.assertEquals("AAA Last1", getText(l3));
     	ZKSeleneseTestCase.assertEquals("Last1", getText(l4));
-    	ZKSeleneseTestCase.assertEquals("1", getSelectedIndex(selectBox));
-//		((SelectWidget)findWidget("$select")).select(1);
+    	ZKSeleneseTestCase.assertEquals("1", getSelectedIndex(select));
+//		findWidget("$btn2").click();
 //		Assert.assertEquals("AAA",findWidget("$l1").getAttribute("value"));
 //		Assert.assertEquals("Last1",findWidget("$l2").getAttribute("value"));
 //		Assert.assertEquals("AAA Last1",findWidget("$l3").getAttribute("value"));
@@ -109,8 +108,8 @@ class Z60_Basic_LoadIndirect2 extends ZTL4ScalaTestCase {
 //		Assert.assertEquals(1L,findWidget("$select").getAttribute("selectedIndex"));
 		
     	`type`(t1, "BBB")
-    	waitResponse()
-    	ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
+		waitResponse()
+		ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
     	ZKSeleneseTestCase.assertEquals("BBB Last1", getText(l3));
     	ZKSeleneseTestCase.assertEquals("Last1", getText(l4));
 //		findWidget("$l1").clear().keys("BBB");
@@ -119,34 +118,32 @@ class Z60_Basic_LoadIndirect2 extends ZTL4ScalaTestCase {
 //		Assert.assertEquals("BBB Last1",findWidget("$l3").getAttribute("value"));
 //		Assert.assertEquals("Last1",findWidget("$l4").getAttribute("value"));
 		
-		select(selectBox,"fullName")
-		waitResponse()
+		click(engine $f "btn3")
 		ZKSeleneseTestCase.assertEquals("BBB", getValue(t1));
     	ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
     	ZKSeleneseTestCase.assertEquals("BBB Last1", getText(l3));
     	ZKSeleneseTestCase.assertEquals("BBB Last1", getText(l4));
-    	ZKSeleneseTestCase.assertEquals("2", getSelectedIndex(selectBox));
-//		((SelectWidget)findWidget("$select")).select(2);
+    	ZKSeleneseTestCase.assertEquals("2", getSelectedIndex(select)); //listbox.$n().get("selectedIndex")
+//		findWidget("$btn3").click();
 //		Assert.assertEquals("BBB",findWidget("$l1").getAttribute("value"));
 //		Assert.assertEquals("Last1",findWidget("$l2").getAttribute("value"));
 //		Assert.assertEquals("BBB Last1",findWidget("$l3").getAttribute("value"));
 //		Assert.assertEquals("BBB Last1",findWidget("$l4").getAttribute("value"));
 //		Assert.assertEquals(2L,findWidget("$select").getAttribute("selectedIndex"));
 		
-    	select(selectBox,"firstName")
-    	waitResponse()
-    	ZKSeleneseTestCase.assertEquals("BBB", getValue(t1));
+    	click(engine $f "btn1")
+		ZKSeleneseTestCase.assertEquals("BBB", getValue(t1));
     	ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
     	ZKSeleneseTestCase.assertEquals("BBB Last1", getText(l3));
     	ZKSeleneseTestCase.assertEquals("BBB", getText(l4));
-    	ZKSeleneseTestCase.assertEquals("0", getSelectedIndex(selectBox));
-//		((SelectWidget)findWidget("$select")).select(0);
+    	ZKSeleneseTestCase.assertEquals("0", getSelectedIndex(select));
+//		findWidget("$btn1").click();
 //		Assert.assertEquals("BBB",findWidget("$l1").getAttribute("value"));
 //		Assert.assertEquals("Last1",findWidget("$l2").getAttribute("value"));
 //		Assert.assertEquals("BBB Last1",findWidget("$l3").getAttribute("value"));
 //		Assert.assertEquals("BBB",findWidget("$l4").getAttribute("value"));
-//		Assert.assertEquals(0L,findWidget("$select").getAttribute("selectedIndex"));
-		
+//		Assert.assertEquals(0L,findWidget("$select").getAttribute("selectedIndex"));      
+
     })
   }
 }

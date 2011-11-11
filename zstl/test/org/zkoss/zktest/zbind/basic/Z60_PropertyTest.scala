@@ -25,7 +25,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
  *
  */
 @Tags(tags = "zbind")
-class Z60_Basic_Property extends ZTL4ScalaTestCase {
+class Z60_PropertyTest extends ZTL4ScalaTestCase {
   def testBasic() = {
     val zul = {//property.zul
 <window apply="org.zkoss.zktest.zbind.basic.PropertyComposer"

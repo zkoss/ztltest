@@ -25,7 +25,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
  *
  */
 @Tags(tags = "zbind")
-class Z60_Issue_B0004 extends ZTL4ScalaTestCase {
+class Z60_B0004Test extends ZTL4ScalaTestCase {
   def testIssue() = {
     val zul = {
 <zk xmlns:n="http://www.zkoss.org/2005/zk/native">

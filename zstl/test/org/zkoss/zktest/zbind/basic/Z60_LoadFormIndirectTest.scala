@@ -25,7 +25,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
  *
  */
 @Tags(tags = "zbind")
-class Z60_Basic_LoadFormIndirect extends ZTL4ScalaTestCase {
+class Z60_LoadFormIndirectTest extends ZTL4ScalaTestCase {
   def testBasic() = {
     val zul = {//load-form-indirect.zul
 <window apply="org.zkoss.zktest.zbind.basic.LoadIndirectComposer" composerName="@bind('vm')" binderName="@bind('binder')">

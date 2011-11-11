@@ -24,7 +24,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
  *
  */
 @Tags(tags = "zbind")
-class Z60_Issue_B0020 extends ZTL4ScalaTestCase {
+class Z60_B0020Test extends ZTL4ScalaTestCase {
   def testIssue() = {
     val zul = {
 	<vbox apply="org.zkoss.bind.BindComposer" viewModel="@bind(vm='org.zkoss.zktest.zbind.issue.B0020')">
