@@ -86,9 +86,9 @@ class Z60_F0011Test extends ZTL4ScalaTestCase {
     	val lb11 = engine $f "lb11"
     	val lb12 = engine $f "lb12"
 		//validate date1
-		ZKSeleneseTestCase.assertEquals(today, getValue(db1))
-		ZKSeleneseTestCase.assertEquals(today, getValue(lb11))
-		ZKSeleneseTestCase.assertEquals("", getValue(lb12))
+		ZKSeleneseTestCase.assertEquals(today, getValue(db1.$n("real")))
+		ZKSeleneseTestCase.assertEquals(today, getText(lb11))
+		ZKSeleneseTestCase.assertEquals("", getText(lb12))
 		
 //		Assert.assertEquals(today,findWidget("$db1").getText());
 //		Assert.assertEquals(today,findWidget("$lb11").getValue());
@@ -96,18 +96,18 @@ class Z60_F0011Test extends ZTL4ScalaTestCase {
 		
 		`type`(db1.$n("real"), tomorrow)
     	waitResponse()
-		ZKSeleneseTestCase.assertEquals(tomorrow, getValue(db1))
-		ZKSeleneseTestCase.assertEquals(today, getValue(lb11))
-		ZKSeleneseTestCase.assertEquals("date bday1 must small than today", getValue(lb12))    	
+		ZKSeleneseTestCase.assertEquals(tomorrow, getValue(db1.$n("real")))
+		ZKSeleneseTestCase.assertEquals(today, getText(lb11))
+		ZKSeleneseTestCase.assertEquals("date bday1 must small than today", getText(lb12))    	
 //		findWidget("$db1").clear().keys(tomorrow).tab();
 //		Assert.assertEquals(tomorrow,findWidget("$db1").getText());
 //		Assert.assertEquals(today,findWidget("$lb11").getValue());
 //		Assert.assertEquals("date bday1 must small than today",findWidget("$lb12").getValue());
-		`type`(db1.$n("real"), "2011/11/07")
+		`type`(db1.$n("real"), yesterday)
     	waitResponse()
-		ZKSeleneseTestCase.assertEquals(yesterday, getValue(db1))
-		ZKSeleneseTestCase.assertEquals(yesterday, getValue(lb11))
-		ZKSeleneseTestCase.assertEquals("", getValue(lb12))    		
+		ZKSeleneseTestCase.assertEquals(yesterday, getValue(db1.$n("real")))
+		ZKSeleneseTestCase.assertEquals(yesterday, getText(lb11))
+		ZKSeleneseTestCase.assertEquals("", getText(lb12))    		
 //		findWidget("$db1").clear().keys(yesterday).tab();
 //		Assert.assertEquals(yesterday,findWidget("$db1").getText());
 //		Assert.assertEquals(yesterday,findWidget("$lb11").getValue());
@@ -116,28 +116,28 @@ class Z60_F0011Test extends ZTL4ScalaTestCase {
 		val db2 = engine $f "db2"
     	val lb21 = engine $f "lb21"
     	val lb22 = engine $f "lb22"
-		ZKSeleneseTestCase.assertEquals("", getValue(db2))
-		ZKSeleneseTestCase.assertEquals("", getValue(lb21))
-		ZKSeleneseTestCase.assertEquals("", getValue(lb22))      	
+		ZKSeleneseTestCase.assertEquals("", getValue(db2.$n("real")))
+		ZKSeleneseTestCase.assertEquals("", getText(lb21))
+		ZKSeleneseTestCase.assertEquals("", getText(lb22))      	
 //		Assert.assertEquals("",findWidget("$db2").getText());
 //		Assert.assertEquals("",findWidget("$lb21").getValue());
 //		Assert.assertEquals("",findWidget("$lb22").getValue());
 		
 		`type`(db2.$n("real"), yesterday)
     	waitResponse()
-		ZKSeleneseTestCase.assertEquals(yesterday, getValue(db2))
-		ZKSeleneseTestCase.assertEquals("", getValue(lb21))
-		ZKSeleneseTestCase.assertEquals("date bday2 must large than today", getValue(lb22))
+		ZKSeleneseTestCase.assertEquals(yesterday, getValue(db2.$n("real")))
+		ZKSeleneseTestCase.assertEquals("", getText(lb21))
+		ZKSeleneseTestCase.assertEquals("date bday2 must large than today", getText(lb22))
 //		findWidget("$db2").clear().keys(yesterday).tab();
 //		Assert.assertEquals(yesterday,findWidget("$db2").getText());
 //		Assert.assertEquals("",findWidget("$lb21").getValue());
 //		Assert.assertEquals("date bday2 must large than today",findWidget("$lb22").getValue());
 
-		`type`(db2, tomorrow)
+		`type`(db2.$n("real"), tomorrow)
     	waitResponse()
-		ZKSeleneseTestCase.assertEquals(tomorrow, getValue(db2))
-		ZKSeleneseTestCase.assertEquals(tomorrow, getValue(lb21))
-		ZKSeleneseTestCase.assertEquals("", getValue(lb22))
+		ZKSeleneseTestCase.assertEquals(tomorrow, getValue(db2.$n("real")))
+		ZKSeleneseTestCase.assertEquals(tomorrow, getText(lb21))
+		ZKSeleneseTestCase.assertEquals("", getText(lb22))
 //		findWidget("$db2").clear().keys(tomorrow).tab();
 //		Assert.assertEquals(tomorrow,findWidget("$db2").getText());
 //		Assert.assertEquals(tomorrow,findWidget("$lb21").getValue());

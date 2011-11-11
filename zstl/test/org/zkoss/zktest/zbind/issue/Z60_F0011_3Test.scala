@@ -106,6 +106,7 @@ class Z60_F0011_3Test extends ZTL4ScalaTestCase {
 //		Assert.assertEquals("do Command3",findWidget("$lb52").getValue());
 		
 		click(btn3)
+		waitResponse()
 		ZKSeleneseTestCase.assertEquals("value2 must euqlas to value 1",getText(lb52))
 //		findWidget("$btn3").click();
 //		Assert.assertEquals("value2 must euqlas to value 1",findWidget("$lb52").getValue());

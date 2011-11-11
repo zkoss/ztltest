@@ -82,7 +82,6 @@ class Z60_B0020Test extends ZTL4ScalaTestCase {
 		
     	waitResponse()
     	ZKSeleneseTestCase.assertEquals(0,jq("@button").length())
-    	ZKSeleneseTestCase.assertEquals(null, jq("@button").first())
 //		Assert.assertEquals(0,findWidgets("@button").size());
 //		b = findWidget("@button");
 //		Assert.assertNull(b);
