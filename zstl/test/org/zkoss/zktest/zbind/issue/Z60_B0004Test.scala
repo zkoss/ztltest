@@ -69,135 +69,135 @@ class Z60_B0004Test extends ZTL4ScalaTestCase {
     	val msg2 = engine $f "msg2"
     	val msg3 = engine $f "msg3"
     	
-    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
-    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg2));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));
+    	ZKSeleneseTestCase.assertEquals("0", getText(l11));
+    	ZKSeleneseTestCase.assertEquals("", getText(l12));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg1));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg3));
     	
-//		Assert.assertEquals("0",findWidget("$l11").getValue());
-//		Assert.assertEquals("",findWidget("$l12").getValue());
-//		Assert.assertEquals("",findWidget("$msg1").getValue());
-//		Assert.assertEquals("",findWidget("$msg2").getValue());
-//		Assert.assertEquals("",findWidget("$msg3").getValue());
+//		Assert.assertEquals("0",findWidget("$l11").getText());
+//		Assert.assertEquals("",findWidget("$l12").getText());
+//		Assert.assertEquals("",findWidget("$msg1").getText());
+//		Assert.assertEquals("",findWidget("$msg2").getText());
+//		Assert.assertEquals("",findWidget("$msg3").getText());
 		
     	click(engine $f "btn1")
     	waitResponse()
-    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
-    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
-    	ZKSeleneseTestCase.assertEquals("value 1 have to large than 10", getValue(msg1));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg2));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));    	
+    	ZKSeleneseTestCase.assertEquals("0", getText(l11));
+    	ZKSeleneseTestCase.assertEquals("", getText(l12));
+    	ZKSeleneseTestCase.assertEquals("value 1 have to large than 10", getText(msg1));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg3));    	
 //		findWidget("$btn1").click();
-//		Assert.assertEquals("0",findWidget("$l11").getValue());
-//		Assert.assertEquals("",findWidget("$l12").getValue());
-//		Assert.assertEquals("value 1 have to large than 10",findWidget("$msg1").getValue());
-//		Assert.assertEquals("",findWidget("$msg2").getValue());
-//		Assert.assertEquals("",findWidget("$msg3").getValue());
+//		Assert.assertEquals("0",findWidget("$l11").getText());
+//		Assert.assertEquals("",findWidget("$l12").getText());
+//		Assert.assertEquals("value 1 have to large than 10",findWidget("$msg1").getText());
+//		Assert.assertEquals("",findWidget("$msg2").getText());
+//		Assert.assertEquals("",findWidget("$msg3").getText());
 		
 		val t21 = engine $f "t21"
     	`type`(t21, "32")
     	sendKeys(t21, Keys.TAB)
     	waitResponse()
-    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
-    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg2));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));    	
+    	ZKSeleneseTestCase.assertEquals("0", getText(l11));
+    	ZKSeleneseTestCase.assertEquals("", getText(l12));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg1));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg3));    	
 //		findWidget("$t21").clear().keys("32").tab();
-//		Assert.assertEquals("0",findWidget("$l11").getValue());
-//		Assert.assertEquals("",findWidget("$l12").getValue());
-//		Assert.assertEquals("",findWidget("$msg1").getValue());
-//		Assert.assertEquals("",findWidget("$msg2").getValue());
-//		Assert.assertEquals("",findWidget("$msg3").getValue());
+//		Assert.assertEquals("0",findWidget("$l11").getText());
+//		Assert.assertEquals("",findWidget("$l12").getText());
+//		Assert.assertEquals("",findWidget("$msg1").getText());
+//		Assert.assertEquals("",findWidget("$msg2").getText());
+//		Assert.assertEquals("",findWidget("$msg3").getText());
 		
 		click(engine $f "btn1")
     	waitResponse()
-    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
-    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
-    	ZKSeleneseTestCase.assertEquals("value 2 is not valid For input string: \"\"", getValue(msg2));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));  		
+    	ZKSeleneseTestCase.assertEquals("0", getText(l11));
+    	ZKSeleneseTestCase.assertEquals("", getText(l12));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg1));
+    	ZKSeleneseTestCase.assertEquals("value 2 is not valid For input string: \"\"", getText(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg3));  		
 //    	findWidget("$btn1").click();
-//		Assert.assertEquals("0",findWidget("$l11").getValue());
-//		Assert.assertEquals("",findWidget("$l12").getValue());
-//		Assert.assertEquals("",findWidget("$msg1").getValue());
-//		Assert.assertEquals("value 2 is not valid For input string: \"\"",findWidget("$msg2").getValue());
-//		Assert.assertEquals("",findWidget("$msg3").getValue());
+//		Assert.assertEquals("0",findWidget("$l11").getText());
+//		Assert.assertEquals("",findWidget("$l12").getText());
+//		Assert.assertEquals("",findWidget("$msg1").getText());
+//		Assert.assertEquals("value 2 is not valid For input string: \"\"",findWidget("$msg2").getText());
+//		Assert.assertEquals("",findWidget("$msg3").getText());
 		
 		val t22 = engine $f "t22"
     	`type`(t22, "13")
     	sendKeys(t22, Keys.TAB)
     	waitResponse()
-    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
-    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
-    	ZKSeleneseTestCase.assertEquals("value 2 have to large than 20", getValue(msg2));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));      	
+    	ZKSeleneseTestCase.assertEquals("0", getText(l11));
+    	ZKSeleneseTestCase.assertEquals("", getText(l12));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg1));
+    	ZKSeleneseTestCase.assertEquals("value 2 have to large than 20", getText(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg3));      	
 //		findWidget("$t22").clear().keys("13").tab();
-//		Assert.assertEquals("0",findWidget("$l11").getValue());
-//		Assert.assertEquals("",findWidget("$l12").getValue());
-//		Assert.assertEquals("",findWidget("$msg1").getValue());
-//		Assert.assertEquals("value 2 have to large than 20",findWidget("$msg2").getValue());
-//		Assert.assertEquals("",findWidget("$msg3").getValue());
+//		Assert.assertEquals("0",findWidget("$l11").getText());
+//		Assert.assertEquals("",findWidget("$l12").getText());
+//		Assert.assertEquals("",findWidget("$msg1").getText());
+//		Assert.assertEquals("value 2 have to large than 20",findWidget("$msg2").getText());
+//		Assert.assertEquals("",findWidget("$msg3").getText());
 		
     	`type`(t22, "22")
     	sendKeys(t22, Keys.TAB)
     	waitResponse()    
-    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
-    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg2));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));      	
+    	ZKSeleneseTestCase.assertEquals("0", getText(l11));
+    	ZKSeleneseTestCase.assertEquals("", getText(l12));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg1));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg3));      	
 //		findWidget("$t22").clear().keys("22").tab();
-//		Assert.assertEquals("0",findWidget("$l11").getValue());
-//		Assert.assertEquals("",findWidget("$l12").getValue());
-//		Assert.assertEquals("",findWidget("$msg1").getValue());
-//		Assert.assertEquals("",findWidget("$msg2").getValue());
-//		Assert.assertEquals("",findWidget("$msg3").getValue());
+//		Assert.assertEquals("0",findWidget("$l11").getText());
+//		Assert.assertEquals("",findWidget("$l12").getText());
+//		Assert.assertEquals("",findWidget("$msg1").getText());
+//		Assert.assertEquals("",findWidget("$msg2").getText());
+//		Assert.assertEquals("",findWidget("$msg3").getText());
 		
 		click(engine $f "btn1")
     	waitResponse()
-    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
-    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
-    	ZKSeleneseTestCase.assertEquals("value 2 have to large than value 1", getValue(msg2));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));  			
+    	ZKSeleneseTestCase.assertEquals("0", getText(l11));
+    	ZKSeleneseTestCase.assertEquals("", getText(l12));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg1));
+    	ZKSeleneseTestCase.assertEquals("value 2 have to large than value 1", getText(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg3));  			
 //    	findWidget("$btn1").click();
-//		Assert.assertEquals("0",findWidget("$l11").getValue());
-//		Assert.assertEquals("",findWidget("$l12").getValue());
-//		Assert.assertEquals("",findWidget("$msg1").getValue());
-//		Assert.assertEquals("value 2 have to large than value 1",findWidget("$msg2").getValue());
-//		Assert.assertEquals("",findWidget("$msg3").getValue());
+//		Assert.assertEquals("0",findWidget("$l11").getText());
+//		Assert.assertEquals("",findWidget("$l12").getText());
+//		Assert.assertEquals("",findWidget("$msg1").getText());
+//		Assert.assertEquals("value 2 have to large than value 1",findWidget("$msg2").getText());
+//		Assert.assertEquals("",findWidget("$msg3").getText());
 		
     	`type`(t22, "42")
     	sendKeys(t22, Keys.TAB)
     	waitResponse()    
-    	ZKSeleneseTestCase.assertEquals("0", getValue(l11));
-    	ZKSeleneseTestCase.assertEquals("", getValue(l12));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg2));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg3));  
+    	ZKSeleneseTestCase.assertEquals("0", getText(l11));
+    	ZKSeleneseTestCase.assertEquals("", getText(l12));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg1));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg3));  
 //    	findWidget("$t22").clear().keys("42").tab();
-//		Assert.assertEquals("0",findWidget("$l11").getValue());
-//		Assert.assertEquals("",findWidget("$l12").getValue());
-//		Assert.assertEquals("",findWidget("$msg1").getValue());
-//		Assert.assertEquals("",findWidget("$msg2").getValue());
-//		Assert.assertEquals("",findWidget("$msg3").getValue());
+//		Assert.assertEquals("0",findWidget("$l11").getText());
+//		Assert.assertEquals("",findWidget("$l12").getText());
+//		Assert.assertEquals("",findWidget("$msg1").getText());
+//		Assert.assertEquals("",findWidget("$msg2").getText());
+//		Assert.assertEquals("",findWidget("$msg3").getText());
 		
 		click(engine $f "btn1")
     	waitResponse()
-    	ZKSeleneseTestCase.assertEquals("32", getValue(l11));
-    	ZKSeleneseTestCase.assertEquals("42", getValue(l12));
-    	ZKSeleneseTestCase.assertEquals("", getValue(msg1));
-    	ZKSeleneseTestCase.assertEquals("value 2 have to large than value 1", getValue(msg2));
-    	ZKSeleneseTestCase.assertEquals("execute command 1", getValue(msg3));  				
+    	ZKSeleneseTestCase.assertEquals("32", getText(l11));
+    	ZKSeleneseTestCase.assertEquals("42", getText(l12));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg1));
+    	ZKSeleneseTestCase.assertEquals("value 2 have to large than value 1", getText(msg2));
+    	ZKSeleneseTestCase.assertEquals("execute command 1", getText(msg3));  				
 //		findWidget("$btn1").click();
-//		Assert.assertEquals("32",findWidget("$l11").getValue());
-//		Assert.assertEquals("42",findWidget("$l12").getValue());
-//		Assert.assertEquals("",findWidget("$msg1").getValue());
-//		Assert.assertEquals("",findWidget("$msg2").getValue());
-//		Assert.assertEquals("execute command 1",findWidget("$msg3").getValue());      
+//		Assert.assertEquals("32",findWidget("$l11").getText());
+//		Assert.assertEquals("42",findWidget("$l12").getText());
+//		Assert.assertEquals("",findWidget("$msg1").getText());
+//		Assert.assertEquals("",findWidget("$msg2").getText());
+//		Assert.assertEquals("execute command 1",findWidget("$msg3").getText());      
     })
   }
 }
