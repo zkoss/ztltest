@@ -103,6 +103,7 @@ class Z60_ConverterTest extends ZTL4ScalaTestCase {
 //      Assert.assertEquals("36",findWidget("$l2").getAttribute("value"));
 
       click(engine $f "saveForm")
+      waitResponse()
       ZKSeleneseTestCase.assertEquals("1985/02/13", getValue(t1));
       ZKSeleneseTestCase.assertEquals("26", getText(l1));
       ZKSeleneseTestCase.assertEquals("1985/02/13", getValue(t2));
