@@ -190,7 +190,7 @@ class Z60_B0004Test extends ZTL4ScalaTestCase {
     	ZKSeleneseTestCase.assertEquals("32", getText(l11));
     	ZKSeleneseTestCase.assertEquals("42", getText(l12));
     	ZKSeleneseTestCase.assertEquals("", getText(msg1));
-    	ZKSeleneseTestCase.assertEquals("value 2 have to large than value 1", getText(msg2));
+    	ZKSeleneseTestCase.assertEquals("", getText(msg2));
     	ZKSeleneseTestCase.assertEquals("execute command 1", getText(msg3));  				
 //		findWidget("$btn1").click();
 //		Assert.assertEquals("32",findWidget("$l11").getText());

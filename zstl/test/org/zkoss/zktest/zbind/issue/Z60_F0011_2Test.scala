@@ -150,6 +150,7 @@ class Z60_F0011_2Test extends ZTL4ScalaTestCase {
 //		Assert.assertEquals("",findWidget("$lb42").getValue());
 		
 		click(btn2)
+		waitResponse()
     	ZKSeleneseTestCase.assertEquals("abc",getText(lb41))
 		ZKSeleneseTestCase.assertEquals("do Command2",getText(lb42))
 //		findWidget("$btn2").click();
