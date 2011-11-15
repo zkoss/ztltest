@@ -84,11 +84,12 @@ class B30_1857731Test extends ZTL4ScalaTestCase {
       click(jq(".z-toolbarbutton"));
       waitResponse();
 
+      // Verify there is no javascript error
+      verifyFalse(jq(".z-error").exists());
+      
       // Verify that the label in the tab exists
       verifyTrue(jq(".z-label:contains(Test)").get(0).exists());
 
-      // Wait to see the execution
-      sleep(1000);
     })
   }
 }
