@@ -85,8 +85,6 @@ class B30_1884112Test extends ZTL4ScalaTestCase {
       // Verify the modified label
       verifyTrue(jq(".z-label:contains(AAAAA)").exists());
 
-      // View the result :)
-      sleep(2000);
     })
   }
 }
