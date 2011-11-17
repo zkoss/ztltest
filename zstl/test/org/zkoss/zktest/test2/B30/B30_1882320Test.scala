@@ -42,38 +42,10 @@ class B30_1882320Test extends ZTL4ScalaTestCase {
     val zscript = {
 			<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
 
-    			<n:script type="text/javascript">
-    				<![CDATA[ 
-    				function getText(control)
-    				{ 
-    					
-    					var txt=""; 
-    					if (window.getSelection){ 
-    						txt=window.getSelection();
-    					} else if (document.getSelection){
-    						txt=document.getSelection();
-    					} else if (document.selection.createRange) { 
-    						txt = document.selection.createRange().text;
-    					} 
-    					
-    					document.getElementById(control).value=txt;
-    					
-    					return txt;
-    				}
-    			]]></n:script>
-
-
     			<n:p>setSelectionRange won't work at following case due to the smartupdate. If you see the text is selected from 1 to 2, it is correct.</n:p>
     			<window id="win">
 
     			<zscript>
-    				<!-- Support objects to Get selected Text-->
-    				
-    				<!-- Input to compare selected Text-->
-    				Textbox textboxTest1 = new Textbox();
-    				textboxTest1.setId("text");
-    				textboxTest1.setParent(win);
-    				textboxTest1.setVisible(false);
 
     				Textbox textboxTest = new Textbox();
     				textboxTest.setParent(win);
@@ -82,14 +54,6 @@ class B30_1882320Test extends ZTL4ScalaTestCase {
 
     			</zscript>
 
-    			<zscript>
-    				
-    				<!-- Get selected Text-->
-    				<![CDATA[
-    					Clients.evalJavaScript("getText('"+textboxTest1.uuid+"')");
-    				]]>
-    			</zscript>
-    				 
     			</window>
     			
     		</zk>
@@ -97,16 +61,10 @@ class B30_1882320Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
-        	waitResponse();
-        	//Get Widget
-        	var l1: Widget = engine.$f("text");
-        	waitResponse();
-        	
-        	//Get Selected value from auxiliary input
-        	var b=getValue(l1);
 
-        	//Compare with selection
-        	verifyEquals(b,"12");    
+        	 waitResponse();
+        	 //Compare with selection
+        	 verifyEquals(zk(jq("@textbox")).eval("getSelectionRange()"),"[1, 3]");
         }
     );
    }
