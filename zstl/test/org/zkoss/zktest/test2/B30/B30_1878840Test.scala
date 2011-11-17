@@ -62,6 +62,12 @@ class B30_1878840Test extends ZTL4ScalaTestCase {
       </zk>
     }
     runZTL(zscript, () => {
+
+      var $jq = jq(engine.$f("list").$n("body"));
+      $jq.scrollTop($jq.scrollHeight());
+      waitResponse();
+
+    /* The costly option: 
       var i = 0;
       val count = 100;
 
@@ -77,6 +83,7 @@ class B30_1878840Test extends ZTL4ScalaTestCase {
         //        keyPress(jq(".z-listcell").toLocator(), "\\40");
         i += 1;
       }
+     */
 
       // Click on the first header to sort
       click(jq(".z-listheader-cnt").get(0));
@@ -86,9 +93,7 @@ class B30_1878840Test extends ZTL4ScalaTestCase {
       click(jq(".z-listheader-cnt").get(0));
       waitResponse();
 
-      // Loop 100 times to verify empty content
       verifyFalse(jq(".z-listcell:empty").get(0).exists());
-
     })
   }
 }
