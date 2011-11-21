@@ -21,7 +21,7 @@ import org.zkoss.ztl.Tags
 
 /**
  * A test class for bug 1892464
- * @author ldnigro
+ * @author ldnigro 
  *
  */
 @Tags(tags = "B30-1892464.zul,A,E,Groupbox,Clone,BI")
