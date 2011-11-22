@@ -85,7 +85,7 @@ class B50_3285714Test extends ZTL4ScalaTestCase {
         var content: String = jq(topRow).find(".z-label").get(0).get("innerHTML");
 
         var itemCnt: Integer = Integer.parseInt(content.substring(content.length()-4, content.length()));
-        verifyTrue(Math.abs(5000-itemCnt) <= 15);
+        verifyTrue(Math.abs(5000-itemCnt) <= rowCnt/2);
     }
    );
 
