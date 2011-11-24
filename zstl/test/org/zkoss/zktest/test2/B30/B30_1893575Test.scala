@@ -48,9 +48,7 @@ class B30_1893575Test extends ZTL4ScalaTestCase {
         () => {
         
         	//Click 'female' radio
-        	jq("$female input").eval("checked=''");
-        	jq("$male1 input").eval("checked=''");
-            click(jq("$female input"));
+        	click(jq("$female input"));
             waitResponse();
             
             //Verify male not checked and female checked
