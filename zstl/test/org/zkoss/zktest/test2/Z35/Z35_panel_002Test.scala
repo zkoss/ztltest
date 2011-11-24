@@ -78,7 +78,7 @@ class Z35_panel_002Test extends ZTL4ScalaTestCase {
         () => {
         def clickThenValidate(selector:String,validator:()=>Unit ){
             Scripts.triggerMouseEventAt(getWebDriver(), jq(selector), "click", "2,2");        
-        	waitResponse();
+        	waitResponse(true);
         	validator();
         }
         
