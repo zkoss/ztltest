@@ -72,7 +72,6 @@ class B30_1894208Test extends ZTL4ScalaTestCase {
       var h2: Int = jq(".z-north").height();
 
       // Verify that the diference of the heihts is 50
-      print(h1 + " - " + h2);
       verifyTrue(h2-h1==50);
 
 
