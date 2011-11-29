@@ -34,6 +34,9 @@ class B30_1899353Test extends ZTL4ScalaTestCase {
     		<zk>
     			<zscript>
     				public class B1899353 extends HtmlMacroComponent{
+    					public B1899353() {
+    						setMacroURI("/test2/B1899353.zul");
+    					}	
     				}
     			</zscript>
     			<window title="Test" border="normal">
