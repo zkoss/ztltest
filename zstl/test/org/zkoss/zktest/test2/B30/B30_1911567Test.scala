@@ -57,6 +57,12 @@ class B30_1911567Test extends ZTL4ScalaTestCase {
             //Verify gender header exists
             verifyTrue(gender.exists());
             
+            val nameText=getText(jq("@listheader:eq(0)"));
+            verifyEquals(nameText,"name");
+            
+            val genderText=getText(jq("@listheader:eq(1)"));
+            verifyEquals(genderText,"gender");
+            
         }
     );
    }
