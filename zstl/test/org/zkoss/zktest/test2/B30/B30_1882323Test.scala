@@ -1,4 +1,4 @@
-/* B30_1878840Test.scala
+/* B30_1882323Test.scala
 
 {{IS_NOTE
 	Purpose:
@@ -25,7 +25,7 @@ import org.zkoss.ztl.Element
  * @author Fernando Selvatici
  *
  */
-@Tags(tags = "B30-1878840.zul,B,E,Window,Button")
+@Tags(tags = "B30-1882323.zul,B,E,Window,Button")
 class B30_1882323Test extends ZTL4ScalaTestCase {
   def testClick() = {
     val zscript = {
