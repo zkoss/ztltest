@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
 import org.zkoss.ztl.Element
+import org.openqa.selenium.Keys
 
 /**
  * @author Fernando Selvatici
@@ -41,13 +42,14 @@ class B30_1984643Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
 
       // Click on the listbox
-      click(jq("@select"));
+      select(jq("@select"), "item 1");
       waitResponse();
 
-      // Press ENTER twice
-      keyPress(jq("@select"), "\\13");
-      keyPress(jq("@select"), "\\13");
-      waitResponse();
+      // Press ENTER
+      if (!isOpera()) { // Opera will send an Enter key in select();
+    	  sendKeys(jq("@select"), Keys.ENTER);
+          waitResponse();
+      }
 
       // Verify that the listbox is not visible
       verifyFalse("The Listbox should be invisible", jq("@select").isVisible());
