@@ -45,7 +45,7 @@ class B30_2003798Test extends ZTL4ScalaTestCase {
               <treerow>
                 <treecell>
                   <hbox style="display:inline-table;border:1px solid red">
-                    <image src="/img/live.gif"/>
+                    <image id="img" src="/img/live.gif"/>
                     <label value="foo"/>
                   </hbox>
                 </treecell>
@@ -74,14 +74,15 @@ class B30_2003798Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       // Mouse over the "foo" word
       // Option 2: mouseOver(jq(".z-label:contains(foo)"));
-      Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-label:contains(foo)"), "mouseover", "2,2");
+      val img = engine.$f("img")
+      mouseOver(img)
       waitResponse();
 
       // Verify that the first row is selected
       var cssClass: String = jq(".z-treerow").get(0).get("className");
       verifyTrue("The row must be highlighted", cssClass.contains("z-treerow-over"));
 
-      click(jq(".z-label:contains(foo)"));
+      click(img);
       waitResponse();
 
       cssClass = jq(".z-treerow").get(0).get("className");
