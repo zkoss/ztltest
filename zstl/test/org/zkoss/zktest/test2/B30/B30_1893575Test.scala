@@ -54,8 +54,8 @@ class B30_1893575Test extends ZTL4ScalaTestCase {
             //Verify male not checked and female checked
             val f=jq("$female input");
             val m=jq("$male1 input");
-            val bf="checked".equals(jq("$female input").attr("checked"));
-            val bm="checked".equals(jq("$male1 input").attr("checked"));
+            val bf="true".equals(jq("$female input").toElement().get("checked"));
+            val bm="true".equals(jq("$male1 input").toElement().get("checked"));
             verifyTrue(bf);
             verifyFalse(bm);
             
@@ -64,8 +64,8 @@ class B30_1893575Test extends ZTL4ScalaTestCase {
             waitResponse();
             
             //Verify male not checked and female checked
-            verifyTrue("checked".equals(jq("$female input").attr("checked")));
-            verifyFalse("checked".equals(jq("$male1 input").attr("checked")));
+            verifyTrue("true".equals(jq("$female input").toElement().get("checked")));
+            verifyFalse("true".equals(jq("$male1 input").toElement().get("checked")));
                         
             
         }
