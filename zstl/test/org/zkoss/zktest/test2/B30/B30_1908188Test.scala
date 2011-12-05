@@ -110,9 +110,13 @@ class B30_1908188Test extends ZTL4ScalaTestCase {
       // Click on the menu
       click(jq("$testMenu"));
 
+      waitResponse();
+      
       // Click of first menu item
       click(jq(".z-menu-item").get(0));
 
+      waitResponse();
+       
       // Record Popup position
       var x: Int = getElementPositionLeft(jq(".z-popup")).intValue();
       var y: Int = getElementPositionTop(jq(".z-popup")).intValue();
@@ -123,9 +127,12 @@ class B30_1908188Test extends ZTL4ScalaTestCase {
       // Click on the menu
       click(jq("$testMenu"));
 
+      waitResponse();
+      
       // Click of second menu item
       click(jq(".z-menu-item").get(1));
 
+      waitResponse();
       // Record Popup position
       x = getElementPositionLeft(jq(".z-popup")).intValue();
       y = getElementPositionTop(jq(".z-popup")).intValue();
