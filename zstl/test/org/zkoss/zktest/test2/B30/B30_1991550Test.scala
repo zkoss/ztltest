@@ -41,18 +41,18 @@ class B30_1991550Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       // Click on the first image to collapse the groupbox
       click(jq(".z-caption-l"));
-      waitResponse();
+      waitResponse(true);
 
       // The label in the groupbox must be invisible
       verifyFalse(jq(".z-label").isVisible());
 
       // Click on the first image to bring back the groupbox
       click(jq(".z-caption-l"));
-      waitResponse();
+      waitResponse(true);
 
       // Click on the second image (toolbarbutton)
       click(jq(".z-toolbarbutton"));
-      waitResponse();
+      waitResponse(true);
 
       // The label in the groupbox must be visible (not collapsed)
       verifyTrue(jq(".z-label").isVisible());
