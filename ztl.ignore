@@ -35,6 +35,7 @@ F50-0000001.ztl
 firefox3={
 // unsupported
 B30-1878840.ztl
+B30-1984643.ztl
 }
 firefox7,firefox8={
 // unsupported window.resizeTo
