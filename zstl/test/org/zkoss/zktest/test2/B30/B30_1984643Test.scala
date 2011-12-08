@@ -40,10 +40,6 @@ class B30_1984643Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
 
-      // Click on the listbox
-      click(jq("@select"));
-      waitResponse();
-
       // Press ENTER twice
       keyPress(jq("@select"), "\\13");
       keyPress(jq("@select"), "\\13");
