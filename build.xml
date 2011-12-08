@@ -159,7 +159,7 @@ Usage:
 		</junit>
 	</target>	
 	<target name="junit" depends="generate,compileztl">
-		<junit printsummary="on" fork="true" haltonfailure="false"
+		<junit printsummary="on" fork="true" forkmode="once" haltonfailure="false"
 			   showoutput="true">
 			<classpath refid="dependency.classpath" />
 			<classpath>
