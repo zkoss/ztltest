@@ -33,12 +33,12 @@ class B30_1911129Test extends ZTL4ScalaTestCase {
 	<n:p>Menuseparator's background should be shown.</n:p>
 	<window title="Menu Demo" border="normal">
 		<menubar id="menubar">
-			<menu label="File">
+			<menu label="File" id="fm">
 				<menupopup>
 					<menuitem label="New" onClick="alert(self.label)"/>
 					<menuitem label="Open" onClick="alert(self.label)"/>
 					<menuitem label="Save" onClick="alert(self.label)"/>
-					<menuseparator/>
+					<menuseparator id="ms" />
 					<menuitem label="Exit" onClick="alert(self.label)"/>
 				</menupopup>
 			</menu>
@@ -65,13 +65,13 @@ class B30_1911129Test extends ZTL4ScalaTestCase {
         	waitResponse();
                   	
         	//File Menu
-        	val file=jq("@menu:eq(0)");
+        	val file=jq("$fm");
         	click(file);
         	
         	waitResponse();
         	
         	//Menu separator
-        	val ms=jq(".z-menu-separator-inner:eq(0)");
+        	val ms=jq("$ms");
         	
         	val ow=ms.width();
         	val oh=ms.height();
