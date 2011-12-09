@@ -76,7 +76,7 @@ class B50_ZK_610Test extends ZTL4ScalaTestCase {
 			var offset: Integer = jq(cell).positionTop();
 
 			def sortThenVerify = () => {
-				clickAt(columns, "5,5");
+				clickAt(columns.firstChild(), "5,5");
 				waitResponse();
 				
 				verifyTrue("the position should changed after sort",
