@@ -57,14 +57,14 @@ public void onClick(){
     runZTL(zscript, () => {
 
       // Verify that the label is visible
-      verifyTrue("The label Select Me!!! must be visible", jq(engine.$f("lb")).isVisible());
+      verifyTrue("The label Select Me!!! must be visible", jq(".z-label").isVisible());
 
       // Click the button
       click(jq(".z-button"));
       waitResponse();
 
       // Verify that the label is invisible
-      verifyFalse("The label should be invisible", jq(engine.$f("lb")).isVisible());
+      verifyFalse("The label should be invisible", jq(".z-label").isVisible());
 
       // Verify that the textbox is visible
       verifyTrue("The textbox Select Me!!! must be visible", jq(".z-textbox").isVisible());
