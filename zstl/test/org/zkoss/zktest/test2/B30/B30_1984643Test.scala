@@ -39,9 +39,6 @@ class B30_1984643Test extends ZTL4ScalaTestCase {
       </window>
     }
     runZTL(zscript, () => {
-      // Click on the listbox
-      click(jq("@select"));
-      waitResponse();
 
       // Click on the listbox
       click(jq("@select"));
