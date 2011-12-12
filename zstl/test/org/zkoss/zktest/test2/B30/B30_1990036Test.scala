@@ -30,11 +30,11 @@ class B30_1990036Test extends ZTL4ScalaTestCase {
   def testClick() = {
     val zscript = {
       <zk>
-        <window left="200px" top="0px" border="normal" width="550px" height="300px" sizable="true" mode="overlapped" title="Window One">
+        <window id="w1" left="200px" top="0px" border="normal" width="550px" height="300px" sizable="true" mode="overlapped" title="Window One">
           Please Click "Window Three", then the "Window Three" window should be in front of the "Window One"
         </window>
-        <window border="normal" width="350px" height="200px" sizable="true" mode="overlapped" title="Window Two">
-          <window border="normal" width="250px" height="100px" sizable="true" mode="overlapped" title="Window Three">
+        <window id="w2" border="normal" width="350px" height="200px" sizable="true" mode="overlapped" title="Window Two">
+          <window id="w3" border="normal" width="250px" height="100px" sizable="true" mode="overlapped" title="Window Three">
             Click Me, then the window should be in front of the "Window One"
           </window>
         </window>
@@ -42,8 +42,8 @@ class B30_1990036Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
       // 
-      val w1 = jq(".z-window-overlapped:contains(Window One)");
-      val w3 = jq(".z-window-overlapped:contains(Window Three)");
+      val w1 = jq("$w1");
+      val w3 = jq("$w3");
 
       // Click on Window Three
       click(jq("span:contains(Click Me)"));
