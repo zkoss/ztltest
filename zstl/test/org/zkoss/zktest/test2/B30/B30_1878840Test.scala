@@ -33,6 +33,13 @@ class B30_1878840Test extends ZTL4ScalaTestCase {
         <n:p>You can scroll down the listbox to end, and then click the listheader to sort the live data.</n:p>
         <n:p>Then you should't see that the content containing some empty content.</n:p>
         <window title="Live Data Demo" border="normal">
+    	  <script><![CDATA[
+    		function doScrollDown() {
+    			var $jq = jq(zk.Widget.$('$list').$n('body'));
+    			$jq.scrollTop($jq[0].scrollHeight);
+    			return true;
+    		}
+    	  ]]></script>
           <zscript><![CDATA[
             List items = new org.zkoss.zktest.test2.BigList(100);
     		ListModel strset = new ListModelList(items);
@@ -64,7 +71,10 @@ class B30_1878840Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
 
       var $jq = jq(engine.$f("list").$n("body"));
-      $jq.scrollTop($jq.scrollHeight());
+      
+      // fix Firefox driver issue
+      getEval("doScrollDown()");
+     // $jq.scrollTop($jq.scrollHeight());
       waitResponse();
 
     /* The costly option: 
