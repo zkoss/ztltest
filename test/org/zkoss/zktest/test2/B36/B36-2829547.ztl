@@ -28,10 +28,9 @@
 		 --></server>
 		<client><![CDATA[
 			//fix ie9 issue
-			click(widget("$startTime").$n("real"));
+			click(widget("$startTime").$n("btn-up"));
 			blur(widget("$startTime").$n("real"));
-			
-			click(widget("$endTime").$n("real"));
+			click(widget("$endTime").$n("btn-up"));
 			blur(widget("$endTime").$n("real"));
 			click(jq("$runReport td.z-button-cm"));
 			waitResponse();
