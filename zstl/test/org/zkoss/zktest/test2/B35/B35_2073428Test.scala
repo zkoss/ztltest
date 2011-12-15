@@ -36,8 +36,8 @@ class B35_2073428Test extends ZTL4ScalaTestCase {
 		2006, Created by tomyeh }}IS_NOTE Copyright (C) 2006 Potix
 		Corporation. All Rights Reserved. {{IS_RIGHT }}IS_RIGHT
 	-->
-<window title="Menu Demo" border="normal">	
-	<label value='button "stone" should not be freezed after clicked and move the mouse away (it means the mouseover style should be removed)'/>
+<window title="Menu Demo" border="normal" id="lbl">	
+	<label  value='button "stone" should not be freezed after clicked and move the mouse away (it means the mouseover style should be removed)'/>
 	<menubar>		
 		<menu label="stone" id="stone" />
 	</menubar>	
@@ -50,7 +50,7 @@ class B35_2073428Test extends ZTL4ScalaTestCase {
         	waitResponse();
                   
         	//Stone Menu
-        	val menu=jq("$stone");
+        	val menu=engine.$f("stone").$n("a");
         	click(menu);
         	
         	waitResponse();
@@ -65,7 +65,6 @@ class B35_2073428Test extends ZTL4ScalaTestCase {
         	
         	//Move the mouse out of the menu
         	dragAndDrop(menu,"100,100");
-        	
         	waitResponse();
         	
         	//Verify Over style isn't present
