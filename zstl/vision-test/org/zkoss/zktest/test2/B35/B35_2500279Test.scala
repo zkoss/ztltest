@@ -44,7 +44,7 @@ class B35_2500279Test extends ZTL4ScalaTestCase {
 					</listbox>
 				</vbox>
 				<vbox>
-					<datebox id="db" width="150px"/>
+					<datebox id="db" width="150px" format="MM/dd/yyyy" text="12/14/2011" />
 					<listbox mold="select">
 						<listitem label="Should cover me!"/>
 					</listbox>
