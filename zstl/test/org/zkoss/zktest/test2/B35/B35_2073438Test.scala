@@ -61,6 +61,7 @@ class B35_2073438Test extends ZTL4ScalaTestCase {
         	//Scroll down
         	focus(menu);
         	
+        	val top = jq("document.body.parentNode").scrollTop();
         	waitResponse();
                   
         	//Dynamic menu click
@@ -69,7 +70,7 @@ class B35_2073438Test extends ZTL4ScalaTestCase {
         	waitResponse();
         	
         	//Verify if scroll if down
-        	verifyTrue(400 >= jq("document.body.parentNode").scrollTop())
+        	verifyTrue(top == jq("document.body.parentNode").scrollTop())
         	        	        	        	
         }
     );

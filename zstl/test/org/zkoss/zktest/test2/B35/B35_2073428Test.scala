@@ -64,7 +64,7 @@ class B35_2073428Test extends ZTL4ScalaTestCase {
         	verifyTrue(mo.exists());
         	
         	//Move the mouse out of the menu
-        	dragAndDrop(menu,"100,100");
+        	mouseOut(menu);
         	waitResponse();
         	
         	//Verify Over style isn't present
