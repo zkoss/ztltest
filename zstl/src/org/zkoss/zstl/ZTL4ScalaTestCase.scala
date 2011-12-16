@@ -6,6 +6,8 @@ import org.zkoss.ztl.ZKClientTestCase
 import org.zkoss.ztl.util.ConfigHelper
 import org.zkoss.ztl.Widget
 import scala.collection.JavaConversions._
+import com.thoughtworks.selenium.SeleniumException
+import org.zkoss.ztl.util.ZKSelenium
 
 /**
  * ZTL for Scala to test
@@ -36,9 +38,17 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
         waitResponse();
 
         executor();
-      } finally {
-        stop();
-      }
+		} catch {
+			case e : SeleniumException =>
+				val zbrowser = browser.asInstanceOf[ZKSelenium]
+				ConfigHelper.getInstance().clearCache(zbrowser);
+				zbrowser.shutdown();
+				throw e;
+			case other =>
+				throw other;
+		} finally {
+			stop();
+		}
     }  	  
   }
   
