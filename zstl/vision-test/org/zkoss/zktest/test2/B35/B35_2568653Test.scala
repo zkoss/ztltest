@@ -16,6 +16,7 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.ZK
 
 /**
  *
@@ -67,6 +68,9 @@ class B35_2568653Test extends ZTL4ScalaTestCase {
 		}
 		runZTL(zscript, () => {
 			sleep(500)
+			if (ZK.is("ie6"))
+				sleep(2000) // wait Iframe to load
+			
 			verifyImage();
 			dragdropTo(jq("$p1 .z-panel-header-move"), "10,10", "10, 600")
 			sleep(500)
