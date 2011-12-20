@@ -38,6 +38,10 @@ B30-1914104-1.ztl
 B30-1914104-2.ztl
 B30-1820180.ztl
 }
+firefox4,firefox5,firefox6{
+// unstable
+B50-3285610.ztl
+}
 opera={
 // unsupported
 B30-1914104-1.ztl
