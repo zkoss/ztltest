@@ -90,6 +90,7 @@ class B35_2075716Test extends ZTL4ScalaTestCase {
 
       // Click on add button
       click(jq("@button:contains(add)"));
+      waitResponse
 
       // Record new panel width
       var new_panel_width: Int = jq(".z-portalchildren:contains(portal 0)").width().intValue();
@@ -98,7 +99,7 @@ class B35_2075716Test extends ZTL4ScalaTestCase {
       val remainder_width: Int = ((total_width - panel0_width) - 10);
 
       verifyTrue("The new panel width should be the 50% of remainder width", remainder_width / 2 == new_panel_width);
-
+      verifyFalse(jq(".z-error").exists())
     })
   }
 }
