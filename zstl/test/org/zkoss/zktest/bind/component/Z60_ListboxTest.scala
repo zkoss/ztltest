@@ -45,11 +45,11 @@ class Z60_ListboxTest extends ZTL4ScalaTestCase {
       ZKSeleneseTestCase.assertEquals("item03", getText(itemLabel));
       ZKSeleneseTestCase.assertEquals("2", getText(indexLabel));
       
-      val nameLabel = engine $f "nameLabel"
-      ZKSeleneseTestCase.assertEquals(false, jq(nameLabel).isVisible());
-      click(jq("@button"))
+      val open = engine $f "open"
+      ZKSeleneseTestCase.assertEquals("false", getText(open));
+      click(jq(".z-listgroup-img"))
       waitResponse()
-      ZKSeleneseTestCase.assertEquals(true, jq(nameLabel).isVisible());
+      ZKSeleneseTestCase.assertEquals("true", getText(open));
       
     })
   }

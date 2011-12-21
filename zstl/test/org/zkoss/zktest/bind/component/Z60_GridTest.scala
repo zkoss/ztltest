@@ -32,19 +32,20 @@ class Z60_GridTest extends ZTL4ScalaTestCase {
     runZTL(zul, () => {
     
       //button
-      val open = engine $f "open"
       
-      val brandLabel = engine $f "brandLabel"
-      val pcNameLabel = engine $f "pcNameLabel"
+      val detailOpen = engine $f "detailOpen"
+      val groupOpen = engine $f "groupOpen"
       
       //test open
-      ZKSeleneseTestCase.assertEquals(false, jq(brandLabel).isVisible());
-      ZKSeleneseTestCase.assertEquals(false, jq(pcNameLabel).isVisible());
-      click(open);
+      ZKSeleneseTestCase.assertEquals("false", getText(detailOpen));
+      click(jq(".z-detail-img"));
       waitResponse();
-      ZKSeleneseTestCase.assertEquals(true, jq(brandLabel).isVisible());
-      ZKSeleneseTestCase.assertEquals(true, jq(pcNameLabel).isVisible());
+      ZKSeleneseTestCase.assertEquals("true", getText(detailOpen));
       
+      ZKSeleneseTestCase.assertEquals("false", getText(groupOpen));
+      click(jq(".z-group-img"));
+      waitResponse();
+      ZKSeleneseTestCase.assertEquals("true", getText(groupOpen));
     })
   }
 }
