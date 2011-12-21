@@ -62,76 +62,70 @@ class B35_2075137Test extends ZTL4ScalaTestCase {
             Slider in a hbox
             <slider id="slider" orient="horizontal" curpos="4" maxpos="5">
               <attribute name="onScroll">
-                textLabel.setValue("The Scrolled value is..... "+slider.getCurpos()+"");
+                textLabel3.setValue("The Scrolled value is..... "+slider.getCurpos()+"");
               </attribute>
             </slider>
-            <label id="textLabel" value="TESTING SLIDERS FUNCTIONALITY..."/>
+            <label id="textLabel3" value="TESTING SLIDERS FUNCTIONALITY..."/>
           </hbox>
           <vbox>
             Slider in a vbox
             <slider id="slider2" orient="horizontal" curpos="4" maxpos="5">
               <attribute name="onScroll">
-                textLabel2.setValue("The Scrolled value is..... "+slider2.getCurpos()+"");
+                textLabel4.setValue("The Scrolled value is..... "+slider2.getCurpos()+"");
               </attribute>
             </slider>
-            <label id="textLabel2" value="TESTING SLIDERS FUNCTIONALITY..."/>
+            <label id="textLabel4" value="TESTING SLIDERS FUNCTIONALITY..."/>
           </vbox>
         </window>
       </zk>
     }
     runZTL(zscript, () => {
-      def dragDrop(from: Element, fromPos: String, to: Element, toPos: String) {
-        mouseDownAt(from, fromPos);
-        mouseMoveAt(to, toPos);
-        mouseUpAt(to, toPos);
-        waitResponse();
-      }
-
       // Click on first slider
       click(jq("$slider").get(0));
-      waitResponse;
+      waitResponse(true);
 
       // Move the mouse over the first slider
-      Scripts.triggerMouseEventAt(getWebDriver(), jq("$slider").get(0), "mousemove", "0,4")
-      waitResponse;
+      //Scripts.triggerMouseEventAt(getWebDriver(), jq("$slider").get(0), "mousemove", "0,4")
+      val btn = engine.$f("slider").$n("btn")
+      dragdropTo(btn, "5,5", "5,50")
+      waitResponse(true);
+      
+      // check button color
+      verifyFalse(jq(btn) hasClass "z-slider-ver-btn-over")
 
-      verifyTrue("The value should be '2'", jq(".z-label:contains(The Scrolled value is..... 2)").exists());
+      verifyFalse("The value should be ...", jq("$textLabel:contains(TESTING SLIDERS FUNCTIONALITY...)").exists());
 
       // Click on second slider
       click(jq("$slider2").get(0));
-      waitResponse;
+      waitResponse(true);
 
       // Move the mouse over the second slider
       // The event doesn't take the last argument, so always moves the same distance
       Scripts.triggerMouseEventAt(getWebDriver(), jq("$slider2").get(0), "mousemove", "")
-      waitResponse;
+      waitResponse(true);
 
-      verifyTrue("The value should be '2'", jq(".z-label:contains(The Scrolled value is..... 2)").exists());
+      verifyFalse("The value should be ...", jq("$textLabel2:contains(TESTING SLIDERS FUNCTIONALITY...)").exists());
 
       // Click on third slider
       click(jq("$slider").get(1));
-      waitResponse;
+      waitResponse(true);
 
       // Move the mouse over the third slider
       // The event doesn't take the last argument, so always moves the same distance
-      Scripts.triggerMouseEventAt(getWebDriver(), jq("$slider").get(1), "mousemove", "")
-      waitResponse;
+      val btn2 = jq("$slider:eq(1)").find(".z-slider-hor-btn")
+      dragdropTo(btn2, "5,5", "5,50")
+      waitResponse(true);
+      
+      // check button color
+      verifyFalse(jq(btn2) hasClass "z-slider-hor-btn-over")
 
-      verifyTrue("The value should be '2'", jq(".z-label:contains(The Scrolled value is..... 2)").exists());
+      verifyFalse("The value should be ...", jq("$textLabel3:contains(TESTING SLIDERS FUNCTIONALITY...)").exists());
 
       // Click on fourth slider
       click(jq("$slider2").get(1));
-      waitResponse;
+      waitResponse(true);
 
-      // Move the mouse over the third slider
-      // The event doesn't take the last argument, so always moves the same distance
-      Scripts.triggerMouseEventAt(getWebDriver(), jq("$slider2").get(1), "mousemove", "")
-      waitResponse;
-
-      verifyTrue("The value should be '2'", jq(".z-label:contains(The Scrolled value is..... 2)").exists());
-
-      // Send a failure due to the situation presented above
-      assert(false);
+      verifyFalse("The value should be ...", jq("$textLabel4:contains(TESTING SLIDERS FUNCTIONALITY...)").exists());
     })
   }
 }
