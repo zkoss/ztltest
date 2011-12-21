@@ -77,12 +77,12 @@ Usage:
 	</target>
 	<target name="compileztl" depends="init">
 		<!-- compile -->
-		<javac srcdir="${codegen.dir}" destdir="${test.dir}" includes="**/*.java" debug="true">
+		<javac srcdir="${codegen.dir}" destdir="${test.dir}" includes="**/*.java">
 			<classpath refid="dependency.classpath" />
 		</javac>
 		<!-- compile scala -->
 		<scalac srcdir="${zstl.src}" destdir="${test.dir}"
-			includes="**/*.scala" excludes="vision-test/** test/ExampleTest.scala" force="changed">
+			includes="**/*.scala" excludes="vision-test/** test/ExampleTest.scala">
 			<classpath refid="dependency.classpath" />
 		</scalac>
 	</target>
