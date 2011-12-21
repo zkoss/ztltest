@@ -76,7 +76,7 @@ class B35_2074948Test extends ZTL4ScalaTestCase {
       var yPopup: Int = getElementPositionTop(popup).intValue();
 
       // The popup must be at the right of the menu item
-      verifyTrue("The popup must be at right and below of the menu item", xPopup > xMenu && yPopup > yMenu);
+      verifyTrue("The popup must be at right and below of the menu item", xPopup > xMenu && Math.abs(yPopup - yMenu) == 1);
 
       
 
