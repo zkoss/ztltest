@@ -39,11 +39,11 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
           </groupbox>
           <vbox>
             <hbox>
-              <button label="FocusOnMe" onFocus='self.setLabel("Focused OK")' tabindex="1"/>
+              <button id="FocusOnMe" label="FocusOnMe" onFocus='self.setLabel("Focused OK")' tabindex="1"/>
               Focus gained Test
             </hbox>
             <hbox>
-              <button label="BlurMe" onBlur='self.setLabel("Blurred OK")' tabindex="2"/>
+              <button id="BlurMe" label="BlurMe" onBlur='self.setLabel("Blurred OK")' tabindex="2"/>
               Focus lost Test
             </hbox>
             <hbox>
@@ -69,11 +69,13 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
       verifyTrue("The button label must be 'Focused OK'", jq(".z-button-cm:contains(Focused OK)").exists());
 
       // Press the TAB key on first button
-      sendKeys(jq(".z-button:contains(FocusOnMe)"), Keys.TAB);
+      // This doesn't work: sendKeys(jq(".z-button:contains(FocusOnMe)"), Keys.TAB);
+      sendKeys(engine.$f("FocusOnMe").$n("btn"), Keys.TAB);
       waitResponse();
 
       // Press the TAB key on second button
-      sendKeys(jq(".z-button:contains(BlurMe)"), Keys.TAB);
+      // This doesn't work: sendKeys(jq(".z-button:contains(BlurMe)"), Keys.TAB);
+      sendKeys(engine.$f("BlurMe").$n("btn"), Keys.TAB);
       waitResponse();
 
       // Verify that the label of the second button is correct
