@@ -19,6 +19,7 @@ package org.zkoss.zktest.test2.B35
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
+import org.openqa.selenium.By
 
 /**
  * @author Fernando Selvatici
@@ -30,6 +31,7 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
     val zscript = {
       <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd">
         <window title="Test button reference to processes" border="normal" width="400px">
+    		<a id="anc" label="anchor"/>
           <groupbox>
             <vbox>
               <label value="1.press TAB to focus on the first button, the text on button should change."/>
@@ -56,11 +58,11 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
 
-      click(jq(".z-label:contains(1.press)"));
+      click(jq("$anc"));
 
       // Press the TAB key
       // Note: Does not work on Chrome due to a ChromeDriver issue: http://code.google.com/p/selenium/issues/detail?id=2328
-      sendKeys(jq(".z-label:contains(1.press)"), Keys.TAB);
+      sendKeys(jq("$anc"), Keys.TAB);
       waitResponse();
       // Fails with sendKeys. I works clicking on the button
       // click(jq(".z-button:contains(FocusOnMe)"));
@@ -83,10 +85,10 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
 
       // Click on third button
       click(jq(".z-button:contains(www.google.com)"));
-      waitResponse();
 
+      waitForPageToLoad("2000")
       // Verify that the google page is opened by verifying the existence of the "Search" button
-      verifyTrue("The visible page should be www.google.com", jq("input[name=btnK]").exists());
+      verifyTrue("The visible page should be www.google.com", findElement(By.cssSelector("input[name=btnK]")) != null);
 
     })
   }
