@@ -90,6 +90,8 @@ class B35_2075137Test extends ZTL4ScalaTestCase {
       dragdropTo(btn, "5,5", "5,50")
       waitResponse(true);
       
+      if (isFirefox())
+      	mouseOut(jq("$slider").get(0))
       // check button color
       verifyFalse(jq(btn) hasClass "z-slider-ver-btn-over")
 
@@ -101,8 +103,8 @@ class B35_2075137Test extends ZTL4ScalaTestCase {
 
       // Move the mouse over the second slider
       // The event doesn't take the last argument, so always moves the same distance
-      Scripts.triggerMouseEventAt(getWebDriver(), jq("$slider2").get(0), "mousemove", "")
-      waitResponse(true);
+     // Scripts.triggerMouseEventAt(getWebDriver(), jq("$slider2").get(0), "mousemove", "")
+      //waitResponse(true);
 
       verifyFalse("The value should be ...", jq("$textLabel2:contains(TESTING SLIDERS FUNCTIONALITY...)").exists());
 
@@ -114,6 +116,8 @@ class B35_2075137Test extends ZTL4ScalaTestCase {
       // The event doesn't take the last argument, so always moves the same distance
       val btn2 = jq("$slider:eq(1)").find(".z-slider-hor-btn")
       dragdropTo(btn2, "5,5", "5,50")
+      if (isFirefox())
+      	mouseOut(jq("$slider:eq(1)"))
       waitResponse(true);
       
       // check button color
