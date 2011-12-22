@@ -31,6 +31,7 @@ B35-2580752.ztl
 firefox*={
 // unsupported
 F50-0000001.ztl
+B35-2073451.ztl
 }
 firefox3={
 // unsupported
@@ -66,21 +67,22 @@ B50-3303725.ztl
 B50-3303684.ztl
 B30-1894208.ztl
 }
-ie8={
-// unstable
-}
 ie7={
 // unstable
 B30-1876292.zul
+// unsupported
+B35-2073451.ztl
 }
 ie6={
-// unstable
+// unsupported
+B35-2073451.ztl
 }
 chrome={
 // unsupported
 B30-1914104-1.ztl
 B30-1914104-2.ztl
 F50-0000001.ztl
+B35-2073451.ztl
 }
 #zbind
 #ignore for browser difference issue

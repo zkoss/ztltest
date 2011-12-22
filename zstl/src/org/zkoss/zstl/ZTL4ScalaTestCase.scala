@@ -66,4 +66,5 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
   }  
 
   def engine(): Widget = _engine;
+  def driver() = getWebDriver()
 }
