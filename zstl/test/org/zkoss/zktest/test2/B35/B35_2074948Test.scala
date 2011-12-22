@@ -32,7 +32,7 @@ class B35_2074948Test extends ZTL4ScalaTestCase {
         <label value="Vertical Menu Popup position shall be correct"/>
         <window>
           <menubar orient="vertical">
-            <menu label="12321434564212347897413135498794123154678454674899765131549789451374897942134897">
+            <menu id="menu" label="12321434564212347897413135498794123154678454674899765131549789451374897942134897">
               <menupopup>
                 <menuitem label="1"/>
               </menupopup>
@@ -60,7 +60,7 @@ class B35_2074948Test extends ZTL4ScalaTestCase {
       </window>
     }
     runZTL(zscript, () => {
-      var item = jq("button:contains(12321434564212347897413135498794123154678454674899765131549789451374897942134897)");
+      var item = engine.$f("menu")
       var popup = jq(".z-menu-popup");
 
       // Click on first menu item
@@ -74,7 +74,7 @@ class B35_2074948Test extends ZTL4ScalaTestCase {
       // Record Menu Popup position
       var xPopup: Int = getElementPositionLeft(popup).intValue();
       var yPopup: Int = getElementPositionTop(popup).intValue();
-
+      
       // The popup must be at the right of the menu item
       verifyTrue("The popup must be at right and below of the menu item", xPopup > xMenu && Math.abs(yPopup - yMenu) == 1);
 
