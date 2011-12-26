@@ -65,10 +65,10 @@ class B35_2075721Test extends ZTL4ScalaTestCase {
             
             //label change 
             verifyNotEquals(getText(jq("$b1")),"Button 1");
-            var b1t=getText(jq("$b1"));
+            var b1text=getText(jq("$b1"));
             
-            var pl=jq("$b1 .z-button-cm").css("padding-left");
-            var pr=jq("$b1 .z-button-cm").css("padding-right");
+            var b1l=jq("$b1").offsetLeft();
+            var b1t=jq("$b1").offsetTop();
             
             //click button 2
             click(jq("$b2"));
@@ -78,8 +78,8 @@ class B35_2075721Test extends ZTL4ScalaTestCase {
             //label change 
             verifyNotEquals(getText(jq("$b2")),"Button 2");
             
-            var pl2=jq("$b2 .z-button-cm").css("padding-left");
-            var pr2=jq("$b2 .z-button-cm").css("padding-right");
+            var b2l=jq("$b2").offsetLeft();
+            var b2t=jq("$b2").offsetTop();
             
             //click button 3
             click(jq("$b3"));
@@ -89,8 +89,8 @@ class B35_2075721Test extends ZTL4ScalaTestCase {
             //label change 
             verifyNotEquals(getText(jq("$b3")),"Button 3");
             
-            var pl3=jq("$b1 .z-button-cm").css("padding-left");
-            var pr3=jq("$b1 .z-button-cm").css("padding-right");
+            var b3l=jq("$b3").offsetLeft();
+            var b3t=jq("$b3").offsetTop();
                         
             //Wait timer change
             sleep(1000);
@@ -101,19 +101,22 @@ class B35_2075721Test extends ZTL4ScalaTestCase {
             waitResponse();
             
             //label change 
-            var b1tn=getText(jq("$b1"));
-            verifyNotEquals(b1tn,b1t);
+            var b1textn=getText(jq("$b1"));
+            verifyNotEquals(b1textn,b1text);
             
             //space in between shall remain
-            verifyEquals(pl,jq("$b1 .z-button-cm").css("padding-left"));
-            verifyEquals(pr,jq("$b1 .z-button-cm").css("padding-right"));
+            var b1ln=jq("$b1").offsetLeft();
+            var b1tn=jq("$b1").offsetTop();
             
-            verifyEquals(pl2,jq("$b2 .z-button-cm").css("padding-left"));
-            verifyEquals(pr2,jq("$b2 .z-button-cm").css("padding-right"));
+            var b2ln=jq("$b2").offsetLeft();
+            var b2tn=jq("$b2").offsetTop();
             
-            verifyEquals(pl3,jq("$b3 .z-button-cm").css("padding-left"));
-            verifyEquals(pr3,jq("$b3 .z-button-cm").css("padding-right"));
+            var b3ln=jq("$b3").offsetLeft();
+            var b3tn=jq("$b3").offsetTop();
             
+            verifyEquals(b1t,b1tn);
+            verifyEquals(b2t,b2tn);
+            verifyEquals(b3t,b3tn);
         	
         }
     );
