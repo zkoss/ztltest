@@ -111,7 +111,7 @@ class B35_2075723Test extends ZTL4ScalaTestCase {
         	var table3=jq("$table3 .z-panel-exp");
         	click(table3);
         	
-        	waitResponse();
+        	waitResponse(true);
         	
         	verifyFalse(jq("$table3 .z-panel-body").isVisible());
         	
@@ -119,7 +119,7 @@ class B35_2075723Test extends ZTL4ScalaTestCase {
         	var table31=jq("$table31 .z-panel-exp");
         	click(table31);
         	
-        	waitResponse();
+        	waitResponse(true);
         	
         	verifyFalse(jq("$table31 .z-panel-body").isVisible());
         	
@@ -127,14 +127,14 @@ class B35_2075723Test extends ZTL4ScalaTestCase {
         	var table1=jq("$table1 .z-panel-exp");
         	click(table1);
         	
-        	waitResponse();
+        	waitResponse(true);
         	verifyFalse(jq("$table31 .z-panel-body").isVisible());
         	verifyFalse(jq("$table1 .z-panel-body").isVisible());
         	
         	//Maximize table 1
         	click(table1);
         	
-        	waitResponse();
+        	waitResponse(true);
         	
         	verifyTrue(jq("$table1 .z-panel-body").isVisible());
         	verifyFalse(jq("$table31 .z-panel-body").isVisible());
@@ -142,7 +142,7 @@ class B35_2075723Test extends ZTL4ScalaTestCase {
         	//Maximize table 3-1
         	click(table31);
 
-        	waitResponse();
+        	waitResponse(true);
         	        	
         	verifyTrue(jq("$table1 .z-panel-body").isVisible());
         	verifyTrue(jq("$table31 .z-panel-body").isVisible());
@@ -150,7 +150,7 @@ class B35_2075723Test extends ZTL4ScalaTestCase {
         	//Maximize table 3
         	click(table3);
         	
-        	waitResponse();
+        	waitResponse(true);
         	verifyTrue(jq("$table3 .z-panel-body").isVisible());
         	
         	
