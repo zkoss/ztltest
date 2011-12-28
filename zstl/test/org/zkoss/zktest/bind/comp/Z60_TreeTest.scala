@@ -13,7 +13,7 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 {{IS_RIGHT
 }}IS_RIGHT
 */
-package org.zkoss.zktest.bind.component
+package org.zkoss.zktest.bind.comp
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZKSeleneseTestCase

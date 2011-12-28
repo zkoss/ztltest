@@ -13,7 +13,7 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 {{IS_RIGHT
 }}IS_RIGHT
 */
-package org.zkoss.zktest.bind.component
+package org.zkoss.zktest.bind.comp
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZKSeleneseTestCase
@@ -24,21 +24,19 @@ import org.zkoss.ztl.Tags
  * @author Hawk
  */
 @Tags(tags = "zbind")
-class Z60_MenuitemTest extends ZTL4ScalaTestCase {
-  def testComponent() = {
+class Z60_GroupboxTest extends ZTL4ScalaTestCase {
+  def testContainer() = {
     val zul = {
-    		<include src="bind/component/menuitem.zul"/>
+    		<include src="bind/component/groupbox.zul"/>
     }
     runZTL(zul, () => {
     
       //button
-      val checked = engine $f "checked"
-      ZKSeleneseTestCase.assertEquals("false", getText(checked));
-      click(jq("@menu"))
+      val openStatus = engine $f "openStatus"
+      ZKSeleneseTestCase.assertEquals("false", getText(openStatus));
+      click(jq("@groupbox"))
       waitResponse()
-      click(jq("@menuitem"))
-      waitResponse()
-      ZKSeleneseTestCase.assertEquals("true", getText(checked));
+      ZKSeleneseTestCase.assertEquals("true", getText(openStatus));
     })
   }
 }

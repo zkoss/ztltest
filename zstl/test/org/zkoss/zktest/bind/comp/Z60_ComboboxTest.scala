@@ -13,7 +13,7 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 {{IS_RIGHT
 }}IS_RIGHT
 */
-package org.zkoss.zktest.bind.component
+package org.zkoss.zktest.bind.comp
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZKSeleneseTestCase
@@ -24,19 +24,19 @@ import org.zkoss.ztl.Tags
  * @author Hawk
  */
 @Tags(tags = "zbind")
-class Z60_GroupboxTest extends ZTL4ScalaTestCase {
+class Z60_ComboboxTest extends ZTL4ScalaTestCase {
   def testContainer() = {
     val zul = {
-    		<include src="bind/component/groupbox.zul"/>
+    		<include src="bind/component/combobox.zul"/>
     }
     runZTL(zul, () => {
     
       //button
-      val openStatus = engine $f "openStatus"
-      ZKSeleneseTestCase.assertEquals("false", getText(openStatus));
-      click(jq("@groupbox"))
+      val open = engine $f "open"
+      ZKSeleneseTestCase.assertEquals("false", getText(open));
+      click(jq(".z-combobox-btn"))
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("true", getText(openStatus));
+      ZKSeleneseTestCase.assertEquals("true", getText(open));
     })
   }
 }
