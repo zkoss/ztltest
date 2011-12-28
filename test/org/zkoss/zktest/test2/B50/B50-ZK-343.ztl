@@ -67,7 +67,11 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			waitResponse();
 
 			verifyTrue(parseInt(fz.$n("scrollX").get("scrollLeft")) == oldScrollLeft);
-			verifyTrue(parseInt(lh.$n().get("offsetLeft")) == oldOffsetLeft);
+			
+			if (ZK.is("ff > 6"))
+				verifyTolerant(oldOffsetLeft, parseInt(lh.$n().get("offsetLeft")), 1);
+			else
+				verifyTrue(parseInt(lh.$n().get("offsetLeft")) == oldOffsetLeft);
 		]]></client>
 	</case>
 </test>
