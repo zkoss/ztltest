@@ -27,7 +27,7 @@ import org.zkoss.ztl.Tags
 class Z60_ComboboxTest extends ZTL4ScalaTestCase {
   def testContainer() = {
     val zul = {
-    		<include src="bind/component/combobox.zul"/>
+    		<include src="bind/comp/combobox.zul"/>
     }
     runZTL(zul, () => {
     

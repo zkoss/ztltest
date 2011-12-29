@@ -27,7 +27,7 @@ import org.zkoss.ztl.Tags
 class Z60_PanelTest extends ZTL4ScalaTestCase {
   def testContainer() = {
     val zul = {
-    		<include src="bind/component/panel.zul"/>
+    		<include src="bind/comp/panel.zul"/>
     }
     runZTL(zul, () => {
     

@@ -27,7 +27,7 @@ import org.zkoss.ztl.Tags
 class Z60_WindowTest extends ZTL4ScalaTestCase {
   def testContainer() = {
     val zul = {
-    		<include src="bind/component/window.zul"/>
+    		<include src="bind/comp/window.zul"/>
     }
     runZTL(zul, () => {
     

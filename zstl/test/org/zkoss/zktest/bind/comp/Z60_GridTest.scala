@@ -27,7 +27,7 @@ import org.zkoss.ztl.Tags
 class Z60_GridTest extends ZTL4ScalaTestCase {
   def testGridGroupOpen() = {
     val zul = {
-	<include src="bind/component/grid.zul"/>
+	<include src="bind/comp/grid.zul"/>
     }
     runZTL(zul, () => {
     

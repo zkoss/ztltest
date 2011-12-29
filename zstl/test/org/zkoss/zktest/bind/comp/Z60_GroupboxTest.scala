@@ -27,7 +27,7 @@ import org.zkoss.ztl.Tags
 class Z60_GroupboxTest extends ZTL4ScalaTestCase {
   def testContainer() = {
     val zul = {
-    		<include src="bind/component/groupbox.zul"/>
+    		<include src="bind/comp/groupbox.zul"/>
     }
     runZTL(zul, () => {
     

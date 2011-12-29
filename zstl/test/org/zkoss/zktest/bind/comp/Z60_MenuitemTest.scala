@@ -27,7 +27,7 @@ import org.zkoss.ztl.Tags
 class Z60_MenuitemTest extends ZTL4ScalaTestCase {
   def testComponent() = {
     val zul = {
-    		<include src="bind/component/menuitem.zul"/>
+    		<include src="bind/comp/menuitem.zul"/>
     }
     runZTL(zul, () => {
     

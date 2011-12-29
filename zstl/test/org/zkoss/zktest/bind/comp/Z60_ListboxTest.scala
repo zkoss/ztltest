@@ -27,7 +27,7 @@ import org.zkoss.ztl.Tags
 class Z60_ListboxTest extends ZTL4ScalaTestCase {
   def testListbox() = {
     val zul = {
-	<include src="bind/component/listbox.zul"/>
+	<include src="bind/comp/listbox.zul"/>
     }
     runZTL(zul, () => {
     

@@ -27,7 +27,7 @@ import org.zkoss.ztl.Tags
 class Z60_TreeTest extends ZTL4ScalaTestCase {
   def testAttribute() = {
     val zul = {
-	<include src="bind/component/tree.zul"/>
+	<include src="bind/comp/tree.zul"/>
     }
     runZTL(zul, () => {
     
