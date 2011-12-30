@@ -18,7 +18,6 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.remote.server.handler.interactions.touch.Scroll
 
 /**
  * A test class for bug 2077181
@@ -227,12 +226,20 @@ Today's ceremony was also repeatedly interrupted as another guest SA Labor MP Ni
     runZTL(zscript,
         () => {
         	
-        	//click popup button
+        	var lb=jq("$popup").offsetLeft();
+        	var tb=jq("$popup").offsetTop();
+          
+            //click popup button
             click(jq("$popup"));
             
             var st=System.currentTimeMillis();
         	waitResponse();
         	var end=System.currentTimeMillis()-st;
+        	
+        	var la=jq("$popup").offsetLeft();
+        	var ta=jq("$popup").offsetTop();
+        	verifyEquals(lb,la);
+        	verifyEquals(tb,ta);
         	
         	//Window is popup, response time < 3 seconds
         	verifyTrue(jq(".z-window-popup").isVisible());
@@ -245,7 +252,12 @@ Today's ceremony was also repeatedly interrupted as another guest SA Labor MP Ni
             
             //Window is popup, response time < 3 seconds
         	verifyTrue(jq(".z-window-embedded").isVisible());
-                    
+            
+        	var la1=jq("$popup").offsetLeft();
+        	var ta1=jq("$popup").offsetTop();
+        	verifyEquals(lb,la1);
+        	verifyEquals(tb,ta1);
+        	
         }
     );
    }
