@@ -181,20 +181,25 @@ import org.zkoss.zkmax.zul.Columnchildren;
       val cMid = jq("$cMid").width();
       val cRig = jq("$cRig").width();
 
+      // Record size proportions of the panels
       val previousProportioncLef = jq("$cLef").width().toDouble / jq("$cLay").width().toDouble;
       val previousProportioncMid = jq("$cMid").width().toDouble / jq("$cLay").width().toDouble;
       val previousProportioncRig = jq("$cRig").width().toDouble / jq("$cLay").width().toDouble;
 
+      // Click on first button
       click(engine.$f("modify"));
       waitResponse();
 
+      // Click on second button
       click(engine.$f("remove"));
       waitResponse();
 
+      // Record new size proportions of the panels
       val lastProportioncLef = jq("$cLef").width().toDouble / jq("$cLay").width().toDouble;
       val lastProportioncMid = jq("$cMid").width().toDouble / jq("$cLay").width().toDouble;
       val lastProportioncRig = jq("$cRig").width().toDouble / jq("$cLay").width().toDouble;
 
+      // Verify that the new proportions are equals than previously
       verifyTrue("The proportion must be equal than before the clicks", previousProportioncLef == lastProportioncLef);
       verifyTrue("The proportion must be equal than before the clicks", previousProportioncMid == lastProportioncMid);
       verifyTrue("The proportion must be equal than before the clicks", previousProportioncRig == lastProportioncRig);
