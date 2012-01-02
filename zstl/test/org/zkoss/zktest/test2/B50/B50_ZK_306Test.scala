@@ -50,7 +50,7 @@ class B50_ZK_306Test extends ZTL4ScalaTestCase {
 				</tree>
 				<button id="btn" label="show selected">
 					<attribute name="onClick"><![CDATA[
-						Set s = ((org.zkoss.zul.ext.Selectable) tree.getModel()).getSelection();
+						Set s = tree.getModel().getSelection();
 						Iterator it = s.iterator();
 						StringBuffer sb = new StringBuffer();
 						while (it.hasNext())
@@ -70,7 +70,7 @@ class B50_ZK_306Test extends ZTL4ScalaTestCase {
 				</tree>
 				<button id="btn2" label="show selected">
 					<attribute name="onClick"><![CDATA[
-						Set s = ((org.zkoss.zul.ext.Selectable) tree2.getModel()).getSelection();
+						Set s = tree2.getModel().getSelection();
 						Iterator it = s.iterator();
 						StringBuffer sb = new StringBuffer();
 						while (it.hasNext())

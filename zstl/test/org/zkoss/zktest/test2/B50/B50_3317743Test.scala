@@ -47,6 +47,7 @@ class B50_3317743Test extends ZTL4ScalaTestCase {
 					ListModelList m = new ListModelList();
 					for(int i = 0; i < 20; i++)
 						m.add(i);
+    				m.setMultiple(true);
 				]]></zscript>
 				<listbox id="listbox" onClick="tb.setValue(event.getPageX().toString())" multiple="true" model="${m}" checkmark="true"
 					mold="paging" onCreate="self.setPageSize(5)" />
