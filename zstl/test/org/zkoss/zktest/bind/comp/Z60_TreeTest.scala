@@ -48,7 +48,9 @@ class Z60_TreeTest extends ZTL4ScalaTestCase {
       waitResponse()
       ZKSeleneseTestCase.assertEquals("Root.0.0", getText(selectedLabel));
 
-      
+      click(jq(".z-tree-ico").eq(1))
+      waitResponse()
+      ZKSeleneseTestCase.assertEquals("false", getText(open));
     })
   }
 }
