@@ -71,13 +71,13 @@ class Z60_CollectionIndexCombobox2 extends ZTL4ScalaTestCase {
       outerrows = outerbox.find("@rows").children()
       var itemLabel = Array("A", "C", "D")
       verifyEquals(itemLabel.length, outerrows.length())
-
       for (i <- 0 to itemLabel.length - 1) {
         var outerrow = outerrows.eq(i)
         var combobox = outerrow.find("@combobox")
+        combobox.toWidget().eval("open()") // to show popu first so we can find comboitem in zkmax
+        waitResponse();
         var comboitems = combobox.find("@comboitem")
         verifyEquals(2, comboitems.length())
-
         for (j <- 0 to 1) {
           var comboitem = comboitems.eq(j)
           verifyEquals(itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.toWidget().get("label"))
@@ -100,6 +100,8 @@ class Z60_CollectionIndexCombobox2 extends ZTL4ScalaTestCase {
       for (i <- 0 to itemLabel.length - 1) {
         var outerrow = outerrows.eq(i)
         var combobox = outerrow.find("@combobox")
+        combobox.toWidget().eval("open()") // to show popu first so we can find comboitem in zkmax
+        waitResponse();
         var comboitems = combobox.find("@comboitem")
         verifyEquals(2, comboitems.length())
         for (j <- 0 to 1) {
@@ -124,6 +126,8 @@ class Z60_CollectionIndexCombobox2 extends ZTL4ScalaTestCase {
       for (i <- 0 to itemLabel.length - 1) {
         var outerrow = outerrows.eq(i)
         var combobox = outerrow.find("@combobox")
+        combobox.toWidget().eval("open()") // to show popu first so we can find comboitem in zkmax
+        waitResponse();
         var comboitems = combobox.find("@comboitem")
         verifyEquals(2, comboitems.length())
         for (j <- 0 to 1) {
