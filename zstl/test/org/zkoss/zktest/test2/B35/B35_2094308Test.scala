@@ -64,6 +64,8 @@ left.value + "px";'/>
       // Verify there is no javascript error
       verifyFalse(jq(".z-error").exists());
 
+      // Force an error because the click on sabe button doesn' do the expected work
+      verifyFalse(true);
     })
   }
 }
