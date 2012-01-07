@@ -72,8 +72,9 @@ column should be in the center of Browser window
 
       // So, verify that the window is in the middle. 
       // That is: the position of the window plus the half of his size 
-      // must be equal to the midle of the browser with
-      verifyTrue("The window in the middle should be in the center of the browser", browserWith / 2 == (winPos + winWith / 2));
+      // must be equal to the middle of the browser with. 
+      // The acceptable error is 10 pixels
+      verifyTolerant(browserWith / 2, winPos + winWith / 2, 10);
     })
   }
 }
