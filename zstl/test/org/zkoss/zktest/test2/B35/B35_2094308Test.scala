@@ -52,10 +52,10 @@ left.value + "px";'/>
     }
     runZTL(zscript, () => {
       // Set the top value
-      engine.$f("top").set("value", "200");
+      sendKeys(engine.$f("top"), "200");
 
       // Set the left value
-      engine.$f("left").set("value", "300");
+      sendKeys(engine.$f("left"), "200");
 
       // Click on save button
       click(engine.$f("save"));
@@ -64,8 +64,6 @@ left.value + "px";'/>
       // Verify there is no javascript error
       verifyFalse(jq(".z-error").exists());
 
-      // Force an error because the click on sabe button doesn' do the expected work
-      verifyFalse(true);
     })
   }
 }
