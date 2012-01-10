@@ -18,6 +18,7 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.zkoss.ztl.util.Scripts
 
 /**
  * A test class for bug 2077181
@@ -246,7 +247,8 @@ Today's ceremony was also repeatedly interrupted as another guest SA Labor MP Ni
         	verifyTrue(end<3000);
         	
         	//click Embedded button
-        	click(jq("$embed"));
+        	// cannot use click() in this case
+        	Scripts.triggerMouseEventAt(driver, jq("$embed"), "click", "2,2");
         	
             waitResponse();
             

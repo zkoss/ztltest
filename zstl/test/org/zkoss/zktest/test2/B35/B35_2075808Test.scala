@@ -200,9 +200,9 @@ import org.zkoss.zkmax.zul.Columnchildren;
       val lastProportioncRig = jq("$cRig").width().toDouble / jq("$cLay").width().toDouble;
 
       // Verify that the new proportions are equals than previously
-      verifyTrue("The proportion must be equal than before the clicks", previousProportioncLef == lastProportioncLef);
-      verifyTrue("The proportion must be equal than before the clicks", previousProportioncMid == lastProportioncMid);
-      verifyTrue("The proportion must be equal than before the clicks", previousProportioncRig == lastProportioncRig);
+      verifyEquals("The proportion must be equal than before the clicks", previousProportioncLef, lastProportioncLef);
+      verifyEquals("The proportion must be equal than before the clicks", previousProportioncMid, lastProportioncMid);
+      verifyEquals("The proportion must be equal than before the clicks", previousProportioncRig, lastProportioncRig);
     })
   }
 }

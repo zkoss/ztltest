@@ -146,7 +146,7 @@ onClick="gb2.setOpen(!gb2.isOpen());"/>
         	verifyEquals((bl3w*.3).intValue(),w3w);
         	
         	var c3w=jq("$bl3 .z-center-body").width().intValue()+6;
-        	verifyEquals((bl3w*.4).intValue(),c3w+1);
+        	verifyTolerant((bl3w*.4).intValue(), c3w+1, 1);
         	
         	//Verify border
         	verifyEquals(jq("$bl3 .z-center").css("border-top-width"),"1px");
@@ -155,7 +155,7 @@ onClick="gb2.setOpen(!gb2.isOpen());"/>
         	verifyEquals(jq("$bl3 .z-center").css("border-bottom-width"),"1px");
         	
         	var e3w=jq("$e3 ").width().intValue();
-        	verifyEquals((bl3w*.3).intValue(),e3w);
+        	verifyTolerant((bl3w*.3).intValue(), e3w, 1);
         	
         	//Vertical dimensions
         	

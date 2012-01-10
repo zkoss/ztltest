@@ -43,15 +43,22 @@ class B35_2149043Test extends ZTL4ScalaTestCase {
       </window>
     }
     runZTL(zscript, () => {
-      // Click on Change image button
-      click(jq("button"));
-      waitResponse();
 
       // Record the image after the click on the button
+      val (height, width) = (jq("$f1").outerHeight(), jq("$f1").outerWidth())
+      // Click on Change image button
+      click(jq("@button"));
+      waitResponse();
       val img = engine.$f("f1").get("image");
 
       // Verify that the image is changed
       verifyTrue("The image should be /test2/img/icon_email.png", img.contains("/test2/img/icon_email.png"));
+      
+      for ( i <- -20 to 10 by(5))
+    	  mouseMoveAt(jq("$f1"), i + "," + i);
+      waitResponse();
+      verifyTrue(height < jq("$f1").outerHeight());
+      verifyTrue(width < jq("$f1").outerWidth());
 
     })
   }

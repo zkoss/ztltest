@@ -49,7 +49,7 @@ class B30_1823959Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
       // Click the button
-      click(jq("button"));
+      click(jq("@button"));
       
       // Verify there is no javascript error
       verifyFalse(jq(".z-error").exists());
