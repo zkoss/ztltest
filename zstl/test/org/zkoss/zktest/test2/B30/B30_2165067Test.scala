@@ -57,14 +57,14 @@ class B30_2165067Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
       // Verify the existence of the labels
-      verifyTrue("The tree labels should does not exists", jq(".z-label:contains(test)").get(0).exists() && jq(".z-label:contains(test)").get(1).exists() && jq(".z-label:contains(test)").get(2).exists());
+      verifyTrue("The tree labels should does not exists", jq(".z-label:contains(test)").length()==3);
 
       // Click on the button
       click(jq("@button").get(1));
       waitResponse();
 
       // Verify the inexistence of the labels
-      verifyFalse("The tree labels should does not exists", jq(".z-label:contains(test)").get(0).exists() && jq(".z-label:contains(test)").get(1).exists() && jq(".z-label:contains(test)").get(2).exists());
+      verifyFalse("The tree labels should does not exists", jq(".z-label:contains(test)").length()==3);
 
       // Verify the existence of the "Button 2"
       verifyTrue("The button 'Button 2' should does exists", jq("@button:contains(Button 2)").exists());
