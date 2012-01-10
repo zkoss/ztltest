@@ -19,6 +19,7 @@ package org.zkoss.zktest.test2.B30
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
+import org.zkoss.ztl.Element
 
 /**
  * @author Fernando Selvatici
@@ -37,8 +38,14 @@ class B30_2125788Test extends ZTL4ScalaTestCase {
       </window>
     }
     runZTL(zscript, () => {
+      def dragDrop(from: Element, fromPos: String, to: Element, toPos: String) {
+        mouseDownAt(from, fromPos);
+        mouseMoveAt(to, toPos);
+        mouseUpAt(to, toPos);
+        waitResponse();
+      }
+
       // Click on first button
-      
       click(jq("button").get(1));
       waitResponse();
 
