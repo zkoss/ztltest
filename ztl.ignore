@@ -54,11 +54,6 @@ B30-1914104-1.ztl
 B30-1914104-2.ztl
 B30-1878840.ztl
 B50-ZK-692.ztl
-// zkbind
-Z60-Combobutton.ztl
-Z60-Groupbox.ztl
-Z60-RadiogroupSelected.ztl
-Z60-Tree.ztl
 }
 ie9={
 // unsupported
@@ -131,4 +126,10 @@ Z60-Va09.ztl
 Z60-Va10.ztl
 Z60-Va11.ztl
 Z60-Va12.ztl
+// zkbind
+Z60-Combobutton.ztl
+Z60-Groupbox.ztl
+Z60-RadiogroupSelected.ztl
+Z60-Tree.ztl
+Z60-Panel.ztl
 }
