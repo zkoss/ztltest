@@ -127,4 +127,10 @@ Z60-Va09.ztl
 Z60-Va10.ztl
 Z60-Va11.ztl
 Z60-Va12.ztl
+// zkbind
+Z60-Combobutton.ztl
+Z60-Groupbox.ztl
+Z60-RadiogroupSelected.ztl
+Z60-Tree.ztl
+Z60-Panel.ztl
 }
