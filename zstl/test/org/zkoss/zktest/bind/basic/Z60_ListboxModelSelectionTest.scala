@@ -14,6 +14,7 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 }}IS_RIGHT
 */
 package org.zkoss.zktest.bind.basic
+import org.zkoss.ztl.Widget
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZKSeleneseTestCase
 import org.openqa.selenium.Keys
@@ -79,7 +80,8 @@ class Z60_ListboxModelSelectionTest extends ZTL4ScalaTestCase {
       var outeritem = outeritems.nextSibling() // select 2nd
       click(outeritem.firstChild()) // click on listitem is not work if it has listbox inside, (it will click on the inside listbox)
       waitResponse()
-      verifyEquals("1", outerbox.get("selectedIndex"))
+      // verifyEquals("1", outerbox.get("selectedIndex"))
+      verifyEquals(1, getListboxSelectedIndex(outerbox))
       verifyEquals("", msg.get("value"))
       click(jq("$btn1").toWidget())
       waitResponse()
@@ -87,8 +89,30 @@ class Z60_ListboxModelSelectionTest extends ZTL4ScalaTestCase {
       outeritems = outerbox.firstChild() // include header
       outeritems = outeritems.nextSibling() // don't care header
       outeritem = outeritems.nextSibling() // select 2nd
-      verifyEquals(outeritem.uuid(), outerbox.eval("getSelectedItem().uuid"))
+      // verifyEquals(outeritem.uuid(), outerbox.eval("getSelectedItem().uuid"))
+      verifyEquals(outeritem.uuid(), getListboxSelectedItem(outerbox).uuid())
       verifyEquals("reloaded", msg.get("value"))
     })
+  }
+
+  def getListboxSelectedItem(listbox: Widget): Widget = {
+    var listitems = listbox.firstChild(); // include header
+    for (i <- 0 to listbox.nChildren() - 2) {
+      listitems = listitems.nextSibling();
+      if (listitems.is("selected"))
+        return listitems;
+    }
+    return null;
+  }
+
+  def getListboxSelectedIndex(listbox: Widget): Int = {
+    var listitems = listbox.firstChild(); // include header
+    var selectedIndex = -1;
+    for (i <- 0 to listbox.nChildren() - 2) {
+      listitems = listitems.nextSibling();
+      if (listitems.is("selected"))
+        selectedIndex = i;
+    }
+    return selectedIndex;
   }
 }
