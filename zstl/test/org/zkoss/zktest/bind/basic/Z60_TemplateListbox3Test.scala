@@ -28,88 +28,88 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
     }
 
     runZTL(zul, () => {
-      		var outerbox = jq("$outerbox").toWidget();
-		var outeritems = outerbox.firstChild(); // include header
-		var itemLabel = Array( "A", "B", "C", "D" );
-		verifyEquals(itemLabel.length, outerbox.nChildren() - 1);
-		var outeritem = outeritems;
+      		var outerbox = jq("$outerbox").toWidget()
+		var outeritems = outerbox.firstChild() // include header
+		var itemLabel = Array( "A", "B", "C", "D" )
+		verifyEquals(itemLabel.length, outerbox.nChildren() - 1)
+		var outeritem = outeritems
 		for(i <- 0 to itemLabel.length - 1)
 		{
-			outeritem = outeritem.nextSibling();
-			var outerl = itemLabel(i);
-			var cell = outeritem.firstChild();
-			verifyEquals("" + i, cell.get("label"));// verify the index
-			cell = cell.nextSibling();
-			verifyEquals(outerl, cell.get("label"));// verify the label
+			outeritem = outeritem.nextSibling()
+			var outerl = itemLabel(i)
+			var cell = outeritem.firstChild()
+			verifyEquals("" + i, cell.get("label"))// verify the index
+			cell = cell.nextSibling()
+			verifyEquals(outerl, cell.get("label"))// verify the label
 			// verify template
-			cell = outeritem.lastChild();
+			cell = outeritem.lastChild()
 			if(outerl.equals("A") || i == 2)
-				verifyEquals("Model1", cell.get("label"));
+				verifyEquals("Model1", cell.get("label"))
 			else
-				verifyEquals("Model2", cell.get("label"));
+				verifyEquals("Model2", cell.get("label"))
 		}
 		// ==============================================
-		var buttons = jq("@button");
+		var buttons = jq("@button")
 		
 		for(i <- 0 to buttons.length() -1)
 		{
-			var btn = buttons.eq(i).toWidget();
+			var btn = buttons.eq(i).toWidget()
 			if("change1".equals(btn.get("label")))
 			{
-				click(btn);
-				waitResponse();
+				click(btn)
+				waitResponse()
 			}
 		}
-		outerbox = jq("$outerbox").toWidget();
-		outeritems = outerbox.firstChild(); // include header
-		itemLabel = Array( "X", "A", "C", "D" );
-		verifyEquals(itemLabel.length, outerbox.nChildren() - 1);
-		outeritem = outeritems;
+		outerbox = jq("$outerbox").toWidget()
+		outeritems = outerbox.firstChild() // include header
+		itemLabel = Array( "X", "A", "C", "D" )
+		verifyEquals(itemLabel.length, outerbox.nChildren() - 1)
+		outeritem = outeritems
 		for(i <- 0 to itemLabel.length - 1)
 		{
-			outeritem = outeritem.nextSibling();
-			var outerl = itemLabel(i);
-			var cell = outeritem.firstChild();
-			verifyEquals("" + i, cell.get("label"));// verify the index
-			cell = cell.nextSibling();
-			verifyEquals(outerl, cell.get("label"));// verify the label
+			outeritem = outeritem.nextSibling()
+			var outerl = itemLabel(i)
+			var cell = outeritem.firstChild()
+			verifyEquals("" + i, cell.get("label"))// verify the index
+			cell = cell.nextSibling()
+			verifyEquals(outerl, cell.get("label"))// verify the label
 			// verify template
-			cell = outeritem.lastChild();
+			cell = outeritem.lastChild()
 			if(outerl.equals("A") || i == 2)
-				verifyEquals("Model1", cell.get("label"));
+				verifyEquals("Model1", cell.get("label"))
 			else
-				verifyEquals("Model2", cell.get("label"));
+				verifyEquals("Model2", cell.get("label"))
 		}
 		// ==============================================
-		buttons = jq("@button");
+		buttons = jq("@button")
 		for(i <- 0 to buttons.length() -1)
 		{
-			var btn = buttons.eq(i).toWidget();
+			var btn = buttons.eq(i).toWidget()
 			if("change2".equals(btn.get("label")))
 			{
-				click(btn);
-				waitResponse();
+				click(btn)
+				waitResponse()
 			}
 		}
-		outerbox = jq("$outerbox").toWidget();
-		outeritems = outerbox.firstChild(); // include header
-		itemLabel = Array( "A", "B", "C", "D");
-		verifyEquals(itemLabel.length, outerbox.nChildren() - 1);
-		outeritem = outeritems;
+		outerbox = jq("$outerbox").toWidget()
+		outeritems = outerbox.firstChild() // include header
+		itemLabel = Array( "A", "B", "C", "D")
+		verifyEquals(itemLabel.length, outerbox.nChildren() - 1)
+		outeritem = outeritems
 		for(i <- 0 to itemLabel.length - 1)
 		{
-			outeritem = outeritem.nextSibling();
-			var outerl = itemLabel(i);
-			var cell = outeritem.firstChild();
-			verifyEquals("" + i, cell.get("label"));// verify the index
-			cell = cell.nextSibling();
-			verifyEquals(outerl, cell.get("label"));// verify the label
+			outeritem = outeritem.nextSibling()
+			var outerl = itemLabel(i)
+			var cell = outeritem.firstChild()
+			verifyEquals("" + i, cell.get("label"))// verify the index
+			cell = cell.nextSibling()
+			verifyEquals(outerl, cell.get("label"))// verify the label
 			// verify template
-			cell = outeritem.lastChild();
+			cell = outeritem.lastChild()
 			if(outerl.equals("A") || i == 2)
-				verifyEquals("Model1", cell.get("label"));
+				verifyEquals("Model1", cell.get("label"))
 			else
-				verifyEquals("Model2", cell.get("label"));
+				verifyEquals("Model2", cell.get("label"))
 		}
     })
   }
