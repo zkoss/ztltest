@@ -66,16 +66,26 @@ B36-2813877.ztl
 B50-3303725.ztl
 B50-3303684.ztl
 B30-1894208.ztl
+// zkbind
+Z60-RadiogroupSelected.ztl
+}
+ie8={
+// zkbind
+Z60-RadiogroupSelected.ztl
 }
 ie7={
 // unstable
 B30-1876292.zul
 // unsupported
 B35-2073451.ztl
+// zkbind
+Z60-Panel.zul
 }
 ie6={
 // unsupported
 B35-2073451.ztl
+// zkbind
+Z60-Panel.zul
 }
 chrome={
 // unsupported
