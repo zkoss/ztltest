@@ -79,7 +79,10 @@
             focus(combobox);
             sendKeys(combobox, "ttt");
             blur(combobox);
-            click(reset);
+            if (ZK.is("ie"))
+				Scripts.triggerMouseEventAt(getWebDriver(), reset, "click", "2,2");
+			else
+            	click(reset);
             waitResponse();
             verifyTrue(combobox.val().isEmpty());
 		]]></client>
