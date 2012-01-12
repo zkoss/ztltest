@@ -35,10 +35,12 @@ class B30_2208873Test extends ZTL4ScalaTestCase {
         You shall see a listbox with one, two, tree, four
         <separator/>
         <zscript language="Python">
+          <![CDATA[
           from java.lang import String
 
 inputArray = ["one", "two", "three", "four"]
 print "input String Array =", inputArray
+        ]]>
         </zscript>
         <listbox width="100px">
           <listitem label="${each}" forEach="${inputArray}"/>
