@@ -31,10 +31,14 @@ import org.zkoss.ztl.util.Scripts
 class B30_2199361Test extends ZTL4ScalaTestCase {
   def testClick() = {
     val zscript = {
-      <zk>
-        <separator/>
-        You shall see "Hello, Initiator" above this.
-      </zk>
+      """
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zktest.test2.B2199361"?>
+<zk>
+<separator/>
+You shall see "Hello, Initiator" above this.
+</zk>
+      """
     }
     runZTL(zscript, () => {
       // Verify the existence of the "Hello, Initiator" label. Should be a count of 2 because of the explanation label
