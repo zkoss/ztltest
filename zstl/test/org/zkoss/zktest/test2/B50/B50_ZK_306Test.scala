@@ -84,6 +84,7 @@ class B50_ZK_306Test extends ZTL4ScalaTestCase {
 					tree.setModel(new org.zkoss.zul.DefaultTreeModel(org.zkoss.zktest.test2.tree.PackageData.getRoot()));
 					tree2.setItemRenderer(new org.zkoss.zktest.test2.tree.DirectoryTreeitemRenderer());
 					tree2.setModel(new org.zkoss.zul.DefaultTreeModel(org.zkoss.zktest.test2.tree.PackageData.getRoot()));
+    				tree2.getModel().setMultiple(true);
 				]]></zscript>
 			</zk>
     }

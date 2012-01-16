@@ -38,7 +38,7 @@ class B30_2080237Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
       // Click the button
-      click(jq("button"));
+      click(jq("@menuitem")); 
       waitForPageToLoad("5000")
       // Verify that the zkoss page is opened by verifying the existence of the "Demo" button
       verifyNotEquals("The page www.zkoss.org should not be visible", getLocation(), "http://www.zkoss.org");

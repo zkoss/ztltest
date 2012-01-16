@@ -30,23 +30,8 @@ import org.zkoss.ztl.util.Scripts
 @Tags(tags = "B30-2208873.zul,B,E,Window,Button")
 class B30_2208873Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
-      <zk>
-        You shall see a listbox with one, two, tree, four
-        <separator/>
-        <zscript language="Python">
-          <![CDATA[
-          from java.lang import String
-
-inputArray = ["one", "two", "three", "four"]
-print "input String Array =", inputArray
-        ]]>
-        </zscript>
-        <listbox width="100px">
-          <listitem label="${each}" forEach="${inputArray}"/>
-        </listbox>
-      </zk>
-    }
+  	target = ch.getServer() + ch.getContextPath() + "/test2/B30-2208873.zul"
+    val zscript = ""
     runZTL(zscript, () => {
       // Verifying each of the cells
       verifyTrue("Item one should be visible", jq(".z-listcell-cnt:contains(one)").exists());

@@ -30,16 +30,8 @@ import org.zkoss.ztl.util.Scripts
 @Tags(tags = "B30-2199361.zul,B,E,Window,Button")
 class B30_2199361Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
-      """
-<?xml version="1.0" encoding="UTF-8"?>
-<?init class="org.zkoss.zktest.test2.B2199361"?>
-<zk>
-<separator/>
-You shall see "Hello, Initiator" above this.
-</zk>
-      """
-    }
+  	target = ch.getServer() + ch.getContextPath() + "/test2/B30-2199361.zul"
+    val zscript = ""
     runZTL(zscript, () => {
       // Verify the existence of the "Hello, Initiator" label. Should be a count of 2 because of the explanation label
       verifyTrue("The label \"Hello, Initiator\" should be visible above the separator", jq(".z-label:contains(Hello, Initiator)").length() == 2);

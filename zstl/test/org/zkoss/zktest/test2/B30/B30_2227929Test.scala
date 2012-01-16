@@ -45,7 +45,7 @@ class B30_2227929Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
       // Click on first button
-      click(jq("button").get(0));
+      click(jq("@button").get(0));
       waitResponse();
 
       // Verify that the components aren't visible
@@ -55,7 +55,7 @@ class B30_2227929Test extends ZTL4ScalaTestCase {
       verifyFalse("", jq("@textbox").attr("value").equals("2227929"));
       
       // Click on "Attach" button
-      click(jq("button").get(1));
+      click(jq("@button").get(1));
       waitResponse();
     
       // Verify that the components are visible
