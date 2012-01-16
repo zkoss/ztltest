@@ -11,12 +11,12 @@
 	<div>
 		You should see item 300 selected and visible in the listbox. (Note: need be correct for both ROD and non-ROD.)
 	</div>
-	<listbox width="300px" height="300px" model="${model}" onCreate='self.selectedIndex = 300' >
+	<listbox width="300px" height="300px" model="${model}" onCreate='model.addSelectionInterval(300, 300);' >
 			<listhead>
 				<listheader label="Rod"/>
 			</listhead>
 		</listbox>
-		<listbox width="300px" height="300px" model="${model}" onCreate='self.selectedIndex = 300' >
+		<listbox width="300px" height="300px" model="${model}" onCreate='model.addSelectionInterval(300, 300);' >
 			<listhead>
 				<listheader label="non-ROD."/>
 			</listhead>
