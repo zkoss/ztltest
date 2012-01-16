@@ -1,4 +1,4 @@
-/* Z60_Listbox_ListModelArray_RODTest.scala
+/* Z60_Listbox_ListModelArray_Paging_MultipleTest.scala
 
 {{IS_NOTE
 	Purpose:
@@ -6,7 +6,7 @@
 	Description:
 		
 	History:
-		Fri Jan 13 15:16:05 CST 2012 , Created by benbai
+		Mon Jan 16 15:44:16 CST 2012 , Created by benbai
 }}IS_NOTE
 
 Copyright (C) 2011 Potix Corporation. All Rights Reserved.
@@ -29,22 +29,22 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug Listbox-ListModelArray-ROD
+ * A test class for bug Listbox-ListModelArray-Paging-Multiple
  * @author benbai
  *
  */
-@Tags(tags = "Z60-Listbox-ListModelArray-ROD.zul,Z60,A,E,Listbox,ListModelArray,ROD")
-class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
+@Tags(tags = "Z60-Listbox-ListModelArray-Paging-Multiple.zul,Z60,A,E,Listbox,Paging,Multiople,ListModelArray")
+class Z60_Listbox_ListModelArray_Paging_MultipleTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<zscript>
 					<![CDATA[
 					import org.zkoss.zktest.test2.select.models.*;
 					
-					ListModelArray model = ListModelArrays.getModel(ListModelArrays.DEFAULT);
-					ListModelArray model2 = ListModelArrays.getModel(ListModelArrays.CLONEABLE);
+					ListModelArray model = ListModelArrays.getModel(ListModelArrays.MULTIPLE);
+					ListModelArray model2 = ListModelArrays.getModel(ListModelArrays.MULTIPLE_AND_CLONEABLE);
 			
 					int cnt = 0;
 					int elemcnt = 0;
@@ -52,12 +52,12 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
 					public void checkEqualSelection (String idOne, String idTwo, Label msg) {
 						Listbox lbOne = msg.getPage().getFellow(idOne);
 						Listbox lbTwo = msg.getPage().getFellow(idTwo);
-						Set s1 = lbOne.getSelectedItems();
-						Set s2 = lbTwo.getSelectedItems();
+						Set s1 = lbOne.getModel().getSelection();
+						Set s2 = lbTwo.getModel().getSelection();
 						boolean matched = false;
 						for (Object o : s1) {
 							for (Object o2 : s2) {
-								if (((Listitem)o).getValue().equals(((Listitem)o2).getValue())) {
+								if (o.equals(o2)) {
 									matched = true;
 									break;
 								}
@@ -70,24 +70,41 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
 						}
 						msg.setValue("true");
 					}
+					public void showSelection (String idOne, Label msg) {
+						Listbox lbOne = msg.getPage().getFellow(idOne);
+						Set s1 = lbOne.getModel().getSelection();
+						StringBuilder sb = new StringBuilder("");
+						boolean matched = false;
+						for (Object o : s1) {
+							sb.append(o);
+						}
+						msg.setValue(sb.toString());
+					}
+					public void changePage(String id, String itemNumber, Page page) {
+						Listbox lbx = page.getFellow(id);
+						int inm = Integer.parseInt(itemNumber);
+						lbx.setActivePage(inm/lbx.getPageSize());
+					}
 				]]></zscript>
 				<div>
 					<div>1. There are 3 Listbox below.</div>
 					<div>2. For first two Listbox, their select status will sync automatically after you select item.</div>
-					<div>3. Select data 10 of third Listbox.</div>
-					<div>4. Click clone and 'clone by serialization', then two Listboxes should be created and also select data 10.</div>
-					<div>5. Select data 212 of third Listbox, data 213 of fourth and data 214 of fifth, the select status of last three listbox should not sync.</div>
-					<div>6. Click clone and 'clone by serialization', you should see two Listboxes created and each Listbox after fifth Listbox select data 212.</div>
+					<div>3. Select data 10 and data 11 of third Listbox.</div>
+					<div>4. Click clone and 'clone by serialization', then two Listboxes should be created and also select data 10 and data 11.</div>
+					<div>5. Hold Ctrl then Select data 212 of third Listbox, data 213 of fourth and data 214 of fifth, the select status of last three listbox should not sync.</div>
+					<div>6. Click clone and 'clone by serialization', you should see two Listboxes created and each Listbox after fifth Listbox select data 10, 11 and 212.</div>
 				</div>
 				<hbox>
-					<listbox id="lbxOne" height="150px" width="140px" model="${model}" onSelect="" checkmark="true" />
-					<listbox id="lbxTwo" height="150px" width="140px" model="${model}" onSelect="" checkmark="true" />
-					<listbox id="lbxThree" height="150px" width="140px" model="${model2}" onSelect="" checkmark="true" />
+					<listbox id="lbxOne" height="150px" width="310px" mold="paging" pageSize="10" model="${model}" onSelect="" checkmark="true" />
+					<listbox id="lbxTwo" height="150px" width="310px" mold="paging" pageSize="10" model="${model}" onSelect="" checkmark="true" />
+					<listbox id="lbxThree" height="150px" width="310px" mold="paging" pageSize="10" model="${model2}" onSelect="" checkmark="true" />
 				</hbox>
 				<hbox>
 					<textbox id="tbOne" value="box one" />
 					<textbox id="tbTwo" value="box two" />
 					<button id="btnOne" label="check equal selection" onClick='checkEqualSelection(tbOne.getValue(), tbTwo.getValue(), msg);' />
+					<button id="btnFour" label="show selection" onClick='showSelection(tbOne.getValue(), msg);' />
+					<button id="pagingBtn" label="go to page" onClick='changePage(tbOne.getValue(), tbTwo.getValue(), self.getPage());' />
 					<label id="msg" />
 				</hbox>
 				<div height="10px"></div>
@@ -112,8 +129,9 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
 				<hbox id="cloneThreeArea" />
 			</zk>
 
-    }
-   runZTL(zscript,
+    """
+
+    runZTL(zscript,
         () => {
         var lbxOne: Widget = engine.$f("lbxOne");
         var lbxTwo: Widget = engine.$f("lbxTwo");
@@ -123,21 +141,36 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
         var btnOne: Widget = engine.$f("btnOne");
         var btnTwo: Widget = engine.$f("btnTwo");
         var btnThree: Widget = engine.$f("btnThree");
+        var btnFour: Widget = engine.$f("btnFour");
+        var pagingBtn: Widget = engine.$f("pagingBtn");
         var msg: Widget = engine.$f("msg");
         var itemHgh: Int = jq(lbxOne.$n()).find(".z-listitem").outerHeight(true);
+        var checkList: java.util.List[Int] = new java.util.ArrayList[Int]();
 
         def selectItem = (id: String, num: Int) => {
           var lbx: Widget = engine.$f(id);
-          if (num > 2)
-            lbx.$n("body").eval("scrollTop = " + (num-1)*itemHgh);
-          else
-            lbx.$n("body").eval("scrollTop = " + 0);
-          if (!isOpera()) // wait ROD if any
-        	  sleep(1000);
+          input(tbOne.$n(), id);
+          input(tbTwo.$n(), num+"");
+          click(pagingBtn);
+          waitResponse();
           var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0);
-          if (isOpera()) // opera rod will do after get listitem
-        	  sleep(1000);
           click(listitem);
+        }
+        // check whether the selection of a listbox contains exactly the content in check list
+        def checkSelection = (toCheck: java.util.List[Int], id: String) => {
+          input(tbOne.$n(), id);
+          click(btnFour);
+          waitResponse();
+          var selection: String = msg.$n().get("innerHTML");
+          var item: String = "";
+          for (i <- 0 to toCheck.size()-1) {
+            item = "data "+toCheck.get(i);
+            verifyTrue("the selection of "+id+"should contains "+item,
+                selection.contains(item));
+            selection = selection.replace(item, "");
+          }
+          verifyTrue("the selection should exactly contains the check list data, no more",
+              selection.length() == 0);
         }
         def checkEqualSelection = (idOne: String, idTwo: String, assertValue: Boolean) => {
           input(tbOne.$n(), idOne);
@@ -163,19 +196,39 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
         checkEqualSelection("lbxOne", "lbxTwo", true);
 
         selectItem("lbxThree", 10);
+        selectItem("lbxThree", 11);
         click(btnTwo);
         sleep(1000);
         click(btnThree);
         sleep(1000);
+
+        checkList.add(10);
+        checkList.add(11);
+        checkSelection(checkList, "lbxThree");
+
         checkEqualSelection("lbxThree", "lbxThree_clone0", true);
         checkEqualSelection("lbxThree", "lbxThree_serialize1", true);
         selectItem("lbxThree", 212);
         selectItem("lbxThree_clone0", 213);
         selectItem("lbxThree_serialize1", 214);
+
         checkEqualSelection("lbxThree", "lbxThree_clone0", false);
         checkEqualSelection("lbxThree", "lbxThree_serialize1", false);
         checkEqualSelection("lbxThree_clone0", "lbxThree_serialize1", false);
 
+        click(btnTwo);
+        sleep(1000);
+        click(btnThree);
+        sleep(1000);
+
+        checkList.clear();
+        checkList.add(10);
+        checkList.add(11);
+        checkList.add(212);
+        checkSelection(checkList, "lbxThree");
+
+        checkEqualSelection("lbxThree", "lbxThree_clone2", true);
+        checkEqualSelection("lbxThree", "lbxThree_serialize3", true);
     }
    );
   }

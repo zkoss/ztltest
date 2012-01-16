@@ -1,4 +1,4 @@
-/* Z60_Listbox_ListModelArray_RODTest.scala
+/* Z60_Listbox_SimpleListModel_RODTest.scala
 
 {{IS_NOTE
 	Purpose:
@@ -6,7 +6,7 @@
 	Description:
 		
 	History:
-		Fri Jan 13 15:16:05 CST 2012 , Created by benbai
+		Mon Jan 16 09:56:12 CST 2012 , Created by benbai
 }}IS_NOTE
 
 Copyright (C) 2011 Potix Corporation. All Rights Reserved.
@@ -29,22 +29,22 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug Listbox-ListModelArray-ROD
+ * A test class for bug Listbox-SimpleListModel-ROD
  * @author benbai
  *
  */
-@Tags(tags = "Z60-Listbox-ListModelArray-ROD.zul,Z60,A,E,Listbox,ListModelArray,ROD")
-class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
+@Tags(tags = "Z60-Listbox-SimpleListModel-ROD.zul,Z60,A,E,Listbox,SimpleListModel,ROD")
+class Z60_Listbox_SimpleListModel_RODTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
     val zscript = {
 			<zk>
 				<zscript>
 					<![CDATA[
-					import org.zkoss.zktest.test2.select.models.*;
+			 		import org.zkoss.zktest.test2.select.models.*;
 					
-					ListModelArray model = ListModelArrays.getModel(ListModelArrays.DEFAULT);
-					ListModelArray model2 = ListModelArrays.getModel(ListModelArrays.CLONEABLE);
+			 		SimpleListModel model = SimpleListModels.getModel(SimpleListModels.DEFAULT);
+			 		SimpleListModel model2 = SimpleListModels.getModel(SimpleListModels.CLONEABLE);
 			
 					int cnt = 0;
 					int elemcnt = 0;
@@ -113,6 +113,7 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
 			</zk>
 
     }
+
    runZTL(zscript,
         () => {
         var lbxOne: Widget = engine.$f("lbxOne");
@@ -175,7 +176,6 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
         checkEqualSelection("lbxThree", "lbxThree_clone0", false);
         checkEqualSelection("lbxThree", "lbxThree_serialize1", false);
         checkEqualSelection("lbxThree_clone0", "lbxThree_serialize1", false);
-
     }
    );
   }

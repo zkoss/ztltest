@@ -1,4 +1,4 @@
-/* Z60_Listbox_ListModelArray_RODTest.scala
+/* Z60_Listbox_ListModelList_noRODTest.scala
 
 {{IS_NOTE
 	Purpose:
@@ -6,7 +6,7 @@
 	Description:
 		
 	History:
-		Fri Jan 13 15:16:05 CST 2012 , Created by benbai
+		Mon Jan 16 18:15:01 CST 2012 , Created by benbai
 }}IS_NOTE
 
 Copyright (C) 2011 Potix Corporation. All Rights Reserved.
@@ -29,12 +29,12 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug Listbox-ListModelArray-ROD
+ * A test class for bug Listbox-ListModelList-noROD
  * @author benbai
  *
  */
-@Tags(tags = "Z60-Listbox-ListModelArray-ROD.zul,Z60,A,E,Listbox,ListModelArray,ROD")
-class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
+@Tags(tags = "Z60-Listbox-ListModelList-noROD.zul,Z60,A,E,Listbox,ListModelList")
+class Z60_Listbox_ListModelList_noRODTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
     val zscript = {
@@ -43,8 +43,8 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
 					<![CDATA[
 					import org.zkoss.zktest.test2.select.models.*;
 					
-					ListModelArray model = ListModelArrays.getModel(ListModelArrays.DEFAULT);
-					ListModelArray model2 = ListModelArrays.getModel(ListModelArrays.CLONEABLE);
+					ListModelList model = ListModelLists.getModel(ListModelLists.DEFAULT);
+					ListModelList model2 = ListModelLists.getModel(ListModelLists.CLONEABLE);
 			
 					int cnt = 0;
 					int elemcnt = 0;
@@ -52,12 +52,12 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
 					public void checkEqualSelection (String idOne, String idTwo, Label msg) {
 						Listbox lbOne = msg.getPage().getFellow(idOne);
 						Listbox lbTwo = msg.getPage().getFellow(idTwo);
-						Set s1 = lbOne.getSelectedItems();
-						Set s2 = lbTwo.getSelectedItems();
+						Set s1 = lbOne.getModel().getSelection();
+						Set s2 = lbTwo.getModel().getSelection();
 						boolean matched = false;
 						for (Object o : s1) {
 							for (Object o2 : s2) {
-								if (((Listitem)o).getValue().equals(((Listitem)o2).getValue())) {
+								if (o.equals(o2)) {
 									matched = true;
 									break;
 								}
@@ -70,6 +70,16 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
 						}
 						msg.setValue("true");
 					}
+    				public void showSelection (String idOne, Label msg) {
+						Listbox lbOne = msg.getPage().getFellow(idOne);
+						Set s1 = lbOne.getModel().getSelection();
+						StringBuilder sb = new StringBuilder("");
+						boolean matched = false;
+						for (Object o : s1) {
+							sb.append(o);
+						}
+						msg.setValue(sb.toString());
+					}
 				]]></zscript>
 				<div>
 					<div>1. There are 3 Listbox below.</div>
@@ -78,7 +88,10 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
 					<div>4. Click clone and 'clone by serialization', then two Listboxes should be created and also select data 10.</div>
 					<div>5. Select data 212 of third Listbox, data 213 of fourth and data 214 of fifth, the select status of last three listbox should not sync.</div>
 					<div>6. Click clone and 'clone by serialization', you should see two Listboxes created and each Listbox after fifth Listbox select data 212.</div>
+					<div>7. Click 'insert item', each select of Listbox should not be changed.</div>
+					<div>8. Click 'remove item', each select of Listbox should not be changed.</div>
 				</div>
+				<custom-attributes org.zkoss.zul.listbox.rod="false" />
 				<hbox>
 					<listbox id="lbxOne" height="150px" width="140px" model="${model}" onSelect="" checkmark="true" />
 					<listbox id="lbxTwo" height="150px" width="140px" model="${model}" onSelect="" checkmark="true" />
@@ -88,6 +101,7 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
 					<textbox id="tbOne" value="box one" />
 					<textbox id="tbTwo" value="box two" />
 					<button id="btnOne" label="check equal selection" onClick='checkEqualSelection(tbOne.getValue(), tbTwo.getValue(), msg);' />
+					<button id="btnFour" label="show selection" onClick='showSelection(tbOne.getValue(), msg);' />
 					<label id="msg" />
 				</hbox>
 				<div height="10px"></div>
@@ -109,11 +123,24 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
 						((Component)n).setParent(cloneThreeArea);
 					}]]></attribute>
 				</button>
+				<button id="btnSix" label="insert item">
+					<attribute name="onClick">
+						model.add(0, "inserted "+elemcnt++);
+						model2.add(0, "inserted "+elemcnt++);
+					</attribute>
+				</button>
+				<button id="btnSeven" label="remove item">
+					<attribute name="onClick">
+						model.remove(0);
+						model2.remove(0);
+					</attribute>
+				</button>
 				<hbox id="cloneThreeArea" />
 			</zk>
 
     }
-   runZTL(zscript,
+
+    runZTL(zscript,
         () => {
         var lbxOne: Widget = engine.$f("lbxOne");
         var lbxTwo: Widget = engine.$f("lbxTwo");
@@ -123,8 +150,12 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
         var btnOne: Widget = engine.$f("btnOne");
         var btnTwo: Widget = engine.$f("btnTwo");
         var btnThree: Widget = engine.$f("btnThree");
+        var btnFour: Widget = engine.$f("btnFour");
+        var btnSix: Widget = engine.$f("btnSix");
+        var btnSeven: Widget = engine.$f("btnSeven");
         var msg: Widget = engine.$f("msg");
         var itemHgh: Int = jq(lbxOne.$n()).find(".z-listitem").outerHeight(true);
+        var checkList: java.util.List[Int] = new java.util.ArrayList[Int]();
 
         def selectItem = (id: String, num: Int) => {
           var lbx: Widget = engine.$f(id);
@@ -132,12 +163,26 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
             lbx.$n("body").eval("scrollTop = " + (num-1)*itemHgh);
           else
             lbx.$n("body").eval("scrollTop = " + 0);
-          if (!isOpera()) // wait ROD if any
-        	  sleep(1000);
+          waitResponse();
           var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0);
-          if (isOpera()) // opera rod will do after get listitem
-        	  sleep(1000);
+
           click(listitem);
+        }
+        // check whether the selection of a listbox contains exactly the content in check list
+        def checkSelection = (toCheck: java.util.List[Int], id: String) => {
+          input(tbOne.$n(), id);
+          click(btnFour);
+          waitResponse();
+          var selection: String = msg.$n().get("innerHTML");
+          var item: String = "";
+          for (i <- 0 to toCheck.size()-1) {
+            item = "data "+toCheck.get(i);
+            verifyTrue("the selection of "+id+"should contains "+item,
+                selection.contains(item));
+            selection = selection.replace(item, "");
+          }
+          verifyTrue("the selection should exactly contains the check list data, no more",
+              selection.length() == 0);
         }
         def checkEqualSelection = (idOne: String, idTwo: String, assertValue: Boolean) => {
           input(tbOne.$n(), idOne);
@@ -157,6 +202,36 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
           blur(tb);
           waitResponse();
         }
+        def checkInsertRemove = () => {
+          var selsOne: String = getSelection("lbxOne");
+          var selsTwo: String = getSelection("lbxTwo");
+          var selsThree: String = getSelection("lbxThree");
+          click(btnSix); waitResponse();
+          click(btnSix); waitResponse();
+          click(btnSix); waitResponse();
+          verifyTrue("The selection should not change after insert items",
+              getSelection("lbxOne").equals(selsOne));
+          verifyTrue("The selection should not change after insert items",
+              getSelection("lbxTwo").equals(selsTwo));
+          verifyTrue("The selection should not change after insert items",
+              getSelection("lbxThree").equals(selsThree));
+          click(btnSeven); waitResponse();
+          click(btnSeven); waitResponse();
+          click(btnSeven); waitResponse();
+          verifyTrue("The selection should not change after insert items",
+              getSelection("lbxOne").equals(selsOne));
+          verifyTrue("The selection should not change after insert items",
+              getSelection("lbxTwo").equals(selsTwo));
+          verifyTrue("The selection should not change after insert items",
+              getSelection("lbxThree").equals(selsThree));
+        }
+        def getSelection (id: String): String = {
+          input(tbOne.$n(), id);
+          click(btnFour);
+          waitResponse();
+          var sels: String = msg.$n().get("innerHTML");
+          return sels;
+        }
         selectItem("lbxOne", 2);
         checkEqualSelection("lbxOne", "lbxTwo", true);
         selectItem("lbxTwo", 200);
@@ -167,8 +242,13 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
         sleep(1000);
         click(btnThree);
         sleep(1000);
+
+        checkList.add(10);
+        checkSelection(checkList, "lbxThree");
+
         checkEqualSelection("lbxThree", "lbxThree_clone0", true);
         checkEqualSelection("lbxThree", "lbxThree_serialize1", true);
+
         selectItem("lbxThree", 212);
         selectItem("lbxThree_clone0", 213);
         selectItem("lbxThree_serialize1", 214);
@@ -176,6 +256,19 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
         checkEqualSelection("lbxThree", "lbxThree_serialize1", false);
         checkEqualSelection("lbxThree_clone0", "lbxThree_serialize1", false);
 
+        click(btnTwo);
+        sleep(1000);
+        click(btnThree);
+        sleep(1000);
+
+        checkList.clear();
+        checkList.add(212);
+        checkSelection(checkList, "lbxThree");
+
+        checkEqualSelection("lbxThree", "lbxThree_clone2", true);
+        checkEqualSelection("lbxThree", "lbxThree_serialize3", true);
+
+        checkInsertRemove();
     }
    );
   }

@@ -1,4 +1,4 @@
-/* Z60_Listbox_ListModelArray_RODTest.scala
+/* Z60_Listbox_ListModelArray_noRODTest.scala
 
 {{IS_NOTE
 	Purpose:
@@ -6,7 +6,7 @@
 	Description:
 		
 	History:
-		Fri Jan 13 15:16:05 CST 2012 , Created by benbai
+		Mon Jan 16 14:37:47 CST 2012 , Created by benbai
 }}IS_NOTE
 
 Copyright (C) 2011 Potix Corporation. All Rights Reserved.
@@ -29,12 +29,12 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug Listbox-ListModelArray-ROD
+ * A test class for bug Listbox-ListModelArray-noROD
  * @author benbai
  *
  */
-@Tags(tags = "Z60-Listbox-ListModelArray-ROD.zul,Z60,A,E,Listbox,ListModelArray,ROD")
-class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
+@Tags(tags = "Z60-Listbox-ListModelArray-noROD.zul,Z60,A,E,Listbox,ListModelArray")
+class Z60_Listbox_ListModelArray_noRODTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
     val zscript = {
@@ -79,6 +79,7 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
 					<div>5. Select data 212 of third Listbox, data 213 of fourth and data 214 of fifth, the select status of last three listbox should not sync.</div>
 					<div>6. Click clone and 'clone by serialization', you should see two Listboxes created and each Listbox after fifth Listbox select data 212.</div>
 				</div>
+				<custom-attributes org.zkoss.zul.listbox.rod="false" />
 				<hbox>
 					<listbox id="lbxOne" height="150px" width="140px" model="${model}" onSelect="" checkmark="true" />
 					<listbox id="lbxTwo" height="150px" width="140px" model="${model}" onSelect="" checkmark="true" />
@@ -113,7 +114,8 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
 			</zk>
 
     }
-   runZTL(zscript,
+
+    runZTL(zscript,
         () => {
         var lbxOne: Widget = engine.$f("lbxOne");
         var lbxTwo: Widget = engine.$f("lbxTwo");
@@ -132,11 +134,9 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
             lbx.$n("body").eval("scrollTop = " + (num-1)*itemHgh);
           else
             lbx.$n("body").eval("scrollTop = " + 0);
-          if (!isOpera()) // wait ROD if any
-        	  sleep(1000);
+          waitResponse();
           var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0);
-          if (isOpera()) // opera rod will do after get listitem
-        	  sleep(1000);
+
           click(listitem);
         }
         def checkEqualSelection = (idOne: String, idTwo: String, assertValue: Boolean) => {
@@ -175,7 +175,6 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
         checkEqualSelection("lbxThree", "lbxThree_clone0", false);
         checkEqualSelection("lbxThree", "lbxThree_serialize1", false);
         checkEqualSelection("lbxThree_clone0", "lbxThree_serialize1", false);
-
     }
    );
   }
