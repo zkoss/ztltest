@@ -47,6 +47,10 @@ class B30_2337652Test extends ZTL4ScalaTestCase {
       // Verify that the grid doesn't exists
       verifyFalse("The grid should doesn't exists", jq("$grid1").exists());
       
+	  //Verify no error
+      verifyFalse(jq(".z-msgbox-error").exists());
+      verifyFalse(jq(".z-error").exists());
+      
     })
   }
 }
