@@ -1,4 +1,4 @@
-/* Z60_Listbox_ListModelList_Multiple_noRODTest.scala
+/* Z60_Listbox_ListModelList_Paging_MultipleTest.scala
 
 {{IS_NOTE
 	Purpose:
@@ -6,7 +6,7 @@
 	Description:
 		
 	History:
-		Mon Jan 16 16:18:31 CST 2012 , Created by benbai
+		Tue Jan 17 10:53:48 CST 2012 , Created by benbai
 }}IS_NOTE
 
 Copyright (C) 2011 Potix Corporation. All Rights Reserved.
@@ -29,15 +29,15 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug Listbox-ListModelList-Multiple-noROD
+ * A test class for bug Listbox-ListModelList-Paging-Multiple
  * @author benbai
  *
  */
-@Tags(tags = "Z60-Listbox-ListModelList-Multiple-noROD.zul,Z60,A,E,Listbox,ListModelList")
-class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
+@Tags(tags = "Z60-Listbox-ListModelList-Paging-Multiple.zul,Z60,A,E,Listbox,Paging,Multiple,ListModelList")
+class Z60_Listbox_ListModelList_Paging_MultipleTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<zscript>
 					<![CDATA[
@@ -80,28 +80,33 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 						}
 						msg.setValue(sb.toString());
 					}
+					public void changePage(String id, String itemNumber, Page page) {
+						Listbox lbx = page.getFellow(id);
+						int inm = Integer.parseInt(itemNumber);
+						lbx.setActivePage(inm/lbx.getPageSize());
+					}
 				]]></zscript>
 				<div>
 					<div>1. There are 3 Listbox below.</div>
 					<div>2. For first two Listbox, their select status will sync automatically after you select item.</div>
 					<div>3. Select data 10 and data 11 of third Listbox.</div>
 					<div>4. Click clone and 'clone by serialization', then two Listboxes should be created and also select data 10 and data 11.</div>
-					<div>5. Hold Ctrl then Select data 212 of third Listbox, data 213 of fourth and data 214 of fifth, the select status of last three listbox should not sync.</div>
+					<div>5. Go to page 32, hold Ctrl then Select data 212 of third Listbox, data 213 of fourth and data 214 of fifth, the select status of last three listbox should not sync.</div>
 					<div>6. Click clone and 'clone by serialization', you should see two Listboxes created and each Listbox after fifth Listbox select data 10, 11 and 212.</div>
 					<div>7. Click 'insert item', each select of Listbox should not be changed.</div>
 					<div>8. Click 'remove item', each select of Listbox should not be changed.</div>
 				</div>
-				<custom-attributes org.zkoss.zul.listbox.rod="false" />
 				<hbox>
-					<listbox id="lbxOne" height="150px" width="140px" model="${model}" onSelect="" multiple="true" checkmark="true" />
-					<listbox id="lbxTwo" height="150px" width="140px" model="${model}" onSelect="" multiple="true" checkmark="true" />
-					<listbox id="lbxThree" height="150px" width="140px" model="${model2}" onSelect="" multiple="true" checkmark="true" />
+					<listbox id="lbxOne" height="150px" width="310px" mold="paging" pageSize="10" model="${model}" onSelect="" multiple="true" checkmark="true" />
+					<listbox id="lbxTwo" height="150px" width="310px" mold="paging" pageSize="10" model="${model}" onSelect="" multiple="true" checkmark="true" />
+					<listbox id="lbxThree" height="150px" width="310px" mold="paging" pageSize="10" model="${model2}" onSelect="" multiple="true" checkmark="true" />
 				</hbox>
 				<hbox>
 					<textbox id="tbOne" value="box one" />
 					<textbox id="tbTwo" value="box two" />
 					<button id="btnOne" label="check equal selection" onClick='checkEqualSelection(tbOne.getValue(), tbTwo.getValue(), msg);' />
 					<button id="btnFour" label="show selection" onClick='showSelection(tbOne.getValue(), msg);' />
+					<button id="pagingBtn" label="go to page" onClick='changePage(tbOne.getValue(), tbTwo.getValue(), self.getPage());' />
 					<label id="msg" />
 				</hbox>
 				<div height="10px"></div>
@@ -138,7 +143,7 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 				<hbox id="cloneThreeArea" />
 			</zk>
 
-    }
+    """
 
     runZTL(zscript,
         () => {
@@ -151,6 +156,7 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
         var btnTwo: Widget = engine.$f("btnTwo");
         var btnThree: Widget = engine.$f("btnThree");
         var btnFour: Widget = engine.$f("btnFour");
+        var pagingBtn: Widget = engine.$f("pagingBtn");
         var btnSix: Widget = engine.$f("btnSix");
         var btnSeven: Widget = engine.$f("btnSeven");
         var msg: Widget = engine.$f("msg");
@@ -159,13 +165,11 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 
         def selectItem = (id: String, num: Int) => {
           var lbx: Widget = engine.$f(id);
-          if (num > 2)
-            lbx.$n("body").eval("scrollTop = " + (num-1)*itemHgh);
-          else
-            lbx.$n("body").eval("scrollTop = " + 0);
-          sleep(1000);
+          input(tbOne.$n(), id);
+          input(tbTwo.$n(), num+"");
+          click(pagingBtn);
+          sleep(600);
           var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0);
-
           click(listitem);
         }
         // check whether the selection of a listbox contains exactly the content in check list
@@ -271,6 +275,7 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 
         checkEqualSelection("lbxThree", "lbxThree_clone2", true);
         checkEqualSelection("lbxThree", "lbxThree_serialize3", true);
+
         checkInsertRemove();
     }
    );

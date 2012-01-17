@@ -1,4 +1,4 @@
-/* Z60_Listbox_ListModelList_Multiple_noRODTest.scala
+/* Z60_Listbox_ListModelMap_Multiple_RODTest.scala
 
 {{IS_NOTE
 	Purpose:
@@ -6,7 +6,7 @@
 	Description:
 		
 	History:
-		Mon Jan 16 16:18:31 CST 2012 , Created by benbai
+		Tue Jan 17 12:41:07 CST 2012 , Created by benbai
 }}IS_NOTE
 
 Copyright (C) 2011 Potix Corporation. All Rights Reserved.
@@ -29,12 +29,12 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug Listbox-ListModelList-Multiple-noROD
+ * A test class for bug Listbox-ListModelMap-Multiple-ROD
  * @author benbai
  *
  */
-@Tags(tags = "Z60-Listbox-ListModelList-Multiple-noROD.zul,Z60,A,E,Listbox,ListModelList")
-class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
+@Tags(tags = "Z60-Listbox-ListModelMap-Multiple-ROD.zul,Z60,A,E,Listbox,ListModelMap,Multiple,ROD")
+class Z60_Listbox_ListModelMap_Multiple_RODTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
     val zscript = {
@@ -43,11 +43,13 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 					<![CDATA[
 					import org.zkoss.zktest.test2.select.models.*;
 					
-					ListModelList model = ListModelLists.getModel(ListModelLists.MULTIPLE);
-					ListModelList model2 = ListModelLists.getModel(ListModelLists.MULTIPLE_AND_CLONEABLE);
+					ListModelMap model = ListModelMaps.getModel(ListModelMaps.MULTIPLE);
+					ListModelMap model2 = ListModelMaps.getModel(ListModelMaps.MULTIPLE_AND_CLONEABLE);
 			
 					int cnt = 0;
-					int elemcnt = 0;
+					int elemcnt = 1001;
+					int rmcnts = 0;
+					int rmcntm = 1001;
 			
 					public void checkEqualSelection (String idOne, String idTwo, Label msg) {
 						Listbox lbOne = msg.getPage().getFellow(idOne);
@@ -91,7 +93,6 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 					<div>7. Click 'insert item', each select of Listbox should not be changed.</div>
 					<div>8. Click 'remove item', each select of Listbox should not be changed.</div>
 				</div>
-				<custom-attributes org.zkoss.zul.listbox.rod="false" />
 				<hbox>
 					<listbox id="lbxOne" height="150px" width="140px" model="${model}" onSelect="" multiple="true" checkmark="true" />
 					<listbox id="lbxTwo" height="150px" width="140px" model="${model}" onSelect="" multiple="true" checkmark="true" />
@@ -125,15 +126,24 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 				</button>
 				<button id="btnSix" label="insert item">
 					<attribute name="onClick">
-						model.add(0, "inserted "+elemcnt++);
-						model2.add(0, "inserted "+elemcnt++);
+						model.put("item "+elemcnt, "data "+elemcnt);
+						model2.put("item "+elemcnt, "data "+elemcnt);
+						elemcnt++;
 					</attribute>
 				</button>
 				<button id="btnSeven" label="remove item">
-					<attribute name="onClick">
-						model.remove(0);
-						model2.remove(0);
-					</attribute>
+					<attribute name="onClick"><![CDATA[
+						String key = "item ";
+						if (rmcntm < elemcnt) {
+							key += rmcntm;
+							rmcntm++;
+						} else {
+							key += rmcnts;
+							rmcnts++;
+						}
+						model.remove(key);
+						model2.remove(key);
+					]]></attribute>
 				</button>
 				<hbox id="cloneThreeArea" />
 			</zk>
@@ -163,8 +173,11 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
             lbx.$n("body").eval("scrollTop = " + (num-1)*itemHgh);
           else
             lbx.$n("body").eval("scrollTop = " + 0);
-          sleep(1000);
+          if (!isOpera()) // wait ROD if any
+        	  sleep(1000);
           var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0);
+          if (isOpera()) // opera rod will do after get listitem
+        	  sleep(1000);
 
           click(listitem);
         }
@@ -176,7 +189,7 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
           var selection: String = msg.$n().get("innerHTML");
           var item: String = "";
           for (i <- 0 to toCheck.size()-1) {
-            item = "data "+toCheck.get(i);
+            item = "item "+toCheck.get(i)+"=data "+toCheck.get(i);
             verifyTrue("the selection of "+id+"should contains "+item,
                 selection.contains(item));
             selection = selection.replace(item, "");

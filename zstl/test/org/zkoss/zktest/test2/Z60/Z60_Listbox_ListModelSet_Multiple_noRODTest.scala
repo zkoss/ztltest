@@ -1,4 +1,4 @@
-/* Z60_Listbox_ListModelList_Multiple_noRODTest.scala
+/* Z60_Listbox_ListModelSet_Multiple_noRODTest.scala
 
 {{IS_NOTE
 	Purpose:
@@ -6,7 +6,7 @@
 	Description:
 		
 	History:
-		Mon Jan 16 16:18:31 CST 2012 , Created by benbai
+		Tue Jan 17 15:40:56 CST 2012 , Created by benbai
 }}IS_NOTE
 
 Copyright (C) 2011 Potix Corporation. All Rights Reserved.
@@ -29,12 +29,12 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug Listbox-ListModelList-Multiple-noROD
+ * A test class for bug Listbox-ListModelSet-Multiple-noROD
  * @author benbai
  *
  */
-@Tags(tags = "Z60-Listbox-ListModelList-Multiple-noROD.zul,Z60,A,E,Listbox,ListModelList")
-class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
+@Tags(tags = "Z60-Listbox-ListModelSet-Multiple-noROD.zul,Z60,A,E,Listbox,ListModelSet,Multiple")
+class Z60_Listbox_ListModelSet_Multiple_noRODTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
     val zscript = {
@@ -43,11 +43,13 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 					<![CDATA[
 					import org.zkoss.zktest.test2.select.models.*;
 					
-					ListModelList model = ListModelLists.getModel(ListModelLists.MULTIPLE);
-					ListModelList model2 = ListModelLists.getModel(ListModelLists.MULTIPLE_AND_CLONEABLE);
+					ListModelSet model = ListModelSets.getModel(ListModelSets.MULTIPLE);
+					ListModelSet model2 = ListModelSets.getModel(ListModelSets.MULTIPLE_AND_CLONEABLE);
 			
 					int cnt = 0;
-					int elemcnt = 0;
+					int elemcnt = 1001;
+					int rmcnts = 0;
+					int rmcntm = 1001;
 			
 					public void checkEqualSelection (String idOne, String idTwo, Label msg) {
 						Listbox lbOne = msg.getPage().getFellow(idOne);
@@ -125,15 +127,24 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 				</button>
 				<button id="btnSix" label="insert item">
 					<attribute name="onClick">
-						model.add(0, "inserted "+elemcnt++);
-						model2.add(0, "inserted "+elemcnt++);
+						model.add("data "+elemcnt);
+						model2.add("data "+elemcnt);
+						elemcnt++;
 					</attribute>
 				</button>
 				<button id="btnSeven" label="remove item">
-					<attribute name="onClick">
-						model.remove(0);
-						model2.remove(0);
-					</attribute>
+					<attribute name="onClick"><![CDATA[
+						String obj = "data ";
+						if (rmcntm < elemcnt) {
+							obj += rmcntm;
+							rmcntm++;
+						} else {
+							obj += rmcnts;
+							rmcnts++;
+						}
+						model.remove(obj);
+						model2.remove(obj);
+					]]></attribute>
 				</button>
 				<hbox id="cloneThreeArea" />
 			</zk>

@@ -1,4 +1,4 @@
-/* Z60_Listbox_ListModelList_Multiple_noRODTest.scala
+/* Z60_Listbox_ListModelMap_noRODTest.scala
 
 {{IS_NOTE
 	Purpose:
@@ -6,7 +6,7 @@
 	Description:
 		
 	History:
-		Mon Jan 16 16:18:31 CST 2012 , Created by benbai
+		Tue Jan 17 14:12:40 CST 2012 , Created by benbai
 }}IS_NOTE
 
 Copyright (C) 2011 Potix Corporation. All Rights Reserved.
@@ -29,12 +29,12 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug Listbox-ListModelList-Multiple-noROD
+ * A test class for bug Listbox-ListModelMap-noROD
  * @author benbai
  *
  */
-@Tags(tags = "Z60-Listbox-ListModelList-Multiple-noROD.zul,Z60,A,E,Listbox,ListModelList")
-class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
+@Tags(tags = "Z60-Listbox-ListModelMap-noROD.zul,Z60,A,E,Listbox,ListModelMap")
+class Z60_Listbox_ListModelMap_noRODTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
     val zscript = {
@@ -43,11 +43,13 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 					<![CDATA[
 					import org.zkoss.zktest.test2.select.models.*;
 					
-					ListModelList model = ListModelLists.getModel(ListModelLists.MULTIPLE);
-					ListModelList model2 = ListModelLists.getModel(ListModelLists.MULTIPLE_AND_CLONEABLE);
+					ListModelMap model = ListModelMaps.getModel(ListModelMaps.DEFAULT);
+					ListModelMap model2 = ListModelMaps.getModel(ListModelMaps.CLONEABLE);
 			
 					int cnt = 0;
-					int elemcnt = 0;
+					int elemcnt = 1001;
+					int rmcnts = 0;
+					int rmcntm = 1001;
 			
 					public void checkEqualSelection (String idOne, String idTwo, Label msg) {
 						Listbox lbOne = msg.getPage().getFellow(idOne);
@@ -84,10 +86,10 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 				<div>
 					<div>1. There are 3 Listbox below.</div>
 					<div>2. For first two Listbox, their select status will sync automatically after you select item.</div>
-					<div>3. Select data 10 and data 11 of third Listbox.</div>
-					<div>4. Click clone and 'clone by serialization', then two Listboxes should be created and also select data 10 and data 11.</div>
-					<div>5. Hold Ctrl then Select data 212 of third Listbox, data 213 of fourth and data 214 of fifth, the select status of last three listbox should not sync.</div>
-					<div>6. Click clone and 'clone by serialization', you should see two Listboxes created and each Listbox after fifth Listbox select data 10, 11 and 212.</div>
+					<div>3. Select data 10 of third Listbox.</div>
+					<div>4. Click clone and 'clone by serialization', then two Listboxes should be created and also select data 10.</div>
+					<div>5. Select data 212 of third Listbox, data 213 of fourth and data 214 of fifth, the select status of last three listbox should not sync.</div>
+					<div>6. Click clone and 'clone by serialization', you should see two Listboxes created and each Listbox after fifth Listbox select data 212.</div>
 					<div>7. Click 'insert item', each select of Listbox should not be changed.</div>
 					<div>8. Click 'remove item', each select of Listbox should not be changed.</div>
 				</div>
@@ -125,15 +127,24 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 				</button>
 				<button id="btnSix" label="insert item">
 					<attribute name="onClick">
-						model.add(0, "inserted "+elemcnt++);
-						model2.add(0, "inserted "+elemcnt++);
+						model.put("item "+elemcnt, "data "+elemcnt);
+						model2.put("item "+elemcnt, "data "+elemcnt);
+						elemcnt++;
 					</attribute>
 				</button>
 				<button id="btnSeven" label="remove item">
-					<attribute name="onClick">
-						model.remove(0);
-						model2.remove(0);
-					</attribute>
+					<attribute name="onClick"><![CDATA[
+						String key = "item ";
+						if (rmcntm < elemcnt) {
+							key += rmcntm;
+							rmcntm++;
+						} else {
+							key += rmcnts;
+							rmcnts++;
+						}
+						model.remove(key);
+						model2.remove(key);
+					]]></attribute>
 				</button>
 				<hbox id="cloneThreeArea" />
 			</zk>
@@ -176,7 +187,7 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
           var selection: String = msg.$n().get("innerHTML");
           var item: String = "";
           for (i <- 0 to toCheck.size()-1) {
-            item = "data "+toCheck.get(i);
+            item = "item "+toCheck.get(i)+"=data "+toCheck.get(i);
             verifyTrue("the selection of "+id+"should contains "+item,
                 selection.contains(item));
             selection = selection.replace(item, "");
@@ -238,14 +249,12 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
         checkEqualSelection("lbxOne", "lbxTwo", true);
 
         selectItem("lbxThree", 10);
-        selectItem("lbxThree", 11);
         click(btnTwo);
         sleep(1000);
         click(btnThree);
         sleep(1000);
 
         checkList.add(10);
-        checkList.add(11);
         checkSelection(checkList, "lbxThree");
 
         checkEqualSelection("lbxThree", "lbxThree_clone0", true);
@@ -264,8 +273,6 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
         sleep(1000);
 
         checkList.clear();
-        checkList.add(10);
-        checkList.add(11);
         checkList.add(212);
         checkSelection(checkList, "lbxThree");
 
