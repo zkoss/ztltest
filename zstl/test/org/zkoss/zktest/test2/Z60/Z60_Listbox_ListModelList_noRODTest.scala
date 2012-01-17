@@ -163,7 +163,7 @@ class Z60_Listbox_ListModelList_noRODTest extends ZTL4ScalaTestCase {
             lbx.$n("body").eval("scrollTop = " + (num-1)*itemHgh);
           else
             lbx.$n("body").eval("scrollTop = " + 0);
-          waitResponse();
+          sleep(600);
           var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0);
 
           click(listitem);
