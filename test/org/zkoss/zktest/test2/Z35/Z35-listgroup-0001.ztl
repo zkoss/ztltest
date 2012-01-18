@@ -82,6 +82,7 @@
 					<button id="invalidateBtn" onClick="lb1.invalidate();" label="invalidate" />
 					<button id="clearBtn" onClick="lb1.getChildren().clear();" label="Any time clear() wont cause exceptions(not paging mold)" />
 				</hbox>
+				<custom-attributes org.zkoss.zul.listbox.rod="false" />
 				<listbox id="lb1" width="500px" height="500px" model="${model2}"
 					itemRenderer="${renderer}">
 					<listhead>
