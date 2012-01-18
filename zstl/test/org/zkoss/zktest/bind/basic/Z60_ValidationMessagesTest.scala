@@ -25,62 +25,8 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = { // validationmessages.zul
-      <window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.basic.ValidationMessagesVM')" validationMessages="@id('vmsgs')">
-        <vbox>
-          <hbox>Value1:<label id="l11" value="@bind(vm.value1)"></label></hbox>
-          <hbox>Value2:<label id="l12" value="@bind(vm.value2)"></label></hbox>
-        </vbox>
-        <vbox>
-          Prompt:
-          <hlayout>Value1:<textbox id="t21" value="@bind(vm.value1) @validator(vm.validator1)" errorMessage="@bind(vmsgs[self])"/></hlayout>
-          <hlayout>Value2:<intbox id="t22" value="@bind(vm.value2) @validator(vm.validator2)" errorMessage="@bind(vmsgs[self])"/></hlayout>
-        </vbox>
-        <vbox>
-          Command:
-          <hlayout>
-            Value1:
-            <textbox id="t31" value="@load(vm.value1) @save(vm.value1 ,before='cmd1') @validator(vm.validator1)"/>
-            <label id="m31" value="@bind(vmsgs[t31])"/>
-          </hlayout>
-          <hlayout>
-            Value2:
-            <intbox id="t32" value="@load(vm.value2) @save(vm.value2 ,before='cmd1') @validator(vm.validator2)"/>
-            <label id="m32" value="@bind(vmsgs[self.previousSibling])"/>
-          </hlayout>
-        </vbox>
-        <hbox>
-          <button id="btn1" label="cmd1" onClick="@command('cmd1')"/>
-        </hbox>
-        <vbox form="@id('fx') @load(vm) @save(vm ,before='cmd2') @validator(vm.validator3)">
-          Form:
-          <hlayout>
-            Value1:
-            <textbox id="t41" value="@bind(fx.value1) @validator(vm.validator1)"/>
-            <label id="m41" value="@bind(vmsgs[t41])"/>
-          </hlayout>
-          <hlayout>
-            Value2:
-            <intbox id="t42" value="@bind(fx.value2) @validator(vm.validator2)"/>
-            <label id="m42" value="@bind(vmsgs[self.previousSibling])"/>
-          </hlayout>
-          <label id="m43" value="@bind(vmsgs[self.parent])"/>
-          <label id="m44" value="@bind(vmsgs.getMessages(self.parent,'fx')[0])"/>
-          <label id="m45" value="@bind(vmsgs.multiple[self.parent][0])"/>
-          <label id="m46" value="@bind(vmsgs.multiple[self.parent][1])"/>
-          <grid id="msggrid" model="@bind(vmsgs.multiple[self.parent])" visible="@bind(not empty vmsgs.multiple[self.parent])">
-            <template name="model" var="msg">
-              <row>
-                <label value="@bind(msg)"/>
-              </row>
-            </template>
-          </grid>
-        </vbox>
-        <hbox>
-          <button id="btn2" label="cmd2" onClick="@command('cmd2')"/>
-          <button id="btn3" label="cmd3" onClick="@command('cmd3')"/>
-        </hbox>
-      </window>
+    val zul = {
+      <include src="bind/basic/validationmessages.zul"/>
     }
 
     runZTL(zul, () => {
@@ -118,9 +64,9 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("", m43.toWidget().get("value"))
       verifyEquals("", m44.toWidget().get("value"))
       `type`(t21.toWidget(), "ABCD")
-      waitResponse()
+      waitResponse(true)
       `type`(t22.toWidget(), "6")
-      waitResponse()
+      waitResponse(true)
       verifyEquals("ABC", l11.toWidget().get("value"))
       verifyEquals("10", l12.toWidget().get("value"))
       verifyEquals("ABCD", t21.toWidget().get("value"))
@@ -136,9 +82,9 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("", m43.toWidget().get("value"))
       verifyEquals("", m44.toWidget().get("value"))
       `type`(t21.toWidget(), "Abc")
-      waitResponse()
+      waitResponse(true)
       `type`(t22.toWidget(), "33")
-      waitResponse()
+      waitResponse(true)
       verifyEquals("Abc", l11.toWidget().get("value"))
       verifyEquals("33", l12.toWidget().get("value"))
       verifyEquals("Abc", t21.toWidget().get("value"))
@@ -154,9 +100,9 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("", m43.toWidget().get("value"))
       verifyEquals("", m44.toWidget().get("value"))
       `type`(t31.toWidget(), "XXX")
-      waitResponse()
+      waitResponse(true)
       `type`(t32.toWidget(), "1") // intbox has reset issue...too bad
-      waitResponse()
+      waitResponse(true)
       verifyEquals("Abc", l11.toWidget().get("value"))
       verifyEquals("33", l12.toWidget().get("value"))
       verifyEquals("Abc", t21.toWidget().get("value"))
@@ -172,7 +118,7 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("", m43.toWidget().get("value"))
       verifyEquals("", m44.toWidget().get("value"))
       click(btn1.toWidget())
-      waitResponse()
+      waitResponse(true)
       verifyEquals("Abc", l11.toWidget().get("value"))
       verifyEquals("33", l12.toWidget().get("value"))
       verifyEquals("Abc", t21.toWidget().get("value"))
@@ -188,7 +134,7 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("", m43.toWidget().get("value"))
       verifyEquals("", m44.toWidget().get("value"))
       `type`(t32.toWidget(), "55") // intbox has reset issue...too bad
-      waitResponse()
+      waitResponse(true)
       verifyEquals("Abc", l11.toWidget().get("value"))
       verifyEquals("33", l12.toWidget().get("value"))
       verifyEquals("Abc", t21.toWidget().get("value"))
@@ -204,7 +150,7 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("", m43.toWidget().get("value"))
       verifyEquals("", m44.toWidget().get("value"))
       click(btn1.toWidget())
-      waitResponse()
+      waitResponse(true)
       verifyEquals("Abc", l11.toWidget().get("value"))
       verifyEquals("33", l12.toWidget().get("value"))
       verifyEquals("Abc", t21.toWidget().get("value"))
@@ -220,7 +166,7 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("", m43.toWidget().get("value"))
       verifyEquals("", m44.toWidget().get("value"))
       `type`(t31.toWidget(), "aBC") // intbox has reset issue...too bad
-      waitResponse()
+      waitResponse(true)
       verifyEquals("Abc", l11.toWidget().get("value"))
       verifyEquals("33", l12.toWidget().get("value"))
       verifyEquals("Abc", t21.toWidget().get("value"))
@@ -236,7 +182,7 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("", m43.toWidget().get("value"))
       verifyEquals("", m44.toWidget().get("value"))
       click(btn1.toWidget())
-      waitResponse()
+      waitResponse(true)
       verifyEquals("aBC", l11.toWidget().get("value"))
       verifyEquals("55", l12.toWidget().get("value"))
       verifyEquals("aBC", t21.toWidget().get("value"))
@@ -253,9 +199,9 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("", m44.toWidget().get("value"))
       // ///////
       `type`(t41.toWidget(), "YYY")
-      waitResponse()
+      waitResponse(true)
       `type`(t42.toWidget(), "1999") // intbox has reset issue...too bad
-      waitResponse()
+      waitResponse(true)
       verifyEquals("aBC", l11.toWidget().get("value"))
       verifyEquals("55", l12.toWidget().get("value"))
       verifyEquals("aBC", t21.toWidget().get("value"))
@@ -271,7 +217,7 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("", m43.toWidget().get("value"))
       verifyEquals("", m44.toWidget().get("value"))
       click(btn2.toWidget())
-      waitResponse()
+      waitResponse(true)
       verifyEquals("aBC", l11.toWidget().get("value"))
       verifyEquals("55", l12.toWidget().get("value"))
       verifyEquals("aBC", t21.toWidget().get("value"))
@@ -289,9 +235,9 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("value must equals 'AbC', but is ABC", m45.toWidget().get("value"))
       verifyEquals("extra validation info ABC", m46.toWidget().get("value"))
       `type`(t41.toWidget(), "abc")
-      waitResponse()
+      waitResponse(true)
       `type`(t42.toWidget(), "77") // intbox has reset issue...too bad
-      waitResponse()
+      waitResponse(true)
       verifyEquals("aBC", l11.toWidget().get("value"))
       verifyEquals("55", l12.toWidget().get("value"))
       verifyEquals("aBC", t21.toWidget().get("value"))
@@ -309,7 +255,7 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("value must equals 'AbC', but is ABC", m45.toWidget().get("value"))
       verifyEquals("extra validation info ABC", m46.toWidget().get("value"))
       click(btn2.toWidget())
-      waitResponse()
+      waitResponse(true)
       verifyEquals("aBC", l11.toWidget().get("value"))
       verifyEquals("55", l12.toWidget().get("value"))
       verifyEquals("aBC", t21.toWidget().get("value"))
@@ -327,9 +273,9 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("value must equals 'AbC', but is abc", m45.toWidget().get("value"))
       verifyEquals("extra validation info abc", m46.toWidget().get("value"))
       `type`(t41.toWidget(), "AbC")
-      waitResponse()
+      waitResponse(true)
       click(btn2.toWidget())
-      waitResponse()
+      waitResponse(true)
       verifyEquals("AbC", l11.toWidget().get("value"))
       verifyEquals("77", l12.toWidget().get("value"))
       verifyEquals("AbC", t21.toWidget().get("value"))
@@ -345,17 +291,17 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       verifyEquals("", m43.toWidget().get("value"))
       verifyEquals("", m44.toWidget().get("value"))
       `type`(t31.toWidget(), "YYY")
-      waitResponse()
+      waitResponse(true)
       `type`(t32.toWidget(), "2") // intbox has reset issue...too bad
-      waitResponse()
+      waitResponse(true)
       click(btn1.toWidget())
-      waitResponse()
+      waitResponse(true)
       verifyEquals("YYY", t31.toWidget().get("value"))
       verifyEquals("2", t32.toWidget().get("value"))
       verifyEquals("value must equals ignore case 'abc', but is YYY", m31.toWidget().get("value"))
       verifyEquals("value must not < 10 or > 100, but is 2", m32.toWidget().get("value"))
       click(btn3.toWidget())
-      waitResponse()
+      waitResponse(true)
       verifyEquals("AbC", t31.toWidget().get("value"))
       verifyEquals("2", t32.toWidget().get("value"))
       verifyEquals("", m31.toWidget().get("value"))
