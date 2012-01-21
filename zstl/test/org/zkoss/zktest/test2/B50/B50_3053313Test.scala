@@ -86,7 +86,7 @@ class B50_3053313Test extends ZTL4ScalaTestCase {
 	            if (!foundToday) {
 	              verifyFalse("for third datebox, today and all pass day should be selectable",
 	                clsnm.contains("z-calendar-disd"));
-	              foundToday = (dt1 == today) && (!clsnm.contains("z-outside"));
+	              foundToday = (dt1 == today) && (!clsnm.contains("z-calendar-outside"));
 	            } else {
 	              verifyTrue("for third datebox, all future day should be unselectable",
 	                clsnm.contains("z-calendar-disd"));

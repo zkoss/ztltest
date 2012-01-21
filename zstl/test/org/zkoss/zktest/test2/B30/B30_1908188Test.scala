@@ -113,7 +113,7 @@ class B30_1908188Test extends ZTL4ScalaTestCase {
       waitResponse();
       
       // Click of first menu item
-      click(jq(".z-menu-item").get(0));
+      click(jq(".z-menuitem").get(0));
 
       waitResponse();
        
@@ -130,7 +130,7 @@ class B30_1908188Test extends ZTL4ScalaTestCase {
       waitResponse();
       
       // Click of second menu item
-      click(jq(".z-menu-item").get(1));
+      click(jq(".z-menuitem").get(1));
 
       waitResponse();
       // Record Popup position

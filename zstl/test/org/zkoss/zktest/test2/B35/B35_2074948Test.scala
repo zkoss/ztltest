@@ -61,7 +61,7 @@ class B35_2074948Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
       var item = engine.$f("menu")
-      var popup = jq(".z-menu-popup");
+      var popup = jq(".z-menupopup");
 
       // Click on first menu item
       click(item);

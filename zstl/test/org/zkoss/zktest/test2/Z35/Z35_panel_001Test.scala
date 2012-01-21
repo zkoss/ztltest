@@ -82,10 +82,10 @@ class Z35_panel_001Test extends ZTL4ScalaTestCase {
         verifyEquals(jq(".z-panel-header").text(),"Panel Component");
         
         
-        verifyEquals(jq(".z-panel-children-noborder").length.toString(),"1");
+        verifyEquals(jq(".z-panelchildren-noborder").length.toString(),"1");
         click(jq("$btn2"));
         waitResponse();
-        verifyEquals(jq(".z-panel-children-noborder").length.toString(),"0");
+        verifyEquals(jq(".z-panelchildren-noborder").length.toString(),"0");
         
         
         

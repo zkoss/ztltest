@@ -44,7 +44,7 @@
 		</server>
 		<client><![CDATA[
 			mouseOver(jq(".z-menu-btn").parent());
-			click(jq(".z-menu-item"));
+			click(jq(".z-menuitem"));
 			waitResponse();
 			verifyTrue(jq(".z-popup .z-listbox").exists());
 		]]></client>

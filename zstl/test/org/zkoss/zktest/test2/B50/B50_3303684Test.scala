@@ -65,7 +65,7 @@ class B50_3303684Test extends ZTL4ScalaTestCase {
 			waitResponse();
         }
         var h1: Int = jq(pa.$n()).outerHeight();
-        dragDrop(jq(".z-panel-br").get(0), "250,3", jq(".z-panel-children").get(0), "250,380");
+        dragDrop(jq(".z-panel-br").get(0), "250,3", jq(".z-panelchildren").get(0), "250,380");
         waitResponse();
         var h2: Int = jq(pa.$n()).outerHeight();
         verifyTrue("the old height is ("+h1

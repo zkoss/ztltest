@@ -60,7 +60,7 @@ is wrong.
       waitResponse();
 
       // Record menu popup size
-      val popupSizeBefore = jq(".z-menu-popup").width();
+      val popupSizeBefore = jq(".z-menupopup").width();
       
       // Click again on menu button to close it
       click(jq(".z-menu-btn"));
@@ -71,7 +71,7 @@ is wrong.
       waitResponse();
 
       // Record menu popup size
-      val popupSizeAfter = jq(".z-menu-popup").width();
+      val popupSizeAfter = jq(".z-menupopup").width();
       
       // Verify that the size is equal than before
       verifyTrue("The size should be equal than before", popupSizeBefore==popupSizeAfter);
