@@ -130,6 +130,9 @@
 			footerQty = jq("tr.z-listgroupfoot").length();
 			verifyTrue("jq(\"tr.z-listgroupfoot\").length(): " + 
 					footerQty, footerQty == 2);
+					
+			click(jq("tr.z-listgroup:eq(0)").toWidget().$n("img"));
+			waitResponse();
 			footerStr = jq("tr.z-listgroupfoot:eq(0)").text();
 			verifyTrue("jq(\"tr.z-listgroupfoot:eq(0)\"): " + 
 					footerStr, footerStr.contains("B2"));
