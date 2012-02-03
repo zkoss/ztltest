@@ -47,7 +47,7 @@ class B50_3299404Test extends ZTL4ScalaTestCase {
 					
 					
 					class MyRowrenderer implements RowRenderer {
-					    public void render(Row row, Object data) throws Exception {
+					    public void render(Row row, Object data, int index) throws Exception {
 					        for (int i=0; i<5; i++) {
 					            Cell c = new Cell();
 					            c.setParent(row);

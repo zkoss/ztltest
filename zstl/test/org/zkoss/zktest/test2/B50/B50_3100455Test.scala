@@ -82,7 +82,7 @@ class B50_3100455Test extends ZTL4ScalaTestCase {
 					}
 					
 					RowRenderer rdr = new RowRenderer() {
-						public void render(Row row, Object data0) throws Exception {
+						public void render(Row row, Object data0, int index) throws Exception {
 							String[] data = (String[])data0;
 							new Label(data[0]).setParent(row);
 							new Label(data[1]).setParent(row);
@@ -91,7 +91,7 @@ class B50_3100455Test extends ZTL4ScalaTestCase {
 					};
 					
 					ListitemRenderer idr = new ListitemRenderer() {
-						public void render(Listitem item, Object data0) throws Exception {
+						public void render(Listitem item, Object data0, int index) throws Exception {
 							String[] data = (String[])data0;
 							new Listcell(data[0]).setParent(item);
 							new Listcell(data[1]).setParent(item);

@@ -52,7 +52,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
     }
 
     TreeitemRenderer itemRenderer = new TreeitemRenderer () {
-      public void render(Treeitem ti,Object data) {
+      public void render(Treeitem ti,Object data, int index) {
 	Treerow tr = ti.getTreerow();
 	// According to TreeitemRenderer docs, "a new treerow should be
 	// contructed and append to treeitem, when treerow of treeitem is null.

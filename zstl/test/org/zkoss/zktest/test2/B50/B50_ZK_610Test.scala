@@ -46,7 +46,7 @@ class B50_ZK_610Test extends ZTL4ScalaTestCase {
 					};
 					ListModelList model = new ListModelList(ps);
 					RowRenderer ren = new RowRenderer() {
-						public void render(Row row, Object value) {
+						public void render(Row row, Object value, int index) {
 							String fn = ((Person) value).getFirstName();
 							row.appendChild(new Label(fn == null ? "(null)" : fn)); 
 						}
