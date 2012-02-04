@@ -20,10 +20,11 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 <window mode="overlapped" title="tree demo" border="normal" position="center" height="300px" width="400px">
  If you can see this page without any error, it's correct.
- <zscript>
+<zscript>
   <![CDATA[
     import java.util.Vector;
-    public class treeModel extends AbstractTreeModel {
+	import org.zkoss.zul.ext.TreeSelectionModel;
+    public class treeModel extends AbstractTreeModel implements TreeSelectionModel {
 
       public treeModel (Vector treeData) {
 	super(treeData);
@@ -48,6 +49,65 @@ it will be useful, but WITHOUT ANY WARRANTY.
 	else
 	  return vec.size()-1;
       }
+
+	
+	public void setMultiple(boolean multiple) {
+		
+	}
+
+	
+	public boolean isMultiple() {
+		return false;
+	}
+
+	
+	public void addSelectionPath(int[] path) {
+		
+	}
+
+	
+	public void addSelectionPaths(int[][] paths) {
+		
+	}
+
+	
+	public boolean removeSelectionPath(int[] path) {
+		return false;
+	}
+
+	
+	public boolean removeSelectionPaths(int[][] paths) {
+		return false;
+	}
+
+	
+	public boolean isPathSelected(int[] path) {
+		return false;
+	}
+
+	
+	public boolean isSelectionEmpty() {
+		return false;
+	}
+
+	
+	public void clearSelection() {
+	}
+
+	
+	public int[] getSelectionPath() {
+		return null;
+	}
+
+	
+	public int[][] getSelectionPaths() {
+		return null;
+	}
+
+	
+	public int getSelectionCount() {
+		return 0;
+	}
 
     }
 

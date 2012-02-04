@@ -21,7 +21,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 <button label="Click Me!, you should see 'The bug is fixed!' ">
 	<attribute name="onClick">{
 import java.io.*;
-SimpleTreeNode stn = new SimpleTreeNode(null, null);
+DefaultTreeNode stn = new DefaultTreeNode(null, null);
 ByteArrayOutputStream boa = new ByteArrayOutputStream();
 new ObjectOutputStream(boa).writeObject(stn);
 byte[] bs = boa.toByteArray();
