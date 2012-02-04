@@ -94,9 +94,9 @@ class Z60_Listbox_ListModelMap_RODTest extends ZTL4ScalaTestCase {
 					<div>8. Click 'remove item', each select of Listbox should not be changed.</div>
 				</div>
 				<hbox>
-					<listbox id="lbxOne" height="150px" width="140px" model="${model}" onSelect="" multiple="true" checkmark="true" />
-					<listbox id="lbxTwo" height="150px" width="140px" model="${model}" onSelect="" multiple="true" checkmark="true" />
-					<listbox id="lbxThree" height="150px" width="140px" model="${model2}" onSelect="" multiple="true" checkmark="true" />
+					<listbox id="lbxOne" height="150px" width="160px" model="${model}" onSelect="" multiple="true" checkmark="true" />
+					<listbox id="lbxTwo" height="150px" width="160px" model="${model}" onSelect="" multiple="true" checkmark="true" />
+					<listbox id="lbxThree" height="150px" width="160px" model="${model2}" onSelect="" multiple="true" checkmark="true" />
 				</hbox>
 				<hbox>
 					<textbox id="tbOne" value="box one" />
@@ -169,9 +169,9 @@ class Z60_Listbox_ListModelMap_RODTest extends ZTL4ScalaTestCase {
 
         def selectItem = (id: String, num: Int) => {
           var lbx: Widget = engine.$f(id);
-          if (num > 2)
-            lbx.$n("body").eval("scrollTop = " + (num-1)*itemHgh);
-          else
+         if (num > 2) {
+            jq(lbx.$n("body")).scrollTop((num-1)*itemHgh);
+          } else
             lbx.$n("body").eval("scrollTop = " + 0);
           if (!isOpera()) // wait ROD if any
         	  sleep(1000);

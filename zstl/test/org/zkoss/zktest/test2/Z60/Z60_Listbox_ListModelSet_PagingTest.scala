@@ -93,7 +93,7 @@ class Z60_Listbox_ListModelSet_PagingTest extends ZTL4ScalaTestCase {
 					<div>2. For first two Listbox, their select status will sync automatically after you select item.</div>
 					<div>3. Select data 10 of third Listbox.</div>
 					<div>4. Click clone and 'clone by serialization', then two Listboxes should be created and also select data 10.</div>
-					<div>5. Go to page 32 then select data 212 of third Listbox, data 213 of fourth and data 214 of fifth, the select status of last three listbox should not sync.</div>
+					<div>5. Go to page 22 then select data 212 of third Listbox, data 213 of fourth and data 214 of fifth, the select status of last three listbox should not sync.</div>
 					<div>6. Click clone and 'clone by serialization', you should see two Listboxes created and each Listbox after fifth Listbox select data 212.</div>
 					<div>7. Click 'insert item', each select of Listbox should not be changed.</div>
 					<div>8. Click 'remove item', each select of Listbox should not be changed.</div>
@@ -276,7 +276,7 @@ class Z60_Listbox_ListModelSet_PagingTest extends ZTL4ScalaTestCase {
         click(btnThree);
         sleep(1000);
 
-        checkList.clear();
+        //checkList.clear();
         checkList.add(212);
         checkSelection(checkList, "lbxThree");
 
