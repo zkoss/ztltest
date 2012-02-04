@@ -104,7 +104,7 @@ class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
 			            <column label="Name" sort="auto(1)"/>
 			            <column label="Calories" sort="auto(2)"/>
 			        </columns>
-					<template name="model:grouping">
+					<template name="model:group">
 						<group open="${groupingInfo.open}">${each}</group>
 					</template>
 					<template name="model">
@@ -122,7 +122,7 @@ class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
 			            <column label="Name" sort="auto(1)"/>
 			            <column label="Calories" sort="auto(2)"/>
 			        </columns>
-					<template name="model:grouping">
+					<template name="model:group">
 						<group open="${groupingInfo.open}">${each}</group>
 					</template>
 					<template name="model">
@@ -142,7 +142,7 @@ class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
 			            <column label="Name" sort="auto(1)"/>
 			            <column label="Calories" sort="auto(2)"/>
 			        </columns>
-					<template name="model:grouping">
+					<template name="model:group">
 						<group open="${groupingInfo.open}">${each}</group>
 					</template>
 					<template name="model">

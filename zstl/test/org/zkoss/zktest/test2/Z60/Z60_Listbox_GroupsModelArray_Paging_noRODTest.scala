@@ -104,7 +104,7 @@ class Z60_Listbox_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
 			            	<listheader label="Name" sort="auto(1)"/>
 			            	<listheader label="Calories" sort="auto(2)"/>
 			        	</listhead>
-			        	<template name="model:grouping">
+			        	<template name="model:group">
 							<listgroup open="${groupingInfo.open}" label="${each}"/>
 						</template>
 						<template name="model">
@@ -121,7 +121,7 @@ class Z60_Listbox_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
 			            	<listheader label="Name" sort="auto(1)"/>
 			            	<listheader label="Calories" sort="auto(2)"/>
 			        	</listhead>
-			        	<template name="model:grouping">
+			        	<template name="model:group">
 							<listgroup open="${groupingInfo.open}" label="${each}"/>
 						</template>
 						<template name="model">
@@ -138,7 +138,7 @@ class Z60_Listbox_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
 			            	<listheader label="Name" sort="auto(1)"/>
 			            	<listheader label="Calories" sort="auto(2)"/>
 			        	</listhead>
-			        	<template name="model:grouping">
+			        	<template name="model:group">
 							<listgroup open="${groupingInfo.open}" label="${each}"/>
 						</template>
 						<template name="model">
