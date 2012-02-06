@@ -171,7 +171,7 @@ class Z60_Listbox_ListModelSet_noRODTest extends ZTL4ScalaTestCase {
         def selectItem = (id: String, num: Int) => {
           var lbx: Widget = engine.$f(id);
           if (num > 2) {
-            jq(lbx.$n("body")).scrollTop((num-1)*itemHgh);
+        	lbx.$n("body").eval("scrollTop = " + (num-1)*itemHgh);
           	if (ZK.is("ie == 7") || ZK.is("ie == 8")) {
           		// force IE7/8 to scroll down
           		jq(lbx.$n("body")).scrollTop(0);
