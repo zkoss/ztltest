@@ -77,7 +77,7 @@
 		public class ItemModelRenderer implements ListitemRenderer
 		{
 	
-			public void render( Listitem item, java.lang.Object data )
+			public void render( Listitem item, java.lang.Object data, int index )
 			{
 				Item itemData = (Item)data;
 

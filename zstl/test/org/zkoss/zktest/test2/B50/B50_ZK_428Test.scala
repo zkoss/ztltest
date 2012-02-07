@@ -50,7 +50,7 @@ class B50_ZK_428Test extends ZTL4ScalaTestCase {
 					}
 					listModel.addAll(productList);
 					RowRenderer render = new RowRenderer() {
-						public void render(Row row, Object data) throws Exception {
+						public void render(Row row, Object data, int index) throws Exception {
 							String p = (String) data;
 							
 							Hlayout l = new Hlayout();

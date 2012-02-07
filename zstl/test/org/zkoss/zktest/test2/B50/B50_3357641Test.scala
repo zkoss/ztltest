@@ -63,7 +63,7 @@ class B50_3357641Test extends ZTL4ScalaTestCase {
 			testListbox.setItemRenderer(new ListitemRenderer() {
 			
 			
-			public void render(Listitem arg0, Object arg1) throws Exception {
+			public void render(Listitem arg0, Object arg1, int index) throws Exception {
 			arg0.setValue(arg1);
 			
 			DummyItem di = (DummyItem) arg1;

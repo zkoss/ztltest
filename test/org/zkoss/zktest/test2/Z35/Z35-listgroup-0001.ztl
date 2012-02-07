@@ -27,7 +27,7 @@
 					}
 					
 					class MyRenderer implements ListitemRenderer{
-						public void render(Listitem listitem, java.lang.Object data){
+						public void render(Listitem listitem, java.lang.Object data, int index){
 							Listcell cell = new Listcell();
 							cell.setParent(listitem);
 							if(data instanceof String[]){
@@ -82,6 +82,7 @@
 					<button id="invalidateBtn" onClick="lb1.invalidate();" label="invalidate" />
 					<button id="clearBtn" onClick="lb1.getChildren().clear();" label="Any time clear() wont cause exceptions(not paging mold)" />
 				</hbox>
+				<custom-attributes org.zkoss.zul.listbox.rod="false" />
 				<listbox id="lb1" width="500px" height="500px" model="${model2}"
 					itemRenderer="${renderer}">
 					<listhead>
@@ -129,6 +130,9 @@
 			footerQty = jq("tr.z-listgroupfoot").length();
 			verifyTrue("jq(\"tr.z-listgroupfoot\").length(): " + 
 					footerQty, footerQty == 2);
+					
+			click(jq("tr.z-listgroup:eq(0)").toWidget().$n("img"));
+			waitResponse();
 			footerStr = jq("tr.z-listgroupfoot:eq(0)").text();
 			verifyTrue("jq(\"tr.z-listgroupfoot:eq(0)\"): " + 
 					footerStr, footerStr.contains("B2"));

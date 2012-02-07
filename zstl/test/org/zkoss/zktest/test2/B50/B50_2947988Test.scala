@@ -43,8 +43,8 @@ class B50_2947988Test extends ZTL4ScalaTestCase {
 			
 			    <zscript><![CDATA[
 			        java.util.ArrayList children = new java.util.ArrayList();
-			        children.add(new SimpleTreeNode("1", new java.util.ArrayList()));
-			       SimpleTreeModel model = new SimpleTreeModel(new SimpleTreeNode("ROOT",children));
+			        children.add(new DefaultTreeNode("1", new java.util.ArrayList()));
+			       DefaultTreeModel model = new DefaultTreeModel(new DefaultTreeNode("ROOT",children));
 			
 			        void removeItem () {
 						testTree.setModel(null);

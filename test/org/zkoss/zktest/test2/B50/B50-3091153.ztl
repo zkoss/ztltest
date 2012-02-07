@@ -25,7 +25,8 @@ it will be useful, but WITHOUT ANY WARRANTY.
 </ol>
 ]]></html>
 
-<zscript>
+
+<zscript><![CDATA[
 import org.zkoss.zk.ui.Components;
 import org.zkoss.zk.ui.event.ForwardEvent;
 import org.zkoss.zk.ui.ext.AfterCompose;
@@ -47,12 +48,13 @@ public class Test14105Window extends Window implements AfterCompose {
 	}
 }
 public class MyTreeitemRenderer implements TreeitemRenderer {
-	public void render(Treeitem treeitem, Object arg1) throws Exception {
+	public void render(Treeitem treeitem, Object arg1, int index) throws Exception {
 		treeitem.setLabel(arg1.toString());
 		treeitem.setSelected(true);
 	}
 }
-public class MyTreeModel implements TreeModel {
+public class MyTreeModel implements TreeModel,
+		 org.zkoss.zul.ext.TreeSelectionModel {
 	public void addTreeDataListener(TreeDataListener arg0) {
 		// TODO Auto-generated method stub	
 	}
@@ -69,7 +71,45 @@ public class MyTreeModel implements TreeModel {
 			// TODO Auto-generated method stub
 		return "tttt".equals(arg0) ? 5 : 0;
 	}
+	public int[] getPath(Object child) {
+		List path = new ArrayList();
+		dfSearch(path, getRoot(), child);
 
+		final int[] ipath = new int[path.size()];
+		for (int j = 0; j < ipath.length; j++)
+			ipath[j] = path.get(j);
+		return ipath;
+	}
+	private boolean dfSearch(List path, Object node, Object target){
+		if (node.equals(target))
+			return true;
+		if (isLeaf(node))
+			return false;
+
+		for (int i = 0, size = getChildCount(node); i< size; i++)
+			if (dfSearch(path, getChild(node, i), target)){
+				path.add(0, new Integer(i));
+				return true;
+			}
+		return false;
+	}
+	public Object getChild(int[] path) {
+		Object parent = getRoot();
+		Object node = null;
+		int childCount = getChildCount(parent);
+		for (int i = 0; i < path.length; i++) {
+			if (path[i] < 0 || path[i] > childCount)
+				return null;
+			node = getChild(parent, path[i]);
+
+			if (node != null && (childCount = getChildCount(node)) > 0) {
+				parent = node;
+			} else if (i != path.length - 1) {
+				return null;
+			}
+		}
+		return node;
+	}
 	public Object getRoot() {
 		// TODO Auto-generated method stub
 		return new String[] { "tttt" };
@@ -84,9 +124,67 @@ public class MyTreeModel implements TreeModel {
 
 	public void removeTreeDataListener(TreeDataListener arg0) {
 		// TODO Auto-generated method stub
+	}public void setMultiple(boolean multiple) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public boolean isMultiple() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	public void addSelectionPath(int[] path) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void addSelectionPaths(int[][] paths) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public boolean removeSelectionPath(int[] path) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean removeSelectionPaths(int[][] paths) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isPathSelected(int[] path) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isSelectionEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void clearSelection() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public int[] getSelectionPath() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int[][] getSelectionPaths() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int getSelectionCount() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
-</zscript>
+]]></zscript>
 <window use="Test14105Window" title="new page title"	
 border="normal">
 <tree id="tree" height="300px" checkmark="true" multiple="true" />

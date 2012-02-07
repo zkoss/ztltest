@@ -46,11 +46,11 @@ class B30_2125788Test extends ZTL4ScalaTestCase {
       }
 
       // Click on first button
-      click(jq("button").get(1));
+      click(jq("@button").get(1));
       waitResponse();
 
       // Click on second button
-      click(jq("button").get(1));
+      click(jq("@button").get(1));
       waitResponse();
 
       // Record the z-index of the mask and the highlighted window

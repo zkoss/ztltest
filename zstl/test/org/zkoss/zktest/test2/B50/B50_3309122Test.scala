@@ -79,7 +79,7 @@ class B50_3309122Test extends ZTL4ScalaTestCase {
 			}
 			
 			public class MyRowRenderer implements RowRenderer{
-			public void render(Row row, java.lang.Object data) {
+			public void render(Row row, java.lang.Object data, int index) {
 			Employee emp = (Employee)data;
 			new Label(Integer.toString(emp.getId())).setParent(row);
 			new Label(emp.getLastName()).setParent(row);

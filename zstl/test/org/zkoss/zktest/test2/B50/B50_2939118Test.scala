@@ -60,7 +60,7 @@ class B50_2939118Test extends ZTL4ScalaTestCase {
 			    }
 			
 			    class TreeDragDropRender implements TreeitemRenderer {
-			        public void render(Treeitem item, Object data) throws Exception {
+			        public void render(Treeitem item, Object data, int index) throws Exception {
 			            if(data != null) {
 			                //Contruct treecells
 			                Treecell tc = new Treecell(data.toString());

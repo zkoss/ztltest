@@ -42,7 +42,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			int rowHeight = jq(".z-listitem").height();
 
 			//make sure the row height in second listbox is same as first. 
-			verifyEquals(rowHeight , jq(".z-listitem:eq(1)"));
+			verifyEquals(rowHeight , jq(".z-listitem:eq(1).height()"));
 			
 			
 			//breeze ie8's height will bigger then listrow for 2px .

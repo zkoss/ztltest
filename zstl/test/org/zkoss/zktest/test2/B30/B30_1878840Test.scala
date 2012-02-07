@@ -44,7 +44,7 @@ class B30_1878840Test extends ZTL4ScalaTestCase {
             List items = new org.zkoss.zktest.test2.BigList(100);
     		ListModel strset = new ListModelList(items);
     		ListitemRenderer render = new ListitemRenderer(){
-              public void render(Listitem item, Object data) {
+              public void render(Listitem item, Object data, int index) {
                 new Listcell("col - " + data).setParent(item);
                 new Listcell("col - " + data).setParent(item);
                 new Listcell("col - " + data).setParent(item);

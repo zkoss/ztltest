@@ -86,7 +86,7 @@ class B50_3303725Test extends ZTL4ScalaTestCase {
 			mouseUpAt(to, toPos);
 			waitResponse();
         }
-        dragDrop(p2.$n("cap"), "100,10", jq(p1.$n()).find(".z-panel-children").get(0), "100,180");
+        dragDrop(p2.$n("cap"), "100,10", jq(p1.$n()).find(".z-panelchildren").get(0), "100,180");
 
         var h1: Int = jq(ptl.$n("cave")).height();
         var h2: Int = jq(p1.$n()).outerHeight() +

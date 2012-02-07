@@ -92,7 +92,7 @@ r3.removeChild(tb3);
       waitResponse();
 
       // Verify that the menu popup appear
-      verifyTrue("The menu popup should be visible", jq(".z-menu-popup").exists());
+      verifyTrue("The menu popup should be visible", jq(".z-menupopup").exists());
     })
   }
 }

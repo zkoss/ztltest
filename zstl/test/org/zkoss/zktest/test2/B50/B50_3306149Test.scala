@@ -56,7 +56,7 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
 						list.add("remove " + i);
 					ListModelList model = new ListModelList(list);
 					RowRenderer renderer = new RowRenderer() {
-						public void render(Row row, Object data) throws Exception {
+						public void render(Row row, Object data, int index) throws Exception {
 							Button btn = new Button(String.valueOf(data));
 							btn.addEventListener(Events.ON_CLICK, new EventListener() {
 								public void onEvent(Event arg0) throws Exception {
