@@ -101,7 +101,7 @@ Test Protal base Functionativity <br/>
         	verifyTrue(c4.toWidget().nChildren()>0);
         	
         	//click button "move" to move items
-        	click(jq("$btn"));
+        	clickAt(jq("@button"), "5,5");
         	waitResponse();        	        	
         	        	        	        	
         	//2-check move

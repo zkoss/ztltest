@@ -170,7 +170,7 @@ class Z60_Listbox_ListModelMap_RODTest extends ZTL4ScalaTestCase {
         def selectItem = (id: String, num: Int) => {
           var lbx: Widget = engine.$f(id);
          if (num > 2) {
-            jq(lbx.$n("body")).scrollTop((num-1)*itemHgh);
+             lbx.$n("body").eval("scrollTop = " + (num-1)*itemHgh);
           } else
             lbx.$n("body").eval("scrollTop = " + 0);
           if (!isOpera()) // wait ROD if any
@@ -179,7 +179,7 @@ class Z60_Listbox_ListModelMap_RODTest extends ZTL4ScalaTestCase {
           if (isOpera()) // opera rod will do after get listitem
         	  sleep(1000);
 
-          click(listitem);
+          clickAt(listitem, "5,5");
         }
         // check whether the selection of a listbox contains exactly the content in check list
         def checkSelection = (toCheck: java.util.List[Int], id: String) => {

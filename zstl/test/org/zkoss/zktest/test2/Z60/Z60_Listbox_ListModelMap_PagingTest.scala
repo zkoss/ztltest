@@ -276,7 +276,7 @@ class Z60_Listbox_ListModelMap_PagingTest extends ZTL4ScalaTestCase {
         click(btnThree);
         sleep(1000);
 
-        checkList.clear();
+        //checkList.clear();
         checkList.add(212);
         checkSelection(checkList, "lbxThree");
 
