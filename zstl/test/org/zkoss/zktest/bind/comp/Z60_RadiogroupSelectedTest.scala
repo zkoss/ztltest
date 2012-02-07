@@ -16,8 +16,6 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.comp
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.ZKSeleneseTestCase
-import org.openqa.selenium.Keys
 import org.zkoss.ztl.Tags
 
 /**
@@ -26,24 +24,10 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_RadiogroupSelectedTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = { // radiogroup-selected.zul
-      <window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.comp.RadiogroupSelectedVM')" border="none">
-        <vbox>
-          <listbox id="listbox" selectedItem="@bind(vm.selected)">
-            <listitem id="itema" label="Item A" value="itemA"/>
-            <listitem id="itemb" label="Item B" value="itemB"/>
-            <listitem id="itemc" label="Item C" value="itemC"/>
-          </listbox>
-          ==================================
-          <radiogroup id="radiogroup" selectedItem="@bind(vm.selected)">
-            <radio id="radioa" label="Item A" value="itemA"/>
-            <radio id="radiob" label="Item B" value="itemB"/>
-            <radio id="radioc" label="Item C" value="itemC"/>
-          </radiogroup>
-        </vbox>
-        <button label="Dump" onClick="binder.getTracker().dump()"/>
-      </window>
+    val zul = {
+      <include src="/bind/comp/radiogroup-selected.zul"/>
     }
+
     runZTL(zul, () => {
       verifyEquals("1", jq("$listbox").toWidget().get("selectedIndex"))
       verifyEquals("1", jq("$radiogroup").toWidget().get("selectedIndex"))

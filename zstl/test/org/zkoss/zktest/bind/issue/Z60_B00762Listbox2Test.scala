@@ -23,6 +23,7 @@ import org.zkoss.ztl.Widget
  */
 @Tags(tags = "zbind")
 class Z60_B00762Listbox2Test extends ZTL4ScalaTestCase {
+
   def getListboxSelectedIndex(listbox: Widget): Int = {
     var index = -1
     var listitems = listbox.firstChild() // include header

@@ -24,24 +24,11 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 @Tags(tags = "zbind")
 class Z60_C2 extends ZTL4ScalaTestCase {
   def testArg = {
-    
+
     val zul = {
-      <vbox apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.viewmodel.collection.C2')">
-        <label multiline="true">
-          c2.
-        1. delete row entry with button one by one.
-        </label>
-        <listbox model="@bind(vm.fruitList)">
-          <template name="model" var="f">
-            <listitem>
-              <listcell label="@bind(f)"></listcell>
-              <listcell><button label="Delete" onClick="@command('delete', index=self.parent.parent.index)"/></listcell>
-            </listitem>
-          </template>
-        </listbox>
-      </vbox>
+      <include src="/bind/collection/c2.zul"/>
     }
-    
+
     runZTL(zul, () => {
 
       click(jq("@button").first());

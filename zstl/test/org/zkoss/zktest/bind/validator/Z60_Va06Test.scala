@@ -26,17 +26,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 class Z60_Va06Test extends ZTL4ScalaTestCase {
   def testArg() = {
     val zul = {
-      <window title="new page title" border="normal" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.viewmodel.validator.Va06')">
-        <label multiline="true">
-          v6.command, before, converter input with argument
-        1. input -1, not save
-        2. input 22, adult is checked
-        3. input 1, adult no checked
-        </label>
-        <intbox id="ageBox" value="@init(vm.negativeOne) @save(vm.adult, before='checkAdult') @converter(vm.adultConverter) @validator(vm.booleanValidator)"/>
-        <button id="checkButton" label="checkAdult" onClick="@command('checkAdult')"/>
-        <checkbox id="adultBox" checked="@load(vm.adult)" label="Is Adult"/>
-      </window>
+      <include src="/bind/validator/va06.zul"/>
     }
 
     runZTL(zul, () => {

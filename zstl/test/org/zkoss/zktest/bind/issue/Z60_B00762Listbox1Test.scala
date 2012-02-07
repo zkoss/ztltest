@@ -23,6 +23,7 @@ import org.zkoss.ztl.Widget
  */
 @Tags(tags = "zbind")
 class Z60_B00762Listbox1Test extends ZTL4ScalaTestCase {
+
   def getIndex(listbox: Widget): Int = {
     var index = -1
     var listitems = listbox.firstChild() // include header
@@ -33,6 +34,7 @@ class Z60_B00762Listbox1Test extends ZTL4ScalaTestCase {
     }
     index
   }
+  
   def testArg() = {
     val zul = {
       <include src="/bind/issue/B00762Listbox1.zul"/>

@@ -23,41 +23,8 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 @Tags(tags = "zbind")
 class Z60_CollectionIndexCombobox1 extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = { //collection-index-combobox.zul
-      <window apply="org.zkoss.zktest.bind.basic.CollectionIndexComboboxComposer">
-        <custom-attributes composerName="vm"/>
-        <label id="msg" value="@bind(vm.message1)"/>
-        <grid id="outergrid" width="700px" model="@bind(vm.items)">
-          <columns>
-            <column label="index"/>
-            <column label="name"/>
-            <column label="options" width="200px"/>
-            <column label="action" width="300px"/>
-          </columns>
-          <template name="model" var="item" status="s">
-            <row>
-              <label value="@bind(s.index)"/>
-              <label value="@bind(item.name)"/>
-              <combobox hflex="1" model="@bind(item.options)">
-                <template name="model" var="option">
-                  <comboitem label="@bind(optionStatus) @converter(vm.statusConverter,name=option,si=s.index,ssi=optionStatus.index)" description="@bind(option)"/>
-                </template>
-              </combobox>
-              <hbox>
-                <button label="Index" onClick="@command('showIndex', index=s.index)"/>
-                <button label="Delete" onClick="@command('delete', item=item)"/>
-                <button label="Add After" onClick="@command('addAfter', item=item)"/>
-                <button label="Add Before" onClick="@command('addBefore', item=item)"/>
-              </hbox>
-            </row>
-          </template>
-        </grid>
-        <hbox>
-          <button label="reload" onClick="@command('reload')"/>
-          <button label="detach" onClick="grid.detach()"/>
-          <button label="Dump" onClick="binder.getTracker().dump()"/>
-        </hbox>
-      </window>
+    val zul = {
+      <include src="/bind/basic/collection-index-combobox.zul"/>
     }
 
     runZTL(zul, () => {

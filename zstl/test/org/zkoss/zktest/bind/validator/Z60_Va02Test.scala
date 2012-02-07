@@ -27,21 +27,7 @@ class Z60_Va02Test extends ZTL4ScalaTestCase {
 
   def testArg() = {
     val zul = {
-      <window title="va2" border="normal" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.viewmodel.validator.Va02')">
-        va2
-        <label multiline="true">
-          1. input negative, click, not save 
-        2. enter 1, click, add 10, label show 1 and 11
-        4. input 18, adult
-        </label>
-        Age :<intbox id="ageBox" value="@init(vm.negativeOne) @save(vm.age, before='add10') @validator(vm.nonNegative)"/>
-        <button id="addButton" label="Add 10" onClick="@command('add10')"/>
-        <label id="adultLabel" value="@bind(vm.age) @converter(vm.maturityIndicator)"/>
-        <separator/>
-        age before added:<label id="beforeAge" value="@load(vm.age,before='add10')"/>
-        <separator/>
-        current age:<label id="ageLabel" value="@load(vm.age, after='add10')"/>
-      </window>
+      <include src="/bind/validator/va02.zul"/>
     }
 
     runZTL(zul, () => {
