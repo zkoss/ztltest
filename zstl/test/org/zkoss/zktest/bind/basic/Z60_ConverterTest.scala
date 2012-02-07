@@ -15,13 +15,12 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.bind.basic
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestCase
 import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.text.ParseException
+
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.ZKSeleneseTestCase
 
 /**
  * @author Hawk
@@ -30,26 +29,10 @@ import java.text.ParseException
 @Tags(tags = "zbind")
 class Z60_ConverterTest extends ZTL4ScalaTestCase {
   def testBasic() = {
-    val zul = { //converter.zul
-      <window apply="org.zkoss.zktest.bind.basic.ConverterComposer">
-        <custom-attributes composerName="vm"/>
-        format : yyyy/MM/dd
-        <vbox>
-          <textbox id="t1" value="@bind(vm.bday1) @converter('myconverter1')"/>
-          <label id="l1" value="@bind(vm.age1)"/>
-        </vbox>
-        <vbox form="@id('fx') @load(vm) @save(vm, before='saveForm')">
-          <textbox id="t2" value="@bind(fx.bday1) @converter('myconverter1')"/>
-          <label id="l2" value="@bind(fx.age1)"/>
-        </vbox>
-        <hbox>
-          <button id="saveForm" label="saveForm" onClick="@command('saveForm')"/>
-        </hbox>
-        <hbox>
-          <button label="Dump" onClick="binder.getTracker().dump()"/>
-        </hbox>
-      </window>
+    val zul = {
+      <include src="/bind/basic/converter.zul"/>
     }
+    
     runZTL(zul, () => {
       var sdf = new SimpleDateFormat("yyyy/MM/dd");
 

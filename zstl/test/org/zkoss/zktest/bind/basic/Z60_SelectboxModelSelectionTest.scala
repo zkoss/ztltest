@@ -25,32 +25,8 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_SelectboxModelSelectionTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = { // selectboxmodelselection.zul
-      <window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.basic.SelectboxModelSelectionVM')">
-        <vbox>
-          <label id="msg" value="@bind(vm.message1)"/>
-          <selectbox id="sb1" model="@bind(vm.items)" width="100px">
-            <template name="model" var="item">
-              <label value="@bind(vm.cat('Item',item.name))"/>
-            </template>
-          </selectbox>
-          <selectbox id="sb2" model="@bind(vm.items)" width="100px">
-            <template name="model" var="item">
-              <label value="@bind(item.name)"/>
-            </template>
-          </selectbox>
-          <selectbox id="sb3" model="@bind(vm.items)" width="100px" selectedIndex="@bind(vm.selected)">
-            <template name="model" var="item">
-              <label value="@bind(item.name)"/>
-            </template>
-          </selectbox>
-        </vbox>
-        <hbox>
-          <button id="btn1" label="reload" onClick="@command('reload')"/>
-          <button id="btn2" label="select" onClick="@command('select')"/>
-          <button label="Dump" onClick="binder.getTracker().dump()"/>
-        </hbox>
-      </window>
+    val zul = {
+      <include src="/bind/basic/selectboxmodelselection.zul"/>
     }
 
     runZTL(zul, () => {

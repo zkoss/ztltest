@@ -25,11 +25,8 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_DeferInitTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = { // deferinit.zul
-      <zk>
-        <window apply="org.zkoss.zktest.bind.basic.DeferInitVM">
-        </window>
-      </zk>
+    val zul = {
+      <include src="/bind/basic/deferinit.zul"/>
     }
 
     runZTL(zul, () => {

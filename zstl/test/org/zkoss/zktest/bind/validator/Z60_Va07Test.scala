@@ -25,18 +25,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 class Z60_Va07Test extends ZTL4ScalaTestCase {
   def testArg() = {
     val zul = {
-      <window title="new page title" border="normal" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.viewmodel.validator.Va07')">
-        va7. validator + init:
-        <separator/>
-        <label multiline="true">
-          1. input -1, click to change focus, show 0
-        2. input 2, click, show 2
-        </label>
-        <intbox id="ageBox" value="@init(vm.negativeOne) @save(vm.age) @validator(vm.nonNegative)">
-        </intbox>
-        <separator/>
-        you enter:<label id="ageLabel" value="@load(vm.age)"/>
-      </window>
+      <include src="/bind/validator/va07.zul"/>
     }
 
     runZTL(zul, () => {
