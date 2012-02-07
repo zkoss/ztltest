@@ -15,8 +15,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.bind.basic
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
  * @author pao
@@ -24,12 +24,8 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 @Tags(tags = "zbind")
 class Z60_MVP2MVVMTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = { //mvp2mvvm_mvp.zul
-      <window title="Test" apply="org.zkoss.zktest.bind.basic.MVP2MVVMComposer" border="normal">
-        <button id="outerToggle1" label="toggle outside 1"/>
-        <button id="outerToggle2" label="toggle outside 2"/>
-        <vbox id="mVbox"/>
-      </window>
+    val zul = {
+      <include src="/bind/basic/mvp2mvvm_mvp.zul"/>
     }
 
     runZTL(zul, () => {

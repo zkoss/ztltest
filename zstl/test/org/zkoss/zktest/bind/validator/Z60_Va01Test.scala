@@ -26,19 +26,7 @@ import org.zkoss.ztl.Tags
 class Z60_Va01 extends ZTL4ScalaTestCase {
   def testArg() = {
     val zul = {
-      <window title="new page title" border="normal" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.viewmodel.validator.Va01')">
-        va1.
-        <label multiline="true">
-          Validator + Command. save before submit.
-        
-        1. input a number >= 18, label=Adult
-        2. input a negative number, click submit.
-        3. input a number  >=0, less than 8
-        </label>
-        Age :<intbox id="ageBox" value="@init(vm.negativeOne) @save(vm.age, before='submit') @validator(vm.nonNegative)"/>
-        <button id="submitButton" label="submit" onClick="@command('submit')"/>
-        <label id="adultLabel" value="@bind(vm.age) @converter(vm.maturityIndicator)"/>
-      </window>
+      <include src="/bind/validator/va01.zul"/>
     }
 
     runZTL(zul, () => {

@@ -23,26 +23,10 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_F00687Test extends ZTL4ScalaTestCase {
   def testIssue() = {
-    val zul = { // F00687.zul
-      <window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.issue.F00687')">
-        <vbox>
-          <hlayout>
-            <label id="l11" value="@load(vm.value1)"/>
-            <label id="l12" value="@load(vm.value2)"/>
-            <label id="l13" value="@load(vm.value3)"/>
-            <label id="l14" value="@load(vm.value4)"/>
-          </hlayout>
-          <hlayout>
-            <textbox id="t11" value="@bind(vm.value1)"/>
-            <textbox id="t12" value="@bind(vm.value2)"/>
-            <textbox id="t13" value="@bind(vm.value3)"/>
-            <textbox id="t14" value="@bind(vm.value4)"/>
-          </hlayout>
-          <button label="cmd1" id="btn1" onClick="@command('cmd1',val='command 1')"/>
-        </vbox>
-        <button label="Dump" onClick="binder.getTracker().dump()"/>
-      </window>
+    val zul = {
+      <include src="/bind/issue/F00687.zul"/>
     }
+
     runZTL(zul, () => {
       var l11 = jq("$l11").toWidget()
       var l12 = jq("$l12").toWidget()

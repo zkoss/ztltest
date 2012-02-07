@@ -23,21 +23,8 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_B00604Test extends ZTL4ScalaTestCase {
   def testIssue() = {
-    val zul = { // B00604.zul
-      <window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.issue.B00604')">
-        you should see listbox in include1 which include direct when first load and it work. 
-	the listbox in Include 2 should show as well if you click include 2
-        <vbox>
-          Include 1
-          <include id="inc1" src="bind/issue/B00604-1.zul"/>
-          Include 2
-          <include id="inc2"/>
-          <hbox>
-            <button id="btn1" label="doInclude" onClick='inc2.src="bind/issue/B00604-1.zul"'/>
-            <button label="Dump" onClick="binder.getTracker().dump()"/>
-          </hbox>
-        </vbox>
-      </window>
+    val zul = {
+      <include src="/bind/issue/B00604.zul"/>
     }
 
     runZTL(zul, () => {
