@@ -26,14 +26,22 @@ import org.zkoss.ztl.Widget
 @Tags(tags = "zbind")
 class Z60_F00743_2Test extends ZTL4ScalaTestCase {
 
-  def getListboxSelectedIndexes(listbox: Widget): ArrayList[String] = {
-    var indexes = new ArrayList[String]()
-    var listitems = listbox.firstChild() // include header
-    for (i <- 0 to listbox.nChildren() - 2) {
-      listitems = listitems.nextSibling()
-      if (listitems.is("selected"))
-        indexes.add(i + "")
+  def getSelectedIndexes(listbox: Widget): Any = {
+    var list = new ArrayList[String]()
+    var index = 0
+    var w = listbox.firstChild() // maybe include header
+    for (i <- 0 to listbox.nChildren() - 1) {
+      if ("listitem".equals(w.eval("widgetName"))) {
+        if (w.is("selected"))
+          list.add(index + "")
+        index = index + 1
+
+      }
+      w = w.nextSibling()
     }
+    var indexes = new Array[String](list.size())
+    for (i <- 0 to indexes.length - 1)
+      indexes(i) = list.get(i).toString()
     indexes
   }
 
@@ -59,10 +67,7 @@ class Z60_F00743_2Test extends ZTL4ScalaTestCase {
       verifyEquals("[A, C]", range.toWidget().get("value"))
       click(clean.toWidget())
       waitResponse()
-      var indexes = getListboxSelectedIndexes(outerbox.toWidget())
-      var array = new Array[String](0)
-      for (i <- 0 to array.length - 1)
-        verifyEquals(array(i), indexes.get(i))
+      verifyEquals(new Array[String](0), getSelectedIndexes(outerbox.toWidget()))
       click(showselect.toWidget())
       waitResponse()
       verifyEquals("[]", range.toWidget().get("value"))

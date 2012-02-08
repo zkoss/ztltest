@@ -24,17 +24,21 @@ import org.zkoss.ztl.Widget
 @Tags(tags = "zbind")
 class Z60_B00762Listbox1Test extends ZTL4ScalaTestCase {
 
-  def getIndex(listbox: Widget): Int = {
-    var index = -1
-    var listitems = listbox.firstChild() // include header
-    for (i <- 0 to listbox.nChildren() - 2) {
-      listitems = listitems.nextSibling();
-      if (listitems.is("selected"))
-        index = i
+  def getListboxSelectedIndex(listbox: Widget): String = {
+    var outeritems = listbox.firstChild() // include header
+    var index = 0
+    var w = outeritems
+    for (i <- 0 to listbox.nChildren() - 1) {
+      if ("listitem".equals(w.eval("widgetName"))) {
+        if (w.is("selected"))
+          return index + ""
+        index = index + 1
+      }
+      w = w.nextSibling()
     }
-    index
+    "-1"
   }
-  
+
   def testArg() = {
     val zul = {
       <include src="/bind/issue/B00762Listbox1.zul"/>
@@ -64,7 +68,7 @@ class Z60_B00762Listbox1Test extends ZTL4ScalaTestCase {
       //      verifyEquals("2", max.toWidget().get("value"))
       click(clean.toWidget())
       waitResponse()
-      verifyEquals("-1", getIndex(outerbox.toWidget()));
+      verifyEquals("-1", getListboxSelectedIndex(outerbox.toWidget()));
       verifyEquals("", selected.toWidget().get("value"))
       click(showselect.toWidget())
       waitResponse()
@@ -72,7 +76,7 @@ class Z60_B00762Listbox1Test extends ZTL4ScalaTestCase {
       //      verifyEquals("-1", max.toWidget().get("value"))
       click(select.toWidget())
       waitResponse()
-      verifyEquals("1", getIndex(outerbox.toWidget()))
+      verifyEquals("1", getListboxSelectedIndex(outerbox.toWidget()))
       verifyEquals("B", selected.toWidget().get("value"))
       click(showselect.toWidget())
       waitResponse()
