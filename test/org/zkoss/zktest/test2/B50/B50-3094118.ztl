@@ -22,7 +22,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<zscript>
 		<![CDATA[
 	class TestTreeModel extends org.zkoss.zul.AbstractTreeModel implements
-		 org.zkoss.zul.ext.TreeSelectionModel {
+		 org.zkoss.zul.ext.TreeSelectableModel {
 		public TestTreeModel(Object root) {
 			super(root);
 		}

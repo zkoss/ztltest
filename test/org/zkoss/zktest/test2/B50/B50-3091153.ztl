@@ -54,7 +54,7 @@ public class MyTreeitemRenderer implements TreeitemRenderer {
 	}
 }
 public class MyTreeModel implements TreeModel,
-		 org.zkoss.zul.ext.TreeSelectionModel {
+		 org.zkoss.zul.ext.TreeSelectableModel {
 	public void addTreeDataListener(TreeDataListener arg0) {
 		// TODO Auto-generated method stub	
 	}
