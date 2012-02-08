@@ -70,6 +70,7 @@ B35-2075722.ztl
 B35-2149043.ztl
 // zkbind
 Z60-RadiogroupSelected.ztl
+Z60-B00810ListboxMultiple.ztl
 }
 ie8={
 // zkbind
@@ -144,4 +145,5 @@ Z60-Groupbox.ztl
 Z60-RadiogroupSelected.ztl
 Z60-Tree.ztl
 Z60-Panel.ztl
+Z60-B00810ListboxMultiple.ztl
 }
