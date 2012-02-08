@@ -17,14 +17,16 @@ package org.zkoss.zktest.bind.issue
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
+import java.util.ArrayList
+import org.zkoss.ztl.ZKSeleneseTestCase
 
 /**
  * @author pao
  */
 @Tags(tags = "zbind")
-class Z60_B00775ListmodelSelectionTest extends ZTL4ScalaTestCase {
+class Z60_B00821SelectedIndexTest extends ZTL4ScalaTestCase {
 
-  def getListboxSelectedIndex(listbox: Widget): String = {
+  def getSelectedIndex(listbox: Widget): String = {
     var outeritems = listbox.firstChild() // include header
     var index = 0
     var w = outeritems
@@ -41,27 +43,25 @@ class Z60_B00775ListmodelSelectionTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
     val zul = {
-      <include src="/bind/issue/B00775ListmodelSelection.zul"/>
+      <include src="/bind/issue/B00821SelectedIndex.zul"/>
     }
 
     runZTL(zul, () => {
 
-      var listbox = jq("$listbox")
-      var header = jq("$header")
-      var shrink = jq("$shrink")
-
-      click(header.toWidget())
+      var selectbox = jq("$selectbox").toWidget()
+      var listbox = jq("$listbox").toWidget()
+      var combobox = jq("$combobox").toWidget()
+      var i1 = jq("$i1").toWidget()
+      `type`(i1, "1")
       waitResponse()
-      click(header.toWidget()) // twice
+      verifyEquals("1", getSelectedIndex(listbox))
+      verifyEquals("1", selectbox.get("selectedIndex"))
+      verifyEquals("B", combobox.get("value"))
+      `type`(i1, "2")
       waitResponse()
-
-      click(listbox.find("@listitem").eq(8).toWidget())
-      waitResponse()
-      verifyEquals("8", getListboxSelectedIndex(listbox.toWidget()))
-
-      click(shrink.toWidget())
-      waitResponse()
-      verifyEquals("0", getListboxSelectedIndex(listbox.toWidget()))
+      verifyEquals("2", getSelectedIndex(listbox))
+      verifyEquals("2", selectbox.get("selectedIndex"))
+      verifyEquals("C", combobox.get("value"))
 
     })
   }

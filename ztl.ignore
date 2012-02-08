@@ -71,6 +71,8 @@ B35-2149043.ztl
 // zkbind
 Z60-RadiogroupSelected.ztl
 Z60-B00810ListboxMultiple.ztl
+Z60-F00823RadiogroupModel1.ztl
+Z60-F00823RadiogroupModel2.ztl
 }
 ie8={
 // zkbind
@@ -145,5 +147,35 @@ Z60-Groupbox.ztl
 Z60-RadiogroupSelected.ztl
 Z60-Tree.ztl
 Z60-Panel.ztl
-Z60-B00810ListboxMultiple.ztl
+Z60-TemplateCombobox.ztl 
+Z60-ChildrenSimple1.ztl 
+Z60-ChildrenSimple2.ztl 
+Z60-ChildrenComplex.ztl 
+Z60-ChildrenComplex.ztl 
+Z60-ChildrenMenu.ztl 
+Z60-B00762Listbox1.ztl 
+Z60-B00762Listbox2.ztl 
+Z60-B00762Combobox1.ztl 
+Z60-B00762Combobox2.ztl 
+Z60-F00743-1.ztl 
+Z60-F00743-2.ztl 
+Z60-TreeSelection.ztl 
+Z60-F00769.ztl 
+Z60-F00771-1.ztl 
+Z60-F00771-2.ztl 
+Z60-B00775ListmodelSelection.ztl 
+Z60-F00772InterComm.ztl 
+Z60-B00757OnChange.ztl 
+Z60-B00810ListboxMultiple.ztl 
+Z60-CollectionIndexDefault.ztl 
+Z60-CollectionIndexDefault.ztl 
+Z60-B00821SelectedIndex.ztl 
+Z60-F00823RadiogroupModel1.ztl 
+Z60-F00823RadiogroupModel2.ztl 
+Z60-B00828GlobalCommand.ztl 
+Z60-ELTag.ztl 
+Z60-B00807GroupModel-1.ztl 
+Z60-B00807GroupModel-2.ztl 
+Z60-B00807GroupModel-3.ztl 
+Z60-ImmutableTest 
 }
