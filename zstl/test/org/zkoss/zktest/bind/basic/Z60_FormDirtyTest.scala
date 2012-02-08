@@ -25,27 +25,10 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_FormDirtyTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = { // form-dirty.zul
-      <window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.basic.FormDirty')">
-        <vbox form="@id('fx') @load(vm.person) @save(vm.person, before='save')">
-          <label id="dirty" value="@load(fxStatus.dirty)"/>
-          <grid width="500px">
-            <rows>
-              <row>
-                <textbox id="t1" value="@bind(fx.name)"/>
-                <label id="l1" value="@bind(fx.name)"/>
-              </row>
-            </rows>
-          </grid>
-        </vbox>
-        <hbox>
-          <button id="btn1" label="save form" onClick="@command('save')"/>
-          <button id="btn2" label="show" onClick="@command('show')"/>
-        </hbox>
-        <label id="msg" value="@bind(vm.msg)"/>
-        <button label="Dump" onClick="binder.getTracker().dump()"/>
-      </window>
+    val zul = {
+      <include src="/bind/basic/form-dirty.zul"/>
     }
+
     runZTL(zul, () => {
       verifyEquals("false", jq("$dirty").toWidget().get("value"))
       verifyEquals("Dennis", jq("$l1").toWidget().get("value"))

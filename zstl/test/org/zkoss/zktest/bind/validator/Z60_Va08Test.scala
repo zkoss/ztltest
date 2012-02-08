@@ -26,17 +26,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 class Z60_Va08Test extends ZTL4ScalaTestCase {
   def testArg() = {
     val zul = {
-      <window title="new page title" border="normal" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.viewmodel.validator.Va08')">
-        va8. validator + arguments:<separator/>
-        <label multiline="true">
-          1. input 123, click, show 123
-        2. input 1234, click, show 123
-        </label>
-        keyword (max length is 3):<textbox id="keywordBox" value="@save(vm.keyword) @validator(vm.maxLengthValidator, length=3)">
-                                  </textbox>
-        <separator/>
-        you enter:<label id="keywordLabel" value="@load(vm.keyword)"/>
-      </window>
+      <include src="/bind/validator/va08.zul"/>
     }
 
     runZTL(zul, () => {

@@ -23,15 +23,8 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_B00657Test extends ZTL4ScalaTestCase {
   def testIssue() = {
-    val zul = { // B00657.zul
-      <window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.issue.B00657')">
-        <listbox id="listbox" model="@bind(vm.selBox)" mold="select" selectedIndex="@bind(vm.selIndex)">
-          <template name="model" var="item">
-            <listitem label="@bind(item)"/>
-          </template>
-        </listbox>
-        <intbox id="intbox" value="@bind(vm.selIndex)"/>
-      </window>
+    val zul = {
+      <include src="/bind/issue/B00657.zul"/>
     }
 
     runZTL(zul, () => {

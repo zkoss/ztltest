@@ -15,8 +15,6 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.bind.basic
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.ZKSeleneseTestCase
-import org.openqa.selenium.Keys
 import org.zkoss.ztl.Tags
 
 /**
@@ -25,18 +23,8 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_SelectorParamTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = { // selectorparam.zul
-      <vbox>
-        <vbox apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.bind.basic.SelectorParamVM')">
-          <hbox><label id="l11"/></hbox>
-          <hbox><label id="l12"/></hbox>
-          <hbox><label id="l13"/></hbox>
-          <hbox><label id="l14"/></hbox>
-          <button id="cmd1" label="cmd1" onClick="@command('cmd1')"/>
-          <button id="cmd2" label="cmd2" onClick="@command('cmd2')"/>
-          <button label="Dump" onClick="binder.getTracker().dump()"/>
-        </vbox>
-      </vbox>
+    val zul = {
+      <include src="/bind/basic/selectorparam.zul"/>
     }
 
     runZTL(zul, () => {
