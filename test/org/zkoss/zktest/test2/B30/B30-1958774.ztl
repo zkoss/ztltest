@@ -23,8 +23,8 @@ it will be useful, but WITHOUT ANY WARRANTY.
 <zscript>
   <![CDATA[
     import java.util.Vector;
-	import org.zkoss.zul.ext.TreeSelectionModel;
-    public class treeModel extends AbstractTreeModel implements TreeSelectionModel {
+	import org.zkoss.zul.ext.TreeSelectableModel;
+    public class treeModel extends AbstractTreeModel implements TreeSelectableModel {
 
       public treeModel (Vector treeData) {
 	super(treeData);
