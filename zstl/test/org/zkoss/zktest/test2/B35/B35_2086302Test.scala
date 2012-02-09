@@ -110,8 +110,11 @@ onClick="gb2.setOpen(!gb2.isOpen());"/>
         () => {
         	
         	//click open button
-        	click(jq("$bt1"));
-        	waitResponse(1000);
+        	if (isOpera())
+        		clickAt(jq("@button"), "8,8");
+        	else
+        		click(jq("$bt1"));
+        	waitResponse();
         	
         	var bl1=jq("$bl1");
         	verifyTrue(bl1.isVisible());
