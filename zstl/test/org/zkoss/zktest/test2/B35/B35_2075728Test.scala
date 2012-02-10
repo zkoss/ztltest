@@ -101,7 +101,11 @@ Test Protal base Functionativity <br/>
         	verifyTrue(c4.toWidget().nChildren()>0);
         	
         	//click button "move" to move items
-        	clickAt(jq("@button"), "5,5");
+        	if (isOpera())
+        		clickAt(jq("@button"), "5,5");
+        	else
+        		click(jq("@button"));
+        	
         	waitResponse();        	        	
         	        	        	        	
         	//2-check move

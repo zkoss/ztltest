@@ -95,9 +95,9 @@ class Z60_Listbox_ListModelMap_noRODTest extends ZTL4ScalaTestCase {
 				</div>
 				<custom-attributes org.zkoss.zul.listbox.rod="false" />
 				<hbox>
-					<listbox id="lbxOne" height="150px" width="140px" model="${model}" onSelect="" multiple="true" checkmark="true" />
-					<listbox id="lbxTwo" height="150px" width="140px" model="${model}" onSelect="" multiple="true" checkmark="true" />
-					<listbox id="lbxThree" height="150px" width="140px" model="${model2}" onSelect="" multiple="true" checkmark="true" />
+					<listbox id="lbxOne" height="150px" width="160px" model="${model}" onSelect="" multiple="true" checkmark="true" />
+					<listbox id="lbxTwo" height="150px" width="160px" model="${model}" onSelect="" multiple="true" checkmark="true" />
+					<listbox id="lbxThree" height="150px" width="160px" model="${model2}" onSelect="" multiple="true" checkmark="true" />
 				</hbox>
 				<hbox>
 					<textbox id="tbOne" value="box one" />
@@ -178,8 +178,10 @@ class Z60_Listbox_ListModelMap_noRODTest extends ZTL4ScalaTestCase {
           		jq(lbx.$n("body")).scrollTop((num-1)*itemHgh);
           	}
           } else
-            jq(lbx.$n("body")).scrollTop(0);
+            lbx.$n("body").eval("scrollTop = " + 0);
           waitResponse();
+          if (isFirefox() || isOpera())
+          	sleep(300)
           var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0);
 
           click(listitem);

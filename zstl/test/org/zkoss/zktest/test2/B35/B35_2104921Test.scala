@@ -78,24 +78,25 @@ class B35_2104921Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       // Click on the east button
       click(jq(".z-east-colps"));
-
+      waitResponse(true);
       // Click on the west button
       click(jq(".z-west-colps"));
+      waitResponse(true);
 
       // Click on the East bar
-      click(jq(".z-east-colpsd"));
+      click(jq(".z-east-colpsd:eq(1)"));
+      waitResponse(true);
 
       // Verify the css style of the east zone. If the style contains the display attribute setted to block, it is visible
-      val cssEastHeaderBefore = jq(".z-east").attr("style");
-      verifyTrue("The east zone should be visible", cssEastHeaderBefore.contains("display: block"));
+      verifyTrue("The east zone should be visible", jq(".z-east:eq(1)").isVisible());
 
       // Click on the West bar
       click(jq(".z-west-colpsd"));
+      waitResponse(true);
 
       // Verify the css style of the east zone. If the style contains the display attribute setted to none, 
       // it is not visible. So it is correct
-      val cssEastHeaderAfter = jq(".z-east").attr("style");
-      verifyFalse("The east zone should be collapsed", cssEastHeaderAfter.contains("display: none"));
+      verifyFalse("The east zone should be collapsed", jq(".z-east:eq(1)").isVisible());
     })
   }
 }

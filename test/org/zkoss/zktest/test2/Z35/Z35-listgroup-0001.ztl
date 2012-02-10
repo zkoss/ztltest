@@ -133,6 +133,8 @@
 					
 			click(jq("tr.z-listgroup:eq(0)").toWidget().$n("img"));
 			waitResponse();
+			if (isIE())
+				sleep(300);
 			footerStr = jq("tr.z-listgroupfoot:eq(0)").text();
 			verifyTrue("jq(\"tr.z-listgroupfoot:eq(0)\"): " + 
 					footerStr, footerStr.contains("B2"));
