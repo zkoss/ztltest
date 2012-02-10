@@ -42,6 +42,7 @@
 			if(ZK.is("ie"))
 				blur(jq("a"));
 			click(jq("@page @treerow span.z-tree-root-open"));
+			waitResponse();
 			Element node = tree.$n().firstChild();
 			verifyEquals(node.get("clientHeight"), node.get("scrollHeight"));
 		]]></client>
