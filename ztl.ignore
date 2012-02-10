@@ -77,6 +77,8 @@ Z60-F00823RadiogroupModel2.ztl
 ie8={
 // zkbind
 Z60-RadiogroupSelected.ztl
+Z60-F00823RadiogroupModel1.ztl
+Z60-F00823RadiogroupModel2.ztl
 }
 ie7={
 // unstable
