@@ -85,6 +85,7 @@ class Z60_B00807GroupModel_3Test extends ZTL4ScalaTestCase {
       verifyEquals("[Asparagus, Beets]", l1.toWidget().get("value"))
 
       click(sel1.toWidget())
+      waitResponse()
       verifyEquals("[Apples, Shrimp]", l1.toWidget().get("value"))
       verifyEquals(Array[String]("0", "2"), getSelectedIndexes(listbox.toWidget()))
 
