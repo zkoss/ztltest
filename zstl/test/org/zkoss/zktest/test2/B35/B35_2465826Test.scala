@@ -76,18 +76,32 @@ class B35_2465826Test extends ZTL4ScalaTestCase {
 
       // Record the selected item text
       val itemText = jq(".z-listitem-seld").text();
-      
+
       // Press enter key
-      sendKeys(jq(".z-listcell-cnt").get(0).toElement(), Keys.ENTER);
-      
+      sendKeys(jq(".z-listcell-cnt").toElement(), Keys.ENTER);
+      waitResponse();
+
       // Verify that the messagebox is visible
       verifyTrue("The Messagebox should be visible", jq(".z-messagebox-window").exists());
-      
+
       // Press enter key again
-      sendKeys(jq(".z-button").get(0).toElement(), Keys.ENTER);
+      sendKeys(jq(".z-window-highlighted-cnt").toElement(), Keys.ENTER);
+      waitResponse();
 
       // Verify that the selected item is the same as before
-      verifyTrue("The selected item changed", itemText.equals(jq(".z-listitem-seld")));
+      verifyTrue("The selected item changed", itemText.equals(jq(".z-listitem-seld").text()));
+
+      // Press down key
+      sendKeys(jq(".z-listcell-cnt").toElement(), Keys.DOWN);
+      waitResponse();
+
+      // Press up key
+      sendKeys(jq(".z-listcell-cnt").toElement(), Keys.UP);
+      waitResponse();
+
+      // Verify that the selected item is the same as before
+      verifyTrue("The selected item changed", itemText.equals(jq(".z-listitem-seld").text()));
+
     })
   }
 }
