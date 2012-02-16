@@ -71,27 +71,27 @@ class B35_2614901Test extends ZTL4ScalaTestCase {
       click(jq(".z-menu").get(0));
       
       // Scroll up and down on the menu
-      sendKeys(jq(".z-menu-item"), Keys.DOWN);
+      sendKeys(jq(".z-menupopup").toWidget().$n("a"), Keys.DOWN);
       waitResponse();
       
       // Scroll up and down on the menu
-      sendKeys(jq(".z-menu-item"), Keys.DOWN);
+      sendKeys(jq(".z-menupopup").toWidget().$n("a"), Keys.DOWN);
       waitResponse();
       
       // Scroll up and down on the menu
-      sendKeys(jq(".z-menu-item"), Keys.DOWN);
+      sendKeys(jq(".z-menupopup").toWidget().$n("a"), Keys.DOWN);
       waitResponse();
       
       // Scroll up and down on the menu
-      sendKeys(jq(".z-menu-item"), Keys.UP);
+      sendKeys(jq(".z-menupopup").toWidget().$n("a"), Keys.UP);
       waitResponse();
       
       // Scroll up and down on the menu
-      sendKeys(jq(".z-menu-item"), Keys.UP);
+      sendKeys(jq(".z-menupopup").toWidget().$n("a"), Keys.UP);
       waitResponse();
       
       // Verify the correct selected item
-      verifyTrue("The selected item should be 'New'",(jq(".z-menu-item-over").text().equals("New")));
+      verifyTrue("The selected item should be 'New'",(jq(".z-menuitem-over").text().contains("New")));
       
     })
   }
