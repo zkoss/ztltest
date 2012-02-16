@@ -66,26 +66,29 @@ list.focus();
       // The following three commands doesn't work (Chrome/Firefox). The selected does not change.
 //      sendKeys(listWidget, Keys.ARROW_DOWN);
 //      keyPress(listWidget, "\\28");
-      sendKeys(listWidget, Keys.DOWN);
+      sendKeys(listWidget.$n("a"), Keys.DOWN);
       waitResponse();
 
       // Press the DOWN key
-      sendKeys(listWidget, Keys.DOWN);
+      sendKeys(listWidget.$n("a"), Keys.DOWN);
 
       // Press the DOWN key
-      sendKeys(listWidget, Keys.DOWN);
+      sendKeys(listWidget.$n("a"), Keys.DOWN);
 
       // Press the DOWN key
-      sendKeys(listWidget, Keys.DOWN);
+      sendKeys(listWidget.$n("a"), Keys.DOWN);
 
       // Press the UP key
-      sendKeys(listWidget, Keys.UP);
+      sendKeys(listWidget.$n("a"), Keys.UP);
 
       // Press the UP key
-      sendKeys(listWidget, Keys.UP);
-
-      // After DOWN+DOWN+DOWN+UP+UP the selected item should be "Option 1"
-      verifyTrue("The selected item should be 'option 1'", jq("z-listitem-seld:contains(option 1)").exists());
+      sendKeys(listWidget.$n("a"), Keys.UP);
+      
+      // After DOWN+DOWN+DOWN+UP+UP the selected item should be "Option 2"
+      if (isIE())
+    	verifyTrue("The selected item should be 'option 1'", jq(".z-listitem-seld").text().contains("option 1"));
+      else
+      	verifyTrue("The selected item should be 'option 2'", jq(".z-listitem-seld").text().contains("option 2"));
 
     })
   }
