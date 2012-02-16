@@ -72,36 +72,25 @@ class B35_2465826Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
       // Click on second item
-      click(jq(".z-listcell-cnt").get(0));
-
+      clickAt(jq("@listitem .z-listcell-cnt"), "5,15");
+      
       // Record the selected item text
       val itemText = jq(".z-listitem-seld").text();
-
+      
+      verifyFalse("The selection cannot be empty", itemText.isEmpty());
+      
       // Press enter key
-      sendKeys(jq(".z-listcell-cnt").toElement(), Keys.ENTER);
-      waitResponse();
-
+      sendKeys(jq("@listbox").toWidget().$n("a"), Keys.ENTER);
+      
+      waitResponse(true)
       // Verify that the messagebox is visible
       verifyTrue("The Messagebox should be visible", jq(".z-messagebox-window").exists());
-
+      
       // Press enter key again
-      sendKeys(jq(".z-window-highlighted-cnt").toElement(), Keys.ENTER);
-      waitResponse();
-
+      sendKeys(jq("@button").toWidget().$n("btn"), Keys.ENTER);
+      
       // Verify that the selected item is the same as before
       verifyTrue("The selected item changed", itemText.equals(jq(".z-listitem-seld").text()));
-
-      // Press down key
-      sendKeys(jq(".z-listcell-cnt").toElement(), Keys.DOWN);
-      waitResponse();
-
-      // Press up key
-      sendKeys(jq(".z-listcell-cnt").toElement(), Keys.UP);
-      waitResponse();
-
-      // Verify that the selected item is the same as before
-      verifyTrue("The selected item changed", itemText.equals(jq(".z-listitem-seld").text()));
-
     })
   }
 }
