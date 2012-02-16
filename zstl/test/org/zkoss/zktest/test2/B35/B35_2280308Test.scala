@@ -65,7 +65,7 @@ uiDecimalbox.getValue();
       var lb = jq(engine.$f("list").$n("body"));
 
       // Scroll the listbox
-      lb.scrollTop(lb.scrollHeight());
+      lb.eval("scrollTop = " + lb.scrollHeight()); 
       waitResponse();
 
       // Click on submit button
