@@ -28,7 +28,7 @@ import org.openqa.selenium.Keys
 class B35_2519885Test extends ZTL4ScalaTestCase {
   def testClick() = {
     val zscript = {
-      <zk>
+      """<zk>
         1. Check two or three rows on first page.
         <separator/>
         2. Click the next button to go to the next page.
@@ -51,7 +51,7 @@ class B35_2519885Test extends ZTL4ScalaTestCase {
 ]]>
           </attribute>
         </tree>
-      </zk>
+      </zk>"""
     }
     runZTL(zscript, () => {
       // Verify that there isn't a selected node
