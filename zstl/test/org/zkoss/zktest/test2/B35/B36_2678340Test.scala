@@ -84,7 +84,7 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
 
       // Click upper button again
       click(jq(".z-timebox-btn-upper"));
-      sendKeys(tb, Keys.TAB);
+      sendKeys(tb.$n("real"), Keys.TAB);
 
       // Click on show value button again
       click(jq("@button"));
