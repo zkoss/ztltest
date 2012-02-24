@@ -123,13 +123,12 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
     runZTL(zscript,
       () => {
 
-        waitResponse();
-        
         //Click button
         var img = jq(".z-group-img");
         click(img);
 
         waitResponse();
+        waitResponse(); // wait for onRenderer event
 
         //Search yesterday rows
         var yrows = jq(".z-row:contains(\"2008/11/17\")");
