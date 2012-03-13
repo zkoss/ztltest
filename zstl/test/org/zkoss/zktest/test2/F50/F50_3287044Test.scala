@@ -86,8 +86,6 @@ class F50_3287044Test extends ZTL4ScalaTestCase {
 						]]></attribute>
 				</button>
 			</zk>
-			
-
     }
 
    runZTL(zscript, () => {
@@ -118,9 +116,9 @@ class F50_3287044Test extends ZTL4ScalaTestCase {
    			verify(box1.$n(), "2,000.02");
    			verify(box2.$n(), "2,000.02");
    			verify(jq(box3.$n()).find("input").get(0), "2,000.02");
-   			verify(box4.$n(), "2 000,02");
-   			verify(box5.$n(), "2 000,02");
-   			verify(jq(box6.$n()).find("input").get(0), "2 000,02");
+   			verify(box4.$n(), "2ï¿½000,02");
+   			verify(box5.$n(), "2ï¿½000,02");
+   			verify(jq(box6.$n()).find("input").get(0), "2ï¿½000,02");
    			verify(box7.$n(), "2.000,02");
    			verify(box8.$n(), "2.000,02");
    			verify(jq(box9.$n()).find("input").get(0), "2.000,02");
