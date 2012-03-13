@@ -27,6 +27,8 @@ import org.zkoss.ztl.Widget;
 import org.zkoss.ztl.ZK;
 import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  * A test class for bug 3287044
@@ -110,29 +112,30 @@ class F50_3287044Test extends ZTL4ScalaTestCase {
    						engine.$f("box9"),
    						engine.$f("btn")
     	    );
-   			def verify(node: Element, value: String) {
-   				verifyEquals(node.get("value"), value);
+   			def verify(node: Element, locale: String) {
+   			  
+   				verifyEquals(node.get("value"), NumberFormat.getNumberInstance(new Locale(locale)).format(2000.02));
    			}
-   			verify(box1.$n(), "2,000.02");
-   			verify(box2.$n(), "2,000.02");
-   			verify(jq(box3.$n()).find("input").get(0), "2,000.02");
-   			verify(box4.$n(), "2�000,02");
-   			verify(box5.$n(), "2�000,02");
-   			verify(jq(box6.$n()).find("input").get(0), "2�000,02");
-   			verify(box7.$n(), "2.000,02");
-   			verify(box8.$n(), "2.000,02");
-   			verify(jq(box9.$n()).find("input").get(0), "2.000,02");
+   			verify(box1.$n(), "zh_TW");
+   			verify(box2.$n(), "zh_TW");
+   			verify(jq(box3.$n()).find("input").get(0), "zh_TW");
+   			verify(box4.$n(), "fr");
+   			verify(box5.$n(), "fr");
+   			verify(jq(box6.$n()).find("input").get(0), "fr");
+   			verify(box7.$n(), "it");
+   			verify(box8.$n(), "it");
+   			verify(jq(box9.$n()).find("input").get(0), "it");
    			click(btn);
    			waitResponse();
-   			verify(box1.$n(), "2,000.02");
-   			verify(box2.$n(), "2,000.02");
-   			verify(jq(box3.$n()).find("input").get(0), "2,000.02");
-   			verify(box4.$n(), "2,000.02");
-   			verify(box5.$n(), "2,000.02");
-   			verify(jq(box6.$n()).find("input").get(0), "2,000.02");
-   			verify(box7.$n(), "2,000.02");
-   			verify(box8.$n(), "2,000.02");
-   			verify(jq(box9.$n()).find("input").get(0), "2,000.02");
+   			verify(box1.$n(), "zh_TW");
+   			verify(box2.$n(), "zh_TW");
+   			verify(jq(box3.$n()).find("input").get(0), "zh_TW");
+   			verify(box4.$n(), "zh_TW");
+   			verify(box5.$n(), "zh_TW");
+   			verify(jq(box6.$n()).find("input").get(0), "zh_TW");
+   			verify(box7.$n(), "zh_TW");
+   			verify(box8.$n(), "zh_TW");
+   			verify(jq(box9.$n()).find("input").get(0), "zh_TW");
 		})
   }
 
