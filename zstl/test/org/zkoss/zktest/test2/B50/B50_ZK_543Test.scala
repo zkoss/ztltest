@@ -90,8 +90,8 @@ class B50_ZK_543Test extends ZTL4ScalaTestCase {
    runZTL(zscript, () => {
 			var listbox: Widget = engine.$f("listbox");
 
-			verifyTrue("the body height should equal to cave height",
-			    jq(listbox.$n("body")).height() == jq(listbox.$n("cave")).height());
+			verifyTrue("the body height should very close to cave height",
+			    jq(listbox.$n("body")).height() - jq(listbox.$n("cave")).height() <= 3);
 		})
   }
 }
