@@ -183,4 +183,11 @@ Z60-B00807GroupModel-3.ztl
 Z60-Immutable.ztl
 Z60-B00892ChildBindingUnderListbox.ztl
 Z60-F00889ChildrenBindingConverter.ztl
+Z60-F00901ReferenceBinding.ztl
+Z60-00913ValueReload.ztl
+Z60-F00862BeanValidator4Form.ztl
+Z60-B00905FormNotifyChange.ztl
+Z60-B00911FormNotifyChange.ztl
+Z60-F00916FormBeanValidator.ztl
+Z60-F00921SystemConverterValidator.ztl
 }
