@@ -65,7 +65,7 @@ class Z60_LoadFormIndirectTest extends ZTL4ScalaTestCase {
       ZKSeleneseTestCase.assertEquals("XXX", getValue(t1));
       ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
       ZKSeleneseTestCase.assertEquals("First1 Last1", getText(l3));
-      ZKSeleneseTestCase.assertEquals("First1", getText(l4));
+      ZKSeleneseTestCase.assertEquals("XXX", getText(l4));
       ZKSeleneseTestCase.assertEquals("First1", getText(l5));
       ZKSeleneseTestCase.assertEquals("", getValue(t6));
       ZKSeleneseTestCase.assertEquals("", getText(l7));
@@ -84,7 +84,7 @@ class Z60_LoadFormIndirectTest extends ZTL4ScalaTestCase {
       val btn2 = engine $f "btn2"
       click(btn2)
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("First1", getText(l4));
+      ZKSeleneseTestCase.assertEquals("Last1", getText(l4));
       ZKSeleneseTestCase.assertEquals("Last1", getText(l5));
       ZKSeleneseTestCase.assertEquals("", getText(l8));
       //		findWidget("$btn2").click();
@@ -95,7 +95,7 @@ class Z60_LoadFormIndirectTest extends ZTL4ScalaTestCase {
       val btn3 = engine $f "btn3"
       click(btn3)
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("First1", getText(l4));
+      ZKSeleneseTestCase.assertEquals("First1 Last1", getText(l4));
       ZKSeleneseTestCase.assertEquals("First1 Last1", getText(l5));
       ZKSeleneseTestCase.assertEquals("", getText(l8));
       //		findWidget("$btn3").click();
@@ -132,7 +132,7 @@ class Z60_LoadFormIndirectTest extends ZTL4ScalaTestCase {
       `type`(t1, "YYY")
       click(btn1)
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("XXX Last1", getText(l4));
+      ZKSeleneseTestCase.assertEquals("YYY", getText(l4));
       ZKSeleneseTestCase.assertEquals("XXX", getText(l5));
       ZKSeleneseTestCase.assertEquals("XXX Last1", getText(l8));
       //		findWidget("$l1").clear().keys("YYY");

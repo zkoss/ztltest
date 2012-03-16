@@ -180,5 +180,7 @@ Z60-ELTag.ztl
 Z60-B00807GroupModel-1.ztl 
 Z60-B00807GroupModel-2.ztl 
 Z60-B00807GroupModel-3.ztl 
-Z60-ImmutableTest 
+Z60-Immutable.ztl
+Z60-B00892ChildBindingUnderListbox.ztl
+Z60-F00889ChildrenBindingConverter.ztl
 }

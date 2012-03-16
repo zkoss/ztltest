@@ -32,24 +32,30 @@ class Z60_FormDirtyTest extends ZTL4ScalaTestCase {
     runZTL(zul, () => {
       verifyEquals("false", jq("$dirty").toWidget().get("value"))
       verifyEquals("Dennis", jq("$l1").toWidget().get("value"))
+      
       `type`(jq("$t1").toWidget(), "X")
       waitResponse()
       verifyEquals("true", jq("$dirty").toWidget().get("value"))
-      verifyEquals("Dennis", jq("$l1").toWidget().get("value"))
+      verifyEquals("X", jq("$l1").toWidget().get("value"))
+      
       `type`(jq("$t1").toWidget(), "Dennis")
       waitResponse()
       verifyEquals("false", jq("$dirty").toWidget().get("value"))
       verifyEquals("Dennis", jq("$l1").toWidget().get("value"))
+      
       `type`(jq("$t1").toWidget(), "Y")
       waitResponse()
       verifyEquals("true", jq("$dirty").toWidget().get("value"))
-      verifyEquals("Dennis", jq("$l1").toWidget().get("value"))
+      verifyEquals("Y", jq("$l1").toWidget().get("value"))
+      
       click(jq("$btn2").toWidget())
       waitResponse()
       verifyEquals("old-name Dennis", jq("$msg").toWidget().get("value"))
+      
       click(jq("$btn1").toWidget())
       waitResponse()
       verifyEquals("saved Y", jq("$msg").toWidget().get("value"))
+      
       click(jq("$btn2").toWidget())
       waitResponse()
       verifyEquals("old-name Y", jq("$msg").toWidget().get("value"))
