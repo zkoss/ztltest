@@ -24,8 +24,8 @@
 				verifyFalse(jq(".z-errbox").exists());
 				if (ZK.is("ie < 9")) {
 				mouseOver(jq(".z-button-cm"));
-				mouseDown(jq(".z-button-cm"));
-				mouseUp(jq(".z-button-cm"));
+				Scripts.triggerMouseEventAt(getWebDriver(), btn, "mousedown", "3,3");
+				Scripts.triggerMouseEventAt(getWebDriver(), btn, "mouseup", "3,3");
 				} else {
 				click(jq(".z-button-cm"));
 				}
