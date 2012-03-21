@@ -71,6 +71,7 @@ class B50_3053313Test extends ZTL4ScalaTestCase {
         var dt1: Int = 0;
 
         click(dtbx3.$n("btn"));
+        waitResponse();
         var calRows: Array[JQuery] = jq(dtbx3.$n("pp")).find(".z-calendar-caldayrow").toArray[JQuery];
 
         var l: List[JQuery]  = new ArrayList();
@@ -95,12 +96,14 @@ class B50_3053313Test extends ZTL4ScalaTestCase {
         }
 
         click(dtbx2.$n("btn"));
+        waitResponse();
         dt1 = Integer.parseInt(jq(dtbx2.$n("pp"))
         		.find(".z-calendar-disd").get(0).get("innerHTML"));
         verifyTrue("for second datebox, the only unselectable date should be today",
             (dt1 == today) && (jq(dtbx2.$n("pp")).find(".z-calendar-disd").length() == 1));
 
         click(dtbx1.$n("btn"));
+        waitResponse();
         dt1 = Integer.parseInt(jq(dtbx1.$n("pp"))
         		.find(".z-calendar-disd").last().get(0).get("innerHTML"));
         verifyTrue("for first datebox, the last unselectable date should be yesterday",

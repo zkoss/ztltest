@@ -77,6 +77,24 @@ class B50_ZK_835Test extends ZTL4ScalaTestCase {
 								}
 							});
 						}
+    					public void render(Treeitem item, Object data, int index) throws Exception {
+							Treerow tr;
+							if (item.getTreerow() == null) {
+								tr = new Treerow();
+								tr.setParent(item);
+							} else {
+								tr = item.getTreerow();
+								tr.getChildren().clear();
+							}
+							tr.appendChild(new Treecell((String) ((DefaultTreeNode) data).getData()));
+							item.setValue(data);
+							
+							item.addEventListener("onOpen",new org.zkoss.zk.ui.event.EventListener(){
+								public void onEvent(org.zkoss.zk.ui.event.Event event) throws Exception {
+									event.stopPropagation();
+								}
+							});
+						}
 					};
 				]]></zscript>
 				
@@ -195,6 +213,8 @@ class B50_ZK_835Test extends ZTL4ScalaTestCase {
    runZTL(zscript,
         () => {
         var log: Element = jq("textarea").get(0);
+        // wait the zk.log
+        sleep(500);
         verifyTrue("Should only three log message",
             log.get("value").length() < 37);
     }
