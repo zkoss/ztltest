@@ -39,6 +39,8 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
   def testClick() = {
     val zscript = """
 			<zk>
+    		<div if="${zk.ie != 6 and zk.ie != 7}">
+    		<label id="outer" value="outer" />
 			<div><label style="font-weight:bold">This feature only support on IE8+, Firefox, Chrome, Safari, and Opera</label></div>
 				<zscript><![CDATA[
 					import org.zkoss.zktest.test2.big.*;
@@ -139,13 +141,14 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
 						</template>
 					</biglistbox>
     			</div>
+    			</div>
 			</zk>
-
     """
 
     runZTL(zscript,
         () => {
-          if (!ZK.is("ie6_") && !ZK.is("ie7_")) {
+          if (!ZK.is("ie6_") && !ZK.is("ie7_")) { // not support ie6/7
+	        var outer: Widget = engine.$f("outer");
 	        var biglist: Widget = engine.$f("biglist");
 	        var div: Widget = engine.$f("div");
 	        var sbx: Widget = engine.$f("sbx");
@@ -160,26 +163,49 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
 	        var tmpValueTwo: Int = 0;
 	        var tmpValueThree: Int = 0;
 
+	        def sel (sbx: Widget, item: String) {
+	          if (ZK.is("ie8_")) {
+	            var opts: JQuery = jq(sbx.$n()).find("option");
+	            var done: Boolean = false;
+	            for (i <- 0 until opts.length()) {
+	              if (!done && opts.get(i).get("innerHTML").contains(item)) {
+	                nselect(sbx, i);
+	                done = true;
+	              }
+	            }
+	          } else
+	            select(sbx, item);
+	        }
+	        def nselect (sbx: Widget, num: Int) { // select function for ie8-
+	          click(sbx);
+	          sbx.$n().eval("selectedIndex = " + num);
+	          click(outer);
+	          waitResponse();
+	        }
 	        def setValues() {
 	        	tmpValueOne = jq(biglist.$n("cols")).find("th").length();
 		        tmpValueTwo = jq(biglist.$n("rows")).find("tr").length();
 		        tmpValueThree = jq(biglist.$n("rows")).find("td").length();
 	        }
 	        def checkRange() {
-	        	var rowSize: Int = jq(biglist.$n("rows")).find("tr").length();
-	        	var cols: JQuery = jq(jq(biglist.$n("rows")).find("tr").get(0)).find("td");
+	            var rows: JQuery = jq(biglist.$n("rows"));
+	        	var rowSize: Int = rows.find("tr").length();
+	        	var cols: JQuery = jq(rows.find("tr").get(0)).find("td");
 	        	var colSize: Int = cols.length();
+	        	var hbar: JQuery = jq(biglist.$n("hbar"));
+	        	var vbar: JQuery = jq(biglist.$n("vbar"));
 	            for (i <- 0 until rowSize) {
-	                var row: JQuery = jq(jq(biglist.$n("rows")).find("tr").get(i));
-	                if ((row.offsetTop() + row.height()) > windowHeight) {
-	                	tmpValueOne = i-1;
+	                var row: JQuery = jq(rows.find("tr").get(i));
+
+	                if ((row.offsetTop() + row.outerHeight(true)) > hbar.offsetTop()) {
+	                	tmpValueOne = i - 1;
 	                } else if (i == (rowSize - 1))
 	                	tmpValueOne = i;
 	            }
 	            for (j <- 0 until colSize) {
 	            	var col: JQuery = jq(cols.get(j));
-	            	if ((col.offsetLeft() + col.width()) > windowWidth) {
-	            		tmpValueTwo = j-1;
+	            	if ((col.offsetLeft() + col.outerWidth(true)) > vbar.offsetLeft()) {
+	            		tmpValueTwo = j - 1;
 	            	} else if (j == (colSize - 1))
 	            		tmpValueTwo = j;
 	            }
@@ -194,7 +220,7 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
 	            checkRange();
 	            rowRange = tmpValueOne;
 	            colRange = tmpValueTwo;
-
+	            
 	            click(rdoTwo.$n("real")); waitResponse();
 
 	            row = jq(jq(biglist.$n("rows")).find("tr").get(rowRange));
@@ -204,14 +230,14 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
 
 	            verifyTrue("List size should match the range",
 	                math.abs((listWidth - (col.offsetLeft() + col.outerWidth(true)))) < 2
-	                && math.abs(listHeight - (row.offsetTop() + row.height())) < 2);
+	                && math.abs(listHeight - (row.offsetTop() + row.outerHeight(true))) < 2);
 	        }
 	        def checkFrozen () {
 	            var col: JQuery = jq(jq(biglist.$n("rows")).find("td").get(0));
 	            var fxCol: JQuery = null;
 	            var oldOfsLeft: Int = 0;
 	        	// frozen at column 2
-		        select(sbx2, "2"); waitResponse();
+		        sel(sbx2, "2"); waitResponse();
 		        fxCol = jq(jq(biglist.$n("rowsfx")).find("td").get(1));
 	            oldOfsLeft = fxCol.offsetLeft();
 		        verifyTrue("Frozen at second column",
@@ -223,28 +249,28 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
 		            fxCol.offsetLeft() == oldOfsLeft);
 	        }
 	        // check multiple header
-	        select(sbx, "MultipleHeader");
+	        sel(sbx, "MultipleHeader");
 	        waitResponse();
 	        verifyTrue("Has multiple header",
 	            jq(biglist.$n("cols")).find("tr").length() == 3
 	            && jq(biglist.$n("cols")).find("th:contains(Header x = 1, y = 2)").exists());
 
 	        // check single column
-	        select(sbx, "SingleColumn");
+	        sel(sbx, "SingleColumn");
 	        waitResponse();
 	        setValues();
 	        verifyTrue("Only single column",
 	            tmpValueOne == 1 && tmpValueTwo == tmpValueThree);
 
 	        // check multiple column
-	        select(sbx, "MultipleColumn");
+	        sel(sbx, "MultipleColumn");
 	        waitResponse();
 	        setValues();
 	        verifyTrue("Has multiple column",
 	            tmpValueOne > 1 && tmpValueTwo == 10 && tmpValueThree == tmpValueOne * tmpValueTwo);
 
 	        // check single row
-	        select(sbx, "SingleRow");
+	        sel(sbx, "SingleRow");
 	        waitResponse();
 	        setValues();
 
@@ -252,25 +278,25 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
 	            tmpValueTwo == 1 && tmpValueOne == tmpValueThree);
 
 	        // check multiple row
-	        select(sbx, "MultipleRow");
+	        sel(sbx, "MultipleRow");
 	        waitResponse();
 	        setValues();
 	        verifyTrue("Has multiple row",
 	            tmpValueTwo > 1 && tmpValueThree == tmpValueOne * tmpValueTwo);
 
 	        // change to big data
-	        select(sbx, "BigData");
+	        sel(sbx, "BigData");
 	        waitResponse();
 	        checkFlexMin();
 
 	        checkFrozen();
 
 	        // change col number and row number
-	        select(sbx4, "5"); waitResponse();
+	        sel(sbx4, "5"); waitResponse();
 	        verifyTrue("Change to 5 rows",
 	        		jq(biglist.$n("rowsfx")).find("tr").length() == 5
 	        		&& jq(biglist.$n("rows")).find("tr").length() == 5);
-	        select(sbx3, "5"); waitResponse();
+	        sel(sbx3, "5"); waitResponse();
 	        verifyTrue("Change to 5 cols",
 	        		jq(jq(biglist.$n("rowsfx")).find("tr").get(0)).find("td").length()
 	            	+ jq(jq(biglist.$n("rows")).find("tr").get(0)).find("td").length() == 5);
