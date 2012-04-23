@@ -36,14 +36,14 @@ class B35_2313445Test extends ZTL4ScalaTestCase {
 						<tab label="E"/>
 					</tabs>
 				</tabbox>
-				<button label="tabs.invalidate()" onClick="tabs.invalidate();"/>
+				<button id="btn" label="tabs.invalidate()" onClick="tabs.invalidate();"/>
 			</zk>
 		}
 		runZTL(zscript, () => {
-			verifyImage()
-			click(jq("@button"))
-			waitResponse()
-			verifyImage()
+			verifyImage();
+			click(engine.$f("btn"));
+			waitResponse();
+			verifyImage();
 		})
 	}
 }
