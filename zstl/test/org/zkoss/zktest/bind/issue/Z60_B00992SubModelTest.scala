@@ -31,7 +31,7 @@ class Z60_B00992SubModelTest extends ZTL4ScalaTestCase {
       var combobox = jq("$combobox")
       var lab = jq("$lab")
 
-      `type`(combobox.toWidget(), "9")
+      `type`(combobox.toWidget().$n("real"), "9")
       waitResponse()
       sendKeys(combobox, Keys.TAB)
       waitResponse()
