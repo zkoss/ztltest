@@ -190,4 +190,12 @@ Z60-B00905FormNotifyChange.ztl
 Z60-B00911FormNotifyChange.ztl
 Z60-F00916FormBeanValidator.ztl
 Z60-F00921SystemConverterValidator.ztl
+Z60-B00950ReferenceChange.ztl
+Z60-B00967GroupModel_1.ztl
+Z60-B00967GroupModel_2.ztl
+Z60-B00967GroupModel_3.ztl
+Z60-B00848ValidationMessagesEmpty.ztl
+Z60-B00758Indirect.ztl
+Z60-B00992SubModel.ztl
+Z60-B00993IncludeReload.ztl
 }
