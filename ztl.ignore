@@ -208,4 +208,5 @@ Z60-F01046PublicEvent.ztl
 Z60-F00986CloseWindow.ztl
 Z60-B01066IncorrectFormValue.ztl
 Z60-B01062NullIntValue.ztl
+Z60-B00869Serialization.ztl
 }
