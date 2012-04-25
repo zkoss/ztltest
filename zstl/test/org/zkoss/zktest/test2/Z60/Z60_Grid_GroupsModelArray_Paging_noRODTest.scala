@@ -96,6 +96,7 @@ class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
 					<div>6. Close the Itemset 0 and the Itemset 1 of the third Grid and click the "clone" and "clone by serialization".</div>
 					<div>7. Open the Itemset 1 of the last two Grid, its content will open well (if it opens the Itemset 0's content, that is a bug).</div>
 				</div>
+    			<label id="outer" value="outer" />
 				<custom-attributes org.zkoss.zul.grid.rod="false" />
 				<hlayout>
 			    <grid id="grid" height="200px" width="310px" mold="paging" pageSize="5" model="${model}">
@@ -186,6 +187,7 @@ class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
+        var outer: Widget = engine.$f("outer");
         var tbOne: Widget = engine.$f("tbOne");
         var tbTwo: Widget = engine.$f("tbTwo");
         var btnOne: Widget = engine.$f("btnOne");
@@ -240,9 +242,9 @@ class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
           waitResponse();
         }
         def input = (tb: Element, value: String) => {
-          focus(tb);
+          click(tb);
           tb.eval("value = \"" + value+"\"");
-          blur(tb);
+          click(outer);
           waitResponse();
         }
         def getGstr (gnum: String): String = {
