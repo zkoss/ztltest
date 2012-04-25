@@ -26,7 +26,7 @@ import org.zkoss.ztl.Tags
  * @author ldnigro
  *
  */
-@Tags(tags = "B36-2844707.zul,B,E,Textbox,IE")
+@Tags(tags = "B36-2844707.zul,A,E,Datebox,Calendar")
 class B36_2844707Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
@@ -100,6 +100,8 @@ Please select a date, and then select another month, and then it should be chang
         cal.add(Calendar.MONTH,1)
         val date22=cal.getTime();
         verifyEquals(date22,date2);
+        
+        
 
       });
   }
