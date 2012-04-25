@@ -23,13 +23,15 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		</ol>
 	]]></html>
 	<datebox width="300px" format="MM/dd/yyyy, HH:mm:ss.SSS" />
+	<label id="outer" value="outer area" />
 </zk>
 
 		--></server>
 		<client><![CDATA[
 				Calendar cal=Calendar.getInstance();
 			    int year=cal.get(Calendar.YEAR);
-			    type(jq(".z-datebox-inp"),"1/1");
+			    sendKeys(jq(".z-datebox-inp"),"1/1");
+				click(jq(".z-label"));
 			    verifyContains(jq(".z-datebox-inp").val(), ""+year);
 		]]></client>
 	</case>
