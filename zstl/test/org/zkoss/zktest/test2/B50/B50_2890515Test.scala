@@ -40,6 +40,8 @@ class B50_2890515Test extends ZTL4ScalaTestCase {
     val zscript = {
 
 			<zk>
+    		<label id="outer" value="outer" />
+    		<div></div>
 			Please choose a date, for example, 20091102. And foucs in and out the
 			datebox it should not show an error.
 			<datebox id="dtbx" constraint="before 20091102" format="yyyyMMdd"/>
@@ -50,11 +52,12 @@ class B50_2890515Test extends ZTL4ScalaTestCase {
    // Run syntax 2
     runZTL(zscript,
         () => {
+        var outer: Widget = engine.$f("outer");
         var dtbx: Widget = engine.$f("dtbx");
 
         click(dtbx.$n("real"));
         dtbx.$n("real").eval("value='20091102'");
-        blur(dtbx.$n("real"));
+        click(outer);
         waitResponse();
 
         verifyFalse("should not show error with date before (and include) 2009/11/02",
@@ -62,7 +65,7 @@ class B50_2890515Test extends ZTL4ScalaTestCase {
 
         click(dtbx.$n("real"));
         dtbx.$n("real").eval("value='20091103'");
-        blur(dtbx.$n("real"));
+        click(outer);
         waitResponse();
 
         verifyTrue("should show error with date after 2009/11/02",

@@ -62,7 +62,8 @@ class Z60_Selectbox_ListModelMapTest extends ZTL4ScalaTestCase {
 					<div>7. Click 'insert item', each select of selectbox should not be changed.</div>
 					<div>8. Click 'remove item', each select of Selectbox should not be changed.</div>
 				</div>
-				<selectbox id="sbxOne" model="${model}" onSelect="" onOpen="" />
+				<label id="outer" value="outer" />
+    			<selectbox id="sbxOne" model="${model}" onSelect="" onOpen="" />
 				<div height="10px"></div>
 				<selectbox id="sbxTwo" model="${model}" onSelect="" onOpen="" />
 				<div height="10px"></div>
@@ -113,15 +114,16 @@ class Z60_Selectbox_ListModelMapTest extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
+        var outer: Widget = engine.$f("outer");
         var clone: Widget = engine.$f("clone");
         var serialize: Widget = engine.$f("serialize");
         var insert: Widget = engine.$f("insert");
         var remove: Widget = engine.$f("remove");
         def select (id: String, num: Int) {
           var sbx: Widget = engine.$f(id);
-          focus(sbx);
+          click(sbx);
           sbx.$n().eval("selectedIndex = " + num);
-          blur(sbx);
+          click(outer);
           waitResponse();
         }
         def equal (idOne: String, idTwo: String): Boolean = {

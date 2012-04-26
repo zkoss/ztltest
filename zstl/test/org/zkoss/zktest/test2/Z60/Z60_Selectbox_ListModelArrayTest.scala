@@ -57,6 +57,7 @@ class Z60_Selectbox_ListModelArrayTest extends ZTL4ScalaTestCase {
 					<div>5. Select data 11 of third selectbox, data 12 of fourth and data 13 of fifth, the select status of last three selectbox should not sync.</div>
 					<div>6. Click clone and 'clone by serialization', you should see two selectboxes created and each selectbox after fifth selectbox select data 11.</div>
 				</div>
+    			<label id="outer" value="outer" />
 				<selectbox id="sbxOne" model="${model}" onSelect="" />
 				<div height="10px"></div>
 				<selectbox id="sbxTwo" model="${model}" onSelect="" />
@@ -87,13 +88,14 @@ class Z60_Selectbox_ListModelArrayTest extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
+        var outer: Widget = engine.$f("outer");
         var clone: Widget = engine.$f("clone");
         var serialize: Widget = engine.$f("serialize");
         def select (id: String, num: Int) {
           var sbx: Widget = engine.$f(id);
-          focus(sbx);
+          click(sbx);
           sbx.$n().eval("selectedIndex = " + num);
-          blur(sbx);
+          click(outer);
           waitResponse();
         }
         def equal (idOne: String, idTwo: String): Boolean = {

@@ -93,6 +93,7 @@ class Z60_Listbox_ListModelSet_Multiple_RODTest extends ZTL4ScalaTestCase {
 					<div>7. Click 'insert item', each select of Listbox should not be changed.</div>
 					<div>8. Click 'remove item', each select of Listbox should not be changed.</div>
 				</div>
+    			<label id="outer" value="outer" />
 				<hbox>
 					<listbox id="lbxOne" height="150px" width="140px" model="${model}" onSelect="" multiple="true" checkmark="true" />
 					<listbox id="lbxTwo" height="150px" width="140px" model="${model}" onSelect="" multiple="true" checkmark="true" />
@@ -152,6 +153,7 @@ class Z60_Listbox_ListModelSet_Multiple_RODTest extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
+        var outer: Widget = engine.$f("outer");
         var lbxOne: Widget = engine.$f("lbxOne");
         var lbxTwo: Widget = engine.$f("lbxTwo");
         var lbxThree: Widget = engine.$f("lbxThree");
@@ -210,9 +212,9 @@ class Z60_Listbox_ListModelSet_Multiple_RODTest extends ZTL4ScalaTestCase {
                 msg.$n().get("innerHTML").equals("false"));
         }
         def input = (tb: Element, value: String) => {
-          focus(tb);
+          click(tb);
           tb.eval("value = \"" + value+"\"");
-          blur(tb);
+          click(outer);
           waitResponse();
         }
         def checkInsertRemove = () => {

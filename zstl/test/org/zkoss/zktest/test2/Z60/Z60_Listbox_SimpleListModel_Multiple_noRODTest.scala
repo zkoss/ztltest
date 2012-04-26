@@ -89,6 +89,7 @@ class Z60_Listbox_SimpleListModel_Multiple_noRODTest extends ZTL4ScalaTestCase {
 					<div>5. Hold Ctrl then Select data 212 of third Listbox, data 213 of fourth and data 214 of fifth, the select status of last three listbox should not sync.</div>
 					<div>6. Click clone and 'clone by serialization', you should see two Listboxes created and each Listbox after fifth Listbox select data 10, 11 and 212.</div>
 				</div>
+    			<label id="outer" value="outer" />
 				<custom-attributes org.zkoss.zul.listbox.rod="false" />
 				<hbox>
 					<listbox id="lbxOne" height="150px" width="140px" model="${model}" onSelect="" multiple="true" checkmark="true" />
@@ -128,6 +129,7 @@ class Z60_Listbox_SimpleListModel_Multiple_noRODTest extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
+        var outer: Widget = engine.$f("outer");
         var lbxOne: Widget = engine.$f("lbxOne");
         var lbxTwo: Widget = engine.$f("lbxTwo");
         var lbxThree: Widget = engine.$f("lbxThree");
@@ -186,9 +188,9 @@ class Z60_Listbox_SimpleListModel_Multiple_noRODTest extends ZTL4ScalaTestCase {
                 msg.$n().get("innerHTML").equals("false"));
         }
         def input = (tb: Element, value: String) => {
-          focus(tb);
+          click(tb);
           tb.eval("value = \"" + value+"\"");
-          blur(tb);
+          click(outer);
           waitResponse();
         }
         selectItem("lbxOne", 2);

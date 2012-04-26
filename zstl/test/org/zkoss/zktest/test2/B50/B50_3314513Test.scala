@@ -45,6 +45,8 @@ class B50_3314513Test extends ZTL4ScalaTestCase {
 						<li>Type "abc" in the following 4 dateboxes. All four should show errors.</li>
 					</ol>
 				]]></html>
+    			<label id="outer" value="outer" />
+    			<div></div>
 				<label id="lb1" value="en_US: " />
 				<datebox id="dbx1" locale="en_US" />
 				<separator />
@@ -63,6 +65,7 @@ class B50_3314513Test extends ZTL4ScalaTestCase {
    // Run syntax 2
     runZTL(zscript,
         () => {
+        var outer: Widget = engine.$f("outer");
         var (lb1: Widget,
              dbx1: Widget,
     	     dbx2: Widget,
@@ -74,14 +77,18 @@ class B50_3314513Test extends ZTL4ScalaTestCase {
     	        engine.$f("dbx3"),
     	        engine.$f("dbx4")
     	    );
+        click(dbx1.$n("real"));
         dbx1.$n("real").eval("value = 'abc'");
-        blur(dbx1.$n("real"));
+        click(outer); waitResponse();
+        click(dbx2.$n("real"));
         dbx2.$n("real").eval("value = 'abc'");
-        blur(dbx2.$n("real"));
+        click(outer); waitResponse();
+        click(dbx3.$n("real"));
         dbx3.$n("real").eval("value = 'abc'");
-        blur(dbx3.$n("real"));
+        click(outer); waitResponse();
+        click(dbx4.$n("real"));
         dbx4.$n("real").eval("value = 'abc'");
-        blur(dbx4.$n("real"));
+        click(outer); waitResponse();
 
         waitResponse();
         verifyTrue("all four datebox should show error",

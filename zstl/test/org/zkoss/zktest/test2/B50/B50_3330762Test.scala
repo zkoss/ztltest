@@ -40,7 +40,9 @@ class B50_3330762Test extends ZTL4ScalaTestCase {
     val zscript = {
 
 			<zk>
-				<separator/>
+				<label id="outer" value="outer" />
+    			<div></div>
+    			<separator/>
 					1. Input "1" in spinner and click button "test"
 				<separator/>
 					2. If an exception is thrown, it is a bug.
@@ -59,6 +61,7 @@ class B50_3330762Test extends ZTL4ScalaTestCase {
    // Run syntax 2
     runZTL(zscript,
         () => {
+        var outer: Widget = engine.$f("outer");
         var ds: Widget = engine.$f("ds");
         var btn: Widget = engine.$f("btn");
         var lb: Widget = engine.$f("lb");
@@ -66,7 +69,7 @@ class B50_3330762Test extends ZTL4ScalaTestCase {
 
         click(dsInp);
         dsInp.eval("value=1");
-        blur(dsInp);
+        click(outer); waitResponse();
         clickThenCheck("1.0");
 
         click(ds.$n("btn-up"));
