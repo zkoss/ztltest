@@ -18,7 +18,6 @@ package org.zkoss.zktest.bind.issue
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
-import org.junit.Assert
 
 /**
  * @author pao
@@ -43,8 +42,8 @@ class Z60_B00993IncludeReloadTest extends ZTL4ScalaTestCase {
       waitResponse()
       l1 = jq("$l1")
       l2 = jq("$l2")
-      Assert.assertNotSame(val1, l1.toWidget().get("value"))
-      Assert.assertNotSame(val2, l2.toWidget().get("value"))
+      verifyNotEquals(val1, l1.toWidget().get("value"))
+      verifyNotEquals(val2, l2.toWidget().get("value"))
 
       val1 = l1.toWidget().get("value")
       val2 = l2.toWidget().get("value")
@@ -52,8 +51,8 @@ class Z60_B00993IncludeReloadTest extends ZTL4ScalaTestCase {
       waitResponse()
       l1 = jq("$l1")
       l2 = jq("$l2")
-      Assert.assertNotSame(val1, l1.toWidget().get("value"))
-      Assert.assertNotSame(val2, l2.toWidget().get("value"))
+      verifyNotEquals(val1, l1.toWidget().get("value"))
+      verifyNotEquals(val2, l2.toWidget().get("value"))
 
       val1 = l1.toWidget().get("value")
       val2 = l2.toWidget().get("value")
@@ -61,8 +60,8 @@ class Z60_B00993IncludeReloadTest extends ZTL4ScalaTestCase {
       waitResponse()
       l1 = jq("$l1")
       l2 = jq("$l2")
-      Assert.assertNotSame(val1, l1.toWidget().get("value"))
-      Assert.assertNotSame(val2, l2.toWidget().get("value"))
+      verifyNotEquals(val1, l1.toWidget().get("value"))
+      verifyNotEquals(val2, l2.toWidget().get("value"))
 
       val1 = l1.toWidget().get("value")
       val2 = l2.toWidget().get("value")
@@ -70,8 +69,8 @@ class Z60_B00993IncludeReloadTest extends ZTL4ScalaTestCase {
       waitResponse()
       l1 = jq("$l1")
       l2 = jq("$l2")
-      Assert.assertNotSame(val1, l1.toWidget().get("value"))
-      Assert.assertNotSame(val2, l2.toWidget().get("value"))
+      verifyNotEquals(val1, l1.toWidget().get("value"))
+      verifyNotEquals(val2, l2.toWidget().get("value"))
 
     })
   }
