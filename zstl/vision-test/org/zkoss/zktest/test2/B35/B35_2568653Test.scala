@@ -73,11 +73,11 @@ class B35_2568653Test extends ZTL4ScalaTestCase {
 			
 			verifyImage();
 			dragdropTo(jq("$p1 .z-panel-header-move"), "10,10", "10, 600")
-			sleep(500)
+			sleep(1200)
 			verifyImage();
 			click(jq("@button"))
 			waitResponse()
-			sleep(500)
+			sleep(1200)
 			verifyImage();
 		})
 	}
