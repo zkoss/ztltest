@@ -52,13 +52,16 @@
 			click(tab2);
 			verifyImage();
 			click(tab1);
+			sleep(1000); // wait animation
 			click(taba);
 			verifyImage();
 			click(ck1.$n("real"));
+			waitResponse();
 			verifyImage();
 			click(tab2);
 			verifyImage();
 			click(ck2.$n("real"));
+			waitResponse();
 			click(tab1);
 			verifyImage();
 		]]></client>
