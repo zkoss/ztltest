@@ -40,21 +40,28 @@ If failed, the position of the grid is wrong (overlapped with tabbox).
 		JQuery tab1 = jq(".z-tab-accordion-hm:eq(0)");
 		JQuery tab2 = jq(".z-tab-accordion-hm:eq(1)");
 		click(tab2);
+		sleep(20); // for resonable operation
 		click(tab1);
 		sleep(1500);
 		verifyImage();
 		
 		click(tab2);
+		sleep(20); // for resonable operation
 		click(tab1);
+		sleep(20);
 		click(tab2);
+		sleep(20);
 		click(tab1);
 		
 		sleep(1500);
 		verifyImage();
 		
 		click(tab2);
+		sleep(20); // for resonable operation
 		click(tab1);
+		sleep(20);
 		click(tab2);
+		sleep(20);
 		click(tab1);
 		
 		sleep(1500);
