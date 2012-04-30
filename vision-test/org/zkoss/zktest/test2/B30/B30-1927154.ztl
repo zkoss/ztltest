@@ -41,7 +41,7 @@ If failed, the position of the grid is wrong (overlapped with tabbox).
 		JQuery tab2 = jq(".z-tab-accordion-hm:eq(1)");
 		click(tab2);
 		click(tab1);
-		waitResponse(true);
+		sleep(1500);
 		verifyImage();
 		
 		click(tab2);
@@ -49,7 +49,7 @@ If failed, the position of the grid is wrong (overlapped with tabbox).
 		click(tab2);
 		click(tab1);
 		
-		waitResponse(true);
+		sleep(1500);
 		verifyImage();
 		
 		click(tab2);
@@ -57,7 +57,7 @@ If failed, the position of the grid is wrong (overlapped with tabbox).
 		click(tab2);
 		click(tab1);
 		
-		waitResponse(true);
+		sleep(1500);
 		verifyImage();
 		]]></client>
 	</case>
