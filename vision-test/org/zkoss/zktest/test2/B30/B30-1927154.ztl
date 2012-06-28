@@ -42,7 +42,9 @@ If failed, the position of the grid is wrong (overlapped with tabbox).
 		click(tab2);
 		sleep(20); // for resonable operation
 		click(tab1);
-		sleep(1500);
+		waitResponse(true);
+		sleep(1000);
+
 		verifyImage();
 		
 		click(tab2);
@@ -53,7 +55,8 @@ If failed, the position of the grid is wrong (overlapped with tabbox).
 		sleep(20);
 		click(tab1);
 		
-		sleep(1500);
+		waitResponse(true);
+		sleep(1000);
 		verifyImage();
 		
 		click(tab2);
@@ -64,7 +67,8 @@ If failed, the position of the grid is wrong (overlapped with tabbox).
 		sleep(20);
 		click(tab1);
 		
-		sleep(1500);
+		waitResponse(true);
+		sleep(1000);
 		verifyImage();
 		]]></client>
 	</case>
