@@ -2,19 +2,21 @@
 	<case id="Hflex">
 		<server><!--
 <zk>
-	<div>
-		Open Combobox and select the first item. If the size of Combobox shrank, it is a bug.
-	</div>
-	<grid hflex="1">
-		<rows>
-			<row>
-				<combobox hflex="1"
-					onChange='self.setStyle("color:green;");'>
-					<comboitem label="14068250 (14068250,2,FCY111)" />
-				</combobox>
-			</row>
-		</rows>
-	</grid>
+	<vlayout>
+		<div>
+			Open Combobox and select the first item. If the size of Combobox shrank,
+			it is a bug.
+		</div>
+		<grid hflex="1">
+			<rows>
+				<row>
+					<combobox hflex="1" onChange='self.setStyle("color:green;");'>
+						<comboitem label="14068250 (14068250,2,FCY111)" />
+					</combobox>
+				</row>
+			</rows>
+		</grid>
+	</vlayout>
 </zk>
 		--></server>
 		<client><![CDATA[
