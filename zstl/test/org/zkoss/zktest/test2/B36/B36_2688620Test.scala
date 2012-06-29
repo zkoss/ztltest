@@ -46,11 +46,8 @@ tb.focus();
       var d: Date = Calendar.getInstance().getTime();
       var df: SimpleDateFormat = new SimpleDateFormat("hh:MM:ss");
       var str = df.format(d);
-
       val msg = "[" + str.substring(0, 2) + "] should be selected";
-      verifyTrue(msg, zk(jq("@timebox")).eval("getSelectionRange()[0]").equals(str.substring(0, 1)));
-      verifyTrue(msg, zk(jq("@timebox")).eval("getSelectionRange()[1]").equals(str.substring(1, 2)));
-
+      verifyTrue(msg, zk(jq("@timebox input")).eval("getSelectionRange()").equals("[0, 2]"));
     })
   }
 }
