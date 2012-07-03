@@ -56,29 +56,66 @@ Click remove the yellow background will be removed.
 </zk>
 		--></server>
 		<client><![CDATA[
-			verifyImage();
-			click(jq("@button:eq(0)"));
-			verifyImage();
-			click(jq("@button:eq(1)"));
-			verifyImage();
-			click(jq("@button:eq(2)"));
-			verifyImage();
-			click(jq("@button:eq(3)"));
-			verifyImage();
-			click(jq("@button:eq(4)"));
-			verifyImage();
-			click(jq("@button:eq(5)"));
-			verifyImage();
-			click(jq("@button:eq(6)"));
-			verifyImage();
-			click(jq("@button:eq(7)"));
-			verifyImage();
-			click(jq("@button:eq(8)"));
-			verifyImage();
-			click(jq("@button:eq(9)"));
-			verifyImage();
-			click(jq("@button:eq(9)"));
-			verifyImage();
+			if (ZK.is("ie == 6")) {
+				verifyImage();
+				click(jq("@button:eq(0)"));
+				waitResponse();
+				verifyImage();
+				click(jq("@button:eq(1)"));
+				waitResponse();
+				verifyImage();
+				click(jq("@button:eq(2)"));
+				waitResponse();
+				verifyImage();
+				click(jq("@button:eq(3)"));
+				waitResponse();
+				verifyImage();
+				click(jq("@button:eq(4)"));
+				waitResponse();
+				verifyImage();
+				click(jq("@button:eq(5)"));
+				waitResponse();
+				verifyImage();
+				click(jq("@button:eq(6)"));
+				waitResponse();
+				verifyImage();
+				click(jq("@button:eq(7)"));
+				waitResponse();
+				verifyImage();
+				click(jq("@button:eq(8)"));
+				waitResponse();
+				verifyImage();
+				click(jq("@button:eq(9)"));
+				waitResponse();
+				verifyImage();
+				click(jq("@button:eq(9)"));
+				waitResponse();
+				verifyImage();
+			} else {
+				verifyImage();
+				click(jq("@button:eq(0)"));
+				verifyImage();
+				click(jq("@button:eq(1)"));
+				verifyImage();
+				click(jq("@button:eq(2)"));
+				verifyImage();
+				click(jq("@button:eq(3)"));
+				verifyImage();
+				click(jq("@button:eq(4)"));
+				verifyImage();
+				click(jq("@button:eq(5)"));
+				verifyImage();
+				click(jq("@button:eq(6)"));
+				verifyImage();
+				click(jq("@button:eq(7)"));
+				verifyImage();
+				click(jq("@button:eq(8)"));
+				verifyImage();
+				click(jq("@button:eq(9)"));
+				verifyImage();
+				click(jq("@button:eq(9)"));
+				verifyImage();
+			}
 		]]></client>
 	</case>
 </test>
