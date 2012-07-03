@@ -75,17 +75,18 @@ class B60_ZK_1053Test extends ZTL4ScalaTestCase {
         var sbx: Widget = engine.$f("sbx");
         var cbx: Widget = engine.$f("cbx");
 
-        click(sbx); waitResponse();
+        focus(sbx);
+        waitResponse();
         verifyTrue("You should see the msg become 'msg: Selectbox onFocus'",
             msg.$n().get("innerHTML").contains("msg: Selectbox onFocus"));
-        click(msg); waitResponse();
+        blur(sbx); waitResponse();
         verifyTrue("You should see the msg become 'msg: Selectbox onBlur'",
             msg.$n().get("innerHTML").contains("msg: Selectbox onBlur"));
 
-        click(cbx); waitResponse();
+        focus(cbx.$n("inp")); waitResponse();
         verifyTrue("You should see the msg become 'msg: Chosenbox onFocus'",
             msg.$n().get("innerHTML").contains("msg: Chosenbox onFocus"));
-        click(msg); waitResponse();
+        blur(cbx.$n("inp")); waitResponse();
         verifyTrue("You should see the msg become 'msg: Chosenbox onBlur'",
             msg.$n().get("innerHTML").contains("msg: Chosenbox onBlur"));
     }
