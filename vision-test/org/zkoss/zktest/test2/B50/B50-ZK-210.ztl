@@ -87,6 +87,7 @@ Click remove the yellow background will be removed.
 				verifyImage();
 				click(jq("@button:eq(9)"));
 				waitResponse();
+				sleep(2000);
 				verifyImage();
 				click(jq("@button:eq(9)"));
 				waitResponse();
