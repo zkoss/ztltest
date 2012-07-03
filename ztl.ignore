@@ -211,4 +211,11 @@ Z60-B01066IncorrectFormValue.ztl
 Z60-B01062NullIntValue.ztl
 Z60-B00869Serialization.ztl
 Z60-B01085NPEReferenceBinding.ztl
+Z60-B01139LoadInit.ztl
+Z60-B01165InnerViewMdel.ztl
+Z60-B01164RenderedImage.ztl
+Z60-B01189FormNotifyChange1.ztl
+Z60-B01189FormNotifyChange2.ztl
+Z60-B01188MixingELWithRef1.ztl
+Z60-B01188MixingELWithRef2.ztl
 }
