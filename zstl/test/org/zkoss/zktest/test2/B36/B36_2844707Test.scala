@@ -65,8 +65,6 @@ Please select a date, and then select another month, and then it should be chang
 
         //Click calendar day
         var day = jq(".z-calendar-wkday:eq(10)");
-        focus(day);
-        waitResponse();
         click(day);
         waitResponse();
         
@@ -76,13 +74,9 @@ Please select a date, and then select another month, and then it should be chang
                 
         //Next month (open calendar)
         var btn1 = jq(".z-datebox-btn");
-        focus(btn1);
-        waitResponse();
         click(btn1);
         waitResponse();
         var next = jq(".z-calendar-right-icon");
-        focus(next);
-        waitResponse();
         click(next);
         waitResponse();
         

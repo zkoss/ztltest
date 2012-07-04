@@ -73,6 +73,7 @@ class B50_ZK_493Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
+        sleep(400); // wait for zk.log to show up
         var str: java.lang.String = jq("textarea").get(0).get("value");
         var index: Int = 0;
 

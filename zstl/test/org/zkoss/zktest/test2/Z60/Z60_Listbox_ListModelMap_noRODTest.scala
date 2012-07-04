@@ -100,13 +100,6 @@ class Z60_Listbox_ListModelMap_noRODTest extends ZTL4ScalaTestCase {
 					<listbox id="lbxTwo" height="150px" width="160px" model="${model}" onSelect="" multiple="true" checkmark="true" />
 					<listbox id="lbxThree" height="150px" width="160px" model="${model2}" onSelect="" multiple="true" checkmark="true" />
 				</hbox>
-				<hbox>
-					<textbox id="tbOne" value="box one" />
-					<textbox id="tbTwo" value="box two" />
-					<button id="btnOne" label="check equal selection" onClick='checkEqualSelection(tbOne.getValue(), tbTwo.getValue(), msg);' />
-					<button id="btnFour" label="show selection" onClick='showSelection(tbOne.getValue(), msg);' />
-					<label id="msg" />
-				</hbox>
 				<div height="10px"></div>
 				<button id="btnTwo" label="clone">
 					<attribute name="onClick">
@@ -148,6 +141,13 @@ class Z60_Listbox_ListModelMap_noRODTest extends ZTL4ScalaTestCase {
 					]]></attribute>
 				</button>
 				<hbox id="cloneThreeArea" />
+				<hbox>
+					<textbox id="tbOne" value="box one" />
+					<textbox id="tbTwo" value="box two" />
+					<button id="btnOne" label="check equal selection" onClick='checkEqualSelection(tbOne.getValue(), tbTwo.getValue(), msg);' />
+					<button id="btnFour" label="show selection" onClick='showSelection(tbOne.getValue(), msg);' />
+					<label id="msg" />
+				</hbox>
 			</zk>
 
     }

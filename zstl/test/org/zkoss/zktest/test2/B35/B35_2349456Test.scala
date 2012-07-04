@@ -85,10 +85,7 @@ list.focus();
       sendKeys(listWidget.$n("a"), Keys.UP);
       
       // After DOWN+DOWN+DOWN+UP+UP the selected item should be "Option 2"
-      if (isIE())
-    	verifyTrue("The selected item should be 'option 1'", jq(".z-listitem-seld").text().contains("option 1"));
-      else
-      	verifyTrue("The selected item should be 'option 2'", jq(".z-listitem-seld").text().contains("option 2"));
+      verifyTrue("The selected item should be 'option 2'", jq(".z-listitem-seld").text().contains("option 2"));
 
     })
   }

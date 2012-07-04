@@ -38,7 +38,7 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
     val zscript = {
-			<zk>
+			"""<zk>
 				<zscript>
 					<![CDATA[
 					import org.zkoss.zktest.test2.select.models.*;
@@ -92,19 +92,13 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 					<div>8. Click 'remove item', each select of Listbox should not be changed.</div>
 				</div>
     			<label id="outer" value="outer" />
-				<custom-attributes org.zkoss.zul.listbox.rod="false" />
 				<hbox>
+				<custom-attributes org.zkoss.zul.listbox.rod="false" />
 					<listbox id="lbxOne" height="150px" width="140px" model="${model}" onSelect="" multiple="true" checkmark="true" />
 					<listbox id="lbxTwo" height="150px" width="140px" model="${model}" onSelect="" multiple="true" checkmark="true" />
 					<listbox id="lbxThree" height="150px" width="140px" model="${model2}" onSelect="" multiple="true" checkmark="true" />
 				</hbox>
-				<hbox>
-					<textbox id="tbOne" value="box one" />
-					<textbox id="tbTwo" value="box two" />
-					<button id="btnOne" label="check equal selection" onClick='checkEqualSelection(tbOne.getValue(), tbTwo.getValue(), msg);' />
-					<button id="btnFour" label="show selection" onClick='showSelection(tbOne.getValue(), msg);' />
-					<label id="msg" />
-				</hbox>
+    	
 				<div height="10px"></div>
 				<button id="btnTwo" label="clone">
 					<attribute name="onClick">
@@ -137,7 +131,14 @@ class Z60_Listbox_ListModelList_Multiple_noRODTest extends ZTL4ScalaTestCase {
 					</attribute>
 				</button>
 				<hbox id="cloneThreeArea" />
-			</zk>
+				<hbox>
+					<textbox id="tbOne" value="box one" />
+					<textbox id="tbTwo" value="box two" />
+					<button id="btnOne" label="check equal selection" onClick="checkEqualSelection(tbOne.getValue(), tbTwo.getValue(), msg);" />
+					<button id="btnFour" label="show selection" onClick="showSelection(tbOne.getValue(), msg);" />
+					<label id="msg" />
+				</hbox>
+			</zk>"""
 
     }
 

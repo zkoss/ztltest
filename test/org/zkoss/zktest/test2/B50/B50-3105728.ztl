@@ -28,11 +28,17 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				Calendar cal=Calendar.getInstance();
-			    int year=cal.get(Calendar.YEAR);
-			    sendKeys(jq(".z-datebox-inp"),"1/1");
+				sendKeys(jq(".z-datebox-inp"),"1/1");
 				click(jq(".z-label"));
-			    verifyContains(jq(".z-datebox-inp").val(), ""+year);
+				String val = jq(".z-datebox-inp").val();
+				java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("MM/dd/yyyy, HH:mm:ss.SSS");
+				int year = 0;
+				try {
+					year = sdf.parse(val).getYear();
+				} catch (ParseException e) {
+					verifyTrue(e.getMessage(), false);
+				}
+				verifyTrue("year cannot be less than 2010", year > 2010);
 		]]></client>
 	</case>
 </test>

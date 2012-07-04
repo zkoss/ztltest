@@ -52,7 +52,7 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
 			FakerMatrixModel SingleColumn = new FakerMatrixModel(1, 10);
 			FakerMatrixModel MultipleColumn = new FakerMatrixModel(100, 10);
 			FakerMatrixModel HugeColumn = new FakerMatrixModel(10000, 10);
-			FakerMatrixModel SingleRow = new FakerMatrixModel(10, 10);
+			FakerMatrixModel SingleRow = new FakerMatrixModel(10, 1);
 			FakerMatrixModel MultipleRow = new FakerMatrixModel(10, 100);
 			FakerMatrixModel HugeRow = new FakerMatrixModel(10, 10000);
 			FakerMatrixModel BigData = new FakerMatrixModel(1000000, 1000000);
@@ -149,7 +149,7 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
     			</div>
 			</zk>
     """
-
+    	
     runZTL(zscript,
         () => {
           if (!ZK.is("ie6_") && !ZK.is("ie7_")) { // not support ie6/7

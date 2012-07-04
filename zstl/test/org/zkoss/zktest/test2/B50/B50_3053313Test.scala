@@ -66,14 +66,14 @@ class B50_3053313Test extends ZTL4ScalaTestCase {
         var dtbx2: Widget = engine.$f("dtbx2");
         var dtbx3: Widget = engine.$f("dtbx3");
         var cal: Calendar = Calendar.getInstance();
-        var today: Int = cal.get(Calendar.DAY_OF_MONTH);
 
         var dt1: Int = 0;
 
         click(dtbx3.$n("btn"));
         waitResponse();
         var calRows: Array[JQuery] = jq(dtbx3.$n("pp")).find(".z-calendar-caldayrow").toArray[JQuery];
-
+        var today: Int = jq(".z-calendar-seld").last().text().toInt;
+        
         var l: List[JQuery]  = new ArrayList();
         for (i <- 0 until calRows.length) {
         	l.addAll(calRows(i).find("td").toList);

@@ -65,10 +65,10 @@ class B50_3106676Test extends ZTL4ScalaTestCase {
     def checkCorrect(dtbx: Widget) {
         click(dtbx.$n("btn"));
         waitResponse();
-    	var today: Int = jq(".z-calendar-seld").text().toInt;
+    	var today: Int = jq(".z-calendar-seld").last().text().toInt;
         var yesterday: Int = Integer.parseInt(jq(dtbx.$n("pp")).find(".z-calendar-disd").last().get(0).get("innerHTML"));
         verifyTrue("the last unselectable date should be yesterday",
-            (today - yesterday != 1) || ( (today == 1) && (31-yesterday <= 3) ));
+            (today - yesterday == 1) || ( (today == 1) && (31-yesterday <= 3) ));
     }
 
   }

@@ -73,16 +73,11 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         var c1=jq(".z-calendar:eq(1)");
         
         //Get Calendars HTML
-        var html0=c0.html();
-        var html1=c1.html();
-        
-        //Deletes IDs to compare html
-        var htmR0=c0.html().replaceAll("(id\\=\")((.){6}|(.){7}|(.){8}|(.){9}|(.){10}|(.){11})(\")", "id=\"\"");
-        var htmR1=c1.html().replaceAll("(id\\=\")((.){6}|(.){7}|(.){8}|(.){9}|(.){10}|(.){11})(\")", "id=\"\"");
+        var html0=c0.text();
+        var html1=c1.text();
         
         //Verify equals
-        verifyEquals(htmR0,htmR1);
-        
+        verifyEquals(html0,html1);
         
       });
   }

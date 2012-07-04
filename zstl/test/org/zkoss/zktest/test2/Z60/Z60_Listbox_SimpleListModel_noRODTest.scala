@@ -86,12 +86,6 @@ class Z60_Listbox_SimpleListModel_noRODTest extends ZTL4ScalaTestCase {
 					<listbox id="lbxTwo" height="150px" width="140px" model="${model}" onSelect="" checkmark="true" />
 					<listbox id="lbxThree" height="150px" width="140px" model="${model2}" onSelect="" checkmark="true" />
 				</hbox>
-				<hbox>
-					<textbox id="tbOne" value="box one" />
-					<textbox id="tbTwo" value="box two" />
-					<button id="btnOne" label="check equal selection" onClick='checkEqualSelection(tbOne.getValue(), tbTwo.getValue(), msg);' />
-					<label id="msg" />
-				</hbox>
 				<div height="10px"></div>
 				<button id="btnTwo" label="clone">
 					<attribute name="onClick">
@@ -112,6 +106,12 @@ class Z60_Listbox_SimpleListModel_noRODTest extends ZTL4ScalaTestCase {
 					}]]></attribute>
 				</button>
 				<hbox id="cloneThreeArea" />
+				<hbox>
+					<textbox id="tbOne" value="box one" />
+					<textbox id="tbTwo" value="box two" />
+					<button id="btnOne" label="check equal selection" onClick='checkEqualSelection(tbOne.getValue(), tbTwo.getValue(), msg);' />
+					<label id="msg" />
+				</hbox>
 			</zk>
 
     }

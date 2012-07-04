@@ -82,7 +82,7 @@ class B30_1911864Test extends ZTL4ScalaTestCase {
         	//and visible, => dropdown appears
             val item0=jq(".z-comboitem-text:eq(0)");
             verifyTrue(item0.isVisible());
-            verifyEquals(getText(item0),"male");
+            verifyEquals(getText(item0)," male");
                        
         }
     );
