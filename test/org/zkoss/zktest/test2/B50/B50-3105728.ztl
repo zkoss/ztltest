@@ -35,7 +35,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				int year = 0;
 				try {
 					year = sdf.parse(val).getYear();
-				} catch (ParseException e) {
+				} catch (java.text.ParseException e) {
 					verifyTrue(e.getMessage(), false);
 				}
 				verifyTrue("year cannot be less than 2010", year > 2010);
