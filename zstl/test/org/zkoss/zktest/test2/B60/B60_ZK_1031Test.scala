@@ -115,8 +115,7 @@ class B60_ZK_1031Test extends ZTL4ScalaTestCase {
         var btn: Widget = engine.$f("btn");
 
         def select (num: Int) {
-          click(sbx); waitResponse();
-          sbx.$n().eval("selectedIndex = " + num);
+          this.select(sbx, num);
           click(outer); waitResponse();
         }
         select(1);

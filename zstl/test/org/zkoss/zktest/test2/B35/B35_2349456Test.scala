@@ -61,7 +61,7 @@ list.focus();
       // Click on first element of the list to verify later the final selected item
       click(jq(".z-listcell-cnt:contains(option 0)"));
 
-      focus(listWidget.toLocator());
+      focus(listWidget.$n("a"));
 
       // The following three commands doesn't work (Chrome/Firefox). The selected does not change.
 //      sendKeys(listWidget, Keys.ARROW_DOWN);

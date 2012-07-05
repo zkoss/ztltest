@@ -132,9 +132,7 @@ class B60_ZK_948Test extends ZTL4ScalaTestCase {
         var btn5: Widget = engine.$f("btn5");
         
         def selectItem (sbx: Widget, lb: Widget, idx: Int) {
-          click(sbx);
-          sbx.$n().eval("selectedIndex = " + idx);
-          click(lb); waitResponse();
+        	select(sbx, "Tony")
         }
         def checkSelbox () {
           verifyTrue("Select box has items",

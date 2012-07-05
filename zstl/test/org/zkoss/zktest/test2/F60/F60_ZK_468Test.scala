@@ -96,9 +96,7 @@ class F60_ZK_468Test extends ZTL4ScalaTestCase {
         var _val: Widget = engine.$f("val");
 
         def select (num: Int, content: String) {
-          click(box);
-          waitResponse();
-          box.$n().eval("selectedIndex = " + num);
+          this.select(box, content);
           click(outer);
           waitResponse();
           verifyTrue("the label below should be changed as your selection",

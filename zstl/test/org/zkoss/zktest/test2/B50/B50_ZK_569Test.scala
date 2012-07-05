@@ -104,8 +104,7 @@ class B50_ZK_569Test extends ZTL4ScalaTestCase {
     			click(target);
     			waitResponse();
     		}
-    		click(lb);
-    		click(item7);
+    		select(lb, "test 7");
     		clickAndWait(btn1);
 
     		verifyEquals(jq(".z-messagebox").find(".z-label").get(0).get("innerHTML"),

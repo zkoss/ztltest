@@ -79,7 +79,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         //Verify err-box position
         var po=error.positionTop();
         var p1=jq("$tb").positionTop();
-        verifyEquals(po,0);
+        verifyTolerant(po,0, 2);
         var l=jq("$tb").positionLeft()+jq("$tb").width()+6
         var l1=error.positionLeft();
         verifyEquals(l,l1);

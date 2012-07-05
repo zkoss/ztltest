@@ -34,7 +34,9 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("MM/dd/yyyy, HH:mm:ss.SSS");
 				int year = 0;
 				try {
-					year = sdf.parse(val).getYear();
+					java.util.Calendar cal =  java.util.Calendar.getInstance();
+					cal.setTime(sdf.parse(val));
+					year = cal.get(Calendar.YEAR);
 				} catch (java.text.ParseException e) {
 					verifyTrue(e.getMessage(), false);
 				}

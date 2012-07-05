@@ -51,8 +51,10 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
       // Click upper button twice
-      click(jq(".z-timebox-btn-upper"));
-      click(jq(".z-timebox-btn-upper"));
+      mouseDownAt(jq(".z-timebox-btn-upper"), "1,1");
+      mouseUp(jq(".z-timebox-btn-upper"));
+      mouseDownAt(jq(".z-timebox-btn-upper"), "1,1");
+      mouseUp(jq(".z-timebox-btn-upper"));
 
       // Click on show value button
       click(jq("@button"));
