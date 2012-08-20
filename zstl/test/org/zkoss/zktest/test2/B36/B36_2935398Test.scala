@@ -61,7 +61,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         waitResponse();
         var b=jq("$div").height().toInt+jq("$tb").height().toInt;
         //Scroll down
-        jq("body").scrollTop(b);
+        getEval("window.scrollTo(0, "+ b +" )");
         waitResponse();
 
         //Click button
