@@ -97,7 +97,7 @@ B35-2073451.ztl
 // zkbind
 Z60-Panel.ztl
 }
-chrome={
+chrome,safari={
 // unsupported
 B30-1914104-1.ztl
 B30-1914104-2.ztl
@@ -106,7 +106,7 @@ B35-2073451.ztl
 }
 #zbind
 #ignore for browser difference issue
-opera,chrome={
+opera,chrome,safari={
 Z60-Arg.ztl
 Z60-CommandIndirect.ztl
 Z60-Converter.ztl
