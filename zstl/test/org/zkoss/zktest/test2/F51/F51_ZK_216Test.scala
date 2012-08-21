@@ -132,9 +132,11 @@ class F51_ZK_216Test extends ZTL4ScalaTestCase {
         verifyItem ("#0", ":Option 0", lbTwo);
         click(btnOne);
         waitResponse();
+        sleep(1000);
         verifyItem ("#10005", ":Option 10005", lbTwo);
         click(btnTwo);
         waitResponse();
+        sleep(1000);
         verifyItem ("#19999", ":Option 19999", lbTwo);
     }
    );

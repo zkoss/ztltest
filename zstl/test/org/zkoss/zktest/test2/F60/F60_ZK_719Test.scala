@@ -71,7 +71,7 @@ class F60_ZK_719Test extends ZTL4ScalaTestCase {
 						<space />
 						<toolbarbutton id="tbbtnOne" label="Right" image="/img/network.gif"
 							dir="reverse" />
-						<combobutton id="cbbtnOne" label="combobutton one" image="/img/network.gif" mold="tbbtn"
+						<combobutton id="cbbtnOne" label="combobutton one" image="/img/network.gif" mold="toolbar"
 							onClick='lb.setValue("message: combobutton clicked.");'
 							onOpen='lb.setValue("message: combobutton popup "+ (self.open? "opened." : "closed."));'>
 							<popup id="ppOne">
@@ -109,7 +109,7 @@ class F60_ZK_719Test extends ZTL4ScalaTestCase {
 						<combobutton id="cbbtnTwo" label="combobutton two"
 							onClick='lb.setValue("message: combobutton two clicked.");'
 							onOpen='lb.setValue("message: combobutton two popup "+ (self.open? "opened." : "closed."));'
-							dir="reverse" image="/img/network.gif" mold="tbbtn">
+							dir="reverse" image="/img/network.gif" mold="toolbar">
 							<popup id="ppTwo">
 								<vbox>
 									<hbox>
@@ -152,11 +152,11 @@ class F60_ZK_719Test extends ZTL4ScalaTestCase {
         var cbbtnTwo: Widget = engine.$f("cbbtnTwo");
 
         def clickThenVerify (wgt: org.zkoss.ztl.ClientWidget, content: String) {
-            clickAndWeight(wgt);
+            clickAndWait(wgt);
             verifyTrue("The value of message label should become "+content,
                 jq(".z-label:contains("+content+")").exists());
         }
-        def clickAndWeight(wgt: org.zkoss.ztl.ClientWidget) {
+        def clickAndWait(wgt: org.zkoss.ztl.ClientWidget) {
             click (wgt);
             waitResponse();
         }
@@ -165,18 +165,18 @@ class F60_ZK_719Test extends ZTL4ScalaTestCase {
             (jq(tbbtnOne).outerHeight(true) - jq(cbbtnOne).outerHeight(true)) <= 2
             && (jq(tbbtnTwo).outerHeight(true) - jq(cbbtnTwo).outerHeight(true)) <= 2);
 
-        clickThenVerify (jq(cbbtnOne).find(".z-combobutton-tbbtn-cm"),
+        clickThenVerify (jq(cbbtnOne).find(".z-combobutton-toolbar-cm"),
             "combobutton clicked");
-        clickThenVerify (jq(cbbtnOne).find(".z-combobutton-tbbtn-cr"),
+        clickThenVerify (jq(cbbtnOne).find(".z-combobutton-toolbar-cr"),
             "combobutton popup opened");
-        clickThenVerify (jq(cbbtnOne).find(".z-combobutton-tbbtn-cr"),
+        clickThenVerify (jq(cbbtnOne).find(".z-combobutton-toolbar-cr"),
             "combobutton popup closed");
 
-        clickThenVerify (jq(cbbtnTwo).find(".z-combobutton-tbbtn-cm"),
+        clickThenVerify (jq(cbbtnTwo).find(".z-combobutton-toolbar-cm"),
             "combobutton two clicked");
-        clickThenVerify (jq(cbbtnTwo).find(".z-combobutton-tbbtn-cr"),
+        clickThenVerify (jq(cbbtnTwo).find(".z-combobutton-toolbar-cr"),
             "combobutton two popup opened");
-        clickThenVerify (jq(cbbtnTwo).find(".z-combobutton-tbbtn-cr"),
+        clickThenVerify (jq(cbbtnTwo).find(".z-combobutton-toolbar-cr"),
             "combobutton two popup closed");
     }
    );

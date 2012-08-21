@@ -76,10 +76,10 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
     def executor = () => {
     	var grid: Widget = engine.$f("grid");
 		waitResponse();
-		jq(grid.$n("body")).get(0).eval("scrollTop = 7500");
+		jq(grid.$n("body")).get(0).eval("scrollTop = 7550");
 		waitResponse();
 		if (ZK.is("ie9")) {
-			jq(grid.$n("body")).get(0).eval("scrollTop = 7500");
+			jq(grid.$n("body")).get(0).eval("scrollTop = 7550");
 			waitResponse();
 		}
 		var st1: Int = Integer.parseInt(jq(grid.$n("body")).get(0).get("scrollTop"));
@@ -96,39 +96,5 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
     }
    // Run syntax 1 
    runZTL(zscript, executor);
-   
-   // Run syntax 2
-   /**
-    runZTL(zscript,
-        () => {
-        var l1: Widget = engine.$f("l1");
-        var l2: Widget = engine.$f("l2");
-        waitResponse();
-        var strClickBefor = getText(l1);
-        click(l1);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l1));
-        strClickBefor = getText(l2);
-        click(l2);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l2));
-    }
-   );
-    */
-    /** create widget example
-		var tree: Widget = engine.$f("tree");
-		var listbox: Widget = engine.$f("listbox");
-		waitResponse();
-	*/
-   /** trigger mouse event example
-    Scripts.triggerMouseEventAt(getWebDriver(), inner1, "click", "5,5");
-    */
-   /** detect whether exception exists example
-   		verifyFalse(jq(".z-window-highlighted").exists());
-   		verifyFalse(jq(".z-window-modal").exists())
-	*/
-	/** detect browser
-		if (ZK.is("ie6_") || ZK.is("ie7_"))
-	*/
   }
 }

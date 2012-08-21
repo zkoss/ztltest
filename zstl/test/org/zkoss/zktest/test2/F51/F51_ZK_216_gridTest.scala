@@ -121,10 +121,12 @@ class F51_ZK_216_gridTest extends ZTL4ScalaTestCase {
 
         verifyItem ("#0", ":Option 0", gbTwo);
         bodyTwo.eval("scrollTop = " + scrollHeight/2);
+        sleep(500);
         waitResponse();
         verifyItem ("#10005", ":Option 10005", gbTwo);
         bodyTwo.eval("scrollTop = " + scrollHeight);
         waitResponse();
+        sleep(500);
         verifyItem ("#19999", ":Option 19999", gbTwo);
     }
    );
