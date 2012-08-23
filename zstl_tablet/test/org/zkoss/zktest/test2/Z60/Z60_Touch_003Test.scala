@@ -11,7 +11,7 @@ import org.openqa.selenium.interactions.internal.Coordinates
 import org.openqa.selenium.Point
 import org.zkoss.ztl.Tags
 
-@Tags(tags = "Touch")
+@Tags(tags = "Touch,Android")
 class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 	def testClick() {
 		val zscript = {
@@ -307,8 +307,6 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 					else
 						verifyTrue(tbx.attr("value").isEmpty());
 				}
-				
-				driver().close();
 			}
 		);
 	}

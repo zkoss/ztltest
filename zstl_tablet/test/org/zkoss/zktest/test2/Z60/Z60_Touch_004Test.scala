@@ -3,7 +3,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.ZKTestCase
 
-@Tags(tags = "Touch")
+@Tags(tags = "Touch,Android")
 class Z60_Touch_004Test extends ZTL4ScalaTestCase {
 	def testClick() = {
 		val zscript = {
@@ -34,8 +34,6 @@ class Z60_Touch_004Test extends ZTL4ScalaTestCase {
 
 				// and should be at the bottom of screen (native keyboard should not appear)
 				verifyTrue(pageHeight - (datebox_pp.positionTop() + datebox_pp.height()) < 10);
-				
-				driver().close();
 			}
 		);
 	}

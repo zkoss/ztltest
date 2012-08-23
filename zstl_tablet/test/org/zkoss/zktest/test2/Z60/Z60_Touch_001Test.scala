@@ -9,7 +9,7 @@ import org.openqa.selenium.TouchScreen
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.ZKSeleneseTestCase
 
-@Tags(tags = "Touch")
+@Tags(tags = "Touch,Android")
 class Z60_Touch_001Test extends ZTL4ScalaTestCase {
 	def testClick() = {
 		val zscript = {
@@ -165,8 +165,6 @@ class Z60_Touch_001Test extends ZTL4ScalaTestCase {
 				click(jq(".z-bandbox-btn"));
 				waitResponse();
 				verifyTrue(jq(".z-bandpopup").isVisible());
-				
-				driver().close();
 			}
 		)
 	}

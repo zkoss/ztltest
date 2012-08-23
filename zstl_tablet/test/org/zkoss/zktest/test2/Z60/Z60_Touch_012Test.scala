@@ -2,7 +2,7 @@ package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
-@Tags(tags = "Touch")
+@Tags(tags = "Touch,Android")
 class Z60_Touch_012Test extends ZTL4ScalaTestCase {
 	def testClick() {
 		val zscript = {
@@ -33,8 +33,6 @@ class Z60_Touch_012Test extends ZTL4ScalaTestCase {
 				
 				// Should only see "Click xx time" message once
 				verifyEquals(1, jq("$vlayout > @label").length());
-				
-				driver().close();
 			}
 		);
 	}

@@ -2,7 +2,7 @@ package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
-@Tags(tags = "Touch")
+@Tags(tags = "Touch,Android")
 class Z60_Touch_007Test extends ZTL4ScalaTestCase {
 	def testClick() {
 		val zscript = {
@@ -33,9 +33,6 @@ class Z60_Touch_007Test extends ZTL4ScalaTestCase {
 				waitResponse();
 				
 				verifyFalse(errbox.isVisible());
-				
-				
-				driver().close();
 			}
 		);
 	}

@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement
 import org.openqa.selenium.By
 import org.openqa.selenium.internal.Locatable
 
-@Tags(tags = "Touch")
+@Tags(tags = "Touch,Android")
 class Z60_Touch_006Test extends ZTL4ScalaTestCase {
 	def testClick() {
 		val zscript = {
@@ -137,8 +137,6 @@ For example, if you click the datepicker, and then choose a day, which is upon t
 				waitResponse(true);
 				
 				verifyTrue(jq(".z-popup").isVisible());
-				
-				driver.close();
 			}
 		);
 	}

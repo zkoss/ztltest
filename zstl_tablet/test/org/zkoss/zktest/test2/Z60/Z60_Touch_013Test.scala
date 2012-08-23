@@ -2,7 +2,7 @@ package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
-@Tags(tags = "Touch")
+@Tags(tags = "Touch,Android")
 class Z60_Touch_013Test extends ZTL4ScalaTestCase {
 	def testClick() {
 		val zscript = {
@@ -26,8 +26,6 @@ class Z60_Touch_013Test extends ZTL4ScalaTestCase {
 				verifyTrue(jq("input.z-textbox[type=\"tel\"]").isVisible());
 				verifyTrue(jq("input.z-textbox[type=\"email\"]").isVisible());
 				verifyTrue(jq("input.z-textbox[type=\"url\"]").isVisible());
-				
-				driver().close();
 			}
 		);
 	}

@@ -9,7 +9,7 @@ import org.openqa.selenium.Point
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.interactions.touch.FlickAction
 
-@Tags(tags = "Touch")
+@Tags(tags = "Touch,Android")
 class Z60_Touch_010Test extends ZTL4ScalaTestCase {
 	def testClick() {
 		val zscript = {
@@ -94,9 +94,6 @@ class Z60_Touch_010Test extends ZTL4ScalaTestCase {
 					          .getText().substring(7).toInt;
 				println(selected_item);
 				verifyTrue(selected_item > 50);
-				
-				
-				driver.close();
 			}
 		);
 	}

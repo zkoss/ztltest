@@ -3,7 +3,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.JQuery
 
-@Tags(tags = "Touch")
+@Tags(tags = "Touch,Android")
 class Z60_Touch_014Test extends ZTL4ScalaTestCase {
 	def testClick() {
 		val zscript = {
@@ -64,8 +64,6 @@ class Z60_Touch_014Test extends ZTL4ScalaTestCase {
 
 				time_wheel = datebox.find(".z-timebox-wheel-time");
 				verifyTrue(4 == time_wheel.find(".z-timebox-wheel-list").length());
-				
-				driver().close();
 			}
 		);
 	}

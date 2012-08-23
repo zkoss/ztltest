@@ -3,7 +3,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.JQuery
 
-@Tags(tags = "Touch")
+@Tags(tags = "Touch,Android")
 class Z60_Touch_002Test extends ZTL4ScalaTestCase {
 	def testClick() = {
 		val zscript = {
@@ -33,8 +33,6 @@ class Z60_Touch_002Test extends ZTL4ScalaTestCase {
 				
 				// West region should be visible
 				verifyTrue(jq(".z-west").isVisible());
-				
-				driver().close();
 			}
 		);
 		
