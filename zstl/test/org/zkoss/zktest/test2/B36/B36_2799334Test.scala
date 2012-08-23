@@ -51,7 +51,7 @@ class B36_2799334Test extends ZTL4ScalaTestCase {
       verifyTrue("The second textbox should have focus", jq("$tb1").hasClass("z-textbox-focus"));
 
       // Click on step 3 textbox
-      click(jq("$tb2"));
+      focus(jq("$tb2"));
       waitResponse();
       verifyTrue("The text should be selected", zk(jq("$tb2")).eval("getSelectionRange()[1]").toInt == 50);
 
