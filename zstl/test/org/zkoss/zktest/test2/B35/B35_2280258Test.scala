@@ -81,10 +81,9 @@ You should see the width of the cell is as well as its label.
             
             //Compare label and real width
             verifyEquals(c1t,ce1+"px");
-            verifyEquals(c2t,ce2+"px");
+            verifyTolerant(org.zkoss.ztl.ZKClientTestCase.parseInt(c2t),ce2,2);
             
-            
-            }
+        }
     );
    }
 }

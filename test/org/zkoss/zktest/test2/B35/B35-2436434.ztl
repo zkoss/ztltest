@@ -33,7 +33,10 @@
 			click(btn);
 			waitResponse();
 			int x = parseInt(header.get("scrollLeft"));
-			click(jq(".z-tabs-right-scroll"));
+			if (isOpera())
+				clickAt(jq(".z-tabs-right-scroll"), "3,3");
+			else
+				click(jq(".z-tabs-right-scroll"));
 			waitResponse();
 			int y = parseInt(header.get("scrollLeft"));
 			verifyTrue(x == 0);
