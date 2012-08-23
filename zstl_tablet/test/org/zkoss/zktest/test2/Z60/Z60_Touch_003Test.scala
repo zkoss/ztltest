@@ -18,7 +18,7 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 <zk>
 	<vlayout>
 		<hlayout>
-			1. Click group button, it should be collapsed.
+			1. Click on group button; the rows underneath should be collapsed.
 			<grid id="grid1" hflex="min">
 				<columns sizable="true">
 					<column label="Brand" />
@@ -54,7 +54,7 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 			</grid>
 		</hlayout>
 		<hlayout>
-			2. Click on ColorPicker, it should be opened.
+			2. Click on ColorPicker; a color palette should be opened.
 			<window id="win2" border="normal" title="Color Picker" height="180px" width="200px">
 				<colorbox width="30px" height="25px" color="#029BCB">
 					<attribute name="onChange"><![CDATA[
@@ -74,7 +74,7 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 					h.setSclass("focus".equals(h.getSclass()) ? "" : "focus");
 				}
 			]]></zscript>
-			3. Focus on the two textbox, you should see the label text color changed.
+			3. Focus on the two textboxes; the labels' text color should change.
 			<vlayout>
 				<hbox id="h1">
 					<label id="t1" value="Text1: " />
@@ -87,7 +87,7 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 			</vlayout>
 		</hlayout>
 		<hlayout>
-			4. Focus on textbox, you should see description text showd.
+			4. Focus on the textboxes; description text should appear.
 			<grid width="400px" xmlns:c="client">
 				<rows>
 					<row height="20px">
@@ -104,7 +104,7 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 			</grid>
 		</hlayout>
 		<hlayout>
-			5. keey scroll down, you should see more items under option 50.
+			5. Keep scrolling down; you should see more items under option 50.
 			<style>
 			<![CDATA[
 				div.z-listbox-body .z-listcell { padding: 2px 5px; }
@@ -118,103 +118,6 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 					<listheader label="Load On Demand" sort="auto" />
 				</listhead>
 			</listbox>
-		</hlayout>
-		<hlayout xmlns:c="client">
-			6. click on these textbox, you should see the mask input.
-			<style>
-			<![CDATA[
-				.water-mark {
-					color: gray;
-					font-style: italic;
-				}
-				.form {
-					border: 1px solid #E1E1E1;
-					background: url('http://www.zkoss.org/zkdemo/widgets/effects/form_effect/img/bg.png');
-					padding: 20px 20px;
-					-webkit-border-radius:4px;
-					-moz-border-radius:4px;
-					border-radius:4px;
-				}
-				.form .name	{
-					display: block;
-					width: 100px;
-					text-align: center;
-				}
-			]]>
-			</style>
-
-			<script><![CDATA[
-				function pwdValid(pwd2) {
-					var valLabel = jq("$pwd_val");
-					if (pwd2.getValue() == "") {
-						zk.Widget.$(valLabel).setValue("Client Side	Validation");
-					} else if (pwd2.getValue() != zk.Widget.$(jq("$pwd")).getValue()) {
-						zk.Widget.$(valLabel).setValue("Not Match !")
-					} else {
-						zk.Widget.$(valLabel).setValue("OK !")
-					}
-				}
-			]]></script>
-			<div width="500px" class="form">
-				<vlayout spacing="7px">
-					<label value="On-line Shopping Info" style="font-size:16px;font-weight:bold;color:gray;" />
-					<hlayout spacing="20px">
-						<label class="name" value="Name :" />
-						<textbox id="username" width='150px' />
-						Watermark
-					</hlayout>
-					<hlayout spacing="20px">
-						<label class="name" value="Phone :" />
-						<textbox id="phone" width='150px' />
-						Mask : (999) 999-9999
-					</hlayout>
-					<hlayout spacing="20px">
-						<label class="name" value="Birthday :" />
-						<textbox id="date" width='150px' />
-						<label value="Mask : m9/d9/y999" />
-					</hlayout>
-					<hlayout spacing="20px">
-						<label class="name" value="Country Code:" />
-						<textbox id="country" width='150px' />
-						<label value='Mask : AA (Upper-Case)' />
-					</hlayout>
-					<hlayout spacing="20px">
-						<label class="name" value="Credit Card:" />
-						<textbox id="cc" width='150px' />
-						<label value='Mask : 9999-9999-9999-9999' />
-					</hlayout>
-
-					<hlayout spacing="20px">
-						<label class="name" value="Password: " />
-						<textbox id="pwd" type="password" width="150px" />
-					</hlayout>
-					<hlayout spacing="20px">
-						<label class="name" value="Re-type:" />
-						<textbox type="password" width="150px" c:onChange='pwdValid(this)' />
-						<label id="pwd_val" value="Client Side Validation" />
-					</hlayout>
-				</vlayout>
-			</div>
-			<div id="result" />
-			<!-- Load the script -->
-			<script type="text/javascript" src="http://www.zkoss.org/zkdemo/widgets/effects/form_effect/maskedinput-1.2.2.min.js" />
-			<script type="text/javascript" src="http://www.zkoss.org/zkdemo/widgets/effects/form_effect/watermarkinput.js" />
-			<script type="text/javascript">
-			<![CDATA[
-				zk.afterMount(function() {
-				jq("$username").Watermark("Your Name","gray");
-
-				$.mask.definitions['A']='[A-Z]';
-				$.mask.definitions['m']='[01]';
-				$.mask.definitions['d']='[0123]';
-				$.mask.definitions['y']='[12]';
-
-				jq("$phone").mask("(999) 999-9999");
-				jq("$date").mask("m9/d9/y999");
-				jq("$country").mask("AA");
-				jq("$cc").mask("9999-9999-9999-9999"); });
-			]]>
-			</script>
 		</hlayout>
 	</vlayout>
 </zk>			
@@ -281,8 +184,8 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 				
 				// scroll down
 				touch.scroll(coords, 0, -400);
-				waitResponse(true);
-				pause(2000);
+				waitResponse();
+				sleep(10000);
 				
 				// select an listitem
 				touch.down(location.getX() + 10, location.getY() + 10);
@@ -293,20 +196,6 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 					          .getText().substring(7).toInt;
 				println(selected_item);
 				verifyTrue(selected_item > 50);
-				
-				// 6. click on these textbox, you should see the mask input.
-				var mask_tbx : JQuery = jq(".form @textbox");
-				
-				for (i <- 0 to mask_tbx.length()-1) {
-					var tbx : JQuery = mask_tbx.eq(i); 
-					click(tbx);
-					waitResponse();
-
-					if (i >= 1 || i <= 4)
-						verifyFalse(tbx.attr("value").isEmpty());
-					else
-						verifyTrue(tbx.attr("value").isEmpty());
-				}
 			}
 		);
 	}
