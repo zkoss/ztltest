@@ -114,7 +114,7 @@ onClick="gb2.setOpen(!gb2.isOpen());"/>
         		clickAt(jq("@button"), "8,8");
         	else
         		click(jq("$bt1"));
-        	waitResponse();
+        	waitResponse(true);
         	
         	var bl1=jq("$bl1");
         	verifyTrue(bl1.isVisible());

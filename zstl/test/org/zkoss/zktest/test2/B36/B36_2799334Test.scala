@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Widget
+import org.zkoss.ztl.ZK
 
 /**
  * @author Fernando Selvatici
@@ -40,11 +41,17 @@ class B36_2799334Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
       // Click on toolbarbutton
-      click(jq(".z-toolbarbutton-cnt"));
+      if (ZK.is("ie == 9"))
+      	getActions().click(findElement(jq(".z-toolbarbutton-cnt"))).perform();
+      else 
+      	click(jq(".z-toolbarbutton-cnt"));
       waitResponse();
 
       // Click on popup textbox
-      click(jq("$tb1"));
+      if (org.zkoss.ztl.ZK.is("ie == 9"))
+      	getActions().click(findElement(jq("$tb1"))).perform();
+      else
+      	click(jq("$tb1"));
       waitResponse();
 
       // Verify that the popup textbox has focus

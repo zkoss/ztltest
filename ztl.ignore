@@ -34,7 +34,6 @@ firefox*={
 // unsupported
 F50-0000001.ztl
 B35-2073451.ztl
-B36-2799334.ztl
 }
 firefox3={
 // unsupported
@@ -126,7 +125,6 @@ B35-2073451.ztl
 }
 chrome={
 B50-3151694.ztl
-B36-2799334.ztl
 B30-2125788.ztl
 }
 safari={
