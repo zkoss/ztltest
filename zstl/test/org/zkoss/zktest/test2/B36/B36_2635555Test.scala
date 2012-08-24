@@ -106,7 +106,7 @@ onBlur='self.style="background:white"' />
         waitResponse();
         var color = text.css("background-color");
 
-        if (isIE("ie < 9")) {
+        if (ZK.is("ie < 9")) {
           verifyTrue(color.equals("red"));
         } else
           verifyTrue(color.equals("rgb(255, 0, 0)"));
