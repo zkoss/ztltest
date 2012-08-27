@@ -18,7 +18,7 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.remote.server.handler.interactions.touch.Scroll
+import org.zkoss.ztl.util.Scripts;
 
 /**
  * A test class for bug 2075728
@@ -102,7 +102,7 @@ Test Protal base Functionativity <br/>
         	
         	//click button "move" to move items
         	if (isOpera())
-        		clickAt(jq("@button"), "5,5");
+        		Scripts.triggerMouseEventAt(getWebDriver(), jq("@button"), "click", "2,2");
         	else
         		click(jq("@button"));
         	
