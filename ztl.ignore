@@ -196,7 +196,6 @@ Z60-TreeSelection.ztl
 Z60-F00769.ztl 
 Z60-F00771-1.ztl 
 Z60-F00771-2.ztl 
-Z60-B00775ListmodelSelection.ztl 
 Z60-F00772InterComm.ztl 
 Z60-B00757OnChange.ztl 
 Z60-B00810ListboxMultiple.ztl 
@@ -246,4 +245,7 @@ Z60-B01189FormNotifyChange1.ztl
 Z60-B01189FormNotifyChange2.ztl
 Z60-B01188MixingELWithRef1.ztl
 Z60-B01188MixingELWithRef2.ztl
+}
+opera,chrome,safari,ie6={
+Z60-B00775ListmodelSelection.ztl 
 }
