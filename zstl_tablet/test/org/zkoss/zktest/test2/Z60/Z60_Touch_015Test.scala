@@ -75,7 +75,7 @@ class Z60_Touch_015Test extends ZTL4ScalaTestCase {
 					verifyTrue(btn.isVisible());
 					
 					// 2. Click on the arrow icon, you should see a pop-up menu.
-					click(btn);
+					singleTap(btn);
 					waitResponse(true);
 					
 					verifyTrue(menu_popup.isVisible());

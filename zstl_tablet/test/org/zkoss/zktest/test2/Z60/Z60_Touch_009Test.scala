@@ -77,13 +77,13 @@ class Z60_Touch_009Test extends ZTL4ScalaTestCase {
 					verifyTrue(column_btn.isVisible());
 					
 					// Click on it
-					click(column_btn);
+					singleTap(column_btn);
 					waitResponse(true);
 					
 					// should bring up a pop-up menu
 					verifyTrue(jq(".z-menupopup").isVisible());
 					
-					pause(500);
+					sleep(500);
 				}
 			}
 		);

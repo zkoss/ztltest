@@ -103,66 +103,67 @@ class Z60_Touch_001Test extends ZTL4ScalaTestCase {
 		runZTL(zscript,
 			() => {
 				// 1. Focus on date should show small calendar button
-				var dt : JQuery = jq("@datebox");
-				click(dt);
+				var dt = jq("@datebox");
+				singleTap(dt);
 				waitResponse();
 				verifyTrue(jq(".z-datebox-btn").isVisible());
 				
 				// 2. Type any integer into intbox, you should see a red message
-				var ibx  : JQuery = jq("@intbox");
-				focus(ibx);
+				var ibx = jq("@intbox");
+				singleTap(ibx);
 				sendKeys(ibx, "100");
 				//	blur does not seem to work on Android
-				click(dt);
+				singleTap(dt);
 				waitResponse();
 				verifyEquals("onChange fired", engine.$f("lbl1").get("value"));
 				
 				// 3. Type any text into textbox, you sould see a red message
-				var tbx  : JQuery = jq("@textbox");
-				focus(tbx);
+				var tbx = jq("@textbox");
+				singleTap(tbx);
 				sendKeys(tbx, "any text");
 				//	blur does not seem to work on Android
-				click(dt);
+				singleTap(dt);
 				waitResponse();
 				verifyEquals("onChange fired", engine.$f("lbl2").get("value"));
 
 				// 4. Type any number into decimalbox, you should see a red message
-				var dbx  : JQuery = jq("@decimalbox");
-				focus(dbx);
+				var dbx = jq("@decimalbox");
+				singleTap(dbx);
 				sendKeys(dbx, "123.45");
 				//	blur does not seem to work on Android
-				click(dt);
+				singleTap(dt);
 				waitResponse();
 				verifyEquals("onChange fired", engine.$f("lbl3").get("value"));
 
 				// 5. Select any item from the listbox, you should see an alert message:
-				click(jq(".z-select"));
+				singleTap(jq(".z-select"));
+				waitResponse();
 				click(jq(".z-option").eq(2));
 				waitResponse();
 				verifyEquals("item selected", jq(".z-messagebox .z-label").text());
-				click(jq(".z-messagebox-btn"));
+				singleTap(jq(".z-messagebox-btn"));
 
 				// 6. Click on left/right arrows of tabbox, it should scroll left/right correctly
-				var right_scroll : JQuery = jq(".z-tabs-right-scroll");
-				var tabcontent   : JQuery = jq(".z-tabs-cnt");
-				var left_before  : Int    = tabcontent.offsetLeft();
-				var left_after   : Int    = left_before;
-				click(right_scroll);
-				click(right_scroll);
+				var right_scroll = jq(".z-tabs-right-scroll");
+				var tabcontent   = jq(".z-tabs-cnt");
+				var left_before  = tabcontent.offsetLeft();
+				var left_after   = left_before;
+				singleTap(right_scroll);
+				singleTap(right_scroll);
 				left_after = tabcontent.offsetLeft();
 				waitResponse();
 				verifyTrue(left_after < left_before);
 				
-				var left_scroll : JQuery = jq(".z-tabs-left-scroll");
+				var left_scroll = jq(".z-tabs-left-scroll");
 				left_before = left_after;
-				click(left_scroll);
-				click(left_scroll);
+				singleTap(left_scroll);
+				singleTap(left_scroll);
 				left_after = tabcontent.offsetLeft();
 				waitResponse();
 				verifyTrue(left_after > left_before);
 				
 				// 7. Click on search icon button of the bandbox, a listbox should open
-				click(jq(".z-bandbox-btn"));
+				singleTap(jq(".z-bandbox-btn"));
 				waitResponse();
 				verifyTrue(jq(".z-bandpopup").isVisible());
 			}

@@ -9,7 +9,6 @@ import org.openqa.selenium.HasTouchScreen
 class Z60_Touch_007Test extends ZTL4ScalaTestCase {
 	def testClick() {
 		val zscript = """
-<?meta name="viewport" content="width=800"?>
 <zk>
 	<n:h3 xmlns:n="native">iPad/Android Only</n:h3>
 	<vlayout>
@@ -22,8 +21,8 @@ class Z60_Touch_007Test extends ZTL4ScalaTestCase {
 		runZTL(zscript,
 			() => {
 				// Focus on intbox and then lose the focus to enter the default value of 0
-				click(jq("@intbox"));
-				click(jq("@label"));
+				singleTap(jq("@intbox"));
+				singleTap(jq("@label"));
 				waitResponse();
 
 				// Since the non-zero constraint is not met, an error box should show.

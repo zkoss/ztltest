@@ -5,7 +5,7 @@ import org.openqa.selenium.HasTouchScreen
 import org.openqa.selenium.By
 import org.openqa.selenium.internal.Locatable
 
-@Tags(tags = "Touch")
+@Tags(tags = "Touch,Android")
 class Z60_Touch_019Test extends ZTL4ScalaTestCase {
 	def testClick() {
 		val zscript = """
@@ -80,7 +80,7 @@ class Z60_Touch_019Test extends ZTL4ScalaTestCase {
 				var ver_length = scroll_ver.find("> div").height();
 				
 				// Click on "add" button to insert content
-				click(center.find("@button").eq(0));
+				singleTap(center.find("@button").eq(0));
 				waitResponse();
 				
 				// Vertical scrollbar should be shorter than before
@@ -88,7 +88,7 @@ class Z60_Touch_019Test extends ZTL4ScalaTestCase {
 				verifyTrue(ver_length >  scroll_ver.find("> div").height());
 				
 				// Click on "remove" button to delete content
-				click(center.find("@button").eq(1));
+				singleTap(center.find("@button").eq(1));
 				waitResponse();
 				
 				// Scrollbar should have the original length
