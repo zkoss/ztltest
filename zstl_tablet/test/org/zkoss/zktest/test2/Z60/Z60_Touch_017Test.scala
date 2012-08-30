@@ -21,9 +21,15 @@ class Z60_Touch_017Test extends ZTL4ScalaTestCase {
 		<comboitem label="Simple and Rich"
 			image="/img/Centigrade-Widget-Icons/GoldBar-32x32.gif"
 			description="The simplest way to make Web applications rich" />
+		<comboitem label="Simple and Rich"
+			image="/img/Centigrade-Widget-Icons/GoldBar-32x32.gif"
+			description="The simplest way to make Web applications rich" />
 		<comboitem label="Cool!"
 			image="/img/Centigrade-Widget-Icons/CogwheelEye-32x32.gif"
 			description="The coolest technology" />
+		<comboitem label="Ajax and RIA"
+			image="/img/Centigrade-Widget-Icons/WindowGlobe-32x32.gif"
+			description="Rich Internet Application by Ajax" />
 		<comboitem label="Ajax and RIA"
 			image="/img/Centigrade-Widget-Icons/WindowGlobe-32x32.gif"
 			description="Rich Internet Application by Ajax" />
@@ -38,7 +44,7 @@ class Z60_Touch_017Test extends ZTL4ScalaTestCase {
 				var combobox_pp = jq(".z-combobox-pp");
 				
 				// Click on the first drop-down button
-				click(btns.eq(0));
+				singleTap(btns.eq(0));
 				waitResponse();
 				
 				// Should see drop-down options at the bottom of the screen
@@ -52,7 +58,7 @@ class Z60_Touch_017Test extends ZTL4ScalaTestCase {
 				verifyEquals(1, scroll_outer.length());
 				
 				// Click on the second drop-down button
-				click(btns.eq(1));
+				singleTap(btns.eq(1));
 				waitResponse();
 				
 				// Should see drop-down options at the bottom of the screen

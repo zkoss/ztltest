@@ -7,7 +7,6 @@ import org.zkoss.ztl.ZKTestCase
 class Z60_Touch_004Test extends ZTL4ScalaTestCase {
 	def testClick() = {
 		val zscript = {
-// <?meta name="viewport" content="width=600"?>
 <zk>
 	<div>
 		Click on calendar button should not see native keyboard.
@@ -25,7 +24,7 @@ class Z60_Touch_004Test extends ZTL4ScalaTestCase {
 				var pageHeight = jq(".z-page").innerHeight();
 				
 				// Click on calendar button
-				click(jq(".z-datebox-btn"));
+				singleTap(jq(".z-datebox-btn"));
 				waitResponse(true);
 				
 				// calendar wheel should be visible
