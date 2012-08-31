@@ -126,7 +126,7 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 		runZTL(zscript, 
 			() => {
 				// 1. Click on group button, the grouped rows should collapse.
-				singleTap(jq(".z-group-img-open"));
+				click(jq(".z-group-img-open"));
 				waitResponse(true);
 				
 				var group_rows : JQuery = jq("#grid1 .z-row");
@@ -135,13 +135,13 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 				}
 				
 				// 2. Click on ColorPicker, it should be opened.
-				singleTap(jq("@colorbox"));
+				click(jq("@colorbox"));
 				waitResponse(true);
 				
 				verifyTrue(jq(".z-colorpalette").isVisible());
 				
 				// retract color palette
-				singleTap(jq("@colorbox"));
+				click(jq("@colorbox"));
 				waitResponse(true);
 				
 				// 3. Focus on the two textboxes, the label text color should change.
@@ -150,13 +150,13 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 				var label2 : JQuery = jq("$h2 @label");
 				var style2 : String = label2.css("color");
 				
-				singleTap(jq("$h1 @textbox"));
+				click(jq("$h1 @textbox"));
 				waitResponse();
 				
 				verifyTrue(!label1.css("color").equals(style1) && 
 						    label2.css("color").equals(style2));
 				
-				singleTap(jq("$h2 @textbox"));
+				click(jq("$h2 @textbox"));
 				waitResponse();
 				
 				verifyTrue( label1.css("color").equals(style1) && 
@@ -164,14 +164,14 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 			
 				// 4. Focus on textbox inside grid, description text should be shown.
 				var grid_tbx : JQuery = jq("@grid @row @textbox"); 
-				singleTap(grid_tbx.eq(0));
+				click(grid_tbx.eq(0));
 				waitResponse(true);
 				
 				var help1 : JQuery = jq("$help1");
 				var help2 : JQuery = jq("$help2");
 				verifyTrue(help1.isVisible() && !help2.isVisible());
 				
-				singleTap(grid_tbx.eq(1));
+				click(grid_tbx.eq(1));
 				waitResponse(true);
 
 				verifyTrue(!help1.isVisible() && help2.isVisible());
