@@ -24,11 +24,11 @@ class Z60_Touch_002Test extends ZTL4ScalaTestCase {
 		runZTL(zscript, 
 			() => {
 				// 1. Collapse west region
-				click(jq(".z-west-colps"));
+				singleTap(jq(".z-west-colps"));
 				waitResponse(true);
 				
 				// 2. Click on collapsed bar
-				click(jq(".z-west-colpsd"));
+				singleTap(jq(".z-west-colpsd"));
 				waitResponse(true);
 				
 				// West region should be visible

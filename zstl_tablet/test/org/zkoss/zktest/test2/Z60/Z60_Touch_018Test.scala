@@ -2,11 +2,10 @@ package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
-@Tags(tags = "Touch")
+@Tags(tags = "Touch,Android")
 class Z60_Touch_018Test extends ZTL4ScalaTestCase {
 	def testClick() {
-		val zscript = """
-<?meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"?>
+		val zscript = {
 <window title="color window" border="normal" width="500px">
 	<label multiline="true">
 		<attribute name="value"><![CDATA[
@@ -17,14 +16,15 @@ class Z60_Touch_018Test extends ZTL4ScalaTestCase {
 		]]></attribute>
 	</label>
 	<colorbox color="#FFFF00"/>
-</window>""";
+</window>
+		};
 		
 		runZTL(zscript,
 			() => {
 				var pageHeight = jq("body").innerHeight();
 				
 				// Click on colorbox button
-				click(jq("@colorbox"));
+				singleTap(jq("@colorbox"));
 				waitResponse();
 				
 				// Popup should appear at the bottom of the screen
@@ -37,7 +37,7 @@ class Z60_Touch_018Test extends ZTL4ScalaTestCase {
 				var color_palette = color_pp.find(".z-colorpalette");
 				verifyTrue(color_palette.isVisible());
 				
-				click(color_pp.find(".z-colorbox-picker-btn"));
+				singleTap(color_pp.find(".z-colorbox-picker-btn"));
 				waitResponse();
 				var color_picker = color_pp.find(".z-colorpicker");
 				verifyTrue(color_picker.isVisible());

@@ -143,7 +143,7 @@ class Z60_Touch_016Test extends ZTL4ScalaTestCase {
 				var scroll_height = scroll_inner.height();
 				
 				// Close tree node
-				click(jq(".z-tree-root-open"));
+				singleTap(jq(".z-tree-root-open"));
 				waitResponse();
 				
 				// Scroll bar should now be longer
@@ -158,8 +158,9 @@ class Z60_Touch_016Test extends ZTL4ScalaTestCase {
 				verifyEquals(0, scroll_outer.length());
 				
 				// Open tree node and click on 'button'
-				click(jq(".z-tree-body").eq(1).find(".z-tree-root-close"));
-				click(jq("@button"));
+				singleTap(jq("@button"));
+				singleTap(treebodies.eq(1).find(".z-tree-root-close"));
+				waitResponse();
 				
 				// Should now see the scroll bar
 				scroll_outer = treebodies.eq(1).find("> div:last-child");

@@ -27,7 +27,7 @@ class Z60_Touch_014Test extends ZTL4ScalaTestCase {
 				var time_wheel : JQuery = null;
 				
 				// 1. Click the button on first datebox
-				click(btns.eq(0));
+				singleTap(btns.eq(0));
 				waitResponse(true);
 				
 				// should see a 3-column spin wheel
@@ -38,7 +38,7 @@ class Z60_Touch_014Test extends ZTL4ScalaTestCase {
 				verifyTrue(3 == date_wheel.find("> div.z-calendar-wheel-list").length());
 
 				// 2. Click the button on second datebox
-				click(btns.eq(1));
+				singleTap(btns.eq(1));
 				waitResponse(true);
 				
 				// should see a 6-column spin wheel
@@ -52,7 +52,7 @@ class Z60_Touch_014Test extends ZTL4ScalaTestCase {
 				verifyTrue(3 == time_wheel.find(".z-timebox-wheel-list").length());
 				
 				// 3. Click the button on third datebox
-				click(btns.eq(2));
+				singleTap(btns.eq(2));
 				waitResponse(true);
 				
 				// should see a 7-column spin wheel

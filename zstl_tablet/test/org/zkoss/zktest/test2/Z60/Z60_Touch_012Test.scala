@@ -6,7 +6,6 @@ import org.zkoss.ztl.Tags
 class Z60_Touch_012Test extends ZTL4ScalaTestCase {
 	def testClick() {
 		val zscript = {
-// <?meta name="viewport" content="width=800"?>
 <zk>
 	<zscript><![CDATA[
 		int i = 0;
@@ -28,7 +27,7 @@ class Z60_Touch_012Test extends ZTL4ScalaTestCase {
 		runZTL(zscript,
 			() => {
 				// Click on button one time
-				click(jq("@button"));
+				singleTap(jq("@button"));
 				waitResponse();
 				
 				// Should only see "Click xx time" message once
