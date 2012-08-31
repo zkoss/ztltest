@@ -220,15 +220,15 @@
 				
 				/** colorbox */
 				click(jq("@colorbox i.z-colorbox-currcolor"));
-				click(jq("$view @widget div.z-colorpalette-colorbox:eq(56)"));
+				click(jq("div.z-colorpalette-colorbox:eq(56)"));
 				click(jq("@colorbox i.z-colorbox-currcolor"));
 				click(jq(".z-colorbox-picker-btn"));
 
 				waitResponse();
-				verifyEquals("153", getValue(jq("$view @widget input.z-colorpicker-r-inp")));
-				verifyEquals("51", getValue(jq("$view @widget input.z-colorpicker-g-inp")));
-				verifyEquals("102", getValue(jq("$view @widget input.z-colorpicker-b-inp")));
-				click(jq("$view @widget button.z-colorpicker-ok-btn"));
+				verifyEquals("153", getValue(jq("input.z-colorpicker-r-inp")));
+				verifyEquals("51", getValue(jq("input.z-colorpicker-g-inp")));
+				verifyEquals("102", getValue(jq("input.z-colorpicker-b-inp")));
+				click(jq("button.z-colorpicker-ok-btn"));
 		]]></client>
 	</case>
 </test>
