@@ -129,7 +129,7 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 				singleTap(jq(".z-group-img-open"));
 				waitResponse(true);
 				
-				var group_rows : JQuery = jq("#grid1 .z-row");
+				var group_rows = jq("#grid1 .z-row");
 				for (i <- 0 to group_rows.length()-1) {
 					verifyFalse(group_rows.eq(i).isVisible());
 				}
@@ -145,10 +145,10 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 				waitResponse(true);
 				
 				// 3. Focus on the two textboxes, the label text color should change.
-				var label1 : JQuery = jq("$h1 @label");
-				var style1 : String = label1.css("color");
-				var label2 : JQuery = jq("$h2 @label");
-				var style2 : String = label2.css("color");
+				var label1 = jq("$h1 @label");
+				var style1 = label1.css("color");
+				var label2 = jq("$h2 @label");
+				var style2 = label2.css("color");
 				
 				singleTap(jq("$h1 @textbox"));
 				waitResponse();
@@ -183,7 +183,7 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 				var location : Point = coords.getLocationOnScreen();
 				
 				// scroll down
-				touch.scroll(coords, 0, -400);
+				touch.scroll(coords, 0, -40);
 				waitResponse();
 				sleep(10000);
 				

@@ -158,8 +158,10 @@ class Z60_Touch_016Test extends ZTL4ScalaTestCase {
 				verifyEquals(0, scroll_outer.length());
 				
 				// Open tree node and click on 'button'
-				singleTap(jq("@button"));
 				singleTap(treebodies.eq(1).find(".z-tree-root-close"));
+				waitResponse();
+				
+				singleTap(jq("@button"));
 				waitResponse();
 				
 				// Should now see the scroll bar
