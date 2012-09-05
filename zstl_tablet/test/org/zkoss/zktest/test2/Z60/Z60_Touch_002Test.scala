@@ -26,6 +26,7 @@ class Z60_Touch_002Test extends ZTL4ScalaTestCase {
 				// 1. Collapse west region
 				singleTap(jq(".z-west-colps"));
 				waitResponse(true);
+				sleep(1000);
 				
 				// 2. Click on collapsed bar
 				singleTap(jq(".z-west-colpsd"));
