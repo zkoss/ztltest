@@ -34,6 +34,7 @@ firefox*={
 // unsupported
 F50-0000001.ztl
 B35-2073451.ztl
+B60-ZK-1338.zul
 }
 firefox3={
 // unsupported
@@ -58,6 +59,7 @@ B30-1878840.ztl
 B50-ZK-692.ztl
 B50-3322795.ztl
 B50-ZK-434.ztl
+B60-ZK-1338.zul
 }
 ie*={
 // unsupported, due to the unpredictable row's height
@@ -74,6 +76,7 @@ Z60-Listbox-ListModelSet-Multiple-noROD.ztl
 Z60-Listbox-ListModelList-noROD.ztl
 Z60-Listbox-SimpleListModel-noROD.ztl
 // end for unpredictable row's height
+B60-ZK-1338.zul
 }
 ie9={
 // unsupported

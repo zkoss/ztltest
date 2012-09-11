@@ -102,11 +102,33 @@ public class MyComposer extends GenericForwardComposer {
 
     runZTL(zscript,
         () => {
-	       sleep(5000);
-	       waitResponse();
-	       
-        verifyTrue("Window should be there!",
-            engine.$f("mainWin").exists());
+        	try {
+		       sleep(5000);
+		       waitResponse();
+		       
+	        verifyTrue("Window should be there!",
+	            engine.$f("mainWin").exists());
+        	} finally {
+        		var resetScript = """
+        			<zscript><![CDATA[
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.zkoss.lang.Threads;
+import org.zkoss.web.util.resource.ClassWebResource;
+import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.http.WebManager;
+import org.zkoss.zk.ui.http.WpdExtendlet;
+import org.zkoss.zk.ui.util.GenericForwardComposer;
+import java.io.IOException;
+        ClassWebResource cwr = WebManager.getWebManagerIfAny(self.getDesktop().getWebApp()).getClassWebResource();
+		cwr.addExtendlet("wpd", new org.zkoss.zk.ui.http.WpdExtendlet());
+        			]]></zscript>
+        			""";
+        		runRawZscript(resetScript);
+        		waitResponse();
+        	}
     }
    );
   }
