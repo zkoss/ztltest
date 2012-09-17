@@ -41,7 +41,7 @@ class Z60_Touch_030Test extends ZTL4ScalaTestCase {
 		
 		runZTL(zscript,
 			() => {
-				var tabpanel = By.className("z-tabpanel");
+				var tabpanel = jq(".z-tabpanel");
 				val SWIPE_DISTANCE = 50;
 				
 				// ----------------------------------------------------------------------

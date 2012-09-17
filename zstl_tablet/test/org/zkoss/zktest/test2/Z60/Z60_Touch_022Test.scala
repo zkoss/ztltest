@@ -23,8 +23,7 @@ class Z60_Touch_022Test extends ZTL4ScalaTestCase {
 						"May" -> 5, "Jun" -> 6,	 "Jul" -> 7,  "Aug" -> 8,
 						"Sep" -> 9,	"Oct" -> 10, "Nov" -> 11, "Dec" -> 12
 					);
-				var calendar = By.className("z-calendar");
-				
+				var calendar = jq(".z-calendar");
 				var month_year = jq(".z-calendar-title span");
 				var month_span = month_year.eq(0);
 				var year_span  = month_year.eq(1);
