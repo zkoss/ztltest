@@ -14,9 +14,18 @@ class Thm_Calendar_Test extends ZTL4ScalaTestCase {
 			displayedTimeZones="GMT+8,GMT-8" />
 		<zscript>
 			import java.util.Date;
-			import java.text.DateFormat;
+			import java.util.Calendar;
 			
-			Date date = DateFormat.getDateTimeInstance().parse("October 11, 2012 5:17:04 PM"); 
+			Calendar cal = Calendar.getInstance();
+			cal.set(Calendar.MONTH,  Calendar.OCTOBER);
+			cal.set(Calendar.DATE,   11);
+			cal.set(Calendar.YEAR,   2012);
+			cal.set(Calendar.HOUR,   5);
+			cal.set(Calendar.MINUTE, 17);
+			cal.set(Calendar.SECOND, 04);
+			cal.set(Calendar.AM_PM,  Calendar.PM);
+
+			Date date = cal.getTime(); 
 			db.value = cal1.value = cal2.value = date;
 		</zscript>
 	</vlayout>
