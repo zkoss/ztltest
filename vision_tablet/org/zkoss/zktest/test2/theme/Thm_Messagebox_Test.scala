@@ -98,14 +98,18 @@ class Thm_Messagebox_Test extends ZTL4ScalaTestCase {
 				verifyImage();
 				
 				var btns = jq("@button");
-				
-				for (i <- 0 to btns.length()-1) {
+				var last = btns.length()-1
+				for (i <- 0 to last) {
 					singleTap(btns.eq(i));
 					sleep(500);
 					verifyImage();
 					
-					singleTap(jq(".z-messagebox-window .z-window-highlighted-close"));
-					sleep(500);
+					if (i != last) {
+    					singleTap(jq(".z-messagebox-window .z-window-highlighted-close"));
+					} else {
+    					singleTap(jq(".z-window-modal .z-window-modal-close"));
+					}
+   					sleep(500);
 				}
 			});
 	}
