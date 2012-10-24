@@ -8,7 +8,7 @@
 		<client><![CDATA[
 			int inpWidth = Integer.valueOf(cb.$n("real").get("offsetWidth"));
 			int btnWidth = Integer.valueOf(cb.$n("btn").get("offsetWidth"));			
-			verifyTrue(inpWidth + btnWidth == 80);
+			verifyTolerant(inpWidth + btnWidth, 80, 2);
 		]]></client>
 	</case>
 </test>
