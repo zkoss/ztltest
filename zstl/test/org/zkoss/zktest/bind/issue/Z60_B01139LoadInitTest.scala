@@ -38,7 +38,7 @@ class Z60_B01139LoadInitTest extends ZTL4ScalaTestCase {
 
       `type`(nameTexb.toWidget(), "XXX")
       waitResponse()
-      click(liChk.toWidget())
+      click(liChk.toWidget().$n("real"))
       waitResponse()
       click(changeNameBtn)
       waitResponse()
@@ -46,7 +46,7 @@ class Z60_B01139LoadInitTest extends ZTL4ScalaTestCase {
 
       `type`(nameTexb.toWidget(), "XXX")
       waitResponse()
-      click(liChk.toWidget())
+      click(liChk.toWidget().$n("real"))
       waitResponse()
       click(changeNameBtn.toWidget())
       waitResponse()
