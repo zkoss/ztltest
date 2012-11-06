@@ -256,6 +256,11 @@ Z60-B01189FormNotifyChange1.ztl
 Z60-B01189FormNotifyChange2.ztl
 Z60-B01188MixingELWithRef1.ztl
 Z60-B01188MixingELWithRef2.ztl
+Z60-B01185CollectionBindingNPE.ztl
+Z60-B01196BinderUiLcConfusion.ztl
+Z60-B01194NestedVMInit.ztl
+Z60-F01231AfterComposeVM.ztl
+Z60-B01299RefNPE.ztl
 }
 opera,chrome,safari,ie6={
 Z60-B00775ListmodelSelection.ztl 
