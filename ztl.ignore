@@ -261,6 +261,13 @@ Z60-B01196BinderUiLcConfusion.ztl
 Z60-B01194NestedVMInit.ztl
 Z60-F01231AfterComposeVM.ztl
 Z60-B01299RefNPE.ztl
+Z60-B01268UnsupportChildExp.ztl
+Z60-B01344DeletingEntry.ztl
+Z60-B01347CheckboxCrash.ztl
+Z60-B01366RadioSelectedItem.ztl
+Z60-B01259HaskMapInFx1.ztl
+Z60-B01259HaskMapInFx2.ztl
+Z60-F01416DefaultCommand.ztl
 }
 opera,chrome,safari,ie6={
 Z60-B00775ListmodelSelection.ztl 
