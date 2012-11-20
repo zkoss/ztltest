@@ -21,7 +21,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			<li>Type 0.5 in the Doublespinner and click on somewhere else. If you can't type in the decimal sign ".", it is a bug.</li>
 		</ol>
 	]]></html>
-	<doublespinner step="0.5" />
+	<doublespinner value="0" step="0.5" />
 </zk>
 
 		--></server>
