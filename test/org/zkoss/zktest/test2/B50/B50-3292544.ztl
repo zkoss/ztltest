@@ -26,10 +26,12 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				focus(jq("@doublespinner input"));
-				sendKeys(jq("@doublespinner input"), Keys.END);
-				sendKeys(jq("@doublespinner input"), Keys.DECIMAL);
-				sendKeys(jq("@doublespinner input"), Keys.NUMPAD5);
+				JQuery input = jq("@doublespinner input");
+				focus(input);
+				sendKeys(input, Keys.END);
+				sendKeys(input, Keys.DECIMAL);
+				sendKeys(input, Keys.NUMPAD5);
+				blur(input);
 				verifyEquals("0.5",jq("@doublespinner input").val());
 		]]></client>
 	</case>
