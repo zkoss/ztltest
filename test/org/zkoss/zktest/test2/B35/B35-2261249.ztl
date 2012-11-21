@@ -21,15 +21,13 @@
 			</window>
 		--></server>
 		<client><![CDATA[
-		
-				for(int i = 0; i < 3; i++){ 
-					mouseOver(c1);
-					Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-column-btn:eq(0)"), "click", "2,2");				
-					clickAt(jq(".z-menuitem-cnt:eq(" + i + ")"),"6,6");
-					waitResponse(1000);
-					verifyFalse(jq(".z-window-modal").exists());
+				for(int i = 0; i < 3; i++){
+				mouseOver(c1);
+				Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-column-btn:eq(0)"), "click", "2,2");
+				clickAt(jq(".z-menuitem-cnt:eq(" + i + ")"),"6,6");
+				waitResponse(1000);
+				verifyFalse(jq(".z-window-modal").exists());
 				}
-				
 		]]></client>
 	</case>
 </test>
