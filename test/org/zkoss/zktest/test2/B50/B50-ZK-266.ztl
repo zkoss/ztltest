@@ -62,7 +62,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			int x = $sort.outerWidth();
 
 			mouseOver(esort);
-			click($sort.find("a.z-column-btn").get(0));
+			Scripts.triggerMouseEventAt(getWebDriver(), jq("a.z-column-btn:eq(0)"), "click", "2,2");
 			waitResponse();
 			click(jq(".z-menupopup").find(".z-columns-menu-dsc"));
 			waitResponse();
@@ -73,7 +73,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			
 			
 			mouseOver(esort);
-			click($sort.find("a.z-column-btn").get(0));
+			Scripts.triggerMouseEventAt(getWebDriver(), jq("a.z-column-btn:eq(0)"), "click", "2,2");
 			waitResponse();
 			click(jq(".z-menupopup").find(".z-columns-menu-asc"));
 			waitResponse();
