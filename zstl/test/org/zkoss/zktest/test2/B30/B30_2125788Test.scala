@@ -46,18 +46,18 @@ class B30_2125788Test extends ZTL4ScalaTestCase {
       }
 
       // Click on first button
-      click(jq("@button").get(1));
+      click(jq("@button:eq(1)"));
       waitResponse();
 
       // Click on second button
-      click(jq("@button").get(1));
+      click(jq("@button:eq(0)"));
       waitResponse();
 
       // Record the z-index of the mask and the highlighted window
       val zIndexMask = jq(".z-modal-mask").css("z-index");
       val zIndexWindow = jq("$win").css("z-index");
 
-      verifyTrue("The z-index of the window should be greater than or equal to the z-index of the mask", zIndexWindow >= zIndexWindow);
+      verifyTrue("The z-index of the window should be greater than or equal to the z-index of the mask", zIndexWindow >= zIndexMask);
     })
   }
 }
