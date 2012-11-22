@@ -85,10 +85,10 @@ r3.removeChild(tb3);
 
       // Mouse over the column to see the menu popup
       Scripts.triggerMouseEventAt(getWebDriver(), jq(engine.$f("col1")), "mouseover", "2,2");
-      waitResponse();
+      waitResponse(1000);
 
       // Click on the column menu
-      click(jq(".z-column-btn"));
+      Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-column-btn"), "click", "2,2");
       waitResponse();
 
       // Verify that the menu popup appear
