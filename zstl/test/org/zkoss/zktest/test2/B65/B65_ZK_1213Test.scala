@@ -2,6 +2,7 @@ package org.zkoss.zktest.test2.B65
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.util.Scripts
 
 @Tags(tags = "B65-ZK-1213.zul")
 class B65_ZK_1213Test extends ZTL4ScalaTestCase {
@@ -16,35 +17,40 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
 
-        val (year, month, day) = ("2012", "Jan", "31") 
-        val (yearMonth, dayOfNextMonth) = ("Feb 2012", "29")
+        /**
+         * 1. Select Dec 16 2012 and click right arrow, should see Jan 16 2013
+         * Note: dont simplify it cuz opera will throw exception
+         */
+        val (year, month, day) = ("2012", "Dec", "16")
+        val (yearMonth, dayOfNextMonth) = ("Jan 2013", "16")
 
-        click(jq(".z-calendar-title"))
+        click(jq(".z-calendar-ctrler:eq(1)"))
         waitResponse()
 
-        click(jq("td:contains(2012):eq(1)").toElement())
+        val yearWidget = jq("td:contains(2012):eq(1)")
+        click(yearWidget)
         waitResponse()
 
         click(jq(".z-calendar-calmon td:contains(" + month + ")"))
         waitResponse()
 
         click(jq(".z-calendar-caldayrow td:contains(" + day + ")"))
-        waitResponse()
 
         click(jq(".z-calendar-right-icon"))
         waitResponse()
 
         verifyEquals(jq(".z-calendar-title").text(), yearMonth)
         verifyEquals(jq(".z-calendar-wkday.z-calendar-seld").text(), dayOfNextMonth)
-        
-        // dont simplify it cuz opera will throw exception
-        val (year1, month1, day1) = ("2012", "Dec", "16")
-        val (yearMonth1, dayOfNextMonth1) = ("Jan 2013", "16")
-        
-        click(jq(".z-calendar-title"))
+
+        // 2. Select Jan 31 2012 and click right arrow, should see Feb 29 2012
+        val (year1, month1, day1) = ("2012", "Jan", "31")
+        val (yearMonth1, dayOfNextMonth1) = ("Feb 2012", "29")
+
+        click(jq(".z-calendar-ctrler:eq(1)"))
         waitResponse()
 
-        click(jq("td:contains(2012):eq(1)").toElement())
+        val yearWidget1 = jq("td:contains(2012):eq(1)")
+        click(yearWidget1)
         waitResponse()
 
         click(jq(".z-calendar-calmon td:contains(" + month1 + ")"))

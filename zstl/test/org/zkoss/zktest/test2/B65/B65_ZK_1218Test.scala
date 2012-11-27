@@ -24,20 +24,21 @@ class B65_ZK_1218Test extends ZTL4ScalaTestCase {
 
         sendKeys(doublebox, "1")
         sendKeys(doublebox, Keys.DECIMAL)
-        1 to 25 foreach (i => sendKeys(doublebox, "2"))
+        sendKeys(doublebox, "224323423452352345345345634534634634")
 
         blur(doublebox)
-
-        verifyTrue(doublebox.hasClass("z-doublebox-text-invalid"))
+        waitResponse()
+        verifyTrue(jq(".z-errbox:eq(0)").exists())
+        
 
         focus(doublespinner)
         sendKeys(doublespinner, "1")
         sendKeys(doublespinner, Keys.DECIMAL)
-        1 to 25 foreach (i => sendKeys(doublespinner, "2"))
+        sendKeys(doublespinner, "224323423452352345345345634534634634")
 
         blur(doublespinner)
-
-        verifyTrue(doublespinner.hasClass("z-doublespinner-text-invalid"))
+        waitResponse
+        verifyTrue(jq(".z-errbox:eq(1)").exists())
       })
 
   }
