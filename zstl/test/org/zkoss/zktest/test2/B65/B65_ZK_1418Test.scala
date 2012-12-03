@@ -34,9 +34,9 @@ class B65_ZK_1418Test extends ZTL4ScalaTestCase {
       () => {
         click(jq("select"))
         click(jq("option:contains(SELECT)"))
-        waitResponse(1000)
+        waitResponse()
         click(jq("@button"))
-        waitResponse(1000)
+        waitResponse()
 
         verifyTrue("error messagebox should not show", !jq(".z-errbox").exists())
 
