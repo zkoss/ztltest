@@ -70,11 +70,11 @@ class B65_ZK_1428Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         click(jq("@button:eq(0)"))
-        waitResponse(1000)
+        waitResponse()
         click(jq("@button:eq(1)"))
-        waitResponse(1000)
+        waitResponse()
         click(jq("@button:eq(2)"))
-        waitResponse(1000)
+        waitResponse()
         verifyTrue("should not see any error message.", !jq(".z-errbox").exists())
       })
 

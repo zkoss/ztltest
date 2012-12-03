@@ -33,11 +33,11 @@ class B65_ZK_1407Test extends ZTL4ScalaTestCase {
         verifyEquals("Combobox's initial background color is yellow", jq(".z-combobox-inp").css("background-color"), "rgb(255, 255, 0)")
 
         click(jq(".z-combobox-btn"))
-        waitResponse(1000)
+        waitResponse()
         verifyEquals("Combobox's initial background color is yellow", jq(".z-combobox-inp").css("background-color"), "rgb(0, 128, 0)")
 
         click(jq("@comboitem:eq(0)"))
-        waitResponse(1000)
+        waitResponse()
         verifyEquals("Combobox's initial background color is yellow", jq(".z-combobox-inp").css("background-color"), "rgb(0, 128, 0)")
 
       })

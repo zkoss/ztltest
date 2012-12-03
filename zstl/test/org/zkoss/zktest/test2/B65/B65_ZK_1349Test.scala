@@ -38,7 +38,7 @@ class B65_ZK_1349Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         click(jq("@button"))
-        waitResponse(1000)
+        waitResponse()
 
         verifyTrue("Should see a blue background cell.", jq(".z-cell[style*=cyan]").isVisible())
       })
