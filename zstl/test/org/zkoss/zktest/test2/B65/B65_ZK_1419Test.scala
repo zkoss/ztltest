@@ -23,7 +23,7 @@ def testClick() = {
       blur(jq("@textbox"))
       
       mouseOver(jq(".z-errbox"))
-      waitResponse(1000)
+      waitResponse()
       verifyEquals("the tooltip text should be 'Click to re-enter data'.", jq(".z-errbox-left").attr("title"), "Click to re-enter data")
     })
     

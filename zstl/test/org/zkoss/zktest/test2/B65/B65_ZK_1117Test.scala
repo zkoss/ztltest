@@ -67,7 +67,7 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         }
 
         verifyEquals(jq(snpinerinp).toElement().get("value"), "")
-        waitResponse(5000)
+        waitResponse()
         click(clickbtn)
         waitResponse()
         verifyTrue("Should show a message box",

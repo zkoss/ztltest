@@ -21,7 +21,7 @@ class B65_ZK_1370Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         click(jq("@button"))
-        waitResponse(1000)
+        waitResponse()
         verifyTrue("should not see error message box.", !jq(".z-popup-cl").isVisible())
       })
 
