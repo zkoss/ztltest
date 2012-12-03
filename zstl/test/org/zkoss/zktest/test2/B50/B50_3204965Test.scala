@@ -79,7 +79,7 @@ class B50_3204965Test extends ZTL4ScalaTestCase {
 		waitResponse();
 		var size1: Int = Integer.parseInt(tb.$n().get("value"));
 		click(btn);
-		waitResponse(s);
+		waitResponse();
 		var size2: Int = Integer.parseInt(tb.$n().get("value"));
 		verifyNotEquals(size1, size2);
     }
