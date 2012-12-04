@@ -30,15 +30,25 @@ class B65_ZK_1407Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyEquals("Combobox's initial background color is yellow", jq(".z-combobox-inp").css("background-color"), "rgb(255, 255, 0)")
+        // 1. Combobox's initial background color is yellow.
+        val inp = jq(".z-combobox-inp")
+        val initColor = inp.css("background-color")
+        val isYellow = initColor == "yellow" || initColor == "rgb(255, 255, 0)"
+        verifyTrue("Combobox's initial background color is yellow", isYellow)
 
+        // 2. Click button to open dorp-down list, and Combobox's background color will transform to green.
         click(jq(".z-combobox-btn"))
         waitResponse()
-        verifyEquals("Combobox's initial background color is yellow", jq(".z-combobox-inp").css("background-color"), "rgb(0, 128, 0)")
+        val afterClickColor = inp.css("background-color")
+        val isGreen = afterClickColor == "green" || afterClickColor == "rgb(0, 128, 0)"
+        verifyTrue("Combobox's initial background color is green", isGreen)
 
+        // 3. Select a item, and then Combobox's background color must be still green.
         click(jq("@comboitem:eq(0)"))
         waitResponse()
-        verifyEquals("Combobox's initial background color is yellow", jq(".z-combobox-inp").css("background-color"), "rgb(0, 128, 0)")
+        val selectColor = inp.css("background-color")
+        val isGreenAgain = selectColor == "green" || selectColor == "rgb(0, 128, 0)"
+        verifyTrue("Combobox's initial background color is green", isGreenAgain)
 
       })
 
