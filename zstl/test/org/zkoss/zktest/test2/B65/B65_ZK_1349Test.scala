@@ -39,8 +39,9 @@ class B65_ZK_1349Test extends ZTL4ScalaTestCase {
       () => {
         click(jq("@button"))
         waitResponse()
-
-        verifyTrue("Should see a blue background cell.", jq(".z-cell[style*=cyan]").isVisible())
+        val color = jq(".z-cell:contains(A)").css("background-color")
+        val isCyan = color == "cyan" || color == "rgb(0, 255, 255)"
+        verifyTrue("Should see a blue background cell.", isCyan)
       })
 
   }
