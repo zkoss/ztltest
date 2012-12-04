@@ -50,11 +50,13 @@ class B65_ZK_1217Test extends ZTL4ScalaTestCase {
 
       click(nthCaption)
       waitResponse()
+      sleep(1000)
 
       verifyNotEquals("panel or borderlayout should be open/close", collapsibleWidget.css("display"), block)
 
       click(nthCaption)
       waitResponse()
+      sleep(1000)
 
       verifyEquals("its content shouldn't be hidden", collapsibleWidget.css("display"), block)
     }
