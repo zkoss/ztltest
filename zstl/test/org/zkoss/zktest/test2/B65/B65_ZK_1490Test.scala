@@ -59,7 +59,7 @@ class B65_ZK_1490Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyTrue("No JavaScript exceptions should occur.", !jq(".z-errbox").exists())
+        verifyTrue("No JavaScript exceptions should occur.", !jq(".z-window-modal").exists())
       })
 
   }
