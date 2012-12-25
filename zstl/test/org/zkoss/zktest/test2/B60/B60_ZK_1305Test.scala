@@ -57,10 +57,6 @@ class B60_ZK_1305Test extends ZTL4ScalaTestCase {
         mouseMoveAt(test, position)
         waitResponse
 
-//        Scripts.triggerMouseEventAt(getWebDriver(), test0, "mousemove", "2,2")
-//        Scripts.triggerMouseEventAt(getWebDriver(), test0, "mousedown", "2,2")
-//        Scripts.triggerMouseEventAt(getWebDriver(), test, "mousemove", "2,2")
-
         verifyTrue("Should be able to drag test0 item.", jq(".z-drop-ghost").exists())
       })
 
