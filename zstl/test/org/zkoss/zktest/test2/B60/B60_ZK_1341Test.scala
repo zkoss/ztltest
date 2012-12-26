@@ -10,7 +10,7 @@ class B60_ZK_1341Test extends ZTL4ScalaTestCase {
     val zscript = """<zk>
                     <label multiline="true">
                       1. Change default language of browser to zh_TW.
-	2. Change AM(¤W¤È)/PM(¤U¤È) in timebox.
+	2. Change AM/PM (zh_TW) in timebox.
 	3. Close the popup calendar and you should see correct date time in datebox.
                     </label>
                     <datebox format="long+medium" width="300px"/>
