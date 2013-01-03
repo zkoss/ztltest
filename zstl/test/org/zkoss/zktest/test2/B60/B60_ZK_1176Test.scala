@@ -55,12 +55,10 @@ class B60_ZK_1176Test extends ZTL4ScalaTestCase {
         verifyEquals("should see 2 toolbarbuttons", jq(".z-toolbarbutton").length(), 2)
         click(btn1)
         waitResponse()
-        sleep(2000)
         verifyTrue(btn1.hasClass("z-button-disd"))
         
         click(btn2)
         waitResponse()
-        sleep(2000)
         verifyTrue(!btn2.hasClass("z-button-disd"))
 
         val toolbarbtn1 = jq(".z-toolbarbutton:contains(Toolbarbutton #1)")
@@ -68,12 +66,10 @@ class B60_ZK_1176Test extends ZTL4ScalaTestCase {
         
         click(toolbarbtn1)
         waitResponse()
-        sleep(2000)
         verifyTrue(toolbarbtn1.hasClass("z-toolbarbutton-disd"))
         
         click(toolbarbtn2)
         waitResponse()
-        sleep(2000)
         verifyTrue(!toolbarbtn2.hasClass("z-toolbarbutton-disd"))
 
       })
