@@ -119,6 +119,9 @@ ie6={
 B35-2073451.ztl
 // zkbind
 Z60-Panel.ztl
+// crash
+F60-ZK-83.ztl
+B30-2105802.ztl
 }
 chrome,safari={
 // unsupported
