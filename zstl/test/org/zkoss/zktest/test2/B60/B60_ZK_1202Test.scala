@@ -60,7 +60,7 @@ class B60_ZK_1202Test extends ZTL4ScalaTestCase {
         val btn2 = jq(".z-combobox-btn:eq(1)")
 
         val regularDays = List("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
-        val workingDays = (regularDays - "Sunday") - "Saturday"
+        val workingDays = List("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 
         click(btn1)
         waitResponse()
@@ -77,7 +77,7 @@ class B60_ZK_1202Test extends ZTL4ScalaTestCase {
             click(btn2)
             waitResponse()
             val dayItem = jq(".z-combobox-pp .z-comboitem:contains(" + day + ")")
-            verifyEquals(msg, dayItem.css("display"), "table-row")
+            verifyNotEquals(msg, dayItem.css("display"), "none")
             click(dayItem)
             waitResponse()
             verifyTrue("No exceptions should occur when changing the selection in any order.", !jq(".z-window-modal").exists())
@@ -91,9 +91,6 @@ class B60_ZK_1202Test extends ZTL4ScalaTestCase {
         click(working)
         waitResponse()
         verifyTrue("No exceptions should occur when changing the selection in any order.", !jq(".z-window-modal").exists())
-
-        click(btn2)
-        waitResponse()
 
         verifyDayOk("If 'Working Week' is selected in the first combobox, the second combobox should contain 'Monday' through 'Friday'.", workingDays)
 
