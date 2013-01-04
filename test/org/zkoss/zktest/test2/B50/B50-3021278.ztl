@@ -42,12 +42,23 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				clickAt(c1.$n("btn"),"6,6");
+				JQuery zcolumn = jq(".z-column:contains(Author)");
+				Scripts.triggerMouseEventAt(getWebDriver(), zcolumn,
+						"mouseover", "");
 				waitResponse();
-				clickAt(jq(".z-column-btn:eq(1)"), "6,6");
+				JQuery zcolumnbtn = zcolumn.find(".z-column-btn");
+				Scripts.triggerMouseEventAt(getWebDriver(), zcolumnbtn,
+						"click", "");
 				waitResponse();
-				boolean color = ColorVerifingHelper.getInstance().isEqualColor("white",jq("@row:eq(1)").css("backgroundColor"));
-				verifyNotEquals(jq("@row:eq(0)").css("backgroundColor"),jq("@row:eq(1)").css("backgroundColor"));
+				JQuery zmenuitem = jq(".z-menuitem:contains(Title)");
+				Scripts.triggerMouseEventAt(getWebDriver(), zmenuitem, "click",
+						"");
+				waitResponse();
+				
+				boolean color = ColorVerifingHelper.isEqualColor(
+						"white", jq("@row:eq(1)").css("backgroundColor"));
+				verifyNotEquals(jq("@row:eq(0)").css("backgroundColor"),
+						jq("@row:eq(1)").css("backgroundColor"));
 				verifyFalse(color);
 		]]></client>
 	</case>
