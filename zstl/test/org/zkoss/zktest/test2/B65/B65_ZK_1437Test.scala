@@ -4,6 +4,10 @@ package org.zkoss.zktest.test2.B65
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import java.util.Calendar
+import java.text.SimpleDateFormat
+import java.util.Locale
+import java.util.Date
+import java.text.DateFormat
 
 @Tags(tags = "B65-ZK-1437.zul")
 class B65_ZK_1437Test extends ZTL4ScalaTestCase {
@@ -22,17 +26,18 @@ class B65_ZK_1437Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        val now = Calendar.getInstance
-        click(jq("@button:contains(reload)"))
-        waitResponse(1000)
-        val headerText = jq(".z-window-embedded-header").text()
+        val fmt = new SimpleDateFormat("'Hello World!!' EEE MMM dd HH:mm:ss z yyyy", Locale.US)
+        val header = jq(".z-window-embedded-header")
+        val past = fmt.parse(header.text())
+        
+        // it verify sec is diff
+        sleep(1000)
+        click(jq(".z-button:contains(reload)"))
+        waitResponse()
+        
+        val current = fmt.parse(header.text())
 
-        val isBound = 1 to 30 map { i =>
-          now.add(Calendar.SECOND, 1)
-          "Hello World!! %1$ta %1$tb %1$td %1$tT %1$tZ %1$tY" format now
-        } exists (_ == headerText)
-
-        verifyTrue("window3's title was changed to current time", isBound)
+        verifyTrue("window3's title was changed to current time", current.after(past))
         verifyTrue("should not see any error message.", !jq(".z-errbox").exists())
       })
 
