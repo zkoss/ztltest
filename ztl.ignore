@@ -28,6 +28,8 @@ B30-2009958.ztl
 B35-2580752.ztl
 // zkbind bean validation
 Z60-B01005BeanValidatorPath.ztl
+// unsupported marcoURI
+B65-ZK-1433.ztl
 }
 ### ignore all firefox
 firefox*={

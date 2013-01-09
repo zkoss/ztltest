@@ -1,4 +1,4 @@
-package org.zkoss.zktest.test2.B65
+package org.zkoss.zktest.test2.B60
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
@@ -31,11 +31,26 @@ class B60_ZK_919Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        val date0 = jq(".z-datebox-inp:eq(0)").`val`().substring(12)
-        val date1 = jq(".z-datebox-inp:eq(1)").`val`().substring(12)
-        val date2 = jq(".z-datebox-inp:eq(2)").`val`().substring(12)
-        val date3 = jq(".z-datebox-inp:eq(3)").`val`().substring(12)
+        val datelongfmt0 = jq(".z-datebox-inp:eq(0)").`val`()
+        val datelongfmt1 = jq(".z-datebox-inp:eq(1)").`val`()
+        val datelongfmt2 = jq(".z-datebox-inp:eq(2)").`val`()
+        val datelongfmt3 = jq(".z-datebox-inp:eq(3)").`val`()
         val msg1 = "1. You shall see 4 type of dates whose time part are the same. "
+
+        val Pattern1 = """.*(\d\d):(\d\d):(\d\d).*""".r
+        val Pattern2 = """.*( \d):(\d\d):(\d\d).*""".r
+
+        val long2short = (shtfmt: String) => shtfmt match {
+          case Pattern1(hh, mm, ss) => hh + ":" + mm + ":" + ss
+          case Pattern2(h, mm, ss) => h.replace(" ", "0").concat(":").concat(mm).concat(":").concat(ss)
+          case _ => "00:00:00"
+        }
+        
+        val date0 = long2short(datelongfmt0)
+        val date1 = long2short(datelongfmt1)
+        val date2 = long2short(datelongfmt2)
+        val date3 = long2short(datelongfmt3)
+
         verifyEquals(msg1, date0, date1)
         verifyEquals(msg1, date2, date3)
         verifyEquals(msg1, date0, date2)
