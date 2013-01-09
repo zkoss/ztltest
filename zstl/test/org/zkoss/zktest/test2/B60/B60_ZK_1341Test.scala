@@ -24,14 +24,26 @@ class B60_ZK_1341Test extends ZTL4ScalaTestCase {
         click(jq(".z-timebox-btn-upper"))
         waitResponse()
 
-        val time = jq(".z-datebox-pp .z-timebox-inp").`val`()
+        val timelongfmt = jq(".z-datebox-pp .z-timebox-inp").`val`()
 
         click(jq(".z-calendar-seld"))
         waitResponse()
 
-        val datetime = jq(".z-datebox-inp:eq(0)").`val`()
-        val newDatetime = if (datetime.charAt(0) == ' ') datetime.replaceFirst(" ", "0") else datetime
-        verifyEquals(newDatetime.substring(newDatetime.length() - 11, newDatetime.length()), time.substring(time.length() - 11, time.length()))
+        val datetimelongfmt = jq(".z-datebox-inp:eq(0)").`val`()
+
+        val Pattern1 = """.*(\d\d):(\d\d):(\d\d).*""".r
+        val Pattern2 = """.*( \d):(\d\d):(\d\d).*""".r
+
+        val long2short = (shtfmt: String) => shtfmt match {
+          case Pattern1(hh, mm, ss) => hh + ":" + mm + ":" + ss
+          case Pattern2(h, mm, ss) => h.replace(" ", "0").concat(":").concat(mm).concat(":").concat(ss)
+          case _ => "00:00:00"
+        }
+
+        val time = long2short(timelongfmt)
+        val dateTime = long2short(datetimelongfmt)
+
+        verifyEquals("should see correct date time in datebox.", time, dateTime)
       })
 
   }
