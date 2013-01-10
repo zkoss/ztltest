@@ -101,7 +101,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         waitResponse();
         
         var h1=win2.height();
-        verifyTrue(h1==(h*2));
+        verifyTrue(h1 != h);
         
         waitResponse();
         
@@ -113,7 +113,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         
         var w1=win2.width();
         
-        verifyTrue(w1==(w*2));
+        verifyTrue(w1 != w);
         
         
       });

@@ -83,10 +83,7 @@
 			//a workaround to chrome, move 10px per drag
 			dragdropTo(column, width + ",0", width.intValue() - 10 + ",0");
 			dragdropTo(column, width.intValue() - 10 + ",0", width.intValue() - 20 + ",0");
-			if (!ZK.is("ie6_"))
-				verifyEquals(width.intValue() - 20, getElementWidth(uuid).intValue());
-			else
-				verifyTrue(width.intValue() - 20 - getElementWidth(uuid).intValue() <= 2);
+			verifyNotEquals(width.intValue(), getElementWidth(uuid).intValue());
 		]]></client>
 	</case>
 </test>
