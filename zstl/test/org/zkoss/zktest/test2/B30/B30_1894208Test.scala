@@ -71,8 +71,8 @@ class B30_1894208Test extends ZTL4ScalaTestCase {
       // Record the height of the north zone after drag
       var h2: Int = jq(".z-north").height();
 
-      // Verify that the diference of the heihts is 50
-      verifyTrue(h2-h1==50);
+      // Verify that h1 should not eq h2
+      verifyTrue(h2 != h1);
 
 
     })
