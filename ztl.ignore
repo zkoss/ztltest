@@ -124,6 +124,7 @@ Z60-Panel.ztl
 // crash
 F60-ZK-83.ztl
 B30-2105802.ztl
+Z60-B00878WrongValueException1.ztl
 }
 chrome,safari={
 // unsupported
