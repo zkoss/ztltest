@@ -60,11 +60,7 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         // clear the spinner value to empty,then click button, you should get the spinner error messag.
         focus(jq(snpinerinp))
 
-        if (ZK.is("ie9")) {
-          jq(snpinerinp).toElement().set("value", "")
-        } else {
-          sendKeys(jq(snpinerinp), Keys.BACK_SPACE)
-        }
+        sendKeys(jq(snpinerinp), Keys.END + "" + Keys.BACK_SPACE)
 
         verifyEquals(jq(snpinerinp).toElement().get("value"), "")
         waitResponse()
@@ -83,6 +79,7 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
       var close_y = errbox.positionTop() + 5
 
       Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-errbox-close"), "click", close_x + "," + close_y);
+
     }
   }
 }
