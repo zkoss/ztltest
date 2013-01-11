@@ -1,4 +1,4 @@
-package org.zkoss.zktest.test2.B65
+package org.zkoss.zktest.test2.B60
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
@@ -38,9 +38,16 @@ class B60_ZK_945Test extends ZTL4ScalaTestCase {
         val spacer3Right = jq(".z-comboitem-spacer:eq(3)").css("margin-right")
         verifyEquals(spacer0Right, spacer3Right)
         verifyEquals(spacer1Right, spacer2Right)
+        
+        val Pattern = """(\d*)px""".r
+        val parseInt = (text:String) => text match {
+          case Pattern(i) => i.toInt
+          case _ => 0
+        }
+        
         val msg = "You can find the space between image and label in 1st and 4th comboitem is smaller. \n" +
           "  You can find the space between image and label in 2nd and 3rd comboitem is larger."
-        verifyTrue(msg, spacer0Right < spacer1Right)
+        verifyTrue(msg, parseInt(spacer0Right) < parseInt(spacer1Right))
 
       })
 
