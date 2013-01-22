@@ -10,13 +10,13 @@ class IVT_Combobox_Description_Icon_Test extends ZTL4ScalaTestCase {
 <combobox open="true">
 	<comboitem label="Comboitem 1" 
 		description="Description of the great Comboitem 1."
-		image="/common/img/search.png" />
+		image="/img/search.png" />
 	<comboitem label="Comboitem 2" 
 		description="Description of the great Comboitem 2."
-		image="/common/img/search.png" />
+		image="/img/search.png" />
 	<comboitem label="Comboitem 3" 
 		description="Description of the great Comboitem 3."
-		image="/common/img/search.png" />
+		image="/img/search.png" />
 </combobox>
 		""";
 

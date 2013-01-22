@@ -11,14 +11,14 @@ class IVT_Button_Simple_Test extends ZTL4ScalaTestCase {
 	Trendy Mold:
 	<div>
 		<button label="Button" mold="trendy" />
-		<button image="/common/img/volumn.gif" mold="trendy" />
-		<button label="Button" image="/common/img/volumn.gif" mold="trendy" />
+		<button image="/img/volumn.gif" mold="trendy" />
+		<button label="Button" image="/img/volumn.gif" mold="trendy" />
 	</div>
 	OS Mold:
 	<div>
 		<button label="Button" mold="os" />
-		<button image="/common/img/volumn.gif" mold="os" />
-		<button label="Button" image="/common/img/volumn.gif" mold="os" />
+		<button image="/img/volumn.gif" mold="os" />
+		<button label="Button" image="/img/volumn.gif" mold="os" />
 	</div>
 </vbox>
 		""";

@@ -8,7 +8,7 @@ class IVT_Combobutton_Menu_Test extends ZTL4ScalaTestCase {
 	def testClick() = {
 		val zscript = """
 <zk>
-	<combobutton id="cbb" label="Combobutton" image="/common/img/volumn.gif">
+	<combobutton id="cbb" label="Combobutton" image="/img/volumn.gif">
 		<menupopup>
 			<menuitem label="Index" />
 			<menu label="About">
