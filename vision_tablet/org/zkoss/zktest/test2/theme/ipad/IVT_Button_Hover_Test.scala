@@ -9,12 +9,12 @@ class IVT_Button_Hover_Test extends ZTL4ScalaTestCase {
 		val zscript = """
 <vbox>
 	Trendy Mold:
-	<button label="Button" image="/common/img/volumn.gif" 
-		hoverImage="/common/img/network.gif" mold="trendy" />
+	<button label="Button" image="/img/volumn.gif" 
+		hoverImage="/img/network.gif" mold="trendy" />
 	<separator />
 	OS Mold:
-	<button label="Button" image="/common/img/volumn.gif" 
-		hoverImage="/common/img/network.gif" mold="os" />
+	<button label="Button" image="/img/volumn.gif" 
+		hoverImage="/img/network.gif" mold="os" />
 </vbox>
 		""";
 
