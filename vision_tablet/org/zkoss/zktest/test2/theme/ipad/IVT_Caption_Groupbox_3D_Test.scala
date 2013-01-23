@@ -8,7 +8,7 @@ class IVT_Caption_Groupbox_3D_Test extends ZTL4ScalaTestCase {
 	def testClick() = {
 		val zscript = """
 <groupbox width="300px" height="300px" mold="3d">
-	<caption label="Title" image="/common/img/volumn.gif">
+	<caption label="Title" image="/img/volumn.gif">
 		Caption Content
 		<button label="Button" />
 	</caption>
