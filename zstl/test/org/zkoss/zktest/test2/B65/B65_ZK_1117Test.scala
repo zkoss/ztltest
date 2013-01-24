@@ -55,7 +55,7 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         waitResponse()
         verifyTrue("Should show a alert box",
           jq(".z-messagebox-window").isVisible())
-        click(jq(".z-button-cm:contains(OK)"))
+        click(jq(".z-messagebox-window .z-button"))
 
         // clear the spinner value to empty,then click button, you should get the spinner error messag.
         focus(jq(snpinerinp))

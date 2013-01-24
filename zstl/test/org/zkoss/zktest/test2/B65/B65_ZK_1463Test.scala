@@ -43,7 +43,7 @@ class B65_ZK_1463Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         click(jq("@button:contains(1)"))
-        waitResponse(1000)
+        waitResponse()
         
         val btn = jq("@button:contains(Save)")
         val enabled = btn.toWidget().get("disabled") == "false"
