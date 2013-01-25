@@ -20,6 +20,9 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Element
+import org.zkoss.ztl.JQuery
+import org.zkoss.ztl.ZK
+import org.zkoss.ztl.util.Scripts
 
 /**
  * @author Fernando Selvatici
@@ -105,9 +108,24 @@ panels.remove(panels.size()-1);
       </window>
     }
     runZTL(zscript, () => {
-      def dragDrop(from: Element, fromPos: String, to: Element, toPos: String) {
-        mouseDownAt(from, fromPos);
-        mouseMoveAt(to, toPos);
+      def dragDrop(from: JQuery, fromPos: String, to: JQuery, toPos: String) {
+        val mousemoveAt = (locator: JQuery, coordString: String) => {
+          if (ZK.is("ie7") || ZK.is("ie8") || ZK.is("ie9")) {
+            val froms = coordString.split(",")
+            val x0 = Integer.parseInt(froms(0))
+            val y0 = Integer.parseInt(froms(1))
+            val element0 = findElement(locator)
+            getActions().moveToElement(element0, x0, y0).perform()
+          } else {
+            Scripts.triggerMouseEventAt(getWebDriver(), locator, "mousemove", coordString);
+          }
+        }
+        mousemoveAt(from, fromPos)
+        waitResponse()
+        mouseDownAt(from, fromPos)
+        waitResponse()
+        mousemoveAt(to, toPos)
+        waitResponse();
         mouseUpAt(to, toPos);
         waitResponse();
       }
@@ -117,81 +135,97 @@ panels.remove(panels.size()-1);
       click(jq("@button"));
       waitResponse();
 
-      // Mouse over the first panel
       mouseOver(jq(".z-panel-header"));
       waitResponse();
 
-      // Drag & Drop the first panel below the second one
-      dragDrop(jq(".z-panel-header:contains(panel1)").get(0), "250,0", jq(".z-panel-header:contains(panel2)").get(0), "50,0");
+      val panelheader1 = jq(".z-panel-header:contains(panel1)")
+      val panelheader2 = jq(".z-panel-header:contains(panel2)")
+      val panelheader3 = jq(".z-panel-header:contains(panel3)")
+      val panelheader4 = jq(".z-panel-header:contains(panel4)")
+      val panelheader5 = jq(".z-panel-header:contains(panel5)")
+      val panelheader6 = jq(".z-panel-header:contains(panel6)")
+      val panel1 = jq(".z-panel:contains(panel1)")
+      val panel2 = jq(".z-panel:contains(panel2)")
+      val panel3 = jq(".z-panel:contains(panel3)")
+      val panel4 = jq(".z-panel:contains(panel4)")
+      val panel5 = jq(".z-panel:contains(panel5)")
+      val panel6 = jq(".z-panel:contains(panel6)")
+
+      dragDrop(panelheader3, "2,2", panelheader1, "0,0");
       waitResponse();
 
-      // Record position of panels
-      topPanel1 = jq(".z-panel:contains(panel1)").positionTop();
-      topPanel2 = jq(".z-panel:contains(panel2)").positionTop();
+      topPanel3 = panel3.positionTop();
+      topPanel1 = panel1.positionTop();
 
-      // Verify that panel 1 is below panel 2
-      verifyTrue("The panel 1 should be below the panel 2", topPanel1 > topPanel2);
-
-      // Drag & Drop the first panel below the third one
-      dragDrop(jq(".z-panel-header:contains(panel1)").get(0), "250,0", jq(".z-panel-header:contains(panel3)").get(0), "50,0");
-      waitResponse();
-
-      // Record position of panels
-      topPanel1 = jq(".z-panel:contains(panel1)").positionTop();
-      topPanel3 = jq(".z-panel:contains(panel3)").positionTop();
-
-      // Verify that panel 1 is below panel 3
       verifyTrue("The panel 1 should be below the panel 3", topPanel1 > topPanel3);
+
+      dragDrop(panelheader2, "2,2", panelheader3, "0,0");
+      waitResponse();
+
+      topPanel2 = panel2.positionTop();
+      topPanel3 = panel3.positionTop();
+
+      verifyTrue("The panel 3 should be below the panel 2", topPanel3 > topPanel2);
+
+      dragDrop(panelheader1, "2,2", panelheader2, "0,0");
+      waitResponse();
+
+      topPanel1 = panel1.positionTop();
+      topPanel2 = panel2.positionTop();
+
+      verifyTrue("The panel 2 should be below the panel 1", topPanel2 > topPanel1)
 
       // Click on second button
       click(jq("@button").get(1));
       waitResponse();
 
-      // Drag & Drop the panel4 below the panel2
-      dragDrop(jq(".z-panel-header:contains(panel4)").get(0), "0,0", jq(".z-panel-header:contains(panel2)").get(0), "0,50");
+      dragDrop(panelheader6, "2,2", panelheader4, "0,0");
       waitResponse();
 
-      // Record position of panels
-      topPanel4 = jq(".z-panel:contains(panel4)").positionTop();
-      topPanel2 = jq(".z-panel:contains(panel2)").positionTop();
+      topPanel6 = panel6.positionTop();
+      topPanel4 = panel4.positionTop();
 
-      // Verify that panel 4 is below panel 2
-      verifyTrue("The panel 4 should be below the panel 2", topPanel4 > topPanel2);
+      verifyTrue("The panel 4 should be below the panel 6", topPanel4 > topPanel6);
 
-      // Drag & Drop the panel3 below the panel5
-      dragDrop(jq(".z-panel-header:contains(panel3)").get(0), "0,0", jq(".z-panel-header:contains(panel5)").get(0), "0,50");
+      dragDrop(panelheader5, "2,2", panelheader6, "0,0");
       waitResponse();
 
-      // Record position of panels
-      topPanel3 = jq(".z-panel:contains(panel3)").positionTop();
-      topPanel5 = jq(".z-panel:contains(panel5)").positionTop();
+      topPanel5 = panel5.positionTop();
+      topPanel6 = panel6.positionTop();
 
-      // Verify that panel 3 is below panel 5
-      verifyTrue("The panel 3 should be below the panel 5", topPanel3 > topPanel5);
+      verifyTrue("The panel 6 should be below the panel 5", topPanel6 > topPanel5);
 
-       // Click on third button
+      dragDrop(panelheader4, "2,2", panelheader5, "0,0");
+      waitResponse();
+
+      topPanel4 = panel4.positionTop();
+      topPanel5 = panel5.positionTop();
+
+      verifyTrue("The panel 5 should be below the panel 4", topPanel5 > topPanel4)
+
+      // Click on third button
       click(jq("@button").get(2));
       waitResponse();
-      
-      // Record position of panels
-      topPanel1 = jq(".z-panel:contains(panel1)").positionTop();
-      topPanel6 = jq(".z-panel:contains(panel6)").positionTop();
 
-      // Verify that panel 6 is below panel 1
+      dragDrop(panelheader6, "2,2", panelheader3, "0,0");
+      waitResponse();
+
+      dragDrop(panelheader6, "2,2", panelheader1, "0,0");
+      waitResponse();
+
+      topPanel6 = panel6.positionTop();
+      topPanel1 = panel1.positionTop();
+
+      verifyTrue("The panel 1 should be below the panel 6", topPanel1 > topPanel6);
+
+      dragDrop(panelheader1, "2,2", panelheader6, "0,0");
+      waitResponse();
+
+      topPanel1 = panel1.positionTop();
+      topPanel6 = panel6.positionTop();
+
       verifyTrue("The panel 6 should be below the panel 1", topPanel6 > topPanel1);
 
-       // Click on third button again
-      click(jq("@button").get(2));
-      waitResponse();
-      
-      // Record position of panels
-      topPanel3 = jq(".z-panel:contains(panel3)").positionTop();
-      topPanel6 = jq(".z-panel:contains(panel6)").positionTop();
-
-      // Verify that panel 6 is below panel 3
-      verifyTrue("The panel 6 should be below the panel 3", topPanel6 > topPanel3);
-
-      
-   })
+    })
   }
 }
