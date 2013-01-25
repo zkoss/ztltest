@@ -183,29 +183,28 @@ class B65_ZK_1441Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        waitResponse(1000)
+        waitResponse()
         val tab8 = jq(".z-tabpanel-accordion-outer:contains(Tab 8)")
-        val ms = 1000
         if(isFirefox){
         	 click(jq("@tab:contains(Tab 8)"))
         } else {
         	click(tab8)
         }
-        waitResponse(1000)
+        waitResponse()
         val height8 = tab8.height()
 
         click(jq("@tab:contains(Tab " + 6 + ")"))
-        waitResponse(ms)
+        waitResponse()
         click(jq("@tab:contains(Tab " + 5 + ")"))
-        waitResponse(ms)
+        waitResponse()
         click(jq("@tab:contains(Tab " + 4 + ")"))
-        waitResponse(ms)
+        waitResponse()
         click(jq("@tab:contains(Tab " + 3 + ")"))
-        waitResponse(ms)
+        waitResponse()
         click(jq("@tab:contains(Tab " + 2 + ")"))
-        waitResponse(ms)
+        waitResponse()
         click(jq("@tab:contains(Tab " + 1 + ")"))
-        waitResponse(ms)
+        waitResponse()
 
         val tab1 = jq(".z-tabpanel-accordion-outer:contains(Tab 1)")
         val isHeightSame = (tab1.height() == height8)
