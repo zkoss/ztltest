@@ -31,9 +31,10 @@ class B60_ZK_1205Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        click(jq("@button:contains(click me)"))
+        click(jq(".z-button:contains(click me)"))
         waitResponse()
-        verifyEquals("displays a notification message", jq(".z-notification").css("visibility"), "visible")
+        verifyTrue("should exist", jq(".z-notification").exists())
+        verifyNotEquals("displays a notification message", jq(".z-notification").css("visibility"), "hidden")
 
         sleep(2000)
         verifyTrue("The message should not disappear immediately after it opened. Otherwise, it is an error.", jq(".z-notification").exists())

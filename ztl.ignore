@@ -80,6 +80,10 @@ Z60-Listbox-SimpleListModel-noROD.ztl
 // end for unpredictable row's height
 B60-ZK-1338.zul
 }
+ie={
+// stuck in ie10
+B36-2813877.ztl
+}
 ie9={
 // unsupported
 B30-1822564.ztl
@@ -121,6 +125,8 @@ ie6={
 B35-2073451.ztl
 // zkbind
 Z60-Panel.ztl
+// stuck 
+B36-2789915.ztl
 // crash
 F60-ZK-83.ztl
 B30-2105802.ztl
