@@ -1,14 +1,10 @@
 package org.zkoss.zktest.test2.B60
 
-class B60_ZK_1589Test {
-
-}
-
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 
 @Tags(tags = "B60-ZK-1589.zul")
-class Test extends ZTL4ScalaTestCase {
+class B60_ZK_1589Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
     val zscript =
