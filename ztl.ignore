@@ -62,6 +62,7 @@ B50-ZK-692.ztl
 B50-3322795.ztl
 B50-ZK-434.ztl
 B60-ZK-1338.zul
+B65-ZK-1661.zul
 }
 ie*={
 // unsupported, due to the unpredictable row's height
@@ -111,6 +112,8 @@ Z60-RadiogroupSelected.ztl
 Z60-F00823RadiogroupModel1.ztl
 Z60-F00823RadiogroupModel2.ztl
 B60-ZK-985.ztl
+// unsupported
+B65-ZK-1540.zul
 }
 ie7={
 // unstable
@@ -119,6 +122,8 @@ B30-1876292.zul
 B35-2073451.ztl
 // zkbind
 Z60-Panel.ztl
+// unsupported
+B65-ZK-1540.zul
 }
 ie6={
 // unsupported
@@ -141,6 +146,7 @@ B35-2073451.ztl
 }
 chrome={
 B50-3151694.ztl
+B65-ZK-1661.zul
 }
 safari={
 // unsupported
