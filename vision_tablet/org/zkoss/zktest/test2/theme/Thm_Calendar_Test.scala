@@ -12,6 +12,10 @@ class Thm_Calendar_Test extends ZTL4ScalaTestCase {
 		<calendar id="cal1" />
 		<datebox  id="db" width="200px" format="yyyy/MM/dd a hh:mm:ss"
 			displayedTimeZones="GMT+8,GMT-8" />
+	</vlayout>
+	<vlayout>
+		<calendar id="cal2" weekOfYear="true"/>
+		<datebox  weekOfYear="true"/>
 		<zscript>
 			import java.util.Date;
 			import java.util.Calendar;
@@ -28,10 +32,6 @@ class Thm_Calendar_Test extends ZTL4ScalaTestCase {
 			Date date = cal.getTime(); 
 			db.value = cal1.value = cal2.value = date;
 		</zscript>
-	</vlayout>
-	<vlayout>
-		<calendar id="cal2" weekOfYear="true"/>
-		<datebox  weekOfYear="true"/>
 	</vlayout>
 </hlayout>			
 		""";
