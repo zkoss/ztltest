@@ -1,0 +1,290 @@
+package org.zkoss.zktest.test2.B65
+
+import org.zkoss.ztl.Tags
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.openqa.selenium.Keys
+
+@Tags(tags = "B65-ZK-1632.zul")
+class B65_ZK_1632Test extends ZTL4ScalaTestCase {
+
+  def testClick() = {
+    val zscript = """
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	<window>
+	<label multiline="true">
+	1. Please use "TAB" to focus each textbox and then the errorbox should appear.
+	2. Please check if the textbox is out of the viewport, and then its errorbox should disappear. 
+	</label>
+		<window id="win1" border="normal" width="100%"  height ="600px" sizable="false"   >
+			 <borderlayout id="borderlayoutOriginatorRegistration" height="100%" >
+				<center border="normal"  autoscroll="true">
+ 					 
+					<div id="orgDetailTabDiv"  height="500px">
+ 
+ 						   <grid sclass="GridLayoutNoBorder" fixedLayout="true"  >
+								<columns>	
+									<column width="500px" />
+ 								</columns>
+								<rows>
+								 	<row>
+                                              	    <hlayout>
+									        <label value="textbox 1"></label>
+									        <textbox width="150px" constraint="no empty: Textbox 1"></textbox>
+                                                             </hlayout>
+                                                             </row>
+ 
+									<row>
+                                                      	    <hlayout>
+									        <label value="textbox 2"></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 2"></textbox>
+                                                             </hlayout>
+						            </row>
+									<row>
+                                                      	    <hlayout>
+									        <label value="textbox 3"></label>
+									        <textbox width="150px" constraint="no empty: Textbox 3"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textbox 4"></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 4"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textbox 5"></label>
+									        <textbox width="150px" constraint="no empty: Textbox 5"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textbox 6"></label>
+									        <textbox width="150px" constraint="no empty: Textbox 6"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textbox 7"></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 7"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textBox 8 "></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 8"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textBox 9 "></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 9"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textBox 10"></label>
+									        <textbox width="150px" constraint="no empty: Textbox 10"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textBox 11"></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 11"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textBox 12 "></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 12"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textBox 13 "></label>
+									        <textbox width="150px" constraint="no empty: Textbox 13"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textBox 14 "></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 14"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textBox 15"></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 15"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textBox 16 "></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 16"></textbox>
+                                                             </hlayout>
+						            </row><row>
+                                                      	    <hlayout>
+									        <label value="textBox 17"></label>
+									        <textbox width="150px" constraint="no empty: Textbox 17"></textbox>
+                                                             </hlayout>
+						            </row>
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 18"></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 18"></textbox>
+                                                             </hlayout>
+						            </row>
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 19"></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 19"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 20 "></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 20"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 21 "></label>
+									        <textbox width="150px" constraint="no empty: Textbox 21"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 22 "></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 22"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 23 "></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 23"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 24 "></label>
+									        <textbox width="150px" constraint="no empty: Textbox 24"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 25"></label>
+									        <textbox width="150px" constraint="no empty: Textbox 25"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 26 "></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 26"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 27 "></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 27"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 28 "></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 28"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 29 "></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 29"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 30 "></label>
+									        <textbox width="150px" constraint="no empty: Textbox 30"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 31 "></label>
+									        <textbox width="150px" constraint="no empty: Textbox 31"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 32 "></label>
+									        <textbox width="150px" constraint="no empty: Textbox 32"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 33 "></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 33"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 34"></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 34"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 35"></label>
+									        <textbox width="150px" constraint="no empty: Textbox 35"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 36"></label>
+									        <textbox width="150px" constraint="no empty: Textbox 36"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 37"></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 37"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 38"></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 38"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 39"></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 39"></textbox>
+                                                             </hlayout>
+						            </row> 
+						            <row>
+                                                      	    <hlayout>
+									        <label value="textBox 40s"></label>
+									        <textbox  width="150px" constraint="no empty: Textbox 40"></textbox>
+                                                             </hlayout>
+						            </row> 
+						             
+						            
+								</rows>
+								
+							</grid>
+ 
+ 
+					</div>
+				</center>
+			 
+			</borderlayout>
+		</window>
+	</window>
+	
+</zk>
+
+"""
+    runZTL(zscript,
+      () => {
+        0 to 20 foreach { i =>
+          sendKeys(jq(".z-textbox:eq(" + i + ")"), Keys.TAB)
+        }
+        waitResponse()
+        jq(".z-center-body").toElement().set("scrollTop", 3000)
+        jq(".z-center-body").toElement().set("scrollTop", 0)
+        verifyTrue("errorbox should disappear. ", jq(".z-errbox:contains(Textbox 1)").css("display") == "none")
+      })
+
+  }
+}
