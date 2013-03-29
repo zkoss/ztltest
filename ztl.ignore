@@ -289,3 +289,6 @@ Z60-F01416DefaultCommand.ztl
 opera,chrome,safari,ie6={
 Z60-B00775ListmodelSelection.ztl 
 }
+opera,chrome,safari,firefox*={
+B65-ZK-1642.zul 
+}
