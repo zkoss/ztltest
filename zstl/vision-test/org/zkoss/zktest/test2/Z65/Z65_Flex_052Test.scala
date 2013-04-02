@@ -7,22 +7,22 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 @Tags(tags = "Z65-Flex-052.zul,Flex")
 class Z65_Flex_052Test extends ZTL4ScalaTestCase {
 
-def testClick() = {
-  val zscript = """<zk><hbox>
+  def testClick() = {
+    val zscript = """<zk><hbox>
     <window border="normal" height="360px"
         title="Fit-the-Rest Flexibility: [Calendar, rounded]" width="480px">
-        <calendar vflex="1"/>
+        <calendar onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" vflex="1"/>
     </window>
     <window border="normal" height="360px"
         title="Fit-the-Rest Flexibility: [Calendar]" width="480px">
-        <calendar vflex="1"/>
+        <calendar onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" vflex="1"/>
     </window>
 </hbox>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      verifyImage()
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {       
+        verifyImage()
+      })
+
   }
 }

@@ -71,7 +71,6 @@ def testClick() = {
       val col1 = jq(".z-treecol:eq(0)")
       val col2 = jq(".z-treecol:eq(1)")
       val col3 = jq(".z-treecol:eq(2)")
-      print(col1.width(), col2.width(), col3.width())
       verifyTrue("Should see header width of 'col2' and 'col3' are equal to its content width", (col1.width() - col2.width()).abs <= 3)
       verifyTrue("Should see header width of 'col2' and 'col3' are equal to its content width", (col1.width() - col3.width()).abs <= 3)
       verifyTrue("Should see header width of 'col2' and 'col3' are equal to its content width", (col2.width() - col3.width()).abs <= 3)

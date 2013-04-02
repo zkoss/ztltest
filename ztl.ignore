@@ -290,5 +290,14 @@ opera,chrome,safari,ie6={
 Z60-B00775ListmodelSelection.ztl 
 }
 opera,chrome,safari,firefox*={
-B65-ZK-1642.zul 
+B65-ZK-1642.zul
+B65-ZK-1215.zul 
+}
+ie6,ie7,ie8={
+Z65-Flex-064.zul
+Z65-Flex-065.zul
+Z65-Flex-066.zul
+Z65-Flex-067.zul
+Z65-Flex-068.zul
+Z65-Flex-069.zul
 }

@@ -11,11 +11,11 @@ def testClick() = {
   val zscript = """<zk><hbox>
     <window border="normal" height="360px"
         title="Input HFlex Case: [Calendar]" width="480px">
-        <calendar hflex="1"/>
+        <calendar hflex="1" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
     </window>
     <window border="normal" height="360px"
         title="Input HFlex Case: [Calendar, rounded]" width="480px">
-        <calendar hflex="1"/>
+        <calendar hflex="1" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
     </window>
 </hbox>
 </zk>"""  
