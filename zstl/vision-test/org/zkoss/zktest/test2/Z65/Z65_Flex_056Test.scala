@@ -12,17 +12,17 @@ def testClick() = {
     <window border="normal" height="360px"
         title="minimum Flex: [Calendar, Vlayout]" width="480px">
         <vlayout height="200px" hflex="min">
-            <calendar hflex="1" vflex="1"/>
-            <calendar vflex="1" width="75px"/>
-            <calendar vflex="1" width="120px"/>
+            <calendar hflex="1" vflex="1" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
+            <calendar vflex="1" width="75px" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
+            <calendar vflex="1" width="120px" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
         </vlayout>
     </window>
     <window border="normal" height="360px"
         title="minimum Flex: [Calendar, Vbox]" width="480px">
         <vbox height="200px" hflex="min">
-            <calendar hflex="1" vflex="1"/>
-            <calendar vflex="1" width="75px"/>
-            <calendar vflex="1" width="120px"/>
+            <calendar hflex="1" vflex="1" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
+            <calendar vflex="1" width="75px" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
+            <calendar vflex="1" width="120px" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
         </vbox>
     </window>
 </hbox>
@@ -30,17 +30,17 @@ def testClick() = {
     <window border="normal" height="360px"
         title="minimum Flex: [Calendar, Vlayout, rounded]" width="480px">
         <vlayout height="200px" hflex="min">
-            <calendar hflex="1" vflex="1"/>
-            <calendar vflex="1" width="75px"/>
-            <calendar vflex="1" width="120px"/>
+            <calendar hflex="1" vflex="1" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
+            <calendar vflex="1" width="75px" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
+            <calendar vflex="1" width="120px" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
         </vlayout>
     </window>
     <window border="normal" height="360px"
         title="minimum Flex: [Calendar, Vbox, rounded]" width="480px">
         <vbox height="200px" hflex="min">
-            <calendar hflex="1" vflex="1"/>
-            <calendar vflex="1" width="75px"/>
-            <calendar vflex="1" width="120px"/>
+            <calendar hflex="1" vflex="1" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
+            <calendar vflex="1" width="75px" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
+            <calendar vflex="1" width="120px" onCreate="self.value = new java.util.GregorianCalendar(2013, java.util.Calendar.OCTOBER, 20).getTime()" />
         </vbox>
     </window>
 </hbox>
