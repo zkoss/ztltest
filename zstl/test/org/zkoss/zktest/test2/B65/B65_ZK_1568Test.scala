@@ -9,7 +9,7 @@ class B65_ZK_1568Test extends ZTL4ScalaTestCase {
   def testClick() = {
     val zscript = """<zk>
 	<label multiline="true">Expected result:
-		Window 3, 4, 5 should be visible while 1, 2 should not	
+		Window 1, 3, 4, 5 should be visible while 2 should not	
 	</label>
 	<div height="50px">
 		<window title='1. visible="false" mode="overlapped"' 
@@ -39,11 +39,11 @@ class B65_ZK_1568Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyFalse("Window 3, 4, 5 should be visible while 1, 2 should not", jq(".z-window-overlapped:contains(1)").exists())
-        verifyFalse("Window 3, 4, 5 should be visible while 1, 2 should not", jq(".z-window-overlapped:contains(2)").exists())
-        verifyTrue("Window 3, 4, 5 should be visible while 1, 2 should not", jq(".z-window-overlapped:contains(3)").exists())
-        verifyTrue("Window 3, 4, 5 should be visible while 1, 2 should not", jq(".z-window-overlapped:contains(4)").exists())
-        verifyTrue("Window 3, 4, 5 should be visible while 1, 2 should not", jq(".z-window-overlapped:contains(5)").exists())
+        verifyTrue("Window 1, 3, 4, 5 should be visible while 2 should not", jq(".z-window-overlapped:contains(1)").exists())
+        verifyFalse("Window 1, 3, 4, 5 should be visible while 2 should not", jq(".z-window-overlapped:contains(2)").exists())
+        verifyTrue("Window 1, 3, 4, 5 should be visible while 2 should not", jq(".z-window-overlapped:contains(3)").exists())
+        verifyTrue("Window 1, 3, 4, 5 should be visible while 2 should not", jq(".z-window-overlapped:contains(4)").exists())
+        verifyTrue("Window 1, 3, 4, 5 should be visible while 2 should not", jq(".z-window-overlapped:contains(5)").exists())
       })
 
   }
