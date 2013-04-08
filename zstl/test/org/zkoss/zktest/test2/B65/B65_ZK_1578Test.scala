@@ -30,7 +30,7 @@ class B65_ZK_1578Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyEquals(jq(".z-window-embedded").width(), jq(".z-div").width())
+        verifyTrue((jq(".z-window-embedded").width() - jq(".z-div").width()).abs <= 3)
       })
 
   }
