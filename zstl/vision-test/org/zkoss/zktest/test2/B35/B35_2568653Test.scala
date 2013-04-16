@@ -72,7 +72,21 @@ class B35_2568653Test extends ZTL4ScalaTestCase {
 				sleep(2000) // wait Iframe to load
 			
 			verifyImage();
-			dragdropTo(jq("$p1 .z-panel-header-move"), "10,10", "10, 600")
+			val position = "10,10"
+	        val src = jq("$p1 .z-panel-header-move")
+	        mouseMoveAt(src, position)
+	        waitResponse
+	
+	        mouseDownAt(src, position)
+	        waitResponse
+	
+	        val newPosition = "10,600"
+	        mouseMoveAt(src, newPosition)
+	        waitResponse
+	        
+	        mouseUpAt(src, newPosition)
+	        waitResponse
+	        
 			sleep(1200)
 			verifyImage();
 			click(jq("@button"))
