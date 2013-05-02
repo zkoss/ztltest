@@ -286,6 +286,17 @@ Z60-B01366RadioSelectedItem.ztl
 Z60-B01259HaskMapInFx1.ztl
 Z60-B01259HaskMapInFx2.ztl
 Z60-F01416DefaultCommand.ztl
+Z60-B01469ScopeParamRef.ztl
+Z60-B01468RefInclude.ztl
+Z60-B01472BindIncludeArg.ztl
+Z60-B01529SelectedItemsIndex.ztl
+Z60-B01528NPEInPagingMold.ztl
+Z60-F01048FormBindingMessage.ztl
+Z60-B01528NPEInPagingMold2.ztl
+Z60-B01615ChildrenBindingInForm.ztl
+Z60-B01640CommandSend2WrongViewModel.ztl
+Z60-B01666ToolbarbuttonCheck.ztl
+Z60-B01691DropuploadNative.ztl
 }
 opera,chrome,safari,ie6={
 Z60-B00775ListmodelSelection.ztl 
