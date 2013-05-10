@@ -30,6 +30,11 @@ B35-2580752.ztl
 Z60-B01005BeanValidatorPath.ztl
 // unsupported marcoURI
 B65-ZK-1433.ztl
+B60-ZK-1589.zul
+B60-ZK-1070.zul
+B50-ZK-926.zul
+B50-3204965.zul
+B36-2844707.zul
 }
 ### ignore all firefox
 firefox*={
@@ -38,6 +43,8 @@ F50-0000001.ztl
 B35-2073451.ztl
 B60-ZK-1338.zul
 F60-ZK-1583.zul
+B65-ZK-1215.zul
+B65-ZK-1441.zul
 }
 firefox3={
 // unsupported
@@ -64,6 +71,7 @@ B50-3322795.ztl
 B50-ZK-434.ztl
 B60-ZK-1338.zul
 B65-ZK-1661.zul
+B65-ZK-1215.zul
 }
 ie*={
 // unsupported, due to the unpredictable row's height
@@ -101,6 +109,7 @@ B35-2075722.ztl
 B35-2149043.ztl
 B36-2678340.ztl
 B36-2904376.ztl
+B65-ZK-1441.zul
 // zkbind
 Z60-RadiogroupSelected.ztl
 Z60-B00810ListboxMultiple.ztl
@@ -144,10 +153,13 @@ B30-1914104-1.ztl
 B30-1914104-2.ztl
 F50-0000001.ztl
 B35-2073451.ztl
+B65-ZK-1441.zul
 }
 chrome={
 B50-3151694.ztl
 B65-ZK-1661.zul
+B65-ZK-1215.zul
+B65-ZK-1441.zul
 }
 safari={
 // unsupported
@@ -312,4 +324,5 @@ Z65-Flex-066.zul
 Z65-Flex-067.zul
 Z65-Flex-068.zul
 Z65-Flex-069.zul
+B65-ZK-1540.zul
 }
