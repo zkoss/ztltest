@@ -30,21 +30,21 @@ B35-2580752.ztl
 Z60-B01005BeanValidatorPath.ztl
 // unsupported marcoURI
 B65-ZK-1433.ztl
-B60-ZK-1589.zul
-B60-ZK-1070.zul
-B50-ZK-926.zul
-B50-3204965.zul
-B36-2844707.zul
+B60-ZK-1589.ztl
+B60-ZK-1070.ztl
+B50-ZK-926.ztl
+B50-3204965.ztl
+B36-2844707.ztl
 }
 ### ignore all firefox
 firefox*={
 // unsupported
 F50-0000001.ztl
 B35-2073451.ztl
-B60-ZK-1338.zul
-F60-ZK-1583.zul
-B65-ZK-1215.zul
-B65-ZK-1441.zul
+B60-ZK-1338.ztl
+F60-ZK-1583.ztl
+B65-ZK-1215.ztl
+B65-ZK-1441.ztl
 }
 firefox3={
 // unsupported
@@ -69,9 +69,9 @@ B30-1878840.ztl
 B50-ZK-692.ztl
 B50-3322795.ztl
 B50-ZK-434.ztl
-B60-ZK-1338.zul
-B65-ZK-1661.zul
-B65-ZK-1215.zul
+B60-ZK-1338.ztl
+B65-ZK-1661.ztl
+B65-ZK-1215.ztl
 }
 ie*={
 // unsupported, due to the unpredictable row's height
@@ -88,7 +88,7 @@ Z60-Listbox-ListModelSet-Multiple-noROD.ztl
 Z60-Listbox-ListModelList-noROD.ztl
 Z60-Listbox-SimpleListModel-noROD.ztl
 // end for unpredictable row's height
-B60-ZK-1338.zul
+B60-ZK-1338.ztl
 }
 ie={
 // stuck in ie10
@@ -109,7 +109,7 @@ B35-2075722.ztl
 B35-2149043.ztl
 B36-2678340.ztl
 B36-2904376.ztl
-B65-ZK-1441.zul
+B65-ZK-1441.ztl
 // zkbind
 Z60-RadiogroupSelected.ztl
 Z60-B00810ListboxMultiple.ztl
@@ -123,17 +123,17 @@ Z60-F00823RadiogroupModel1.ztl
 Z60-F00823RadiogroupModel2.ztl
 B60-ZK-985.ztl
 // unsupported
-B65-ZK-1540.zul
+B65-ZK-1540.ztl
 }
 ie7={
 // unstable
-B30-1876292.zul
+B30-1876292.ztl
 // unsupported
 B35-2073451.ztl
 // zkbind
 Z60-Panel.ztl
 // unsupported
-B65-ZK-1540.zul
+B65-ZK-1540.ztl
 }
 ie6={
 // unsupported
@@ -153,13 +153,13 @@ B30-1914104-1.ztl
 B30-1914104-2.ztl
 F50-0000001.ztl
 B35-2073451.ztl
-B65-ZK-1441.zul
+B65-ZK-1441.ztl
 }
 chrome={
 B50-3151694.ztl
-B65-ZK-1661.zul
-B65-ZK-1215.zul
-B65-ZK-1441.zul
+B65-ZK-1661.ztl
+B65-ZK-1215.ztl
+B65-ZK-1441.ztl
 }
 safari={
 // unsupported
@@ -314,15 +314,15 @@ opera,chrome,safari,ie6={
 Z60-B00775ListmodelSelection.ztl 
 }
 opera,chrome,safari,firefox*={
-B65-ZK-1642.zul
-B65-ZK-1215.zul 
+B65-ZK-1642.ztl
+B65-ZK-1215.ztl 
 }
 ie6,ie7,ie8={
-Z65-Flex-064.zul
-Z65-Flex-065.zul
-Z65-Flex-066.zul
-Z65-Flex-067.zul
-Z65-Flex-068.zul
-Z65-Flex-069.zul
-B65-ZK-1540.zul
+Z65-Flex-064.ztl
+Z65-Flex-065.ztl
+Z65-Flex-066.ztl
+Z65-Flex-067.ztl
+Z65-Flex-068.ztl
+Z65-Flex-069.ztl
+B65-ZK-1540.ztl
 }
