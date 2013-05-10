@@ -26,8 +26,10 @@
 			String w = win.get("width");
 			win.set("maximized", true);
 			waitResponse();
-			verifyEquals(t, win.get("top"));
-			verifyEquals(l, win.get("left"));
+			String curTop = win.get("top");
+			String curLeft = win.get("left");
+			verifyTrue(t.equals(curTop) ? true : t.equals("") && curTop.equals("0px"));
+			verifyTrue(l.equals(curLeft) ? true : l.equals("") && curLeft.equals("0px"));
 			verifyNotEquals(h, win.get("height"));
 			verifyNotEquals(w, win.get("width"));
 			win.set("maximized", false);
