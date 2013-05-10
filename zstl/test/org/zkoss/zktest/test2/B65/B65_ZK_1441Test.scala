@@ -185,10 +185,10 @@ class B65_ZK_1441Test extends ZTL4ScalaTestCase {
       () => {
         waitResponse()
         val tab8 = jq(".z-tabpanel-accordion-outer:contains(Tab 8)")
-        if(isFirefox){
-        	 click(jq("@tab:contains(Tab 8)"))
+        if (isFirefox) {
+          click(jq("@tab:contains(Tab 8)"))
         } else {
-        	click(tab8)
+          click(tab8)
         }
         waitResponse()
         val height8 = tab8.height()
@@ -210,7 +210,6 @@ class B65_ZK_1441Test extends ZTL4ScalaTestCase {
         val isHeightSame = (tab1.height() == height8)
         val isContentSame = tab1.find(".z-tabpanel-ver:contains(This is panel A)").isVisible()
 
-        List(tab1.height(), height8) map println
         verifyTrue("The content and height of 'Tab 1' must correctly.", isHeightSame && isContentSame)
       })
 
