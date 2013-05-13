@@ -18,7 +18,7 @@
 			 -->
 		</server>
 		<client><![CDATA[
-			click(jq("span.z-button"));
+			click(jq(".z-button"));
 			waitResponse();
 			verifyTrue(jq(".z-errbox").exists());
 		]]></client>
