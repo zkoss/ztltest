@@ -317,6 +317,10 @@ opera,chrome,safari,firefox*={
 B65-ZK-1642.ztl
 B65-ZK-1215.ztl 
 }
+// ie10 only
+opera,chrome,safari,firefox*,ie6,ie7,ie8,ie9={
+B65-ZK-1769.ztl
+}
 ie6,ie7,ie8={
 Z65-Flex-064.ztl
 Z65-Flex-065.ztl
