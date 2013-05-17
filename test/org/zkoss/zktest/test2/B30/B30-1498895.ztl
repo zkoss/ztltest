@@ -30,7 +30,7 @@
 			waitResponse();
 			click(jq(".z-button:eq(3)"));
 			waitResponse();
-			verifyTrue(jq(".z-button-focus").exists());
+			verifyTrue(jq(".z-button:focus").exists());
 		]]></client>
 	</case>
 </test>

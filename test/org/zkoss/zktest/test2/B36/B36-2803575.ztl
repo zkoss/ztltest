@@ -31,7 +31,7 @@
 		<client><![CDATA[
 		sleep(1000);//for DataBinding
 			verifyTrue("Color is : " + jq("$label1").css("color"), "rgb(0, 0, 255)blue#0000ff".indexOf(jq("$label1").css("color")) > -1);
-			click(jq("$btn td.z-button-cm"));
+			click(jq("$btn"));
 			waitResponse();
 			verifyTrue("Color is : " + jq("$label1").css("color"), "rgb(255, 0, 0)red#ff0000".indexOf(jq("$label1").css("color")) > -1);
 		]]></client>

@@ -23,11 +23,11 @@
 				verifyFalse(jq(".z-popup").exists());
 				verifyFalse(jq(".z-errbox").exists());
 				if (ZK.is("ie < 9")) {
-				mouseOver(jq(".z-button-cm"));
+				mouseOver(jq(".z-button"));
 				Scripts.triggerMouseEventAt(getWebDriver(), btn, "mousedown", "3,3");
 				Scripts.triggerMouseEventAt(getWebDriver(), btn, "mouseup", "3,3");
 				} else {
-				click(jq(".z-button-cm"));
+				click(jq(".z-button"));
 				}
 				waitResponse();
 				sleep(1000);

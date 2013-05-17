@@ -55,10 +55,10 @@
 			</zk>
 		 --></server>
 		<client><![CDATA[
-			click(jq("@button td.z-button-cm"));
+			click(jq("@button"));
 			waitResponse();
 			verifyEquals("OK", getText(jq("@label")));
-			click(jq("$btn1 td.z-button-cm"));
+			click(jq("$btn1"));
 		]]></client>
 	</case>
 </test>

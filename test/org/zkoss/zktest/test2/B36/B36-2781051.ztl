@@ -23,9 +23,9 @@
 			</window>
 		--></server>
 		<client><![CDATA[
-			click(jq("@button[label=\"test\"] td.z-button-cm"));
+			click(jq("@button[label=\"test\"]"));
 			waitResponse();
-			click(jq("@button[label=\"close\"] td.z-button-cm"));
+			click(jq("@button[label=\"close\"]"));
 			waitResponse();
 			verifyEquals("true", jq("$main @label:last").html());
 		]]></client>

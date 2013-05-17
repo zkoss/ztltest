@@ -68,7 +68,7 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
       // click(jq(".z-button:contains(FocusOnMe)"));
 
       // Verify that the label of the button is correct
-      verifyTrue("The button label must be 'Focused OK'", jq(".z-button-cm:contains(Focused OK)").exists());
+      verifyTrue("The button label must be 'Focused OK'", jq(".z-button:contains(Focused OK)").exists());
 
       // Press the TAB key on first button
       // This doesn't work: sendKeys(jq(".z-button:contains(FocusOnMe)"), Keys.TAB);
@@ -81,7 +81,7 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       // Verify that the label of the second button is correct
-      verifyTrue("The button label must be 'Blurred OK'", jq(".z-button-cm:contains(Blurred OK)").exists());
+      verifyTrue("The button label must be 'Blurred OK'", jq(".z-button:contains(Blurred OK)").exists());
 
       // Click on third button
       click(jq(".z-button:contains(www.google.com)"));

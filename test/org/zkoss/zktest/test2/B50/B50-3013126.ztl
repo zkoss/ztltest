@@ -83,9 +83,9 @@ b = !b;
 		 --></server>
 		<client><![CDATA[
 		click(jq("@treecell[label=\"Item 2.1\"] div.z-overflow-hidden"));
-		click(jq("@button td.z-button-cm"));
+		click(jq("@button"));
 		verifyTrue(jq("@treecell[label=\"Item 2\"]").exists());
-		click(jq("@button td.z-button-cm"));
+		click(jq("@button"));
 		verifyTrue(jq("@treecell[label=\"Item 2\"]").exists());
 		]]></client>
 	</case>

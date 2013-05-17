@@ -56,10 +56,10 @@
 				</window>
 		--></server>
 		<client><![CDATA[
-			click(jq("@button[label=\"Clone\"] td.z-button-cm"));
+			click(jq("@button[label=\"Clone\"]"));
 			waitResponse();
 			verifyFalse(jq("div.z-window-modal").exists());
-			click(jq("@button[label=\"Clone by Serialization\"] td.z-button-cm"));
+			click(jq("@button[label=\"Clone by Serialization\"]"));
 			waitResponse();
 			verifyFalse(jq("div.z-window-modal").exists());
 		]]></client>
