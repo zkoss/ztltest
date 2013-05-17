@@ -55,10 +55,10 @@
 			</window>
 		--></server>
 		<client><![CDATA[
-				click(jq("@window @button[label=\"change label\"] td.z-button-cm:eq(0)"));
+				click(jq("@window @button[label=\"change label\"]:eq(0)"));
 				waitResponse();
 				verifyTrue(getText(jq("$i2 div.z-overflow-hidden")).indexOf("test1") != -1);
-				click(jq("@window @button[label=\"change label\"] td.z-button-cm:eq(1)"));
+				click(jq("@window @button[label=\"change label\"]:eq(1)"));
 				waitResponse();
 				click(jq("@paging button.z-paging-prev"));
 				waitResponse();

@@ -49,10 +49,10 @@
 			waitResponse(true);
 			click(invalidateBtn);
 			waitResponse(true);
-			verifyTrue(jq("$hideBtn .z-button-focus").exists());
+			verifyTrue(jq("$hideBtn .z-button:focus").exists());
 			getActions().sendKeys(Keys.LEFT_SHIFT, Keys.TAB).perform();
 			waitResponse(true);
-			verifyTrue(jq("$hideBtn .z-button-focus").exists());
+			verifyTrue(jq("$hideBtn .z-button:focus").exists());
 			click(jq(".z-window-modal-icon"));
 			waitResponse(true);
 			mouseMoveAt(newBtn, "15,8");
@@ -62,7 +62,7 @@
 			waitResponse(true);
 			click(jq(".z-window-highlighted-icon"));
 			waitResponse(true);
-			verifyTrue(jq("$newBtn .z-button-focus").exists());
+			verifyTrue(jq("$newBtn .z-button:focus").exists());
 		]]></client>
 	</case>
 </test>

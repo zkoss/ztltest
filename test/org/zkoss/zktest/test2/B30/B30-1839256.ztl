@@ -20,7 +20,7 @@
 			 -->
 		</server>
 		<client><![CDATA[
-			click(jq("span.z-button"));
+			click(jq(".z-button"));
 			waitResponse();
 			
 			if (jq(".z-window-highlighted").exists() || jq(".z-window-modal").exists()) {

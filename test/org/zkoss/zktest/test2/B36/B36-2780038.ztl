@@ -8,12 +8,12 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			click(jq("@button[label=\"Zhtml click\"] td.z-button-cm"));
+			click(jq("@button[label=\"Zhtml click\"]"));
 			waitResponse();
 			String zHtmlClass = jq("div.z-msgbox").attr("class");
 			click(jq("@window div.z-window-modal-close,@window div.z-window-highlighted-close"));
 			waitResponse();
-			click(jq("@button[label=\"zul click\"] td.z-button-cm"));
+			click(jq("@button[label=\"zul click\"]"));
 			waitResponse();
 			String zulClass = jq("div.z-msgbox").attr("class");
 			click(jq("@window div.z-window-modal-close,@window div.z-window-highlighted-close"));

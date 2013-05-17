@@ -19,13 +19,13 @@
 		]]></server>
 		<client><![CDATA[
 		click(jq("@window @listcell[label=\"-\"] div.z-overflow-hidden:eq(1)"));
-		click(jq("@button td.z-button-cm"));
+		click(jq("@button"));
 		waitResponse();
-		click(jq("@button td.z-button-cm"));
+		click(jq("@button"));
 		waitResponse();
-		click(jq("@button td.z-button-cm"));
+		click(jq("@button"));
 		waitResponse();
-		click(jq("@button td.z-button-cm"));
+		click(jq("@button"));
 		waitResponse();
 		verifyEquals(jq(lbx.$n("body")).outerWidth(),jq(lbx.$n("cave")).outerWidth()); 
 		]]></client>

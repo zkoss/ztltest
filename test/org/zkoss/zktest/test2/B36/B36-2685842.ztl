@@ -41,7 +41,7 @@
 			</hbox>
 		--></server>
 		<client><![CDATA[
-			click(jq("@button td.z-button-cm"));
+			click(jq("@button"));
 			waitResponse();
 			JQuery tr = jq("$bidSessionSelectorTabBox div.z-window-embedded-tr");
 			JQuery cnt = jq("$bidSessionSelectorTabBox div.z-window-embedded-cl").exists() ?

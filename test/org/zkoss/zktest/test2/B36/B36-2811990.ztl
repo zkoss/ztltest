@@ -25,7 +25,7 @@
 			mouseMoveAt(jq("$sl div.z-slider-hor-btn"), "47,8");
 			mouseUpAt(jq("$sl div.z-slider-hor-btn"), "47,8");
 			verifyEquals(jq("$sl div.z-slider-hor-btn").attr("title"), "70");
-			click(jq("@button td.z-button-cm"));
+			click(jq("@button"));
 			waitResponse();
 			verifyEquals(jq("$sl div.z-slider-hor-btn").attr("title"), "10");
 		}

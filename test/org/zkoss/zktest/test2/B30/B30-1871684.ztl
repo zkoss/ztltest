@@ -19,12 +19,12 @@
 		--></server>
 		<client><![CDATA[
 		verifyTrue(isVisible(jq("@treecell[label=\"Make me invisible by click try \"] div.z-overflow-hidden")));
-		mouseOver(jq("@button td.z-button-cm"));
-		click(jq("@button td.z-button-cm"));
+		mouseOver(jq("@button"));
+		click(jq("@button"));
 		waitResponse();
 		verifyFalse(isVisible(jq("@treecell[label=\"Make me invisible by click try \"] div.z-overflow-hidden")));
-		mouseOver(jq("@button td.z-button-cm"));
-		click(jq("@button td.z-button-cm"));
+		mouseOver(jq("@button"));
+		click(jq("@button"));
 		waitResponse();
 		verifyTrue(isVisible(jq("@treecell[label=\"Make me invisible by click try \"] div.z-overflow-hidden")));
 		]]></client>

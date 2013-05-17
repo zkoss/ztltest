@@ -68,8 +68,8 @@ class B30_1884112Test extends ZTL4ScalaTestCase {
       verifyTrue(jq(".z-label:contains(p1000_10000_)").get(0).exists());
 
       // Remove 0/0/0
-      // Click on second button. I search for .z-button-tm because of a Selenium issue
-      val b2:Element= jq(".z-button-tm").get(1);
+      // Click on second button. I search for .z-button because of a Selenium issue
+      val b2:Element= jq(".z-button").get(1);
       click(b2);
       waitResponse();
 
@@ -77,8 +77,8 @@ class B30_1884112Test extends ZTL4ScalaTestCase {
       verifyTrue(!jq(".z-label:contains(p-0_0)").exists());
 
       // Remove 0/0/0
-      // Click on third button. I search for .z-button-tm because of a Selenium issue
-      val b3:Element= jq(".z-button-tm").get(2);
+      // Click on third button. I search for .z-button because of a Selenium issue
+      val b3:Element= jq(".z-button").get(2);
       click(b3);
       waitResponse();
 
