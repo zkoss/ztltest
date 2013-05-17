@@ -27,7 +27,7 @@
 				waitResponse();
 				click(jq("@button"));
 				waitResponse();
-				verifyEquals("Not Null", jq("@button td.z-button-cm").html());
+				verifyEquals("Not Null", jq("@button").html());
 		]]></client>
 	</case>
 </test>

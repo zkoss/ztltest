@@ -32,13 +32,13 @@
 			blur(widget("$startTime").$n("real"));
 			click(widget("$endTime").$n("btn-up"));
 			blur(widget("$endTime").$n("real"));
-			click(jq("$runReport td.z-button-cm"));
+			click(jq("$runReport"));
 			waitResponse();
 			// Tony:because when event thread enable it will be highlight mode ,
 			// when event thread disable will be modal mode ,
 			// so we just detect the title for it.
 			verifyEquals("Correct! The bug is fixed!", jq(".z-window-highlighted .z-label").text());
-			click(jq("$btn1 td.z-button-cm"));
+			click(jq("$btn1"));
 	
 		]]></client>
 	</case>

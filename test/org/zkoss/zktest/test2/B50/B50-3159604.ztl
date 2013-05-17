@@ -23,7 +23,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<caption width="100%">
 				<button id="btn" label="locateButtonText"/>
 		</caption>
-		<label xmlns:w="client" w:onBind="this.setValue('It shall be 12px: '+jq('@button .z-button-cm').css('font-size'));"/>
+		<label xmlns:w="client" w:onBind="this.setValue('It shall be 12px: '+jq('@button').css('font-size'));"/>
 	</groupbox>
 </zk>
 

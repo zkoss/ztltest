@@ -12,7 +12,7 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			click(jq("span.z-button"));
+			click(jq(".z-button"));
 			waitResponse();
 			verifyEquals("OK", jq(".z-messagebox-btn:eq(0)").text());
 		]]></client>

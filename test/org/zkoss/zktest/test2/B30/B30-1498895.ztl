@@ -23,14 +23,14 @@
 			 -->
 		</server>
 		<client><![CDATA[
-			mouseMoveAt(jq("span.z-button"), "15,8");
-			mouseDownAt(jq("span.z-button"), "15,8");
-			mouseUpAt(jq("span.z-button"), "15,8");
-			click(jq("span.z-button"));
+			mouseMoveAt(jq(".z-button"), "15,8");
+			mouseDownAt(jq(".z-button"), "15,8");
+			mouseUpAt(jq(".z-button"), "15,8");
+			click(jq(".z-button"));
 			waitResponse();
-			click(jq("span.z-button:eq(3)"));
+			click(jq(".z-button:eq(3)"));
 			waitResponse();
-			verifyTrue(jq(".z-button-focus").exists());
+			verifyTrue(jq(".z-button:focus").exists());
 		]]></client>
 	</case>
 </test>

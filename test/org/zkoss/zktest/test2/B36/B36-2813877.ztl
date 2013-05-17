@@ -77,7 +77,7 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			click(jq("@button[label=\"Overlap\"] td.z-button-cm"));
+			click(jq("@button[label=\"Overlap\"]"));
 			waitResponse();
 			mouseDownAt(jq("$win div.z-window-overlapped-cr"), "341,292");
 			mouseMoveAt(jq("$win div.z-window-overlapped-cr"), "619,298");
@@ -86,9 +86,9 @@
 			mouseDownAt(jq("@caption td.z-caption-l"), "174,19");
 			mouseMoveAt(jq("@caption td.z-caption-l"), "176,66");
 			mouseUpAt(jq("@caption td.z-caption-l"), "176,66");
-			click(jq("@button[label=\"Embed\"] td.z-button-cm"));
+			click(jq("@button[label=\"Embed\"]"));
 			waitResponse();
-			click(jq("@button[label=\"Popup\"] td.z-button-cm"));
+			click(jq("@button[label=\"Popup\"]"));
 			waitResponse();
 			mouseDownAt(jq("$win div.z-window-popup-cnt"), "349,222");
 			mouseMoveAt(jq("$win div.z-window-popup-cnt"), "654,218");

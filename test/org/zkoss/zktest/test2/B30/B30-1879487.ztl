@@ -37,7 +37,7 @@
 			waitResponse();
 			verifyFalse(jq(".z-messagebox").exists());
 			
-			click(jq("span.z-button"));
+			click(jq(".z-button"));
 			waitResponse();
 			verifyEquals("anyMessage", jq(".z-messagebox .z-label").text());
 		]]></client>

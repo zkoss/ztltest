@@ -40,7 +40,7 @@ class B65_ZK_1309Test extends ZTL4ScalaTestCase {
 
         verifyTrue("should show modal window", jq(".z-window-modal").isVisible())
 
-        val btn = jq(".z-button-cm:contains(click)")
+        val btn = jq(".z-button:contains(click)")
         click(btn)
         waitResponse()
 

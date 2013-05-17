@@ -28,7 +28,7 @@ class B60_ZK_730Test extends ZTL4ScalaTestCase {
         var btn1 = jq(".z-button[style]").eq(1)
         val msg = "You shall see two buttons below that look the same."
         verifyEquals(msg, btn0.width(), btn1.width())
-        verifyEquals(msg, btn0.find(".z-button-cm").text(), btn1.find(".z-button-cm").text())
+        verifyEquals(msg, btn0.find(".z-button").text(), btn1.find(".z-button").text())
       })
 
   }

@@ -63,12 +63,12 @@
 		<client><![CDATA[
 				click(jq("$tc div.z-overflow-hidden"));
 				waitResponse();
-				click(jq("@button[label=\"disabled\"] td.z-button-cm"));
+				click(jq("@button[label=\"disabled\"]"));
 				waitResponse();
-				click(jq("@button[label=\"change label\"] td.z-button-cm"));
+				click(jq("@button[label=\"change label\"]"));
 				waitResponse();
 				verifyContains(getText(jq("$tc div.z-overflow-hidden")) , "ABC" );
-				click(jq("@button[label=\"disabled\"] td.z-button-cm"));
+				click(jq("@button[label=\"disabled\"]"));
 				waitResponse();
 				verifyContains(getText(jq("$tc div.z-overflow-hidden")), "ABC" );
 		]]></client>

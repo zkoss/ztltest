@@ -24,7 +24,7 @@
 				click(btn2);
 				waitResponse();
 				verifyEquals("null",jq(".z-window-highlighted-cl .z-messagebox .z-label").text());
-				click(jq(".z-window-highlighted-cl .z-button-cm"));
+				click(jq(".z-window-highlighted-cl .z-button"));
 				waitResponse();
 				click(btn3);
 				waitResponse();

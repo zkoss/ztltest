@@ -75,9 +75,9 @@ class B50_ZK_261Test extends ZTL4ScalaTestCase {
    // Run syntax 2
     runZTL(zscript,
         () => {
-        click(jq(".z-button-cm").get(0));
+        click(jq(".z-button").get(0));
         waitResponse();
-        click(jq(".z-button-cm").get(2));
+        click(jq(".z-button").get(2));
         waitResponse();
         verifyTrue("The answer should be true",
             jq(".z-messagebox").find(".z-label").get(0)

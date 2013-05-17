@@ -41,9 +41,9 @@
 			 -->
 		</server>
 		<client><![CDATA[
-			click(jq("span.z-button:eq(0)"));
+			click(jq(".z-button:eq(0)"));
 			waitResponse();
-			click(jq("span.z-button:eq(1)"));
+			click(jq(".z-button:eq(1)"));
 			waitResponse();
 			String result = jq(".z-window-highlighted .z-messagebox").text().trim();
             // System.out.println(result);

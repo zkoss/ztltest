@@ -64,13 +64,13 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			
 			click(jq(".z-tab-close:eq(1)"));
 			waitResponse();
-			click(jq(".z-button-cm:eq(0)"));
+			click(jq(".z-button:eq(0)"));
 			waitResponse();
 			verifyEquals(2, jq(".z-tab").length());
 			
 			click(jq(".z-tab-close:eq(0)"));
 			waitResponse();
-			click(jq(".z-button-cm:eq(1)"));
+			click(jq(".z-button:eq(1)"));
 			waitResponse();
 			verifyEquals(2, jq(".z-tab").length());
 			
