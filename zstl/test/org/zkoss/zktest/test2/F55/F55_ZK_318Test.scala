@@ -248,39 +248,39 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         }
 
         // step 1
-        clickAndCheck(jq(bd).find(".z-combobutton-cm"),
+        clickAndCheck(jq(bd).find(".z-combobutton"),
             Array("combobutton one clicked"), Array(messageBox));
         // step 2
-        clickAndCheck(jq(bd).find(".z-combobutton-cr"),
+        clickAndCheck(jq(bd).find(".z-combobutton"),
             Array("combobutton one opened", "popup opened"),
             Array(messageBox, messageBoxTwo));
         verifyTrue("combobutton one should opened",
             jq(ppOne.$n()).is(":visible"));
 
         // step 3
-        clickAndCheck(jq(bd).find(".z-combobutton-cr"),
+        clickAndCheck(jq(bd).find(".z-combobutton"),
             Array("combobutton one closed"),
             Array(messageBox));
         verifyFalse("combobutton one should closed",
             jq(ppOne.$n()).is(":visible"));
 
         // step 4
-        clickAndCheck(jq(bd2).find(".z-combobutton-cm"),
+        clickAndCheck(jq(bd2).find(".z-combobutton"),
             Array("combobutton two clicked"), Array(messageBox));
-        clickAndCheck(jq(bd2).find(".z-combobutton-cr"),
+        clickAndCheck(jq(bd2).find(".z-combobutton"),
             Array("combobutton two opened", "popup opened"),
             Array(messageBox, messageBoxTwo));
         verifyTrue("combobutton two should opened",
             jq(ppTwo.$n()).is(":visible"));
 
-        clickAndCheck(jq(bd2).find(".z-combobutton-cr"),
+        clickAndCheck(jq(bd2).find(".z-combobutton"),
             Array("combobutton two closed"),
             Array(messageBox));
         verifyFalse("combobutton two should closed",
             jq(ppTwo.$n()).is(":visible"));
 
         // step 5
-        clickAndCheck(jq(bd2).find(".z-combobutton-cr"),
+        clickAndCheck(jq(bd2).find(".z-combobutton"),
             Array("combobutton two opened"),
             Array(messageBox));
 
@@ -293,7 +293,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         openMenu(Array(mbAbout));
         clickAndWait(jq(".z-label:contains(message box)"));
         // step 8
-        clickAndCheck(jq(bd2).find(".z-combobutton-cr"),
+        clickAndCheck(jq(bd2).find(".z-combobutton"),
             Array("combobutton two opened"),
             Array(messageBox));
 
@@ -302,7 +302,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
             jq(".z-palette-btn").is(":visible"));
 
         // step 9
-        clickAndCheck(jq(bd).find(".z-combobutton-cr"),
+        clickAndCheck(jq(bd).find(".z-combobutton"),
             Array("combobutton one opened"),
             Array(messageBox));
         verifyTrue("combobutton one should opened",
@@ -314,7 +314,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 
         clickAndWait(cbx.$n("real"));
         
-        openMenu(Array(jq(bd2).find(".z-combobutton-cr"), pp2About, pp2Menu, pp2ColorPicker));
+        openMenu(Array(jq(bd2).find(".z-combobutton"), pp2About, pp2Menu, pp2ColorPicker));
         verifyTrue("Color picker should opened",
             jq(".z-palette-btn").is(":visible"));
     }
