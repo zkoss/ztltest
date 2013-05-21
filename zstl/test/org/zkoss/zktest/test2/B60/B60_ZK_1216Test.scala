@@ -28,23 +28,23 @@ class B60_ZK_1216Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        click(jq(".z-combobutton-cr"))
+        click(jq(".z-combobutton"))
         waitResponse()
         click(jq(".z-button:contains(click me)"))
         waitResponse()
-        verifyEquals("The label for the combo-button should change to match that for the button clicked.", jq(".z-combobutton-cm").text(), "click me")
+        verifyEquals("The label for the combo-button should change to match that for the button clicked.", jq(".z-combobutton").text(), "click me")
 
-        click(jq(".z-combobutton-cr"))
+        click(jq(".z-combobutton"))
         waitResponse()
         click(jq(".z-button:contains(or me)"))
         waitResponse()
-        verifyEquals("The label for the combo-button should change to match that for the button clicked.", jq(".z-combobutton-cm").text(), "or me")
+        verifyEquals("The label for the combo-button should change to match that for the button clicked.", jq(".z-combobutton").text(), "or me")
 
-        click(jq(".z-combobutton-cr"))
+        click(jq(".z-combobutton"))
         waitResponse()
         click(jq(".z-button:contains(me too!)"))
         waitResponse()
-        verifyEquals("The label for the combo-button should change to match that for the button clicked.", jq(".z-combobutton-cm").text(), "me too!")
+        verifyEquals("The label for the combo-button should change to match that for the button clicked.", jq(".z-combobutton").text(), "me too!")
       })
 
   }

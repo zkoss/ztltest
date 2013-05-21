@@ -53,7 +53,7 @@ class B60_ZK_702Test extends ZTL4ScalaTestCase {
         () => {
         var cb: Widget = engine.$f("cb");
 
-        click(jq(cb.$n()).find(".z-combobutton-cm").get(0));
+        click(jq(cb.$n()).find(".z-combobutton").get(0));
         waitResponse();
         verifyTrue("Should show a message box",
             jq(".z-window-highlighted:contains(popup)").exists());
