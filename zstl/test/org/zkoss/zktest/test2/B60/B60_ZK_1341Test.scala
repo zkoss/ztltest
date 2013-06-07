@@ -13,23 +13,23 @@ class B60_ZK_1341Test extends ZTL4ScalaTestCase {
 	2. Change AM/PM (zh_TW) in timebox.
 	3. Close the popup calendar and you should see correct date time in datebox.
                     </label>
-                    <datebox format="long+medium" width="300px"/>
+                    <datebox id="db" format="long+medium" width="300px"/>
                   </zk>"""
 
     runZTL(zscript,
       () => {
-        click(jq(".z-datebox-btn"))
+        click(engine.$f("db").$n("btn"))
         waitResponse()
 
-        click(jq(".z-timebox-btn-upper"))
+        click(jq(".z-timebox-up"))
         waitResponse()
 
-        val timelongfmt = jq(".z-datebox-pp .z-timebox-inp").`val`()
+        val timelongfmt = jq(".z-datebox-popup .z-timebox-input").`val`()
 
-        click(jq(".z-calendar-seld"))
+        click(jq(".z-calendar-selected"))
         waitResponse()
 
-        val datetimelongfmt = jq(".z-datebox-inp:eq(0)").`val`()
+        val datetimelongfmt = jq(".z-datebox-input:eq(0)").`val`()
 
         val Pattern1 = """.*(\d\d):(\d\d):(\d\d).*""".r
         val Pattern2 = """.*( \d):(\d\d):(\d\d).*""".r

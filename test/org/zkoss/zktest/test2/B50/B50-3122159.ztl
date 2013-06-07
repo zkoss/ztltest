@@ -29,9 +29,9 @@ Please click upon the date icon to choose a date and it should immediately alert
 				int year=cal.get(Calendar.YEAR);
 				click(dt.$n("btn"));
 				waitResponse();
-				click(jq(".z-calendar-seld"));
+				click(jq(".z-calendar-selected"));
 				waitResponse();
-				verifyContains(getAlertMessage()+"00:00:00 CST "+year ,jq(".z-calendar-seld").text());
+				verifyContains(getAlertMessage()+"00:00:00 CST "+year ,jq(".z-calendar-selected").text());
 		]]></client>
 	</case>
 </test>

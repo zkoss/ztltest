@@ -31,7 +31,7 @@
 				click(returnDate.$n("btn"));
 				waitResponse();
 				String time = jq("@timebox input").val();
-				click(jq("td.z-calendar-seld"));
+				click(jq("td.z-calendar-selected"));
 				waitResponse();
 				blur(inp);
 				waitResponse();
@@ -50,7 +50,7 @@
 				sendKeys(timeInp, Keys.END);
 				sendKeys(timeInp, Keys.DOWN);
 				String time = timeInp.val();
-				click(jq("td.z-calendar-seld"));
+				click(jq("td.z-calendar-selected"));
 				waitResponse();
 				blur(inp);
 				waitResponse();

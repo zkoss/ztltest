@@ -8,7 +8,7 @@
 		--></server>
 		<client><![CDATA[
 			click(db.$n("btn"));
-			click(jq("td.z-calendar-seld"));
+			click(jq("td.z-calendar-selected"));
 			waitResponse();
 			blur(db.$n("real"));
 			verifyFalse(jq("div.z-errbox").exists());

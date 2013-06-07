@@ -71,26 +71,34 @@ class B50_3011319Test extends ZTL4ScalaTestCase {
         var btn: Widget = engine.$f("btn");
 
         click(db.$n("btn"));
-        click(jq(db.$n("pp")).find(".z-calendar-tdl").get(0));
+        click(jq(db.$n("pp")).find(".z-calendar-left").get(0));
+        
+        // wait animation
+        waitResponse(true);
 
         verifyTrue("the title should be April",
-            jq(db.$n("pp")).find(".z-calendar-title").find(".z-calendar-ctrler")
+            jq(db.$n("pp")).find(".z-calendar-title").find(".z-calendar-text")
             	.get(0).get("innerHTML").contains("Apr"));
         verifyTrue("the 30th day of April should be selected",
-            jq(db.$n("pp")).find(".z-calendar-seld").get(0).get("innerHTML").contains("30"));
+            jq(db.$n("pp")).find(".z-calendar-selected").get(0).get("innerHTML").contains("30"));
 
         click(btn);
         waitResponse();
 
         click(db.$n("btn"));
-        click(jq(".z-calendar-calctrl").find(".z-calendar-ctrler").get(0));
-        click(jq(".z-calendar-calmon").find("td").get(1));
-
+        click(jq(".z-calendar-text").get(0));
+        
+        // wait animation
+        waitResponse(true);
+        click(jq(".z-calendar-month").find("td").get(1));
+        
+        // wait animation        
+        waitResponse(true);
         verifyTrue("the title should be Feburary",
-            jq(db.$n("pp")).find(".z-calendar-title").find(".z-calendar-ctrler")
+            jq(db.$n("pp")).find(".z-calendar-title").find(".z-calendar-text")
             	.get(0).get("innerHTML").contains("Feb"));
         verifyTrue("the 28th day of Feburary should be selected",
-            jq(db.$n("pp")).find(".z-calendar-seld").get(0).get("innerHTML").contains("28"));
+            jq(db.$n("pp")).find(".z-calendar-selected").get(0).get("innerHTML").contains("28"));
     }
    );
 

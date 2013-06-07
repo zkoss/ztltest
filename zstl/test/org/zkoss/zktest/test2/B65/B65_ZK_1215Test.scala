@@ -20,20 +20,20 @@ class B65_ZK_1215Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        click(jq(".z-calendar-title .z-calendar-ctrler:eq(1)"))
-        waitResponse()
-        click(jq(".z-calendar-calyear td:contains(2013)"))
-        waitResponse()
-        click(jq(".z-calendar-calmon td:eq(9)"))
-        waitResponse()
-        val day = jq(".z-calendar-calday td:contains(20)")
+        click(jq(".z-calendar-title .z-calendar-text:eq(1)"))
+        waitResponse(true) //wait animation
+        click(jq("td:contains(2013)"))
+        waitResponse(true) //wait animation
+        click(jq(".z-calendar-month td:eq(9)"))
+        waitResponse(true) //wait animation
+        val day = jq(".z-calendar tbody td:contains(20)")
         click(day)
-        waitResponse()
+        waitResponse(true) //wait animation
         
         sendKeys(day, Keys.RIGHT)
         waitResponse()
         
-        verifyTrue("the selected css of '10/20' must be removed.", !day.hasClass("z-calendar-seld"))
+        verifyTrue("the selected css of '10/20' must be removed.", !day.hasClass("z-calendar-selected"))
       })
 
   }

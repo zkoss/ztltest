@@ -38,7 +38,7 @@ tb.buttonVisible = cb.buttonVisible = db.buttonVisible = bb.buttonVisible
 		--></server>
 		<client><![CDATA[
 	
-		JQuery btns =jq(".z-timebox-btn,.z-combobox-btn,.z-datebox-btn,.z-datebox-btn");
+		JQuery btns =jq(".z-timebox-icon,.z-combobox-icon,.z-datebox-icon,.z-bandbox-icon");
 		verifyEquals(0,btns.find(":visible"));
 		
 		click(jq("@button:eq(0)"));

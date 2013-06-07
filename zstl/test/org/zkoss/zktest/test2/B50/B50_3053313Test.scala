@@ -71,8 +71,8 @@ class B50_3053313Test extends ZTL4ScalaTestCase {
 
         click(dtbx3.$n("btn"));
         waitResponse();
-        var calRows: Array[JQuery] = jq(dtbx3.$n("pp")).find(".z-calendar-caldayrow").toArray[JQuery];
-        var today: Int = jq(".z-calendar-seld").last().text().toInt;
+        var calRows: Array[JQuery] = jq(dtbx3.$n("pp")).find("tbody tr").toArray[JQuery];
+        var today: Int = jq(".z-calendar-selected").last().text().toInt;
         
         var l: List[JQuery]  = new ArrayList();
         for (i <- 0 until calRows.length) {
@@ -86,11 +86,11 @@ class B50_3053313Test extends ZTL4ScalaTestCase {
 	            dt1 = Integer.parseInt(td.get("innerHTML"));
 	            if (!foundToday) {
 	              verifyFalse("for third datebox, today and all pass day should be selectable",
-	                clsnm.contains("z-calendar-disd"));
+	                clsnm.contains("z-calendar-disabled"));
 	              foundToday = (dt1 == today) && (!clsnm.contains("z-calendar-outside"));
 	            } else {
 	              verifyTrue("for third datebox, all future day should be unselectable",
-	                clsnm.contains("z-calendar-disd"));
+	                clsnm.contains("z-calendar-disabled"));
 	            }
 	          }
         }
@@ -98,14 +98,14 @@ class B50_3053313Test extends ZTL4ScalaTestCase {
         click(dtbx2.$n("btn"));
         waitResponse();
         dt1 = Integer.parseInt(jq(dtbx2.$n("pp"))
-        		.find(".z-calendar-disd").get(0).get("innerHTML"));
+        		.find(".z-calendar-disabled").get(0).get("innerHTML"));
         verifyTrue("for second datebox, the only unselectable date should be today",
-            (dt1 == today) && (jq(dtbx2.$n("pp")).find(".z-calendar-disd").length() == 1));
+            (dt1 == today) && (jq(dtbx2.$n("pp")).find(".z-calendar-disabled").length() == 1));
 
         click(dtbx1.$n("btn"));
         waitResponse();
         dt1 = Integer.parseInt(jq(dtbx1.$n("pp"))
-        		.find(".z-calendar-disd").last().get(0).get("innerHTML"));
+        		.find(".z-calendar-disabled").last().get(0).get("innerHTML"));
         verifyTrue("for first datebox, the last unselectable date should be yesterday",
             (today - dt1 == 1) || ( (today == 1) && (31 - dt1 <= 3) ));
     }

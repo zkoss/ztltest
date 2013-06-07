@@ -15,23 +15,23 @@ class B65_ZK_1535Test extends ZTL4ScalaTestCase {
 	3. check calendar also.
         </label>
         <hlayout>
-          <datebox/>
+          <datebox id="db"/>
           <calendar/>
         </hlayout>
       </zk>"""
 
     runZTL(zscript,
       () => {
-        click(jq(".z-datebox-btn"))
+        click(engine.$f("db").$n("btn"))
         waitResponse()
         List(1, 1) foreach { i =>
           val calendar = jq(".z-calendar:eq(" + i + ")")
-          click(calendar.find(".z-calendar-ctrler:eq(0)"))
+          click(calendar.find(".z-calendar-text:eq(0)"))
           waitResponse()
-          click(calendar.find(".z-calendar-calmon td:eq(2)"))
+          click(calendar.find(".z-calendar-month td:eq(2)"))
           waitResponse()
-          verifyEquals("should see 6 weeks showed.", calendar.find(".z-calendar-caldayrow").length(), 6)
-          click(calendar.find(".z-calendar-wkday:contains(20)"))
+          verifyEquals("should see 6 weeks showed.", calendar.find(".z-calendar tbody tr").length(), 6)
+          click(calendar.find(".z-calendar-weekday:contains(20)"))
           waitResponse()
         }
 
