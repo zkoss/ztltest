@@ -28,7 +28,7 @@ class IVT_Calendar_Simple_Test extends ZTL4ScalaTestCase {
 		 
 		cal.value = db.value = snapshot.getTime();
 		
-		Clients.evalJavaScript("jq('.z-datebox-btn').trigger('click')");
+		Clients.evalJavaScript("jq('.z-datebox-icon').trigger('click')");
 	</zscript>	
 </vlayout>
 		""";

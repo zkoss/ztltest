@@ -40,8 +40,8 @@ class Z60_Touch_017Test extends ZTL4ScalaTestCase {
 			() => {
 				var bodyHeight = jq("body").innerHeight();
 				
-				var btns = jq(".z-combobox-btn");
-				var combobox_pp = jq(".z-combobox-pp");
+				var btns = jq(".z-combobox-icon");
+				var combobox_pp = jq(".z-combobox-popup");
 				
 				// Click on the first drop-down button
 				singleTap(btns.eq(0));

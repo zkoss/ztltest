@@ -83,7 +83,7 @@ class Person {
             String lastName = jq(".z-textbox:eq(1)").val();
             verifyTrue("Last Name: " + lastName, lastName.equals("Gates"));
             verifyTrue("Column of Full Name is not empty.", 
-                    jq(".z-listcell-cnt:eq(2)").children().length() == 0);
+                    jq(".z-listcell-content:eq(2)").children().length() == 0);
 		]]></client>
 	</case>
 </test>

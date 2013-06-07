@@ -43,7 +43,7 @@ class B60_ZK_1315Test extends ZTL4ScalaTestCase {
         val zcolumn = jq(".z-column:contains(Author)")
         Scripts.triggerMouseEventAt(getWebDriver(), zcolumn, "mouseover", "")
         waitResponse()
-        val zcolumnbtn = zcolumn.find(".z-column-btn")
+        val zcolumnbtn = zcolumn.find(".z-column-menuicon")
         Scripts.triggerMouseEventAt(getWebDriver(), zcolumnbtn, "click", "")
         waitResponse()
         val zmenuitem = jq(".z-menuitem:contains(Title)")

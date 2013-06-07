@@ -15,7 +15,7 @@
 		<client><![CDATA[
 				focus(cb1.$n("real"));waitResponse();
 				sendKeys(cb1.$n("real"),Keys.DOWN);waitResponse();
-				verifyEquals("Cool!",jq(".z-combobox-inp").val());
+				verifyEquals("Cool!",jq(".z-combobox-input").val());
 		]]></client>
 	</case>
 </test>

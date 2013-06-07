@@ -31,10 +31,10 @@ ListModelList model = new ListModelList(listShop);
 
     runZTL(zscript,
       () => {
-        val chosenbox = jq(".z-chosenbox-inp")
+        val chosenbox = jq(".z-chosenbox-input")
         sendKeys(chosenbox, "S")
         waitResponse()
-        val pp = jq(".z-chosenbox-pp")
+        val pp = jq(".z-chosenbox-popup")
 
         for (i <- 1 to 30)
           sendKeys(pp, Keys.DOWN)

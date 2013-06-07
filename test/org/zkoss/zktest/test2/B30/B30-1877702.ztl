@@ -15,23 +15,23 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			click(jq(".z-combobox-btn"));
+			click(jq(".z-combobox-icon"));
 			waitResponse();
 			click(jq(".z-comboitem:eq(0)"));
 			waitResponse();
 
-			verifyEquals("aaa", jq(".z-combobox-inp").val());
+			verifyEquals("aaa", jq(".z-combobox-input").val());
 			verifyEquals("onSelect is fired, aaa", jq("$msg").text());
 			
 			click(reset);
 			waitResponse();
-			verifyTrue(jq(".z-combobx-inp").val().isEmpty());
+			verifyTrue(jq(".z-combobx-input").val().isEmpty());
 			
-			click(jq(".z-combobox-btn"));
+			click(jq(".z-combobox-icon"));
             waitResponse();
             click(jq(".z-comboitem:eq(0)"));
             waitResponse();
-            verifyEquals("aaa", jq(".z-combobox-inp").val());
+            verifyEquals("aaa", jq(".z-combobox-input").val());
             verifyEquals("onSelect is fired, aaa", jq("$msg").text());
 		]]></client>
 	</case>

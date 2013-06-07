@@ -31,7 +31,7 @@ ListSubModel model = ListModels.toListSubModel(new ListModelList(list));
 
     runZTL(zscript,
       () => {
-        val chosenbox = jq(".z-chosenbox-inp")
+        val chosenbox = jq(".z-chosenbox-input")
         
         click(chosenbox)
         waitResponse()

@@ -51,10 +51,10 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
       // Click upper button twice
-      mouseDownAt(jq(".z-timebox-btn-upper"), "1,1");
-      mouseUp(jq(".z-timebox-btn-upper"));
-      mouseDownAt(jq(".z-timebox-btn-upper"), "1,1");
-      mouseUp(jq(".z-timebox-btn-upper"));
+      mouseDownAt(jq(".z-timebox-up"), "1,1");
+      mouseUp(jq(".z-timebox-up"));
+      mouseDownAt(jq(".z-timebox-up"), "1,1");
+      mouseUp(jq(".z-timebox-up"));
 
       // Click on show value button
       click(jq("@button"));
@@ -85,7 +85,7 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
       verifyTrue("The time value should of the label should be equal to the timebox", hh1 == hh2 && mm1 == mm2 && ss1 == ss2);
 
       // Click upper button again
-      click(jq(".z-timebox-btn-upper"));
+      click(jq(".z-timebox-up"));
       sendKeys(tb.$n("real"), Keys.TAB);
 
       // Click on show value button again

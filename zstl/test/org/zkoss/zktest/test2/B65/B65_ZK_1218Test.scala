@@ -20,7 +20,7 @@ class B65_ZK_1218Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         val doublebox = jq(".z-doublebox")
-        val doublespinner = jq(".z-doublespinner-inp")
+        val doublespinner = jq(".z-doublespinner-input")
 
         sendKeys(doublebox, "1")
         sendKeys(doublebox, Keys.DECIMAL)

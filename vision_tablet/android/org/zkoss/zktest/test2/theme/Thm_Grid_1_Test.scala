@@ -92,7 +92,7 @@ class Thm_Grid_1_Test extends ZTL4ScalaTestCase {
 				verifyImage();
 				
 				// Verify Column menu dropdown
-				singleTap(jq(".z-column-btn:eq(0)"));
+				singleTap(jq(".z-column-menuicon:eq(0)"));
 				sleep(500);
 				verifyImage();
 				
@@ -102,21 +102,21 @@ class Thm_Grid_1_Test extends ZTL4ScalaTestCase {
 				verifyImage();
 				
 				// Verify Ungroup
-				singleTap(jq(".z-column-btn:eq(0)"));
+				singleTap(jq(".z-column-menuicon:eq(0)"));
 				sleep(500);
 				singleTap(jq(".z-menuitem:eq(1)"));
 				sleep(500);
 				verifyImage();
 				
 				// Verify Sort Ascending
-				singleTap(jq(".z-column-btn:eq(0)"));
+				singleTap(jq(".z-column-menuicon:eq(0)"));
 				sleep(500);
 				singleTap(jq(".z-menuitem:eq(2)"));
 				sleep(500);
 				verifyImage();
 				
 				// Verify Column Hiding
-				singleTap(jq(".z-column-btn:eq(0)"));
+				singleTap(jq(".z-column-menuicon:eq(0)"));
 				sleep(500);
 				singleTap(jq(".z-menuitem:eq(5)"));
 				sleep(500);

@@ -44,12 +44,12 @@ You shall see "xyz,,true" shown after onOpen.
 		<client><![CDATA[
 				type(jq("@bandbox input"),"abc");
 				waitResponse();
-				click(jq(".z-bandbox-btn"));
+				click(jq(".z-bandbox-icon"));
 				waitResponse();
 				verifyEquals("abc,abc,true",jq(inf2).text());
 				type(jq("@combobox input"),"xyz");
 				waitResponse();
-				click(jq(".z-combobox-btn"));
+				click(jq(".z-combobox-icon"));
 				waitResponse();
 				verifyEquals("xyz,xyz,true",jq(inf2).text());
 		]]></client>

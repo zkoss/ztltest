@@ -60,19 +60,19 @@ ListModel model = new ListModelList(data);
     }
     runZTL(zscript, () => {
       // Click paging field
-      click(jq(".z-paging-inp"));
+      click(jq(".z-paging-input"));
       waitResponse();
 
       // Remove the value '1'
-      sendKeys(jq(".z-paging-inp").toElement(), Keys.BACK_SPACE);
+      sendKeys(jq(".z-paging-input").toElement(), Keys.BACK_SPACE);
       waitResponse();
 
       // Insert value '2'
-      sendKeys(jq(".z-paging-inp").toElement(), "2");
+      sendKeys(jq(".z-paging-input").toElement(), "2");
       waitResponse();
 
       // Press Enter key
-      sendKeys(jq(".z-paging-inp").toElement(), Keys.ENTER);
+      sendKeys(jq(".z-paging-input").toElement(), Keys.ENTER);
       waitResponse();
 
       // Verify that the grid exists

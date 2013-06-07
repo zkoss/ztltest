@@ -59,7 +59,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				waitResponse();
 				click(jq(".z-calendar-caldayrow:eq(5) .z-calendar-wkday:eq(1)"));
 				waitResponse();
-				verifyEquals("01/02/2001",jq(".z-datebox-inp").val());	
+				verifyEquals("01/02/2001",jq(".z-datebox-input").val());	
 		]]></client>
 	</case>
 </test>

@@ -70,7 +70,7 @@ Please click the "Click Me!" header of the nested listbox, and then no error app
 
 		--></server>
 		<client><![CDATA[
-				click(jq("div.z-listheader-cnt:eq(2)"));
+				click(jq("div.z-listheader-content:eq(2)"));
 				verifyFalse(jq(".z-error").exists());
 		]]></client>
 	</case>

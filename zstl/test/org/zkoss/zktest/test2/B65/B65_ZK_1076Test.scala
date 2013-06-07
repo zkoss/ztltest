@@ -64,14 +64,14 @@ class B65_ZK_1076Test extends ZTL4ScalaTestCase {
         click(jq(".z-button:contains(Show Items)"))
         waitResponse()
 
-        verifyTrue("should see the combobox is shown", jq(".z-tabpanel[style!=none] .z-combobox-inp").exists())
+        verifyTrue("should see the combobox is shown", jq(".z-tabpanel[style!=none] .z-combobox-input").exists())
 
         click(jq(".z-tab:contains(tab 1)"))
         waitResponse()
         click(jq(".z-button:contains(Show Items)"))
         waitResponse()
 
-        verifyTrue("should see the combobox is shown", jq(".z-tabpanel[style!=none] .z-combobox-inp").exists())
+        verifyTrue("should see the combobox is shown", jq(".z-tabpanel[style!=none] .z-combobox-input").exists())
 
       })
 

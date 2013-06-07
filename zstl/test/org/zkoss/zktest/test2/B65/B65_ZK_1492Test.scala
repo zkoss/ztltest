@@ -88,7 +88,7 @@ class B65_ZK_1492Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        click(jq(".z-combobox-btn:eq(0)"))
+        click(jq(".z-combobox-icon:eq(0)"))
         waitResponse()
         click(jq(".z-comboitem-text:contains(2)"))
         waitResponse()
@@ -101,7 +101,7 @@ class B65_ZK_1492Test extends ZTL4ScalaTestCase {
         verifyEquals(combo1text1.count(_ == '2'), 3)
         verifyEquals(combo1text2.count(_ == '2'), 3)
         
-        click(jq(".z-combobox-btn:eq(1)"))
+        click(jq(".z-combobox-icon:eq(1)"))
         waitResponse()
         click(jq(".z-comboitem-text:contains(1):eq(1)"))
         waitResponse()

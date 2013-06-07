@@ -43,7 +43,7 @@
 			 -->
 		</server>
 		<client><![CDATA[
-			mouseOver(jq(".z-menu-btn").parent());
+			mouseOver(jq(".z-menu-icon").parent());
 			click(jq(".z-menuitem"));
 			waitResponse();
 			verifyTrue(jq(".z-popup .z-listbox").exists());

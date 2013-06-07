@@ -39,9 +39,9 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				mouseOver(jq(".z-menu-btn"));
+				mouseOver(jq(".z-menu-icon"));
 				waitResponse();
-				mouseOver(jq(".z-menu-cnt"));
+				mouseOver(jq(".z-menu-content"));
 				waitResponse();
 				verifyTrue(isVisible(jq(".z-colorpalette")));
 				mouseOver(jq(".z-colorpalette-colorbox:eq(8)"));

@@ -24,7 +24,7 @@
 		<client><![CDATA[
 				click(c.$n("btn"));
 				waitResponse();
-				click(jq(".z-combobox-pp .z-comboitem:eq(0)"));
+				click(jq(".z-combobox-popup .z-comboitem:eq(0)"));
 				waitResponse();
 				
 				boolean color = ColorVerifingHelper.getInstance().
@@ -33,7 +33,7 @@
 
 				click(c.$n("btn"));
 				waitResponse();
-				click(jq(".z-combobox-pp .z-comboitem:eq(1)"));
+				click(jq(".z-combobox-popup .z-comboitem:eq(1)"));
 				waitResponse();
 				
 				boolean color1 = ColorVerifingHelper.getInstance().
@@ -42,7 +42,7 @@
 
 				click(c.$n("btn"));
 				waitResponse();
-				click(jq(".z-combobox-pp .z-comboitem:eq(2)"));
+				click(jq(".z-combobox-popup .z-comboitem:eq(2)"));
 				waitResponse();				
 				
 				boolean color2 = ColorVerifingHelper.getInstance().

@@ -42,18 +42,18 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-		click(jq("div.z-spinner-btn-upper"));
+		click(jq("div.z-spinner-up"));
 		waitResponse();
 		verifyTrue(lc1.$n().get("value").length() == 0);
-		click(jq("div.z-spinner-btn-lower"));
+		click(jq("div.z-spinner-down"));
 		waitResponse();
 		verifyTrue(lc1.$n().get("value").length() == 0);
-		click(jq("div.z-timebox-btn-upper"));
+		click(jq("div.z-timebox-up"));
 		waitResponse();
-		click(jq("div.z-timebox-btn-upper"));
+		click(jq("div.z-timebox-up"));
 		waitResponse();
 		verifyTrue(lc2.$n().get("value").length() == 0);
-		click(jq("div.z-timebox-btn-lower"));
+		click(jq("div.z-timebox-down"));
 		waitResponse();
 		verifyTrue(lc2.$n().get("value").length() == 0);
 		]]></client>

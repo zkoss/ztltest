@@ -21,7 +21,7 @@ class Z60_Touch_014Test extends ZTL4ScalaTestCase {
 		
 		runZTL(zscript,
 			() => {
-				var btns       = jq(".z-datebox-btn");
+				var btns       = jq(".z-datebox-icon");
 				var datebox    : JQuery = null;
 				var date_wheel : JQuery = null;
 				var time_wheel : JQuery = null;
@@ -31,7 +31,7 @@ class Z60_Touch_014Test extends ZTL4ScalaTestCase {
 				waitResponse(true);
 				
 				// should see a 3-column spin wheel
-				datebox = jq(".z-datebox-pp[style*=\"display: block\"]");
+				datebox = jq(".z-datebox-popup[style*=\"display: block\"]");
 				verifyTrue(1 == datebox.length());
 				
 				date_wheel = datebox.find(".z-calendar-wheel-date");
@@ -42,7 +42,7 @@ class Z60_Touch_014Test extends ZTL4ScalaTestCase {
 				waitResponse(true);
 				
 				// should see a 6-column spin wheel
-				datebox = jq(".z-datebox-pp[style*=\"display: block\"]");
+				datebox = jq(".z-datebox-popup[style*=\"display: block\"]");
 				verifyTrue(1 == datebox.length());
 
 				date_wheel = datebox.find(".z-calendar-wheel-date");
@@ -56,7 +56,7 @@ class Z60_Touch_014Test extends ZTL4ScalaTestCase {
 				waitResponse(true);
 				
 				// should see a 7-column spin wheel
-				datebox = jq(".z-datebox-pp[style*=\"display: block\"]");
+				datebox = jq(".z-datebox-popup[style*=\"display: block\"]");
 				verifyTrue(1 == datebox.length());
 
 				date_wheel = datebox.find(".z-calendar-wheel-date");

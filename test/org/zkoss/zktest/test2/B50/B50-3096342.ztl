@@ -42,11 +42,11 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				click(jq(".z-datebox-btn"));
+				click(jq(".z-datebox-button"));
 				waitResponse();
-				mouseDownAt(jq(".z-timebox-btn"),"20,20");
+				mouseDownAt(jq(".z-timebox-button"),"20,20");
 				waitResponse();
-				mouseUp(jq(".z-timebox-btn"));
+				mouseUp(jq(".z-timebox-button"));
 				int index = 19;
 				JQuery dayOnCalendar = jq(".z-calendar-wkday:eq(" + index + ")");
 				int dayOfMonth = Integer.parseInt(dayOnCalendar.text());
@@ -61,7 +61,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				waitResponse();
 				String msg = jq("@label:last").text();
 				verifyTrue(msg.indexOf("d2:onChange:")!=-1 && msg.indexOf("null") == -1);
-				JQuery dateInput = jq(".z-datebox-inp");
+				JQuery dateInput = jq(".z-datebox-input");
 				focus(dateInput);
 				waitResponse();
 				type(dateInput, "");

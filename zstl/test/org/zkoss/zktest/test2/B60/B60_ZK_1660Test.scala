@@ -46,7 +46,7 @@ ListModelList model = new ListModelList(listShop);
 </zk>"""
     runZTL(zscript,
       () => {
-        val chosenbox = jq(".z-chosenbox-inp")
+        val chosenbox = jq(".z-chosenbox-input")
         sendKeys(chosenbox, "S")
         waitResponse()
         blur(chosenbox)

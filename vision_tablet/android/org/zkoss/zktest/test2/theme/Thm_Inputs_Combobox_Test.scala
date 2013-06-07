@@ -48,22 +48,22 @@ class Thm_Inputs_Combobox_Test extends ZTL4ScalaTestCase {
 				verifyImage();
 				
 				// Open 1st combobox
-				singleTap(jq(".z-combobox-btn:eq(0)"));
+				singleTap(jq(".z-combobox-icon:eq(0)"));
 				sleep(500);
 				verifyImage();
 				
 				// Open 2nd combobox
-				singleTap(jq(".z-combobox-btn:eq(1)"));
+				singleTap(jq(".z-combobox-icon:eq(1)"));
 				sleep(500);
 				verifyImage();
 
 				// Open 3rd combobox
-				singleTap(jq(".z-combobox-btn:eq(2)"));
+				singleTap(jq(".z-combobox-icon:eq(2)"));
 				sleep(500);
 				verifyImage();
 				
 				// Open 4th combobox
-				singleTap(jq(".z-combobox-btn:eq(3)"));
+				singleTap(jq(".z-combobox-icon:eq(3)"));
 				sleep(500);
 				verifyImage();
 			});

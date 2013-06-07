@@ -36,9 +36,9 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         spinnerTest(0)
       } else {
         val (clickTxt, upperbtn, snpinerinp) = if (nth == 0)
-          ("click1", ".z-spinner-btn-upper", ".z-spinner-inp")
+          ("click1", ".z-spinner-up", ".z-spinner-input")
         else
-          ("click2", ".z-doublespinner-btn-upper", ".z-doublespinner-inp")
+          ("click2", ".z-doublespinner-up", ".z-doublespinner-input")
 
         // click button, you should get the spinner error message. 
         val clickbtn = jq("@button:contains(" + clickTxt + ")")

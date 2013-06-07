@@ -325,7 +325,7 @@
 			waitResponse();
 
 			verifyTrue(jq(".z-window-highlighted").exists());
-			click(jq(".z-messagebox-btn"));
+			click(jq(".z-messagebox-button"));
 			waitResponse();
 			verifyFalse(jq(".z-window-highlighted").exists());
 		]]></client>

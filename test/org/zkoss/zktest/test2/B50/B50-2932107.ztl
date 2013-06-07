@@ -38,7 +38,7 @@
 		<client><![CDATA[	
 				click(insideHeaderCombobox.$n("btn"));
 				waitResponse();
-				click(jq(".z-combobox-pp .z-comboitem:eq(0)"));
+				click(jq(".z-combobox-popup .z-comboitem:eq(0)"));
 				waitResponse();
 				click(insideHeaderCombobox.$n("btn"));waitResponse();
 				verifyEquals("Add 1 item",jq(".z-comboitem-seld .z-comboitem-text").eval("text().trim()"));

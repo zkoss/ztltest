@@ -30,7 +30,7 @@ class B65_ZK_1600Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        val datebox = jq(".z-datebox-inp")
+        val datebox = jq(".z-datebox-input")
         sendKeys(datebox, "123")
         waitResponse()
         blur(datebox)

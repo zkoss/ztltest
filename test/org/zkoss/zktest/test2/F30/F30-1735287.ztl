@@ -38,7 +38,7 @@
 			waitResponse();
 			
 			verifyTrue(jq(msgbox).exists());
-			click(jq("span.z-messagebox-btn"));
+			click(jq("span.z-messagebox-button"));
 			waitResponse();
 			
 			verifyFalse(jq(msgbox).exists());

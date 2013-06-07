@@ -38,14 +38,14 @@
 				click(btn);
 				waitResponse();
 				boolean color = ColorVerifingHelper.getInstance().
-				isEqualColor("green",jq(".z-bandbox-inp").css("color"));
+				isEqualColor("green",jq(".z-bandbox-input").css("color"));
 				verifyTrue(color);
 				if (!("bold".equals(jq(bb.$n("real")).css("font-weight"))|| "700".equals(jq(bb.$n("real")).css("font-weight"))))
 				verifyTrue(false);
 				click(btn);
 				waitResponse();
 				boolean color1 = ColorVerifingHelper.getInstance().
-				isEqualColor("black",jq(".z-bandbox-inp").css("color"));
+				isEqualColor("black",jq(".z-bandbox-input").css("color"));
 				verifyTrue(color1);
 				if (!("normal".equals(jq(bb.$n("real"))
 				.css("font-weight"))

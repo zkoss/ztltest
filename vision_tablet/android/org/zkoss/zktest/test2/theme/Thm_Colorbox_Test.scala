@@ -42,7 +42,7 @@ class Thm_Colorbox_Test extends ZTL4ScalaTestCase {
 				sleep(500);
 				verifyImage();
 				
-				singleTap(jq(".z-colorbox-pp[style*=\"display: block\"] .z-colorpalette-ok-btn"));
+				singleTap(jq(".z-colorbox-popup[style*=\"display: block\"] .z-colorpalette-icon"));
 				sleep(500);
 				
 				singleTap(jq("@menu:eq(0)"));
@@ -51,7 +51,7 @@ class Thm_Colorbox_Test extends ZTL4ScalaTestCase {
 				sleep(500);
 				verifyImage();
 				
-				singleTap(jq(".z-colorpalette[style*=\"display: block\"] .z-colorpalette-ok-btn:eq(1)"));
+				singleTap(jq(".z-colorpalette[style*=\"display: block\"] .z-colorpalette-icon:eq(1)"));
 				sleep(500);
 				
 				singleTap(jq("@colorbox:eq(1)"));

@@ -19,7 +19,7 @@ class B50_ZK_831Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        val textbox = jq(".z-spinner-inp")
+        val textbox = jq(".z-spinner-input")
         sendKeys(textbox, "12345678910")
         waitResponse()
         blur(textbox)

@@ -11,10 +11,10 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			type(jq(".z-combobox-inp"), "zk");
-			click(jq(".z-combobox-btn"));
+			type(jq(".z-combobox-input"), "zk");
+			click(jq(".z-combobox-icon"));
 			waitResponse();
-			click(jq(".z-combobox-pp"));
+			click(jq(".z-combobox-popup"));
 			waitResponse();
 			clickAt(jq("p"), "3,4");
 			waitResponse();

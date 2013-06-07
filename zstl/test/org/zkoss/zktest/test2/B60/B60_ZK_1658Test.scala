@@ -27,7 +27,7 @@ class B60_ZK_1658Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        val chosenbox = jq(".z-chosenbox-inp")
+        val chosenbox = jq(".z-chosenbox-input")
         sendKeys(chosenbox, "S")
         waitResponse()
         blur(chosenbox)

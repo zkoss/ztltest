@@ -19,7 +19,7 @@ class B65_ZK_1627Test extends ZTL4ScalaTestCase {
       () => {
         verifyFalse("You should not see any exception after the page loaded.", jq(".z-window-modal").exists());
 
-        click(jq(".z-datebox-inp"))
+        click(jq(".z-datebox-input"))
         waitResponse()
         click(jq(".z-label:eq(0)"))
         waitResponse()

@@ -18,8 +18,8 @@ class Z60_Touch_027Test extends ZTL4ScalaTestCase {
 		
 		runZTL(zscript,
 			() => {
-				var btns = jq(".z-timebox-btn");
-				var pps  = jq(".z-timebox-pp");
+				var btns = jq(".z-timebox-icon");
+				var pps  = jq(".z-timebox-popup");
 				
 				// Click on the first timebox
 				singleTap(btns.eq(0));

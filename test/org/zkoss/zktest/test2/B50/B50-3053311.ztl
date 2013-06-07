@@ -40,14 +40,14 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				click(jq(".z-menu-btn"));
+				click(jq(".z-menu-icon"));
 				waitResponse();
 				String color1 = jq(".z-menu-img").css("backgroundColor"); 							
 				clickAt(jq("@label:eq(0)"),"6,6");//to blur
 				waitResponse();
 				click(chgOrient.$n("real"));
 				waitResponse();
-				click(jq(".z-menu-btn"));
+				click(jq(".z-menu-icon"));
 				waitResponse();
 				String color2 = jq(".z-menu-img").css("backgroundColor"); 
 				verifyEquals(color1,color2);

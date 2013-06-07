@@ -11,19 +11,19 @@
 		<client><![CDATA[
 				click(db.$n("btn"));
 				waitResponse();
-				verifyTrue(isVisible(jq(".z-datebox-pp")));
+				verifyTrue(isVisible(jq(".z-datebox-popup")));
 				click(db.$n("btn"));
 				click(btn);
 				waitResponse();
 				click(db.$n("btn"));
 				waitResponse();
-				verifyFalse(isVisible(jq(".z-datebox-pp")));
+				verifyFalse(isVisible(jq(".z-datebox-popup")));
 				click(db.$n("btn"));
 				click(btn);
 				waitResponse();
 				click(db.$n("btn"));
 				waitResponse();
-				verifyTrue(isVisible(jq(".z-datebox-pp")));
+				verifyTrue(isVisible(jq(".z-datebox-popup")));
 			]]></client>
 	</case>
 </test>

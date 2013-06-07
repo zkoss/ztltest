@@ -46,7 +46,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				Scripts.triggerMouseEventAt(getWebDriver(), zcolumn,
 						"mouseover", "");
 				waitResponse();
-				JQuery zcolumnbtn = zcolumn.find(".z-column-btn");
+				JQuery zcolumnbtn = zcolumn.find(".z-column-menuicon");
 				Scripts.triggerMouseEventAt(getWebDriver(), zcolumnbtn,
 						"click", "");
 				waitResponse();

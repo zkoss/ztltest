@@ -73,7 +73,7 @@ class B30_1911864Test extends ZTL4ScalaTestCase {
         	waitResponse();
             
         	//Get Combobox button
-        	val combo=jq(".z-combobox-btn:eq(0)");
+        	val combo=jq(".z-combobox-icon:eq(0)");
         	click(combo);
         	
         	waitResponse();

@@ -28,7 +28,7 @@ class B60_ZK_1322Test extends ZTL4ScalaTestCase {
       () => {
         click(jq("@timebox"))
         waitResponse()
-        val timebox = jq(".z-timebox-inp")
+        val timebox = jq(".z-timebox-input")
         val time = timebox.attr("value")
         
         if (time.matches(""".*[1-5][0-9]""")) {

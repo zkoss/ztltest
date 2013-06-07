@@ -17,9 +17,9 @@
 			 -->
 		</server>
 		<client><![CDATA[
-			click(jq(".z-combobox-btn"));
+			click(jq(".z-combobox-icon"));
 			waitResponse();
-			click(jq(".z-combobox-pp .z-comboitem:eq(0)"));
+			click(jq(".z-combobox-popup .z-comboitem:eq(0)"));
 			waitResponse();
 			click(jq(".z-button"));
 			waitResponse();

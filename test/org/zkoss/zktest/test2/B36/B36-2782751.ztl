@@ -35,8 +35,8 @@
 		<client><![CDATA[
 			click(button);
 			waitResponse();
-			verifyEquals(1,jq("div.z-listcell-cnt").length());
-			verifyEquals("Data 41",jq("div.z-listcell-cnt").html());
+			verifyEquals(1,jq("div.z-listcell-content").length());
+			verifyEquals("Data 41",jq("div.z-listcell-content").html());
 		]]></client>
 	</case>
 </test>

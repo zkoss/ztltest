@@ -59,24 +59,24 @@ Please select a date, and then select another month, and then it should be chang
         waitResponse();
 
         //Click date button
-        var btn = jq(".z-datebox-btn");
+        var btn = jq(".z-datebox-icon");
         click(btn);
         waitResponse();
 
         //Click calendar day
-        var day = jq(".z-calendar-wkday:eq(10)");
+        var day = jq(".z-calendar-weekday:eq(10)");
         click(day);
         waitResponse();
         
         //Get date value
-        var db=jq(".z-datebox-inp");
+        var db=jq(".z-datebox-input");
         var w1=getValue(db);
                 
         //Next month (open calendar)
-        var btn1 = jq(".z-datebox-btn");
+        var btn1 = jq(".z-datebox-icon");
         click(btn1);
         waitResponse();
-        var next = jq(".z-calendar-right-icon");
+        var next = jq(".z-calendar-right");
         click(next);
         waitResponse();
         

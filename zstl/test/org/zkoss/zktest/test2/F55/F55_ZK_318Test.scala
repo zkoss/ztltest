@@ -287,7 +287,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         // step 6
         openMenu(Array(pp2About, pp2Menu, pp2ColorPicker));
         verifyTrue("Color picker should opened",
-            jq(".z-palette-btn").is(":visible"));
+            jq(".z-colorpalette-popup").is(":visible"));
         // step 7
         clickAndWait(mbHelp);
         openMenu(Array(mbAbout));
@@ -299,7 +299,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 
         openMenu(Array(pp2About, pp2Menu, pp2ColorPicker));
         verifyTrue("Color picker should opened",
-            jq(".z-palette-btn").is(":visible"));
+            jq(".z-colorpalette-popup").is(":visible"));
 
         // step 9
         clickAndCheck(jq(bd).find(".z-combobutton"),
@@ -316,7 +316,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         
         openMenu(Array(jq(bd2).find(".z-combobutton"), pp2About, pp2Menu, pp2ColorPicker));
         verifyTrue("Color picker should opened",
-            jq(".z-palette-btn").is(":visible"));
+            jq(".z-colorpalette-popup").is(":visible"));
     }
    );
   }

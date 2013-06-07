@@ -32,10 +32,10 @@ Please type a word into the textbox, you shouldn't see the width of the popup is
 				focus(cb.$n("real"));
 				keyPress(cb.$n("real"), "A");
 				waitResponse();
-				verifyTrue(jq(".z-combobox-pp").exists());
-				verifyTrue(getElementWidth(jq(".z-combobox-pp")).intValue() > 0);
-				int cbx = getElementWidth(jq("i.z-combobox")).intValue();
-				int pp = getElementWidth(jq(".z-combobox-pp")).intValue();
+				verifyTrue(jq(".z-combobox-popup").exists());
+				verifyTrue(getElementWidth(jq(".z-combobox-popup")).intValue() > 0);
+				int cbx = getElementWidth(jq(".z-combobox")).intValue();
+				int pp = getElementWidth(jq(".z-combobox-popup")).intValue();
 				verifyTolerant(cbx, pp, 6);
 		]]></client>
 	</case>

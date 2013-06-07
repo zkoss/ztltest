@@ -26,7 +26,7 @@ class Z60_Touch_029Test extends ZTL4ScalaTestCase {
 				singleTap(jq("@chosenbox"));
 				waitResponse(true);
 				
-				var pp = jq(".z-chosenbox-pp");
+				var pp = jq(".z-chosenbox-popup");
 				verifyTrue(pp.isVisible());
 				
 				var pp_scroller = pp.find("> div:last-child");

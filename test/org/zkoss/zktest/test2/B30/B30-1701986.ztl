@@ -71,13 +71,13 @@
 			JQuery $e = jq("$endDate > [id$=\"btn\"]");
 			click($b);
 			waitResponse();
-			verifyFalse(jq(".z-datebox-pp:eq(0)").css("display").equals("none"));
+			verifyFalse(jq(".z-datebox-popup:eq(0)").css("display").equals("none"));
 			click(jq(".z-calendar-wkday:eq(19)"));
 			waitResponse();
 			click($e);
 			waitResponse();
-			verifyFalse(jq(".z-datebox-pp:eq(1)").css("display").equals("none"));
-			click(jq(".z-datebox-pp:eq(1) .z-calendar-wkday:eq(14)"));
+			verifyFalse(jq(".z-datebox-popup:eq(1)").css("display").equals("none"));
+			click(jq(".z-datebox-popup:eq(1) .z-calendar-wkday:eq(14)"));
             waitResponse();
             click(jq("$submit"));
             waitResponse();

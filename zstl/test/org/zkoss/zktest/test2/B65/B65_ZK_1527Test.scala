@@ -19,13 +19,13 @@ class B65_ZK_1527Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        click(jq(".z-datebox-btn"))
+        click(jq(".z-datebox-icon"))
         waitResponse()
 
-        val before = jq(".z-timebox-inp").`val`();
-        click(jq(".z-timebox-btn-lower"))
+        val before = jq(".z-timebox-input").`val`();
+        click(jq(".z-timebox-down"))
         waitResponse()
-        val after = jq(".z-timebox-inp").`val`();
+        val after = jq(".z-timebox-input").`val`();
         verifyNotEquals("should see the value in datebox changed", before, after)
       })
 

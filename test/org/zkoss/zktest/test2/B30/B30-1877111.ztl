@@ -26,14 +26,14 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			type(jq(".z-datebox-inp:eq(0)"), "12-13-98");
+			type(jq(".z-datebox-input:eq(0)"), "12-13-98");
 				waitResponse();
 				verifyTrue(jq(".z-errorbox").exists());
 				closeErrorBox();
 				waitResponse();
-				type(jq(".z-datebox-inp:eq(1)"), "12-13-98");
+				type(jq(".z-datebox-input:eq(1)"), "12-13-98");
 				waitResponse();
-				type(jq(".z-datebox-inp:eq(2)"), "12-13-98");
+				type(jq(".z-datebox-input:eq(2)"), "12-13-98");
 				waitResponse();
 				verifyTrue(jq(".z-errorbox").exists());
 		]]></client>

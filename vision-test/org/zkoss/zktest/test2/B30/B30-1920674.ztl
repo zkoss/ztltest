@@ -22,7 +22,7 @@
 		--></server>
 		<client><![CDATA[
 			verifyImage();
-			click(jq(".z-splitter-hor-btn-r"));
+			click(jq(".z-splitter-horizontal .z-splitter-button"));
 			waitResponse();
 			verifyImage();
 		]]></client>

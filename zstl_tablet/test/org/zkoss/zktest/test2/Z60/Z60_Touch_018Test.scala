@@ -28,7 +28,7 @@ class Z60_Touch_018Test extends ZTL4ScalaTestCase {
 				waitResponse();
 				
 				// Popup should appear at the bottom of the screen
-				var color_pp = jq(".z-colorbox-pp").eq(0);
+				var color_pp = jq(".z-colorbox-popup").eq(0);
 				verifyTrue(color_pp.isVisible());
 				
 				var pp_top = color_pp.css("top").replaceAll("px","").toInt;
@@ -37,7 +37,7 @@ class Z60_Touch_018Test extends ZTL4ScalaTestCase {
 				var color_palette = color_pp.find(".z-colorpalette");
 				verifyTrue(color_palette.isVisible());
 				
-				singleTap(color_pp.find(".z-colorbox-picker-btn"));
+				singleTap(color_pp.find(".z-colorbox-picker-button"));
 				waitResponse();
 				var color_picker = color_pp.find(".z-colorpicker");
 				verifyTrue(color_picker.isVisible());

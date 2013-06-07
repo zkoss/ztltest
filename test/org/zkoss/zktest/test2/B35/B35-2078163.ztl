@@ -38,9 +38,9 @@ sp.setConstraint("min -10 max 10");
 		<client><![CDATA[
 				click(jq("@button"));
 				waitResponse();
-				clickAt(jq(".z-spinner-btn"),"1,1");
+				clickAt(jq(".z-spinner-icon"),"1,1");
 				waitResponse();
-				verifyEquals(3,jq(".z-spinner-inp").val());
+				verifyEquals(3,jq(".z-spinner-input").val());
 		]]></client>
 	</case>
 </test>

@@ -68,7 +68,7 @@ class Z60_Touch_009Test extends ZTL4ScalaTestCase {
 		
 		runZTL(zscript,
 			() => {
-				var column_btns = jq(".z-column-btn");
+				var column_btns = jq(".z-column-menuicon);
 				
 				for (i <- 0 to column_btns.length()-1) {
 					var column_btn = column_btns.eq(i);

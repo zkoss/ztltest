@@ -56,7 +56,7 @@ class B50_2923185Test extends ZTL4ScalaTestCase {
 
         click(db.$n("btn"));
         var t1: String = db.$n("real").get("value").split(" ")(1);
-        var t2: String = jq(db.$n("pp")).find(".z-timebox-inp").get(0).get("value");
+        var t2: String = jq(db.$n("pp")).find(".z-timebox-input").get(0).get("value");
 
         verifyTrue("the time in datebox should equalt to the time in child timebox",
             t1.equals(t2));

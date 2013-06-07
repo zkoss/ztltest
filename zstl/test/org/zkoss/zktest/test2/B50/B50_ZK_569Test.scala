@@ -109,7 +109,7 @@ class B50_ZK_569Test extends ZTL4ScalaTestCase {
 
     		verifyEquals(jq(".z-messagebox").find(".z-label").get(0).get("innerHTML"),
     		    "Selected index: 10, label of selected item: test 7");
-    		clickAndWait(jq(".z-messagebox-btn"));
+    		clickAndWait(jq(".z-messagebox-button));
     		clickAndWait(btn2);    		
     		clickAndWait(btn1);
 

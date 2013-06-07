@@ -32,29 +32,29 @@ class B65_ZK_1324Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        click(jq(".z-bandbox-btn:eq(0)"))
+        click(jq(".z-bandbox-icon:eq(0)"))
         waitResponse()
-        verifyEquals("Click on the bandbox button to open the popup", jq(".z-bandbox-pp.z-bandbox-shadow").isVisible(), true)
+        verifyEquals("Click on the bandbox button to open the popup", jq(".z-bandbox-popup.z-bandbox-shadow").isVisible(), true)
         verifyTrue("Bandbox input field should have focus", jq(".z-bandbox").hasClass("z-bandbox-focus"))
-        verifyTrue("Bandbox input field should have focus", !jq("z-bandbox-btn").hasClass("z-bandbox-btn-over"))
+        verifyTrue("Bandbox input field should have focus", !jq("z-bandbox-icon").hasClass("z-bandbox-over"))
         
 
         click(jq(".z-button:eq(0)"))
         waitResponse()
         verifyEquals("Click on one of the buttons to give it focus, Bandbox input field should have focus", jq(".z-bandbox.z-bandbox-focus").isVisible(), true)
         verifyTrue("Bandbox input field should have focus", jq(".z-bandbox").hasClass("z-bandbox-focus"))
-        verifyTrue("Bandbox input field should have focus", !jq("z-bandbox-btn").hasClass("z-bandbox-btn-over"))
+        verifyTrue("Bandbox input field should have focus", !jq("z-bandbox-icon").hasClass("z-bandbox-over"))
 
         click(jq("ol"))
         waitResponse()
-        verifyEquals("Click outside the popup to close the bandbox", !jq(".z-bandbox-pp.z-bandbox-shadow").isVisible(), true)
-        verifyTrue("Bandbox input field should have focus", !jq("z-bandbox-btn").hasClass("z-bandbox-btn-over"))
+        verifyEquals("Click outside the popup to close the bandbox", !jq(".z-bandbox-popup.z-bandbox-shadow").isVisible(), true)
+        verifyTrue("Bandbox input field should have focus", !jq("z-bandbox-icon").hasClass("z-bandbox-btn-over"))
 
-        click(jq(".z-bandbox-btn:eq(0)"))
+        click(jq(".z-bandbox-icon:eq(0)"))
         waitResponse()
-        verifyEquals("Click on the bandbox button to open the popup again.", jq(".z-bandbox-pp.z-bandbox-shadow").isVisible(), true)
+        verifyEquals("Click on the bandbox button to open the popup again.", jq(".z-bandbox-popup.z-bandbox-shadow").isVisible(), true)
         verifyTrue("Bandbox input field should have focus", jq(".z-bandbox").hasClass("z-bandbox-focus"))
-        verifyTrue("Bandbox input field should have focus", !jq("z-bandbox-btn").hasClass("z-bandbox-btn-over"))
+        verifyTrue("Bandbox input field should have focus", !jq("z-bandbox-icon").hasClass("z-bandbox-btn-over"))
       })
 
   }

@@ -69,10 +69,10 @@ class B65_ZK_1315Test extends ZTL4ScalaTestCase {
 
         Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-column"), "mouseover", "");
         waitResponse()
-        val menupopupLink = jq(".z-column-btn:eq(1)")
+        val menupopupLink = jq(".z-column-menuicon:eq(1)")
         Scripts.triggerMouseEventAt(getWebDriver(), menupopupLink, "click", "");
         waitResponse()
-        val titleDisplay = jq(".z-menuitem-cnt:contains(Title):eq(0)")
+        val titleDisplay = jq(".z-menuitem-content:contains(Title):eq(0)")
         Scripts.triggerMouseEventAt(getWebDriver(), titleDisplay, "click", "");
         waitResponse()
 

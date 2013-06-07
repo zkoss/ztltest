@@ -19,7 +19,7 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-				clickAt(jq(".z-listcell-cnt"),"0,0");
+				clickAt(jq(".z-listcell-content"),"0,0");
 				waitResponse();
 				verifyTrue(isVisible(popup));
 				clickAt(lh.$n("cave"),"0,0");

@@ -41,15 +41,15 @@
 			-->
 		</server>
 		<client><![CDATA[
-				focus(jq(".z-combobox-inp"));
-				sendKeys(jq(".z-combobox-inp"), "a");
+				focus(jq(".z-combobox-input"));
+				sendKeys(jq(".z-combobox-input"), "a");
 				waitResponse(true);
-				verifyNotEquals("A",jq(".z-combobox-inp").val());
+				verifyNotEquals("A",jq(".z-combobox-input").val());
 				waitResponse(true);
 				verifyTrue(isVisible(jq(".z-comboitem")));
 				click(jq(".z-comboitem:eq(0)"));
 				waitResponse();
-				click(jq(".z-window-highlighted-cl @button"));
+				click(jq(".z-window-highlighted @button"));
 				waitResponse();
 				verifyEquals("abacus",jq(msg).text());
 				verifyTrue(jq(".z-combobox-focus").exists());

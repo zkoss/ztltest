@@ -79,7 +79,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				click(jq("$btn"));
 				waitResponse();
 				verifyEquals("Login button clicked",jq(".z-window-highlighted .z-label").text());
-				click(jq(".z-messagebox-btn"));
+				click(jq(".z-messagebox-button));
 				waitResponse();
 				focus(jq("$password"));
 				sendKeys(jq("$password"), Keys.ENTER);

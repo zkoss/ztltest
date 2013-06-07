@@ -45,7 +45,7 @@ Please click addRow button, than you should see a paging toolbar.
   				click(jq("@button"));
   				waitResponse();
   				//why not work?
-  				//verifyTrue(jq(".z-paging-inp").exists());
+  				//verifyTrue(jq(".z-paging-input").exists());
   				verifyTrue(isVisible(paging));
 		]]></client>
 	</case>

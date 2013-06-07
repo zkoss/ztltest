@@ -106,7 +106,7 @@ class Z60_Touch_001Test extends ZTL4ScalaTestCase {
 				var dt = jq("@datebox");
 				singleTap(dt);
 				waitResponse();
-				verifyTrue(jq(".z-datebox-btn").isVisible());
+				verifyTrue(jq(".z-datebox-icon").isVisible());
 				
 				// 2. Type any integer into intbox, you should see a red message
 				var ibx = jq("@intbox");
@@ -141,7 +141,7 @@ class Z60_Touch_001Test extends ZTL4ScalaTestCase {
 				click(jq(".z-option").eq(2));
 				waitResponse();
 				verifyEquals("item selected", jq(".z-messagebox .z-label").text());
-				singleTap(jq(".z-messagebox-btn"));
+				singleTap(jq(".z-messagebox-button));
 
 				// 6. Click on left/right arrows of tabbox, it should scroll left/right correctly
 				var right_scroll = jq(".z-tabs-right-scroll");
@@ -163,7 +163,7 @@ class Z60_Touch_001Test extends ZTL4ScalaTestCase {
 				verifyTrue(left_after > left_before);
 				
 				// 7. Click on search icon button of the bandbox, a listbox should open
-				singleTap(jq(".z-bandbox-btn"));
+				singleTap(jq(".z-bandbox-icon"));
 				waitResponse();
 				verifyTrue(jq(".z-bandpopup").isVisible());
 			}

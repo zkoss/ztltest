@@ -48,7 +48,7 @@ Column 1-1 shall become smaller while the whole height is the same.
 			waitResponse();
 			verifyImage();
 			
-			click(jq(".z-splitter-ver-btn-b"));
+			click(jq(".z-splitter-vertical .z-splitter-button"));
 			waitResponse();
 			verifyImage();
 			

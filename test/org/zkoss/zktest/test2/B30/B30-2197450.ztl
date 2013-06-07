@@ -31,10 +31,10 @@
 				click(btn);
 				waitResponse();
 				verifyEquals(3,jq("div.z-window-embedded").length());
-				verifyEquals("win1,win2,win3,",(jq("div.z-window-embedded:eq(0) div.z-window-embedded-cnt > span.z-label:eq(2)").text()));
+				verifyEquals("win1,win2,win3,",(jq("div.z-window-embedded:eq(0) div.z-window-embedded-content > span.z-label:eq(2)").text()));
 				click(btn1);
 				waitResponse();
-				verifyEquals("win1,win3,",(jq("div.z-window-embedded:eq(0) div.z-window-embedded-cnt > span.z-label:eq(5)").text()));
+				verifyEquals("win1,win3,",(jq("div.z-window-embedded:eq(0) div.z-window-embedded-content > span.z-label:eq(5)").text()));
 				verifyEquals(2,jq("div.z-window-embedded").length());			
 		]]></client>
 	</case>

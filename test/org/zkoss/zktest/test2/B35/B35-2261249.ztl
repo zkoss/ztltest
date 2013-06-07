@@ -25,7 +25,7 @@
 				Scripts.triggerMouseEventAt(getWebDriver(), c1,
 				"mouseover", "");
 				waitResponse();
-				Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-column-btn:eq(0)"),
+				Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-column-menuicon:eq(0)"),
 				"click", "");
 				waitResponse();
 				java.util.List<JQuery> items = com.google.common.collect.ImmutableList.copyOf(jq(".z-menuitem").iterator());
