@@ -33,7 +33,7 @@ class B30_1939059Test extends ZTL4ScalaTestCase {
 		runZTL(zscript, () => {
 			click(jq("@button"))
 			waitResponse
-			verifyFalse(jq(".z-errbox").exists());
+			verifyFalse(jq(".z-errorbox").exists());
 			verifyFalse(jq(".z-error").exists());
 		})
 	}

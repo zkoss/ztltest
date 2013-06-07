@@ -18,7 +18,7 @@
 			waitResponse();
 			clickAt(jq("p"), "3,4");
 			waitResponse();
-			verifyTrue(jq(".z-errbox").exists());
+			verifyTrue(jq(".z-errorbox").exists());
 		]]></client>
 	</case>
 </test>

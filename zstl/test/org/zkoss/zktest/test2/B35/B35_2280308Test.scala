@@ -72,7 +72,7 @@ uiDecimalbox.getValue();
       click(jq(".z-button"));
       waitResponse();
 
-      verifyTrue("It should be visible an error box", jq(".z-errbox").exists());
+      verifyTrue("It should be visible an error box", jq(".z-errorbox").exists());
     })
   }
 }

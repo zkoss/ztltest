@@ -35,7 +35,7 @@
 			
 			type(cb.$n("real"), "item1");
 			blur(cb.$n("real"));
-			verifyTrue(jq(".z-errbox").exists());
+			verifyTrue(jq(".z-errorbox").exists());
 			
 		]]></client>
 	</case>

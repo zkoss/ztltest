@@ -42,7 +42,7 @@ Constraint ctt = new Constraint() {
 		--></server>
 		<client><![CDATA[
 				focus(txtbox.$n());
-				JQuery error=jq(".z-errbox");
+				JQuery error=jq(".z-errorbox");
 				verifyFalse(error.exists());//error box should not exist
 				blur(txtbox);
 				waitResponse();

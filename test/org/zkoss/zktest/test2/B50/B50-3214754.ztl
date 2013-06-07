@@ -39,22 +39,22 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 				type(jq("@textbox:eq(0)"),"test");
-				verifyTrue(jq(".z-errbox").exists());
+				verifyTrue(jq(".z-errorbox").exists());
 				closeErrorBox();
 				type(jq("@textbox:eq(0)"),"123");
-				verifyFalse(jq(".z-errbox").exists());
+				verifyFalse(jq(".z-errorbox").exists());
 				type(jq("@textbox:eq(0)"),"12A3");
-				verifyTrue(jq(".z-errbox").exists());
+				verifyTrue(jq(".z-errorbox").exists());
 				closeErrorBox();
 				type(jq("@textbox:eq(0)"),"123");
 				
 				type(jq("@textbox:eq(1)"),"test");
-				verifyTrue(jq(".z-errbox").exists());
+				verifyTrue(jq(".z-errorbox").exists());
 				closeErrorBox();
 				type(jq("@textbox:eq(1)"),"123");
-				verifyFalse(jq(".z-errbox").exists());
+				verifyFalse(jq(".z-errorbox").exists());
 				type(jq("@textbox:eq(1)"),"12A3");
-				verifyTrue(jq(".z-errbox").exists());
+				verifyTrue(jq(".z-errorbox").exists());
 				closeErrorBox();
 		]]></client>
 	</case>

@@ -35,14 +35,14 @@ class Z60_B00877NPEInSaveOnlyBindingTest extends ZTL4ScalaTestCase {
 
       `type`(tb.toWidget(), "abc")
       waitResponse()
-      var errorPopup = jq(".z-errbox.z-popup")
+      var errorPopup = jq(".z-errorbox")
       verifyEquals("", msg.toWidget().get("value"))
       verifyEquals(1, errorPopup.length())
 
       `type`(tb.toWidget(), "Lin")
       waitResponse()
       verifyEquals("Lin", msg.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
     })

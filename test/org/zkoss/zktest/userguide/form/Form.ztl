@@ -197,17 +197,17 @@
 				type(jq("$view @textbox:eq(4)"), "zk");
 
 				waitResponse();
-				verifyEquals("Please enter an e-mail address", getText(jq("@errorbox div.z-errbox-center")));
+				verifyEquals("Please enter an e-mail address", getText(jq("@errorbox .z-errorbox-content")));
 				type(jq("$view @textbox:eq(4)"), "zk@zkoss.org");
 				focus(jq("$intro"));
 
 				waitResponse();
-				verifyFalse(jq("@errorbox div.z-errbox-center").exists());
+				verifyFalse(jq("@errorbox .z-errorbox-content").exists());
 				/** spinner */
-				mouseDownAt(jq(".z-spinner-btn-upper"), "1,1");
-				mouseUp(jq(".z-spinner-btn-upper"));
+				mouseDownAt(jq(".z-spinner-icon-up"), "1,1");
+				mouseUp(jq(".z-spinner-icon-up"));
 				waitResponse();
-				verifyTrue(3 < parseInt(jq("@spinner input.z-spinner-inp").val()));
+				verifyTrue(3 < parseInt(jq("@spinner input").val()));
 				if (ZK.is("ie8")) {
 					mouseDownAt(jq(".z-spinner-btn-lower"), "1,1");
 					mouseUp(jq(".z-spinner-btn-lower"));

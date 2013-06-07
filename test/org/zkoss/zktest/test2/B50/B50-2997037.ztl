@@ -48,14 +48,14 @@ longbox:<longbox id="longbx" width="300px"/>
 				blur(longbx.$n());
 				waitResponse();
 				verifyEquals("9223372036854775808",jq(".z-longbox").val());
-				verifyTrue(jq(".z-errbox").exists());
+				verifyTrue(jq(".z-errorbox").exists());
 				focus(longbx.$n());
 				sendKeys(longbx.$n(), Keys.HOME);
 				keyPress(longbx.$n(), "-");//-
 				blur(longbx.$n());
 				waitResponse();
 				verifyEquals("-9223372036854775808",jq(".z-longbox").val());
-				verifyFalse(jq(".z-errbox").exists());
+				verifyFalse(jq(".z-errorbox").exists());
 				focus(longbx.$n());
 				sendKeys(longbx.$n(), Keys.END);
 				sendKeys(longbx.$n(), Keys.BACK_SPACE);
@@ -63,7 +63,7 @@ longbox:<longbox id="longbx" width="300px"/>
 				blur(longbx.$n());
 				waitResponse();
 				verifyEquals("-9223372036854775809",jq(".z-longbox").val());
-				verifyTrue(jq(".z-errbox").exists());
+				verifyTrue(jq(".z-errorbox").exists());
 		]]></client>
 	</case>
 </test>

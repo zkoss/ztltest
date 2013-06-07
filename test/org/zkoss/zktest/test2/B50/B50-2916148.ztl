@@ -14,11 +14,11 @@ be closed.
 				focus(tb);
 				blur(tb);
 				waitResponse();
-				verifyTrue(jq(".z-errbox").exists());
+				verifyTrue(jq(".z-errorbox").exists());
 				waitResponse();
 				closeErrorBox();
 				waitResponse();
-				verifyFalse(jq(".z-errbox").exists());		
+				verifyFalse(jq(".z-errorbox").exists());		
 			]]></client>
 	</case>
 </test>

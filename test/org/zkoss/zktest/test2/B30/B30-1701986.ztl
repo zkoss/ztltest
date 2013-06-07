@@ -81,7 +81,7 @@
             waitResponse();
             click(jq("$submit"));
             waitResponse();
-            verifyTrue(jq(".z-errbox").exists());
+            verifyTrue(jq(".z-errorbox").exists());
 		]]></client>
 	</case>
 </test>

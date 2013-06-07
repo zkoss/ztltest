@@ -17,12 +17,12 @@
 			Element cave = widget(jq("@center")).$n("cave");
 			focus(tb);
 			blur(tb);
-			verifyTrue(jq(".z-errbox").exists());
-			int top = zk(jq(".z-errbox")).revisedOffset()[1];
+			verifyTrue(jq(".z-errorbox").exists());
+			int top = zk(jq(".z-errorbox")).revisedOffset()[1];
 			cave.eval("scrollTop = 20");
-			verifyEquals(top - 20, zk(jq(".z-errbox")).revisedOffset()[1]);
+			verifyEquals(top - 20, zk(jq(".z-errorbox")).revisedOffset()[1]);
 			cave.eval("scrollTop = 0");
-			verifyEquals(top, zk(jq(".z-errbox")).revisedOffset()[1]);
+			verifyEquals(top, zk(jq(".z-errorbox")).revisedOffset()[1]);
 		]]></client>
 	</case>
 </test>

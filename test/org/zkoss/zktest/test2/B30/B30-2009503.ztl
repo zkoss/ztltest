@@ -28,7 +28,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				type(jq("@datebox input"),"May/02/2008");
 				waitResponse();
-				verifyFalse(jq(".z-errbox").exists());
+				verifyFalse(jq(".z-errorbox").exists());
 				verifyFalse(jq(".z-error").exists());
 				verifyFalse(jq("@window[title=\"ZK Test\"]").exists());
 		]]></client>

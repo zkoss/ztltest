@@ -43,7 +43,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				waitResponse();
 				click(jq("@button"));
 				waitResponse();
-				verifyFalse(jq(".z-errbox").exists());
+				verifyFalse(jq(".z-errorbox").exists());
 		]]></client>
 	</case>
 </test>

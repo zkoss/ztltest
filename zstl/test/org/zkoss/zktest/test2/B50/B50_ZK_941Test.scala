@@ -53,13 +53,13 @@ class B50_ZK_941Test extends ZTL4ScalaTestCase {
         waitResponse()
         blur(dec1)
         waitResponse()
-        verifyTrue("the error message will be shown at its right side", jq(".z-errbox").exists())
+        verifyTrue("the error message will be shown at its right side", jq(".z-errorbox").exists())
 
         sendKeys(dec1, Keys.END + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "0")
         waitResponse()
         blur(dec1)
         waitResponse()
-        verifyTrue("should clear the error message", !jq(".z-errbox").exists())
+        verifyTrue("should clear the error message", !jq(".z-errorbox").exists())
 
       })
 

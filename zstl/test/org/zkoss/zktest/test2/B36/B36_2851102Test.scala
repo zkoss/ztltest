@@ -81,14 +81,14 @@ constraint popup. Then click X on popup - window should not close.</label>
         waitResponse();
         
         //Click close
-        var close=jq(".z-errbox-right");
+        var close=jq(".z-errorbox-close");
         var w=close.width();
         var i=w+5;
         clickAt(close, ""+i+",3");
         waitResponse();
         
         //Popup is closed
-        verifyFalse(jq(".z-errbox").isVisible());
+        verifyFalse(jq(".z-errorbox").isVisible());
         
         //Window not closed
         verifyTrue(jq("$win1").isVisible());

@@ -18,11 +18,11 @@
 		<client><![CDATA[
 			type(myIntbox, "100");
             waitResponse();
-            verifyFalse(jq(".z-errbox").exists());
+            verifyFalse(jq(".z-errorbox").exists());
             
 			type(myIntbox, "-100");
 			waitResponse();
-            verifyTrue(jq(".z-errbox").exists());
+            verifyTrue(jq(".z-errorbox").exists());
 		]]></client>
 	</case>
 </test>

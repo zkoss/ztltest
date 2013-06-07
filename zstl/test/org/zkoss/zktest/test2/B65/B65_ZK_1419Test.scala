@@ -22,9 +22,9 @@ def testClick() = {
       sendKeys(jq("@textbox"), "123123123")
       blur(jq("@textbox"))
       
-      mouseOver(jq(".z-errbox"))
+      mouseOver(jq(".z-errorbox"))
       waitResponse()
-      verifyEquals("the tooltip text should be 'Click to re-enter data'.", jq(".z-errbox-left").attr("title"), "Click to re-enter data")
+      verifyEquals("the tooltip text should be 'Click to re-enter data'.", jq(".z-errorbox-content").attr("title"), "Click to re-enter data")
     })
     
   }

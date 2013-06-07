@@ -70,7 +70,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         waitResponse();
         
         //Check error visible 
-        var error = jq(".z-errbox");
+        var error = jq(".z-errorbox");
         var eb=error.exists();
         var ev=error.isVisible();
         verifyTrue(eb);

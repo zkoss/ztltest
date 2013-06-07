@@ -92,7 +92,7 @@ class B50_3314513Test extends ZTL4ScalaTestCase {
 
         waitResponse();
         verifyTrue("all four datebox should show error",
-            jq(".z-errbox").length() == 4);
+            jq(".z-errorbox").length() == 4);
     }
    );
 

@@ -20,7 +20,7 @@
 				click(jq(db2.$n("pp")).find("@calendar td:eq(12)"));
 				waitResponse();
 				blur(db2.$n("real"));
-				verifyFalse(jq("div.z-errbox").exists());
+				verifyFalse(jq("div.z-errorbox").exists());
 		]]></client>
 	</case>
 </test>

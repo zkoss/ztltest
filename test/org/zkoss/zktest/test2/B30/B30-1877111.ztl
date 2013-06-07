@@ -28,14 +28,14 @@
 		<client><![CDATA[
 			type(jq(".z-datebox-inp:eq(0)"), "12-13-98");
 				waitResponse();
-				verifyTrue(jq(".z-errbox").exists());
+				verifyTrue(jq(".z-errorbox").exists());
 				closeErrorBox();
 				waitResponse();
 				type(jq(".z-datebox-inp:eq(1)"), "12-13-98");
 				waitResponse();
 				type(jq(".z-datebox-inp:eq(2)"), "12-13-98");
 				waitResponse();
-				verifyTrue(jq(".z-errbox").exists());
+				verifyTrue(jq(".z-errorbox").exists());
 		]]></client>
 	</case>
 </test>

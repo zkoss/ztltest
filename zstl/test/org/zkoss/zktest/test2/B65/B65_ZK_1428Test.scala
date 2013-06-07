@@ -75,7 +75,7 @@ class B65_ZK_1428Test extends ZTL4ScalaTestCase {
         waitResponse()
         click(jq("@button:eq(2)"))
         waitResponse()
-        verifyTrue("should not see any error message.", !jq(".z-errbox").exists())
+        verifyTrue("should not see any error message.", !jq(".z-errorbox").exists())
       })
 
   }

@@ -74,11 +74,11 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
 
     // Click once on 'X' should close the error box
     def closeErrbox() {
-      var errbox = jq(".z-errbox-close")
+      var errbox = jq(".z-errorbox-close")
       var close_x = errbox.positionLeft() + errbox.width() - 5
       var close_y = errbox.positionTop() + 5
 
-      Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-errbox-close"), "click", close_x + "," + close_y);
+      Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-errorbox-close"), "click", close_x + "," + close_y);
 
     }
   }

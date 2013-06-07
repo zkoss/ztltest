@@ -38,7 +38,7 @@ class B65_ZK_1437Test extends ZTL4ScalaTestCase {
         val current = fmt.parse(header.text())
 
         verifyTrue("window3's title was changed to current time", current.after(past))
-        verifyTrue("should not see any error message.", !jq(".z-errbox").exists())
+        verifyTrue("should not see any error message.", !jq(".z-errorbox").exists())
       })
 
   }

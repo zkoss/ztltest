@@ -26,13 +26,13 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 			click(jq("@button"));
-			verifyFalse(jq(".z-errbox").exists());
+			verifyFalse(jq(".z-errorbox").exists());
 			
 			Element $db = db.$n("real");
 			focus($db);
 			type($db,"asd");
 			blur($db);
-			verifyTrue(jq(".z-errbox").exists());
+			verifyTrue(jq(".z-errorbox").exists());
 	
 		]]></client>
 	</case>

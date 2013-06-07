@@ -37,7 +37,7 @@
 			</window>
 		--></server>
 		<client>
-			JQuery $jq = jq(".z-errbox-center");
+			JQuery $jq = jq(".z-errorbox-content");
 			type(box, "test");
 			verifyFalse($jq.exists());
 			click(btn1);

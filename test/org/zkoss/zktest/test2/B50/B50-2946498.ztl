@@ -28,11 +28,11 @@
 		<client>	<![CDATA[
 				click(x);
 				waitResponse();
-				verifyEquals(3,jq(".z-errbox").length());
+				verifyEquals(3,jq(".z-errorbox").length());
 				click(jq(".z-window-highlighted-close"));
 				waitResponse();
-				verifyEquals(0,jq(".z-errbox").length());
-				verifyFalse(jq(".z-errbox").exists());
+				verifyEquals(0,jq(".z-errorbox").length());
+				verifyFalse(jq(".z-errorbox").exists());
 			]]></client>
 	</case>
 </test>

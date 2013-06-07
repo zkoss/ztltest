@@ -24,7 +24,7 @@ class B50_ZK_842Test extends ZTL4ScalaTestCase {
         waitResponse()
         blur(intbox)
         waitResponse()
-        verifyTrue("should see an error message.", jq(".z-errbox").exists())
+        verifyTrue("should see an error message.", jq(".z-errorbox").exists())
       })
 
   }

@@ -43,7 +43,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("A", l.toWidget().get("value"))
-      var errorPopup = jq(".z-errbox.z-popup")
+      var errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       `type`(inp.toWidget().$n("real"), "")
@@ -51,7 +51,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("A", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(1, errorPopup.length())
 
       `type`(inp.toWidget().$n("real"), "B")
@@ -59,7 +59,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("B", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       //combobox
@@ -72,7 +72,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("C", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       `type`(inp.toWidget().$n("real"), "")
@@ -80,7 +80,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("C", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(1, errorPopup.length())
 
       `type`(inp.toWidget().$n("real"), "D")
@@ -88,7 +88,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("D", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       //textbox
@@ -101,7 +101,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("E", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       `type`(inp.toWidget(), "")
@@ -109,7 +109,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("E", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(1, errorPopup.length())
 
       `type`(inp.toWidget(), "F")
@@ -117,7 +117,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("F", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       //decimalbox
@@ -130,7 +130,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("1.0", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       `type`(inp.toWidget(), "-1")
@@ -138,7 +138,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("1.0", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(1, errorPopup.length())
 
       `type`(inp.toWidget(), "2")
@@ -146,7 +146,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("2.0", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       //doublebox
@@ -159,7 +159,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("3.0", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       `type`(inp.toWidget(), "-3")
@@ -167,7 +167,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("3.0", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(1, errorPopup.length())
 
       `type`(inp.toWidget(), "4")
@@ -175,7 +175,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("4.0", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       //doublespinner
@@ -188,7 +188,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("5.0", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       `type`(inp.toWidget().$n("real"), "-5")
@@ -196,7 +196,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("5.0", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(1, errorPopup.length())
 
       `type`(inp.toWidget().$n("real"), "6")
@@ -204,7 +204,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("6.0", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       //intbox
@@ -217,7 +217,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("7", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       `type`(inp.toWidget(), "-7")
@@ -225,7 +225,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("7", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(1, errorPopup.length())
 
       `type`(inp.toWidget(), "8")
@@ -233,7 +233,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("8", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       //longbox
@@ -246,7 +246,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("9", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       `type`(inp.toWidget(), "-9")
@@ -254,7 +254,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("9", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(1, errorPopup.length())
 
       `type`(inp.toWidget(), "10")
@@ -262,7 +262,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("10", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       //spinner
@@ -275,7 +275,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("11", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       `type`(inp.toWidget().$n("real"), "-11")
@@ -283,7 +283,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("11", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(1, errorPopup.length())
 
       `type`(inp.toWidget().$n("real"), "12")
@@ -291,7 +291,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("12", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       //datebox
@@ -304,7 +304,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("20120223", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       `type`(inp.toWidget().$n("real"), "20110101")
@@ -312,7 +312,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("20120223", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(1, errorPopup.length())
 
       `type`(inp.toWidget().$n("real"), "20120320")
@@ -320,7 +320,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("20120320", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       //timebox
@@ -337,7 +337,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("13:00", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
       inp.toWidget().$n("real").eval("focus()")
@@ -350,7 +350,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("13:00", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(1, errorPopup.length())
 
       inp.toWidget().$n("real").eval("focus()")
@@ -363,7 +363,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       click(focus.toWidget())
       waitResponse()
       verifyEquals("14:02", l.toWidget().get("value"))
-      errorPopup = jq(".z-errbox.z-popup")
+      errorPopup = jq(".z-errorbox")
       verifyEquals(0, errorPopup.length())
 
     })

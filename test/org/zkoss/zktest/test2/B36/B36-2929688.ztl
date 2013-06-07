@@ -46,7 +46,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				click(jq("@button"));
 				waitResponse();
-				verifyTrue(jq(".z-errbox").exists());
+				verifyTrue(jq(".z-errorbox").exists());
 		]]></client>
 	</case>
 </test>

@@ -90,7 +90,7 @@ class F55_ZK_446Test extends ZTL4ScalaTestCase {
 	        verifyTrue("event should be fired if no error",
 	            ib.$n().get("value").equals(fired));
             verifyTrue("should "+(if (shouldError) "" else "not ")+"has error box",
-	              jq(".z-errbox").exists() == shouldError);
+	              jq(".z-errorbox").exists() == shouldError);
         }
         inputAndCheck("ab", "1", false);
         inputAndCheck("cde", "2", false);

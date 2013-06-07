@@ -62,7 +62,7 @@ class B60_ZK_919Test extends ZTL4ScalaTestCase {
           waitResponse()
         }
 
-        verifyTrue("should not see any error message.", !jq(".z-errbox").exists())
+        verifyTrue("should not see any error message.", !jq(".z-errorbox").exists())
       })
 
   }

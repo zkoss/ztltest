@@ -283,7 +283,7 @@ class B65_ZK_1632Test extends ZTL4ScalaTestCase {
         waitResponse()
         jq(".z-center-body").toElement().set("scrollTop", 3000)
         jq(".z-center-body").toElement().set("scrollTop", 0)
-        verifyTrue("errorbox should disappear. ", jq(".z-errbox:contains(Textbox 1)").css("display") == "none")
+        verifyTrue("errorbox should disappear. ", jq(".z-errorbox:contains(Textbox 1)").css("display") == "none")
       })
 
   }

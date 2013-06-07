@@ -29,7 +29,7 @@
 		<client><![CDATA[
 			click(jq("@button"));
 			waitResponse();
-			int offsetLeft = jq("div.z-errbox").offsetLeft();
+			int offsetLeft = jq(".z-errorbox").offsetLeft();
 			if (((ZKSelenium)browser).getBrowserName().startsWith("safari")) {
 			select(myDropdownList, "zk");
 			} else {
@@ -42,7 +42,7 @@
 			keyDown(myDropdownList, DOWN);
 			keyDown(myDropdownList, DOWN);
 			altKeyUp();
-			verifyEquals(offsetLeft, jq("div.z-errbox").offsetLeft());
+			verifyEquals(offsetLeft, jq(".z-errorbox").offsetLeft());
 		]]></client>
 	</case>
 </test>

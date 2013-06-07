@@ -61,7 +61,7 @@ class B50_2890515Test extends ZTL4ScalaTestCase {
         waitResponse();
 
         verifyFalse("should not show error with date before (and include) 2009/11/02",
-            jq(".z-errbox").exists());
+            jq(".z-errorbox").exists());
 
         click(dtbx.$n("real"));
         dtbx.$n("real").eval("value='20091103'");
@@ -69,7 +69,7 @@ class B50_2890515Test extends ZTL4ScalaTestCase {
         waitResponse();
 
         verifyTrue("should show error with date after 2009/11/02",
-            jq(".z-errbox").exists());
+            jq(".z-errorbox").exists());
     }
    );
 

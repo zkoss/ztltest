@@ -28,7 +28,7 @@ class B65_ZK_1218Test extends ZTL4ScalaTestCase {
 
         blur(doublebox)
         waitResponse()
-        verifyTrue(jq(".z-errbox:eq(0)").exists())
+        verifyTrue(jq(".z-errorbox:eq(0)").exists())
         
 
         focus(doublespinner)
@@ -38,7 +38,7 @@ class B65_ZK_1218Test extends ZTL4ScalaTestCase {
 
         blur(doublespinner)
         waitResponse
-        verifyTrue(jq(".z-errbox:eq(1)").exists())
+        verifyTrue(jq(".z-errorbox:eq(1)").exists())
       })
 
   }

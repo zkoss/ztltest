@@ -27,7 +27,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 				type(jq("@longbox"),"1-2");
-				verifyTrue(jq(".z-errbox").exists());
+				verifyTrue(jq(".z-errorbox").exists());
 		]]></client>
 	</case>
 </test>

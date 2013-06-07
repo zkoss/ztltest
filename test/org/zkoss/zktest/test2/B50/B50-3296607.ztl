@@ -62,7 +62,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				click(jq("@button"));
 				waitResponse();
-				verifyEquals(2,jq(".z-errbox").length());
+				verifyEquals(2,jq(".z-errorbox").length());
 				for(int i=0;i<6;i++)
 				verifyEquals("O",jq("@row:eq("+i+") td.z-row-inner:eq(0)").text());
 		]]></client>

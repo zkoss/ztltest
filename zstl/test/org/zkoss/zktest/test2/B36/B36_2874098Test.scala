@@ -103,7 +103,7 @@ class B36_2874098Test extends ZTL4ScalaTestCase {
         waitResponse();
                 
         //Get errorbox exists
-        var error=jq(".z-errbox");
+        var error=jq(".z-errorbox");
         verifyTrue(error.exists());
         verifyTrue(error.isVisible());
 

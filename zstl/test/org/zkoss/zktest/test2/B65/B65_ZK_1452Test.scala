@@ -71,7 +71,7 @@ class B65_ZK_1452Test extends ZTL4ScalaTestCase {
         	waitResponse()
         }
         
-        verifyTrue("Should not see js error message", !jq(".z-errbox").exists())
+        verifyTrue("Should not see js error message", !jq(".z-errorbox").exists())
       })
 
   }

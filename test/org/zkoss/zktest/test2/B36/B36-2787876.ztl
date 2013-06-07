@@ -9,7 +9,7 @@
 		<client><![CDATA[
 			type(txt_test,"-");
 			blur(txt_test);
-			verifyTrue(jq("div.z-errbox").exists());
+			verifyTrue(jq(".z-errorbox").exists());
 		]]></client>
 	</case>
 </test>

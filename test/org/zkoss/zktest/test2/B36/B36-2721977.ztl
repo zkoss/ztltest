@@ -32,13 +32,13 @@
 			Element b = isIE() ? btn.$n("btn") : btn.$n();
 			Scripts.triggerMouseEventAt(getWebDriver(), b, "click", "1,1");
 			waitResponse();
-			verifyEquals(2, jq("div.z-errbox").length());
+			verifyEquals(2, jq("div.z-errorbox").length());
 			Scripts.triggerMouseEventAt(getWebDriver(), b, "click", "1,1");
 			waitResponse();
-			verifyEquals(2, jq("div.z-errbox").length());
+			verifyEquals(2, jq("div.z-errorbox").length());
 			Scripts.triggerMouseEventAt(getWebDriver(), b, "click", "1,1");
 			waitResponse();
-			verifyEquals(2, jq("div.z-errbox").length());
+			verifyEquals(2, jq("div.z-errorbox").length());
 		]]></client>
 	</case>
 </test>

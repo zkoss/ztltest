@@ -25,7 +25,7 @@
 			
    				click(jq("$button"));
   				waitResponse();
-  				verifyTrue(jq(".z-errbox").length() == 1);
+  				verifyTrue(jq(".z-errorbox").length() == 1);
 			
 			]]></client>
 	</case>

@@ -58,9 +58,9 @@ class B50_ZK_909Test extends ZTL4ScalaTestCase {
         val savebtn = jq(".z-button:contains(save)")
         click(savebtn)
         waitResponse()
-        verifyTrue("should see errorbox message", jq(".z-errbox").exists())
+        verifyTrue("should see errorbox message", jq(".z-errorbox").exists())
 
-        var errbox0 = jq(".z-errbox-close:eq(0)")
+        var errbox0 = jq(".z-errorbox-close:eq(0)")
         var close_x0 = errbox0.positionLeft() + errbox0.width() - 5
         var close_y0 = errbox0.positionTop() + 5
 
@@ -69,7 +69,7 @@ class B50_ZK_909Test extends ZTL4ScalaTestCase {
 
         Scripts.triggerMouseEventAt(getWebDriver(), errbox0, "click", close_x0 + "," + close_y0)
         waitResponse()
-        verifyTrue("should not see errorbox message", !jq(".z-errbox").exists())
+        verifyTrue("should not see errorbox message", !jq(".z-errorbox").exists())
         
         
         val textbox = jq(".z-textbox:eq(0)")

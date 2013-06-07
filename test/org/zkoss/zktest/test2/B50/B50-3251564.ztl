@@ -40,9 +40,9 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				int x = getElementPositionLeft(jq("@textbox")).intValue();
 				type(jq("@textbox"),"");
-				verifyTrue(jq(".z-errbox").exists());
-				int y = getElementPositionLeft(jq("div.z-errbox")).intValue();
-				int y1 = getElementWidth(jq("div.z-errbox")).intValue();
+				verifyTrue(jq(".z-errorbox").exists());
+				int y = getElementPositionLeft(jq(".z-errorbox")).intValue();
+				int y1 = getElementWidth(jq(".z-errorbox")).intValue();
 				verifyTrue(x>y);
 				verifyTolerant(x-y1,y,1);
 		]]></client>

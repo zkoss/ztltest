@@ -20,7 +20,7 @@
 		<client><![CDATA[
 			click(jq(".z-button"));
 			waitResponse();
-			verifyTrue(jq(".z-errbox").exists());
+			verifyTrue(jq(".z-errorbox").exists());
 		]]></client>
 	</case>
 </test>

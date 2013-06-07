@@ -141,7 +141,7 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
             
             //No error message
             verifyFalse(jq(".z-msgbox-error").exists());
-            verifyFalse(jq(".z-errbox").exists());
+            verifyFalse(jq(".z-errorbox").exists());
 			verifyFalse(jq(".z-error").exists());
             
             

@@ -21,7 +21,7 @@
    				verifyFalse(jq(".z-error").exists());
    				//type will blur the widget so dont need to press tab
 				type(intbox,"-1");
-				verifyTrue(jq(".z-errbox").exists());
+				verifyTrue(jq(".z-errorbox").exists());
 			]]></client>
 	</case>
 </test>

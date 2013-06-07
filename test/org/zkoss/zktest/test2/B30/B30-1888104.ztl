@@ -24,7 +24,7 @@
 			focus(myIntbox);
 			waitResponse();
 			type(myIntbox, "5");
-			JQuery errbox = jq(".z-errbox");
+			JQuery errbox = jq(".z-errorbox");
             verifyTrue(errbox.exists());
             
             int errboxZIdx = Integer.parseInt(errbox.css("z-index"));

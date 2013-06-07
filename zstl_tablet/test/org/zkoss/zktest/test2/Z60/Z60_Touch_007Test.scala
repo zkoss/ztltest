@@ -26,11 +26,11 @@ class Z60_Touch_007Test extends ZTL4ScalaTestCase {
 				waitResponse();
 
 				// Since the non-zero constraint is not met, an error box should show.
-				var errbox = jq(".z-errbox");
+				var errbox = jq(".z-errorbox");
 				verifyTrue(errbox.isVisible());
 				
 				// Click once on 'X' should close the error box
-				var errbox_close  = findElement(By.className("z-errbox-close"));
+				var errbox_close  = findElement(By.className("z-errorbox-close"));
 				var close_topleft = 
 					errbox_close.asInstanceOf[Locatable].getCoordinates().getLocationOnScreen();
 				var close_width   = errbox_close.getSize().getWidth();

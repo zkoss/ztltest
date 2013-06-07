@@ -21,7 +21,7 @@
 		</server>
 		<client><![CDATA[
 				verifyFalse(jq(".z-popup").exists());
-				verifyFalse(jq(".z-errbox").exists());
+				verifyFalse(jq(".z-errorbox").exists());
 				if (ZK.is("ie < 9")) {
 				mouseOver(jq(".z-button"));
 				Scripts.triggerMouseEventAt(getWebDriver(), btn, "mousedown", "3,3");
@@ -32,11 +32,11 @@
 				waitResponse();
 				sleep(1000);
 				verifyTrue(isVisible(jq(".z-popup")));
-				verifyTrue(isVisible(jq(".z-errbox")));
+				verifyTrue(isVisible(jq(".z-errorbox")));
 				click(t2);
 				waitResponse();
 				verifyFalse(isVisible(jq(".z-popup")));
-				verifyFalse(isVisible(jq(".z-errbox")));
+				verifyFalse(isVisible(jq(".z-errorbox")));
 			]]></client>
 	</case>
 </test>

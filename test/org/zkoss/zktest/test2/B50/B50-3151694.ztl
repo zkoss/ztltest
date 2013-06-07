@@ -33,7 +33,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				type(decimalbox,"25-");
 				waitResponse();
-				verifyTrue(jq(".z-errbox-center").exists());
+				verifyTrue(jq(".z-errorbox-content").exists());
 				click(jq("@button"));
 				waitResponse();
 				verifyNotContains(getAlertMessage(), "NumberFormatException");

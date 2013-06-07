@@ -51,7 +51,7 @@ class Z60_B00878WrongValueException1Test extends ZTL4ScalaTestCase {
 		verifyEquals("", msgName.toWidget().get("value"))
 		verifyEquals("0", msgAge.toWidget().get("value"))
 		verifyEquals("0", msgScore.toWidget().get("value"))
-		var errorPopup = jq(".z-errbox.z-popup")
+		var errorPopup = jq(".z-errorbox")
 		verifyEquals(3, errorPopup.length())
 		`type`(inpName.toWidget(), "Lin")
 		waitResponse()
