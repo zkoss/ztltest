@@ -55,7 +55,7 @@ class Z35_button_001Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
         () => {
         def clickAlert ={
-          click(jq(".z-messagebox-button));
+          click(jq(".z-messagebox-button"));
         };
           
         click(jq("@button").eq(0));
