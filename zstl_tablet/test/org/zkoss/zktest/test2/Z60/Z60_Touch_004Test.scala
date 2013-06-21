@@ -24,7 +24,7 @@ class Z60_Touch_004Test extends ZTL4ScalaTestCase {
 				var pageHeight = jq(".z-page").innerHeight();
 				
 				// Click on calendar button
-				singleTap(jq(".z-datebox-icon"));
+				singleTap(jq(".z-datebox-button"));
 				waitResponse(true);
 				
 				// calendar wheel should be visible

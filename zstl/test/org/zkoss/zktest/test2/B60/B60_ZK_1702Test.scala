@@ -20,7 +20,7 @@ class B60_ZK_1702Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        click(jq(".z-combobox-icon"))
+        click(jq(".z-combobox-button"))
         waitResponse()
         click(jq(".z-comboitem:contains(1)"))
         waitResponse()

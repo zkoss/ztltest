@@ -31,7 +31,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-			click(jq("@datebox .z-datebox-icon"));
+			click(jq("@datebox .z-datebox-button"));
 				waitResponse();
 				String x = jq(".z-datebox-popup .z-timebox input").val();
 				focus(jq(".z-datebox-popup .z-timebox input"));

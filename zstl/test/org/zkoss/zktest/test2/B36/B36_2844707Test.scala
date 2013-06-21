@@ -59,7 +59,7 @@ Please select a date, and then select another month, and then it should be chang
         waitResponse();
 
         //Click date button
-        var btn = jq(".z-datebox-icon");
+        var btn = jq(".z-datebox-button");
         click(btn);
         waitResponse();
 
@@ -73,7 +73,7 @@ Please select a date, and then select another month, and then it should be chang
         var w1=getValue(db);
                 
         //Next month (open calendar)
-        var btn1 = jq(".z-datebox-icon");
+        var btn1 = jq(".z-datebox-button");
         click(btn1);
         waitResponse();
         var next = jq(".z-calendar-right");

@@ -29,7 +29,7 @@ class B60_ZK_945Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        click(jq(".z-combobox-icon"))
+        click(jq(".z-combobox-button"))
         waitResponse()
 
         val spacer0Right = jq(".z-comboitem-spacer:eq(0)").css("margin-right")

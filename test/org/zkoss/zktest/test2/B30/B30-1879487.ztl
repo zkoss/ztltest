@@ -31,7 +31,7 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			click(jq(".z-combobox-icon"));
+			click(jq(".z-combobox-button"));
 			waitResponse();
 			clickAt(jq("p"), "3,3");
 			waitResponse();

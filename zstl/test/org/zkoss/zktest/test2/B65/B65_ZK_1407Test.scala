@@ -37,7 +37,7 @@ class B65_ZK_1407Test extends ZTL4ScalaTestCase {
         verifyTrue("Combobox's initial background color is yellow", isYellow)
 
         // 2. Click button to open dorp-down list, and Combobox's background color will transform to green.
-        click(jq(".z-combobox-icon"))
+        click(jq(".z-combobox-button"))
         waitResponse()
         val afterClickColor = inp.css("background-color")
         val isGreen = afterClickColor == "green" || afterClickColor == "rgb(0, 128, 0)"

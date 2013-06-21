@@ -60,7 +60,7 @@ public class Order {
 		<client><![CDATA[
 			
 			Element comboInput = jq("@combobox .z-combobox-input").get(0);
-			click(jq("@combobox .z-combobox-icon"));
+			click(jq("@combobox .z-combobox-button"));
 			waitResponse();
 			click(jq(".z-comboitem").get(4));
 			waitResponse();

@@ -24,7 +24,7 @@ cb.appendChild (ci);
 		<client>	<![CDATA[
    				//Strange. throw exception in next statement. Then, how can we test if exist?
   				//verifyFalse(jq(".z-combobox-popup").exists());
-  				click(jq("$cb .z-combobox-icon"));				
+  				click(jq("$cb .z-combobox-button"));				
   				waitResponse();
   				verifyTrue(jq(".z-combobox-popup").exists());
 		            				

@@ -19,7 +19,7 @@
 			-->
 		</server>
 		<client>	<![CDATA[
-		             				click(jq("@combobox .z-combobox-icon"));
+		             				click(jq("@combobox .z-combobox-button"));
 		            				waitResponse();
 		            				click(jq("@comboitem[label=\"Cool!\"] td.z-comboitem-text"));
 		            				waitResponse();

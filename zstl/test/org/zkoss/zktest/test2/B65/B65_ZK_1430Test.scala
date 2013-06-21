@@ -61,7 +61,7 @@ IE6 / IE7 only.
 </zk>"""
     runZTL(zscript,
       () => {
-        click(jq(".z-bandbox-icon"))
+        click(jq(".z-bandbox-button"))
         waitResponse()
         val height = if (ZK.is("ff") || ZK.is("opera") || ZK.is("safari") || ZK.is("chrome")) {
           jq(".z-listbox-body").height()

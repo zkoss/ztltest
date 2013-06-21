@@ -41,12 +41,12 @@ class Thm_Calendar_Test extends ZTL4ScalaTestCase {
 				verifyImage();
 				
 				// Show 1st datebox's popup
-				singleTap(jq(".z-datebox-icon:eq(0)"));
+				singleTap(jq(".z-datebox-button:eq(0)"));
 				sleep(500);
 				verifyImage();
 				
 				// Show 2nd datebox's popup
-				singleTap(jq(".z-datebox-icon:eq(1)"));
+				singleTap(jq(".z-datebox-button:eq(1)"));
 				sleep(500);
 				verifyImage();
 			});

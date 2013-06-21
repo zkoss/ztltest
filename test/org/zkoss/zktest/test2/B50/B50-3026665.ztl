@@ -12,7 +12,7 @@
 </zk>
 		]]></server>
 		<client><![CDATA[
-		click(jq("@bandbox .z-bandbox-icon"));
+		click(jq("@bandbox .z-bandbox-button"));
 		focus(jq("@bandbox .z-bandbox-input"));
 		focus(jq(".z-bandpopup @intbox"));
 		focus(jq("@page @intbox:eq(1)"));

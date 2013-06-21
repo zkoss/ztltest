@@ -21,7 +21,7 @@ class Z60_Touch_014Test extends ZTL4ScalaTestCase {
 		
 		runZTL(zscript,
 			() => {
-				var btns       = jq(".z-datebox-icon");
+				var btns       = jq(".z-datebox-button");
 				var datebox    : JQuery = null;
 				var date_wheel : JQuery = null;
 				var time_wheel : JQuery = null;

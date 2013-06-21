@@ -12,7 +12,7 @@
 		--></server>
 		<client><![CDATA[
 			type(jq(".z-combobox-input"), "zk");
-			click(jq(".z-combobox-icon"));
+			click(jq(".z-combobox-button"));
 			waitResponse();
 			click(jq(".z-combobox-popup"));
 			waitResponse();

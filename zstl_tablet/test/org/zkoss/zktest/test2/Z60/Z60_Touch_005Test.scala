@@ -48,7 +48,7 @@ class Z60_Touch_005Test extends ZTL4ScalaTestCase {
 				var pageHeight = jq(".z-page").innerHeight();
 				
 				// 1. Click on combobox button
-				singleTap(jq(".z-combobox-icon"));
+				singleTap(jq(".z-combobox-button"));
 				waitResponse(true);
 				
 				// a popup should appear at the bottom of the screen
@@ -58,7 +58,7 @@ class Z60_Touch_005Test extends ZTL4ScalaTestCase {
 				verifyTrue(pageHeight - (combobox_pp.positionTop() + combobox_pp.height()) < 10);
 								
 				// Click on bandbox button
-				singleTap(jq(".z-bandbox-icon"));
+				singleTap(jq(".z-bandbox-button"));
 				waitResponse(true);
 				
 				// a dropdown should be visible

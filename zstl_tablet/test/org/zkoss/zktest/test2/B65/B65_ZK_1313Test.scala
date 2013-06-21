@@ -74,7 +74,7 @@ def testClick() = {
       singleTap(jq(".z-button:contains(Open)"))
       waitResponse()
       sleep(500)
-      singleTap(jq(".z-combobox-icon"))
+      singleTap(jq(".z-combobox-button"))
       waitResponse()
       singleTap(jq(".z-comboitem:eq(0)"))
       waitResponse()

@@ -43,7 +43,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				click(jq("@bandbox .z-bandbox-icon));waitResponse();
+				click(jq("@bandbox .z-bandbox-button));waitResponse();
 				type(jq(".z-paging input.z-paging-input"),"2");waitResponse();
 				verifyEquals(jq(msg).text(),"no fire");
 		]]></client>

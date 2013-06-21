@@ -15,7 +15,7 @@ class B65_ZK_1540Test extends ZTL4ScalaTestCase {
 	<style>
 		.z-datebox { box-shadow: 0 0 6px #00a5e1; margin: 3px; }
 		.z-datebox-input { border-color: #00a5e1; }
-		.z-datebox .z-datebox-icon { border-color: #00a5e1;}
+		.z-datebox .z-datebox-button { border-color: #00a5e1;}
 	</style>
 	<datebox width="200px" />
 </zk>

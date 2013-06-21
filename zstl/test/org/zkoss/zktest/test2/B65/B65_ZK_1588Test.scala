@@ -74,7 +74,7 @@ class B65_ZK_1588Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        click(jq(".z-bandbox-icon"))
+        click(jq(".z-bandbox-button"))
         waitResponse()
 
         val pp = jq(".z-bandbox-popup")

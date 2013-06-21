@@ -107,7 +107,7 @@ The second tabpanel
 			-->
 		</server>
 		<client><![CDATA[
-				click(jq(".z-bandbox-icon"));
+				click(jq(".z-bandbox-button"));
 				waitResponse();
 				verifyEquals(6,jq(".z-treerow").length());
 				click(jq(".z-tree-tee-close"));

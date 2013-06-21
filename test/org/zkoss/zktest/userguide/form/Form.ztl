@@ -170,7 +170,7 @@
 				waitResponse();
 				verifyEquals("12.34", getValue(jq("@decimalbox")));
 				/** datebox (it may fail on different browser language)*/
-				click(jq("$db i.z-datebox-icon"));
+				click(jq("$db i.z-datebox-button"));
 				click(jq("@calendar td:eq(23)"));
 				type(jq("$db input"), "Jun 10, 2010");
 				waitResponse();
@@ -212,8 +212,8 @@
 					mouseDownAt(jq(".z-spinner-up"), "1,1");
 					mouseUp(jq(".z-spinner-down"));
 				} else {
-					mouseDownAt(jq("@spinner .z-spinner-icon"), "3,20");
-					mouseUp(jq("@spinner .z-spinner-icon"));
+					mouseDownAt(jq("@spinner .z-spinner-button"), "3,20");
+					mouseUp(jq("@spinner .z-spinner-button"));
 				}
 				waitResponse();
 				verifyTrue(4 >= parseInt(jq("@spinner input.z-spinner-input").val()));
@@ -222,7 +222,7 @@
 				click(jq("@colorbox i.z-colorbox-currcolor"));
 				click(jq("div.z-colorpalette-colorbox:eq(56)"));
 				click(jq("@colorbox i.z-colorbox-currcolor"));
-				click(jq(".z-colorbox-picker-icon"));
+				click(jq(".z-colorbox-pickericon"));
 
 				waitResponse();
 				verifyEquals("153", getValue(jq(".z-colorpicker-r input")));

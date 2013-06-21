@@ -19,7 +19,7 @@ class B65_ZK_1527Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        click(jq(".z-datebox-icon"))
+        click(jq(".z-datebox-button"))
         waitResponse()
 
         val before = jq(".z-timebox-input").`val`();

@@ -74,7 +74,7 @@ class B30_1943594Test extends ZTL4ScalaTestCase {
 		runZTL(zscript, () => {
 			
 			// test combobox
-			click(jq(".z-combobox-icon"))
+			click(jq(".z-combobox-button"))
 			waitResponse
 			click(jq("@comboitem:eq(0)"))
 			click(jq("$a"))
@@ -85,7 +85,7 @@ class B30_1943594Test extends ZTL4ScalaTestCase {
 			verifyFalse(jq(".z-messagebox").exists())
 			
 			// test datebox
-			click(jq(".z-datebox-icon"))
+			click(jq(".z-datebox-button"))
 			waitResponse
 			click(jq("$a"))
 			waitResponse
