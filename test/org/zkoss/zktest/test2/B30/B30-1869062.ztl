@@ -22,7 +22,7 @@
 			 -->
 		</server>
 		<client><![CDATA[
-			JQuery combobox = jq(".z-combobox-input);
+			JQuery combobox = jq(".z-combobox-input");
 				typeKeys(combobox, "C");
 				waitResponse();
 				//2010/10/22 TonyQ:the comboitem should appear in window.
