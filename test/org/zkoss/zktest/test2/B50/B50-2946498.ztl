@@ -29,7 +29,7 @@
 				click(x);
 				waitResponse();
 				verifyEquals(3,jq(".z-errorbox").length());
-				click(jq(".z-window-highlighted-close"));
+				click(jq("@window.z-window-highlighted").toWidget().$n("close"));
 				waitResponse();
 				verifyEquals(0,jq(".z-errorbox").length());
 				verifyFalse(jq(".z-errorbox").exists());

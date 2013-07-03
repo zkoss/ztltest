@@ -126,7 +126,7 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 		runZTL(zscript, 
 			() => {
 				// 1. Click on group button, the grouped rows should collapse.
-				singleTap(jq(".z-group-img-open"));
+				singleTap(widget(jq("@group")).$n("img"));
 				waitResponse(true);
 				
 				var group_rows = jq("#grid1 .z-row");

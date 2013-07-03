@@ -83,34 +83,34 @@ class Z35_panel_002Test extends ZTL4ScalaTestCase {
         }
         
         clickThenValidate("$btn1",()=>{
-          	jq(".z-panel-exp").isVisible();
+          	jq(jq("@panel").toWidget().$n("exp")).isVisible();
         });
         clickThenValidate("$btn2",()=>{
-          jq(".z-panel-exp").isVisible();
-          jq(".z-panel-min").isVisible();
+          jq(jq("@panel").toWidget().$n("exp")).isVisible();
+          jq(jq("@panel").toWidget().$n("min")).isVisible();
         });
         clickThenValidate("$btn3",()=>{
-          jq(".z-panel-exp").isVisible();
-          jq(".z-panel-min").isVisible();
-          jq(".z-panel-max").isVisible();
+          jq(jq("@panel").toWidget().$n("exp")).isVisible();
+          jq(jq("@panel").toWidget().$n("min")).isVisible();
+          jq(jq("@panel").toWidget().$n("max")).isVisible();
         });
         clickThenValidate("$btn4",()=>{
-          jq(".z-panel-exp").isVisible();
-          jq(".z-panel-min").isVisible();
-          jq(".z-panel-max").isVisible();
-          jq(".z-panel-close").isVisible();
+          jq(jq("@panel").toWidget().$n("exp")).isVisible();
+          jq(jq("@panel").toWidget().$n("min")).isVisible();
+          jq(jq("@panel").toWidget().$n("max")).isVisible();
+          jq(jq("@panel").toWidget().$n("close")).isVisible();
         });
 
         clickThenValidate("$btn3",()=>{
-          jq(".z-panel-exp").isVisible();
-          jq(".z-panel-min").isVisible();
-          jq(".z-panel-close").isVisible();
+          jq(jq("@panel").toWidget().$n("exp")).isVisible();
+          jq(jq("@panel").toWidget().$n("min")).isVisible();
+          jq(jq("@panel").toWidget().$n("close")).isVisible();
         });        
         clickThenValidate("$btn3",()=>{
-          jq(".z-panel-exp").isVisible();
-          jq(".z-panel-min").isVisible();
-          jq(".z-panel-max").isVisible();
-          jq(".z-panel-close").isVisible();
+          jq(jq("@panel").toWidget().$n("exp")).isVisible();
+          jq(jq("@panel").toWidget().$n("min")).isVisible();
+          jq(jq("@panel").toWidget().$n("max")).isVisible();
+          jq(jq("@panel").toWidget().$n("close")).isVisible();
         });                
         
         clickThenValidate("$btnFloat",()=>{
@@ -131,15 +131,15 @@ class Z35_panel_002Test extends ZTL4ScalaTestCase {
         });
 
         
-        clickThenValidate(".z-panel-exp",()=>{
-          sleep(200);
-          verifyFalse(jq(".z-panel-body").isVisible());
-        });
+        Scripts.triggerMouseEventAt(getWebDriver(), jq(jq("@panel").toWidget().$n("exp")), "click", "2,2");        
+        waitResponse(true);
+        sleep(200);
+        verifyFalse(jq(".z-panel-body").isVisible());
         
-        clickThenValidate(".z-panel-exp",()=>{
-          sleep(200);
-          verifyTrue(jq(".z-panel-body").isVisible());
-        });
+        Scripts.triggerMouseEventAt(getWebDriver(), jq(jq("@panel").toWidget().$n("exp")), "click", "2,2");        
+        waitResponse(true);
+        sleep(200);
+        verifyTrue(jq(".z-panel-body").isVisible());
         
     }
    );

@@ -37,11 +37,11 @@ class Z60_PanelTest extends ZTL4ScalaTestCase {
       
       //test open
 //      System.out.println(jq("#open").exists()); false
-      click(jq(".z-panel-exp").first())
+      click(jq(".z-panel").toWidget().$n("exp"))
       waitResponse()
       ZKSeleneseTestCase.assertEquals("true", getText(open));
       
-      click(jq(".z-panel-max"))
+      click(jq(".z-panel").toWidget().$n("max"))
       waitResponse()
       ZKSeleneseTestCase.assertEquals("true", getText(maximized));
       
@@ -50,7 +50,7 @@ class Z60_PanelTest extends ZTL4ScalaTestCase {
       var zindex1= getText(panel1Zindex).toInt
       var zindex2= getText(panel2Zindex).toInt
       verifyTrue(zindex2>zindex1);
-      click(jq(".z-panel-exp").get(1))
+      click(jq(".z-panel:eq(1)").toWidget().$n("exp"))
       waitResponse();
       zindex1= getText(panel1Zindex).toInt
       zindex2= getText(panel2Zindex).toInt

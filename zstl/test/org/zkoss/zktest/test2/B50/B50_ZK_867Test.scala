@@ -340,12 +340,12 @@ class B50_ZK_867Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         val product0 = jq(".z-grid:eq(0) .z-row:contains(Kyocera)")
-        click(product0.find(".z-detail-img"))
+        click(widget(product0.find("@detail")).$n("icon"))
         waitResponse()
         val detail0 = product0.next()
         
         val product1 = jq(".z-grid:eq(1) .z-row:contains(Kyocera)")
-        click(product1.find(".z-detail-img"))
+        click(widget(product1.find("@detail")).$n("icon"))
         waitResponse()
         val detail1 = product1.next()
         

@@ -63,7 +63,7 @@ class Thm_Grid_Grouping_Test extends ZTL4ScalaTestCase {
 			() => {
 				verifyImage();
 				
-				singleTap(jq(".z-group-img:eq(0)"));
+				singleTap(widget(jq("@group:eq(0)")).$n("img"));
 				verifyImage();
 			});
 	}

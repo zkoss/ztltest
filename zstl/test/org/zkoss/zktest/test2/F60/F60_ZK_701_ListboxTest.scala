@@ -106,15 +106,15 @@ class F60_ZK_701_ListboxTest extends ZTL4ScalaTestCase {
         var grid: Widget = engine.$f("grid");
         var clonedGrid: Widget = engine.$f("clonedGrid");
 
-        click(jq(".z-listgroup:contains(Seafood)").find(".z-listgroup-img.z-listgroup-img-open"));
+        click(jq(".z-listgroup:contains(Seafood)").toWidget().$n("img"));
         waitResponse();
         click(btn);
         waitResponse();
         clonedGrid = widget(jq(jq(".z-listbox").get(0)));
-        click(jq(clonedGrid).find(".z-listgroup:contains(Seafood)").find(".z-listgroup-img.z-listgroup-img-close"));
+        click(jq(clonedGrid).find(".z-listgroup:contains(Seafood)").toWidget().$n("img"));
         waitResponse();
         verifyTrue("Seafood group of cloned grid should be opened",
-            jq(clonedGrid).find(".z-listgroup:contains(Seafood)").find(".z-listgroup-img.z-listgroup-img-open").exists());
+            jq(clonedGrid).find(".z-listgroup:contains(Seafood)").toWidget().$n("img").exists());
     }
    );
   }

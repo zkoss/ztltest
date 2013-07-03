@@ -56,13 +56,13 @@ class B65_ZK_1499Test extends ZTL4ScalaTestCase {
         List(".z-panel", ".z-window-embedded") foreach { containerClass =>
           0 to 2 foreach { i =>
             if (containerClass == ".z-panel") {
-              val exp = jq(".z-panel:eq(" + i + ") .z-panel-exp")
+              val exp = jq(jq(".z-panel:eq(" + i + ")").toWidget().$n("exp"))
               val expImg = exp.css("background-image")
               singleTap(exp)
               waitResponse()
               verifyTrue("show correct image.", exp.css("background-image") != expImg)
             }
-            val max = jq(containerClass + ":eq(" + i + ") " + containerClass + "-max")
+            val max = jq(jq(containerClass + ":eq(" + i + ") ").toWidget().$n("max"))
             val maxImg = max.css("background-image")
             singleTap(max)
             waitResponse()
