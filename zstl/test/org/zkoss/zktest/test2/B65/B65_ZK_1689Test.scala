@@ -57,11 +57,12 @@ class B65_ZK_1689Test extends ZTL4ScalaTestCase {
 
         val left = jq(".z-label:contains(px):eq(0)").text()
         val top = jq(".z-label:contains(px):eq(1)").text()
+        val max = src.find(".z-panel-popup").toWidget().$n("max")
 
-        click(src.find(".z-window-popup-max"))
+        click(max)
         waitResponse()
 
-        click(src.find(".z-window-popup-max"))
+        click(max)
         waitResponse()
 
         click(jq(".z-button:contains(restore)"))

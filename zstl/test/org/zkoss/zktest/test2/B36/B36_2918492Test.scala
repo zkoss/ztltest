@@ -95,7 +95,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         waitResponse();
 
         //Click maximize button
-        var btn = jq("$googletools .z-panel-max");
+        var btn = jq("$googletools .z-panel").toWidget().$n("max");
         click(btn);
         waitResponse();
 
@@ -104,7 +104,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         verifyFalse(lab1.isVisible());
         
         //Close panel
-        var close = jq("$googletools .z-panel-close");
+        var close = jq("$googletools .z-panel").toWidget().$n("close");
         click(close);
         waitResponse();
         

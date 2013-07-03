@@ -38,12 +38,12 @@ class Z60_GridTest extends ZTL4ScalaTestCase {
       
       //test open
       ZKSeleneseTestCase.assertEquals("false", getText(detailOpen));
-      click(jq(".z-detail-img"));
+      click(widget(jq("@detail")).$n("icon"));
       waitResponse();
       ZKSeleneseTestCase.assertEquals("true", getText(detailOpen));
       
       ZKSeleneseTestCase.assertEquals("false", getText(groupOpen));
-      click(jq(".z-group-img"));
+      click(widget(jq("@group")).$n("img"));
       waitResponse();
       ZKSeleneseTestCase.assertEquals("true", getText(groupOpen));
     })

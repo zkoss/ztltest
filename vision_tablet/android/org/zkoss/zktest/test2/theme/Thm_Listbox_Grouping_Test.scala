@@ -49,7 +49,7 @@ class Thm_Listbox_Grouping_Test extends ZTL4ScalaTestCase {
 				verifyImage();
 				
 				// Collapse list group
-				singleTap(jq(".z-listgroup-img"));
+				singleTap(jq("@listgroup").toWidget().$n("img"));
 				sleep(500);
 				verifyImage();
 			});

@@ -18,13 +18,13 @@ Maximize the panels respectively. If the panel does not occupy the whole area, i
 		--></server>
 		<client><![CDATA[
 			verifyImage();
-			click(jq(".z-panel-max:eq(0)"));
+			click(jq(".z-panel:eq(0)").toWidget().$n("max"));
 			waitResponse();
 			verifyImage();
-			click(jq(".z-panel-maxd"));
+			click(jq(".z-panel").toWidget().$n("maxd"));
 			waitResponse();
 			verifyImage();
-			click(jq(".z-panel-max:eq(1)"));
+			click(jq(".z-panel:eq(1)").toWidget().$n("max"));
 			waitResponse();
 			verifyImage();			
 		]]></client>

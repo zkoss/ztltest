@@ -124,8 +124,7 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
       () => {
 
         //Click button
-        var img = jq(".z-group-img");
-        click(img);
+        click(widget(jq("@group")).$n("img"));
 
         waitResponse();
         waitResponse(); // wait for onRenderer event

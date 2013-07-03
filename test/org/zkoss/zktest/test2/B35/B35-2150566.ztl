@@ -32,7 +32,7 @@ onClick='lg.label="test"'/>
 			click(jq("@button"));
 			waitResponse();
 			verifyTrue(jq("@listitem @listcell").isVisible());
-			click(jq(".z-listgroup-img-open"));
+			click(jq("@listgroup").toWidget().$n("img"));
 			waitResponse();
 			verifyFalse(jq("@listitem @listcell").isVisible());
 		]]></client>

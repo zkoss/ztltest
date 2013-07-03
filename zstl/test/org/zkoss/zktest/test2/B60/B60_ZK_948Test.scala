@@ -141,11 +141,11 @@ class B60_ZK_948Test extends ZTL4ScalaTestCase {
         click(btn1); waitResponse();
         selectItem (sbx, lb2, 0);
         checkSelbox();
-        click(jq(".z-window-modal-close")); waitResponse();
+        click(jq(".z-window-modal").toWidget().$n("close")); waitResponse();
 
         click(btn1); waitResponse();
         checkSelbox();
-        click(jq(".z-window-modal-close")); waitResponse();
+        click(jq(".z-window-modal").toWidget().$n("close")); waitResponse();
 
         click(btn3); waitResponse();
         checkSelbox();

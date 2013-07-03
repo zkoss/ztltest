@@ -31,24 +31,26 @@ class B65_ZK_1500Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        val panel = jq(".z-panel")
+        val panel = jq("@panel")
         val panelWidth = panel.width()
         val panelHeight = panel.height()
+        val pnlwgt = panel.toWidget()
 
-        click(jq(".z-panel-max"))
+        click(pnlwgt.$n("max"))
         waitResponse()
-        click(jq(".z-panel-maxd"))
+        click(pnlwgt.$n("maxd"))
         waitResponse()
         verifyEquals("the width should the same before maximized", panel.width(), panelWidth)
         verifyEquals("the height should the same before maximized", panel.height(), panelHeight)
         
-        val window = jq(".z-window-embedded")
+        val window = jq("@window")
         val windowWidth = window.width()
         val windowHeight = window.height()
+        val wndwgt = window.toWidget()
 
-        click(jq(".z-window-embedded-maxd"))
+        click(wndwgt.$n("maxd"))
         waitResponse()
-        click(jq(".z-window-embedded-max"))
+        click(wndwgt.$n("max"))
         waitResponse()
         verifyEquals("the width should the same before maximized", window.width(), windowWidth)
         verifyEquals("the height should the same before maximized", window.height(), windowHeight)

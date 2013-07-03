@@ -49,7 +49,8 @@
 				verifyEquals("btn1 OK", jq(".z-messagebox > span").text());
 				//here is clicking the alert
 				//modify for compatiable event-thread enable/disable
-				click(jq("div.z-window-modal-close,div.z-window-highlighted-close"));
+				click(jq("@window.z-window-modal").toWidget().$n("close"));
+				click(jq("@window.z-window-highlighted").toWidget().$n("close"));
 				verifyFalse(isVisible(inner1));
 				waitResponse();
 				// Test Overlapped
@@ -62,7 +63,8 @@
 				verifyEquals("btn2 OK", jq(".z-messagebox > span").text());
 				//here is clicking the alert
 				//modify for compatiable event-thread enable/disable
-				click(jq("div.z-window-modal-close,div.z-window-highlighted-close"));
+				click(jq("@window.z-window-modal").toWidget().$n("close"));
+				click(jq("@window.z-window-highlighted").toWidget().$n("close"));
 				verifyTrue(jq(inner2).isVisible());
 		]]></client>
 	</case>
