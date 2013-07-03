@@ -11,12 +11,14 @@
 			click(jq("@button[label=\"Zhtml click\"]"));
 			waitResponse();
 			String zHtmlClass = jq("div.z-msgbox").attr("class");
-			click(jq("@window div.z-window-modal-close,@window div.z-window-highlighted-close"));
+			click(jq("@window.z-window-modal").toWidget().$n("close"));
+			click(jq("@window.z-window-highlighted").toWidget().$n("close"));
 			waitResponse();
 			click(jq("@button[label=\"zul click\"]"));
 			waitResponse();
 			String zulClass = jq("div.z-msgbox").attr("class");
-			click(jq("@window div.z-window-modal-close,@window div.z-window-highlighted-close"));
+			click(jq("@window.z-window-modal").toWidget().$n("close"));
+			click(jq("@window.z-window-highlighted").toWidget().$n("close"));
 			verifyEquals(zHtmlClass, zulClass);
 		]]></client>
 	</case>

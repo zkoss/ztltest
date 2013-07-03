@@ -47,7 +47,7 @@ class Z60_ListboxTest extends ZTL4ScalaTestCase {
       
       val open = engine $f "open"
       ZKSeleneseTestCase.assertEquals("false", getText(open));
-      click(jq(".z-listgroup-img"))
+      click(jq("@listgroup").toWidget().$n("img"))
       waitResponse()
       ZKSeleneseTestCase.assertEquals("true", getText(open));
       

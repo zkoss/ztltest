@@ -105,9 +105,9 @@ class Thm_Messagebox_Test extends ZTL4ScalaTestCase {
 					verifyImage();
 					
 					if (i != last) {
-    					singleTap(jq(".z-messagebox-window .z-window-highlighted-close"));
+    					singleTap(jq(".z-messagebox-window .z-window-highlighted").toWidget().$n("close"));
 					} else {
-    					singleTap(jq(".z-window-modal .z-window-modal-close"));
+    					singleTap(jq(".z-window-modal .z-window-modal").toWidget().$n("close"));
 					}
    					sleep(500);
 				}

@@ -104,15 +104,15 @@ class Thm_Grid_Livegrouping_Test extends ZTL4ScalaTestCase {
 			() => {
 				verifyImage();
 				
-				singleTap(jq(".z-group-img:eq(0)"));
+				singleTap(widget(jq("@group:eq(0)")).$n("img"));
 				sleep(500);
 				verifyImage();
 				
-				singleTap(jq(".z-group-img:eq(1)"));
+				singleTap(widget(jq("@group:eq(1)")).$n("img"));
 				sleep(500);
 				verifyImage();
 
-				singleTap(jq(".z-group-img:eq(2)"));
+				singleTap(widget(jq("@group:eq(2)")).$n("img"));
 				sleep(500);
 				verifyImage();
 			});

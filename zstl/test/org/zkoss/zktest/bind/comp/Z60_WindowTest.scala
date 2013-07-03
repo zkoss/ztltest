@@ -32,7 +32,7 @@ class Z60_WindowTest extends ZTL4ScalaTestCase {
     runZTL(zul, () => {
     
       val maximized = engine $f "maximized"
-      click(jq(".z-window-embedded-max"))
+      click(jq("@window:eq(0)").toWidget().$n("max"))
       waitResponse()
       ZKSeleneseTestCase.assertEquals("true", getText(maximized));
       
@@ -44,8 +44,8 @@ class Z60_WindowTest extends ZTL4ScalaTestCase {
       println(window1.exists())
       verifyTrue(zindex2<zindex1);
       //click to make it top
-      click(jq(".z-window-overlapped-max"))
-      click(jq(".z-window-overlapped-max"))
+      click(jq("@window:eq(1)").toWidget().$n("max"))
+      click(jq("@window:eq(1)").toWidget().$n("max"))
       waitResponse()
       zindex1= getText(window1Zindex).toInt
       zindex2= getText(window2Zindex).toInt

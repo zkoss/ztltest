@@ -108,7 +108,7 @@ class B35_2075723Test extends ZTL4ScalaTestCase {
             waitResponse();
           
         	//Minimize table 3
-        	var table3=jq("$table3 .z-panel-exp");
+        	var table3=jq("$table3 .z-panel").toWidget().$n("exp");
         	click(table3);
         	
         	waitResponse(true);
@@ -116,7 +116,7 @@ class B35_2075723Test extends ZTL4ScalaTestCase {
         	verifyFalse(jq("$table3 .z-panel-body").isVisible());
         	
         	//Minimize table 3
-        	var table31=jq("$table31 .z-panel-exp");
+        	var table31=jq("$table31 .z-panel").toWidget().$n("exp");
         	click(table31);
         	
         	waitResponse(true);
@@ -124,7 +124,7 @@ class B35_2075723Test extends ZTL4ScalaTestCase {
         	verifyFalse(jq("$table31 .z-panel-body").isVisible());
         	
         	//Minimize table 1
-        	var table1=jq("$table1 .z-panel-exp");
+        	var table1=jq("$table1 .z-panel").toWidget().$n("exp");
         	click(table1);
         	
         	waitResponse(true);

@@ -60,7 +60,7 @@ class B50_ZK_409Test extends ZTL4ScalaTestCase {
 
         click(btn);
         waitResponse();
-        click(jq(".z-window-highlighted").find(".z-window-highlighted-close"));
+        click(jq(".z-window-highlighted").find(".z-window-highlighted").toWidget().$n("close"));
         waitResponse();
         click(btn);
         waitResponse();

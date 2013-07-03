@@ -202,7 +202,7 @@ class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
           var gstr: String = getGstr(gnum);
           changePage(id, gnum);
           if (close != isClose(id, gnum)) {
-            click(jq(lbx.$n("body")).find(".z-rows").find(".z-group:contains(Itemset "+gstr+")").find(".z-group-img").get(0));
+            click(jq(lbx.$n("body")).find(".z-rows").find(".z-group:contains(Itemset "+gstr+")").toWidget().$n("img"));
             waitResponse();
           }
           
@@ -233,7 +233,7 @@ class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
           var gstr: String = getGstr(gnum);
           if (!jq(lbx.$n("body")).find(".z-rows").find(".z-group:contains(Itemset "+gstr+")").exists())
             changePage(id, gnum);
-          return jq(lbx.$n("body")).find(".z-rows").find(".z-group:contains(Itemset "+gstr+")").find(".z-group-img-close").get(0).exists();
+          return jq(lbx.$n("body")).find(".z-rows").find(".z-group:contains(Itemset "+gstr+")").toWidget().$n("img").exists();
         }
         def changePage (id: String, gnum: String) {
           input(tbOne.$n(), id);

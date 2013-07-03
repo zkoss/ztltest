@@ -65,7 +65,7 @@ minimizable="true" border="normal">
         () => {
         	
         	//click minimize button
-            click(jq("$minmaxWin .z-window-embedded-min"));
+            click(jq("$minmaxWin").toWidget().$n("min"));
             
         	waitResponse();
           
