@@ -26,15 +26,15 @@
 			shiftKeyDown();
 			click(lbx.firstChild().nextSibling().nextSibling().nextSibling());
 			shiftKeyUp();
-			verifyTrue(jq("tr.z-listitem-seld").exists());
+			verifyTrue(jq("tr.z-listitem-selected").exists());
 				
-			click(jq("button.z-paging-next"));
+			click(jq("[name=" + jq(".z-paging").attr("id") + "-next]"));
 			waitResponse();
 			click(lbx.firstChild().nextSibling());
 				
-			click(jq("button.z-paging-prev"));
+			click(jq("[name=" + jq(".z-paging").attr("id") + "-next]"));
 			waitResponse();
-			verifyFalse(jq("tr.z-listitem-seld").exists());
+			verifyFalse(jq("tr.z-listitem-selected").exists());
 		]]></client>
 	</case>
 </test>

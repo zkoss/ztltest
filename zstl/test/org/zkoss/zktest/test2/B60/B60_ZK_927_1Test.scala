@@ -96,7 +96,7 @@ class B60_ZK_927_1Test extends ZTL4ScalaTestCase {
         	  selected = items.contains(i);
               verifyTrue("Item "+i+" should "
                   +(if(selected) "" else "not ")+"be selected",
-	              jq(lb).find(".z-listitem-seld:contains(item "+i+")")
+	              jq(lb).find(".z-listitem-selected:contains(item "+i+")")
 	                 .exists() == selected);
           }
         }

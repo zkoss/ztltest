@@ -34,10 +34,10 @@ class B30_2208873Test extends ZTL4ScalaTestCase {
     val zscript = ""
     runZTL(zscript, () => {
       // Verifying each of the cells
-      verifyTrue("Item one should be visible", jq(".z-listcell-cnt:contains(one)").exists());
-      verifyTrue("Item two should be visible", jq(".z-listcell-cnt:contains(two)").exists());
-      verifyTrue("Item three should be visible", jq(".z-listcell-cnt:contains(three)").exists());
-      verifyTrue("Item foud should be visible", jq(".z-listcell-cnt:contains(four)").exists());
+      verifyTrue("Item one should be visible", jq(".z-listcell:contains(one)").exists());
+      verifyTrue("Item two should be visible", jq(".z-listcell:contains(two)").exists());
+      verifyTrue("Item three should be visible", jq(".z-listcell:contains(three)").exists());
+      verifyTrue("Item foud should be visible", jq(".z-listcell:contains(four)").exists());
     })
   }
 }

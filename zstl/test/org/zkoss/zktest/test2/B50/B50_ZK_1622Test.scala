@@ -54,7 +54,7 @@ for (int i = 1; i <= 70; ++i)
           val cell = if(compName == "listbox") "listcell" else "treecell"
           click(jq(".z-" + cell + ":contains(50)"))
           waitResponse()
-          click(main.find(".z-paging-next"))
+          click(jq("[name=" + main.find(".z-paging").attr("id") + "-next]"))
           waitResponse()
           body.toElement().set("scrollTop", 1500)
 

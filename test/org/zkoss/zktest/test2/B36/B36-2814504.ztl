@@ -57,12 +57,12 @@
 		<client><![CDATA[
 				click(jq("@window @button[label=\"change label\"]:eq(0)"));
 				waitResponse();
-				verifyTrue(getText(jq("$i2 div.z-overflow-hidden")).indexOf("test1") != -1);
+				verifyTrue(jq(jq("$i2").toWidget().$n("cave")).text().contains("test1"));
 				click(jq("@window @button[label=\"change label\"]:eq(1)"));
 				waitResponse();
-				click(jq("@paging button.z-paging-prev"));
+				click(jq("[name=" + jq("@paging").attr("id") + "-prev]"));
 				waitResponse();
-				verifyTrue(getText(jq("$i1 div.z-overflow-hidden")).indexOf("test2") != -1);
+				verifyTrue(jq(jq("$i1").toWidget().$n("cave")).text().contains("test2"));
 		]]></client>
 	</case>
 </test>

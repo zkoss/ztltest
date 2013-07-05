@@ -57,7 +57,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				click(db.$n("btn"));
 				waitResponse();
-				click(jq(".z-calendar-caldayrow:eq(5) .z-calendar-wkday:eq(1)"));
+				click(jq(".z-calendar-caldayrow:eq(5) .z-calendar-weekday:eq(1)"));
 				waitResponse();
 				verifyEquals("01/02/2001",jq(".z-datebox-input").val());	
 		]]></client>

@@ -38,10 +38,10 @@
 			</zk>
 		]]></server>
 		<client><![CDATA[
-			click(jq("@treecell[label=\"1.1.1\"] div.z-overflow-hidden"));
-			click(jq("@page @treerow span.z-tree-last-open"));
-			click(jq("@page @treerow span.z-tree-last-close"));
-			click(jq("@treecell[label=\"1.1.2\"] div.z-overflow-hidden"));
+			click(jq("@treecell[label=\"1.1.1\"]"));
+			click(jq("@page @treerow").toWidget().$n("icon"));
+			click(jq("@page @treerow").toWidget().$n("icon"));
+			click(jq("@treecell[label=\"1.1.2\"]"));
 			verifyEquals(1, jq("td.z-treerow-focus").length());
 		]]></client>
 	</case>

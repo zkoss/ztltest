@@ -96,10 +96,10 @@ class F60_ZK_701_ListmodelTest extends ZTL4ScalaTestCase {
         def isSelected(wgt: Widget, content: String, selected: Boolean) {
         	if (selected)
 	            verifyTrue("The item contains "+content+" should be selected",
-	                jq(wgt.$n()).find(".z-listitem-seld:contains("+content+")").exists());
+	                jq(wgt.$n()).find(".z-listitem-selected:contains("+content+")").exists());
         	else
         		verifyFalse("The item contains "+content+" should not be selected",
-	                jq(wgt.$n()).find(".z-listitem-seld:contains("+content+")").exists());
+	                jq(wgt.$n()).find(".z-listitem-selected:contains("+content+")").exists());
         }
         def verifyOrder (wgt: Widget, content: String, order: Int) {
             verifyTrue("The "+order+" th element should contains "+content,

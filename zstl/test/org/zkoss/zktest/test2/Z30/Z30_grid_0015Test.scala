@@ -155,7 +155,7 @@ class Z30_grid_0015Test extends ZTL4ScalaTestCase {
 	        	"Item D.1"
 	        ));	        
 	        
-	        clickThenValidate(".z-paging-next",()=>{
+	        clickThenValidate("[name=" + jq(".z-paging").attr("id") + "-next]",()=>{
 		        verifyRowContent("$grid1",Iterator(
 		        	"Item 5.1",
 		        	"Item 6.1",
@@ -168,7 +168,7 @@ class Z30_grid_0015Test extends ZTL4ScalaTestCase {
 		        ));	          
 	        });
 
-	        clickThenValidate(".z-paging-prev",()=>{
+	        clickThenValidate("[name=" + jq(".z-paging").attr("id") + "-prev]",()=>{
 		        verifyRowContent("$grid1",Iterator(
 		        	"Item 1.1",
 		        	"Item 2.1",

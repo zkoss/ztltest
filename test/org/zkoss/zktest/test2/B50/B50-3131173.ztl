@@ -76,16 +76,16 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				click(jq(".z-treerow-img-checkbox:eq(0)"));waitResponse();
-				click(jq(".z-treerow-img-checkbox:eq(0)"));waitResponse();				
-				click(jq(".z-treerow-img-checkbox:eq(0)"));waitResponse();
-				click(jq(".z-treerow-img-checkbox:eq(0)"));waitResponse();
-				click(jq(".z-treerow-img-checkbox:eq(0)"));waitResponse();
-				click(jq(".z-treerow-img-checkbox:eq(0)"));waitResponse();
-				click(jq(".z-treerow-img-checkbox:eq(0)"));waitResponse();
-				verifyEquals(" Item 4: / selected:true",jq("@treecell:eq(0)").text());
-				click(jq(".z-treerow-img-checkbox:eq(0)"));waitResponse();
-				verifyEquals(" Item 4: / selected:false",jq("@treecell:eq(0)").text());
+				click(jq(".z-treerow-checkbox:eq(0)"));waitResponse();
+				click(jq(".z-treerow-checkbox:eq(0)"));waitResponse();
+				click(jq(".z-treerow-checkbox:eq(0)"));waitResponse();
+				click(jq(".z-treerow-checkbox:eq(0)"));waitResponse();
+				click(jq(".z-treerow-checkbox:eq(0)"));waitResponse();
+				click(jq(".z-treerow-checkbox:eq(0)"));waitResponse();
+				click(jq(".z-treerow-checkbox:eq(0)"));waitResponse();
+				verifyTrue(jq("@treecell:eq(0)").text().contains("Item 4: / selected:true"));
+				click(jq(".z-treerow-checkbox:eq(0)"));waitResponse();
+				verifyTrue(jq("@treecell:eq(0)").text().contains("Item 4: / selected:false"));
 		]]></client>
 	</case>
 </test>

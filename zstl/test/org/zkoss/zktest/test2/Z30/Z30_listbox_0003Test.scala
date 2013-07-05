@@ -70,12 +70,12 @@ class Z30_listbox_0003Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
         () => {
     
-        verifyEquals(jq(".z-listitem-seld .z-listcell:first").text(),"C. High School"); 
+        verifyEquals(jq(".z-listitem-selected .z-listcell:first").text(),"C. High School"); 
           
 	    click(jq("$btn1"));
 	    waitResponse();
 	    
-	    verifyEquals(jq(".z-listitem-seld .z-listcell:first").text(),"B. College");          
+	    verifyEquals(jq(".z-listitem-selected .z-listcell:first").text(),"B. College");          
     }
    );
   }

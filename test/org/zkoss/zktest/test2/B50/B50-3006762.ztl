@@ -38,10 +38,10 @@
 			</zk>
 		]]></server>
 		<client><![CDATA[
-			click(jq("@treecell[label=\"1.1.1\"] div.z-overflow-hidden"));
+			click(jq("@treecell[label=\"1.1.1\"]"));
 			if(ZK.is("ie"))
-				blur(jq("a"));
-			click(jq("@page @treerow span.z-tree-root-open"));
+			blur(jq("a"));
+			click(jq("@page @treerow").toWidget().$n("icon"));
 			waitResponse();
 			Element node = tree.$n().firstChild();
 			verifyEquals(node.get("clientHeight"), node.get("scrollHeight"));

@@ -77,7 +77,7 @@ class B50_2890514Test extends ZTL4ScalaTestCase {
         var row1: Widget = engine.$f("row1");
         var fl: Widget = engine.$f("fl");
 
-        var width: Int = jq(jq(row1.$n()).find(".z-row-cnt").get(0)).outerWidth();
+        var width: Int = jq(jq(row1.$n()).find(".z-row").get(0)).outerWidth();
         var offsetLeft: Int = Integer.parseInt(fl.$n().get("offsetLeft"));
         waitResponse();
 

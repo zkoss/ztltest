@@ -63,7 +63,7 @@ class B50_3343001Test extends ZTL4ScalaTestCase {
         var tree: Widget = engine.$f("tree");
 
         def clickThenVerify () {
-        	click(jq(tree.$n("rows")).find(".z-tree-root-close").get(0));
+        	click(jq(tree.$n("rows")).find("@treerow").toWidget().$n("icon"));
         	waitResponse();
         	if (ZK is ("ie < 8"))
         	  sleep(200)

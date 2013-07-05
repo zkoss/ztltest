@@ -38,16 +38,16 @@
 				verifyFalse(jq(".z-error").exists());
 				click(jq("@window @tab[label=\"Not visible (selected) by default\"] span.z-tab-text:eq(0)"));
 				waitResponse();
-				verifyEquals("Listbox", getText(jq("@listheader div.z-listheader-cnt")));
-				verifyEquals("element", getText(jq("@listcell div.z-overflow-hidden")));
-				click(jq("@tab[label=\"Visible (selected) Tab\"] span.z-tab-text"));
+				verifyEquals("Listbox", getText(jq("@listheader")));
+				verifyEquals("element", getText(jq("@listcell")));
+				click(jq("@tab[label=\"Visible (selected) Tab\"] .z-tab-text"));
 				waitResponse();
 				click(jq("@button[label=\"update list model of grid on third tab panel\"]"));
 				waitResponse();
 				verifyFalse(jq(".z-error").exists());
 				clickAt(jq(t3).find(".z-tab-text"), "3,3");
 				waitResponse();
-				verifyEquals("Grid", getText(jq("@column div.z-column-cnt")));
+				verifyEquals("Grid", getText(jq("@column")));
 				verifyEquals("element", getText(jq("@label")));
 		]]></client>
 	</case>

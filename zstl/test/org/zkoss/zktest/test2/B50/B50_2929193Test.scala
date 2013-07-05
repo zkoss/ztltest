@@ -57,7 +57,7 @@ class B50_2929193Test extends ZTL4ScalaTestCase {
         var db: Widget = engine.$f("db");
 
         click(db.$n("btn"));
-        click(jq(db.$n("pp")).find(".z-calendar-wkday").get(10));
+        click(jq(db.$n("pp")).find(".z-calendar-weekday").get(10));
         waitResponse();
 
         verifyTrue("The Calendar should close",

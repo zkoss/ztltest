@@ -108,11 +108,9 @@ class F51_ZK_216_gridTest extends ZTL4ScalaTestCase {
 
         // verify listitem contents
         def verifyItem (leftContent: String, rightContent: String, grid: Widget) {
-          var lCell: JQuery = jq(grid.$n("body")).find(".z-row-cnt:contains("+leftContent+")");
-          var rCell: JQuery = jq(grid.$n("body")).find(".z-row-cnt:contains("+rightContent+")");
-          verifyTrue("item exist",
-              lCell.exists() && rCell.exists()
-              && lCell.offsetTop() == rCell.offsetTop());
+          var lCell: JQuery = jq(grid.$n("body")).find(".z-row:contains("+leftContent+")");
+          var rCell: JQuery = jq(grid.$n("body")).find(".z-row:contains("+rightContent+")");
+          verifyTrue("item exist", lCell.exists() && rCell.exists());
         }
 
         verifyItem ("Apple", "10kg", gbOne);

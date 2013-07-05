@@ -202,7 +202,7 @@ class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
           var gstr: String = getGstr(gnum);
           changePage(id, gnum);
           if (close != isClose(id, gnum)) {
-            click(jq(lbx.$n("body")).find(".z-rows").find(".z-group:contains(Itemset "+gstr+")").toWidget().$n("img"));
+            click(jq(lbx.$n("body")).find(".z-rows").find(".z-group:contains(Itemset "+gstr+")").find(".z-group-icon").get(0));
             waitResponse();
           }
           
@@ -224,8 +224,8 @@ class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
 
           for (i <- 0 to 2) {
             verifyTrue("The content sequence should equal between two listbox "+idOne+" and "+idTwo,
-                jq(lbxOne.$n("body")).find(".z-rows").find(".z-row-cnt:contains(Value)").find("span").get(i).get("innerHTML")
-                .equals(jq(lbxTwo.$n("body")).find(".z-rows").find(".z-row-cnt:contains(Value)").find("span").get(i).get("innerHTML")));
+                jq(lbxOne.$n("body")).find(".z-rows").find(".z-row:contains(Value)").text()
+                .equals(jq(lbxTwo.$n("body")).find(".z-rows").find(".z-row:contains(Value)").text()))
           }
         }
         def isClose(id: String, gnum: String): Boolean =  {
@@ -233,7 +233,7 @@ class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
           var gstr: String = getGstr(gnum);
           if (!jq(lbx.$n("body")).find(".z-rows").find(".z-group:contains(Itemset "+gstr+")").exists())
             changePage(id, gnum);
-          return jq(lbx.$n("body")).find(".z-rows").find(".z-group:contains(Itemset "+gstr+")").toWidget().$n("img").exists();
+         return jq(lbx.$n("body")).find(".z-rows").find(".z-group:contains(Itemset "+gstr+")").find(".z-group-icon-close").get(0).exists();
         }
         def changePage (id: String, gnum: String) {
           input(tbOne.$n(), id);

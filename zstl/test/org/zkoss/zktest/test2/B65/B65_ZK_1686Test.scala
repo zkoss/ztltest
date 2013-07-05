@@ -28,7 +28,7 @@ class B65_ZK_1686Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        click(jq(".z-paging-next"))
+        click(jq("[name=" + jq("@paging").attr("id") + "-next]"))
         waitResponse()
         verifyFalse("should not see js error.", jq(".z-error").exists())
       })

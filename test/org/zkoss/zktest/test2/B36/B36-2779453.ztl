@@ -34,13 +34,13 @@
 		<client><![CDATA[
 				click(widget(jq("@detail")).$n("icon"));
 				waitResponse();
-				click(jq("@listitem[label=\"aaaaaaa\"] span.z-listitem-img-checkbox"));
+				click(jq("@listitem[label=\"aaaaaaa\"] span.z-listitem-checkbox"));
 				waitResponse();
 				click(widget(jq("@detail")).$n("icon"));
 				waitResponse();
 				click(widget(jq("@detail")).$n("icon"));
 				waitResponse();
-				verifyEquals(1, jq("tr.z-listitem-seld").length());
+				verifyEquals(1, jq("tr.z-listitem-selected").length());
 		]]></client>
 	</case>
 </test>

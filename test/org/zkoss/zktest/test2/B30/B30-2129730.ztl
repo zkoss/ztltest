@@ -77,13 +77,13 @@ class Person {
 
 		--></server>
 		<client><![CDATA[
-		sleep(1000);//for DataBinding
+			sleep(1000);//for DataBinding
 			String firstName = jq(".z-textbox:eq(0)").val();
-            verifyTrue("First name: " + firstName, firstName.equals("Bill"));
-            String lastName = jq(".z-textbox:eq(1)").val();
-            verifyTrue("Last Name: " + lastName, lastName.equals("Gates"));
-            verifyTrue("Column of Full Name is not empty.", 
-                    jq(".z-listcell-content:eq(2)").children().length() == 0);
+			verifyTrue("First name: " + firstName, firstName.equals("Bill"));
+			String lastName = jq(".z-textbox:eq(1)").val();
+			verifyTrue("Last Name: " + lastName, lastName.equals("Gates"));
+			verifyTrue("Column of Full Name is not empty.",
+			jq(jq(".z-listcell:eq(2)").toWidget().$n("cave")).children().length() == 0);
 		]]></client>
 	</case>
 </test>

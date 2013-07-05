@@ -53,14 +53,14 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			Scripts.triggerMouseEventAt(getWebDriver(), btn1, "click", "5,5");
 			waitResponse();
 			sleep(300);
-			for (int i = 0;i < 10;i ++) {
-				verifyTrue(("option "+i).equals(jq(list.$n("rows")).find("div.z-listcell-cnt").get(i).get("innerHTML")));
+			for (int i = 0;i < 10;i ++) {					
+			verifyTrue(("option "+i).equals(jq(list.$n("rows")).find(".z-listcell").eq(i).text()));
 			}
 			Scripts.triggerMouseEventAt(getWebDriver(), btn2, "click", "5,5");
 			waitResponse();
 			sleep(300);
 			for (int i = 0;i < 10;i ++) {
-				verifyTrue(("plan "+i).equals(jq(list.$n("rows")).find("div.z-listcell-cnt").get(i).get("innerHTML")));
+			verifyTrue(("plan "+i).equals(jq(list.$n("rows")).find(".z-listcell").eq(i).text()));
 			}
 
 		]]></client>

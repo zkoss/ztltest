@@ -33,7 +33,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				click(jq(".z-paging-next"));
+				click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
 				waitResponse();
 				String color = jq(".z-row:eq(1)").css("backgroundColor");
 				verifyEquals(color, jq(".z-row:eq(3)").css("backgroundColor"));

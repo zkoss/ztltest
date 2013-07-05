@@ -35,11 +35,11 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				click(jq("button.z-paging-next"));waitResponse();
-				click(jq("button.z-paging-next"));waitResponse();
+				click(jq("[name=" + jq("@paging").attr("id") + "-next]"));waitResponse();
+				click(jq("[name=" + jq("@paging").attr("id") + "-next]"));waitResponse();
 				for(int i = 0; i < 6; i++){
-					click(jq("@listitem:eq("+i+")"));waitResponse();
-					verifyTrue(jq("@listitem:eq("+i+")").hasClass("z-listitem-seld"));
+				click(jq("@listitem:eq("+i+")"));waitResponse();
+				verifyTrue(jq("@listitem:eq("+i+")").hasClass("z-listitem-selected"));
 				}
 		]]></client>
 	</case>

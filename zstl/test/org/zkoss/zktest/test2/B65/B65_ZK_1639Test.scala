@@ -91,14 +91,14 @@ class B65_ZK_1639Test extends ZTL4ScalaTestCase {
 
         val case11node3 = jq(".z-treerow:eq(5):contains(Node 3)")
         verifyTrue("the node 3 should move to node X", case11node3.exists())
-        verifyTrue("the node 3 should move to node X", case11node3.find(".z-tree-last-close").exists())
+        verifyTrue("the node 3 should move to node X", case11node3.toWidget().$n("icon").exists())
 
         click(jq(".z-button:contains(Move Node 3 to Node 2):eq(0)"))
         waitResponse()
 
         val case12node3 = jq(".z-treerow:eq(3):contains(Node 3)")
         verifyTrue("the node 3 should move to node 2", case12node3.exists())
-        verifyTrue("the node 3 should move to node 2", case12node3.find(".z-tree-last-close").exists())
+        verifyTrue("the node 3 should move to node 2", case12node3.toWidget().$n("icon").exists())
 
         click(jq(".z-button:contains(Move Node 3 to Node X):eq(1)"))
         waitResponse()

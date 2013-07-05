@@ -157,8 +157,9 @@ class B30_1852313Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
         () => {
                 
-            	val n1=jq("@tree .z-tree-root-close:eq(0)");
-            	val n2=jq(".z-tree-tee-close:eq(0)");
+        		val row = jq("@treerow:eq(0)")
+            	val n1=row.toWidget().$n("icon");
+            	val n2=row.find("@treerow").toWidget().$n("icon");
             	 
             	//Test item 1
                 click(n1);
