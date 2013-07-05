@@ -64,17 +64,17 @@ class B50_ZK_421Test extends ZTL4ScalaTestCase {
     def testSelect(lb: Widget, keep: java.lang.Boolean) {
     	click(jq(lb.$n("rows")).find(".z-listitem").get(2));
     	waitResponse();
-    	click(jq(lb.$n("pgib")).find(".z-paging-next").get(0));
+    	click(jq("[name=" + jq(lb).find(".z-paging").attr("id") + "-next]"));
     	waitResponse();
     	click(jq(lb.$n("rows")).find(".z-listitem").get(2));
     	waitResponse();
-    	verifyTrue(jq(jq(lb.$n("rows")).find(".z-listitem").get(2)).hasClass("z-listitem-seld"));
-    	click(jq(lb.$n("pgib")).find(".z-paging-prev").get(0));
+    	verifyTrue(jq(lb).find(".z-listitem:eq(2)").hasClass("z-listitem-selected"));
+    	click(jq("[name=" + jq(lb).find(".z-paging").attr("id") + "-prev]"));
     	waitResponse();
     	if (keep)
-    		verifyTrue(jq(jq(lb.$n("rows")).find(".z-listitem").get(2)).hasClass("z-listitem-seld"));
+    		verifyTrue(jq(lb).find(".z-listitem:eq(2)").hasClass("z-listitem-selected"));
     	else
-    		verifyFalse(jq(jq(lb.$n("rows")).find(".z-listitem").get(2)).hasClass("z-listitem-seld"));
+    		verifyFalse(jq(lb).find(".z-listitem:eq(2)").hasClass("z-listitem-selected"));
     }
    // Run syntax 1 
    runZTL(zscript, executor);

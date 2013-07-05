@@ -3,7 +3,7 @@
 		<server><!--
 <zk>
 	<style>
-		.z-treecell-cnt {
+		.z-treecell-content {
 			background-color: #999999;
 		}
 	</style>

@@ -54,10 +54,10 @@ alert("Removed..., and you shouldn't see the arrow icon");
 		<client><![CDATA[
 				click(jq("@button"));
 				waitResponse();
-				verifyTrue(jq(".z-tree-root-open").exists());
+				verifyTrue(jq(".z-treerow").toWidget().$n("icon").exists());
 				clickAlert();
 				waitResponse();
-				verifyFalse(jq(".z-tree-root-open").exists());
+				verifyFalse(jq(".z-treerow").toWidget().$n("icon").exists());
 		]]></client>
 	</case>
 </test>

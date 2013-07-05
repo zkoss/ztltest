@@ -60,7 +60,7 @@ class B65_ZK_1537Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyTrue("you should see last item is selected.", jq(".z-listitem-seld:contains(item 9)").exists())
+        verifyTrue("you should see last item is selected.", jq(".z-listitem-selected:contains(item 9)").exists())
       })
 
   }

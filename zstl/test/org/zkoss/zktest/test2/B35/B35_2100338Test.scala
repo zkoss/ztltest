@@ -88,8 +88,8 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
             var gm1=jq("$gm1");
             var gm2=jq("$gm2");
             
-            var lm_last=jq("$lb1 .z-paging-last");
-            var gm_last=jq("$gd1 .z-paging-last");
+            var lm_last=jq("[name=" + jq("$lb1").find(".z-paging").attr("id") + "-last]");
+            var gm_last=jq("[name=" + jq("$gd1").find(".z-paging").attr("id") + "-last]");
             
             //1 - click List Model 1
         	click(lm1);
@@ -100,11 +100,11 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
         	waitResponse();
         	
         	//Verify no error
-            verifyFalse(jq(".z-msgbox-error").exists());
+            verifyFalse(jq(".z-messagebox-error").exists());
             verifyFalse(jq(".z-error").exists());
         	
         	//Label change
-        	var a=jq(".z-listcell-cnt");
+        	var a=jq(".z-listcell");
         	for (i <- 0 until a.length()) {
         		var vl=a.eq(i).text();
         		verifyEquals(vl,"B option "+i);
@@ -119,11 +119,11 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
         	waitResponse();
         	
         	//Verify no error
-            verifyFalse(jq(".z-msgbox-error").exists());
+            verifyFalse(jq(".z-messagebox-error").exists());
             verifyFalse(jq(".z-error").exists());
         	
         	//Label change 
-        	a=jq(".z-listcell-cnt");
+        	a=jq(".z-listcell");
         	for (i <- 0 until a.length()) {
         	    var i1=i+50;
         		var vl=a.eq(i).text();
@@ -135,11 +135,11 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
         	waitResponse();
         	
         	//Verify no error
-            verifyFalse(jq(".z-msgbox-error").exists());
+            verifyFalse(jq(".z-messagebox-error").exists());
             verifyFalse(jq(".z-error").exists());
         	
         	//Label change
-        	a=jq(".z-listcell-cnt");
+        	a=jq(".z-listcell");
         	for (i <- 0 until a.length()) {
         	    var i1=i+50;
         		var vl=a.eq(i).text();
@@ -155,11 +155,11 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
         	waitResponse();
         	
         	//Verify no error
-            verifyFalse(jq(".z-msgbox-error").exists());
+            verifyFalse(jq(".z-messagebox-error").exists());
             verifyFalse(jq(".z-error").exists());
         	
         	//Label change
-        	var b=jq(".z-row-cnt .z-label");
+        	var b=jq(".z-row .z-label");
         	for (i <- 0 until b.length()) {
         		var vl=getText(b.eq(i));
         		var v1=("B option "+i);
@@ -175,11 +175,11 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
         	waitResponse();
         	
         	//Verify no error
-            verifyFalse(jq(".z-msgbox-error").exists());
+            verifyFalse(jq(".z-messagebox-error").exists());
             verifyFalse(jq(".z-error").exists());
         	
         	//Label change 
-        	b=jq(".z-row-cnt .z-label");
+        	b=jq(".z-row .z-label");
         	for (i <- 0 until b.length()) {
         	    var i1=i+50;
         		var vl=getText(b.eq(i));
@@ -191,11 +191,11 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
         	waitResponse();
         	
         	//Verify no error
-            verifyFalse(jq(".z-msgbox-error").exists());
+            verifyFalse(jq(".z-messagebox-error").exists());
             verifyFalse(jq(".z-error").exists());
         	
         	//Label change
-        	b=jq(".z-row-cnt .z-label");
+        	b=jq(".z-row .z-label");
         	for (i <- 0 until b.length()) {
         	    var i1=i+50;
         		var vl=getText(b.eq(i));

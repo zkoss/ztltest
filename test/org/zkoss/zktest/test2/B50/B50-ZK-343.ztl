@@ -58,20 +58,17 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-			fz.$n("scrollX").eval("scrollLeft = + 200");
+			click(jq(".z-scrollbar").toWidget().$n("hor-right"));
 			waitResponse();
-			int oldScrollLeft = parseInt(fz.$n("scrollX").get("scrollLeft"));
-			int oldOffsetLeft = parseInt(lh.$n().get("offsetLeft"));
-
-			click(jq(lb.$n("pgib")).find("button.z-paging-next").get(0));
+				
+			String transform1 = jq(jq(".z-scrollbar").toWidget().$n("hor-indicator")).css("transform");
+				
+			click(jq("[name=" + jq(".z-paging").attr("id") + "-next]"));
 			waitResponse();
-
-			verifyTrue(parseInt(fz.$n("scrollX").get("scrollLeft")) == oldScrollLeft);
-			
-			if (ZK.is("ff > 6"))
-				verifyTolerant(oldOffsetLeft, parseInt(lh.$n().get("offsetLeft")), 1);
-			else
-				verifyTrue(parseInt(lh.$n().get("offsetLeft")) == oldOffsetLeft);
+				
+			String transform2 = jq(jq(".z-scrollbar").toWidget().$n("hor-indicator")).css("transform");				
+				
+			verifyTrue(transform1.equals(transform2));			
 		]]></client>
 	</case>
 </test>

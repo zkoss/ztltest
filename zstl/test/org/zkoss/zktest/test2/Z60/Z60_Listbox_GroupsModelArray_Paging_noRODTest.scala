@@ -211,7 +211,7 @@ class Z60_Listbox_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
         }
         def sort (id: String, cate: String) {
           var lbx: Widget = engine.$f(id);
-          click(jq(lbx.$n("head")).find(".z-listheader-cnt:contains("+cate+")"));
+          click(jq(lbx.$n("head")).find(".z-listheader:contains("+cate+")"));
           waitResponse();
         }
         def checkEqual(idOne: String, idTwo: String, gnum: String) {
@@ -222,8 +222,8 @@ class Z60_Listbox_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
 
           for (i <- 0 to 2) {
             verifyTrue("The content sequence should equal between two listbox "+idOne+" and "+idTwo,
-                jq(lbxOne.$n("rows")).find(".z-listcell-cnt:contains(Value)").get(i).get("innerHTML")
-                .equals(jq(lbxTwo.$n("rows")).find(".z-listcell-cnt:contains(Value)").get(i).get("innerHTML")));
+                jq(lbxOne.$n("rows")).find(".z-listcell-content:contains(Value)").get(i).get("innerHTML")
+                .equals(jq(lbxTwo.$n("rows")).find(".z-listcell-content:contains(Value)").get(i).get("innerHTML")));
           }
         }
         def isClose(id: String, gnum: String): Boolean =  {
@@ -231,7 +231,7 @@ class Z60_Listbox_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
           var gstr: String = getGstr(gnum);
           if (!jq(lbx.$n("rows")).find(".z-listgroup:contains(Itemset "+gstr+")").exists())
             changePage(id, gnum);
-          return jq(lbx.$n("rows")).find(".z-listgroup:contains(Itemset "+gstr+")").toWidget().$n("img").exists();
+          return jq(lbx.$n("rows")).find(".z-listgroup:contains(Itemset "+gstr+")").find(".z-listgroup-icon-close").get(0).exists();
         }
         def changePage (id: String, gnum: String) {
           input(tbOne.$n(), id);

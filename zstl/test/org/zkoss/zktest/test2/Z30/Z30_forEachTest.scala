@@ -66,7 +66,7 @@ class Z30_forEachTest extends ZTL4ScalaTestCase {
           verifyEquals(row.find("@label:first").text(),""+i);
           i = i + 1 ;
         }
-        verifyEquals(jq(".z-listitem-seld").find(".z-listcell-cnt:first").text(),"10");
+        verifyEquals(jq(".z-listitem-selected").find(".z-listcell:first").text(),"10");
     }
    );
   }

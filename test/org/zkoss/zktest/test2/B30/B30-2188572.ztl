@@ -23,17 +23,17 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			verifyEquals("College: 0",jq(".z-listbox:eq(0) div.z-listheader-content").text());
-			verifyEquals("College: Best",jq(".z-listbox:eq(0) div.z-listcell-content:eq(0)").text());
-			verifyEquals("College: Better",jq(".z-listbox:eq(0) div.z-listcell-content:eq(1)").text());
-			verifyEquals("",jq(".z-listbox:eq(0) div.z-listcell-content:eq(2)").text());
-			verifyEquals(2,jq(".z-listbox:eq(0) div.z-listcell-content").length());
-			verifyEquals("Graduate: 1",jq(".z-listbox:eq(1) div.z-listheader-content").text());
-			verifyEquals("Graduate: A++",jq(".z-listbox:eq(1) div.z-listcell-content:eq(0)").text());
-			verifyEquals("Graduate: A+",jq(".z-listbox:eq(1) div.z-listcell-content:eq(1)").text());
-			verifyEquals("Graduate: A",jq(".z-listbox:eq(1) div.z-listcell-content:eq(2)").text());	
-			verifyEquals("",jq(".z-listbox:eq(1) div.z-listcell-content:eq(3)").text());
-			verifyEquals(3,jq(".z-listbox:eq(1) div.z-listcell-content").length());
+			verifyEquals("College: 0",jq(".z-listbox:eq(0) .z-listheader").text());
+			verifyEquals("College: Best",jq(".z-listbox:eq(0) .z-listcell:eq(0)").text());
+			verifyEquals("College: Better",jq(".z-listbox:eq(0) .z-listcell:eq(1)").text());
+			verifyEquals("",jq(".z-listbox:eq(0) .z-listcell:eq(2)").text());
+			verifyEquals(2,jq(".z-listbox:eq(0) .z-listcell").length());
+			verifyEquals("Graduate: 1",jq(".z-listbox:eq(1) .z-listheader").text());
+			verifyEquals("Graduate: A++",jq(".z-listbox:eq(1) .z-listcell:eq(0)").text());
+			verifyEquals("Graduate: A+",jq(".z-listbox:eq(1) .z-listcell:eq(1)").text());
+			verifyEquals("Graduate: A",jq(".z-listbox:eq(1) .z-listcell:eq(2)").text());
+			verifyEquals("",jq(".z-listbox:eq(1) .z-listcell:eq(3)").text());
+			verifyEquals(3,jq(".z-listbox:eq(1) .z-listcell").length());
 		]]></client>
 	</case>
 </test>

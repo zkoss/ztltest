@@ -68,11 +68,11 @@
 			 -->
 		</server>
 		<client><![CDATA[
-		sleep(1000);//for DataBinding
+			sleep(1000);//for DataBinding
 			click(jq(".z-checkbox input[id*=\"real\"]:eq(0)"));
 			waitResponse();
 			verifyTrue(jq(".z-checkbox input[id*=\"real\"]:eq(0)").attr("checked").equals("checked"));
-			click(jq(".z-column-content:eq(0)"));
+			click(jq(".z-column:eq(0)"));
 			waitResponse();
 			verifyFalse(jq(".z-checkbox input[id*=\"real\"]:eq(0)").attr("checked").equals("checked"));
 		]]></client>

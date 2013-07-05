@@ -105,7 +105,7 @@ class Z30_grid_0014Test extends ZTL4ScalaTestCase {
         });
         
         clickThenValidate("$btnChangeFirst",()=>{
-        	verifyEquals(jq(".z-row-cnt:first .z-label").text(),"Updated 0");
+        	verifyEquals(jq(".z-row-content:first .z-label").text(),"Updated 0");
         });
         
         clickThenValidate("$btnAdd",()=>{
@@ -120,13 +120,15 @@ class Z30_grid_0014Test extends ZTL4ScalaTestCase {
         });
      
         
-        clickThenValidate(".z-paging-next",()=>{
+        val next = "[name=" + jq(".z-paging").attr("id") + "-next]"
+        clickThenValidate(next ,()=>{
    	  		verifyEquals(jq("@row").length.toString(),"5");          
           	verifyRowContent(Iterator("Item 6-L","Item 7-L","Item 8-L","Item 9-L","Updated 9"))
           	invalidateTest(Iterator("Item 6-L","Item 7-L","Item 8-L","Item 9-L","Updated 9"))
         });
         
-        clickThenValidate(".z-paging-prev",()=>{
+        val prev = "[name=" + jq(".z-paging").attr("id") + "-prev]"
+        clickThenValidate(prev,()=>{
             verifyEquals(jq("@row").length.toString(),"5");
           	verifyRowContent(Iterator("Updated 0","Item 2-L","Item 3-L","Item 4-L","Item 5-L"))
           	invalidateTest(Iterator("Updated 0","Item 2-L","Item 3-L","Item 4-L","Item 5-L"))

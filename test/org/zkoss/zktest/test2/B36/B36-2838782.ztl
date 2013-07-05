@@ -18,16 +18,16 @@
 			</zk>
 		 --></server>
 		<client><![CDATA[
-				click(jq("@treecell[label=\"3\"] div.z-overflow-hidden"));
+				click(jq("@treecell:contains(3)"));
 				waitResponse();
-				click(jq("@page @treerow span.z-tree-root-open"));
+				click(jq("@page @treerow:eq(0)").toWidget().$n("icon"));
 				waitResponse();
-				click(jq("@page @treerow span.z-tree-root-close"));
+				click(jq("@page @treerow:eq(0)").toWidget().$n("icon"));
 				waitResponse();
 				sendKeys(tree.$n("a"), Keys.DOWN);
 				sendKeys(tree.$n("a"), Keys.DOWN);
 				sendKeys(tree.$n("a"), Keys.UP);
-				verifyTrue(jq("@treecell[label=\"7\"]").parent(".z-treerow").hasClass("z-treerow-seld"));
+				verifyTrue(jq("@treecell[label=\"7\"]").parent(".z-treerow").hasClass("z-treerow-selected"));
 		]]></client>
 	</case>
 </test>

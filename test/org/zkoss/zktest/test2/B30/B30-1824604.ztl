@@ -43,7 +43,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 
 			if (true) return;
-			click(jq("@paging").toWidget().$n("next"));
+			click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
 			waitResponse();
 
 			int i = 20;

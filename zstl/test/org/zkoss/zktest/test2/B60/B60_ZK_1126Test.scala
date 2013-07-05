@@ -237,11 +237,11 @@ class B60_ZK_1126Test extends ZTL4ScalaTestCase {
           verifyTrue("should see two buttons between the listboxes", i0 < i1)
           verifyTrue("should see two buttons between the listboxes", i1 < i2)
 
-          click(panel.find(".z-listitem-img-checkbox:eq(0)"))
+          click(panel.find(".z-listitem-checkbox:eq(0)"))
           waitResponse()
-          click(panel.find(".z-listitem-img-checkbox:eq(2)"))
+          click(panel.find(".z-listitem-checkbox:eq(2)"))
           waitResponse()
-          click(panel.find(".z-listitem-img-checkbox:eq(3)"))
+          click(panel.find(".z-listitem-checkbox:eq(3)"))
           waitResponse()
 
           click(panel.find(".z-button:contains(- >)"))
@@ -251,7 +251,7 @@ class B60_ZK_1126Test extends ZTL4ScalaTestCase {
           verifyEquals(" should be able to select the data to move in any order.", leftBox.find(".z-listitem").length(), 1)
           verifyEquals(" should be able to select the data to move in any order.", rightBox.find(".z-listitem").length(), 3)
 
-          click(panel.find(".z-listitem-img-checkbox:eq(3)"))
+          click(panel.find(".z-listitem-checkbox:eq(3)"))
           waitResponse()
 
           click(panel.find(".z-button:contains(<-)"))

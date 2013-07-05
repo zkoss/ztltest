@@ -179,13 +179,13 @@ f1.detach();
 
       // Verify that the '+' icon is present
       // Don't know why jq(".z-listgroup-img .z-listgroup-img-open") does't return the element
-      verifyTrue("The '+' icon should be visible", jq(".z-listcell-cnt:contains(1)").html().contains("z-listgroup-img z-listgroup-img-open"));
+      verifyTrue("The '+' icon should be visible", jq("@listgroup:contains(1)").find("i").hasClass("z-listgroup-icon-open"));
 
       // Record style attributes
-      val css1Before = jq(".z-listcel-cnt").css("font-weight");
-      val css2Before = jq(".z-listcel-cnt").css("font-size");
-      val css3Before = jq(".z-listcel-cnt").css("font-family");
-      val css4Before = jq(".z-listcel-cnt").css("font-color");
+      val css1Before = jq(jq(".z-listcell").toWidget().$n("cave")).css("font-weight");
+      val css2Before = jq(jq(".z-listcell").toWidget().$n("cave")).css("font-size");
+      val css3Before = jq(jq(".z-listcell").toWidget().$n("cave")).css("font-family");
+      val css4Before = jq(jq(".z-listcell").toWidget().$n("cave")).css("font-color");
 
       // Click on updateFoot1 button
       click(jq("@button").get(1));
@@ -196,10 +196,10 @@ f1.detach();
       waitResponse();
 
       // Record style attributes again
-      val css1After = jq(".z-listcel-cnt").css("font-weight");
-      val css2After = jq(".z-listcel-cnt").css("font-size");
-      val css3After = jq(".z-listcel-cnt").css("font-family");
-      val css4After = jq(".z-listcel-cnt").css("font-color");
+      val css1After = jq(jq(".z-listcell").toWidget().$n("cave")).css("font-weight");
+      val css2After = jq(jq(".z-listcell").toWidget().$n("cave")).css("font-size");
+      val css3After = jq(jq(".z-listcell").toWidget().$n("cave")).css("font-family");
+      val css4After = jq(jq(".z-listcell").toWidget().$n("cave")).css("font-color");
 
       verifyTrue("The font-weight should be equal than before", css1Before.equals(css1After));
       verifyTrue("The font-size should be equal than before", css2Before.equals(css2After));

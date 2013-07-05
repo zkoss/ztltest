@@ -125,7 +125,7 @@ class Z60_Grid_ListModelList_PagingTest extends ZTL4ScalaTestCase {
         }
         def isAscending (id: String): Boolean = {
           var grid: Widget = engine.$f(id);
-          return jq(grid.$n("body")).find(".z-rows").find(".z-row-cnt:contains(data)").find("span").get(0).get("innerHTML").contains("0");
+          return jq(grid.$n("body")).find(".z-rows").find(".z-row-content:contains(data)").find("span").get(0).get("innerHTML").contains("0");
         }
         def checkNotSync(idOne: String, idTwo: String) = {
           var old: Boolean = isAscending(idTwo);

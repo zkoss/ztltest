@@ -44,7 +44,7 @@ list.add("C");
                             </listitem>
                           </template>
                         </listbox>
-                        <listbox width="100%" model="${list}" id="third" w:onSelect='zk.log("client","onSelect :"+this.id+":"+jq(".z-listitem-seld",this.$n()).text())' onSelect='printLog(self)' onCreate='list.addToSelection("B")'>
+                        <listbox width="100%" model="${list}" id="third" w:onSelect='zk.log("client","onSelect :"+this.id+":"+jq(".z-listitem-selected",this.$n()).text())' onSelect='printLog(self)' onCreate='list.addToSelection("B")'>
                           <listhead>
                             <listheader></listheader>
                           </listhead>

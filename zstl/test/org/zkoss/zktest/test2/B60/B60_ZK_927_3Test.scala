@@ -124,12 +124,12 @@ class B60_ZK_927_3Test extends ZTL4ScalaTestCase {
         	  selected = items.contains(i);
         	  item = jq(lb).find(".z-listitem").get(i);
 
-        	  cnt = jq(item).find(".z-listcell-cnt").get(0).get("innerHTML");
+        	  cnt = jq(item).find(".z-listcell").eq(0).text();
               cnt = cnt.substring(cnt.length()-5, cnt.length());
                 
               verifyTrue("Item "+i+" should "
                   +(if(selected) "" else "not ")+"be selected",
-	              jq(item) .hasClass("z-listitem-seld") == selected
+	              jq(item) .hasClass("z-listitem-selected") == selected
 	              && (lbl == null || lbl.$n().get("innerHTML").contains(cnt) == selected));
               
           }

@@ -108,8 +108,8 @@ class B30_1892484Test extends ZTL4ScalaTestCase {
             click(jq("@button:eq(0)"));
             waitResponse();
             
-            var j1=jq(".z-tree:eq(0) .z-treecell-cnt:eq(2)");
-            var j2=jq(".z-tree:eq(1) .z-treecell-cnt:eq(2)");
+            var j1=jq(".z-tree:eq(0) .z-treecell:eq(2)");
+            var j2=jq(".z-tree:eq(1) .z-treecell:eq(2)");
             val txt1=getText(j1);
             val txt2=getText(j2);
             
@@ -127,8 +127,8 @@ class B30_1892484Test extends ZTL4ScalaTestCase {
             waitResponse();
                 
             
-            val j21=jq(".z-tree:eq(0) .z-treecell-cnt:eq(2)");
-            val j22=jq(".z-tree:eq(1) .z-treecell-cnt:eq(2)");
+            val j21=jq(".z-tree:eq(0) .z-treecell:eq(2)");
+            val j22=jq(".z-tree:eq(1) .z-treecell:eq(2)");
             
             //Tree 1 is not modified
             val txt21=getText(j21);

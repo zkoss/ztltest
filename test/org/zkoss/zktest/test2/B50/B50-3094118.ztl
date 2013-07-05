@@ -164,14 +164,14 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 				verifyEquals(3,jq("@treerow").length());
-				verifyEquals(1,jq("@treerow .z-tree-root-close").length());
-				verifyFalse(jq("@treerow:eq(1)").find(".z-tree-root-close").exists());
+				verifyEquals(1,jq("@treerow .z-tree-close").length());
+				verifyFalse(jq("@treerow:eq(1)").find(".z-tree-close").exists());
 				click(jq("@button[label=\"insert\"]"));
 				waitResponse();
-				verifyEquals(2,jq("@treerow .z-tree-root-close").length());
+				verifyEquals(2,jq("@treerow .z-tree-close").length());
 				verifyEquals("[]",jq("@treerow:eq(1)"));
-				verifyTrue(jq("@treerow:eq(1)").find(".z-tree-root-close").exists());
-				click(jq("@treerow:eq(1) .z-tree-root-close"));
+				verifyTrue(jq("@treerow:eq(1)").find(".z-tree-close").exists());
+				click(jq("@treerow:eq(1) .z-tree-close"));
 				waitResponse();
 				verifyEquals(4,jq("@treerow").length());
 				verifyEquals("[]",jq("@treerow:eq(1)"));

@@ -96,11 +96,11 @@ class B30_1878840Test extends ZTL4ScalaTestCase {
      */
 
       // Click on the first header to sort
-      click(jq(".z-listheader-cnt").get(0));
+      click(jq(".z-listheader").get(0));
       waitResponse();
 
       // Twice to see the ordering
-      click(jq(".z-listheader-cnt").get(0));
+      click(jq(".z-listheader").get(0));
       waitResponse();
 
       verifyFalse(jq(".z-listcell:empty").get(0).exists());

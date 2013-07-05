@@ -192,8 +192,7 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 				waitResponse(true);
 				
 				var selected_item : Int 
-					= listbody.findElement(jq(".z-listitem-seld .z-listcell-cnt"))
-					          .getText().substring(7).toInt;
+					= jq(".z-listbox .z-listitem-selected .z-listcell").text().substring(7).toInt;
 				println(selected_item);
 				verifyTrue(selected_item > 50);
 			}

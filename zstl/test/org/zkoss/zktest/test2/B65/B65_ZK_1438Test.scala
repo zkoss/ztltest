@@ -58,22 +58,22 @@ class B65_ZK_1438Test extends ZTL4ScalaTestCase {
         click(jq("@button:contains(sendEvent)"))
         waitResponse()
 
-        verifyEquals("should see only one message shows in listbox", jq("@listbox:eq(0) .z-listcell-cnt").length(), 1)
-        verifyEquals("should see only one message shows in listbox", jq("@listbox:eq(1) .z-listcell-cnt").length(), 1)
+        verifyEquals("should see only one message shows in listbox", jq("@listbox:eq(0) .z-listcell").length(), 1)
+        verifyEquals("should see only one message shows in listbox", jq("@listbox:eq(1) .z-listcell").length(), 1)
 
         click(jq("@button:contains(reload 1)"))
         waitResponse()
         click(jq("@button:contains(sendEvent)"))
         waitResponse()
-        verifyEquals("should see only one message shows in listbox1 and one in listbox2", jq("@listbox:eq(0) .z-listcell-cnt").length(), 1)
-        verifyEquals("should see only one message shows in listbox1 and one in listbox2", jq("@listbox:eq(1) .z-listcell-cnt").length(), 1)
+        verifyEquals("should see only one message shows in listbox1 and one in listbox2", jq("@listbox:eq(0) .z-listcell").length(), 1)
+        verifyEquals("should see only one message shows in listbox1 and one in listbox2", jq("@listbox:eq(1) .z-listcell").length(), 1)
 
         click(jq("@button:contains(detach)"))
         waitResponse()
         click(jq("@button:contains(sendEvent)"))
         waitResponse()
-        verifyEquals("should see no message shows in listbox1 and 2", jq("@listbox:eq(0) .z-listcell-cnt").length(), 0)
-        verifyEquals("should see no message shows in listbox1 and 2", jq("@listbox:eq(1) .z-listcell-cnt").length(), 0)
+        verifyEquals("should see no message shows in listbox1 and 2", jq("@listbox:eq(0) .z-listcell").length(), 0)
+        verifyEquals("should see no message shows in listbox1 and 2", jq("@listbox:eq(1) .z-listcell").length(), 0)
 
       })
 

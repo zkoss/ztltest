@@ -55,7 +55,7 @@ class B35_2519885Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
       // Verify that there isn't a selected node
-      verifyTrue("It should not be a selected nodes", jq(".z-treerow-seld").length() == 0);
+      verifyTrue("It should not be a selected nodes", jq(".z-treerow-selected").length() == 0);
 
       // Click on three nodes
       click(jq(".z-treerow").get(2));
@@ -64,10 +64,10 @@ class B35_2519885Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       // Verify that there are three selected nodes
-      verifyTrue("It should be three selected nodes", jq(".z-treerow-seld").length() == 3);
+      verifyTrue("It should be three selected nodes", jq(".z-treerow-selected").length() == 3);
 
       // Click on next page button
-      click(jq(".z-paging-next"));
+      click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
       waitResponse();
 
       // Click on one more row
@@ -75,18 +75,18 @@ class B35_2519885Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       // Click on previous page button
-      click(jq(".z-paging-prev"));
+      click(jq("[name=" + jq("@paging").attr("id") + "-prev]"));
       waitResponse();
 
       // Verify again that there are three selected nodes
-      verifyTrue("It should be three selected nodes", jq(".z-treerow-seld").length() == 3);
+      verifyTrue("It should be three selected nodes", jq(".z-treerow-selected").length() == 3);
 
       // Click on next page button
-      click(jq(".z-paging-next"));
+      click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
       waitResponse();
       
       // Verify again that there is on selected node
-      verifyTrue("It should be one selected node on this page", jq(".z-treerow-seld").length() == 1);
+      verifyTrue("It should be one selected node on this page", jq(".z-treerow-selected").length() == 1);
 
       
     })

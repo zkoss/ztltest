@@ -31,9 +31,9 @@
 			</window>
 		--></server>
 		<client><![CDATA[
-			click(jq(".z-listheader-content"));
+			click(jq(".z-listheader"));
 			waitResponse();
-			click(jq(".z-listheader-content"));
+			click(jq(".z-listheader"));
 			waitResponse();
 			verifyEquals("Tom", jq(".z-listcell:eq(0)").text());
 			verifyEquals("Mary", jq(".z-listcell:eq(1)").text());

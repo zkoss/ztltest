@@ -122,15 +122,15 @@ class Z30_grid_0006Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
-        verifyTolerant(jq("$col").outerWidth(),120, 2);
+        verifyTolerant(jq("$col").outerWidth(),125, 2);
         
         click(jq("$btnWid"))
         waitResponse
-        verifyNotEquals(String.valueOf(jq("$col").outerWidth()),"120");
+        verifyNotEquals(String.valueOf(jq("$col").outerWidth()),"125");
         verifyEquals(String.valueOf(jq("$col").outerWidth()),"200");
         
 
-		Scripts.triggerMouseEventAt(getWebDriver(), jq("$col .z-column-cnt"), "click", "2,2")        
+		Scripts.triggerMouseEventAt(getWebDriver(), jq("$col"), "click", "2,2")        
         waitResponse
 
 
@@ -153,11 +153,11 @@ class Z30_grid_0006Test extends ZTL4ScalaTestCase {
         waitResponse
         verifyRowContent(Iterator("Ins1","A31","Apple","Lemon","Orange","Tomato","A31"));
         
-        Scripts.triggerMouseEventAt(getWebDriver(), jq("$col .z-column-cnt"), "click", "2,2")
+        Scripts.triggerMouseEventAt(getWebDriver(), jq("$col"), "click", "2,2")
         waitResponse
         verifyRowContent(Iterator("Tomato","Orange","Lemon","Ins1","Apple","A31","A31"));
         
-		Scripts.triggerMouseEventAt(getWebDriver(), jq("$col .z-column-cnt"), "click", "2,2")        
+		Scripts.triggerMouseEventAt(getWebDriver(), jq("$col"), "click", "2,2")        
         
         waitResponse
         verifyRowContent(Iterator("A31","A31","Apple","Ins1","Lemon","Orange","Tomato"));

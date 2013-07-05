@@ -64,13 +64,13 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				click(jq(".z-tree-root-close"));
+				click(jq(".z-treerow").toWidget().$n("icon"));
 				waitResponse();
 				verifyEquals(3,jq("@treerow"));
 				click(jq("@button"));
 				waitResponse();
 				verifyEquals(4,jq("@treerow"));
-				verifyEquals(" Item 1-3",jq("@treerow:eq(3)").text());
+				verifyTrue(jq("@treerow:eq(3)").text().contains("Item 1-3"));
 		]]></client>
 	</case>
 	<case id="ztl1">
@@ -125,11 +125,11 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 				click(jq("@button"));
-				waitResponse();	
-				click(jq(".z-tree-root-close"));
+				waitResponse();
+				click(jq(".z-treerow").toWidget().$n("icon"));
 				waitResponse();
 				verifyEquals(4,jq("@treerow"));
-				verifyEquals(" Item 1-3",jq("@treerow:eq(3)").text());
+				verifyTrue(jq("@treerow:eq(3)").text().contains("Item 1-3"));
 		]]></client>
 	</case>
 </test>

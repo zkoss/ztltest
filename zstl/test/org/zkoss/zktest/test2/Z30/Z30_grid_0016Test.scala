@@ -106,7 +106,7 @@ class Z30_grid_0016Test extends ZTL4ScalaTestCase {
         	verifyRowContent(list.iterator)
         });                
         
-        clickThenValidate(".z-paging-next",()=>{
+        clickThenValidate("[name=" + jq(".z-paging").attr("id") + "-next]",()=>{
         	verifyEquals(jq("@rows").length.toString(),"1");
         	verifyEquals(jq("@row").length.toString(),"2"); //paging
         	verifyRowContent(Iterator("Item 21-L","Item 22-L"));

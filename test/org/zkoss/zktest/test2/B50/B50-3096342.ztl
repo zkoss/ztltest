@@ -48,12 +48,12 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				waitResponse();
 				mouseUp(jq(".z-timebox-button"));
 				int index = 19;
-				JQuery dayOnCalendar = jq(".z-calendar-wkday:eq(" + index + ")");
+				JQuery dayOnCalendar = jq(".z-calendar-weekday:eq(" + index + ")");
 				int dayOfMonth = Integer.parseInt(dayOnCalendar.text());
 				Calendar calendar = Calendar.getInstance();
 				if (dayOfMonth == calendar.get(Calendar.DAY_OF_MONTH)) {
 				index = dayOfMonth == 1 ? dayOfMonth + 1 : dayOfMonth - 1;
-				dayOnCalendar = jq(".z-calendar-wkday:eq(" + index + ")");
+				dayOnCalendar = jq(".z-calendar-weekday:eq(" + index + ")");
 				}
 				Scripts.triggerMouseEventAt(getWebDriver(), dayOnCalendar, "click", "1,1");
 				waitResponse();

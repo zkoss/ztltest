@@ -198,18 +198,18 @@ border="normal">
 		--></server>
 		<client><![CDATA[
 				verifyEquals(1,jq(".z-treerow").length());
-				verifyEquals(1,jq(".z-treerow-seld").length());
-				click(jq(".z-tree-root-close"));
+				verifyEquals(1,jq(".z-treerow-selected").length());
+				click(jq(".z-treerow").toWidget().$n("icon"));
 				waitResponse();
-				verifyEquals(6,jq(".z-treerow-seld").length());
+				verifyEquals(6,jq(".z-treerow-selected").length());
 				verifyEquals(6,jq(".z-treerow").length());
 				click(jq("@button[label=\"deSelectAll\"]"));
 				waitResponse();
-				verifyEquals(0,jq(".z-treerow-seld").length());
-				verifyEquals(6,jq(".z-treerow").length());			
+				verifyEquals(0,jq(".z-treerow-selected").length());
+				verifyEquals(6,jq(".z-treerow").length());
 				click(jq("@button[label=\"selectAll\"]"));
 				waitResponse();
-				verifyEquals(6,jq(".z-treerow-seld").length());
+				verifyEquals(6,jq(".z-treerow-selected").length());
 				verifyEquals(6,jq(".z-treerow").length());
 		]]></client>
 	</case>

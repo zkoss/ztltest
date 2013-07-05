@@ -24,9 +24,9 @@
 			 -->
 		</server>
 		<client><![CDATA[
-			int colWidth = jq(".z-column:eq(5)").width();
+			int colWidth = jq(".z-column:eq(3)").width();
 			//System.out.println("Original column width: " + colWidth);
-			dragdropTo(jq(".z-column:eq(5)"), (colWidth - 2) + ",5", (colWidth / 2) + ",5");
+			dragdropTo(jq(".z-column:eq(3)"), (colWidth - 2) + ",5", (colWidth / 2) + ",5");
 			//System.out.println("Current column width: " + jq(".z-datebox:eq(0)").width());
 			verifyTrue(colWidth > jq(".z-datebox:eq(0)").width());
 		]]></client>

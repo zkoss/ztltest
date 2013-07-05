@@ -41,7 +41,7 @@ Please open the treeitem "item" and you should see the treeitem "child item" is 
 		--></server>
 		<client><![CDATA[
 				verifyEquals(1,jq("@treerow").length());
-				click(jq(".z-tree-root-close"));
+				click(jq(".z-treerow").toWidget().$n("icon"));
 				waitResponse();
 				verifyEquals(2,jq("@treerow").length());
 				verifyContains(jq(".z-treerow:eq(1)").text(), "child item");

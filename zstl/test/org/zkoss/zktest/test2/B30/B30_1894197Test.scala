@@ -119,8 +119,8 @@ class B30_1894197Test extends ZTL4ScalaTestCase {
       verifyTrue("It should be visible the root and two child nodes (3)", countAfter == 3);
 
       // Verify that nodes are visible
-      verifyTrue("It should be visible the 'Node: A' node", jq(".z-treecell-cnt").text().contains("Node: A"));
-      verifyTrue("It should be visible the 'Node: B' node", jq(".z-treecell-cnt").text().contains("Node: B"));
+      verifyTrue("It should be visible the 'Node: A' node", jq(".z-treecell").text().contains("Node: A"));
+      verifyTrue("It should be visible the 'Node: B' node", jq(".z-treecell").text().contains("Node: B"));
     })
   }
 }

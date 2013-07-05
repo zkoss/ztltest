@@ -62,7 +62,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			verifyEquals("none", jq(".z-row:eq(0) .z-row-inner:eq(1)").css("display"));
             verifyEquals("none", jq(".z-row:eq(0) .z-row-inner:eq(1)").css("display"));
             
-			click(jq("@paging").toWidget().$n("next"));
+			click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
 			waitResponse();
 			verifyEquals(1,jq(".z-row"));
 			verifyEquals("none", jq(".z-row:eq(0) .z-row-inner:eq(1)").css("display"));
@@ -77,7 +77,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			verifyNotEquals("none", jq(".z-row:eq(0) .z-row-inner:eq(1)").css("display"));
             verifyNotEquals("none", jq(".z-row:eq(0) .z-row-inner:eq(1)").css("display"));
             
-			click(jq("@paging").toWidget().$n("next"));
+			click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
 			waitResponse();
 			verifyNotEquals("none", jq(".z-row:eq(0) .z-row-inner:eq(1)").css("display"));
             verifyNotEquals("none", jq(".z-row:eq(0) .z-row-inner:eq(1)").css("display"));
