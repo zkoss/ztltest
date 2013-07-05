@@ -80,7 +80,7 @@ class B50_3309174Test extends ZTL4ScalaTestCase {
 
 		click(btn);
 		waitResponse();
-		verifyTrue(jq(jq(grid.$n("body")).find(".z-row-cnt").get(0)).find(".z-label").get(0).get("innerHTML").contains("20"));
+		verifyTrue(jq(grid.$n("body")).find(".z-row").eq(0).text().contains("20"));
     }
    // Run syntax 1 
    runZTL(zscript, executor);

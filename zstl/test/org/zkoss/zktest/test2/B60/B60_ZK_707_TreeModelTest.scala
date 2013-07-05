@@ -81,19 +81,19 @@ class B60_ZK_707_TreeModelTest extends ZTL4ScalaTestCase {
         var treeOne: Widget = engine.$f("treeOne");
         var treeTwo: Widget = engine.$f("treeTwo");
 
-        click(jq(treeOne).find(".z-tree-ico.z-tree-root-close").get(0));
+        click(jq(treeOne).find(".z-treerow").toWidget().$n("icon"));
         waitResponse();
         verifyTrue("First tree should opened",
-            jq(treeOne).find(".z-tree-ico.z-tree-root-open").exists());
+            jq(treeOne).find(".z-treerow").toWidget().$n("icon").exists());
         verifyTrue("Second Tree should opened as first tree",
-            jq(treeTwo).find(".z-tree-ico.z-tree-root-open").exists());
+            jq(treeTwo).find(".z-treerow").toWidget().$n("icon").exists());
 
-        click(jq(treeTwo).find(".z-tree-ico.z-tree-root-open").get(0));
+        click(jq(treeTwo).find(".z-treerow").toWidget().$n("icon"));
         waitResponse();
         verifyTrue("Second tree should closed",
-            jq(treeTwo).find(".z-tree-ico.z-tree-root-close").exists());
+            jq(treeTwo).find(".z-treerow").toWidget().$n("icon").exists());
         verifyTrue("First Tree should closed as second tree",
-            jq(treeOne).find(".z-tree-ico.z-tree-root-close").exists());
+            jq(treeOne).find(".z-treerow").toWidget().$n("icon").exists());
     }
    );
   }

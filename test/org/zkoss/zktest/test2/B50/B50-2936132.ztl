@@ -62,14 +62,14 @@
 			-->
 		</server>
 		<client>	<![CDATA[
-   				click(jq(".z-tree-root-close:eq(0)"));
+   				click(btn);
 				waitResponse();
-				click(btn);
+				click(jq(".z-treerow:eq(0)").toWidget().$n("icon"));
 				waitResponse();
 				verifyEquals(6,jq("tr.z-treerow").length());
-				verifyEquals(" Item 1-1",jq("div.z-treecell-cnt:eq(1)").text());
-				verifyEquals(" Item 1-2",jq("div.z-treecell-cnt:eq(2)").text());
-				verifyEquals(" Item 1-3",jq("div.z-treecell-cnt:eq(3)").text());
+				verifyTrue(jq(jq(".z-treecell:eq(1)").toWidget().$n("cave")).text().contains("Item 1-1"));
+				verifyTrue(jq(jq(".z-treecell:eq(2)").toWidget().$n("cave")).text().contains("Item 1-2"));
+				verifyTrue(jq(jq(".z-treecell:eq(3)").toWidget().$n("cave")).text().contains("Item 1-3"));
 			]]></client>
 	</case>
 	<case id="tree1">
@@ -137,12 +137,12 @@
 		<client>	<![CDATA[
    				click(btn);
 				waitResponse();
-				click(jq(".z-tree-root-close:eq(0)"));
+				click(jq(".z-treerow:eq(0)").toWidget().$n("icon"));
 				waitResponse();
 				verifyEquals(6,jq("tr.z-treerow").length());
-				verifyEquals(" Item 1-1",jq("div.z-treecell-cnt:eq(1)").text());
-				verifyEquals(" Item 1-2",jq("div.z-treecell-cnt:eq(2)").text());
-				verifyEquals(" Item 1-3",jq("div.z-treecell-cnt:eq(3)").text());
+				verifyTrue(jq(jq(".z-treecell:eq(1)").toWidget().$n("cave")).text().contains("Item 1-1"));
+				verifyTrue(jq(jq(".z-treecell:eq(2)").toWidget().$n("cave")).text().contains("Item 1-2"));
+				verifyTrue(jq(jq(".z-treecell:eq(3)").toWidget().$n("cave")).text().contains("Item 1-3"));
 			]]></client>
 	</case>
 </test>

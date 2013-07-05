@@ -122,12 +122,12 @@ class B60_ZK_827Test extends ZTL4ScalaTestCase {
 
         var index: Int = Integer.parseInt(msg.$n().get("innerHTML").trim().replace("[", "").replace("]", ""));
         verifyTrue("select should sync between client and server",
-            jq(".z-listitem-seld:contains("+index+")").exists());
+            jq(".z-listitem-selected:contains("+index+")").exists());
         clickAndWait(jq(".z-listitem").get(6));
         clickAndWait(btnFive);
         index = Integer.parseInt(msg.$n().get("innerHTML").trim().replace("[", "").replace("]", ""));
         verifyTrue("select should sync between client and server",
-            jq(".z-listitem-seld:contains("+index+")").exists());
+            jq(".z-listitem-selected:contains("+index+")").exists());
         
     }
    );

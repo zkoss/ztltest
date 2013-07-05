@@ -49,18 +49,15 @@ class B30_1884112Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
       // Get the first node
-      val t1: Element = jq(".z-tree-ico").get(0);
-      click(t1);
+      click(jq(".z-treerow:contains(Group0)").toWidget().$n("icon"));
       waitResponse();
 
       // Get the first cell of the open node
-      val t2:Element= jq(".z-tree-tee-close").get(0);
-      click(t2);
+      click(jq(".z-treerow:contains(host-0)").toWidget().$n("icon"));
       waitResponse();
 
       // Click on first button
-      val b1:Element= jq(".z-button").get(0);
-      click(b1);
+      click(jq(".z-button"));
       waitResponse();
 
       // Verify the new element
@@ -69,8 +66,7 @@ class B30_1884112Test extends ZTL4ScalaTestCase {
 
       // Remove 0/0/0
       // Click on second button. I search for .z-button because of a Selenium issue
-      val b2:Element= jq(".z-button").get(1);
-      click(b2);
+      click(jq(".z-button").get(1));
       waitResponse();
 
       // Verify deleted element
@@ -78,8 +74,7 @@ class B30_1884112Test extends ZTL4ScalaTestCase {
 
       // Remove 0/0/0
       // Click on third button. I search for .z-button because of a Selenium issue
-      val b3:Element= jq(".z-button").get(2);
-      click(b3);
+      click(jq(".z-button").get(2));
       waitResponse();
 
       // Verify the modified label

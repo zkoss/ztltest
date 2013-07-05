@@ -116,26 +116,26 @@ class B60_ZK_767Test extends ZTL4ScalaTestCase {
         var btnOne: Widget = engine.$f("btnOne");
         var btnTwo: Widget = engine.$f("btnTwo");
 
-        var treeOneIcoA: Element = jq(treeOne.$n()).find(".z-treecell:contains(A0)").find(".z-tree-ico").get(0);
-        var treeOneIcoB: Element = jq(treeOne.$n()).find(".z-treecell:contains(B1)").find(".z-tree-ico").get(0);
-        var treeTwoIcoA: Element = jq(treeTwo.$n()).find(".z-treecell:contains(A0)").find(".z-tree-ico").get(0);
-        var treeTwoIcoB: Element = jq(treeTwo.$n()).find(".z-treecell:contains(B1)").find(".z-tree-ico").get(0);
+        var treeOneIcoA = jq(treeOne.$n()).find(".z-treerow:contains(A0)").toWidget().$n("icon");
+        var treeOneIcoB = jq(treeOne.$n()).find(".z-treerow:contains(B1)").toWidget().$n("icon");
+        var treeTwoIcoA = jq(treeTwo.$n()).find(".z-treerow:contains(A0)").toWidget().$n("icon");
+        var treeTwoIcoB = jq(treeTwo.$n()).find(".z-treerow:contains(B1)").toWidget().$n("icon");
 
         click(treeOneIcoA); waitResponse();
         verifyTrue("A0-1 of Tree 1 should already opened",
-            jq(treeOne.$n()).find(".z-treecell:contains(A0-1)").find(".z-tree-ico.z-tree-tee-open").get(0).exists());
+            jq(jq(treeOne).find(".z-treerow:contains(A0-1)").toWidget().$n("icon")).hasClass("z-tree-open"));
         click(treeOneIcoB); waitResponse();
         verifyTrue("B1-1 of Tree 1 should already selected",
-            jq(treeOne.$n()).find(".z-treerow.z-treerow-seld:contains(B1-1)").get(0).exists());
+            jq(treeOne.$n()).find(".z-treerow.z-treerow-selected:contains(B1-1)").get(0).exists());
 
         click(btnOne); waitResponse();
         click(treeTwoIcoA); waitResponse();
-        verifyTrue("A0-1 of Tree 1 should already opened",
-            jq(treeTwo.$n()).find(".z-treecell:contains(A0-1)").find(".z-tree-ico.z-tree-tee-open").get(0).exists());
+        verifyTrue("A0-1 of Tree 2 should already opened",
+            jq(jq(treeTwo.$n()).find(".z-treerow:contains(A0-1)").toWidget().$n("icon")).hasClass("z-tree-open"));
         click(btnTwo); waitResponse();
         click(treeTwoIcoB); waitResponse();
-        verifyTrue("B1-1 of Tree 1 should already selected",
-            jq(treeTwo.$n()).find(".z-treerow.z-treerow-seld:contains(B1-1)").get(0).exists());
+        verifyTrue("B1-1 of Tree 2 should already selected",
+            jq(treeTwo.$n()).find(".z-treerow.z-treerow-selected:contains(B1-1)").get(0).exists());
     }
    );
   }

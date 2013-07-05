@@ -65,28 +65,20 @@ class B50_3317743Test extends ZTL4ScalaTestCase {
 		else
 			Scripts.triggerMouseEventAt(getWebDriver(), jq(listbox.$n("rows")).find(".z-listitem").get(3), "click", "200,5");
 		waitResponse();
-		click(jq(listbox.$n("pgib")).find(".z-paging-next").get(0));
+		click(jq("[name=" + jq(".z-paging").attr("id") + "-next]"));		
 		waitResponse();
 		if (ZK.is("ie9"))
 		  clickAt(jq(listbox.$n("rows")).find(".z-listitem").get(3), "200,5");
 		else
 			Scripts.triggerMouseEventAt(getWebDriver(), jq(listbox.$n("rows")).find(".z-listitem").get(3), "click", "200,5");
 		waitResponse();
-		System.out.println(Integer.parseInt(tb.$n().get("value")));
+		println(Integer.parseInt(tb.$n().get("value")));
 		
 		verifyTrue(Integer.parseInt(tb.$n().get("value")) > 200);
 
-		click(jq(listbox.$n("pgib")).find(".z-paging-prev").get(0));
+		click(jq("[name=" + jq( jq(".z-paging")).attr("id") + "-prev]"));
 		waitResponse();
-		verifyTrue(jq(listbox.$n("rows")).find(".z-listitem").get(3).get("className").contains("z-listitem-seld"));
-		System.out.println(jq(jq(listbox.$n("rows")).find(".z-listitem").get(3)).find(".z-listitem-img-checkbox")
-		      .css("background-position"));
-		if (ZK.is("ie6_") || ZK.is("ie7_") || ZK.is("ie8_"))
-		  verifyTrue(jq(jq(listbox.$n("rows")).find(".z-listitem").get(3)).find(".z-listitem-img-checkbox")
-		      .css("background-position-x").contains("-26px"));
-		else
-		  verifyTrue(jq(jq(listbox.$n("rows")).find(".z-listitem").get(3)).find(".z-listitem-img-checkbox")
-		      .css("background-position").contains("-26px"));
+		verifyTrue(jq(".z-listitem:eq(3)").hasClass("z-listitem-selected"));
     }
    // Run syntax 1 
    runZTL(zscript, executor);

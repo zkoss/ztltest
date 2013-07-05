@@ -86,7 +86,7 @@ class B60_ZK_891Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
         () => {
         verifyTrue("Should be multiple select",
-            jq(".z-listitem-img-checkbox").length() == 20);
+            jq(".z-listitem-checkbox").length() == 20);
     }
    );
   }

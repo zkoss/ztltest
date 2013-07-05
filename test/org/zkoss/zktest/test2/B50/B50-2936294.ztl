@@ -12,10 +12,10 @@
 			-->
 		</server>
 		<client><![CDATA[
-				verifyTrue(jq(".z-listitem-seld").exists());
+				verifyTrue(jq(".z-listitem-selected").exists());
 				click(btn);
 				waitResponse();
-				verifyFalse(jq(".z-listitem-seld").exists());
+				verifyFalse(jq(".z-listitem-selected").exists());
 			]]></client>
 	</case>
 </test>

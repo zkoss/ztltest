@@ -72,14 +72,7 @@ class B50_3020040Test extends ZTL4ScalaTestCase {
 		checkSelected(jq(box.$n("rows")).find(".z-listitem").get(2));
     }
     def checkSelected(ele: Element) = {
-    	verifyTrue(ele.get("className").contains("z-listitem-seld"));
-		if (ZK.is("ie6_") || ZK.is("ie7_") || ZK.is("ie8_")) {
-		  verifyTrue(jq(ele).find(".z-listitem-img-checkbox")
-		      .css("background-position-x").contains("-26px"));
-		} else {
-		  verifyTrue(jq(ele).find(".z-listitem-img-checkbox")
-		      .css("background-position").contains("-26px"));
-		}
+    	verifyTrue(ele.get("className").contains("z-listitem-selected"));
     }
    // Run syntax 1 
    runZTL(zscript, executor);

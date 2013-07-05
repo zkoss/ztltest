@@ -85,8 +85,8 @@ class B60_ZK_707_ListModelTest extends ZTL4ScalaTestCase {
         }
         def verifySelected(content: String) {
             verifyTrue("Both first grid and second grid select the "+content,
-            		jq(gridOne.$n()).find(".z-listitem-seld:contains("+content+")").exists()
-            		&& jq(gridTwo.$n()).find(".z-listitem-seld:contains("+content+")").exists());
+            		jq(gridOne.$n()).find(".z-listitem-selected:contains("+content+")").exists()
+            		&& jq(gridTwo.$n()).find(".z-listitem-selected:contains("+content+")").exists());
         }
         def sort (wgt: Widget) {
             click(jq(wgt.$n()).find(".z-listheader:contains(column)"));

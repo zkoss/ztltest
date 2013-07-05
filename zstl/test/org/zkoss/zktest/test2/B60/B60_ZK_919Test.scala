@@ -58,7 +58,7 @@ class B60_ZK_919Test extends ZTL4ScalaTestCase {
         0 to 3 foreach { i =>
           click(jq(".z-datebox-button:eq(" + i + ")"))
           waitResponse()
-          click(jq(".z-calendar:eq(" + i + ") .z-calendar-caldayrow:eq(2)").find(".z-calendar-wkday:eq(2)"))
+          click(jq(".z-calendar:eq(" + i + ") .z-calendar-caldayrow:eq(2)").find(".z-calendar-weekday:eq(2)"))
           waitResponse()
         }
 

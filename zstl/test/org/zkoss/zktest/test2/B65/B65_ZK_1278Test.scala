@@ -88,9 +88,9 @@ aggregationTree.setModel(new SimpleTreeTestModel());
 """
     runZTL(zscript,
       () => {
-        click(jq(".z-treecell:contains(A) .z-dottree-root-close"))
+        click(jq(".z-treerow:contains(A)").toWidget().$n("icon"))
         waitResponse()
-        click(jq(".z-treecell:contains(B) .z-dottree-root-close"))
+        click(jq(".z-treerow:contains(B)").toWidget().$n("icon"))
         waitResponse()
         val log = jq("#zk_log")
         verifyEquals("the log textbox should not appear the scrollbar", log.scrollTop() <= log.height())

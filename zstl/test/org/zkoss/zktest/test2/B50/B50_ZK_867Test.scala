@@ -15,10 +15,10 @@ class B50_ZK_867Test extends ZTL4ScalaTestCase {
 		.myimg {
 			margin: 5px; border: 1px solid #CFCFCF;
 		}
-		div.z-column-cnt {
+		div.z-column-content {
 			text-align: center; font-weight: bold;
 		}
-		div.z-row-cnt span {
+		div.z-row-content span {
 			font-family: Tahoma,Arial,serif;
 			color: #0E3A99;
 		}

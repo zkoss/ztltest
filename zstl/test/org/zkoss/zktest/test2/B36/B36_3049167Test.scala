@@ -119,8 +119,8 @@ class B36_3049167Test extends ZTL4ScalaTestCase {
 
         //Get element ZK Forge
         //Get element ZK GWT
-        var item0 = jq(".z-listbox-body .z-listcell-cnt:eq(0)");
-        var item2 = jq(".z-listbox-body .z-listcell-cnt:eq(2)");
+        var item0 = jq(".z-listbox-body .z-listcell:eq(0)");
+        var item2 = jq(".z-listbox-body .z-listcell:eq(2)");
         
         waitResponse();
         

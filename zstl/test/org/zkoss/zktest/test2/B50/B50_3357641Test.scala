@@ -150,9 +150,9 @@ class B50_3357641Test extends ZTL4ScalaTestCase {
     	waitResponse();
 
     	for (i <- 0 until 5) {
-    	  verifyTrue(jq(testListbox.$n("rows")).find(".z-listcell-cnt").get(i).get("innerHTML").contains("items"+i));
+    	  verifyTrue(jq(testListbox.$n("rows")).find(".z-listcell").eq(i).text().contains("items"+i));
     	}
-    	verifyFalse(jq(testListbox.$n("rows")).find(".z-listcell-cnt").get(5).exists());
+    	verifyFalse(jq(testListbox.$n("rows")).find(".z-listcell").get(5).exists());
     }
    // Run syntax 1 
    runZTL(zscript, executor);

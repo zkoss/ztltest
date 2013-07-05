@@ -30,10 +30,10 @@
 		</server>
 		<client><![CDATA[
 				verifyEquals(1,jq(".z-treerow").length());
-				click(jq(".z-tree-root-close"));
+				click(jq(".z-treerow").toWidget().$n("icon"));
 				waitResponse();
 				verifyEquals(2,jq(".z-treerow").length());
-				clickAt(jq(".z-overflow-hidden"), "50,2");
+				click(jq(".z-treecell"));
 				waitResponse();
 				verifyTrue(isVisible(jq(".z-window-highlighted")));
 			]]></client>

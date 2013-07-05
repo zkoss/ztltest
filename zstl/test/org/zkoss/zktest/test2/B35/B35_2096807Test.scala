@@ -75,18 +75,18 @@ List items = new org.zkoss.zktest.test2.BigList(100); //a big list ofInteger
         () => {
         	
             waitResponse();
-            var nextd=jq(".z-paging-btn-disd .z-paging-next")
-            var next=jq(".z-paging-btn .z-paging-next")
+            var nextd=jq("[name=" + jq("@paging").attr("id") + "-next][disabled=disabled]")
+            var next=jq("[name=" + jq("@paging").attr("id") + "-next]")
             
             //Previous disabled in first page
-            var firstd=jq(".z-paging-btn-disd .z-paging-first");
-            var first=jq(".z-paging-btn .z-paging-first");
+            var firstd=jq("[name=" + jq("@paging").attr("id") + "-first][disabled=disabled]")
+            var first=jq("[name=" + jq("@paging").attr("id") + "-first]")
             
-            var lastd=jq(".z-paging-btn-disd .z-paging-last");
-            var last=jq(".z-paging-btn .z-paging-last");
+            var lastd=jq("[name=" + jq("@paging").attr("id") + "-last][disabled=disabled]")
+            var last=jq("[name=" + jq("@paging").attr("id") + "-last]")
             
-            var prevd=jq(".z-paging-btn-disd .z-paging-prev");
-            var prev=jq(".z-paging-btn .z-paging-prev");
+            var prevd=jq("[name=" + jq("@paging").attr("id") + "-prev][disabled=disabled]")
+            var prev=jq("[name=" + jq("@paging").attr("id") + "-prev]")
             
             //Verify disabled and enabled pagging buttons
             var nd=nextd.exists();

@@ -74,24 +74,8 @@ class B50_3340841Test extends ZTL4ScalaTestCase {
     }
 
     def executor = ()=>{
-    	var tree: Widget = engine.$f("tree");
-		var listbox: Widget = engine.$f("listbox");
-		waitResponse();
-
-		verifyTrue(jq(listbox.$n("rows")).find(".z-listitem").get(0).get("className").contains("z-listitem-seld"));
-		verifyTrue(jq(tree.$n("rows")).find(".z-treerow").get(0).get("className").contains("z-treerow-seld"));
-		if (ZK.is("ie6_") || ZK.is("ie7_") || ZK.is("ie8_")) {
-			verifyTrue(jq(jq(listbox.$n("rows")).find(".z-listitem").find(".z-listitem-img-checkbox").get(0))
-			    .css("background-position-x").contains("-26px"));
-			verifyTrue(jq(jq(tree.$n("rows")).find(".z-treerow").find(".z-treerow-img-checkbox").get(0))
-			    .css("background-position-x").contains("-26px"));
-		}
-		else {
-		  verifyTrue(jq(jq(listbox.$n("rows")).find(".z-listitem").find(".z-listitem-img-checkbox").get(0))
-		    .css("background-position").contains("-26px"));
-		  verifyTrue(jq(jq(tree.$n("rows")).find(".z-treerow").find(".z-treerow-img-checkbox").get(0))
-			    .css("background-position").contains("-26px"));
-		}
+		verifyTrue(jq(".z-listitem:eq(0)").hasClass("z-listitem-selected"));
+		verifyTrue(jq(".z-treerow:eq(0)").hasClass("z-treerow-selected"));
     }
    // Run syntax 1 
    runZTL(zscript, executor);

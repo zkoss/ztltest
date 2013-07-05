@@ -90,14 +90,14 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				click(jq("@button:eq(0)"));waitResponse();
 				click(jq("@column"));waitResponse();
 				click(jq("@column"));waitResponse();
-				verifyEquals("Katrina",jq(".z-row-cnt:eq(0)").text());
-				verifyEquals("Jimmy",jq(".z-row-cnt:eq(1)").text());
+				verifyEquals("Katrina",jq(".z-row:eq(0)").text());
+				verifyEquals("Jimmy",jq(".z-row:eq(1)").text());
 				click(jq("@button:eq(1)"));waitResponse();
 				click(jq("@column"));waitResponse();
 				click(jq("@column"));waitResponse();
 				verifyFalse(jq(".z-error").exists());
-				verifyEquals("Katrina",jq(".z-row-cnt:eq(0)").text());
-				verifyEquals("Jimmy",jq(".z-row-cnt:eq(1)").text());
+				verifyEquals("Katrina",jq(".z-row:eq(0)").text());
+				verifyEquals("Jimmy",jq(".z-row:eq(1)").text());
 		]]></client>
 	</case>
 </test>

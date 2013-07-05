@@ -3,7 +3,7 @@
 		<server><![CDATA[
 <zk>
 <n:style xmlns:n="native">
-    div.z-listcell-cnt{
+    div.z-listcell-content{
         white-space:nowrap;
     }
 </n:style>

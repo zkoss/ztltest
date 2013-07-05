@@ -91,9 +91,9 @@
 </zk>	--></server>
 		<client><![CDATA[
 		verifyImage();
-		click(jq(".z-tree-root-open"));
+		click(jq(".z-treerow").toWidget().$n("icon"));
 		verifyImage();
-		click(jq(".z-tree-root-close"));
+		click(jq(".z-treerow").toWidget().$n("icon"));
 		verifyImage();
 		]]></client>
 	</case>

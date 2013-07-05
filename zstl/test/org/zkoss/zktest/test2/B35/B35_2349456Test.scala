@@ -53,39 +53,40 @@ list.focus();
       </window>
     }
     runZTL(zscript, () => {
-      var listWidget: Widget =
+      var listWidget =
         engine.$f("list");
-      var listElement: Element =
+      var listElement  =
         listWidget.$n("real");
+      val a = listWidget.$n("a")
 
       // Click on first element of the list to verify later the final selected item
-      click(jq(".z-listcell-cnt:contains(option 0)"));
+      click(jq(".z-listcell:contains(option 0)"));
 
-      focus(listWidget.$n("a"));
+      focus(a);
 
       // The following three commands doesn't work (Chrome/Firefox). The selected does not change.
 //      sendKeys(listWidget, Keys.ARROW_DOWN);
 //      keyPress(listWidget, "\\28");
-      sendKeys(listWidget.$n("a"), Keys.DOWN);
+      sendKeys(a, Keys.DOWN);
       waitResponse();
 
       // Press the DOWN key
-      sendKeys(listWidget.$n("a"), Keys.DOWN);
+      sendKeys(a, Keys.DOWN);
 
       // Press the DOWN key
-      sendKeys(listWidget.$n("a"), Keys.DOWN);
+      sendKeys(a, Keys.DOWN);
 
       // Press the DOWN key
-      sendKeys(listWidget.$n("a"), Keys.DOWN);
+      sendKeys(a, Keys.DOWN);
 
       // Press the UP key
-      sendKeys(listWidget.$n("a"), Keys.UP);
+      sendKeys(a, Keys.UP);
 
       // Press the UP key
-      sendKeys(listWidget.$n("a"), Keys.UP);
+      sendKeys(a, Keys.UP);
       
       // After DOWN+DOWN+DOWN+UP+UP the selected item should be "Option 2"
-      verifyTrue("The selected item should be 'option 2'", jq(".z-listitem-seld").text().contains("option 2"));
+      verifyTrue("The selected item should be 'option 2'", jq(".z-listitem-selected").text().contains("option 2"));
 
     })
   }

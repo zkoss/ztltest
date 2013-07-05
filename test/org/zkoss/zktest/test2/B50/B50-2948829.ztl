@@ -109,19 +109,18 @@ The second tabpanel
 		<client><![CDATA[
 				click(jq(".z-bandbox-button"));
 				waitResponse();
-				verifyEquals(6,jq(".z-treerow").length());
-				click(jq(".z-tree-tee-close"));
+				verifyEquals(1,jq(".z-treerow:contains(level 1.1)").length());
+				click(jq(".z-treerow:contains(level 1.1)").toWidget().$n("icon"));
 				waitResponse();
-				verifyEquals(8,jq(".z-treerow").length());
-				verifyEquals(" level 1.1.1",jq(".z-treerow:eq(3)").text());
-				verifyEquals(" level 1.1.2",jq(".z-treerow:eq(4)").text());
-				
+				verifyEquals(3,jq(".z-treerow:contains(level 1.1)").length());
+				verifyTrue(jq(".z-treerow:eq(3)").text().contains("level 1.1.1"));
+				verifyTrue(jq(".z-treerow:eq(4)").text().contains("level 1.1.2"));
 				verifyEquals(1,jq(".z-tabpanel").length());
 				click(tab2);
 				waitResponse();
 				verifyEquals(2,jq(".z-tabpanel").length());
 				verifyFalse(isVisible(jq(".z-tabpanel:eq(0)")));
-				verifyTrue(isVisible(jq(".z-tabpanel:eq(1)")));		
+				verifyTrue(isVisible(jq(".z-tabpanel:eq(1)")));	
 			]]></client>
 	</case>
 </test>
