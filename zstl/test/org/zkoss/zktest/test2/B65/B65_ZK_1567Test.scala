@@ -30,7 +30,7 @@ class B65_ZK_1567Test extends ZTL4ScalaTestCase {
         click(jq(".z-menu:contains(More)"))
         waitResponse()
 
-        verifyEquals("The menupopup should align with the left of 'More' menu", jq(".z-menu-body").offsetLeft(), jq(".z-menupopup").offsetLeft())
+        verifyEquals("The menupopup should align with the left of 'More' menu", jq(".z-menu").offsetLeft(), jq(".z-menupopup").offsetLeft())
       })
 
   }

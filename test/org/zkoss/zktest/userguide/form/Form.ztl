@@ -220,7 +220,7 @@
 				
 				/** colorbox */
 				click(jq("@colorbox i.z-colorbox-currcolor"));
-				click(jq("div.z-colorpalette-colorbox:eq(56)"));
+				click(jq("div.z-colorpalette-color:eq(56)"));
 				click(jq("@colorbox i.z-colorbox-currcolor"));
 				click(jq(".z-colorbox-pickericon"));
 

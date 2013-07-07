@@ -27,7 +27,7 @@ class B35_2090137Test extends ZTL4ScalaTestCase {
 		val zscript = {"""
 		<zk>
 <style>
-.ie6 .z-window-embedded-cnt {
+.ie6 .z-window-content {
 	width: 478px;
 	overflow:hidden;
 }

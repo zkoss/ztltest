@@ -42,7 +42,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				mouseOver(jq(".z-menu-body"));waitResponse();
+				mouseOver(jq(".z-menu").toWidget().$n("a"));waitResponse();
 				mouseOver(jq(".z-menuitem:eq(0)"));sleep(500);
 				verifyTrue(jq(".z-menupopup").isVisible());
 		]]></client>

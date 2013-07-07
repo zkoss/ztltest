@@ -91,7 +91,7 @@ class B35_2614901Test extends ZTL4ScalaTestCase {
       waitResponse();
       
       // Verify the correct selected item
-      verifyTrue("The selected item should be 'New'",(jq(".z-menuitem-over").text().contains("New")));
+      verifyTrue("The selected item should be 'New'",(jq(".z-menuitem-hover").text().contains("New")));
       
     })
   }
