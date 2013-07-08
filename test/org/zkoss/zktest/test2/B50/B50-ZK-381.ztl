@@ -51,24 +51,23 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 			int fullWidth = 0,
 				i = parseInt(jq(menubar.$n("cave")).get(0).eval("childNodes.length"));
-			Element e = jq(menubar.$n("cave")).get(0).firstChild();
-			for (int j = 0;j < i;j ++) {
+				Element e = jq(menubar.$n("cave")).get(0).firstChild();
+				for (int j = 0;j < i;j ++) {
 				fullWidth += parseInt(e.get("offsetWidth"));
 				e = e.nextSibling();
-			}
-
-			for (int j = 0;j < 5;j ++) {
-				Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-menubar-hor-right").get(0), "click", "5,5");
+				}
+				for (int j = 0;j < 5;j ++) {
+				Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-menubar").toWidget().$n("right"), "click", "5,5");
 				sleep(500);
-			}
-			waitResponse();
-			verifyTrue(parseInt(menubar.$n("body").get("scrollLeft")) == (fullWidth - parseInt(menubar.$n("body").get("offsetWidth"))));
-			for (int j = 0;j < 5;j ++) {
-				Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-menubar-hor-left").get(0), "click", "5,5");
+				}
+				waitResponse();
+				verifyEquals(parseInt(menubar.$n("body").get("scrollLeft")),  fullWidth - parseInt(menubar.$n("body").get("offsetWidth")));
+				for (int j = 0;j < 5;j ++) {
+				Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-menubar").toWidget().$n("left"), "click", "5,5");
 				sleep(500);
-			}
-			waitResponse();
-			verifyTrue(parseInt(menubar.$n("body").get("scrollLeft")) == 0);
+				}
+				waitResponse();
+				verifyTrue(parseInt(menubar.$n("body").get("scrollLeft")) == 0);
 		]]></client>
 	</case>
 </test>

@@ -46,7 +46,7 @@ class B65_ZK_1309Test extends ZTL4ScalaTestCase {
 
         verifyTrue("should show notification", jq(".z-notification").isVisible())
 
-        val window = jq(".z-window-modal-header")
+        val window = jq(jq(".z-window-modal").toWidget().$n("cave"))
 
         dragdropTo(window, window.outerWidth() + ",0",
           (window.outerWidth() + 50) + ",0")

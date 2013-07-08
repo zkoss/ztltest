@@ -66,8 +66,8 @@ class B65_ZK_1448Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyTrue("Should see left/right arrow icons.", jq(".z-menubar-hor-left").width() != 0)
-        verifyTrue("Should see left/right arrow icons.", jq(".z-menubar-hor-right").width() != 0)
+        verifyTrue("Should see left/right arrow icons.", jq(jq(".z-menubar").toWidget().$n("left")).width() != 0)
+        verifyTrue("Should see left/right arrow icons.", jq(jq(".z-menubar").toWidget().$n("right")).width() != 0)
       })
 
   }

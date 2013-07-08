@@ -21,15 +21,15 @@ class B65_ZK_1654Test extends ZTL4ScalaTestCase {
       () => {
         click(jq(".z-colorbox"))
         waitResponse()
-        val colorpaletteInp = jq(".z-colorpalette-input")
+        val colorpaletteInp = jq(jq(".z-colorpalette").toWidget().$n("hex-inp"))
         sendKeys(colorpaletteInp, "A")
         waitResponse()
         verifyEquals("should see 'A' or 'a' showed", colorpaletteInp.`val`(), "A")
 
-        click(jq(".z-colorbox-picker-button"))
+        click(jq(".z-colorbox").toWidget().$n("picker-btn"))
         waitResponse()
 
-        val colorpickerInp = jq(".z-colorpicker-input")
+        val colorpickerInp = jq(jq(".z-colorpicker").toWidget().$n("hex-inp"))
         sendKeys(colorpickerInp, Keys.END + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "A")
         waitResponse()
         verifyEquals("should see 'A' or 'a' showed", colorpickerInp.`val`(), "A")

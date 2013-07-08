@@ -96,7 +96,7 @@ class B65_ZK_1693Test extends ZTL4ScalaTestCase {
             waitResponse()
             sleep(500)
             val pp = jq("#" + cb.attr("id") + "-pp")
-            click(pp.find(".z-colorpalette-colorbox:contains(" + color + ")"))
+            click(pp.find(".z-colorpalette-color:contains(" + color + ")"))
             waitResponse()
             verifyImage()
         }

@@ -27,7 +27,7 @@ class B65_ZK_1679Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        dragAndDrop(jq(".z-window-overlapped-br"), "0,320")
+        dragdropTo(jq(".z-window-overlapped"), "2, 2", "0,320")
         waitResponse()
         verifyTrue("you should not see green background bar expand to window size", (jq(".z-hlayout").height() - 50).abs < 5)
         verifyTrue("you should not see green background bar expand to window size", (jq(".z-hlayout").width() - 105).abs < 5)

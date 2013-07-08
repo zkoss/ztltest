@@ -40,16 +40,18 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				click(jq(".z-menu-icon"));
+				JQuery menu = jq(".z-menu");
+				click(menu);
 				waitResponse();
-				String color1 = jq(".z-menu-img").css("backgroundColor"); 							
+				Element img = menu.toWidget().$n();
+				String color1 = jq(img).css("backgroundColor");
 				clickAt(jq("@label:eq(0)"),"6,6");//to blur
 				waitResponse();
 				click(chgOrient.$n("real"));
 				waitResponse();
-				click(jq(".z-menu-icon"));
+				click(menu);
 				waitResponse();
-				String color2 = jq(".z-menu-img").css("backgroundColor"); 
+				String color2 = jq(img).css("backgroundColor");
 				verifyEquals(color1,color2);
 		]]></client>
 	</case>

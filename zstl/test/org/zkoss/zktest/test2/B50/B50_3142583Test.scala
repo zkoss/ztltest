@@ -81,8 +81,7 @@ class B50_3142583Test extends ZTL4ScalaTestCase {
         verifyTrue("includedWin should be the child of mainWin",
             checkParentWindow(includedWin));
         verifyTrue("indludedWin should have title 'Included win",
-            jq(includedWin).find(".z-window-embedded-header").get(0)
-            .get("innerHTML").contains("Included win"));
+            jq(includedWin).text().contains("Included win"));
         waitResponse();
 
     }

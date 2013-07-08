@@ -42,27 +42,19 @@
 		--></server>
 		<client ><![CDATA[
 			sleep(200);
-			mouseMoveAt(modalBtn, "15,8");
-			mouseDownAt(modalBtn, "15,8");
-			mouseUpAt(modalBtn, "15,8");
 			click(modalBtn);
 			waitResponse(true);
+			verifyTrue(jq("$hideBtn:focus").exists());
 			click(invalidateBtn);
 			waitResponse(true);
-			verifyTrue(jq("$hideBtn .z-button:focus").exists());
-			getActions().sendKeys(Keys.LEFT_SHIFT, Keys.TAB).perform();
+			verifyTrue(jq("$hideBtn:focus").exists());
+			click(hideBtn);
 			waitResponse(true);
-			verifyTrue(jq("$hideBtn .z-button:focus").exists());
-			click(jq(".z-window-modal-icon"));
-			waitResponse(true);
-			mouseMoveAt(newBtn, "15,8");
-			mouseDownAt(newBtn, "15,8");
-			mouseUpAt(newBtn, "15,8");
 			click(newBtn);
 			waitResponse(true);
-			click(jq(".z-window-highlighted-icon"));
+			click(jq(".z-window-highlighted").toWidget().$n("close"));
 			waitResponse(true);
-			verifyTrue(jq("$newBtn .z-button:focus").exists());
+			verifyTrue(jq("$newBtn:focus").exists());
 		]]></client>
 	</case>
 </test>

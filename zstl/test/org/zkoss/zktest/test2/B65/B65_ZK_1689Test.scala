@@ -41,8 +41,8 @@ class B65_ZK_1689Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         val position = "2,2"
-        val src = jq(".z-window-popup-header:contains(relative win)")
-        val target = jq(".z-window-embedded-header:contains(parent win)")
+        val src = jq("@window.z-window-popup:contains(relative win)").toWidget().$n("cap")
+        val target = jq("@window.z-window-embedded:contains(parent win)").toWidget().$n("cap")
         mouseMoveAt(src, position)
         waitResponse
 
@@ -57,7 +57,7 @@ class B65_ZK_1689Test extends ZTL4ScalaTestCase {
 
         val left = jq(".z-label:contains(px):eq(0)").text()
         val top = jq(".z-label:contains(px):eq(1)").text()
-        val max = src.find(".z-panel-popup").toWidget().$n("max")
+        val max = jq(src).toWidget().$n("max")
 
         click(max)
         waitResponse()
