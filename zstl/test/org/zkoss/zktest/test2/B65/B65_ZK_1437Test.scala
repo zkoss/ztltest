@@ -27,7 +27,7 @@ class B65_ZK_1437Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         val fmt = new SimpleDateFormat("'Hello World!!' EEE MMM dd HH:mm:ss z yyyy", Locale.US)
-        val header = jq(jq(".z-window-embedded").toWidget().$n("cave"))
+        val header = jq(jq(".z-window-embedded:eq(2)").toWidget().$n("cap"))
         val past = fmt.parse(header.text())
         
         // it verify sec is diff

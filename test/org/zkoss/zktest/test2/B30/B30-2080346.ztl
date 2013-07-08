@@ -37,9 +37,10 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-			focus(jq("@combobox input"));
-			type(jq("@combobox input"), "a");
-			blur(jq("@combobox input"));
+			Element inp = jq("@combobox").toWidget().$n("real");
+			focus(inp);
+			type(inp, "a");
+			blur(inp);
 			waitResponse();
 			verifyEquals("a",jq(copy).val());
 		]]></client>

@@ -21,7 +21,7 @@
 			click(jq(myBtn));
 			waitResponse();
 			verifyTrue(jq(".z-window-highlighted").exists());
-			click(jq(".z-window-highlighted").toWidget().$n("close"));
+			click(jq(".z-messagebox-window").toWidget().$n("close"));
 			waitResponse();
 			verifyFalse(jq(".z-window-highlighted").exists());
 		]]></client>

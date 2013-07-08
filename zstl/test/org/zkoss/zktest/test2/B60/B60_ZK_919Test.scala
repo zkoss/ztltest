@@ -31,10 +31,10 @@ class B60_ZK_919Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        val datelongfmt0 = jq(".z-datebox-input:eq(0)").`val`()
-        val datelongfmt1 = jq(".z-datebox-input:eq(1)").`val`()
-        val datelongfmt2 = jq(".z-datebox-input:eq(2)").`val`()
-        val datelongfmt3 = jq(".z-datebox-input:eq(3)").`val`()
+        val datelongfmt0 = jq(jq(".z-datebox:eq(0)").toWidget().$n("real")).`val`()
+        val datelongfmt1 = jq(jq(".z-datebox:eq(1)").toWidget().$n("real")).`val`()
+        val datelongfmt2 = jq(jq(".z-datebox:eq(2)").toWidget().$n("real")).`val`()
+        val datelongfmt3 = jq(jq(".z-datebox:eq(3)").toWidget().$n("real")).`val`()
         val msg1 = "1. You shall see 4 type of dates whose time part are the same. "
 
         val Pattern1 = """.*(\d\d):(\d\d):(\d\d).*""".r
@@ -56,9 +56,9 @@ class B60_ZK_919Test extends ZTL4ScalaTestCase {
         verifyEquals(msg1, date0, date2)
 
         0 to 3 foreach { i =>
-          click(jq(".z-datebox-button:eq(" + i + ")"))
+          click(jq(".z-datebox:eq(" + i + ")").toWidget().$n("btn"))
           waitResponse()
-          click(jq(".z-calendar:eq(" + i + ") .z-calendar-caldayrow:eq(2)").find(".z-calendar-weekday:eq(2)"))
+          click(jq(".z-calendar:eq(" + i + ") .z-calendar-weekday:contains(14)"))
           waitResponse()
         }
 

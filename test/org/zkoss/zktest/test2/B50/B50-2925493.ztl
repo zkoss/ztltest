@@ -41,10 +41,11 @@
 			-->
 		</server>
 		<client><![CDATA[
-				focus(jq(".z-combobox-input"));
-				sendKeys(jq(".z-combobox-input"), "a");
+				Element inp = jq(".z-combobox").toWidget().$n("real");
+				focus(jq(inp));
+				sendKeys(jq(inp), "a");
 				waitResponse(true);
-				verifyNotEquals("A",jq(".z-combobox-input").val());
+				verifyNotEquals("A",jq(inp).val());
 				waitResponse(true);
 				verifyTrue(isVisible(jq(".z-comboitem")));
 				click(jq(".z-comboitem:eq(0)"));
@@ -52,7 +53,7 @@
 				click(jq(".z-window-highlighted @button"));
 				waitResponse();
 				verifyEquals("abacus",jq(msg).text());
-				verifyTrue(jq(".z-combobox-focus").exists());
+				verifyTrue(!"".equals(jq(inp).css("box-shadow")));
 			]]></client>
 	</case>
 </test>

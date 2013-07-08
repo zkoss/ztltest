@@ -78,79 +78,39 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-		if (ZK.is("ie9")) {
-			clickAt(jq("@datebox:eq(0) .z-datebox-button"), "1,1");
+			click(jq("@datebox:eq(0)").toWidget().$n("btn"));
 			waitResponse();
-			verifyEquals("30",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(0) .z-datebox-button"));
-			clickAt(jq("@datebox:eq(1) .z-datebox-button"), "1,1");
+			Element time = jq("@timebox:visible").toWidget().$n("real");
+			verifyEquals("30",jq(time).val());
+			click(jq("@datebox:eq(0)").toWidget().$n("btn"));
+			click(jq("@datebox:eq(1)").toWidget().$n("btn"));
 			waitResponse();
-			verifyEquals("06:20:30",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(1) .z-datebox-button"));
-			clickAt(jq("@datebox:eq(2) .z-datebox-button"), "1,1");
+			verifyEquals("06:20:30",jq(time).val());
+			click(jq("@datebox:eq(1)").toWidget().$n("btn"));
+			click(jq("@datebox:eq(2)").toWidget().$n("btn"));
 			waitResponse();
-			verifyEquals("06:20:30",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(2) .z-datebox-button"));
-			clickAt(jq("@datebox:eq(3) .z-datebox-button"), "1,1");
+			verifyEquals("06:20:30",jq(time).val());
+			click(jq("@datebox:eq(2)").toWidget().$n("btn"));
+			click(jq("@datebox:eq(3)").toWidget().$n("btn"));
 			waitResponse();
-			verifyEquals("06:20:30 PM",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(3) .z-datebox-button"));
-			clickAt(jq("@datebox:eq(4) .z-datebox-button"), "1,1");
+			verifyEquals("06:20:30 PM",jq(time).val());
+			click(jq("@datebox:eq(3)").toWidget().$n("btn"));
+			click(jq("@datebox:eq(4)").toWidget().$n("btn"));
 			waitResponse();
-			verifyEquals("PM 06:20:30",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(4) .z-datebox-button"));
-			clickAt(jq("@datebox:eq(5) .z-datebox-button"), "1,1");
+			verifyEquals("PM 06:20:30",jq(time).val());
+			click(jq("@datebox:eq(4)").toWidget().$n("btn"));
+			click(jq("@datebox:eq(5)").toWidget().$n("btn"));
 			waitResponse();
-			verifyEquals("06:20:30",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(5) .z-datebox-button"));
-			clickAt(jq("@datebox:eq(6) .z-datebox-button"), "1,1");
+			verifyEquals("06:20:30",jq(time).val());
+			click(jq("@datebox:eq(5)").toWidget().$n("btn"));
+			click(jq("@datebox:eq(6)").toWidget().$n("btn"));
 			waitResponse();
-			verifyEquals("18:20:30",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(6) .z-datebox-button"));
-			clickAt(jq("@datebox:eq(7) .z-datebox-button"), "1,1");
+			verifyEquals("18:20:30",jq(time).val());
+			click(jq("@datebox:eq(6)").toWidget().$n("btn"));
+			click(jq("@datebox:eq(7)").toWidget().$n("btn"));
 			waitResponse();
-			verifyEquals("18:20:30",jq(".z-datebox-popup @timebox:visible input").val());
-		} else {
-			click(jq("@datebox:eq(0) .z-datebox-button"));
-			waitResponse();
-			verifyEquals("30",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(0) .z-datebox-button"));
-			
-			click(jq("@datebox:eq(1) .z-datebox-button"));
-			waitResponse();
-			verifyEquals("06:20:30",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(1) .z-datebox-button"));
-			
-			click(jq("@datebox:eq(2) .z-datebox-button"));
-			waitResponse();
-			verifyEquals("06:20:30",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(2) .z-datebox-button"));
-			
-			click(jq("@datebox:eq(3) .z-datebox-button"));
-			waitResponse();
-			verifyEquals("06:20:30 PM",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(3) .z-datebox-button"));
-			
-			click(jq("@datebox:eq(4) .z-datebox-button"));
-			waitResponse();
-			verifyEquals("PM 06:20:30",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(4) .z-datebox-button"));
-			
-			click(jq("@datebox:eq(5) .z-datebox-button"));
-			waitResponse();
-			verifyEquals("06:20:30",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(5) .z-datebox-button"));
-			
-			click(jq("@datebox:eq(6) .z-datebox-button"));
-			waitResponse();
-			verifyEquals("18:20:30",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(6) .z-datebox-button"));
-			
-			click(jq("@datebox:eq(7) .z-datebox-button"));
-			waitResponse();
-			verifyEquals("18:20:30",jq(".z-datebox-popup @timebox:visible input").val());
-			click(jq("@datebox:eq(7) .z-datebox-button"));
-		}
+			verifyEquals("18:20:30",jq(time).val());
+			click(jq("@datebox:eq(7)").toWidget().$n("btn"));
 		]]></client>
 	</case>
 </test>

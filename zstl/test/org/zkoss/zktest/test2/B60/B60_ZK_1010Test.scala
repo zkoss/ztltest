@@ -94,19 +94,16 @@ class B60_ZK_1010Test extends ZTL4ScalaTestCase {
         def selectDate (dbx: Widget) {
           var dayRow: JQuery = null;
           click(dbx.$n("btn")); waitResponse();
-
-          dayRow = jq(dbx.$n("pp")).find(".z-calendar-caldayrow:visible:last");
-          click(dayRow.find("td:contains(29)"));
+          click(jq(dbx.$n("pp")).find("td:contains(29)"));
           waitResponse();
         }
         def openAndCheck (dbx: Widget, year: String, mon: String) {
           click(dbx.$n("btn")); waitResponse();
 
           verifyTrue("the date in the calendar should be the same as your chosen: "+year+"_"+mon+"_29",
-              jq(dbx.$n("pp")).find(".z-calendar-title:contains("+mon+")").exists()
-              && jq(dbx.$n("pp")).find(".z-calendar-title:contains("+year+")").exists()
-              && jq(jq(dbx.$n("pp")).find(".z-calendar-caldayrow").get(4))
-              		.find("td:contains(29)").exists());
+//              jq(dbx.$n("pp")).find(".z-calendar:contains("+mon+")").exists()
+              jq(dbx.$n("pp")).find(".z-calendar-title:contains("+year+")").exists()
+              && jq(dbx.$n("pp")).find("td:contains(29)").exists());
           click(outer);
         }
 

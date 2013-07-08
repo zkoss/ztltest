@@ -59,7 +59,7 @@ class Thm_Inputs_Basic_Test extends ZTL4ScalaTestCase {
 				verifyImage();
 				
 				// Close errorbox
-				closeErrorBox();
+				click(jq(".z-errorbox").toWidget().$n("cls"));
 				sleep(500);
 				verifyImage();
 			});

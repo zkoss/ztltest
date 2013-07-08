@@ -74,7 +74,7 @@
 		--></server>
 		<client><![CDATA[
 		sleep(1000);//for DataBinding
-			JQuery comboboxInp = jq(".z-combobox-input");
+			JQuery comboboxInp = jq(jq(".z-combobox").toWidget().$n("real"));
 			verifyEquals("OrderName - 3", comboboxInp.val());
 			click(loadNewVal);
 			waitResponse();

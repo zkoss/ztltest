@@ -38,7 +38,7 @@ class B65_ZK_1500Test extends ZTL4ScalaTestCase {
 
         click(pnlwgt.$n("max"))
         waitResponse()
-        click(pnlwgt.$n("maxd"))
+        click(pnlwgt.$n("max"))
         waitResponse()
         verifyEquals("the width should the same before maximized", panel.width(), panelWidth)
         verifyEquals("the height should the same before maximized", panel.height(), panelHeight)
@@ -48,7 +48,7 @@ class B65_ZK_1500Test extends ZTL4ScalaTestCase {
         val windowHeight = window.height()
         val wndwgt = window.toWidget()
 
-        click(wndwgt.$n("maxd"))
+        click(wndwgt.$n("max"))
         waitResponse()
         click(wndwgt.$n("max"))
         waitResponse()

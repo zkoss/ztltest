@@ -19,7 +19,7 @@
 			</zk>
 		--></server>
 		<client wait="200"><![CDATA[
-			JQuery combobox = jq(".z-combobox-input");
+			JQuery combobox = jq(jq(".z-combobox").toWidget().$n("real"));
             focus(combobox);
             sendKeys(combobox, "aaa");
             blur(combobox);
@@ -48,7 +48,7 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			JQuery combobox = jq(".z-combobox-input");
+			JQuery combobox = jq(jq(".z-combobox").toWidget().$n("real"));
             focus(combobox);
             click(reset);
             waitResponse();
@@ -75,7 +75,7 @@
 			</zk>
 		--></server>
 		<client wait="200"><![CDATA[
-			JQuery combobox = jq(".z-combobox-input");
+			JQuery combobox = jq(jq(".z-combobox").toWidget().$n("real"));
             focus(combobox);
             sendKeys(combobox, "ttt");
             blur(combobox);

@@ -26,7 +26,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				type(jq("@datebox input"),"May/02/2008");
+				type(jq("@datebox").toWidget().$n("real"),"May/02/2008");
 				waitResponse();
 				verifyFalse(jq(".z-errorbox").exists());
 				verifyFalse(jq(".z-error").exists());

@@ -107,7 +107,7 @@ The second tabpanel
 			-->
 		</server>
 		<client><![CDATA[
-				click(jq(".z-bandbox-button"));
+				click(jq(".z-bandbox").toWidget().$n("btn"));
 				waitResponse();
 				verifyEquals(1,jq(".z-treerow:contains(level 1.1)").length());
 				click(jq(".z-treerow:contains(level 1.1)").toWidget().$n("icon"));

@@ -31,12 +31,13 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-			click(jq("@datebox .z-datebox-button"));
+			click(jq("@datebox").toWidget().$n("btn"));
 				waitResponse();
-				String x = jq(".z-datebox-popup .z-timebox input").val();
-				focus(jq(".z-datebox-popup .z-timebox input"));
+				Element inp = jq(".z-timebox").toWidget().$n("real");
+				String x = jq(inp).val();
+				focus(jq(inp));
 				waitResponse();
-				String x1 = jq(".z-datebox-popup .z-timebox input").val();
+				String x1 = jq(inp).val();
 				verifyEquals(x,x1);
 		]]></client>
 	</case>

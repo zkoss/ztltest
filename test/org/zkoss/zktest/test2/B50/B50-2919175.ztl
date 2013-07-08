@@ -19,15 +19,16 @@
 			-->
 		</server>
 		<client>	<![CDATA[
-		             				click(jq("@combobox .z-combobox-button"));
-		            				waitResponse();
-		            				click(jq("@comboitem[label=\"Cool!\"] td.z-comboitem-text"));
-		            				waitResponse();
-		            				type(jq("@combobox input.z-combobox-input"), "abc");
-		            				waitResponse();
-		            				blur(jq("@combobox"));
-		            				waitResponse();
-		            				verifyFalse(jq(".z-errorbox").exists());
+		             				Widget combobox = jq(".z-combobox").toWidget();
+									click(combobox.$n("btn"));
+									waitResponse();
+									click(jq("@comboitem[label=\"Cool!\"]"));
+									waitResponse();
+									type(combobox.$n("real"), "abc");
+									waitResponse();
+									blur(combobox);
+									waitResponse();
+									verifyFalse(jq(".z-errorbox").exists());
 			
 			]]></client>
 	</case>

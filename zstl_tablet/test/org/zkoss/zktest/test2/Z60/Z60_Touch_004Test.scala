@@ -24,11 +24,11 @@ class Z60_Touch_004Test extends ZTL4ScalaTestCase {
 				var pageHeight = jq(".z-page").innerHeight();
 				
 				// Click on calendar button
-				singleTap(jq(".z-datebox-button"));
+				singleTap(jq(jq(".z-datebox").toWidget().$n("btn")));
 				waitResponse(true);
 				
 				// calendar wheel should be visible
-				var datebox_pp = jq(".z-datebox-popup");
+				var datebox_pp = jq(jq(".z-datebox").toWidget().$n("pp"));
 				verifyTrue(datebox_pp.isVisible());
 
 				// and should be at the bottom of screen (native keyboard should not appear)

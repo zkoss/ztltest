@@ -39,9 +39,10 @@ value should be "aa". (if the value is "a", it is wrong)
 
 		--></server>
 		<client><![CDATA[
-				focus(jq("@combobox input"));
-				type(jq("@combobox input"), "aa");
-				blur(jq("@combobox input"));
+				Element inp = jq("@combobox").toWidget().$n("real");
+				focus(jq(inp));
+				type(jq(inp), "aa");
+				blur(jq(inp));
 				waitResponse();
 				verifyEquals("aa",jq(copy).val());
 		]]></client>

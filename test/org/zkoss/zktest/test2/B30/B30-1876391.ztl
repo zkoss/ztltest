@@ -22,7 +22,7 @@
 			click(cb.$n("btn"));
 			click(ok);
 			waitResponse();
-			verifyEquals("BB", jq(".z-combobox-input").val());
+			verifyEquals("BB", jq(jq(".z-combobox").toWidget().$n("real")).val());
 			verifyEquals("OK", jq(".z-label:eq(1)").text());
 		]]></client>
 	</case>

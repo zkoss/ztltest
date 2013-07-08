@@ -36,17 +36,17 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         spinnerTest(0)
       } else {
         val (clickTxt, upperbtn, snpinerinp) = if (nth == 0)
-          ("click1", ".z-spinner-up", ".z-spinner-input")
+          ("click1", jq(".z-spinner").toWidget().$n("btn-up"), jq(".z-spinner").toWidget().$n("real"))
         else
-          ("click2", ".z-doublespinner-up", ".z-doublespinner-input")
+          ("click2", jq(".z-doublespinner").toWidget().$n("btn-up"), jq(".z-doublespinner").toWidget().$n("real"))
 
         // click button, you should get the spinner error message. 
         val clickbtn = jq("@button:contains(" + clickTxt + ")")
         click(clickbtn)
         waitResponse()
         verifyTrue("Should show a message box",
-          jq(".z-popup-cl").exists())
-        closeErrbox()
+          jq(".z-errorbox").exists())
+        click(jq(".z-errorbox").toWidget().$n("cls"))
 
         // change the spinner value to 1,then click button, you should get alert : spinner value is 1
         click(jq(upperbtn))
@@ -58,28 +58,19 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         click(jq(".z-messagebox-window .z-button"))
 
         // clear the spinner value to empty,then click button, you should get the spinner error messag.
-        focus(jq(snpinerinp))
+        focus(snpinerinp)
 
-        sendKeys(jq(snpinerinp), Keys.END + "" + Keys.BACK_SPACE)
+        sendKeys(snpinerinp, Keys.END + "" + Keys.BACK_SPACE)
 
-        verifyEquals(jq(snpinerinp).toElement().get("value"), "")
+        verifyEquals(snpinerinp.get("value"), "")
         waitResponse()
         click(clickbtn)
         waitResponse()
         verifyTrue("Should show a message box",
-          jq(".z-popup-cl").exists())
-        closeErrbox()
+          jq(".z-errorbox").exists())
+        click(jq(".z-errorbox").toWidget().$n("cls"))
       }
     }
 
-    // Click once on 'X' should close the error box
-    def closeErrbox() {
-      var errbox = jq(".z-errorbox-close")
-      var close_x = errbox.positionLeft() + errbox.width() - 5
-      var close_y = errbox.positionTop() + 5
-
-      Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-errorbox-close"), "click", close_x + "," + close_y);
-
-    }
   }
 }
