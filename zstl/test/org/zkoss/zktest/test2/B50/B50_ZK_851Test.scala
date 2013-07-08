@@ -41,7 +41,7 @@ class B50_ZK_851Test extends ZTL4ScalaTestCase {
         blur(textbox)
         waitResponse()
         val text = textbox.`val`()
-        click(jq(".z-window-embedded-header:contains(Hello)"))
+        click(jq(".z-window-embedded:contains(Hello)").toWidget().$n("cave"))
         waitResponse()
         click(jq(".z-button:contains(display)"))
         waitResponse()

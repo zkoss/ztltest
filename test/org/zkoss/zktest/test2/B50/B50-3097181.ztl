@@ -39,16 +39,16 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				mouseOver(jq(".z-menu-icon"));
+				mouseOver(jq(".z-menu:eq(0)").toWidget().$n("a"));
 				waitResponse();
-				mouseOver(jq(".z-menu-content"));
+				mouseOver(jq(".z-menu:eq(1)").toWidget().$n("a"));
 				waitResponse();
 				verifyTrue(isVisible(jq(".z-colorpalette")));
-				mouseOver(jq(".z-colorpalette-colorbox:eq(8)"));
+				mouseOver(jq(".z-colorpalette-color:eq(8)"));
 				verifyTrue(isVisible(jq(".z-colorpalette")));
-				mouseOver(jq(".z-colorpalette-colorbox:eq(18)"));
+				mouseOver(jq(".z-colorpalette-color:eq(18)"));
 				verifyTrue(isVisible(jq(".z-colorpalette")));
-				mouseOver(jq(".z-colorpalette-colorbox:eq(28)"));
+				mouseOver(jq(".z-colorpalette-color:eq(28)"));
 				verifyTrue(isVisible(jq(".z-colorpalette")));
 		]]></client>
 	</case>

@@ -38,19 +38,20 @@ class B60_ZK_1100Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        click(jq(".z-menu-icon:contains(Image)"))
+        val menu = jq(".z-menu:contains(Image)")
+        click(menu)
         waitResponse()
         click(jq(".z-menuitem:contains(setImage)"))
         waitResponse()
 
-        verifyTrue("1. Click 'Image' then 'setImage', the image if 'setImage' should changed from down arrow to left arrow.", jq(".z-menuitem-icon[style*=Left]").exists())
+        verifyTrue("1. Click 'Image' then 'setImage', the image if 'setImage' should changed from down arrow to left arrow.", jq(".z-menuitem:eq(0) .z-menuitem-image[src*=Left]").exists())
 
-        click(jq(".z-menu-icon:contains(Image)"))
+        click(menu)
         waitResponse()
         click(jq(".z-menuitem:contains(setImage2)"))
         waitResponse()
 
-        verifyTrue("2. Click 'Image' then 'setImage2', the image of 'Image' should changed from down arrow to left arrow.", jq(".z-menu-icon[style*=Left]").exists())
+        verifyTrue("2. Click 'Image' then 'setImage2', the image of 'Image' should changed from down arrow to left arrow.", jq(menu.toWidget().$n("img")).is("[src*=Left]"))
       })
 
   }

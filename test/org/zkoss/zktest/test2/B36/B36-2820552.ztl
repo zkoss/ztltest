@@ -27,7 +27,7 @@ After loading the page, you should not see any error.
 	.search .cell-inner {
 		color: #2C559C; font: italic Tahoma, Arial, Helvetica, sans-serif;
 	}
-    .z-menubar-hor, .z-menubar-ver{
+    .z-menubar-horizontal, .z-menubar-vertical{
         border-bottom:0 none;
         background: transparent none;
     }

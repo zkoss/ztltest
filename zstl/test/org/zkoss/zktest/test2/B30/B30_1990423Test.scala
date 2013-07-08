@@ -52,11 +52,7 @@ class B30_1990423Test extends ZTL4ScalaTestCase {
         	//Test if border isn't pressent
         	val win1=jq("@window:eq(0)");
         	var br1=win1.toWidget().get("border");
-        	verifyEquals(br1,"none");
-        	
-        	//border classes
-        	verifyFalse(jq(".z-window-embedded-cl").exists());
-        	verifyFalse(jq(".z-window-embedded-bl").exists());        
+        	verifyEquals(br1,"none"); 
             
         	//Button "has border"
         	val hb=jq("@button:eq(0)");
@@ -67,11 +63,7 @@ class B30_1990423Test extends ZTL4ScalaTestCase {
         	//Test if border is pressent
         	val win=jq("@window:eq(0)");
         	var br=win.toWidget().get("border");
-        	verifyEquals(br,"normal");
-        	
-        	//border classes
-        	verifyTrue(jq(".z-window-embedded-cl").exists());
-        	verifyTrue(jq(".z-window-embedded-bl").exists());    
+        	verifyEquals(br,"normal"); 
         	
         }
     );

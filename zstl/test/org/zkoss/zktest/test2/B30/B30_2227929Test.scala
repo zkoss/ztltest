@@ -49,7 +49,7 @@ class B30_2227929Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       // Verify that the components aren't visible
-      verifyFalse("The window with header \"Created Dynamically\" should not be visible", jq(".z-window-embedded-header:contains(Created Dynamically)").exists());
+      verifyFalse("The window with header \"Created Dynamically\" should not be visible", jq(jq(".z-window-embedded").toWidget().$n("cave")).find(":contains(Created Dynamically)").exists());
 
       // Verify that the textbox value isn't as expected later
       verifyFalse("", jq("@textbox").attr("value").equals("2227929"));
@@ -59,7 +59,7 @@ class B30_2227929Test extends ZTL4ScalaTestCase {
       waitResponse();
     
       // Verify that the components are visible
-      verifyTrue("The window with header \"Created Dynamically\" should be visible", jq(".z-window-embedded-header:contains(Created Dynamically)").exists());
+      verifyTrue("The window with header \"Created Dynamically\" should be visible", jq(jq(".z-window-embedded").toWidget().$n("cave")).find(":contains(Created Dynamically)").exists());
 
       // Verify that the textbox value is as expected 
       verifyTrue("", jq("@textbox").attr("value").equals("2227929"));

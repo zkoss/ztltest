@@ -48,10 +48,10 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				mouseOver(jq(".z-menuitem-button"));
+				mouseOver(jq(".z-menu"));
 				waitResponse();
 				verifyTrue(isVisible(jq("@window[title=\"Test\"]")));
-				clickAt(jq(".z-menuitem-button"),"6,6");
+				clickAt(jq(".z-menuitem"),"6,6");
 				waitResponse();
 				verifyFalse(isVisible(jq("@window[title=\"Test\"]")));
 		]]></client>

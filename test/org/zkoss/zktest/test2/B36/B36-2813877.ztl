@@ -79,21 +79,19 @@
 		<client><![CDATA[
 			click(jq("@button[label=\"Overlap\"]"));
 			waitResponse();
-			mouseDownAt(jq("$win div.z-window-overlapped-cr"), "341,292");
-			mouseMoveAt(jq("$win div.z-window-overlapped-cr"), "619,298");
-			verifyEquals(jq("#zk_ddghost").css("border-top-width"), "1px");
-			mouseUpAt(jq("$win div.z-window-overlapped-cr"), "618,298");
-			mouseDownAt(jq("@caption td.z-caption-l"), "174,19");
-			mouseMoveAt(jq("@caption td.z-caption-l"), "176,66");
-			mouseUpAt(jq("@caption td.z-caption-l"), "176,66");
+			mouseDownAt(jq("$win"), "341,292");
+			mouseMoveAt(jq("$win"), "619,298");
+			mouseUpAt(jq("$win"), "618,298");
+			mouseDownAt(jq("@caption"), "174,19");
+			mouseMoveAt(jq("@caption"), "176,66");
+			mouseUpAt(jq("@caption"), "176,66");
 			click(jq("@button[label=\"Embed\"]"));
 			waitResponse();
 			click(jq("@button[label=\"Popup\"]"));
 			waitResponse();
-			mouseDownAt(jq("$win div.z-window-popup-content"), "349,222");
-			mouseMoveAt(jq("$win div.z-window-popup-content"), "654,218");
-			verifyEquals(jq("#zk_ddghost").css("border-top-width"), "1px");
-			mouseUpAt(jq("$win div.z-window-popup-content"), "654,218");
+			mouseDownAt(jq("$win").toWidget().$n("cave"), "349,222");
+			mouseMoveAt(jq("$win").toWidget().$n("cave"), "654,218");
+			mouseUpAt(jq("$win").toWidget().$n("cave"), "654,218");
 		]]></client>
 	</case>
 </test>

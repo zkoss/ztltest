@@ -56,18 +56,18 @@ is wrong.
     }
     runZTL(zscript, () => {
       // Click on menu button
-      click(jq(".z-menu-icon"));
+      click(jq(".z-menu"));
       waitResponse();
 
       // Record menu popup size
       val popupSizeBefore = jq(".z-menupopup").width();
       
       // Click again on menu button to close it
-      click(jq(".z-menu-icon"));
+      click(jq(".z-menu"));
       waitResponse();
 
       // Click again on menu button to seee the size
-      click(jq(".z-menu-icon"));
+      click(jq(".z-menu"));
       waitResponse();
 
       // Record menu popup size
