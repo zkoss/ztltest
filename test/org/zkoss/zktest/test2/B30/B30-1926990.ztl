@@ -38,13 +38,20 @@ tb.buttonVisible = cb.buttonVisible = db.buttonVisible = bb.buttonVisible
 		--></server>
 		<client><![CDATA[
 	
-		JQuery btns =jq(".z-timebox-button,.z-combobox-button,.z-datebox-button,.z-bandbox-button");
-		verifyEquals(0,btns.find(":visible"));
-		
+		JQuery btn0 = jq(jq(".z-timebox").toWidget().$n("btn"));
+		JQuery btn1 =jq(jq(".z-combobox").toWidget().$n("btn"));
+		JQuery btn2 =jq(jq(".z-datebox").toWidget().$n("btn"));
+		JQuery btn3 =jq(jq(".z-bandbox").toWidget().$n("btn"));
+		verifyTrue(btn0.is(":visible"));
+		verifyTrue(btn1.is(":visible"));
+		verifyTrue(btn2.is(":visible"));
+		verifyTrue(btn3.is(":visible"));				
 		click(jq("@button:eq(0)"));
 		waitResponse();
-		
-		verifyEquals(4,btns.find(":visible"));
+		verifyTrue(btn0.is(":visible"));
+		verifyTrue(btn1.is(":visible"));
+		verifyTrue(btn2.is(":visible"));
+		verifyTrue(btn3.is(":visible"));
 
 		]]></client>
 	</case>

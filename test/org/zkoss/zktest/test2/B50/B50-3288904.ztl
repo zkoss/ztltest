@@ -31,14 +31,15 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				focus(jq("@datebox input"));
-				sendKeys(jq("@datebox input"), Keys.END);
-				sendKeys(jq("@datebox input"), Keys.NUMPAD0);
-				sendKeys(jq("@datebox input"), Keys.NUMPAD0);
-				sendKeys(jq("@datebox input"), Keys.NUMPAD0);
-				blur(jq("@datebox input"));
-				verifyContains(jq("@datebox input").val(),"200000");
-				verifyNotContains(jq("@datebox input").val(),"undefined");
+				Element inp = jq("@datebox").toWidget().$n("real");
+				focus(inp);
+				sendKeys(inp, Keys.END);
+				sendKeys(inp, Keys.NUMPAD0);
+				sendKeys(inp, Keys.NUMPAD0);
+				sendKeys(inp, Keys.NUMPAD0);
+				blur(inp);
+				verifyContains(jq(inp).val(),"200000");
+				verifyNotContains(jq(inp).val(),"undefined");
 		]]></client>
 	</case>
 </test>

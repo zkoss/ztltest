@@ -64,7 +64,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         waitResponse();
 
         //Click date button
-        var btn = jq(".z-datebox-button");
+        var btn = jq(jq(".z-datebox").toWidget().$n("btn"));
         click(btn);
         waitResponse();
         

@@ -59,7 +59,7 @@ Please select a date, and then select another month, and then it should be chang
         waitResponse();
 
         //Click date button
-        var btn = jq(".z-datebox-button");
+        var btn = jq(jq(".z-datebox").toWidget().$n("btn"));
         click(btn);
         waitResponse();
 
@@ -69,11 +69,11 @@ Please select a date, and then select another month, and then it should be chang
         waitResponse();
         
         //Get date value
-        var db=jq(".z-datebox-input");
+        var db=jq(jq(".z-datebox").toWidget().$n("real"));
         var w1=getValue(db);
                 
         //Next month (open calendar)
-        var btn1 = jq(".z-datebox-button");
+        var btn1 = jq(jq(".z-datebox").toWidget().$n("btn"));
         click(btn1);
         waitResponse();
         var next = jq(".z-calendar-right");

@@ -73,16 +73,15 @@ class B30_1911864Test extends ZTL4ScalaTestCase {
         	waitResponse();
             
         	//Get Combobox button
-        	val combo=jq(".z-combobox-button:eq(0)");
-        	click(combo);
+        	click(jq(".z-combobox").toWidget().$n("btn"));
         	
         	waitResponse();
 
         	//Verify First item of dropdown exists
         	//and visible, => dropdown appears
-            val item0=jq(".z-comboitem-text:eq(0)");
+            val item0=jq(".z-comboitem");
             verifyTrue(item0.isVisible());
-            verifyEquals(getText(item0)," male");
+            verifyEquals(getText(item0),"male");
                        
         }
     );

@@ -74,11 +74,11 @@ class B65_ZK_1588Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        click(jq(".z-bandbox-button"))
+        click(jq(".z-bandbox").toWidget().$n("btn"))
         waitResponse()
 
-        val pp = jq(".z-bandbox-popup")
-        verifyTrue("when click the button of bandbox, the popup should be above bandbox.", (pp.offsetTop() + pp.height()) <= jq(".z-bandbox-input").offsetTop())
+        val pp = jq(jq(".z-bandbox").toWidget().$n("pp"))
+        verifyTrue("when click the button of bandbox, the popup should be above bandbox.", (pp.offsetTop() + pp.height()) <= jq(jq(".z-bandbox").toWidget().$n("real")).offsetTop())
       })
 
   }

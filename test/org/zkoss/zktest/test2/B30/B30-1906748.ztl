@@ -56,7 +56,7 @@
 		--></server>
 		<client><![CDATA[
 		sleep(1000);//for DataBinding
-			click(jq(".z-combobox-button"));
+			click(jq(jq(".z-combobox").toWidget().$n("btn")));
 			waitResponse();
 			click(jq(".z-comboitem:eq(5)"));
 			waitResponse();

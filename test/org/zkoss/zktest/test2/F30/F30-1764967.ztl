@@ -1,4 +1,4 @@
-<test tags="F30-1721273.zul,B,E,Textbox">
+<test tags="F30-1764967.zul,B,E,Textbox">
 	<case id="Event">
 		<server><!--
 <?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?> 
@@ -59,13 +59,12 @@ public class Order {
 		 --></server>
 		<client><![CDATA[
 			
-			Element comboInput = jq("@combobox .z-combobox-input").get(0);
-			click(jq("@combobox .z-combobox-button"));
+			Element comboInput = jq(".z-combobox").toWidget().$n("real");
+			click(jq(".z-combobox").toWidget().$n("btn"));
 			waitResponse();
 			click(jq(".z-comboitem").get(4));
 			waitResponse();
 			verifyEquals(comboInput.get("value"), name.get("value"));
-			
 			type(comboInput, "xxx");
 			blur(comboInput);
 			waitResponse();

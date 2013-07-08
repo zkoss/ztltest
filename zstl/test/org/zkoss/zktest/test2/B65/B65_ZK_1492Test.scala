@@ -88,9 +88,9 @@ class B65_ZK_1492Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        click(jq(".z-combobox-button:eq(0)"))
+        click(jq(".z-combobox:eq(0)").toWidget().$n("btn"))
         waitResponse()
-        click(jq(".z-comboitem-text:contains(2)"))
+        click(jq(".z-comboitem:contains(2)"))
         waitResponse()
         
         // the text should be "model selection : option 2, combox value : option 2, selected item : option 2:Wed Dec 19 14:59:55 CST 2012"
@@ -101,9 +101,9 @@ class B65_ZK_1492Test extends ZTL4ScalaTestCase {
         verifyEquals(combo1text1.count(_ == '2'), 3)
         verifyEquals(combo1text2.count(_ == '2'), 3)
         
-        click(jq(".z-combobox-button:eq(1)"))
+        click(jq(".z-combobox:eq(1)").toWidget().$n("btn"))
         waitResponse()
-        click(jq(".z-comboitem-text:contains(1):eq(1)"))
+        click(jq(".z-comboitem:contains(1):eq(1)"))
         waitResponse()
         
         // the text should be "model selection : option 1, combox value : option 1:Wed Dec 19 15:00:36 CST 2012"

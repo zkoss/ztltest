@@ -16,7 +16,7 @@ be closed.
 				waitResponse();
 				verifyTrue(jq(".z-errorbox").exists());
 				waitResponse();
-				closeErrorBox();
+				click(jq(".z-errorbox").toWidget().$n("cls"));
 				waitResponse();
 				verifyFalse(jq(".z-errorbox").exists());		
 			]]></client>

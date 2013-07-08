@@ -33,7 +33,7 @@ Click the button. If the font-color of year is yellow, it is correct.
 
 		--></server>
 		<client><![CDATA[
-			click(jq(".z-datebox-button"));
+			click(jq(jq(".z-datebox").toWidget().$n("btn")));
 			boolean color = org.zkoss.ztl.util.ColorVerifingHelper.getInstance().
 				isEqualColor("yellow",jq(".z-calendar-text").css("color"));
 			

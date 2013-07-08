@@ -37,19 +37,20 @@
 		<client><![CDATA[
 				click(btn);
 				waitResponse();
+				Element bandinp = bb.$n("real");
 				boolean color = ColorVerifingHelper.getInstance().
-				isEqualColor("green",jq(".z-bandbox-input").css("color"));
+				isEqualColor("green",jq(bandinp).css("color"));
 				verifyTrue(color);
-				if (!("bold".equals(jq(bb.$n("real")).css("font-weight"))|| "700".equals(jq(bb.$n("real")).css("font-weight"))))
+				if (!("bold".equals(jq(bandinp).css("font-weight"))|| "700".equals(jq(bb.$n("real")).css("font-weight"))))
 				verifyTrue(false);
 				click(btn);
 				waitResponse();
 				boolean color1 = ColorVerifingHelper.getInstance().
-				isEqualColor("black",jq(".z-bandbox-input").css("color"));
+				isEqualColor("black",jq(bandinp).css("color"));
 				verifyTrue(color1);
-				if (!("normal".equals(jq(bb.$n("real"))
+				if (!("normal".equals(jq(bandinp)
 				.css("font-weight"))
-				|| "400".equals(jq(bb.$n("real")).css(
+				|| "400".equals(jq(bandinp).css(
 				"font-weight"))))
 				verifyTrue(false);
 			]]></client>

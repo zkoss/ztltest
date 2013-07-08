@@ -22,9 +22,9 @@ class B65_ZK_1356Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        singleTap(jq(".z-spinner-up"))
+        singleTap(jq(".z-spinner").toWidget().$n("btn-up"))
         waitResponse()
-        singleTap(jq(".z-doublespinner-up"))
+        singleTap(jq(".z-doublespinner").toWidget().$n("btn-up"))
         waitResponse()
         singleTap(jq(".z-button:contains(get spinner value)"))
 		waitResponse()

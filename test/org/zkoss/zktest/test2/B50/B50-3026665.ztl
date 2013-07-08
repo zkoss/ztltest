@@ -12,11 +12,12 @@
 </zk>
 		]]></server>
 		<client><![CDATA[
-		click(jq("@bandbox .z-bandbox-button"));
-		focus(jq("@bandbox .z-bandbox-input"));
-		focus(jq(".z-bandpopup @intbox"));
-		focus(jq("@page @intbox:eq(1)"));
-		verifyFalse(jq("@bandbox").hasClass("z-bandbox-focus"));
+		click(jq("@bandbox").toWidget().$n("btn"));
+		waitResponse();				
+		focus(jq(jq("@bandbox").toWidget().$n("pp")).find("@intbox"));
+		waitResponse();
+				
+		verifyTrue(!"".equals(jq("@bandbox").css("box-shadow")));
 		]]></client>
 	</case>
 </test>

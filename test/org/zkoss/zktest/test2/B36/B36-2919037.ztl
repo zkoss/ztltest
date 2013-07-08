@@ -33,13 +33,13 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				click(jq(".z-combobox-button"));
+				click(jq(jq(".z-combobox").toWidget().$n("btn")));
 				waitResponse();
 				click(jq(".z-comboitem:eq(0)"));
 				waitResponse();
 				click(jq("@button"));
 				waitResponse();
-				verifyEquals("",jq(".z-combobox-input").text());
+				verifyEquals("",jq(jq(".z-combobox").toWidget().$n("real")).text());
 		]]></client>
 	</case>
 </test>

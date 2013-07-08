@@ -21,7 +21,7 @@ combo.setModel(dictModel);
 		focus(combo);
 		type(combo.$n("real"), "abx");
 		waitResponse();
-		verifyEquals("ab", jq("@combobox > input").val());
+		verifyEquals("ab", jq(combo.$n("real")).val());
 		</client>
 	</case>
 </test>

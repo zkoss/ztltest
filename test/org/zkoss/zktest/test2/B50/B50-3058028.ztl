@@ -39,10 +39,11 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 			sendKeys(jq("@textbox"), Keys.TAB);
 			waitResponse();
-			verifyEquals("bb",jq(".z-combobox-focus > input").val());
-			sendKeys(jq(".z-combobox-focus > input"), Keys.TAB);
+			Element inp = jq(".z-combobox").toWidget().$n("real");
+			verifyEquals("bb",jq(inp).val());
+			sendKeys(inp, Keys.TAB);
 			waitResponse();
-			verifyEquals("cc",jq(".z-combobox-focus > input").val());
+			verifyEquals("cc",jq(inp).val());
 		]]></client>
 	</case>
 </test>

@@ -32,12 +32,12 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				waitResponse();
 				click(jq(".z-calendar-selected").next());
 				waitResponse();
-				verifyEquals("01/01/2001",jq(".z-datebox-input").val());
+				verifyEquals("01/01/2001",jq(jq(".z-datebox").toWidget().$n("real")).val());
 				click(db.$n("btn"));
 				waitResponse();
 				click(jq(".z-calendar-selected").next());
 				waitResponse();
-				verifyEquals("01/02/2001",jq(".z-datebox-input").val());
+				verifyEquals("01/02/2001",jq(jq(".z-datebox").toWidget().$n("real")).val());
 		]]></client>
 	</case>
 	<case id="ztl1">
@@ -57,9 +57,12 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				click(db.$n("btn"));
 				waitResponse();
-				click(jq(".z-calendar-caldayrow:eq(5) .z-calendar-weekday:eq(1)"));
+				Element right = jq(".z-calendar").toWidget().$n("right");
+				click(right);
 				waitResponse();
-				verifyEquals("01/02/2001",jq(".z-datebox-input").val());	
+				click(jq(".z-calendar-cell.z-calendar-weekday:contains(2):eq(0)"));
+				waitResponse();
+				verifyEquals("01/02/2001",jq(jq(".z-datebox").toWidget().$n("real")).val());
 		]]></client>
 	</case>
 </test>

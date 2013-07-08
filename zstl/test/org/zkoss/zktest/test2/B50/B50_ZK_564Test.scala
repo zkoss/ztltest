@@ -75,7 +75,7 @@ class B50_ZK_564Test extends ZTL4ScalaTestCase {
 				waitResponse();
 			}
    			clickAndWait(add);
-   			clickAndWait(jq(".z-messagebox-btn.z-button"));
+   			clickAndWait(jq(".z-messagebox-window .z-button"));
    			clickAndWait(clone);
 
    			verifyTrue("NotSerializableException suohld not occur",

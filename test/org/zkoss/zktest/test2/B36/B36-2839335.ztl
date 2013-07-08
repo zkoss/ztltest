@@ -7,12 +7,13 @@
 			</zk>
 		 --></server>
 		<client><![CDATA[
-				focus(jq("@timebox input.z-timebox-input"));
-				String old = jq("@timebox input.z-timebox-input").val();
-				keyPress(jq("@timebox input.z-timebox-input"), "A");
-				keyPress(jq("@timebox input.z-timebox-input"), "X");
+				Element inp = jq("@timebox").toWidget().$n("real");
+				focus(inp);
+				String old = jq(inp).val();
+				keyPress(inp, "A");
+				keyPress(inp, "X");
 				waitResponse();
-				verifyEquals(old, jq("@timebox input.z-timebox-input").val());
+				verifyEquals(old, jq(inp).val());
 		]]></client>
 	</case>
 </test>

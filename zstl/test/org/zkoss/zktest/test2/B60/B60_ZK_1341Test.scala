@@ -21,15 +21,15 @@ class B60_ZK_1341Test extends ZTL4ScalaTestCase {
         click(engine.$f("db").$n("btn"))
         waitResponse()
 
-        click(jq(".z-timebox-up"))
+        click(jq(".z-timebox").toWidget().$n("btn-up"))
         waitResponse()
 
-        val timelongfmt = jq(".z-datebox-popup .z-timebox-input").`val`()
+        val timelongfmt = jq(jq(".z-timebox").toWidget().$n("real")).`val`()
 
         click(jq(".z-calendar-selected"))
         waitResponse()
 
-        val datetimelongfmt = jq(".z-datebox-input:eq(0)").`val`()
+        val datetimelongfmt = jq(jq(".z-datebox:eq(0)").toWidget().$n("real")).`val`()
 
         val Pattern1 = """.*(\d\d):(\d\d):(\d\d).*""".r
         val Pattern2 = """.*( \d):(\d\d):(\d\d).*""".r

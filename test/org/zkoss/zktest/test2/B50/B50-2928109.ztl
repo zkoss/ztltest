@@ -13,7 +13,7 @@
 			-->
 		</server>
 		<client><![CDATA[			
-			verifyTrue(jq(".z-window-embedded-cnt").height() <16);
+			verifyTrue(jq(jq(".z-window-embedded").toWidget().$n("cave")).height() < 24);
 		]]></client>
 	</case>
 </test>

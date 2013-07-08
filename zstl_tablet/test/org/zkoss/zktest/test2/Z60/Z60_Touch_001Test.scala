@@ -106,7 +106,7 @@ class Z60_Touch_001Test extends ZTL4ScalaTestCase {
 				var dt = jq("@datebox");
 				singleTap(dt);
 				waitResponse();
-				verifyTrue(jq(".z-datebox-button").isVisible());
+				verifyTrue(jq(jq(".z-datebox").toWidget().$n("btn")).isVisible());
 				
 				// 2. Type any integer into intbox, you should see a red message
 				var ibx = jq("@intbox");
@@ -163,7 +163,7 @@ class Z60_Touch_001Test extends ZTL4ScalaTestCase {
 				verifyTrue(left_after > left_before);
 				
 				// 7. Click on search icon button of the bandbox, a listbox should open
-				singleTap(jq(".z-bandbox-button"));
+				singleTap(jq(".z-bandbox").toWidget().$n("btn"));
 				waitResponse();
 				verifyTrue(jq(".z-bandpopup").isVisible());
 			}
