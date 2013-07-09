@@ -34,7 +34,7 @@ class Z60_ComboboxTest extends ZTL4ScalaTestCase {
       //button
       val open = engine $f "open"
       ZKSeleneseTestCase.assertEquals("false", getText(open));
-      click(jq(".z-combobox-button"))
+      click(jq(jq(".z-combobox").toWidget().$n("btn")))
       waitResponse()
       ZKSeleneseTestCase.assertEquals("true", getText(open));
     })

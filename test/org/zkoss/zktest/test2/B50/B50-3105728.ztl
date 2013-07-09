@@ -28,9 +28,9 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				sendKeys(jq(".z-datebox-input"),"1/1");
+				sendKeys(jq(jq(".z-datebox").toWidget().$n("real")),"1/1");
 				click(jq(".z-label"));
-				String val = jq(".z-datebox-input").val();
+				String val = jq(jq(".z-datebox").toWidget().$n("real")).val();
 				java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("MM/dd/yyyy, HH:mm:ss.SSS");
 				int year = 0;
 				try {

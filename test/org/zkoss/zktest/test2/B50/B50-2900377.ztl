@@ -14,7 +14,7 @@
 		</server>
 		<client>	<![CDATA[
 			
-			verifyEquals("none", jq("div.z-panel-body").css("display"));			
+			verifyEquals("none", jq(jq(".z-panel").toWidget().$n("body")).css("display"));			
 			]]></client>
 	</case>
 </test>

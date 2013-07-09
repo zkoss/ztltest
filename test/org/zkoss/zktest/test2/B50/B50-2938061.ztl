@@ -24,29 +24,24 @@
 		<client><![CDATA[
 				click(c.$n("btn"));
 				waitResponse();
-				click(jq(".z-combobox-popup .z-comboitem:eq(0)"));
+				click(jq(".z-comboitem:eq(0)"));
 				waitResponse();
-				
 				boolean color = ColorVerifingHelper.getInstance().
-				isEqualColor("green",jq(c).css("backgroundColor"));				
+				isEqualColor("green",jq(c).css("backgroundColor"));
 				verifyTrue(color);
-
 				click(c.$n("btn"));
 				waitResponse();
-				click(jq(".z-combobox-popup .z-comboitem:eq(1)"));
+				click(jq(".z-comboitem:eq(1)"));
 				waitResponse();
-				
 				boolean color1 = ColorVerifingHelper.getInstance().
-				isEqualColor("blue",jq(c).css("backgroundColor"));				
+				isEqualColor("blue",jq(c).css("backgroundColor"));
 				verifyTrue(color1);
-
 				click(c.$n("btn"));
 				waitResponse();
-				click(jq(".z-combobox-popup .z-comboitem:eq(2)"));
-				waitResponse();				
-				
+				click(jq(".z-comboitem:eq(2)"));
+				waitResponse();
 				boolean color2 = ColorVerifingHelper.getInstance().
-				isEqualColor("red",jq(c).css("backgroundColor"));				
+				isEqualColor("red",jq(c).css("backgroundColor"));
 				verifyTrue(color2);
 				
 			]]></client>

@@ -54,8 +54,7 @@ class B30_1914105Test extends ZTL4ScalaTestCase {
       sendKeys(tb.$n("real"), "12:00:01")
       verifyEquals("value should be 12:00:00", jq(tb.$n("real")).`val`(), "12:00:00")
 
-      mouseDownAt(jq(".z-timebox-up"), "1,1");
-      mouseUp(jq(".z-timebox-up"));
+      click(jq(".z-timebox").toWidget().$n("btn-up"));
 
       val value = jq(tb.$n("real")).`val`()
 
@@ -65,8 +64,7 @@ class B30_1914105Test extends ZTL4ScalaTestCase {
       click(ck2.$n("real"))
       waitResponse()
 
-      mouseDownAt(jq(".z-timebox-up"), "1,1");
-      mouseUp(jq(".z-timebox-up"));
+      click(jq(".z-timebox").toWidget().$n("btn-up"));
 
       verifyEquals("value should be " + value, jq(tb.$n("real")).`val`(), value)
     })

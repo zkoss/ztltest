@@ -33,7 +33,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				focus(combo.$n("real"));
 				sendKeys(combo.$n("real"), "ab", Keys.ENTER);
-				verifyEquals("ab",jq(".z-combobox-input").val());			
+				verifyEquals("ab",jq(jq(".z-combobox").toWidget().$n("real")).val());			
 		]]></client>
 	</case>
 </test>

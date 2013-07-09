@@ -29,17 +29,17 @@ class Z60_Touch_037Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        val combobox0 = jq(".z-combobox-input:eq(0)")
+        val combobox0 = jq(".z-combobox:eq(0)").toWidget().$n("real")
         sendKeys(combobox0, "a")
         waitResponse()
-        verifyEquals("should not see popup candidates.", jq(".z-combobox-popup:eq(0)").css("display"), "none")
+        verifyEquals("should not see popup candidates.", jq(jq(".z-combobox:eq(0)").toWidget().$n("pp")).css("display"), "none")
         blur(combobox0)
         waitResponse()
         
-        val combobox1 = jq(".z-combobox-input:eq(1)")
+        val combobox1 = jq(".z-combobox:eq(1)").toWidget().$n("real")
         sendKeys(combobox1, "a")
         waitResponse()
-        verifyEquals("should not see popup candidates.", jq(".z-combobox-popup:eq(1)").css("display"), "none")
+        verifyEquals("should not see popup candidates.",jq(jq(".z-combobox:eq(1)").toWidget().$n("pp")).css("display"), "none")
 
       })
 

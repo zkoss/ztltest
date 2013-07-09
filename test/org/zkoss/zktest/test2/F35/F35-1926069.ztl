@@ -42,14 +42,14 @@ You shall see "xyz,,true" shown after onOpen.
 
 		--></server>
 		<client><![CDATA[
-				type(jq("@bandbox input"),"abc");
+				type(jq("@bandbox").toWidget().$n("real"),"abc");
 				waitResponse();
-				click(jq(".z-bandbox-button"));
+				click(jq(".z-bandbox").toWidget().$n("btn"));
 				waitResponse();
 				verifyEquals("abc,abc,true",jq(inf2).text());
-				type(jq("@combobox input"),"xyz");
+				type(jq("@combobox").toWidget().$n("real"),"xyz");
 				waitResponse();
-				click(jq(".z-combobox-button"));
+				click(jq(".z-combobox").toWidget().$n("btn"));
 				waitResponse();
 				verifyEquals("xyz,xyz,true",jq(inf2).text());
 		]]></client>

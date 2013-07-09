@@ -67,21 +67,20 @@
 			</window>
 		--></server>
 		<client><![CDATA[
-			JQuery $b = jq("$beginDate > [id$=\"btn\"]");
-			JQuery $e = jq("$endDate > [id$=\"btn\"]");
-			click($b);
+			click(jq("$beginDate").toWidget().$n("btn"));
 			waitResponse();
-			verifyFalse(jq(".z-datebox-popup:eq(0)").css("display").equals("none"));
+			verifyFalse(jq(jq(".z-datebox:eq(0)").toWidget().$n("pp")).css("display").equals("none"));
 			click(jq(".z-calendar-weekday:eq(19)"));
 			waitResponse();
-			click($e);
+			click(jq("$endDate").toWidget().$n("btn"));
 			waitResponse();
-			verifyFalse(jq(".z-datebox-popup:eq(1)").css("display").equals("none"));
-			click(jq(".z-datebox-popup:eq(1) .z-calendar-weekday:eq(14)"));
-            waitResponse();
-            click(jq("$submit"));
-            waitResponse();
-            verifyTrue(jq(".z-errorbox").exists());
+			Element pp1 = jq(".z-datebox:eq(1)").toWidget().$n("pp");
+			verifyFalse(jq(pp1).css("display").equals("none"));
+			click(jq(pp1).find(".z-calendar-weekday:eq(14)"));
+			waitResponse();
+			click(jq("$submit"));
+			waitResponse();
+			verifyTrue(jq(".z-errorbox").exists());
 		]]></client>
 	</case>
 </test>

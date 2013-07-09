@@ -54,11 +54,9 @@ class B60_ZK_1202Test extends ZTL4ScalaTestCase {
       () => {
         verifyEquals("You shall see two comboboxes.", jq(".z-combobox").length(), 2)
 
-        val btn1 = jq(".z-combobox-button:eq(0)")
+        val btn1 = jq(".z-combobox:eq(0)").toWidget().$n("btn")
         val regular = jq(".z-comboitem:contains(Regular)")
         val working = jq(".z-comboitem:contains(Working)")
-        val btn2 = jq(".z-combobox-button:eq(1)")
-
         val regularDays = List("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
         val workingDays = List("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 
@@ -74,9 +72,9 @@ class B60_ZK_1202Test extends ZTL4ScalaTestCase {
 
         val verifyDayOk = (msg: String, days: List[String]) =>
           days foreach { day =>
-            click(btn2)
+            click(jq(".z-combobox:eq(1)").toWidget().$n("btn"))
             waitResponse()
-            val dayItem = jq(".z-combobox-popup .z-comboitem:contains(" + day + ")")
+            val dayItem = jq(".z-comboitem:contains(" + day + ")")
             verifyNotEquals(msg, dayItem.css("display"), "none")
             click(dayItem)
             waitResponse()

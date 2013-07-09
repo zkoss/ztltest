@@ -32,7 +32,7 @@ class B60_ZK_1256Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        sendKeys(jq(".z-combobox-input"), Keys.END + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "")
+        sendKeys(jq(jq(".z-combobox").toWidget().$n("real")), Keys.END + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "")
         waitResponse()
         click(jq(".z-label:eq(0)"))
         waitResponse()

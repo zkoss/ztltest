@@ -24,10 +24,10 @@
 			focus(mycombo.$n("real"));
 			sendKeys(mycombo.$n("real"), "R");
 			waitResponse();
-			verifyEquals("Richard",jq(".z-combobox-input").val());
+			verifyEquals("Richard",jq(jq(".z-combobox").toWidget().$n("real")).val());
 			click(btn);
 			waitResponse();
-			verifyEquals("Richard",jq(".z-combobox-input").val());
+			verifyEquals("Richard",jq(jq(".z-combobox").toWidget().$n("real")).val());
 		]]></client>
 	</case>
 </test>

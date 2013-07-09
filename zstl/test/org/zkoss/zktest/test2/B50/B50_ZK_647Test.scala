@@ -41,9 +41,9 @@ class B50_ZK_647Test extends ZTL4ScalaTestCase {
 			<zk>
 				<div height="10px" />
 				<div height="20px">Check whether all the style of the 'Test' below are correct,</div>
-				<div height="20px">color:#0000CC; font-family:"courier new","times new roman","黑体"; font-size:30px;</div>
+				<div height="20px">color:#0000CC; font-family:"courier new","times new roman",""; font-size:30px;</div>
 				<label id="lb" value='Test'
-					style='color:#0000CC; font-family:"courier new","times new roman","黑体"; font-size:30px;'/>
+					style='color:#0000CC; font-family:"courier new","times new roman",""; font-size:30px;'/>
 			</zk>
 
     }

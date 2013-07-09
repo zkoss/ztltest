@@ -43,11 +43,8 @@
 		<client><![CDATA[
 			click(jq("@button"));
 			waitResponse();
-			JQuery tr = jq("$bidSessionSelectorTabBox div.z-window-embedded-tr");
-			JQuery cnt = jq("$bidSessionSelectorTabBox div.z-window-embedded-cl").exists() ?
-			jq("$bidSessionSelectorTabBox div.z-window-embedded-cl") : jq("div.z-window-embedded-content:eq(1)");
-			int range = ZK.is("ie6_") ? 11 : 0;
-			verifyTolerant(cnt.offsetLeft() + cnt.outerWidth(), tr.offsetLeft() + tr.outerWidth(), range);
+			verifyTrue(jq(".z-window:contains(My First Window)").exists());
+			verifyTrue(jq(".z-panel:contains(My First Panel)").exists());
 		]]></client>
 	</case>
 </test>

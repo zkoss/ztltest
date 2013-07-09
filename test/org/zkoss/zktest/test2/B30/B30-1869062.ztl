@@ -22,11 +22,11 @@
 			 -->
 		</server>
 		<client><![CDATA[
-			JQuery combobox = jq(".z-combobox-input");
+			JQuery combobox = jq(jq(".z-combobox").toWidget().$n("real"));
 				typeKeys(combobox, "C");
 				waitResponse();
 				//2010/10/22 TonyQ:the comboitem should appear in window.
-				verifyTrue(jq(".z-combobox-popup").exists());
+				verifyTrue(jq(jq(".z-combobox").toWidget().$n("pp")).exists());
 				click(jq(".z-comboitem:eq(1)"));
 				waitResponse();
 				verifyEquals("Cool!",jq("$msg").text());

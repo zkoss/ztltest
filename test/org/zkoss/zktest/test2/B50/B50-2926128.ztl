@@ -16,11 +16,11 @@
 			-->
 		</server>
 		<client><![CDATA[	
-				verifyNotEquals("",jq(".z-datebox-input").val());
-				String x = jq(".z-datebox-input").val();
+				verifyNotEquals("",jq(jq(".z-datebox").toWidget().$n("real")).val());
+				String x = jq(jq(".z-datebox").toWidget().$n("real")).val();
 				click(btn1);
 				waitResponse();
-				verifyEquals("",jq(".z-datebox-input").val());
+				verifyEquals("",jq(jq(".z-datebox").toWidget().$n("real")).val());
 				click(btn2);
 				waitResponse();
 				verifyEquals("null",jq(".z-window-highlighted .z-messagebox .z-label").text());
@@ -28,7 +28,7 @@
 				waitResponse();
 				click(btn3);
 				waitResponse();
-				verifyEquals(x,jq(".z-datebox-input").val());	
+				verifyEquals(x,jq(jq(".z-datebox").toWidget().$n("real")).val());	
 		]]></client>
 	</case>
 </test>

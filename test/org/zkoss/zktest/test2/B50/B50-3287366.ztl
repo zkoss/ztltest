@@ -81,16 +81,16 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 		sleep(1000);//for DataBinding
-				verifyEquals("A",jq("@grid @grid @row @label:eq(0)").text());
-				verifyEquals("A",jq("@grid @grid @row @label:eq(1)").text());
+				verifyEquals("A",jq("@grid:eq(1) @row @label").text());
+				verifyEquals("A",jq("@grid:eq(2) @row @label").text());
 				verifyEquals("A",jq("@listbox @listitem:eq(0) @label:eq(0)").text());
 				verifyEquals("A",jq("@listbox @listitem:eq(1) @label:eq(0)").text());
-				click(jq("@combobox:eq(0) .z-combobox-button"));waitResponse();
-				verifyEquals(jq(".z-combobox-pp:visible").eval("text().trim()"),"A");
-				click(jq("@combobox:eq(0) .z-combobox-button"));waitResponse();
-				
-				click(jq("@combobox:eq(1) .z-combobox-button"));waitResponse();
-				verifyEquals(jq(".z-combobox-pp:visible").eval("text().trim()"),"A");
+				click(jq("@combobox:eq(0)").toWidget().$n("btn"));waitResponse();
+				Element pp =jq(".z-combobox").toWidget().$n("pp");
+				verifyEquals(jq(pp).text().trim(),"A");
+				click(jq("@combobox:eq(0)").toWidget().$n("btn"));waitResponse();
+				click(jq("@combobox:eq(1)").toWidget().$n("btn"));waitResponse();
+				verifyEquals(jq(pp).text().trim(),"A");
 		]]></client>
 	</case>
 </test>
