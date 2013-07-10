@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-ZK-569.zul,B,E,Listbox,Select")
 class B50_ZK_569Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -107,13 +108,13 @@ class B50_ZK_569Test extends ZTL4ScalaTestCase {
     		select(lb, "test 7");
     		clickAndWait(btn1);
 
-    		verifyEquals(jq(".z-messagebox").find(".z-label").get(0).get("innerHTML"),
+    		verifyEquals(jq(".z-messagebox-window").find(".z-label").text(),
     		    "Selected index: 10, label of selected item: test 7");
-    		clickAndWait(jq(".z-messagebox-button"));
+    		clickAndWait(jq(".z-messagebox-window .z-button"));
     		clickAndWait(btn2);    		
     		clickAndWait(btn1);
 
-    		verifyEquals(jq(".z-messagebox").find(".z-label").get(0).get("innerHTML"),
+    		verifyEquals(jq(".z-messagebox-window").find(".z-label").text(),
     		    "Selected index: 4, label of selected item: test 333");
 		})
   }

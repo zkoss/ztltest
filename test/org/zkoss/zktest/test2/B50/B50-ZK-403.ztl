@@ -63,7 +63,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				click(cbs[i].$n("real"));
 				keyPress(cbs[i].$n("real"), "a");
 				sleep(2000);
-				verifyTrue(parseInt(cbs[i].$n("cave").firstChild().firstChild().eval("childNodes.length")) == 2);
+				verifyTrue(jq(cbs[i].$n("cave")).children().length() == 2);
 			}
 		]]></client>
 	</case>

@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B60
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B60-ZK-1216.zul")
 class B60_ZK_1216Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<?page title="B60-ZK-1216" contentType="text/html;charset=UTF-8"?>
                   <zk>
@@ -28,23 +30,25 @@ class B60_ZK_1216Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        click(jq(".z-combobutton"))
+        val btn = jq(".z-combobutton").toWidget().$n("btn")
+        val real = jq(".z-combobutton").toWidget().$n("real")
+        click(btn)
         waitResponse()
         click(jq(".z-button:contains(click me)"))
         waitResponse()
-        verifyEquals("The label for the combo-button should change to match that for the button clicked.", jq(".z-combobutton").text(), "click me")
+        verifyEquals("The label for the combo-button should change to match that for the button clicked.", jq(real).text(), "click me")
 
-        click(jq(".z-combobutton"))
+        click(btn)
         waitResponse()
         click(jq(".z-button:contains(or me)"))
         waitResponse()
-        verifyEquals("The label for the combo-button should change to match that for the button clicked.", jq(".z-combobutton").text(), "or me")
+        verifyEquals("The label for the combo-button should change to match that for the button clicked.", jq(real).text(), "or me")
 
-        click(jq(".z-combobutton"))
+        click(btn)
         waitResponse()
         click(jq(".z-button:contains(me too!)"))
         waitResponse()
-        verifyEquals("The label for the combo-button should change to match that for the button clicked.", jq(".z-combobutton").text(), "me too!")
+        verifyEquals("The label for the combo-button should change to match that for the button clicked.", jq(real).text(), "me too!")
       })
 
   }

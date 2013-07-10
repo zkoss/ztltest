@@ -53,12 +53,12 @@
 		</server>
 		<client>	<![CDATA[
 				int x = jq(grid1).height();
-				click(detail.$n("img"));
+				click(detail.$n("icon"));
 				int x1 = jq(grid1).height();
 				click(bd.$n("btn"));
 				waitResponse();
 				verifyEquals(x1,jq(grid1).height());
-				click(detail.$n("img"));
+				click(detail.$n("icon"));
 				waitResponse();
 				verifyEquals(x,jq(grid1).height());
 			]]></client>

@@ -61,16 +61,16 @@
 		 -->
 		</server>
 		<client><![CDATA[
-				click(jq("$tc div.z-overflow-hidden"));
+				click(jq("$tc"));
 				waitResponse();
 				click(jq("@button[label=\"disabled\"]"));
 				waitResponse();
 				click(jq("@button[label=\"change label\"]"));
 				waitResponse();
-				verifyContains(getText(jq("$tc div.z-overflow-hidden")) , "ABC" );
+				verifyContains(jq("$tc").text() , "ABC" );
 				click(jq("@button[label=\"disabled\"]"));
 				waitResponse();
-				verifyContains(getText(jq("$tc div.z-overflow-hidden")), "ABC" );
+				verifyContains(jq("$tc").text(), "ABC" );
 		]]></client>
 	</case>
 </test>

@@ -40,11 +40,11 @@ and tab2 will be selected
 		</server>
 		<client>	<![CDATA[
      				click(jq("@button[label=\"close 1 and select 5\"]"));
-    				waitResponse();				
-    				verifyTrue(jq("$tab5").hasClass("z-tab-seld"));				
-    				click(jq("@button"));
-    				waitResponse();
-    				verifyTrue(jq("$tab2").hasClass("z-tab-seld"));
+					waitResponse();
+					verifyTrue(jq("$tab5").hasClass("z-tab-selected"));
+					click(jq("@button"));
+					waitResponse();
+					verifyTrue(jq("$tab2").hasClass("z-tab-selected"));
 
 						
 			]]></client>

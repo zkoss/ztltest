@@ -52,13 +52,11 @@
 		</server>
 		<client>	<![CDATA[
 			
-    			int before = jq("tr.z-treerow").length();
-   				click(jq("@treecell div.z-overflow-hidden"));
-
-   				waitResponse();
-   				int after = jq("tr.z-treerow").length();
-   				
-   				verifyEquals(5, after-before);
+    			int before = jq(".z-treerow").length();
+				click(jq("@treecell"));
+				waitResponse();
+				int after = jq(".z-treerow").length();
+				verifyEquals(5, after-before);
 						
 			]]></client>
 	</case>

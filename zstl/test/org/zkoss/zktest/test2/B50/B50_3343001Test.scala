@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-3343001.zul,A,E,Tree,IE6,IE7")
 class B50_3343001Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -61,19 +62,12 @@ class B50_3343001Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
         () => {
         var tree: Widget = engine.$f("tree");
-
-        def clickThenVerify () {
-        	click(jq(tree.$n("rows")).find("@treerow").toWidget().$n("icon"));
-        	waitResponse();
-        	if (ZK is ("ie < 8"))
-        	  sleep(200)
-        	var bodyHeight: Int = jq(tree.$n("body")).outerHeight();
-        	var rowsHeight: Int = jq(tree.$n("rows")).outerHeight();
-        	verifyTrue("body height ("+bodyHeight+") should larger then rows height ("+rowsHeight+")",
-        	    bodyHeight > rowsHeight);
-        }
-        for (i <- 0 until 5)
-        	clickThenVerify();
+        val hgh = jq(tree).height();
+        click(jq(tree.$n("rows")).find("@treerow").toWidget().$n("icon"));
+        waitResponse();
+        val curhgh = jq(tree).height();
+        verifyTrue("current height ("+curhgh+") should larger then origin height ("+hgh+")",
+        	    curhgh > hgh);
     }
    );
 
