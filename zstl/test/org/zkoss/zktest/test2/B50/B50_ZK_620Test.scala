@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-ZK-620.zul,A,E,onSize,VisionTest")
 class B50_ZK_620Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<tabbox height="500px" width="500px">

@@ -100,7 +100,7 @@ class B60_ZK_927_4Test extends ZTL4ScalaTestCase {
           var cnt: String = lbl.$n().get("innerHTML");
           var ci: Element = jq(combo.$n("pp")).find(".z-comboitem").get(item);
           
-          var itemCnt: String = jq(ci).find("td:contains(item)").get(0).get("innerHTML");
+          var itemCnt: String = jq(ci).find(":contains(item)").get(0).get("innerHTML");
           verifyTrue("Item "+item+" should be selected",
               itemCnt.contains(cnt.split(" ")(0))
               && itemCnt.contains(cnt.split(" ")(1)));
@@ -108,7 +108,7 @@ class B60_ZK_927_4Test extends ZTL4ScalaTestCase {
         def checkByString (combo: Widget, item: Int, cnt: String) {
           var ci: Element = jq(combo.$n("pp")).find(".z-comboitem").get(item);
           
-          var itemCnt: String = jq(ci).find("td:contains(item)").get(0).get("innerHTML");
+          var itemCnt: String = jq(ci).find(":contains(item)").get(0).get("innerHTML");
           verifyTrue("Item "+item+" should be selected",
               itemCnt.contains(cnt.split(" ")(0))
               && itemCnt.contains(cnt.split(" ")(1)));

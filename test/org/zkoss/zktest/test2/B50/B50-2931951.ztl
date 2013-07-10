@@ -40,13 +40,14 @@ Please click addRow button, than you should see a paging toolbar.
 		</server>
 		<client>	<![CDATA[
    				Widget paging = grid.getChild("paging");
-  				
-  				verifyFalse(isVisible(paging));
-  				click(jq("@button"));
-  				waitResponse();
-  				//why not work?
-  				//verifyTrue(jq(".z-paging-input").exists());
-  				verifyTrue(isVisible(paging));
+				verifyFalse(isVisible(paging));
+				click(jq("@button"));
+				waitResponse();
+				click(jq("@button"));
+				waitResponse();
+				//why not work?
+				//verifyTrue(jq(".z-paging-input").exists());
+				verifyTrue(isVisible(paging));
 		]]></client>
 	</case>
 </test>

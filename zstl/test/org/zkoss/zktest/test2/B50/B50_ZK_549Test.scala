@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-ZK-549.zul,B,E,Groupbox,Caption")
 class B50_ZK_549Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -94,8 +95,8 @@ class B50_ZK_549Test extends ZTL4ScalaTestCase {
         for (i <- 1 to 12) {
           var gbx: Widget = engine.$f("gbx"+i);
           var header: Element = null;
-          verifyTrue("Height should be 200px",
-              jq(gbx).height() == 200);
+          verifyEquals("Height should be 200px",
+              jq(gbx).height(), 200);
 
           header = gbx.$n("title");
           if (!header.exists())
@@ -105,8 +106,8 @@ class B50_ZK_549Test extends ZTL4ScalaTestCase {
 	          waitResponse();
 	          click(header);
 	          waitResponse();
-	          verifyTrue("Height should be 200px",
-	              jq(gbx).height() == 200);
+	          verifyEquals("Height should be 200px",
+	              jq(gbx).height(), 200);
           }
         }
     }

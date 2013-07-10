@@ -80,7 +80,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			waitResponse();
 			int newHsl = parseInt(lb.$n("head").get("scrollTop"));
 			verifyTrue(hsl == newHsl);
-			verifyTrue(jq("th.z-listheader-sort-asc").exists());
+			verifyTrue(jq(".z-listheader").toWidget().$n("sort-icon").exists());
 		]]></client>
 	</case>
 </test>

@@ -3,10 +3,12 @@ package org.zkoss.zktest.test2.B65
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.util.Scripts
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1315.zul")
 class B65_ZK_1315Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = <zk>
                     <div>
@@ -66,29 +68,30 @@ class B65_ZK_1315Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
+        mouseOver(jq(".z-column"))
+        waitResponse()
+        
+        val menupopupLink = jq(".z-column").toWidget().$n("btn")        
+        click(menupopupLink)
+        waitResponse()
+        
+        val titleDisplay = jq(".z-menuitem:contains(Title):eq(0)")
+        click(titleDisplay)
+        waitResponse()
 
-        Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-column"), "mouseover", "");
-        waitResponse()
-        val menupopupLink = jq(".z-column-menuicon:eq(1)")
-        Scripts.triggerMouseEventAt(getWebDriver(), menupopupLink, "click", "");
-        waitResponse()
-        val titleDisplay = jq(".z-menuitem-content:contains(Title):eq(0)")
-        Scripts.triggerMouseEventAt(getWebDriver(), titleDisplay, "click", "");
-        waitResponse()
-
-        val titleColumn = jq(".z-column.z-column-sort:contains(Title):eq(0)")
+        val titleColumn = jq(".z-column:contains(Title):eq(0)")
         verifyEquals("Hide 'Title' column by menupopup.", titleColumn.css("display"), "none")
 
-        val publisher = jq(".z-column.z-column-sort:contains(Publisher):eq(0)")
+        val publisher = jq(".z-column:contains(Publisher):eq(0)")
         click(publisher)
         waitResponse()
-        verifyTrue("Click 'Publisher' column to sort.", publisher.hasClass("z-column-sort-asc"))
+        verifyTrue("Click 'Publisher' column to sort.", jq(publisher.toWidget().$n("sort-icon")).is("[class*=up]"))
 
-        Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-column"), "mouseover", "");
+        mouseOver(jq(".z-column"))
         waitResponse()
-        Scripts.triggerMouseEventAt(getWebDriver(), menupopupLink, "click", "");
+        click(menupopupLink)
         waitResponse()
-        Scripts.triggerMouseEventAt(getWebDriver(), titleDisplay, "click", "");
+        click(titleDisplay)
         waitResponse()
         verifyNotEquals("Show 'Title' column by menupopup.", titleColumn.css("display"), "none")
 

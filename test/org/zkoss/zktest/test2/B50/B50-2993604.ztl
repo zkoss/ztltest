@@ -29,7 +29,7 @@
 				waitResponse();
 				click(openIcon);
 				waitResponse();
-				verifyTrue(jq(openIcon).hasClass("z-tree-root-open"));			
+				verifyTrue(jq(treerow.$n("icon")).is("[class*=down]"));		
 		]]></client>
 	</case>
 </test>

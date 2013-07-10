@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-3303725.zul,A,E,Panel,Portallayout")
 class B50_3303725Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -88,7 +89,7 @@ class B50_3303725Test extends ZTL4ScalaTestCase {
         }
         dragDrop(p2.$n("cap"), "100,10", jq(p1.$n()).find(".z-panelchildren").get(0), "100,180");
 
-        var h1: Int = jq(ptl.$n("cave")).height();
+        var h1: Int = jq(jq(".z-portalchildren").toWidget().$n("cave")).height();
         var h2: Int = jq(p1.$n()).outerHeight() +
         			  jq(p2.$n()).outerHeight() +
         			  jq(p3.$n()).outerHeight();

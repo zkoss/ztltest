@@ -31,7 +31,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				focus(jq(test1));
 				sendKeys(test1, Keys.TAB);
 				waitResponse();
-				verifyTrue(jq(".z-textbox-focus").length() == 1);
+				verifyTrue("" != jq(".z-textbox").css("box-shadow"));
 				if("1px" == jq("input.z-textbox:eq(0)").css("border-width") || "1" == jq("input.z-textbox:eq(0)").css("border-width"))
 				verifyTrue(false);
 				else

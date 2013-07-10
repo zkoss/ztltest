@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-ZK-589.zul,B,E,Window,Hlayout")
 class B50_ZK_589Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -54,12 +55,9 @@ class B50_ZK_589Test extends ZTL4ScalaTestCase {
 
    runZTL(zscript, () => {
 			var win: Widget = engine.$f("win");
-			var caveWidth: Integer = jq(win.$n("cave")).width();
 
-    		verifyTrue("the width of top border should larger then cave width",
-    		    jq(win.$n()).find(">div:first").width() > caveWidth);
-    		verifyTrue("the width of bottom border should larger then cave width",
-    		    jq(win.$n()).find(">div:last").width() > caveWidth);
+    		verifyTrue("the width of top/bottom border should larger then cave width",
+    		    jq(win).width() >  jq(win.$n("cave")).width());
 		})
   }
 }

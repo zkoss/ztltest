@@ -45,7 +45,7 @@ class B65_ZK_1217Test extends ZTL4ScalaTestCase {
 
     def captionTest(n: Int) {
       val nthCaption = jq("@caption:eq(" + n + ")")
-      val collapsibleWidget = jq("div.z-groupbox-3d-cnt:eq(" + n + ")")
+      val collapsibleWidget = jq(jq(".z-groupbox:eq(" + n + ")").toWidget().$n("cave"))
       val block = collapsibleWidget.css("display")
 
       click(nthCaption)

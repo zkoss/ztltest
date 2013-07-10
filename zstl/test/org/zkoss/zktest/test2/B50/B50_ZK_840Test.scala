@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B50
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B50-ZK-840.zul")
 class B50_ZK_840Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk>
                     <div>
@@ -56,7 +58,7 @@ class B50_ZK_840Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         verifyFalse("should see no javascript error", jq(".z-error").exists())
-        click(jq(".z-tree:contains(Header) .z-tree-ico"))
+        click(jq(".z-tree:contains(Header) .z-treerow:contains(Item)").toWidget().$n("icon"))
         verifyFalse("should see no javascript error", jq(".z-error").exists())
       })
 

@@ -10,16 +10,16 @@
 			-->
 		</server>
 		<client><![CDATA[	
-				if (!("bold".equals(jq(".z-toolbarbutton-cnt")
+				if (!("bold".equals(jq(".z-toolbarbutton-content")
 						.css("font-weight"))
-						|| "700".equals(jq(".z-toolbarbutton-cnt").css(
+						|| "700".equals(jq(".z-toolbarbutton-content").css(
 								"font-weight"))))
 					verifyTrue(false);
 				click(tbtn);
 				waitResponse();
-				if (!("normal".equals(jq(".z-toolbarbutton-cnt").css(
+				if (!("normal".equals(jq(".z-toolbarbutton-content").css(
 						"font-weight"))
-						|| "400".equals(jq(".z-toolbarbutton-cnt").css(
+						|| "400".equals(jq(".z-toolbarbutton-content").css(
 								"font-weight"))))
 					verifyTrue(false);			
 		]]></client>

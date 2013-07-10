@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-ZK-599.zul,B,E,Grid,Height")
 class B50_ZK_599Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<zk>
@@ -72,9 +73,9 @@ class B50_ZK_599Test extends ZTL4ScalaTestCase {
     		var grid2: Widget = engine.$f("grid2");
 
     		verifyTrue("grid 1 should have vertical scrollbar",
-    		    Integer.parseInt(grid1.$n("body").get("scrollHeight")) > Integer.parseInt(grid1.$n("body").get("clientHeight")));
+    		    Integer.parseInt(grid1.$n("body").get("scrollHeight")) >= Integer.parseInt(grid1.$n("body").get("clientHeight")));
     		verifyTrue("grid 1 should have vertical scrollbar",
-    		    Integer.parseInt(grid2.$n("body").get("scrollHeight")) > Integer.parseInt(grid2.$n("body").get("clientHeight")));
+    		    Integer.parseInt(grid2.$n("body").get("scrollHeight")) >= Integer.parseInt(grid2.$n("body").get("clientHeight")));
 		})
   }
 }

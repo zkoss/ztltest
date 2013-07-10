@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-ZK-409.zul,A,E,IdSpace")
 class B50_ZK_409Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -60,7 +61,7 @@ class B50_ZK_409Test extends ZTL4ScalaTestCase {
 
         click(btn);
         waitResponse();
-        click(jq(".z-window-highlighted").find(".z-window-highlighted").toWidget().$n("close"));
+        click(jq(".z-window-highlighted").toWidget().$n("close"));
         waitResponse();
         click(btn);
         waitResponse();
@@ -73,8 +74,8 @@ class B50_ZK_409Test extends ZTL4ScalaTestCase {
    		    jq(".z-error").exists());
    		var hlWins: JQuery = jq(".z-window-highlighted");
    		verifyTrue( "only one highlighted window and contains expected message",
-   		    (hlWins.length() == 1) && (hlWins.find(".z-messagebox").find(".z-label")
-   		        .get(0).get("innerHTML").contains("Question is pressed. Are you sure?")) );
+   		    (hlWins.length() == 1) && (jq(".z-messagebox-window").find(".z-label")
+   		        .text().contains("Question is pressed. Are you sure?")) );
     }
    );
 

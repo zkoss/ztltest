@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-ZK-480.zul,A,E,Tree,ROD,DragDrop")
 class B50_ZK_480Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -53,11 +54,7 @@ class B50_ZK_480Test extends ZTL4ScalaTestCase {
     }
 
     def executor = ()=>{
-    	var tree: Widget = engine.$f("tree");
-    	var ti: Widget = engine.$f("ti");
-    	waitResponse();
-
-    	click(jq(ti.$n()).find(".z-tree-ico"));
+    	click(jq(".z-treerow").toWidget().$n("icon"));
     	waitResponse();
     	verifyFalse(jq(".z-error").exists());
     }

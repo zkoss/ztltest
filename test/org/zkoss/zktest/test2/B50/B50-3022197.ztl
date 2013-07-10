@@ -53,7 +53,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				waitResponse();
 				click(b);
 				waitResponse();
-				verifyEquals("BB",jq(".z-tab-seld:eq(1) .z-tab-text").text());
+				verifyEquals("BB",jq(".z-tab-selected:eq(1)").text());
 		]]></client>
 	</case>
 </test>

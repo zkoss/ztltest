@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-2971982.zul,A,E,Treefooter,Listfooter")
 class B50_2971982Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 
@@ -87,24 +88,13 @@ class B50_2971982Test extends ZTL4ScalaTestCase {
    // Run syntax 2
     runZTL(zscript,
         () => {
-        var listbox: Widget = engine.$f("listbox");
-        var tree: Widget = engine.$f("tree");
 
-        var w1: Int = jq(jq(listbox.$n("body")).find(".z-listcell").get(0)).width() + 
-        				jq(jq(listbox.$n("body")).find(".z-listcell").get(1)).width();
-        var w2: Int = jq(jq(tree.$n("body")).find(".z-treecell").get(0)).width() + 
-        				jq(jq(tree.$n("body")).find(".z-treecell").get(1)).width();
-        var offsetLeft1 = Integer.parseInt(jq(listbox.$n("foot")).find(".z-listfooter").get(1).get("offsetLeft"));
-        var offsetLeft2 = Integer.parseInt(jq(tree.$n("foot")).find(".z-treefooter").get(1).get("offsetLeft"));
-
-        verifyTrue("offsetLeft of second footer in left listbox ("+offsetLeft1+
-            ") should larger then the width of first two rows ("+w1+")",
-            offsetLeft1 > w1);
-        verifyTrue("offsetLeft of second footer in right tree ("+offsetLeft2+
-            ") should larger then the width of first two rows ("+w2+")",
-            offsetLeft2 > w2);
-
-
+        val listfootleft = jq(".z-listfooter:contains(Second)").offsetLeft()
+        val listcellleft = jq(".z-listcell:contains(test3)").offsetLeft()
+        val treefootleft = jq(".z-treefooter:contains(Second)").offsetLeft()
+        val treecellleft = jq(".z-treecell:contains(test3)").offsetLeft()
+        verifyTrue("Check 'Second footer' is in third column",
+            (listfootleft == listcellleft) && (treefootleft == treecellleft))
     }
    );
 

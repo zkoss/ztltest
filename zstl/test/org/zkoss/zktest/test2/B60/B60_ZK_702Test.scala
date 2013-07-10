@@ -45,15 +45,11 @@ class B60_ZK_702Test extends ZTL4ScalaTestCase {
 			</zk>
 
     }
-
-    def executor() = {
-    	
-    }
+    
    runZTL(zscript,
         () => {
         var cb: Widget = engine.$f("cb");
-
-        click(jq(cb.$n()).find(".z-combobutton").get(0));
+        click(cb);
         waitResponse();
         verifyTrue("Should show a message box",
             jq(".z-window-highlighted:contains(popup)").exists());

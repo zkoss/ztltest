@@ -44,7 +44,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		mouseMoveAt(jq(inner),"3,3");waitResponse();
 		mouseDownAt(jq(inner),"3,3");waitResponse();
 		mouseMoveAt(jq(inner),"10,3");waitResponse();
-		verifyTolerant(15,getElementHeight(jq(".z-drag-ghost")).intValue(), 1);
+		verifyTolerant(jq(inner).height(),getElementHeight(jq(".z-drag-ghost")).intValue(), 1);
 		verifyTolerant(100,getElementWidth(jq(".z-drag-ghost")).intValue(), 1);
 		mouseUpAt(jq(inner),"10,3");waitResponse();
 		]]></client>
