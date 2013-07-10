@@ -18,7 +18,7 @@
 	</zk>
 		]]></server>
 		<client><![CDATA[
-		click(jq("@window @listcell[label=\"-\"] div.z-overflow-hidden:eq(1)"));
+		click(jq("@window @listcell[label=\"-\"]:eq(1)"));
 		click(jq("@button"));
 		waitResponse();
 		click(jq("@button"));

@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B60-ZK-1010.zul,B,E,Datebox,Calendar")
 class B60_ZK_1010Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -94,7 +95,7 @@ class B60_ZK_1010Test extends ZTL4ScalaTestCase {
         def selectDate (dbx: Widget) {
           var dayRow: JQuery = null;
           click(dbx.$n("btn")); waitResponse();
-          click(jq(dbx.$n("pp")).find("td:contains(29)"));
+          click(jq(dbx.$n("pp")).find(".z-calendar-cell:contains(29)"));
           waitResponse();
         }
         def openAndCheck (dbx: Widget, year: String, mon: String) {
@@ -103,7 +104,7 @@ class B60_ZK_1010Test extends ZTL4ScalaTestCase {
           verifyTrue("the date in the calendar should be the same as your chosen: "+year+"_"+mon+"_29",
 //              jq(dbx.$n("pp")).find(".z-calendar:contains("+mon+")").exists()
               jq(dbx.$n("pp")).find(".z-calendar-title:contains("+year+")").exists()
-              && jq(dbx.$n("pp")).find("td:contains(29)").exists());
+              && jq(dbx.$n("pp")).find(".z-calendar-cell:contains(29)").exists());
           click(outer);
         }
 

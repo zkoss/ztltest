@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-ZK-487.zul,A,E,Groupbox,Caption")
 class B50_ZK_487Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -88,9 +89,8 @@ class B50_ZK_487Test extends ZTL4ScalaTestCase {
         waitResponse();
         sleep(1000); // wait animation
 
-        verifyTrue("Height should be 200",
-            jq(gb1).height() == 200
-            && jq(gb2).height() == 200);
+        verifyEquals("Height should be 200", jq(gb1).height(), 200)
+        verifyEquals("Height should be 200", jq(gb2).height(), 200);
     }
    );
   }

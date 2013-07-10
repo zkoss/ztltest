@@ -82,7 +82,7 @@ b = !b;
 </zk>
 		 --></server>
 		<client><![CDATA[
-		click(jq("@treecell[label=\"Item 2.1\"] div.z-overflow-hidden"));
+		click(jq("@treecell[label=\"Item 2.1\"]"));
 		click(jq("@button"));
 		verifyTrue(jq("@treecell[label=\"Item 2\"]").exists());
 		click(jq("@button"));

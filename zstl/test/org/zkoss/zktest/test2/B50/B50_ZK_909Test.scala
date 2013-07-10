@@ -6,10 +6,12 @@ import org.openqa.selenium.By
 import org.openqa.selenium.internal.Locatable
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.util.Scripts
+import org.junit.Test
 
 @Tags(tags = "B50-ZK-909.zul")
 class B50_ZK_909Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<?xml version="1.0" encoding="UTF-8" ?>
                   <zk>
@@ -60,14 +62,9 @@ class B50_ZK_909Test extends ZTL4ScalaTestCase {
         waitResponse()
         verifyTrue("should see errorbox message", jq(".z-errorbox").exists())
 
-        var errbox0 = jq(".z-errorbox-close:eq(0)")
-        var close_x0 = errbox0.positionLeft() + errbox0.width() - 5
-        var close_y0 = errbox0.positionTop() + 5
-
-        Scripts.triggerMouseEventAt(getWebDriver(), errbox0, "click", close_x0 + "," + close_y0)
+        click(jq(".z-errorbox").toWidget().$n("cls"))
         waitResponse()
-
-        Scripts.triggerMouseEventAt(getWebDriver(), errbox0, "click", close_x0 + "," + close_y0)
+        click(jq(".z-errorbox").toWidget().$n("cls"))
         waitResponse()
         verifyTrue("should not see errorbox message", !jq(".z-errorbox").exists())
         

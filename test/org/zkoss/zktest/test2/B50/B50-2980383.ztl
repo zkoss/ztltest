@@ -50,11 +50,10 @@
 			</zk>
 		 --></server>
 		<client><![CDATA[
-				waitResponse(true);		
-            	Element header = tabs.$n("header");
-            	Element tab = last.$n();
-
-            	// one px tolerant would be ok .
+				waitResponse(true);
+				Element header = tabs.$n();
+				Element tab = last.$n();
+				// one px tolerant would be ok .
 				verifyTolerant(parseInt(header.get("scrollLeft")) + parseInt(header.get("offsetWidth")),
 				parseInt(tab.get("offsetLeft")) + parseInt(tab.get("offsetWidth")),1);
 		]]></client>

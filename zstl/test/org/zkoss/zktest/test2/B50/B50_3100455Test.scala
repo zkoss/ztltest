@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-3100455.zul,A,E,Frozen,Grid")
 class B50_3100455Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -191,29 +192,23 @@ class B50_3100455Test extends ZTL4ScalaTestCase {
         var bodyWidth3: Int = jq(listbox.$n("body")).outerWidth();
         var bodyWidth4: Int = jq(listbox2.$n("body")).outerWidth();
 
-        jq(grid.$n("frozen")).find(".z-frozen-inner").get(0).eval("scrollLeft = 300");
-        jq(listbox.$n("frozen")).find(".z-frozen-inner").get(0).eval("scrollLeft = 300");
-        jq(grid2.$n("frozen")).find(".z-frozen-inner").get(0).eval("scrollLeft = 300");
-        jq(listbox2.$n("frozen")).find(".z-frozen-inner").get(0).eval("scrollLeft = 300");
+        clickAt(jq(".z-scrollbar:eq(0)").toWidget().$n("hor-rail"), "100,8");
+        clickAt(jq(".z-scrollbar:eq(1)").toWidget().$n("hor-rail"), "100,8");
+        clickAt(jq(".z-scrollbar:eq(2)").toWidget().$n("hor-rail"), "100,8");
+        clickAt(jq(".z-scrollbar:eq(3)").toWidget().$n("hor-rail"), "100,8");
 
-        def checkAllVisible() {
-        	verifyTrue("the offsetLeft of third column= " +
-        	    Integer.parseInt(jq(grid.$n("body")).find(".z-grid-faker").find(".z-column").get(2).get("offsetLeft")) +
-        	    "should smaller then the tltalWdith/3*2 ("+(bodyWidth1/3*2)+")",
-        	    Integer.parseInt(jq(grid.$n("body")).find(".z-grid-faker").find(".z-column").get(2).get("offsetLeft")) < (bodyWidth1/3*2));
-        	verifyTrue("the offsetLeft of third column= " +
-        	    Integer.parseInt(jq(listbox.$n("body")).find(".z-listheader").get(2).get("offsetLeft")) +
-        	    "should smaller then the tltalWdith/3*2 ("+(bodyWidth2/3*2)+")",
-        	    Integer.parseInt(jq(listbox.$n("body")).find(".z-listheader").get(2).get("offsetLeft")) < (bodyWidth2/3*2));
-        	verifyTrue("the offsetLeft of third column= " +
-        	    Integer.parseInt(jq(grid2.$n("body")).find(".z-row-inner").get(2).get("offsetLeft")) +
-        	    "should smaller then the tltalWdith/3*2 ("+(bodyWidth3/3*2)+")",
-        	    Integer.parseInt(jq(grid2.$n("body")).find(".z-row-inner").get(2).get("offsetLeft")) < (bodyWidth3/3*2));
-        	verifyTrue("the offsetLeft of third column= " +
-        	    Integer.parseInt(jq(listbox2.$n("rows")).find(".z-listcell").get(2).get("offsetLeft")) +
-        	    "should smaller then the tltalWdith/3*2 ("+(bodyWidth4/3*2)+")",
-        	    Integer.parseInt(jq(listbox2.$n("rows")).find(".z-listcell").get(2).get("offsetLeft")) < (bodyWidth4/3*2));
+        var left0 = jq(".z-grid:eq(0) .z-column:contains(C)").offsetLeft()
+        var left1 = jq(".z-listbox:eq(0) .z-listheader:contains(C)").offsetLeft()
+        var left2 = jq(".z-grid:eq(1) .z-column:contains(C)").offsetLeft()
+        var left3 = jq(".z-listbox:eq(1) .z-listheader:contains(C)").offsetLeft()
+        
+        val checkAllVisible = () => {
+          verifyEquals(left0, jq(".z-grid:eq(0) .z-column:contains(C)").offsetLeft())
+          verifyEquals(left1, jq(".z-listbox:eq(0) .z-listheader:contains(C)").offsetLeft())          
+          verifyEquals(left2, jq(".z-grid:eq(1) .z-column:contains(C)").offsetLeft())
+          verifyEquals(left3, jq(".z-listbox:eq(0) .z-listheader:contains(C)").offsetLeft())
         }
+        
         checkAllVisible();
 
         click(btn1);

@@ -16,6 +16,7 @@ package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  *
@@ -23,7 +24,9 @@ import org.zkoss.ztl.Tags;
  */
 @Tags(tags = "B50-ZK-528.zul,A,E,Grid,Listbox,EmptyMessage")
 class B50_ZK_528Test extends ZTL4ScalaTestCase {
-	def testGridCase() = {
+	
+  @Test
+  def testGridCase() = {
 		val zscript = {
 			<div>
 				Grid
@@ -50,35 +53,35 @@ class B50_ZK_528Test extends ZTL4ScalaTestCase {
 			</div>
 		}
 		runZTL(zscript, () => {
-			verifyTrue(jq("$cols @column:visible").length() == 1);
-			verifyEquals("Column1", jq("$cols @column:visible").text());
-			verifyTrue(jq(".z-grid-empty-body").isVisible());
-			verifyEquals("Empty Message", jq(".z-grid-empty-body td").text());
-			verifyEquals("1", jq(".z-grid-empty-body td").attr("colspan"));
+		  
+			val emp = jq(".z-grid").toWidget().$n("empty")
+			verifyTrue(jq("$cols").find("@column:visible").length() == 1);
+			verifyEquals("Column1", jq("$cols").find("@column:visible").text());
+			verifyTrue(jq(emp).isVisible());
+			verifyEquals("Empty Message", jq(jq(".z-grid").toWidget().$n("empty")).text());
 
 			click(jq("@button:eq(0)"));
 			waitResponse();
-			verifyFalse(jq(".z-grid-empty-body").isVisible());
+			verifyFalse(jq(emp).isVisible());
 
 			click(jq("@button:eq(1)"));
 			waitResponse();
-			verifyTrue(jq(".z-grid-empty-body").isVisible());
+			verifyTrue(jq(emp).isVisible());
 
 			click(jq("@button:eq(2)"));
 			click(jq("@button:eq(2)"));
 			waitResponse();
-			verifyTrue(jq("$cols @column:visible").length() == 3);
-			verifyTrue(jq(".z-grid-empty-body").isVisible());
-			verifyEquals("3", jq(".z-grid-empty-body td").attr("colspan"));
+			verifyTrue(jq("$cols").find("@column:visible").length() == 3);
+			verifyTrue(jq(emp).isVisible());
 
 			click(jq("@button:eq(3)"));
 			waitResponse();
-			verifyTrue(jq("$cols @column:visible").length() == 0);
-			verifyTrue(jq(".z-grid-empty-body").isVisible());
-			verifyEquals("1", jq(".z-grid-empty-body td").attr("colspan"));
+			verifyTrue(jq("$cols").find("@column:visible").length() == 0);
+			verifyTrue(jq(emp).isVisible());
 		})
 	}
 
+  	@Test
 	def testListboxCase() = {
 		val zscript = {
 			<div>
@@ -104,32 +107,31 @@ class B50_ZK_528Test extends ZTL4ScalaTestCase {
 			</div>
 		}
 		runZTL(zscript, () => {
-			verifyTrue(jq("$lh @listheader:visible").length() == 1);
-			verifyEquals("Column1", jq("$lh @listheader:visible").text());
-			verifyTrue(jq(".z-listbox-empty-body").isVisible());
-			verifyEquals("Empty Message", jq(".z-listbox-empty-body td").text());
-			verifyEquals("1", jq(".z-listbox-empty-body td").attr("colspan"));
+		  
+		    val emp = jq(".z-listbox").toWidget().$n("empty")
+			verifyTrue(jq("$lh").find("@listheader:visible").length() == 1);
+			verifyEquals("Column1", jq("$lh").find("@listheader:visible").text());
+			verifyTrue(jq(emp).isVisible());
+			verifyEquals("Empty Message", jq(emp).text());
 
 			click(jq("@button:eq(0)"));
 			waitResponse();
-			verifyFalse(jq(".z-listbox-empty-body").isVisible());
+			verifyFalse(jq(emp).isVisible());
 
 			click(jq("@button:eq(1)"));
 			waitResponse();
-			verifyTrue(jq(".z-listbox-empty-body").isVisible());
+			verifyTrue(jq(emp).isVisible());
 
 			click(jq("@button:eq(2)"));
 			click(jq("@button:eq(2)"));
 			waitResponse();
-			verifyTrue(jq("$lh @listheader:visible").length() == 3);
-			verifyTrue(jq(".z-listbox-empty-body").isVisible());
-			verifyEquals("3", jq(".z-listbox-empty-body td").attr("colspan"));
+			verifyTrue(jq("$lh").find("@listheader:visible").length() == 3);
+			verifyTrue(jq(emp).isVisible());
 
 			click(jq("@button:eq(3)"));
 			waitResponse();
-			verifyTrue(jq("$lh @listheader:visible").length() == 0);
-			verifyTrue(jq(".z-listbox-empty-body").isVisible());
-			verifyEquals("1", jq(".z-listbox-empty-body td").attr("colspan"));
+			verifyTrue(jq("$lh").find("@listheader:visible").length() == 0);
+			verifyTrue(jq(emp).isVisible());
 		})
 	}
 }

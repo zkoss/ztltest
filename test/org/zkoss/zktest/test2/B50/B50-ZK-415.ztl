@@ -83,11 +83,10 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 			java.util.List l = new java.util.ArrayList();
 			for (int i = 2;i >= 0;i --) {
-				click(jq("div.z-tab-hm").get(i));
-				waitResponse();
-				verifyTrue(parseInt(t1.get("value")) == i);
-				verifyTrue(("Tab "+ (i+1)).equals(t2.get("value")));
-				verifyTrue(!l.contains(t3.get("value")) && t3.get("value").length() >= 5);
+			click(jq(".z-tab").get(i));
+			waitResponse();				verifyTrue(parseInt(t1.get("value")) == i);
+			verifyTrue(("Tab "+ (i+1)).equals(t2.get("value")));
+			verifyTrue(!l.contains(t3.get("value")) && t3.get("value").length() >= 5);
 			}
 				
 		]]></client>

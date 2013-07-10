@@ -33,12 +33,9 @@
 			-->
 		</server>
 		<client>	<![CDATA[
-    			click(jq("$aa a.z-tab-close"));
-   				waitResponse();
-   				verifyEquals("aa", jq(".z-messagebox .z-label").html());
-   				
-
-						
-			]]></client>
+    			click(jq("$aa").toWidget().$n("close"));
+				waitResponse();
+				verifyEquals("aa", jq(".z-messagebox-window .z-label").html());
+		]]></client>
 	</case>
 </test>

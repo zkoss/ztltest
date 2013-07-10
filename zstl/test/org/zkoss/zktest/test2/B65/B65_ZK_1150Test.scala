@@ -27,9 +27,7 @@ class B65_ZK_1150Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        waitResponse()
-        var text = jq("@menuitem").text();
-        verifyEquals("should not see any space {nbsp} after [Help] ", jq("@menuitem").text(), "Help");
+        verifyEquals("should not see any space {nbsp} after [Help] ", jq(".z-menuitem-text").text(), "Help");
       })
   }
 }

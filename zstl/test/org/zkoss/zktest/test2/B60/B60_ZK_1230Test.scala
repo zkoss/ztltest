@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B60
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B60-ZK-1230.zul")
 class B60_ZK_1230Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """
                   <zk>
@@ -49,7 +51,7 @@ class B60_ZK_1230Test extends ZTL4ScalaTestCase {
         click(jq("@button:contains(showPage)"))
         waitResponse()
 
-        verifyTrue("should see in the 'result' tab", jq(".z-tab:contains(result)").hasClass("z-tab-seld"))
+        verifyTrue("should see in the 'result' tab", jq(".z-tab:contains(result)").hasClass("z-tab-selected"))
         verifyEquals("should see in the 'result' tab", jq(".z-tabpanel:eq(1)").css("display"), "block")
         verifyTrue("should see 'trackName 0'", jq(".z-listitem:contains(trackName 0)").exists())
         verifyTrue("should see 'trackName 1'", jq(".z-listitem:contains(trackName 1)").exists())
