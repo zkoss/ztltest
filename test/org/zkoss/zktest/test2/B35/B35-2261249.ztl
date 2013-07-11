@@ -22,11 +22,9 @@
 		--></server>
 		<client><![CDATA[
 				for (int i = 0; i < 3; i++) {
-				Scripts.triggerMouseEventAt(getWebDriver(), c1,
-				"mouseover", "");
+				mouseOver(c1);
 				waitResponse();
-				Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-column-menuicon:eq(0)"),
-				"click", "");
+				click(jq(".z-column").toWidget().$n("btn"));
 				waitResponse();
 				java.util.List<JQuery> items = com.google.common.collect.ImmutableList.copyOf(jq(".z-menuitem").iterator());
 				java.util.List<JQuery> displayItem = new java.util.ArrayList<JQuery>();
@@ -35,8 +33,7 @@
 				displayItem.add(q);
 				}
 				}
-				Scripts.triggerMouseEventAt(getWebDriver(), displayItem.get(i),
-				"click", "");
+				click(displayItem.get(i));
 				waitResponse();
 				verifyFalse(jq(".z-window-modal").exists());
 				}

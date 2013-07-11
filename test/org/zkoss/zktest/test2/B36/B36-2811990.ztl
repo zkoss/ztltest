@@ -19,16 +19,15 @@
 			</window>
 		--></server>
 		<client><![CDATA[
-		if (!ZK.is("ie9")) {
-			verifyEquals(jq("$sl div.z-slider-hor-btn").attr("title"), "50");
-			mouseDownAt(jq("$sl div.z-slider-hor-btn"), "8,6");
-			mouseMoveAt(jq("$sl div.z-slider-hor-btn"), "47,8");
-			mouseUpAt(jq("$sl div.z-slider-hor-btn"), "47,8");
-			verifyEquals(jq("$sl div.z-slider-hor-btn").attr("title"), "70");
+			Element btn = jq("$sl").toWidget().$n("btn");
+			verifyEquals(jq(btn).attr("title"), "50");
+			mouseDownAt(jq(btn), "8,6");
+			mouseMoveAt(jq(btn), "47,8");
+			mouseUpAt(jq(btn), "47,8");
+			verifyEquals(jq(btn).attr("title"), "70");
 			click(jq("@button"));
 			waitResponse();
-			verifyEquals(jq("$sl div.z-slider-hor-btn").attr("title"), "10");
-		}
+			verifyEquals(jq(btn).attr("title"), "10");
 		]]></client>
 	</case>
 </test>

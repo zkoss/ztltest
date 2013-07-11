@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Widget
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -27,6 +28,7 @@ import org.zkoss.ztl.Widget
  */
 @Tags(tags = "B36-2807475.zul,B,E,Window,Button")
 class B36_2807475Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
     val zscript = {
       <zk>
@@ -59,7 +61,7 @@ event should be triggered in IE.
       verifyTrue("The textbox should have focus", jq("$demo1:focus").exists());
 
       // Verify that the value is updated
-      verifyTrue("The text should be selected", jq("$demo2").attr("value").equals("2"));
+      verifyTrue("The text should be selected", jq("$demo2").`val`().equals("2"));
 
     })
   }
