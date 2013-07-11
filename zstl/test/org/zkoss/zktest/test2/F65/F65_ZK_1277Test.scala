@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.F65
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "F65-ZK-1277.zul")
 class F65_ZK_1277Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<?xml version="1.0" encoding="UTF-8"?>
 
@@ -84,13 +86,13 @@ Copyright (C) 2012 Potix Corporation. All Rights Reserved.
     runZTL(zscript,
       () => {
         val verifyHeight = (result: Int) =>
-          List(".z-group", ".z-row", ".z-groupfoot") foreach { cls =>
-            verifyTrue("each row should be the same height", jq(cls).height() == result)
+          List(".z-row", ".z-groupfoot") foreach { cls =>
+            verifyTrue("each row should be the same height", jq(cls).outerHeight() == result)
           }
-        verifyHeight(30)
+        verifyHeight(jq(".z-group").outerHeight())
         click(jq(".z-button:contains(Autopaging)"))
         waitResponse()
-        verifyHeight(42)
+        verifyHeight(jq(".z-group").outerHeight())
       })
 
   }

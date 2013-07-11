@@ -157,7 +157,7 @@ class B50_ZK_596Test extends ZTL4ScalaTestCase {
 
 	   		def checkWidth = () => {
 	   		  verifyTrue("the sum of tabs header width and toobar width should smaller or equal to tabs width",
-	   		      $tbsHeader.outerWidth(true) + $tbar.outerWidth(true) <= $tbs.width());
+	   		      $tbsHeader.outerWidth(true) + $tbar.outerWidth(true) <= $tbs.outerWidth());
 	   		}
 	   		clickAndWait(btn1, null);
 	   		checkWidth();

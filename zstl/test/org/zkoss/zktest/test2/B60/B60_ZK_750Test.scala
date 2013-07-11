@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B60
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B60-ZK-750.zul")
 class B60_ZK_750Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript =
       """<zk>
@@ -30,11 +32,12 @@ class B60_ZK_750Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        jq(".z-listbox-body").toElement().set("scrollTop", 30000)
+        val listbox = jq(".z-listbox")
+        verScroll(listbox, 1)
         waitResponse()
-        jq(".z-listbox-body").toElement().set("scrollTop", 0)
+        verScroll(listbox, 0)
         waitResponse()
-        jq(".z-listbox-body").toElement().set("scrollTop", 30000)
+        verScroll(listbox, 1)
         waitResponse()
         verifyTrue("should not see the content of the listbox is blank", jq(".z-listitem:contains(999)").exists())
       })

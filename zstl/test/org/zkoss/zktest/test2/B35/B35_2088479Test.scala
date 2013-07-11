@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.interactions.Actions
 import org.openqa.selenium.interactions.MoveToOffsetAction
+import org.junit.Test
 
 
 /**
@@ -30,6 +31,7 @@ import org.openqa.selenium.interactions.MoveToOffsetAction
 @Tags(tags = "B35-2088479.zul,A,E,Tabbox,IE,BI")
 class B35_2088479Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """
 <?xml version="1.0" encoding="UTF-8"?>
@@ -99,15 +101,15 @@ panel 2
         waitResponse();
 
         //Panels 1 visible, 2 invisible
-        verifyTrue(jq("$p1 .z-tabpanel-accordion-cnt").isVisible());
-        verifyFalse(jq("$p2 .z-tabpanel-accordion-cnt").isVisible());
+        verifyTrue(jq("$p1").find(".z-tabpanel-content").isVisible());
+        verifyFalse(jq("$p2").find(".z-tabpanel-content").isVisible());
         
         click(tab2);
         waitResponse();
 
         //Panels 2 visible, 1 invisible
-        verifyTrue(jq("$p2 .z-tabpanel-accordion-cnt").isVisible());
-        verifyFalse(jq("$p1 .z-tabpanel-accordion-cnt").isVisible());
+        verifyTrue(jq("$p2").find(".z-tabpanel-content").isVisible());
+        verifyFalse(jq("$p1").find(".z-tabpanel-content").isVisible());
                 
       });
   }

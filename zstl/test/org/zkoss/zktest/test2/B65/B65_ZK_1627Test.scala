@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B65
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1627.zul")
 class B65_ZK_1627Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """
 <zk>
@@ -25,9 +27,9 @@ class B65_ZK_1627Test extends ZTL4ScalaTestCase {
         waitResponse()
         val db = jq(".z-datebox")
         val dbLeft = db.offsetLeft()
-        val pnt = jq(".z-pointer")
-        val pntMid = pnt.offsetLeft() + pnt.width() / 2.0
-        verifyTrue("you should see an error arrow points to the mid-bottom of the datebox.", (pntMid - dbLeft - db.width() / 2.0).abs <= 2)
+        val pnt = jq(jq(".z-errorbox").toWidget().$n("p"))
+        val pntMid = pnt.offsetLeft() + pnt.outerWidth() / 2.0
+        verifyTrue("you should see an error arrow points to the mid-bottom of the datebox.", (pntMid - dbLeft - db.outerWidth() / 2.0).abs <= 2)
       })
 
   }

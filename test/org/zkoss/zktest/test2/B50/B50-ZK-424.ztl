@@ -35,7 +35,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				</n:div>
 				<label id="msg"/>
 				<script>
-				zk.afterMount(function(){ jq("$msg").html("" +jq("#hi $textbox1").size() + jq("#hi2 $textbox2").size() + jq("#hi3 $textbox3").size()); });
+				zk.afterMount(function(){ jq("$msg").html("" +jq("#hi").find("$textbox1").size() + jq("#hi2").find("$textbox2").size() + jq("#hi3").find("$textbox3").size()); });
 				</script>
 				
 			</zk>

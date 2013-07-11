@@ -105,44 +105,35 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-			int[][] h1 = {
-					{255, 255, 180},
-					{600, 600, 400},
-					{0, 0, 0}
-				};
-			Widget[] w1 = {lb, grid, tree};
-			for (int i = 0;i < 3;i ++) {
+				Widget[] w1 = {lb, grid, tree};
+				for (int i = 0;i < 3;i ++) {
 				int[] hOld = {0, 0, 0};
 				for (int j = 0;j < 3;j ++) {
-					w1[j].$n("body").eval("scrollTop = " + h1[i][j]);
-					waitResponse();
-					hOld[j] = parseInt(w1[j].$n("body").get("scrollTop"));
+				verScroll(w1[j].$n("body"), 0.5);
+				waitResponse();
+				hOld[j] = parseInt(w1[j].$n("body").get("scrollTop"));
 				}
 				click(btn1);
 				waitResponse();
 				for (int k = 0;k < 3;k ++) {
-					verifyTrue(hOld[k] == parseInt(w1[k].$n("body").get("scrollTop")));
+				verifyTrue(hOld[k] == parseInt(w1[k].$n("body").get("scrollTop")));
 				}
-			}
-			int[][] h2 = {
-					{8000, 8000, 8000, 7000},
-					{0, 0, 0, 0},
-					{8000, 8000, 8000, 7000}
-				};
-			Widget[] w2 = {lb2, lb3, grid2, tree2};
-			for (int i = 0;i < 3;i ++) {
+				}
+
+				Widget[] w2 = {lb2, lb3, grid2, tree2};
+				for (int i = 0;i < 3;i ++) {
 				int[] hOld = {0, 0, 0, 0};
 				for (int j = 0;j < 4;j ++) {
-					w2[j].$n("body").eval("scrollTop = " + h2[i][j]);
-					waitResponse();
-					hOld[j] = parseInt(w2[j].$n("body").get("scrollTop"));
+				verScroll(w2[j].$n("body"), 1);
+				waitResponse();
+				hOld[j] = parseInt(w2[j].$n("body").get("scrollTop"));
 				}
 				click(btn2);
 				waitResponse();
 				for (int k = 0;k < 4;k ++) {
-					verifyTrue(hOld[k] == parseInt(w2[k].$n("body").get("scrollTop")));
+				verifyTrue(hOld[k] == parseInt(w2[k].$n("body").get("scrollTop")));
 				}
-			}
+				}
 		]]></client>
 	</case>
 </test>
