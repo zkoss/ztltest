@@ -49,78 +49,24 @@
 				JQuery setHeight = jq("@button[label=\"set height\"]");
 				JQuery noHeight = jq("@button[label=\"no height\"]");
 				JQuery label = jq("@label");
-
-				click(setWidth);
-				waitResponse();
-				click(noHeight);
-				waitResponse();
-				click(label);
-				waitResponse();
-				JQuery node = jq(title.$n());
-
-				JQuery tl = jq("div.z-popup-tl");
-				JQuery bl = jq("div.z-popup-bl");
-				JQuery cl = jq("div.z-popup-cl");
-
-				boolean tlExist = jq("div.z-popup-tl").exists();
-
-				int sumHeight = -1;
-
-				if (tlExist) { // for which is not ie7!
-					sumHeight = tl.outerHeight() + cl.outerHeight() + bl.outerHeight();
-					int tlWidth = tl.outerWidth() + parseInt(tl.css("margin-right"));
-					int blWidth = tl.outerWidth() + parseInt(bl.css("margin-right"));
-					verifyEquals(300, tlWidth);
-					verifyEquals(300, blWidth);
-				} else {// for ie7 , whhich has not tl and bl
-					sumHeight = cl.outerHeight();
-					verifyEquals(node.outerHeight(), sumHeight);
-				}
-
-				verifyEquals(node.outerHeight(), sumHeight);
-				verifyEquals(300, node.outerWidth());
-				verifyEquals(300, cl.outerWidth());
 				click(noWidth);
 				waitResponse();
 				click(setHeight);
 				waitResponse();
 				click(label);
 				waitResponse();
-
-				int width = node.outerWidth();
-				if (tlExist) {
-					int tlWidth = tl.outerWidth() + parseInt(tl.css("margin-right"));
-					int blWidth = tl.outerWidth() + parseInt(bl.css("margin-right"));
-					verifyEquals(width, tlWidth);
-					verifyEquals(width, blWidth);
-					sumHeight = tl.outerHeight() + cl.outerHeight() + bl.outerHeight();
-				}else{// for ie7 , whhich has not tl and bl
-					sumHeight = cl.outerHeight();
-				}
-				verifyEquals(width, cl.outerWidth());
-				verifyEquals(100, node.outerHeight());
-				verifyTolerant(100, sumHeight, 1);
-
-
+				JQuery pp = jq(title.$n());
+				verifyEquals("have height", 100, pp.height());
+				verifyEquals("have no width", 0, pp.width());
+				
 				click(noWidth);
 				waitResponse();
 				click(noHeight);
 				waitResponse();
 				click(label);
 				waitResponse();
-				if(tlExist){
-					sumHeight = tl.outerHeight() + cl.outerHeight() + bl.outerHeight();
-					int tlWidth = tl.outerWidth() + parseInt(tl.css("margin-right"));
-					int blWidth = tl.outerWidth() + parseInt(bl.css("margin-right"));
-					verifyEquals(width, tlWidth);
-					verifyEquals(width, blWidth);
-
-				} else { // for ie7 , whhich has not tl and bl
-					sumHeight = cl.outerHeight();
-				}
-				width = node.outerWidth();
-				verifyEquals(node.outerHeight(), sumHeight);
-				verifyEquals(width, cl.outerWidth());
+				verifyEquals("have no height", 0, pp.height());
+				verifyEquals("have no width", 0, pp.width());
 
 		]]></client>
 	</case>

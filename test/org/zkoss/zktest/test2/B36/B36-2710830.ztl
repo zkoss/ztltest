@@ -16,8 +16,8 @@
 			int screenHeight = jq(node.parentNode()).innerHeight();
 			int offsetLeft = $node.offsetLeft();
 			int offsetTop = $node.offsetTop();
-			int winWidth = $node.width();
-			int winHeight = $node.height();
+			int winWidth = $node.outerWidth();
+			int winHeight = $node.outerHeight();
 			int widthDiff = Math.abs(((screenWidth - winWidth)/2) - offsetLeft);
 			int heightDiff = Math.abs(((screenHeight - winHeight)/2) - offsetTop);
 			verifyTrue(widthDiff <= 3 && widthDiff >= 0);

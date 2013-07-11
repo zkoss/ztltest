@@ -9,7 +9,7 @@
 			</panel>
 		 --></server>
 		<client><![CDATA[
-			verifyEquals("My First Window - Hello, World!", getText(jq("@caption td.z-caption-l")));
+			verifyEquals("My First Window - Hello, World!", jq("@caption").text());
 		]]></client>
 	</case>
 </test>

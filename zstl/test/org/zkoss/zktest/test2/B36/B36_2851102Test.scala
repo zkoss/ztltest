@@ -17,9 +17,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B36
 
 import java.util.Calendar
-
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * A test class for bug 2851102
@@ -29,6 +29,7 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B36-2851102.zul,A,E,Window,Popup,Errorbox")
 class B36_2851102Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """
 <?xml version="1.0" encoding="UTF-8"?>
@@ -81,10 +82,7 @@ constraint popup. Then click X on popup - window should not close.</label>
         waitResponse();
         
         //Click close
-        var close=jq(".z-errorbox-close");
-        var w=close.width();
-        var i=w+5;
-        clickAt(close, ""+i+",3");
+        click(jq(".z-errorbox").toWidget().$n("cls"));
         waitResponse();
         
         //Popup is closed

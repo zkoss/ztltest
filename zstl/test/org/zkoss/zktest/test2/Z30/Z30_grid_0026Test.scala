@@ -18,6 +18,7 @@ package org.zkoss.zktest.test2.Z30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  * A test class for bug grid-0026
@@ -27,6 +28,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "Z30-grid-0026.zul,Z30,B,E,Grid,IE")
 class Z30_grid_0026Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -156,15 +158,15 @@ class Z30_grid_0026Test extends ZTL4ScalaTestCase {
         verifyEquals(jq("@row:eq(0) @label:eq(0)").text(),"0");
         
         
-        click(jq("$add input"));
+        click(widget("$add").$n("real"));
         verifyTrue(widget("$add").is("checked"));
         click(jq("$btnStart"));
         
         sleep(3200);
         
         val amount = jq("@row").length;
-        click(jq("$add input"));
-        click(jq("$remove input"));
+        click(widget("$add").$n("real"));
+        click(widget("$remove").$n("real"));
         
         verifyFalse(widget("$add").$n("real").is("checked"));
         verifyTrue(widget("$remove").$n("real").is("checked"));

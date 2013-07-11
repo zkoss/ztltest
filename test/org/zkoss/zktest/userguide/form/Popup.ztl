@@ -115,15 +115,15 @@
 		
 		 --></server>
 		<client ><![CDATA[
-			mouseOver(jq("$view @label:eq(2)"));
+			mouseOver(jq("$view").find("@label:eq(2)"));
 			sleep(1000);
 			verifyTrue(jq("$mail").isVisible());
-			click(jq("$view @textbox:eq(0)"));
+			click(jq("$view").find("@textbox:eq(0)"));
 			waitResponse();
 			verifyFalse(jq("@popup").isVisible());
-			click(jq("$view @label:eq(4)"));
+			click(jq("$view").find("@label:eq(4)"));
 			waitResponse();
-			verifyTrue(jq("$view @html").exists());
+			verifyTrue(jq("$view").find("@html").exists());
 		]]></client>
 	</case>
 </test>

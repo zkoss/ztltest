@@ -17,9 +17,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B36
 
 import java.util.Calendar
-
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * A test class for bug 2935398
@@ -29,6 +29,7 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B36-2935398.zul,A,E,scrollIntoView,Textbox,Constraint")
 class B36_2935398Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """
 <?xml version="1.0" encoding="UTF-8"?>
@@ -80,7 +81,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         var po=error.positionTop();
         var p1=jq("$tb").positionTop();
         verifyTolerant(po,0, 2);
-        var l=jq("$tb").positionLeft()+jq("$tb").width()+6
+        var l=jq("$tb").positionLeft()+jq("$tb").outerWidth()
         var l1=error.positionLeft();
         verifyEquals(l,l1);
       });

@@ -21,6 +21,7 @@ import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Widget
 import org.zkoss.ztl.ZK
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -28,8 +29,9 @@ import org.zkoss.ztl.ZK
  */
 @Tags(tags = "B36-2799334.zul,B,E,Window,Button")
 class B36_2799334Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window title="IE only" border="normal" width="500px">
         <toolbarbutton label="step 1-click here to show pop" popup="popme"/>
         <popup id="popme" width="330px">
@@ -37,25 +39,19 @@ class B36_2799334Test extends ZTL4ScalaTestCase {
           <textbox id="tb1" value="step 2-click here to focus this popup." width="300px"/>
         </popup>
         <textbox id="tb2" value="step 3-click here, it should select all the words." onFocus="self.select();" width="400px"/>
-      </window>
-    }
+      </window>"""
+    
     runZTL(zscript, () => {
       // Click on toolbarbutton
-      if (ZK.is("ie == 9"))
-      	getActions().click(findElement(jq(".z-toolbarbutton-cnt"))).perform();
-      else 
-      	click(jq(".z-toolbarbutton-cnt"));
+      click(jq(".z-toolbarbutton-content"));
       waitResponse();
 
       // Click on popup textbox
-      if (org.zkoss.ztl.ZK.is("ie == 9"))
-      	getActions().click(findElement(jq("$tb1"))).perform();
-      else
-      	click(jq("$tb1"));
+      click(jq("$tb1"));
       waitResponse();
 
       // Verify that the popup textbox has focus
-      verifyTrue("The second textbox should have focus", jq("$tb1").hasClass("z-textbox-focus"));
+      verifyTrue("The second textbox should have focus", "" != jq("$tb1").css("box-shadow"));
 
       // Click on step 3 textbox
       focus(jq("$tb2"));

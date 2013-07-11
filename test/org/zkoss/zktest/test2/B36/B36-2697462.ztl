@@ -27,7 +27,7 @@
 				waitResponse();
 				click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
 				waitResponse();
-				click(jq("[name=" + jq("@paging").attr("id") + "-previous]"));
+				click(jq("[name=" + jq("@paging").attr("id") + "-prev]"));
 				waitResponse();
 				verifyFalse(jq("@treerow:eq(0)").hasClass("z-treerow-selected"));
 		]]></client>

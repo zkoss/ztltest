@@ -18,6 +18,7 @@ package org.zkoss.zktest.test2.Z35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  * A test class for bug panel-001
@@ -27,6 +28,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "Z35-panel-001.zul,Z35,A,E,Panel")
 class Z35_panel_001Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<window>
@@ -74,32 +76,27 @@ class Z35_panel_001Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
         () => {
           
-        verifyEquals(jq(".z-panel-header").length.toString(),"0");
+        verifyEquals(jq(".z-panel-header").length,0);
         click(jq("$btn1"));
         waitResponse();
         
-        verifyEquals(jq(".z-panel-header").length.toString(),"1");
+        verifyEquals(jq(".z-panel-header").length,1);
         verifyEquals(jq(".z-panel-header").text(),"Panel Component");
         
         
-        verifyEquals(jq(".z-panelchildren-noborder").length.toString(),"1");
+        verifyEquals(jq(".z-panelchildren").length,1);
         click(jq("$btn2"));
         waitResponse();
-        verifyEquals(jq(".z-panelchildren-noborder").length.toString(),"0");
+        verifyFalse(jq(".z-panel").hasClass(".z-panel-noborder"));
         
-        
-        
-        verifyEquals(jq(".z-panel-cm").length.toString(),"0");
         click(jq("$btn3"));
         waitResponse();
-        verifyEquals(jq(".z-panel-cm").length.toString(),"1");
+        verifyFalse(jq(".z-panel").hasClass(".z-panel-noframe"));
         
-        
-        val width = jq(".z-panel").outerWidth();
+        val width = jq(".z-panel").outerWidth()
         click(jq("$btn4"));
         waitResponse();
-        verifyNotEquals(width.toString(),jq(".z-panel").outerWidth().toString())
-        
+        verifyNotEquals(width ,jq(".z-panel").outerWidth())
         
     }
    );

@@ -27,7 +27,7 @@ import org.openqa.selenium.Keys
 @Tags(tags = "B35-2182062.zul,B,E,Window,Button")
 class B35_2182062Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window>
         The two inner tabbox should not have scroll button
         <tabbox width="400px" height="200px">
@@ -87,13 +87,13 @@ class B35_2182062Test extends ZTL4ScalaTestCase {
           </tabpanels>
         </tabbox>
       </window>
-    }
+    """
     runZTL(zscript, () => {
       // Verify that there is only one right scroll button (the outer tabbox)
-      verifyTrue("There should be only one scrolled tabbox", jq(".z-tabs-right-scroll").length() == 1);
+      verifyTrue("There should be only one scrolled tabbox", jq(".z-tabbox-right:visible").length() == 1);
 
       // Verify that there is only one left scroll button (the outer tabbox)
-      verifyTrue("There should be only one scrolled tabbox", jq(".z-tabs-left-scroll").length() == 1);
+      verifyTrue("There should be only one scrolled tabbox", jq(".z-tabbox-left:visible").length() == 1);
 
     })
   }

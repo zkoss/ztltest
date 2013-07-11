@@ -24,10 +24,10 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			contextMenu(jq("@listcell[label=\"female\"] div.z-overflow-hidden"));
+			contextMenu(jq("@listcell[label=\"female\"]"));
 			waitResponse();
 			verifyTrue(jq("@menupopup").exists());
-			click(jq("@listcell[label=\"Mary\"] div.z-overflow-hidden"));
+			click(jq("@listcell[label=\"Mary\"]"));
 			waitResponse();
 			verifyFalse(jq("@menupopup").exists());
 		]]></client>
