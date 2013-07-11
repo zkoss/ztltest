@@ -54,7 +54,6 @@ class B30_1899003Test extends ZTL4ScalaTestCase {
         	//Test if vbox exists
         	val b=getText(jq("@label:eq(0)"));
         	
-        	//val b1=jq(".z-vbox table:eq(0) tr:eq(1)").hasClass("z-vbox-sep");
         	val b1=jq(jq(".z-vbox").toWidget().$n("chdex2")).hasClass("z-vbox-separator");
         	val b4=jq(jq("@vbox").toWidget().$n("chdex2")).css("border-bottom-color");
         	val b2=getText(jq(jq("@vbox").toWidget().$n("chdex")).find("@label"));
