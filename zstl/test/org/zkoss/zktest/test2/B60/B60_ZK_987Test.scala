@@ -24,14 +24,7 @@ class B60_ZK_987Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        
-        
-        verifyTrue("The two Groupboxes should look identical (the one on the right should have no top border on cave DIV).",  jq(".z-groupbox-3d-header:eq(0)").is(":contains(Groupbox)"))
-        verifyTrue("The two Groupboxes should look identical (the one on the right should have no top border on cave DIV).",  jq(".z-groupbox-3d-header:eq(1)").is(":contains(Groupbox)"))
-        verifyTrue("The two Groupboxes should look identical (the one on the right should have no top border on cave DIV).",  jq(".z-groupbox-3d-cnt:eq(0)[style*=border-top-width:0px]").exists())
-        verifyTrue("The two Groupboxes should look identical (the one on the right should have no top border on cave DIV).",  jq(".z-groupbox-3d-cnt:eq(1)[style*=border-top-width:0px]").exists())
-        
+        verifyEquals("The two Groupboxes should look identical (the one on the right should have no top border on cave DIV).",  jq(jq(".z-groupbox:eq(0)").toWidget().$n("header")).height(), jq(jq(".z-groupbox:eq(1)").toWidget().$n("header")).height())
       })
-
   }
 }

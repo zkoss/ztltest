@@ -18,7 +18,7 @@
 			click(menuitem);
 			waitResponse();
 			verifyTrue(menu.get("image").indexOf("/img/Centigrade-Widget-Icons/Briefcase-16x16.png") > 0);
-			verifyTrue(menu.$n("b").get("style.backgroundImage").indexOf("/img/Centigrade-Widget-Icons/Briefcase-16x16.png") > 0);
+			verifyTrue(menu.$n("img").get("src").indexOf("/img/Centigrade-Widget-Icons/Briefcase-16x16.png") > 0);
 		]]></client>
 	</case>
 </test>

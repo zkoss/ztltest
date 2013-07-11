@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-ZK-419.zul,A,E,Tabbox,Accordiion")
 class B50_ZK_419Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 
@@ -75,12 +76,12 @@ class B50_ZK_419Test extends ZTL4ScalaTestCase {
             click(btn1);
             waitResponse();
             verifyTrue("new tab should added one by one while click add button",
-                jq(".z-tabpanel-accordion-outer").length() == i);
+                jq(".z-tabpanel").length() == i);
         }
         click(btn2);
         waitResponse();
         verifyTrue("should keep the same after click invalidate button",
-                jq(".z-tabpanel-accordion-outer").length() == max);
+                jq(".z-tabpanel").length() == max);
     }
    );
 

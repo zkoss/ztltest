@@ -50,17 +50,17 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-			int wh1 = jq(jq(grid.$n("head")).find("tr.z-columns").find("th.z-column").get(0)).outerWidth();
-			int wb1 = jq(jq(grid.$n("body")).find("tbody.z-rows").find("td.z-row-inner").get(0)).outerWidth();
-			int wf1 = jq(jq(grid.$n("foot")).find("tr.z-foot").find("td.z-footer").get(0)).outerWidth();
-
-			fz.$n("scrollX").eval("scrollLeft = 200");
-			waitResponse();
-
-			verifyTrue(jq(jq(grid.$n("head")).find("tr.z-columns").find("th.z-column").get(0)).outerWidth() == wh1);
-			verifyTrue(jq(jq(grid.$n("body")).find("tbody.z-rows").find("td.z-row-inner").get(0)).outerWidth() == wb1);
-			verifyTrue(jq(jq(grid.$n("foot")).find("tr.z-foot").find("td.z-footer").get(0)).outerWidth() == wf1);
+			jq(".z-scrollbar").eval("opacity = 1");
+			int wh1 = jq(jq(grid.$n("head")).find(".z-columns").find(".z-column").get(0)).outerWidth();
+			int wb1 = jq(jq(grid.$n("body")).find(".z-rows").find(".z-row-inner").get(0)).outerWidth();
+			int wf1 = jq(jq(grid.$n("foot")).find(".z-foot").find(".z-footer").get(0)).outerWidth();
 			
+			clickAt(jq(".z-scrollbar-rail"),"150,8");
+			waitResponse();
+			
+			verifyTrue(jq(jq(grid.$n("head")).find(".z-columns").find(".z-column").get(0)).outerWidth() == wh1);
+			verifyTrue(jq(jq(grid.$n("body")).find(".z-rows").find(".z-row-inner").get(0)).outerWidth() == wb1);
+			verifyTrue(jq(jq(grid.$n("foot")).find(".z-foot").find(".z-footer").get(0)).outerWidth() == wf1);			
 		]]></client>
 	</case>
 </test>

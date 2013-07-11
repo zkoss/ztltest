@@ -15,12 +15,12 @@
 			-->
 		</server>
 		<client><![CDATA[			
-			for(int i=0;i<9;i++){
-				int x = i + 1;
-				click(jq(".z-paging-os-cnt-l:eq("+i+") a"));
+			for(int i=2;i<11;i++){
+				click(jq(".z-paging-button:contains("+i+")"));
 				waitResponse();
-				verifyEquals(x+" : "+x, getAlertMessage());
-				clickAlert();
+				int x = i - 1;
+				verifyEquals(x+" : "+x, jq(".z-messagebox-window .z-label").text());
+				click(jq(".z-messagebox-window .z-button"));
 				waitResponse();
 				}
 		]]></client>

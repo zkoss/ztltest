@@ -83,7 +83,7 @@ tempnew.setParent(tcn);
 		<client>	<![CDATA[
 			
 
-			click(jq("@treecell[label=\"Item 2.2\"] div.z-overflow-hidden"));
+			click(jq("@treecell[label=\"Item 2.2\"]"));
 			waitResponse();
 			click(jq("@button"));
 			waitResponse();

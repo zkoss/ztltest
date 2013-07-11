@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "F51-ZK-216-tree.zul,F60,A,E,template,tree")
 class F51_ZK_216_treeTest extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<zk>
@@ -147,20 +148,18 @@ class F51_ZK_216_treeTest extends ZTL4ScalaTestCase {
           var $nodeTwo = jq(checker.$n("body")).find(".z-treerow:contains("+node+")");
           var $childOne: JQuery = null;
           var $childTwo: JQuery = null;
-          var actIco: Element = getActIco($nodeOne, toOpen);
           var status: String = "";
           if (toOpen)
             status = "opened";
           else
             status = "closed";
 
-          System.out.println(actIco.exists());
-          click(actIco);
+          click($nodeOne.toWidget().$n("open"));
           waitResponse();
 
           // check only
-          getActIco($nodeOne, !toOpen);
-          getActIco($nodeTwo, !toOpen);
+          verifyTrue("Act icon should exists",  $nodeOne.toWidget().$n("open").exists());
+          verifyTrue("Act icon should exists",  $nodeTwo.toWidget().$n("open").exists());
 
           $childOne = jq(actor.$n("body")).find(".z-treerow:contains("+child+")");
           $childTwo = jq(checker.$n("body")).find(".z-treerow:contains("+child+")");
@@ -170,22 +169,7 @@ class F51_ZK_216_treeTest extends ZTL4ScalaTestCase {
               && (($childOne.offsetTop() - $nodeOne.offsetTop) == ($childTwo.offsetTop() - $nodeTwo.offsetTop)
                   || ($childOne.offsetTop() == 0) && $childTwo.offsetTop() == 0));
         }
-        def getActIco (actNode: JQuery, toOpen: Boolean): Element = {
-          var icoType: String = "";
-          var actIco: Element = null;
-
-          if (toOpen) icoType = "close";
-          else icoType = "open";
-
-          actIco = actNode.find(".z-tree-ico.z-tree-root-"+icoType).get(0);
-          if (!actIco.exists())
-            actIco = actNode.find(".z-tree-ico.z-tree-tee-"+icoType).get(0);
-          verifyTrue("Act icon should exists",
-              actIco.exists());
-
-          return actIco;
-        }
-
+        
         clickAndVerify("/dist", "/src", trOne, trTwo, true);
         clickAndVerify("/lib", "zk.jar", trTwo, trOne, true);
         clickAndVerify("/lib", "zk.jar", trOne, trTwo, false);

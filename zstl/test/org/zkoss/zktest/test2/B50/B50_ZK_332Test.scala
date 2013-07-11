@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-ZK-332.zul,A,E,Tree,disabled,open")
 class B50_ZK_332Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 						<zk>
@@ -66,11 +67,11 @@ class B50_ZK_332Test extends ZTL4ScalaTestCase {
     	var tr: Widget = engine.$f("tr");
     	waitResponse();
 
-    	click(jq(tr.$n()).find(".z-tree-ico"));
+    	click(jq(tr.$n("open")));
     	waitResponse();
     	verifyTrue("none".equals(jq(tree.$n("rows")).find(".z-treerow").get(2).get("style.display")));
     	verifyTrue("none".equals(jq(tree.$n("rows")).find(".z-treerow").get(3).get("style.display")));
-    	click(jq(tr.$n()).find(".z-tree-ico"));
+    	click(jq(tr.$n("open")));
     	waitResponse();
     	verifyTrue("".equals(jq(tree.$n("rows")).find(".z-treerow").get(2).get("style.display")));
     	verifyTrue("".equals(jq(tree.$n("rows")).find(".z-treerow").get(3).get("style.display")));

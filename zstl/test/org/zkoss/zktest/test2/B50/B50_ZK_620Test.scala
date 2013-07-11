@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-ZK-620.zul,A,E,onSize,VisionTest")
 class B50_ZK_620Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<tabbox height="500px" width="500px">
@@ -79,8 +80,8 @@ class B50_ZK_620Test extends ZTL4ScalaTestCase {
    			click(tab);
    			waitResponse();
 
-   			verifyTrue("north height should equal to window height",
-   			    jq(north.$n("real")).height() == jq(window.$n()).height());
+   			verifyEquals("north height should equal to window height",
+   			    jq(north.$n("real")).outerHeight(), jq(window.$n()).outerHeight());
 		})
   }
 }

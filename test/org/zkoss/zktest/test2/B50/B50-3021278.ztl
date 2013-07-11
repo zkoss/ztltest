@@ -43,22 +43,17 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 				JQuery zcolumn = jq(".z-column:contains(Author)");
-				Scripts.triggerMouseEventAt(getWebDriver(), zcolumn,
-						"mouseover", "");
+				mouseOver(zcolumn);
 				waitResponse();
-				JQuery zcolumnbtn = zcolumn.find(".z-column-menuicon");
-				Scripts.triggerMouseEventAt(getWebDriver(), zcolumnbtn,
-						"click", "");
+				click(zcolumn.toWidget().$n("btn"));
 				waitResponse();
-				JQuery zmenuitem = jq(".z-menuitem:contains(Title)");
-				Scripts.triggerMouseEventAt(getWebDriver(), zmenuitem, "click",
-						"");
+				click(jq(".z-menuitem:contains(Title)"));
 				waitResponse();
-				
+				click(zcolumn);
 				boolean color = ColorVerifingHelper.isEqualColor(
-						"white", jq("@row:eq(1)").css("backgroundColor"));
-				verifyNotEquals(jq("@row:eq(0)").css("backgroundColor"),
-						jq("@row:eq(1)").css("backgroundColor"));
+				"white", jq(".z-row-inner:contains(Philip):eq(1)").css("backgroundColor"));
+				verifyNotEquals(jq(".z-row-inner:contains(Philip):eq(0)").css("backgroundColor"),
+				jq(".z-grid-odd > .z-row-inner:contains(Philip)").css("backgroundColor"));
 				verifyFalse(color);
 		]]></client>
 	</case>

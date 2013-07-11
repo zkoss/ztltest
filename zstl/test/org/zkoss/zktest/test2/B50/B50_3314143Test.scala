@@ -58,7 +58,7 @@ class B50_3314143Test extends ZTL4ScalaTestCase {
         () => {
         var tree: Widget = engine.$f("tree");
 
-        click(jq(".z-dottree-ico").get(0));
+        click(jq(".z-dottree").toWidget().$n("open"));
         verifyTrue(jq(".z-dottree-last").exists());
     }
    );

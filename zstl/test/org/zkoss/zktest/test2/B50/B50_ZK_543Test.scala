@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-ZK-543.zul,B,E,Listbox,sizedByContent,VisionTest")
 class B50_ZK_543Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -92,7 +93,7 @@ class B50_ZK_543Test extends ZTL4ScalaTestCase {
 
 			// IE may have few pixel below
 			verifyTrue("the body height should equal to cave height",
-			    Math.abs(jq(listbox.$n("body")).height() - jq(listbox.$n("cave")).height()) < 3);
+			    Math.abs(jq(listbox.$n("body")).outerHeight() - jq(listbox.$n("cave")).outerHeight()) < 3);
 		})
   }
 }

@@ -35,17 +35,17 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
 				waitResponse();
-				String color = jq(".z-row:eq(1)").css("backgroundColor");
-				verifyEquals(color, jq(".z-row:eq(3)").css("backgroundColor"));
-				verifyEquals(color, jq(".z-row:eq(5)").css("backgroundColor"));
-				verifyEquals(color, jq(".z-row:eq(7)").css("backgroundColor"));
-				verifyEquals(color, jq(".z-row:eq(9)").css("backgroundColor"));
-				String color2 = jq(".z-row:eq(0)").css("backgroundColor");
+				String color = jq(".z-grid-odd > .z-row-inner:eq(0)").css("backgroundColor");
+				verifyEquals(color, jq(".z-grid-odd > .z-row-inner:eq(1)").css("backgroundColor"));
+				verifyEquals(color, jq(".z-grid-odd > .z-row-inner:eq(2)").css("backgroundColor"));
+				verifyEquals(color, jq(".z-grid-odd > .z-row-inner:eq(3)").css("backgroundColor"));
+				verifyEquals(color, jq(".z-grid-odd > .z-row-inner:eq(4)").css("backgroundColor"));
+				String color2 = jq(".z-row-inner:eq(0)").css("backgroundColor");				
 				verifyNotEquals(color, color2);
-				verifyEquals(color2, jq(".z-row:eq(2)").css("backgroundColor"));
-				verifyEquals(color2, jq(".z-row:eq(4)").css("backgroundColor"));
-				verifyEquals(color2, jq(".z-row:eq(6)").css("backgroundColor"));
-				verifyEquals(color2, jq(".z-row:eq(8)").css("backgroundColor"));
+				verifyEquals(color2, jq(".z-row-inner:eq(2)").css("backgroundColor"));
+				verifyEquals(color2, jq(".z-row-inner:eq(4)").css("backgroundColor"));
+				verifyEquals(color2, jq(".z-row-inner:eq(6)").css("backgroundColor"));
+				verifyEquals(color2, jq(".z-row-inner:eq(8)").css("backgroundColor"));
 		]]></client>
 	</case>
 </test>

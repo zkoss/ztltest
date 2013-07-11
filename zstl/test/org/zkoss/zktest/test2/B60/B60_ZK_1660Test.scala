@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B60
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B60-ZK-1660.zul")
 class B60_ZK_1660Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk>
 <zscript><![CDATA[
@@ -46,7 +48,7 @@ ListModelList model = new ListModelList(listShop);
 </zk>"""
     runZTL(zscript,
       () => {
-        val chosenbox = jq(".z-chosenbox-input")
+        val chosenbox = jq(".z-chosenbox").toWidget().$n("inp")
         sendKeys(chosenbox, "S")
         waitResponse()
         blur(chosenbox)
@@ -61,7 +63,7 @@ ListModelList model = new ListModelList(listShop);
         click(win.find(".z-button:eq(0)"))
         waitResponse()
 
-        verifyTrue("should see 'SHOP - 0' still remain in chosenbox.", jq(".z-chosenbox-sel-item:contains(SHOP - 0)").exists)
+        verifyTrue("should see 'SHOP - 0' still remain in chosenbox.", jq(".z-chosenbox-item:contains(SHOP - 0)").exists)
       })
 
   }
