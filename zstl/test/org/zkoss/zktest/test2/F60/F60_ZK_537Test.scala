@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "F60-ZK-537.zul,F60,B,E,Hlayout")
 class F60_ZK_537Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<zk>
@@ -108,10 +109,10 @@ class F60_ZK_537Test extends ZTL4ScalaTestCase {
                 ($w1.offsetTop() - $w2.offsetTop()) < 2);
           else if ("middle".equals(align))
             verifyTrue("Should align middle",
-                (($w1.offsetTop()+$w1.height()/2) - ($w2.offsetTop()+$w2.height()/2)) < 2);
+                (($w1.offsetTop()+$w1.outerHeight()/2) - ($w2.offsetTop()+$w2.outerHeight()/2)) < 2);
           else if ("bottom".equals(align))
             verifyTrue("Should align bottom",
-                (($w1.offsetTop()+$w1.height()) - ($w2.offsetTop()+$w2.height())) < 2);
+                (($w1.offsetTop()+$w1.outerHeight()) - ($w2.offsetTop()+$w2.outerHeight())) < 2);
         }
         checkAlign(lbOne, win1, "top");
         checkAlign(lbTwo, win2, "middle");

@@ -36,15 +36,15 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				click(jq("@button[label=\"click\"]"));
 				waitResponse();
-				verifyTrue(isVisible(pop));				
-				click(jq("@button[label=\"200px\"]"));	
+				verifyTrue(isVisible(pop));
+				click(jq("@button[label=\"200px\"]"));
 				waitResponse();
 				verifyFalse(jq(".z-error").exists());
-				verifyEquals("200",jq(pop).height());
+				verifyEquals("200",jq(pop).outerHeight());
 				click(jq("@button[label=\"100px\"]"));
 				waitResponse();
 				verifyFalse(jq(".z-error").exists());
-				verifyEquals("100",jq(pop).height());
+				verifyEquals("100",jq(pop).outerHeight());
 		]]></client>
 	</case>
 </test>

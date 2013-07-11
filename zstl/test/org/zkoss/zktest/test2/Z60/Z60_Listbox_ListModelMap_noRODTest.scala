@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "Z60-Listbox-ListModelMap-noROD.zul,Z60,A,E,Listbox,ListModelMap")
 class Z60_Listbox_ListModelMap_noRODTest extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -172,15 +173,10 @@ class Z60_Listbox_ListModelMap_noRODTest extends ZTL4ScalaTestCase {
 
         def selectItem = (id: String, num: Int) => {
           var lbx: Widget = engine.$f(id);
-          if (num > 2) {
-            lbx.$n("body").eval("scrollTop = " + (num-1)*itemHgh);
-          	if (ZK.is("ie < 9")) {
-          		// force IE7/8 to scroll down
-          		jq(lbx.$n("body")).scrollTop(0);
-          		jq(lbx.$n("body")).scrollTop((num-1)*itemHgh);
-          	}
-          } else
-            lbx.$n("body").eval("scrollTop = " + 0);
+          
+          verScroll(lbx, if(num > 2) (num - 3) / 300.0 else 0.0)
+	      waitResponse();
+          
           waitResponse();
           if (isFirefox() || isOpera())
           	sleep(300)
