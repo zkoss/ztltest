@@ -3,10 +3,12 @@ package org.zkoss.zktest.test2.B65
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.util.Scripts
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1213.zul")
 class B65_ZK_1213Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = <zk>
                     1. Select Dec 16 2012 and click right arrow, should see Jan 16 2013
@@ -34,6 +36,7 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
         waitResponse(true) // wait for animation
 
         click(jq(".z-calendar-cell:contains(" + day + ")"))
+        waitResponse(true) // wait for animation
 
         click(jq(".z-calendar").toWidget().$n("right"))
         waitResponse()

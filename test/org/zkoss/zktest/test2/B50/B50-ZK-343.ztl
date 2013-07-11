@@ -58,17 +58,14 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-			click(jq(".z-scrollbar").toWidget().$n("hor-right"));
+			horScroll(jq(".z-listbox"), 1);
 			waitResponse();
-				
-			String transform1 = jq(jq(".z-scrollbar").toWidget().$n("hor-indicator")).css("transform");
-				
+			String header = ".z-listheader:contains(header 4)";
+			int left1 = jq(header).offsetLeft();
 			click(jq("[name=" + jq(".z-paging").attr("id") + "-next]"));
 			waitResponse();
-				
-			String transform2 = jq(jq(".z-scrollbar").toWidget().$n("hor-indicator")).css("transform");				
-				
-			verifyTrue(transform1.equals(transform2));			
+			int left2 = jq(header).offsetLeft();
+			verifyEquals(left1, left2);		
 		]]></client>
 	</case>
 </test>
