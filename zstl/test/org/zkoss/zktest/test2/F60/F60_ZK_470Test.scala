@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "F60-ZK-470.zul,F60,A,E,Anchorlayout")
 class F60_ZK_470Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -93,7 +94,7 @@ class F60_ZK_470Test extends ZTL4ScalaTestCase {
 
         def checkSize (win: Widget, winW: Double, winH: Double) {
           verifyTrue("Ths window size should be "+winW+", "+winH,
-              math.abs(jq(win).width() - winW) < 2 && math.abs(jq(win).height() - winH) < 2);
+              math.abs(jq(win).outerWidth() - winW) < 2 && math.abs(jq(win).outerHeight() - winH) < 2);
         }
         checkSize(win1, parentW - 100, 200);
         checkSize(win2, parentW*0.5, parentH - 200);

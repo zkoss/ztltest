@@ -34,7 +34,7 @@
 			waitResponse();
 			click(t1);
 			waitResponse();
-			verifyEquals(200, jq(east.$n("real")).width());
+			verifyEquals(200, jq(east.$n("real")).outerWidth());
 		]]></client>
 	</case>
 </test>

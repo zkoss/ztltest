@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "F51-ZK-216.zul,F60,A,E,template,listbox")
 class F51_ZK_216Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<window>
@@ -130,12 +131,12 @@ class F51_ZK_216Test extends ZTL4ScalaTestCase {
         verifyItem ("Mango", "12kg", lbOne);
 
         verifyItem ("#0", ":Option 0", lbTwo);
-        click(btnOne);
-        waitResponse();
+        
+        verScroll(bodyTwo, .5)
         sleep(1000);
-        verifyItem ("#10005", ":Option 10005", lbTwo);
-        click(btnTwo);
-        waitResponse();
+        verifyItem ("#10000", ":Option 10000", lbTwo);
+        
+        verScroll(bodyTwo, 1)
         sleep(1000);
         verifyItem ("#19999", ":Option 19999", lbTwo);
     }

@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "F51-ZK-216-grid.zul,F60,A,E,template,grid")
 class F51_ZK_216_gridTest extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<window>
@@ -118,12 +119,11 @@ class F51_ZK_216_gridTest extends ZTL4ScalaTestCase {
         verifyItem ("Mango", "12kg", gbOne);
 
         verifyItem ("#0", ":Option 0", gbTwo);
-        bodyTwo.eval("scrollTop = " + scrollHeight/2);
+        
+        verScroll(bodyTwo, .5)
         sleep(500);
-        waitResponse();
-        verifyItem ("#10005", ":Option 10005", gbTwo);
-        bodyTwo.eval("scrollTop = " + scrollHeight);
-        waitResponse();
+        verifyItem ("#10000", ":Option 10000", gbTwo);
+        verScroll(bodyTwo, 1)
         sleep(500);
         verifyItem ("#19999", ":Option 19999", gbTwo);
     }

@@ -22,31 +22,25 @@
 		<client><![CDATA[
 			
 			String msgbox = "@window.z-messagebox-window";
-			
 			verifyFalse(jq(msgbox).exists());
 			click(btn1);
 			waitResponse();
-			
 			verifyFalse(jq(msgbox).exists());
 			click(btn3);
 			waitResponse();
-			
 			verifyFalse(jq(msgbox).exists());
 			click(en1);
 			waitResponse();
 			click(btn1);
 			waitResponse();
-			
 			verifyTrue(jq(msgbox).exists());
-			click(jq("span.z-messagebox-button"));
+			click(jq(".z-messagebox-window .z-button"));
 			waitResponse();
-			
 			verifyFalse(jq(msgbox).exists());
 			click(en3);
 			waitResponse();
 			click(btn3);
 			waitResponse();
-			
 			verifyTrue(jq(msgbox).exists());
 			
 		]]></client>

@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "F55-ZK-318.zul,F60,B,E,combobutton")
 class F55_ZK_318Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<zk>
@@ -222,11 +223,10 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         var cbx: Widget = engine.$f("cbx");
         var ppOne: Widget = engine.$f("ppOne");
         var ppTwo: Widget = engine.$f("ppTwo");
-        var pp2About: Widget = engine.$f("pp2About");
-        var pp2Menu: Widget = engine.$f("pp2Menu");
-        var pp2ColorPicker: Widget = engine.$f("pp2ColorPicker");
+        var pp2About = ".z-menu:contains(About)";
+        var pp2Menu = ".z-menu:contains(Menu)";
+        var pp2ColorPicker = ".z-menu:contains(Color Picker)";
         var mbHelp: Widget = engine.$f("mbHelp");
-        var mbAbout: Widget = engine.$f("mbAbout");
 
         def clickAndWait(wgt: org.zkoss.ztl.ClientWidget) {
           click(wgt);
@@ -240,47 +240,47 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
                 box(i).$n().get("value").contains(cnt(i)));
           }
         }
-        def openMenu (wgts: Array[org.zkoss.ztl.ClientWidget]) {
+        def openMenu (wgts: Array[String]) {
           for (i <- 0 until wgts.length) {
-            mouseOver(wgts(i));
+            mouseOver(jq(wgts(i)).toWidget().$n("a"));
             waitResponse();
           }
         }
 
         // step 1
-        clickAndCheck(jq(bd).find(".z-combobutton"),
+        clickAndCheck(jq(bd).toWidget().$n("real"),
             Array("combobutton one clicked"), Array(messageBox));
         // step 2
-        clickAndCheck(jq(bd).find(".z-combobutton"),
+        clickAndCheck(jq(bd).toWidget().$n("btn"),
             Array("combobutton one opened", "popup opened"),
             Array(messageBox, messageBoxTwo));
         verifyTrue("combobutton one should opened",
             jq(ppOne.$n()).is(":visible"));
 
         // step 3
-        clickAndCheck(jq(bd).find(".z-combobutton"),
+        clickAndCheck(jq(bd).toWidget().$n("btn"),
             Array("combobutton one closed"),
             Array(messageBox));
         verifyFalse("combobutton one should closed",
             jq(ppOne.$n()).is(":visible"));
 
         // step 4
-        clickAndCheck(jq(bd2).find(".z-combobutton"),
+        clickAndCheck(jq(bd2).toWidget().$n("real"),
             Array("combobutton two clicked"), Array(messageBox));
-        clickAndCheck(jq(bd2).find(".z-combobutton"),
+        clickAndCheck(jq(bd2).toWidget().$n("btn"),
             Array("combobutton two opened", "popup opened"),
             Array(messageBox, messageBoxTwo));
         verifyTrue("combobutton two should opened",
             jq(ppTwo.$n()).is(":visible"));
 
-        clickAndCheck(jq(bd2).find(".z-combobutton"),
+        clickAndCheck(jq(bd2).toWidget().$n("btn"),
             Array("combobutton two closed"),
             Array(messageBox));
         verifyFalse("combobutton two should closed",
             jq(ppTwo.$n()).is(":visible"));
 
         // step 5
-        clickAndCheck(jq(bd2).find(".z-combobutton"),
+        clickAndCheck(jq(bd2).toWidget().$n("btn"),
             Array("combobutton two opened"),
             Array(messageBox));
 
@@ -290,19 +290,27 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
             jq(".z-colorpalette-popup").is(":visible"));
         // step 7
         clickAndWait(mbHelp);
-        openMenu(Array(mbAbout));
+        openMenu(Array(".z-menu:contains(About)"));
         clickAndWait(jq(".z-label:contains(message box)"));
         // step 8
-        clickAndCheck(jq(bd2).find(".z-combobutton"),
+        clickAndCheck(jq(bd2).toWidget().$n("btn"),
             Array("combobutton two opened"),
             Array(messageBox));
-
+        
+        // to avoid click 'Help' menu 
+        click(jq(".z-button:contains(change image)"))
+        waitResponse()
+        
         openMenu(Array(pp2About, pp2Menu, pp2ColorPicker));
         verifyTrue("Color picker should opened",
             jq(".z-colorpalette-popup").is(":visible"));
+        
+        // to avoid click 'Help' menu, reset
+        click(jq(".z-button:contains(change image)"))
+        waitResponse()
 
         // step 9
-        clickAndCheck(jq(bd).find(".z-combobutton"),
+        clickAndCheck(jq(bd).toWidget().$n("btn"),
             Array("combobutton one opened"),
             Array(messageBox));
         verifyTrue("combobutton one should opened",
@@ -310,11 +318,11 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         clickAndWait(li);
         verifyFalse("combobutton one should opened",
             jq(ppOne.$n()).is(":visible"));
-        verifyFalse(jq(bd).find(".z-combobutton-focus").exists());
 
         clickAndWait(cbx.$n("real"));
         
-        openMenu(Array(jq(bd2).find(".z-combobutton"), pp2About, pp2Menu, pp2ColorPicker));
+        click(jq(bd2).toWidget().$n("btn"))
+        openMenu(Array(pp2About, pp2Menu, pp2ColorPicker));
         verifyTrue("Color picker should opened",
             jq(".z-colorpalette-popup").is(":visible"));
     }
