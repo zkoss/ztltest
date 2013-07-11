@@ -34,7 +34,7 @@
 		--></server>
 		<client><![CDATA[
 			verifyTrue(jq(list).exists());
-			verifyEquals(3, jq("$list .z-listcell").length());
+			verifyEquals(3, jq(list).find(".z-listcell").length());
 		]]></client>
 	</case>
 </test>

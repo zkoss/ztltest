@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
 import org.zkoss.ztl.Element
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -27,8 +28,9 @@ import org.zkoss.ztl.Element
  */
 @Tags(tags = "B35-2075761.zul,B,E,Window,Button")
 class B30_2075761Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk>
         <borderlayout id="b" height="300px">
           <west maxsize="600" size="30%" flex="true" border="0" id="west">
@@ -48,10 +50,10 @@ class B30_2075761Test extends ZTL4ScalaTestCase {
         <button label="splittable/nonsplittable(West)" onClick="west.splittable = !west.splittable;"/>
         Please click the button to see that the result is expectable.
       </zk>
-    }
+    """;
     runZTL(zscript, () => {
       // Verify that the west splitter is not visible
-      verifyTrue("The west splitter should not be visible", jq(".z-west-splt").css("display").equals("none"));
+      verifyFalse("The west splitter should not be visible", jq(jq(".z-west").toWidget().$n("split")).isVisible());
 
       // Record the width of the center zone to verify sizing
       val noSplitterWidth: Int = jq(".z-center").width();
@@ -66,7 +68,7 @@ class B30_2075761Test extends ZTL4ScalaTestCase {
       val withSplitterWidth: Int = jq(".z-center").width();
 
       // Verify that the west splitter is visible
-      verifyTrue("The west splitter should be visible", jq(".z-west-splt").css("display").equals("block"));
+      verifyTrue("The west splitter should be visible", jq(jq(".z-west").toWidget().$n("split")).isVisible());
 
       // Verify the sizing of the center zone. It should be thinner than previously
       verifyTrue("The width of the center zone should be smaller than without the splitter", (noSplitterWidth - withSplitterWidth) == 6);
@@ -76,7 +78,7 @@ class B30_2075761Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       // Verify that the west splitter is not visible
-      verifyTrue("The west splitter should not be visible", jq(".z-west-splt").css("display").equals("none"));
+      verifyFalse("The west splitter should not be visible", jq(jq(".z-west").toWidget().$n("split")).isVisible());
 
     })
   }

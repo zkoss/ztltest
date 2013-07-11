@@ -19,6 +19,7 @@ package org.zkoss.zktest.test2.B30
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.internal.seleniumemulation.IsChecked
+import org.junit.Test
 
 /**
  * A test class for bug 1893575
@@ -27,7 +28,8 @@ import org.openqa.selenium.internal.seleniumemulation.IsChecked
  */
 @Tags(tags = "B30-1893575.zul,A,E,Radiogroup,Window")
 class B30_1893575Test extends ZTL4ScalaTestCase {
-	
+  
+  @Test
   def testClick() = {
     val zscript = {
     		<window id="w" mode="modal" xmlns:n="http://www.zkoss.org/2005/zk/native" width="500px">
@@ -48,14 +50,14 @@ class B30_1893575Test extends ZTL4ScalaTestCase {
         () => {
         
         	//Click 'female' radio
-        	click(jq("$female input"));
+        	click(jq("$female").toWidget().$n("real"));
             waitResponse();
             
             //Verify male not checked and female checked
-            val f=jq("$female input");
-            val m=jq("$male1 input");
-            val bf="true".equals(jq("$female input").toElement().get("checked"));
-            val bm="true".equals(jq("$male1 input").toElement().get("checked"));
+            val f=jq("$female").toWidget().$n("real");
+            val m=jq("$male1").toWidget().$n("real");
+            val bf="true".equals(f.toElement().get("checked"));
+            val bm="true".equals(m.toElement().get("checked"));
             verifyTrue(bf);
             verifyFalse(bm);
             
@@ -64,8 +66,8 @@ class B30_1893575Test extends ZTL4ScalaTestCase {
             waitResponse();
             
             //Verify male not checked and female checked
-            verifyTrue("true".equals(jq("$female input").toElement().get("checked")));
-            verifyFalse("true".equals(jq("$male1 input").toElement().get("checked")));
+            verifyTrue("true".equals(f.toElement().get("checked")));
+            verifyFalse("true".equals(m.toElement().get("checked")));
                         
             
         }

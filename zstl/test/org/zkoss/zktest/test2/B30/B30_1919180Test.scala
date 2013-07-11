@@ -16,6 +16,7 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  *
@@ -23,6 +24,7 @@ import org.zkoss.ztl.Tags;
  */
 @Tags(tags = "B30-1919180.zul,B,E,Grid")
 class B30_1919180Test extends ZTL4ScalaTestCase {
+	@Test
 	def testCase() = {
 		val zscript = {
 			<zk xmlns:n="http://www.zkoss.org/2005/zk/native">

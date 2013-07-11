@@ -22,6 +22,7 @@ import org.zkoss.ztl.Widget
 import org.zkoss.ztl.Element
 import org.zkoss.ztl.ZK
 import org.zkoss.ztl.util.Scripts
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -29,8 +30,9 @@ import org.zkoss.ztl.util.Scripts
  */
 @Tags(tags = "B35-2104921.zul,B,E,Window,Button")
 class B35_2104921Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk>
         1. Collapse the East and West sections.
         <separator/>
@@ -74,24 +76,24 @@ class B35_2104921Test extends ZTL4ScalaTestCase {
           </center>
         </borderlayout>
       </zk>
-    }
+    """;
     runZTL(zscript, () => {
       // Click on the east button
-      click(jq(".z-east-colps"));
+      click(jq(jq("@east:eq(1)").toWidget().$n("btn")));
       waitResponse(true);
       // Click on the west button
-      click(jq(".z-west-colps"));
+       click(jq(jq("@west:eq(0)").toWidget().$n("btn")));
       waitResponse(true);
 
       // Click on the East bar
-      click(jq(".z-east-colpsd:eq(1)"));
+      click(jq(jq("@east:eq(1)").toWidget().$n("colled")));
       waitResponse(true);
 
       // Verify the css style of the east zone. If the style contains the display attribute setted to block, it is visible
-      verifyTrue("The east zone should be visible", jq(".z-east:eq(1)").isVisible());
+      verifyTrue("The east zone should be visible", jq("@east:eq(1)").isVisible());
 
       // Click on the West bar
-      click(jq(".z-west-colpsd"));
+       click(jq("@west").toWidget().$n("colled"));
       waitResponse(true);
 
       // Verify the css style of the east zone. If the style contains the display attribute setted to none, 

@@ -34,9 +34,8 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 			JQuery $cave = jq(t.$n("cave"));
 			verifyEquals($cave.height(),$cave.scrollHeight());
-			
 			click(jq("$btn"));
-			waitResponse();	
+			waitResponse();
 			verifyNotEquals($cave.height(),$cave.scrollHeight());
 		]]></client>
 	</case>

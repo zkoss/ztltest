@@ -18,6 +18,7 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * A test class for bug 1911864
@@ -26,7 +27,8 @@ import org.zkoss.ztl.Tags
  */
 @Tags(tags = "B30-1911864.zul,B,E,Combobox")
 class B30_1911864Test extends ZTL4ScalaTestCase {
-	
+
+  @Test
   def testClick() = {
     val zscript = """
     		<window title="combobox in listbox" border="normal">

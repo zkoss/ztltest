@@ -18,6 +18,7 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * A test class for bug 1911129
@@ -27,6 +28,7 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B35-2073409.zul,A,E,Grid,Groupfoot")
 class B35_2073409Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
     		<window title="Grid with Group feature" border="normal">
@@ -166,7 +168,7 @@ src="/test2/img/mail_read.png"/><label value="${each[0]}"/></div>
         	verifyEquals(txt,"Group1");
 
         	//Click group to open
-        	val cl=jq("$group1 span");
+        	val cl=jq("$group1").find("span");
         	click(cl); 
         	
         	waitResponse();

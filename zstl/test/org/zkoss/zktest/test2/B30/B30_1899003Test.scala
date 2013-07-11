@@ -18,6 +18,7 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * A test class for bug 1899003
@@ -27,6 +28,7 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B30-1899003.zul,C,E,Style,Vbox,Label,IE")
 class B30_1899003Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
       
@@ -40,7 +42,7 @@ class B30_1899003Test extends ZTL4ScalaTestCase {
     				<label value="xyz" />
     				</vbox>
     					<style>
-    						tr.z-vbox-sep td {border-bottom: 1px solid blue}
+    						tr.z-vbox-separator td {border-bottom: 1px solid blue}
     					</style>
     		</window>
           """
@@ -50,10 +52,11 @@ class B30_1899003Test extends ZTL4ScalaTestCase {
         	waitResponse();
             
         	//Test if vbox exists
-        	val b=getText(jq(".z-vbox table:eq(0) tr:eq(0) td:eq(0) .z-label"));
-        	val b1=jq(".z-vbox table:eq(0) tr:eq(1)").hasClass("z-vbox-sep");
-        	val b4=jq(".z-vbox table:eq(0) tr:eq(1) td:eq(0)").css("border-bottom-color");
-        	val b2=getText(jq(".z-vbox table:eq(0) tr:eq(2) td:eq(0) .z-label"));
+        	val b=getText(jq("@label:eq(0)"));
+        	
+        	val b1=jq(jq(".z-vbox").toWidget().$n("chdex2")).hasClass("z-vbox-separator");
+        	val b4=jq(jq("@vbox").toWidget().$n("chdex2")).css("border-bottom-color");
+        	val b2=getText(jq(jq("@vbox").toWidget().$n("chdex")).find("@label"));
         	           
             //Assert First row = "abc"
             verifyTrue(b.equals("abc"));
@@ -66,6 +69,7 @@ class B30_1899003Test extends ZTL4ScalaTestCase {
             
             //Row separator line is blue
             verifyTrue(org.zkoss.ztl.util.ColorVerifingHelper.isEqualColor("blue", b4));
+            
         }
     );
    }

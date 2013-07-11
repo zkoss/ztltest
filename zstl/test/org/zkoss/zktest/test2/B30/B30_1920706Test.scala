@@ -16,6 +16,7 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  *
@@ -23,8 +24,9 @@ import org.zkoss.ztl.Tags;
  */
 @Tags(tags = "B30-1920706.zul,B,E,Grid,Opera")
 class B30_1920706Test extends ZTL4ScalaTestCase {
+	@Test
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
 				<n:p>[Set width of grid column doesn't work correctly (Opera only)]</n:p>
 				<zscript><![CDATA[
@@ -57,7 +59,7 @@ new Datebox().setParent(row);
 					</grid>
 				</vbox>
 			</zk>
-		}
+		""";
 		runZTL(zscript, () => {
 			val g1 = engine $f "g1"
 			val $col1hd = jq(engine $f "col1" $n "hdfaker")
