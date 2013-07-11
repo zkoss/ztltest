@@ -38,20 +38,20 @@ tb.buttonVisible = cb.buttonVisible = db.buttonVisible = bb.buttonVisible
 		--></server>
 		<client><![CDATA[
 	
-		JQuery btn0 = jq(jq(".z-timebox").toWidget().$n("btn"));
-		JQuery btn1 =jq(jq(".z-combobox").toWidget().$n("btn"));
-		JQuery btn2 =jq(jq(".z-datebox").toWidget().$n("btn"));
-		JQuery btn3 =jq(jq(".z-bandbox").toWidget().$n("btn"));
-		verifyTrue(btn0.is(":visible"));
-		verifyTrue(btn1.is(":visible"));
-		verifyTrue(btn2.is(":visible"));
-		verifyTrue(btn3.is(":visible"));				
-		click(jq("@button:eq(0)"));
-		waitResponse();
-		verifyTrue(btn0.is(":visible"));
-		verifyTrue(btn1.is(":visible"));
-		verifyTrue(btn2.is(":visible"));
-		verifyTrue(btn3.is(":visible"));
+			JQuery btn0 = jq(tb.$n("btn"));
+			JQuery btn1 =jq(cb.$n("btn"));
+			JQuery btn2 =jq(db.$n("btn"));
+			JQuery btn3 =jq(bb.$n("btn"));
+			verifyFalse(btn0.isVisible());
+			verifyFalse(btn1.isVisible());
+			verifyFalse(btn2.isVisible());
+			verifyFalse(btn3.isVisible());
+			click(jq("@button:eq(0)"));
+			waitResponse();
+			verifyTrue(btn0.isVisible());
+			verifyTrue(btn1.isVisible());
+			verifyTrue(btn2.isVisible());
+			verifyTrue(btn3.isVisible());
 
 		]]></client>
 	</case>

@@ -18,15 +18,15 @@
 				</zk>
 		--></server>
 		<client><![CDATA[
-		verifyTrue(isVisible(jq("@treecell[label=\"Make me invisible by click try \"] div.z-overflow-hidden")));
-		mouseOver(jq("@button"));
-		click(jq("@button"));
-		waitResponse();
-		verifyFalse(isVisible(jq("@treecell[label=\"Make me invisible by click try \"] div.z-overflow-hidden")));
-		mouseOver(jq("@button"));
-		click(jq("@button"));
-		waitResponse();
-		verifyTrue(isVisible(jq("@treecell[label=\"Make me invisible by click try \"] div.z-overflow-hidden")));
+			verifyTrue(isVisible(jq("@treerow")));
+			mouseOver(jq("@button"));
+			click(jq("@button"));
+			waitResponse();
+			verifyFalse(isVisible(jq("@treerow")));
+			mouseOver(jq("@button"));
+			click(jq("@button"));
+			waitResponse();
+			verifyTrue(isVisible(jq("@treerow")));
 		]]></client>
 	</case>
 </test>

@@ -22,6 +22,7 @@ import org.zkoss.ztl.Widget
 import org.zkoss.ztl.Element
 import org.zkoss.ztl.ZK
 import org.zkoss.ztl.util.Scripts
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -29,6 +30,7 @@ import org.zkoss.ztl.util.Scripts
  */
 @Tags(tags = "B30-2003798.zul,B,E,Window,Button")
 class B30_2003798Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
     val zscript = {
       <window title="tree and listbox bug" border="normal">
@@ -74,19 +76,16 @@ class B30_2003798Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       // Mouse over the "foo" word
       // Option 2: mouseOver(jq(".z-label:contains(foo)"));
-      val img = engine.$f("img")
-      mouseOver(img)
+      val img = engine.$f("img");
+      mouseOver(img);
       waitResponse();
-
       // Verify that the first row is selected
-      var cssClass: String = jq(".z-treerow").get(0).get("className");
-      verifyTrue("The row must be highlighted", cssClass.contains("z-treerow-over"));
-
+      verifyFalse("The row must be highlighted", "".equals(jq("@treecell:eq(0)").css("background")));
       click(img);
       waitResponse();
 
-      cssClass = jq(".z-treerow").get(0).get("className");
-      verifyTrue("The row must be selected", cssClass.contains("z-treerow-seld"));
+      var cssClass = jq("@treerow").get(0).get("className");
+      verifyTrue("The row must be selected", cssClass.contains("z-treerow-selected"));
 
     })
   }

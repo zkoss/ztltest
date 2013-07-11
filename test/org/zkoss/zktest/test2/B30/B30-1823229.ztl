@@ -23,19 +23,19 @@
 			</zk>
 		 --></server>
 		<client><![CDATA[
-			verifyFalse(isVisible(hsplitter.$n("btn")));
+			verifyFalse(isVisible(hsplitter.$n("icon")));
 			click(r2.$n("real"));
 			waitResponse();
-			verifyTrue(isVisible(hsplitter.$n("btn")));
-			verifyTrue(jq(hsplitter.$n("btn")).hasClass("z-splitter-hor-btn-l"));	
+			verifyTrue(isVisible(hsplitter.$n("icon")));
+			verifyTrue(jq(hsplitter.$n("icon")).hasClass("z-icon-caret-left"));
 			click(r3.$n("real"));
 			waitResponse();
-			verifyTrue(isVisible(hsplitter.$n("btn")));
-			verifyFalse(jq(hsplitter.$n("btn")).hasClass("z-splitter-hor-btn-l"));
-			verifyTrue(jq(hsplitter.$n("btn")).hasClass("z-splitter-hor-btn-r"));	
+			verifyTrue(isVisible(hsplitter.$n("icon")));
+			verifyFalse(jq(hsplitter.$n("icon")).hasClass("z-icon-caret-left"));
+			verifyTrue(jq(hsplitter.$n("icon")).hasClass("z-icon-caret-right"));
 			click(r1.$n("real"));
 			waitResponse();
-			verifyFalse(isVisible(hsplitter.$n("btn")));
+			verifyFalse(isVisible(hsplitter.$n("icon")));
 		]]></client>
 	</case>
 </test>

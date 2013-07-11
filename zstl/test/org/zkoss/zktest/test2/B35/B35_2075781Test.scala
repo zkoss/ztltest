@@ -19,6 +19,7 @@ package org.zkoss.zktest.test2.B35
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.remote.server.handler.interactions.touch.Scroll
+import org.junit.Test
 
 /**
  * A test class for bug 2075781
@@ -27,7 +28,7 @@ import org.openqa.selenium.remote.server.handler.interactions.touch.Scroll
  */
 @Tags(tags = "B35-2075781.zul,A,E,Columnlayout")
 class B35_2075781Test extends ZTL4ScalaTestCase {
-	
+  @Test
   def testClick() = {
     val zscript = """
     		<?xml version="1.0" encoding="UTF-8"?>

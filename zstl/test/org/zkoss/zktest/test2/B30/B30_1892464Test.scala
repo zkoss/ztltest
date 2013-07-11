@@ -18,6 +18,7 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * A test class for bug 1892464
@@ -27,8 +28,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B30-1892464.zul,A,E,Groupbox,Clone,BI")
 class B30_1892464Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<window id="mainwin">
     			If you see two same groupbox, it is correct!
     			<groupbox id="gbx2">
@@ -42,11 +44,10 @@ class B30_1892464Test extends ZTL4ScalaTestCase {
     				gbx3.setParent(mainwin);
     			</zscript>
     		</window>
-    }
+    """;
 
     runZTL(zscript,
         () => {
-            
             waitResponse();
             
             //Verify if group boxes exists
@@ -58,12 +59,12 @@ class B30_1892464Test extends ZTL4ScalaTestCase {
             verifyTrue(jq("$gbx3").isVisible());
             
             //Verify if group boxes are equal
-            val c1=getText(jq("@caption:eq(0)").get(0));
-            val c2=getText(jq("@caption:eq(1)").get(0));
+            val c1=getText(jq(jq("$gbx2").find("@caption")));
+            val c2=getText(jq(jq("$gbx3").find("@caption")));
             verifyEquals(c1,c2);
             
-            val l1=getText(jq("$gbx2 @label:eq(0)").get(0));
-            val l2=getText(jq("$gbx3 @label:eq(0)").get(0));
+            val l1=getText(jq(jq("$gbx2").find("@label")));
+            val l2=getText(jq(jq("$gbx3").find("@label")));
             verifyEquals(l1,l2);
             
         }
