@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "F60-ZK-719.zul,F60,A,E,Combobutton,Toolbar")
 class F60_ZK_719Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -165,19 +166,13 @@ class F60_ZK_719Test extends ZTL4ScalaTestCase {
             (jq(tbbtnOne).outerHeight(true) - jq(cbbtnOne).outerHeight(true)) <= 2
             && (jq(tbbtnTwo).outerHeight(true) - jq(cbbtnTwo).outerHeight(true)) <= 2);
 
-        clickThenVerify (jq(cbbtnOne).find(".z-combobutton-toolbar-cm"),
-            "combobutton clicked");
-        clickThenVerify (jq(cbbtnOne).find(".z-combobutton-toolbar-cr"),
-            "combobutton popup opened");
-        clickThenVerify (jq(cbbtnOne).find(".z-combobutton-toolbar-cr"),
-            "combobutton popup closed");
+        clickThenVerify (jq(cbbtnOne).toWidget().$n("real"), "combobutton clicked");
+        clickThenVerify (jq(cbbtnOne).toWidget().$n("btn"), "combobutton popup opened");
+        clickThenVerify (jq(cbbtnOne).toWidget().$n("btn"), "combobutton popup closed");
 
-        clickThenVerify (jq(cbbtnTwo).find(".z-combobutton-toolbar-cm"),
-            "combobutton two clicked");
-        clickThenVerify (jq(cbbtnTwo).find(".z-combobutton-toolbar-cr"),
-            "combobutton two popup opened");
-        clickThenVerify (jq(cbbtnTwo).find(".z-combobutton-toolbar-cr"),
-            "combobutton two popup closed");
+        clickThenVerify (jq(cbbtnTwo).toWidget().$n("real"), "combobutton two clicked");
+        clickThenVerify (jq(cbbtnTwo).toWidget().$n("btn"), "combobutton two popup opened");
+        clickThenVerify (jq(cbbtnTwo).toWidget().$n("btn"), "combobutton two popup closed");
     }
    );
   }

@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "F60-ZK-720.zul,")
 class F60_ZK_720Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk xmlns:h="xhtml">
@@ -87,11 +88,11 @@ class F60_ZK_720Test extends ZTL4ScalaTestCase {
           var lbl: Widget = engine.$f("lbl");
 
         def checkAct (tbn: Widget) {
-          var toggled: Boolean = jq(tbn.$n()).hasClass("z-toolbarbutton-ck");
+          var toggled: Boolean = jq(tbn.$n()).hasClass("z-toolbarbutton-checked");
           click(tbn);
           mouseOut(tbn); waitResponse();
           verifyTrue("Should"+(if (toggled) " not" else "")+" be toggled",
-                jq(tbn.$n()).hasClass("z-toolbarbutton-ck") != toggled);
+                jq(tbn.$n()).hasClass("z-toolbarbutton-checked") != toggled);
         }
         engine.$f("tbn1");
         for (i <- 1 to 8) {
