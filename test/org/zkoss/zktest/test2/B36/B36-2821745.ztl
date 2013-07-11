@@ -20,9 +20,9 @@
 		<client><![CDATA[
 		click(jq("@button"));
 		waitResponse();
-		click(jq("@listcell[label=\"option 5\"] div.z-overflow-hidden"));
+		click(jq("@listcell[label=\"option 5\"]"));
 		waitResponse();
-		verifyEquals("block", jq("@groupbox .z-groupbox-3d-cnt").css("display"));
+		verifyEquals("block", jq("@groupbox .z-groupbox-content").css("display"));
 		]]></client>
 	</case>
 </test>

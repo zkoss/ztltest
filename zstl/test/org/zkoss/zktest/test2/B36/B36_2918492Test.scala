@@ -17,9 +17,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B36
 
 import java.util.Calendar
-
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * A test class for bug 2918492
@@ -29,6 +29,7 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B36-2918492.zul,A,E,Portallayout,Maximize")
 class B36_2918492Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """
 <?xml version="1.0" encoding="UTF-8"?>
@@ -95,7 +96,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         waitResponse();
 
         //Click maximize button
-        var btn = jq("$googletools .z-panel").toWidget().$n("max");
+        var btn = jq("$googletools").toWidget().$n("max");
         click(btn);
         waitResponse();
 
@@ -104,7 +105,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         verifyFalse(lab1.isVisible());
         
         //Close panel
-        var close = jq("$googletools .z-panel").toWidget().$n("close");
+        var close = jq("$googletools").toWidget().$n("close");
         click(close);
         waitResponse();
         

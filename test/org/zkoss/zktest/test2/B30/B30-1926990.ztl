@@ -39,19 +39,19 @@ tb.buttonVisible = cb.buttonVisible = db.buttonVisible = bb.buttonVisible
 		<client><![CDATA[
 	
 		JQuery btn0 = jq(jq(".z-timebox").toWidget().$n("btn"));
-		JQuery btn1 =jq(jq(".z-combobox").toWidget().$n("btn"));
-		JQuery btn2 =jq(jq(".z-datebox").toWidget().$n("btn"));
-		JQuery btn3 =jq(jq(".z-bandbox").toWidget().$n("btn"));
-		verifyTrue(btn0.is(":visible"));
-		verifyTrue(btn1.is(":visible"));
-		verifyTrue(btn2.is(":visible"));
-		verifyTrue(btn3.is(":visible"));				
+		JQuery btn1 = jq(jq(".z-combobox").toWidget().$n("btn"));
+		JQuery btn2 = jq(jq(".z-datebox").toWidget().$n("btn"));
+		JQuery btn3 = jq(jq(".z-bandbox").toWidget().$n("btn"));
+		verifyTrue(btn0.css("display").equals("none"));
+		verifyTrue(btn1.css("display").equals("none"));
+		verifyTrue(btn2.css("display").equals("none"));
+		verifyTrue(btn3.css("display").equals("none"));
 		click(jq("@button:eq(0)"));
 		waitResponse();
-		verifyTrue(btn0.is(":visible"));
-		verifyTrue(btn1.is(":visible"));
-		verifyTrue(btn2.is(":visible"));
-		verifyTrue(btn3.is(":visible"));
+		verifyTrue(!btn0.css("display").equals("none"));
+		verifyTrue(!btn1.css("display").equals("none"));
+		verifyTrue(!btn2.css("display").equals("none"));
+		verifyTrue(!btn3.css("display").equals("none"));
 
 		]]></client>
 	</case>

@@ -18,6 +18,8 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
+import org.apache.xalan.Version
 
 
 /**
@@ -28,6 +30,7 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B35-2149511.zul,B,E,Tree")
 class B35_2149511Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 <?xml version="1.0" encoding="UTF-8"?>
@@ -163,25 +166,22 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
         () => {
         	
             waitResponse();
-            var i1a=jq("$i1a .z-tree-ico");
-            var i2a=jq("$i2a .z-tree-ico");
-            var i3a=jq("$i3a .z-tree-ico");
-            var i23a=jq("$i23A .z-tree-ico");
             
             //1 - click item 1.a
-        	click(i1a);
+        	click(jq("$i1a").toWidget().$n("open"));
         	waitResponse();
         	
         	//2 - click item 2.a
-        	click(i2a);
+        	click(jq("$i2a").toWidget().$n("open"));
         	waitResponse();
         	
         	//3 - click item 3.a
-        	click(i3a);
+        	click(jq("$i3a").toWidget().$n("open"));
         	waitResponse();
         	
+        	verScroll(jq(".z-tree"), 1)
         	//4 - scroll to 23.A and open it
-        	click(i23a);
+        	click(jq(".z-treerow:contains(23.A)").toWidget().$n("open"));
         	waitResponse();
         	
         	val scrollH= jq("$tree").scrollHeight();

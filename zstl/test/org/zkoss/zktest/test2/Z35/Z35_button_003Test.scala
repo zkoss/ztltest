@@ -18,6 +18,7 @@ package org.zkoss.zktest.test2.Z35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  * A test class for bug button-003
@@ -27,6 +28,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "Z35-button-003.zul,Z35,A,E,Button")
 class Z35_button_003Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<?page id="testZul" title=" New ZUL Title" cacheable="false" 

@@ -18,6 +18,7 @@ package org.zkoss.zktest.test2.Z30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  * A test class for bug echoEvent
@@ -27,6 +28,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "Z30-echoEvent.zul,B,E,Server,BI")
 class Z30_echoEventTest extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 <window id="w" title="Test echoEvent">
@@ -49,12 +51,12 @@ class Z30_echoEventTest extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
-        verifyEquals(jq("$w @label").length,1)
+        verifyEquals(jq("$w").find("@label").length,1)
         click(jq("$btn"))
         sleep(1000);
-        verifyEquals(jq("$w @label").length,2)
+        verifyEquals(jq("$w").find("@label").length,2)
         waitResponse
-        verifyEquals(jq("$w @label").length,3)
+        verifyEquals(jq("$w").find("@label").length,3)
         
     }
    );

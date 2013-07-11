@@ -9,8 +9,8 @@
 			</zk>
 		 --></server>
 		<client><![CDATA[
-			verifyEquals(10,jq("@progressmeter:eq(0)").height());
-			verifyTrue(jq("@progressmeter:eq(1)").height() > 10);
+			verifyEquals(10,jq("@progressmeter:eq(0)").outerHeight());
+			verifyTrue(jq("@progressmeter:eq(1)").outerHeight() > 10);
 		]]></client>
 	</case>
 </test>

@@ -29,18 +29,14 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			Element header = tabs.$n("header");
 			click(btn);
 			waitResponse();
-			int x = parseInt(header.get("scrollLeft"));
-			if (isOpera())
-				clickAt(jq(".z-tabs-right-scroll"), "3,3");
-			else
-				click(jq(".z-tabs-right-scroll"));
+			int x = parseInt(tabs.get("scrollLeft"));
+			click(jq(".z-tabbox").toWidget().$n("right"));
 			waitResponse();
-			int y = parseInt(header.get("scrollLeft"));
+			int y = parseInt(tabs.get("scrollLeft"));
 			verifyTrue(x == 0);
-			verifyTrue(y > x);	
+			verifyTrue(y > x);
 		]]></client>
 	</case>
 </test>

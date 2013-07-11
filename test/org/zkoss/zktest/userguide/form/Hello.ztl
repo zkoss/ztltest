@@ -8,7 +8,7 @@
 				  
 		--></server>
 		<client><![CDATA[
-			verifyEquals("My First window", jq(".z-window-embedded-header").text());
+			verifyEquals("My First window", jq(".z-window-header").text());
 			verifyEquals("Hello, World!", jq(".z-label").text());
 		]]></client>
 	</case>

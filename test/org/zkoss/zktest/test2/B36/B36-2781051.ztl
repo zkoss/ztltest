@@ -27,7 +27,7 @@
 			waitResponse();
 			click(jq("@button[label=\"close\"]"));
 			waitResponse();
-			verifyEquals("true", jq("$main @label:last").html());
+			verifyEquals("true", jq("$main").find("@label:last").html());
 		]]></client>
 	</case>
 </test>

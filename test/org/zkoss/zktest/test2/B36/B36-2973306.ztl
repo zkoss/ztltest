@@ -126,7 +126,7 @@
 			</zk>
 		 --></server>
 		<client><![CDATA[
-            click(detail.$n("img"));
+            click(detail.$n("icon"));
             waitResponse();
 			verifyEquals(2, parseInt(jq(detail.$n("fake")).find(" > td:first").attr("colspan")));			
 		]]></client>
