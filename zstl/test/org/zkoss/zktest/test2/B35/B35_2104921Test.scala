@@ -79,14 +79,14 @@ class B35_2104921Test extends ZTL4ScalaTestCase {
     """;
     runZTL(zscript, () => {
       // Click on the east button
-      click(jq(jq(".z-east").toWidget().$n("btn")));
+      click(jq(jq("@east:eq(1)").toWidget().$n("btn")));
       waitResponse(true);
       // Click on the west button
-      click(jq("@west").toWidget().$f("colled"));
+       click(jq(jq("@west:eq(0)").toWidget().$n("btn")));
       waitResponse(true);
 
       // Click on the East bar
-      click(jq(".z-east-colpsd:eq(1)"));
+      click(jq(jq("@east:eq(1)").toWidget().$n("colled")));
       waitResponse(true);
 
       // Verify the css style of the east zone. If the style contains the display attribute setted to block, it is visible

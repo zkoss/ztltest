@@ -20,9 +20,9 @@
 	m.add("k1");
 	m.add("k2");
 	m.add("k3");
-	
+
 	public ListModel lm1 = new ListModelList(m);
-	
+
 	//listitem - listcell
 	public class Rend1 implements ListitemRenderer {
 		public void render(Listitem item, Object obj, int index)
@@ -32,7 +32,7 @@
 			cell.setParent(item);
 		}
 	}
-	
+
 	//listitem - listcell - label
 	public class Rend2 implements ListitemRenderer {
 		public void render(Listitem item, Object obj, int index)
@@ -43,17 +43,17 @@
 			cell.setParent(item);
 		}
 	}
-	
+
 	public ListitemRenderer rend1 = new Rend1();
 	public ListitemRenderer rend2 = new Rend2();
-	
+
 	public void change1()
 	{
 		public List m2 = new ArrayList(6);
 		m2.add("change1.key1");
 		m2.add("change1.key2");
 		m2.add("change1.key3");
-		
+
 		ListModel lm2 = new ListModelList(m2);
 
 		l1.setModel(lm2);
@@ -65,7 +65,7 @@
 		m2.add("change2.key1");
 		m2.add("change2.key2");
 		m2.add("change2.key3");
-		
+
 		ListModel lm2 = new ListModelList(m2);
 
 		l2.setModel(lm2);
@@ -78,7 +78,7 @@
 		m2.add("change3.val2");
 		m2.add("change3.val3");
 		m2.add("change3.val4");
-		
+
 		ListModel lm2 = new ListModelList(m2);
 
 		l2.setModel(lm2);
@@ -100,24 +100,27 @@
 		<client><![CDATA[
 			click(btn1);
 			waitResponse();
-			verifyEquals("3", jq(l1).find("@listitem").length());
-			verifyEquals("change1.key1", jq(l1).find("@listitem:eq(0) div").html());
-			verifyEquals("change1.key2", jq(l1).find("@listitem:eq(1) div").html());
-			verifyEquals("change1.key3", jq(l1).find("@listitem:eq(2) div").html());
+			verifyEquals("3", jq("$l1 > @listitem").length());
+			verifyEquals("change1.key1", jq("$l1 > @listitem:eq(0) div").html());
+			verifyEquals("change1.key2", jq("$l1 > @listitem:eq(1) div").html());
+			verifyEquals("change1.key3", jq("$l1 > @listitem:eq(2) div").html());
+
 			click(btn2);
 			waitResponse();
-			verifyEquals("3", jq(l2).find("@listitem").length());
-			verifyEquals("change2.key1", jq(l2).find("@listitem:eq(0) @label").html());
-			verifyEquals("change2.key2", jq(l2).find("@listitem:eq(1) @label").html());
-			verifyEquals("change2.key3", jq(l2).find("@listitem:eq(2) @label").html());
+			verifyEquals("3", jq("$l2 > @listitem").length());
+			verifyEquals("change2.key1", jq("$l2 > @listitem:eq(0) @label").html());
+			verifyEquals("change2.key2", jq("$l2 > @listitem:eq(1) @label").html());
+			verifyEquals("change2.key3", jq("$l2 > @listitem:eq(2) @label").html());
+
 			for (int i = 0; i < 3; i++) {
-			click(btn3);
-			waitResponse();
-			verifyEquals("4", jq(l2).find("@listitem").length());
-			verifyEquals("change3.val1", jq(l2).find("@listitem:eq(0) @label").html());
-			verifyEquals("change3.val2", jq(l2).find("@listitem:eq(1) @label").html());
-			verifyEquals("change3.val3", jq(l2).find("@listitem:eq(2) @label").html());
-			verifyEquals("change3.val4", jq(l2).find("@listitem:eq(3) @label").html());
+				click(btn3);
+				waitResponse();
+				verifyEquals("4", jq("$l2 > @listitem").length());
+				verifyEquals("change3.val1", jq("$l2 > @listitem:eq(0) @label").html());
+				verifyEquals("change3.val2", jq("$l2 > @listitem:eq(1) @label").html());
+				verifyEquals("change3.val3", jq("$l2 > @listitem:eq(2) @label").html());
+				verifyEquals("change3.val4", jq("$l2 > @listitem:eq(3) @label").html());
+			}
 		]]></client>
 	</case>
 </test>
