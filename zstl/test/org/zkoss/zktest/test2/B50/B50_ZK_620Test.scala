@@ -80,8 +80,8 @@ class B50_ZK_620Test extends ZTL4ScalaTestCase {
    			click(tab);
    			waitResponse();
 
-   			verifyTrue("north height should equal to window height",
-   			    jq(north.$n("real")).height() == jq(window.$n()).height());
+   			verifyEquals("north height should equal to window height",
+   			    jq(north.$n("real")).outerHeight(), jq(window.$n()).outerHeight());
 		})
   }
 }

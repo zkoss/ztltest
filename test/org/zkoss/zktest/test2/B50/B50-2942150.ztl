@@ -15,7 +15,7 @@
 		</server>
 		<client>	<![CDATA[
    				click(cb.$n("btn"));            				
-				verifyFalse(jq(jq(".z-combobox").toWidget().$n("pp")).exists());
+				verifyFalse(jq(jq(".z-combobox").toWidget().$n("pp")).isVisible());
 			]]></client>
 	</case>
 </test>

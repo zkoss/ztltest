@@ -16,6 +16,7 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.issue
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * @author pao
@@ -23,6 +24,7 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_B00878WrongValueException1Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testArg() = {
     val zul = {
       <include src="/bind/issue/B00878WrongValueException.zul"/>
@@ -64,7 +66,7 @@ class Z60_B00878WrongValueException1Test extends ZTL4ScalaTestCase {
 		verifyEquals("", msgName.toWidget().get("value"))
 		verifyEquals("0", msgAge.toWidget().get("value"))
 		verifyEquals("0", msgScore.toWidget().get("value"))
-		errorPopup = jq(".z-errbox.z-popup")
+		errorPopup = jq(".z-errorbox")
 		verifyEquals(2, errorPopup.length())
 		`type`(inpAge.toWidget(), "24")
 		waitResponse()
@@ -75,7 +77,7 @@ class Z60_B00878WrongValueException1Test extends ZTL4ScalaTestCase {
 		verifyEquals("", msgName.toWidget().get("value"))
 		verifyEquals("0", msgAge.toWidget().get("value"))
 		verifyEquals("0", msgScore.toWidget().get("value"))
-		errorPopup = jq(".z-errbox.z-popup")
+		errorPopup = jq(".z-errorbox")
 		verifyEquals(1, errorPopup.length())
 		`type`(inpScore.toWidget(), "34")
 		waitResponse()
@@ -84,7 +86,7 @@ class Z60_B00878WrongValueException1Test extends ZTL4ScalaTestCase {
 		verifyEquals("Lin", msgName.toWidget().get("value"))
 		verifyEquals("24", msgAge.toWidget().get("value"))
 		verifyEquals("34", msgScore.toWidget().get("value"))
-		errorPopup = jq(".z-errorbox.z-popup")
+		errorPopup = jq(".z-errorbox")
 		verifyEquals(0, errorPopup.length())
 	
     })
