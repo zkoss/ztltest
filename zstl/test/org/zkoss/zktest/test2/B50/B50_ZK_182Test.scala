@@ -35,8 +35,9 @@ import java.lang._
 @Tags(tags = "B50-ZK-182.zul,A,E,Grid,Scrollbar")
 class B50_ZK_182Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<separator/>
 				1.click "add frozen"
@@ -71,8 +72,7 @@ class B50_ZK_182Test extends ZTL4ScalaTestCase {
 						</row>
 					</rows>
 				</grid>
-			</zk>
-    }
+			</zk>"""
 
     def executor() = ()=> {
     	var btn1: Widget = engine.$f("btn1");
@@ -84,7 +84,7 @@ class B50_ZK_182Test extends ZTL4ScalaTestCase {
     	click(btn2);
     	waitResponse();
     	for (i <- 0 until 6) {
-    	  jq(grid.$n("body")).get(0).eval("scrollLeft += "+33);
+    	  horScroll(grid.$n("body"), i * 0.15)
     	  waitResponse();
     	  verifyTrue(Integer.parseInt((jq(grid.$n("head")).get(0).get("scrollLeft")))
     	      .equals(Integer.parseInt(jq(grid.$n("body")).get(0).get("scrollLeft")))
