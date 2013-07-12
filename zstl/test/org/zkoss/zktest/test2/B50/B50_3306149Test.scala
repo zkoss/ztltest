@@ -77,12 +77,9 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
     def executor = () => {
     	var grid: Widget = engine.$f("grid");
 		waitResponse();
-		jq(grid.$n("body")).get(0).eval("scrollTop = 7550");
+		verScroll(grid.$n("body"), 1)
 		waitResponse();
-		if (ZK.is("ie9")) {
-			jq(grid.$n("body")).get(0).eval("scrollTop = 7550");
-			waitResponse();
-		}
+		
 		var st1: Int = Integer.parseInt(jq(grid.$n("body")).get(0).get("scrollTop"));
 		var btns = jq(grid.$n("body")).find(".z-button");
 		var lastBtn = btns.last();

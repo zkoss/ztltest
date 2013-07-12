@@ -16,6 +16,7 @@ package org.zkoss.zktest.test2.F50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  *
@@ -23,7 +24,9 @@ import org.zkoss.ztl.Tags;
  */
 @Tags(tags = "")
 class F50_ZK_500Test extends ZTL4ScalaTestCase {
-	def testCase() = {
+	
+  @Test
+  def testCase() = {
 		val zscript = {
 			<zk>
 				<vlayout>
