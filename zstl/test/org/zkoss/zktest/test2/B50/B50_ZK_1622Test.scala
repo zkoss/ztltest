@@ -51,16 +51,16 @@ for (int i = 1; i <= 70; ++i)
         List("listbox", "tree") foreach { compName =>
           val main = jq(".z-" + compName)
           val body = jq(".z-" + compName + "-body")
-          body.toElement().set("scrollTop", 1500)
+          verScroll(body, 1)
           
           val cell = if(compName == "listbox") "listcell" else "treecell"
           click(jq(".z-" + cell + ":contains(50)"))
           waitResponse()
           click(jq("[name=" + main.find(".z-paging").attr("id") + "-next]"))
           waitResponse()
-          body.toElement().set("scrollTop", 1500)
+          verScroll(body, 1)
 
-          verifyTrue("should not see blank area.", body.scrollTop() < 300)
+          verifyTrue("should not see blank area.", body.scrollTop() < 350)
         }
       })
 

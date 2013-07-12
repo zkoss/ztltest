@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-3314143.zul,A,M,Tree")
 class B50_3314143Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -58,8 +59,8 @@ class B50_3314143Test extends ZTL4ScalaTestCase {
         () => {
         var tree: Widget = engine.$f("tree");
 
-        click(jq(".z-dottree").toWidget().$n("open"));
-        verifyTrue(jq(".z-dottree-last").exists());
+        click(jq(".z-treerow").toWidget().$n("open"));
+        verifyTrue(jq(".z-treerow:contains(Child)").exists());
     }
    );
 
