@@ -49,26 +49,15 @@ class B30_1899003Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
         () => {
         
-        	waitResponse();
-            
-        	//Test if vbox exists
-        	val b=getText(jq("@label:eq(0)"));
-        	
-        	val b1=jq(jq(".z-vbox").toWidget().$n("chdex2")).hasClass("z-vbox-separator");
-        	val b4=jq(jq("@vbox").toWidget().$n("chdex2")).css("border-bottom-color");
-        	val b2=getText(jq(jq("@vbox").toWidget().$n("chdex")).find("@label"));
+        	val sep =jq(jq(".z-vbox").toWidget().$n("real")).find("tr:eq(1)");
         	           
-            //Assert First row = "abc"
-            verifyTrue(b.equals("abc"));
+            verifyEquals(sep.prev().text(), "abc");
             
-            //Assert Second row = "xyz"
-            verifyTrue(b2.equals("xyz"));
+            verifyEquals(sep.next().text(), "xyz");
             
-            //Middle Row is a separator 
-            verifyTrue(b1);
+            verifyTrue(sep.hasClass("z-vbox-separator"));
             
-            //Row separator line is blue
-            verifyTrue(org.zkoss.ztl.util.ColorVerifingHelper.isEqualColor("blue", b4));
+            verifyTrue(org.zkoss.ztl.util.ColorVerifingHelper.isEqualColor("blue", jq(sep).find("td").css("border-bottom-color")));
             
         }
     );
