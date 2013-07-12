@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.JQuery
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -27,8 +28,9 @@ import org.zkoss.ztl.JQuery
  */
 @Tags(tags = "B35-2075716.zul,B,E,Window,Button")
 class B35_2075716Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window>
         1. Press the "add" button, and see the new column of Portallayout is 50% of right remainder width.
         <separator/>
@@ -80,7 +82,7 @@ class B35_2075716Test extends ZTL4ScalaTestCase {
 ]]>
         </zscript>
       </window>
-    }
+    """;
     runZTL(zscript, () => {
       // Record total width
       var total_width: Int = jq(".z-portallayout").width().intValue();

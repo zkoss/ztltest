@@ -21,6 +21,7 @@ import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Element
 import org.zkoss.ztl.util.Scripts
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -28,8 +29,9 @@ import org.zkoss.ztl.util.Scripts
  */
 @Tags(tags = "B35-2075137.zul,B,E,Window,Button")
 class B35_2075137Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd">
         <groupbox>
           <vbox>
@@ -78,7 +80,7 @@ class B35_2075137Test extends ZTL4ScalaTestCase {
           </vbox>
         </window>
       </zk>
-    }
+    """;
     runZTL(zscript, () => {
       // Click on first slider
       click(jq("$slider").get(0));
@@ -93,14 +95,14 @@ class B35_2075137Test extends ZTL4ScalaTestCase {
       if (isFirefox())
       	mouseOut(jq("$slider").get(0))
       // check button color
-      verifyFalse(jq(btn) hasClass "z-slider-ver-btn-over")
+      verifyFalse("#d6f0fd".equals(jq(btn).css("backgroind-color")));
 
       verifyFalse("The value should be ...", jq("$textLabel:contains(TESTING SLIDERS FUNCTIONALITY...)").exists());
 
       // Click on second slider
       click(jq("$slider2").get(0));
       waitResponse(true);
-
+      
       // Move the mouse over the second slider
       // The event doesn't take the last argument, so always moves the same distance
      // Scripts.triggerMouseEventAt(getWebDriver(), jq("$slider2").get(0), "mousemove", "")
@@ -111,17 +113,17 @@ class B35_2075137Test extends ZTL4ScalaTestCase {
       // Click on third slider
       click(jq("$slider").get(1));
       waitResponse(true);
-
+      
       // Move the mouse over the third slider
       // The event doesn't take the last argument, so always moves the same distance
-      val btn2 = jq("$slider:eq(1)").find(".z-slider-hor-btn")
+      val btn2 = jq("$slider:eq(1)").toWidget().$n("btn");
       dragdropTo(btn2, "5,5", "5,50")
       if (isFirefox())
       	mouseOut(jq("$slider:eq(1)"))
       waitResponse(true);
       
       // check button color
-      verifyFalse(jq(btn2) hasClass "z-slider-hor-btn-over")
+      verifyFalse("#d6f0fd".equals(jq(btn).css("backgroind-color")));
 
       verifyFalse("The value should be ...", jq("$textLabel3:contains(TESTING SLIDERS FUNCTIONALITY...)").exists());
 
@@ -130,6 +132,7 @@ class B35_2075137Test extends ZTL4ScalaTestCase {
       waitResponse(true);
 
       verifyFalse("The value should be ...", jq("$textLabel4:contains(TESTING SLIDERS FUNCTIONALITY...)").exists());
+      
     })
   }
 }

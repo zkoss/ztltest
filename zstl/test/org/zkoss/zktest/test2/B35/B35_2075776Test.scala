@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.util.Scripts
 import org.openqa.selenium.Keys
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -27,8 +28,9 @@ import org.openqa.selenium.Keys
  */
 @Tags(tags = "B35-2075776.zul,B,E,Window,Button")
 class B35_2075776Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window title="Column's Menu Demo" border="normal" width="500px">
         1. Please click the "remove column1" or "remove column2" button.
         <separator/>
@@ -76,7 +78,7 @@ r3.removeChild(tb3);
           </attribute>
         </button>
       </window>
-    }
+    """;
     runZTL(zscript, () => {
 
       // Click on a remove button (The first one)
@@ -84,11 +86,11 @@ r3.removeChild(tb3);
       waitResponse();
 
       // Mouse over the column to see the menu popup
-      Scripts.triggerMouseEventAt(getWebDriver(), jq(engine.$f("col1")), "mouseover", "2,2");
+      mouseOver(jq(engine.$f("col1").$n("btn")));
       waitResponse();
 
       // Click on the column menu
-      Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-column-menuicon"), "click", "2,2");
+      click(jq(engine.$f("col1").$n("btn")));
       waitResponse();
 
       // Verify that the menu popup appear

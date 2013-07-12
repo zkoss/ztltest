@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
 import org.zkoss.ztl.Element
+import org.junit.Test
 
 
 /**
@@ -30,6 +31,7 @@ import org.zkoss.ztl.Element
 @Tags(tags = "B35-2125673.zul,B,E,Groupbox")
 class B35_2125673Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 <?xml version="1.0" encoding="UTF-8"?>
@@ -64,15 +66,15 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
 </zk>
 
 
-    """
+    """;
 
     runZTL(zscript,
         () => {
         	
             waitResponse();
             
-            var title=jq(".z-caption");
-            var group=jq(".z-groupbox-cnt");
+            var title=jq("@caption");
+            var group=jq("@groupbox").toWidget().$n("cave");
             
             //1 - click title
         	click(title);

@@ -15,7 +15,7 @@
 			focus(tb.$n());
 			blur(tb);
 			waitResponse();
-			verifyTrue(jq(tb).hasClass("z-textbox-text-invalid"));
+			verifyTrue(jq(tb).hasClass("z-textbox-invalid"));
 		</client>
 	</case>
 	<case id="Constraint2">
@@ -25,7 +25,7 @@
 			focus(tb.$n());
 			click(btn);
 			waitResponse();
-			verifyTrue(jq(tb).hasClass("z-textbox-text-invalid"));
+			verifyTrue(jq(tb).hasClass("z-textbox-invalid"));
 		</client>
 	</case>
 </test>

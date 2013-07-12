@@ -18,6 +18,7 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * A test class for bug 2073420
@@ -27,6 +28,7 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B35-2073420.zul,A,E,Grid,Group,Groupfoot")
 class B35_2073420Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
     		<zk>
@@ -186,7 +188,7 @@ src="/test2/img/mail_read.png"/><label value="${each[0]}"/></div>
         	val img1=jq("$img1");
         	val ex=img1.exists();
         	verifyTrue(ex);
-        	val img1c=jq("$g1 $img1");
+        	val img1c=jq("$g1").find("$img1");
         	val ex1=img1c.exists();
         	//Image parent is group1
         	verifyTrue(ex1);
@@ -198,7 +200,7 @@ src="/test2/img/mail_read.png"/><label value="${each[0]}"/></div>
         	waitResponse();
         	
         	//Group arrow exists
-        	val cl=jq("$g1 span");
+        	val cl=jq("$g1").find("span");
         	verifyTrue(cl.exists());
         	        	        	
         }
