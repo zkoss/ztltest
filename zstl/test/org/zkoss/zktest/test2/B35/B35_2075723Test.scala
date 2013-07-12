@@ -19,6 +19,7 @@ package org.zkoss.zktest.test2.B35
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.remote.server.handler.interactions.touch.Scroll
+import org.junit.Test
 
 /**
  * A test class for bug 2075723
@@ -27,7 +28,8 @@ import org.openqa.selenium.remote.server.handler.interactions.touch.Scroll
  */
 @Tags(tags = "B35-2075723.zul,A,E,Panel,Tablelayout")
 class B35_2075723Test extends ZTL4ScalaTestCase {
-	
+  
+  @Test
   def testClick() = {
     val zscript = """
     		<?xml version="1.0" encoding="UTF-8"?>
@@ -108,50 +110,50 @@ class B35_2075723Test extends ZTL4ScalaTestCase {
             waitResponse();
           
         	//Minimize table 3
-        	var table3=jq("$table3 .z-panel").toWidget().$n("exp");
+        	var table3=jq("$table3").find("@panel").toWidget().$n("exp");
         	click(table3);
         	
         	waitResponse(true);
         	
-        	verifyFalse(jq("$table3 .z-panel-body").isVisible());
+        	verifyFalse(jq(jq("$table3").toWidget().$n("body")).isVisible());
         	
-        	//Minimize table 3
-        	var table31=jq("$table31 .z-panel").toWidget().$n("exp");
+        	//Minimize table 3-1
+        	var table31=jq("$table31").find("@panel").toWidget().$n("exp");
         	click(table31);
         	
         	waitResponse(true);
         	
-        	verifyFalse(jq("$table31 .z-panel-body").isVisible());
+        	verifyFalse(jq(jq("$table31").toWidget().$n("body")).isVisible());
         	
         	//Minimize table 1
-        	var table1=jq("$table1 .z-panel").toWidget().$n("exp");
+        	var table1=jq("$table1").find("@panel").toWidget().$n("exp");
         	click(table1);
         	
         	waitResponse(true);
-        	verifyFalse(jq("$table31 .z-panel-body").isVisible());
-        	verifyFalse(jq("$table1 .z-panel-body").isVisible());
+        	verifyFalse(jq(jq("$table31").toWidget().$n("body")).isVisible());
+        	verifyFalse(jq(jq("$table1").toWidget().$n("body")).isVisible());
         	
         	//Maximize table 1
         	click(table1);
         	
         	waitResponse(true);
         	
-        	verifyTrue(jq("$table1 .z-panel-body").isVisible());
-        	verifyFalse(jq("$table31 .z-panel-body").isVisible());
+        	verifyTrue(jq(jq("$table1").toWidget().$n("body")).isVisible());
+        	verifyFalse(jq(jq("$table31").toWidget().$n("body")).isVisible());
         	
         	//Maximize table 3-1
         	click(table31);
 
         	waitResponse(true);
         	        	
-        	verifyTrue(jq("$table1 .z-panel-body").isVisible());
-        	verifyTrue(jq("$table31 .z-panel-body").isVisible());
+        	verifyTrue(jq(jq("$table1").toWidget().$n("body")).isVisible());
+        	verifyTrue(jq(jq("$table31").toWidget().$n("body")).isVisible());
         	        	
         	//Maximize table 3
         	click(table3);
         	
         	waitResponse(true);
-        	verifyTrue(jq("$table3 .z-panel-body").isVisible());
+        	verifyTrue(jq(jq("$table3").toWidget().$n("body")).isVisible());
         	
         	
         }

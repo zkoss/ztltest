@@ -19,6 +19,7 @@ package org.zkoss.zktest.test2.B35
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.remote.server.handler.interactions.touch.Scroll
+import org.junit.Test
 
 /**
  * A test class for bug 2075781
@@ -27,7 +28,7 @@ import org.openqa.selenium.remote.server.handler.interactions.touch.Scroll
  */
 @Tags(tags = "B35-2075781.zul,A,E,Columnlayout")
 class B35_2075781Test extends ZTL4ScalaTestCase {
-	
+  @Test
   def testClick() = {
     val zscript = """
     		<?xml version="1.0" encoding="UTF-8"?>
@@ -122,7 +123,7 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
             verifyTrue(ch1.exists());
             
             //Column size 50% of remainder width
-            val cl=jq(".z-columnlayout-inner");
+            val cl=jq("@columnlayout");
             val c1=jq("$ch0"); 
             var w=cl.width();
             var w1=c1.width();
@@ -140,10 +141,9 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
             verifyFalse(ch1.exists());
             
             //No error message
-            verifyFalse(jq(".z-msgbox-error").exists());
+            verifyFalse(jq(".z-messagebox-error").exists());
             verifyFalse(jq(".z-errorbox").exists());
 			verifyFalse(jq(".z-error").exists());
-            
             
         	
         }

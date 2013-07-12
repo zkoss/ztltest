@@ -16,6 +16,7 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  *
@@ -23,8 +24,9 @@ import org.zkoss.ztl.Tags;
  */
 @Tags(tags = "B30-1936366.zul,B,E,Textbox,Focus")
 class B30_1936366Test extends ZTL4ScalaTestCase {
+	@Test
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
 				<n:p>Click the "Warning" button, and then close it, and then you should see the focus on the input element.</n:p>
 				<separator/>
@@ -43,14 +45,14 @@ class B30_1936366Test extends ZTL4ScalaTestCase {
 					</button>
 				</window>
 			</zk>
-		}
+		""";
 		runZTL(zscript, () => {
-			click(jq("@button:eq(0)"))
-			waitResponse
-			click(jq("@button:eq(1)"))
-			waitResponse
-			val focus = engine $f ("focus")
-			verifyTrue(jq(focus).hasClass("z-textbox-focus"))
+			click(jq("@button:eq(0)"));
+			waitResponse;
+			click(jq("@button:eq(1)"));
+			waitResponse;
+			val focus = engine $f ("focus");
+			verifyFalse("".equals(jq(focus).css("box-shadow")));
 		})
 	}
 }

@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
 import org.zkoss.ztl.Element
+import org.junit.Test
 
 
 /**
@@ -29,7 +30,8 @@ import org.zkoss.ztl.Element
  */
 @Tags(tags = "B35-2086302.zul,C,E,Groupbox,Borderlayout")
 class B35_2086302Test extends ZTL4ScalaTestCase {
-	
+
+  @Test
   def testClick() = {
     val zscript = """
 <?xml version="1.0" encoding="UTF-8"?>
@@ -136,10 +138,11 @@ onClick="gb2.setOpen(!gb2.isOpen());"/>
         	verifyEquals((bl2w*.5).intValue(),e2w);
         	
         	//Verify no border
-        	verifyEquals(jq("$bl2 .z-east").css("border-top-width"),"0px");
-        	verifyEquals(jq("$bl2 .z-east").css("border-left-width"),"0px");
-        	verifyEquals(jq("$bl2 .z-east").css("border-right-width"),"0px");
-        	verifyEquals(jq("$bl2 .z-east").css("border-bottom-width"),"0px");
+        	var bl2east = jq("$bl2").find("@east");
+        	verifyEquals(bl2east.css("border-top-width"),"0px");
+        	verifyEquals(bl2east.css("border-left-width"),"0px");
+        	verifyEquals(bl2east.css("border-right-width"),"0px");
+        	verifyEquals(bl2east.css("border-bottom-width"),"0px");
         	
         	var bl3=jq("$bl3");
         	var bl3w=bl3.width();
@@ -151,11 +154,13 @@ onClick="gb2.setOpen(!gb2.isOpen());"/>
         	var c3w=jq("$bl3 .z-center-body").width().intValue()+6;
         	verifyTolerant((bl3w*.4).intValue(), c3w+1, 1);
         	
+        	var bl3center = jq("$bl3").find("@center");
+        	
         	//Verify border
-        	verifyEquals(jq("$bl3 .z-center").css("border-top-width"),"1px");
-        	verifyEquals(jq("$bl3 .z-center").css("border-left-width"),"1px");
-        	verifyEquals(jq("$bl3 .z-center").css("border-right-width"),"1px");
-        	verifyEquals(jq("$bl3 .z-center").css("border-bottom-width"),"1px");
+        	verifyEquals(bl3center.css("border-top-width"),"1px");
+        	verifyEquals(bl3center.css("border-left-width"),"1px");
+        	verifyEquals(bl3center.css("border-right-width"),"1px");
+        	verifyEquals(bl3center.css("border-bottom-width"),"1px");
         	
         	var e3w=jq("$e3 ").width().intValue();
         	verifyTolerant((bl3w*.3).intValue(), e3w, 1);
