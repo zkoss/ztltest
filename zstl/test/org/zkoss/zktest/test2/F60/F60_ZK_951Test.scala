@@ -231,12 +231,12 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
 
 	            row = jq(jq(biglist.$n("rows")).find("tr").get(rowRange));
 	            col = jq(jq(jq(biglist.$n("rows")).find("tr").get(0)).find("td").get(colRange));
-	            listWidth = jq(biglist.$n("body")).offsetLeft() + jq(biglist.$n("body")).width();
-	            listHeight = jq(biglist.$n("body")).offsetTop() + jq(biglist.$n("body")).height();
+	            listWidth = jq(biglist.$n("body")).offsetLeft() + jq(biglist.$n("body")).outerWidth();
+	            listHeight = jq(biglist.$n("body")).offsetTop() + jq(biglist.$n("body")).outerHeight();
 
-//	            verifyTrue("List size should match the range",
-//	                math.abs((listWidth - (col.offsetLeft() + col.outerWidth(true)))) < 2
-//	                && math.abs(listHeight - (row.offsetTop() + row.outerHeight(true))) < 2);
+	            println("List size should match the range")
+	            verifyTolerant(listWidth, col.offsetLeft() + col.outerWidth(), 2)
+	            verifyTolerant(listHeight, row.offsetTop() + row.outerHeight(), 2)
 	        }
 	        def checkFrozen () {
 	            var col: JQuery = jq(jq(biglist.$n("rows")).find("td").get(0));
