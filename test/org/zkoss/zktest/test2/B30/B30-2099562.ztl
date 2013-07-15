@@ -25,7 +25,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				verifyTrue(jq(".z-progressmeter").height() >= 15);
+			verifyTrue(jq("@progressmeter").outerHeight() >= 16);
 		]]></client>
 	</case>
 </test>
