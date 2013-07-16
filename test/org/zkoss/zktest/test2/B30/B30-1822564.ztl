@@ -51,15 +51,15 @@ It still doesn't work even add row after creation.
 			click(btn2);
 			waitResponse();
 			verifyTrue(20 <= jq(col1).outerWidth());
-			verifyEquals(jq(col1).outerWidth(), jq("@row > td").outerWidth());
+			verifyEquals(jq(col1).outerWidth(), jq("@row").toWidget().firstChild().$n("chdextr"));
 			click(btn3);
 			waitResponse();
 			verifyTrue(100 >= jq(col1).outerWidth());
-			verifyEquals(jq(col1).outerWidth(), jq("@row > td").outerWidth());
+			verifyEquals(jq(col1).outerWidth(), jq("@row").toWidget().firstChild().$n("chdextr"));
 			click(btn4);
 			waitResponse();
 			verifyTrue(200 >= jq(col1).outerWidth());
-			verifyEquals(jq(col1).outerWidth(), jq("@row > td").outerWidth());
+			verifyEquals(jq(col1).outerWidth(), jq("@row").toWidget().firstChild().$n("chdextr"));
 		]]></client>
 	</case>
 </test>

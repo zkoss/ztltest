@@ -19,6 +19,7 @@ package org.zkoss.zktest.test2.Z30
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.util.Scripts
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * A test class for bug grid-0006
@@ -27,9 +28,10 @@ import org.zkoss.ztl.Tags
  */
 @Tags(tags = "Z30-grid-0006.zul,Z30,B,E,Grid,Sorting")
 class Z30_grid_0006Test extends ZTL4ScalaTestCase {
-	
+
+  @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<window title="the odd row's color shall be yellow (controlled by the style component).	test sorting">
 				<style><![CDATA[
 				tr.z-grid-odd td.z-row-inner, tr.z-grid-odd {
@@ -118,7 +120,7 @@ class Z30_grid_0006Test extends ZTL4ScalaTestCase {
 				addRow();
 				]]></zscript>
 			</window>
-    }
+    """;
 
     runZTL(zscript,
         () => {

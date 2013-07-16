@@ -36,9 +36,10 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			int margin = 10;
+			Widget w = jq("@row").toWidget().firstChild();
 			for (int i = 0; i < 9; i++) {
-			    verifyTolerant(jq("$column" + i).width(), (jq(".z-row-inner:eq(" + i + ")").width() + margin), 5);
+				verifyTolerant(jq("$column" + i).width(), jq(w.$n("chdextr")).width(), 5);
+				w = w.nextSibling();
 			}
 		]]></client>
 	</case>
