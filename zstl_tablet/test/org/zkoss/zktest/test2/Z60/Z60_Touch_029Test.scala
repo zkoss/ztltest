@@ -1,10 +1,13 @@
 package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_029Test extends ZTL4ScalaTestCase {
-	def testClick() {
+	
+  @Test
+  def testClick() {
 		val zscript = {
 <zk xmlns:n="native">
 	<n:h3>iPad/Android only</n:h3>
@@ -26,7 +29,7 @@ class Z60_Touch_029Test extends ZTL4ScalaTestCase {
 				singleTap(jq("@chosenbox"));
 				waitResponse(true);
 				
-				var pp = jq(".z-chosenbox-popup");
+				var pp = jq(jq(".z-chosenbox").toWidget().$n("pp"));
 				verifyTrue(pp.isVisible());
 				
 				var pp_scroller = pp.find("> div:last-child");

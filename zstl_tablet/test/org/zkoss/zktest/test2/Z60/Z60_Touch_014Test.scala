@@ -2,10 +2,13 @@ package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.JQuery
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_014Test extends ZTL4ScalaTestCase {
-	def testClick() {
+	
+  @Test
+  def testClick() {
 		val zscript = {
 <zk>
 	<div>
@@ -21,48 +24,44 @@ class Z60_Touch_014Test extends ZTL4ScalaTestCase {
 		
 		runZTL(zscript,
 			() => {
-				var btns       = jq(jq(".z-datebox").toWidget().$n("btn"));
-				var datebox    : JQuery = null;
+				var dateboxpopup    : JQuery = null;
 				var date_wheel : JQuery = null;
 				var time_wheel : JQuery = null;
 				
 				// 1. Click the button on first datebox
-				singleTap(btns.eq(0));
+				singleTap(jq(".z-datebox").toWidget().$n("btn"));
 				waitResponse(true);
 				
 				// should see a 3-column spin wheel
-				datebox = jq(".z-datebox-popup[style*=\"display: block\"]");
-				verifyTrue(1 == datebox.length());
+				dateboxpopup = jq(jq(".z-datebox").toWidget().$n("pp"));
 				
-				date_wheel = datebox.find(".z-calendar-wheel-date");
-				verifyTrue(3 == date_wheel.find("> div.z-calendar-wheel-list").length());
+				date_wheel = dateboxpopup.find(".z-calendar-wheel-date");
+				verifyTrue(3 == date_wheel.find(".z-calendar-wheel-list").length());
 
 				// 2. Click the button on second datebox
-				singleTap(btns.eq(1));
+				singleTap(jq(".z-datebox:eq(1)").toWidget().$n("btn"));
 				waitResponse(true);
 				
 				// should see a 6-column spin wheel
-				datebox = jq(".z-datebox-popup[style*=\"display: block\"]");
-				verifyTrue(1 == datebox.length());
+				dateboxpopup = jq(jq(".z-datebox:eq(1)").toWidget().$n("pp"));
 
-				date_wheel = datebox.find(".z-calendar-wheel-date");
+				date_wheel = dateboxpopup.find(".z-calendar-wheel-date");
 				verifyTrue(3 == date_wheel.find(".z-calendar-wheel-list").length());
 
-				time_wheel = datebox.find(".z-timebox-wheel-time");
+				time_wheel = dateboxpopup.find(".z-timebox-wheel-time");
 				verifyTrue(3 == time_wheel.find(".z-timebox-wheel-list").length());
 				
 				// 3. Click the button on third datebox
-				singleTap(btns.eq(2));
+				singleTap(jq(".z-datebox:eq(2)").toWidget().$n("btn"));
 				waitResponse(true);
 				
 				// should see a 7-column spin wheel
-				datebox = jq(".z-datebox-popup[style*=\"display: block\"]");
-				verifyTrue(1 == datebox.length());
+				dateboxpopup = jq(jq(".z-datebox:eq(2)").toWidget().$n("pp"));
 
-				date_wheel = datebox.find(".z-calendar-wheel-date");
+				date_wheel = dateboxpopup.find(".z-calendar-wheel-date");
 				verifyTrue(3 == date_wheel.find(".z-calendar-wheel-list").length());
 
-				time_wheel = datebox.find(".z-timebox-wheel-time");
+				time_wheel = dateboxpopup.find(".z-timebox-wheel-time");
 				verifyTrue(4 == time_wheel.find(".z-timebox-wheel-list").length());
 			}
 		);
