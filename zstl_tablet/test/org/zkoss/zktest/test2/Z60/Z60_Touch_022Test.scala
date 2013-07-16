@@ -5,10 +5,13 @@ import org.openqa.selenium.HasTouchScreen
 import org.openqa.selenium.By
 import org.openqa.selenium.internal.Locatable
 import org.openqa.selenium.interactions.touch.FlickAction
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_022Test extends ZTL4ScalaTestCase {
-	def testClick() {
+	
+  @Test
+  def testClick() {
 		val zscript = {
 <zk xmlns:a="client/attribute">
 	1.Swipe up/down to change year.  2.Swipe left/right to change month.

@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B65
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class B65_ZK_1499Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk>
 	<label multiline="true">
@@ -57,16 +59,16 @@ class B65_ZK_1499Test extends ZTL4ScalaTestCase {
           0 to 2 foreach { i =>
             if (containerClass == ".z-panel") {
               val exp = jq(jq(".z-panel:eq(" + i + ")").toWidget().$n("exp"))
-              val expImg = exp.css("background-image")
+              val expcls = exp.find("i").attr("class")
               singleTap(exp)
               waitResponse()
-              verifyTrue("show correct image.", exp.css("background-image") != expImg)
+              verifyTrue("show correct image.", exp.find("i").attr("class") != expcls)
             }
             val max = jq(jq(containerClass + ":eq(" + i + ") ").toWidget().$n("max"))
-            val maxImg = max.css("background-image")
+            val maxcls = max.find("i").attr("class")
             singleTap(max)
             waitResponse()
-            verifyTrue("show correct image.", max.css("background-image") != maxImg)
+            verifyTrue("show correct image.", max.find("i").attr("class") != maxcls)
             singleTap(max)
             waitResponse()
           }

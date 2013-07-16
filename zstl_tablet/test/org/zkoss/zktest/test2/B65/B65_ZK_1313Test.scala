@@ -3,10 +3,12 @@ package org.zkoss.zktest.test2.B65
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1313.zul,Android")
 class B65_ZK_1313Test extends ZTL4ScalaTestCase {
 
+  @Test
 def testClick() = {
   val zscript = """<window mode="modal" width="500px" height="1000px" xmlns:ca="client/attribute" title="Main" border="normal">
 	<borderlayout>

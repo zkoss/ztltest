@@ -8,10 +8,13 @@ import org.zkoss.ztl.JQuery
 import org.openqa.selenium.TouchScreen
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.ZKSeleneseTestCase
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_001Test extends ZTL4ScalaTestCase {
-	def testClick() = {
+	
+  @Test
+  def testClick() = {
 		val zscript = {
 <zk>
 	<zscript>
@@ -140,12 +143,12 @@ class Z60_Touch_001Test extends ZTL4ScalaTestCase {
 				waitResponse();
 				click(jq(".z-option").eq(2));
 				waitResponse();
-				verifyEquals("item selected", jq(".z-messagebox .z-label").text());
-				singleTap(jq(".z-messagebox-button));
+				verifyEquals("item selected", jq(".z-messagebox-window .z-label").text());
+				singleTap(jq(".z-messagebox-window .z-button"));
 
 				// 6. Click on left/right arrows of tabbox, it should scroll left/right correctly
-				var right_scroll = jq(".z-tabs-right-scroll");
-				var tabcontent   = jq(".z-tabs-cnt");
+				var right_scroll = jq(".z-tabbox").toWidget().$n("right");
+				var tabcontent   = jq(jq(".z-tabs").toWidget().$n("cave"));
 				var left_before  = tabcontent.offsetLeft();
 				var left_after   = left_before;
 				singleTap(right_scroll);
@@ -154,7 +157,7 @@ class Z60_Touch_001Test extends ZTL4ScalaTestCase {
 				waitResponse();
 				verifyTrue(left_after < left_before);
 				
-				var left_scroll = jq(".z-tabs-left-scroll");
+				var left_scroll = jq(".z-tabbox").toWidget().$n("left");
 				left_before = left_after;
 				singleTap(left_scroll);
 				singleTap(left_scroll);

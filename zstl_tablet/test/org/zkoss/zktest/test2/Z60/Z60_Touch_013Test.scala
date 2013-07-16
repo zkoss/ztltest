@@ -1,10 +1,13 @@
 package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_013Test extends ZTL4ScalaTestCase {
-	def testClick() {
+	
+  @Test
+  def testClick() {
 		val zscript = {
 <zk>
 	<vlayout>

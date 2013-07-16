@@ -4,10 +4,13 @@ import org.openqa.selenium.Rotatable
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.ScreenOrientation
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_031Test extends ZTL4ScalaTestCase {
-	def testClick() {
+	
+  @Test
+  def testClick() {
 		val zscript = {
 <zk xmlns:n="native">
 	<n:h3>iPad/Android only</n:h3>

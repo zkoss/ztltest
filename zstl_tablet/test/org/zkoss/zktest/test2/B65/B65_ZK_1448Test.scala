@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B65
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class B65_ZK_1448Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk>
 	<label multiline="true">
@@ -66,8 +68,8 @@ class B65_ZK_1448Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyTrue("Should see left/right arrow icons.", jq(jq(".z-menubar").toWidget().$n("left")).width() != 0)
-        verifyTrue("Should see left/right arrow icons.", jq(jq(".z-menubar").toWidget().$n("right")).width() != 0)
+        verifyTrue("Should see left/right arrow icons.", jq(jq(".z-menubar").toWidget().$n("left")).css("display") != "none")
+        verifyTrue("Should see left/right arrow icons.", jq(jq(".z-menubar").toWidget().$n("right")).css("display") != "none")
       })
 
   }

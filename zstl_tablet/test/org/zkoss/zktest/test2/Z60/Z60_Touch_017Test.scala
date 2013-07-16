@@ -1,10 +1,13 @@
 package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_017Test extends ZTL4ScalaTestCase {
-	def testClick() {
+	
+  @Test
+  def testClick() {
 		val zscript = """
 <zk>
 	<zscript><![CDATA[
@@ -40,15 +43,12 @@ class Z60_Touch_017Test extends ZTL4ScalaTestCase {
 			() => {
 				var bodyHeight = jq("body").innerHeight();
 				
-				var btns = jq(jq(".z-combobox").toWidget().$n("btn"));
-				var combobox_pp = jq(jq(".z-combobox").toWidget().$n("pp"));
-				
 				// Click on the first drop-down button
-				singleTap(btns.eq(0));
+				singleTap(jq(".z-combobox").toWidget().$n("btn"));
 				waitResponse();
 				
 				// Should see drop-down options at the bottom of the screen
-				var pp = combobox_pp.eq(1);
+				var pp = jq(jq(".z-combobox").toWidget().$n("pp"));
 				verifyTrue(pp.isVisible());
 				var pp_top = pp.css("top").replaceAll("px","").toInt;
 				verifyTrue(bodyHeight - pp_top < 10);
@@ -58,11 +58,11 @@ class Z60_Touch_017Test extends ZTL4ScalaTestCase {
 				verifyEquals(1, scroll_outer.length());
 				
 				// Click on the second drop-down button
-				singleTap(btns.eq(1));
+				singleTap(jq(".z-combobox:eq(1)").toWidget().$n("btn"));
 				waitResponse();
 				
 				// Should see drop-down options at the bottom of the screen
-				pp = combobox_pp.eq(1);
+				pp = jq(jq(".z-combobox:eq(1)").toWidget().$n("pp"));
 				verifyTrue(pp.isVisible());
 				pp_top = pp.css("top").replaceAll("px","").toInt;
 				verifyTrue(bodyHeight - pp_top < 10);
