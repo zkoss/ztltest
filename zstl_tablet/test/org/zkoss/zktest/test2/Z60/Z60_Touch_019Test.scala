@@ -4,10 +4,13 @@ import org.zkoss.ztl.Tags
 import org.openqa.selenium.HasTouchScreen
 import org.openqa.selenium.By
 import org.openqa.selenium.internal.Locatable
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_019Test extends ZTL4ScalaTestCase {
-	def testClick() {
+	
+  @Test
+  def testClick() {
 		val zscript = """
 <?meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"?>
 <zk>

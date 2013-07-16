@@ -4,10 +4,12 @@ import org.zkoss.ztl.Tags
 import org.openqa.selenium.By
 import org.openqa.selenium.internal.Locatable
 import org.openqa.selenium.HasTouchScreen
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_007Test extends ZTL4ScalaTestCase {
-	def testClick() {
+	@Test
+  def testClick() {
 		val zscript = """
 <zk>
 	<n:h3 xmlns:n="native">iPad/Android Only</n:h3>
@@ -30,17 +32,7 @@ class Z60_Touch_007Test extends ZTL4ScalaTestCase {
 				verifyTrue(errbox.isVisible());
 				
 				// Click once on 'X' should close the error box
-				var errbox_close  = findElement(By.className("z-errorbox-close"));
-				var close_topleft = 
-					errbox_close.asInstanceOf[Locatable].getCoordinates().getLocationOnScreen();
-				var close_width   = errbox_close.getSize().getWidth();
-				
-				var close_x = close_topleft.getX() + close_width - 5;
-				var close_y = close_topleft.getY() + 5;
-				
-				var touch = driver().asInstanceOf[HasTouchScreen].getTouch();
-				touch.down(close_x, close_y);
-				touch.up(close_x, close_y);
+				singleTap(errbox.toWidget().$n("cls"))
 				waitResponse();
 				
 				verifyFalse(errbox.exists());

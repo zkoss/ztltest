@@ -5,10 +5,13 @@ import org.openqa.selenium.By
 import org.openqa.selenium.interactions.internal.Coordinates
 import org.openqa.selenium.internal.Locatable
 import org.openqa.selenium.HasTouchScreen
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_016Test extends ZTL4ScalaTestCase {
-	def testClick() {
+	
+  @Test
+  def testClick() {
 		val zscript = {
 <zk>
 	<vlayout width="100%" height="100%">
@@ -143,7 +146,7 @@ class Z60_Touch_016Test extends ZTL4ScalaTestCase {
 				var scroll_height = scroll_inner.height();
 				
 				// Close tree node
-				singleTap(jq(".z-treerow").toWidget().$n("icon"));
+				singleTap(treebodies.find(".z-treerow:contains(Item 2)").toWidget().$n("open"));
 				waitResponse();
 				
 				// Scroll bar should now be longer
@@ -158,7 +161,7 @@ class Z60_Touch_016Test extends ZTL4ScalaTestCase {
 				verifyEquals(0, scroll_outer.length());
 				
 				// Open tree node and click on 'button'
-				singleTap(treebodies.eq(1).find(".z-treerow").toWidget().$n("icon"));
+				singleTap(treebodies.eq(1).find(".z-treerow:contains(Item 1)").toWidget().$n("open"));
 				waitResponse();
 				
 				singleTap(jq("@button"));
