@@ -1,10 +1,12 @@
 package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_005Test extends ZTL4ScalaTestCase {
-	def testClick() = {
+  @Test
+  def testClick() = {
 		val zscript = {
 <zk>
 	<div>
@@ -52,7 +54,7 @@ class Z60_Touch_005Test extends ZTL4ScalaTestCase {
 				waitResponse(true);
 				
 				// a popup should appear at the bottom of the screen
-				var combobox_pp = jq(".z-combobox").toWidget().$n("pp");
+				var combobox_pp = jq(jq(".z-combobox").toWidget().$n("pp"));
 				verifyTrue(combobox_pp.isVisible());
 				
 				verifyTrue(pageHeight - (combobox_pp.positionTop() + combobox_pp.height()) < 10);
@@ -62,7 +64,7 @@ class Z60_Touch_005Test extends ZTL4ScalaTestCase {
 				waitResponse(true);
 				
 				// a dropdown should be visible
-				var bandbox_pp = jq(".z-bandbox").toWidget().$n("pp");
+				var bandbox_pp = jq(jq(".z-bandbox").toWidget().$n("pp"));
 				verifyTrue(bandbox_pp.isVisible());
 			}
 		);

@@ -1,10 +1,13 @@
 package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_027Test extends ZTL4ScalaTestCase {
-	def testClick() {
+	
+  @Test
+  def testClick() {
 		val zscript = {
 <zk>
 	<div>
@@ -18,14 +21,11 @@ class Z60_Touch_027Test extends ZTL4ScalaTestCase {
 		
 		runZTL(zscript,
 			() => {
-				var btns = jq(".z-timebox-button");
-				var pps  = jq(".z-timebox-popup");
-				
 				// Click on the first timebox
-				singleTap(btns.eq(0));
+				singleTap(jq(".z-timebox").toWidget().$n("btn"));
 				waitResponse();
 				
-				var timewheel = pps.eq(1);
+				var timewheel = jq(jq(".z-timebox").toWidget().$n("pp"));
 				verifyTrue(timewheel.isVisible());
 				
 				var tw_list = timewheel.find(".z-timebox-wheel-list");
@@ -40,8 +40,10 @@ class Z60_Touch_027Test extends ZTL4ScalaTestCase {
 				verifyEquals("000102030405060708091011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859", second);
 				
 				// Click on the second timebox
-				singleTap(btns.eq(1));
+				singleTap(jq(".z-timebox:eq(1)").toWidget().$n("btn"));
 				waitResponse();
+				timewheel = jq(jq(".z-timebox:eq(1)").toWidget().$n("pp"))
+				tw_list = timewheel.find(".z-timebox-wheel-list");
 				verifyTrue(timewheel.isVisible());
 				verifyEquals(4, tw_list.length());
 				

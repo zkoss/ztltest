@@ -1,9 +1,12 @@
 package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_009Test extends ZTL4ScalaTestCase {
+  
+	@Test
 	def testClick() {
 		val zscript = {
 //<?meta name="viewport" content="width=800"?>
@@ -68,7 +71,7 @@ class Z60_Touch_009Test extends ZTL4ScalaTestCase {
 		
 		runZTL(zscript,
 			() => {
-				var column_btns = jq(".z-column-menuicon);
+				var column_btns = jq(".z-column-menuicon");
 				
 				for (i <- 0 to column_btns.length()-1) {
 					var column_btn = column_btns.eq(i);

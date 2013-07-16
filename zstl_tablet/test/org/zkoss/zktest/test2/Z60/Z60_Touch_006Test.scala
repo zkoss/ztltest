@@ -6,10 +6,13 @@ import org.openqa.selenium.HasTouchScreen
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.By
 import org.openqa.selenium.internal.Locatable
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_006Test extends ZTL4ScalaTestCase {
-	def testClick() {
+	
+  @Test
+  def testClick() {
 		val zscript = {
 <zk>
 <n:h3 xmlns:n="native">

@@ -10,9 +10,11 @@ import org.openqa.selenium.internal.Locatable
 import org.openqa.selenium.interactions.internal.Coordinates
 import org.openqa.selenium.Point
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_003Test extends ZTL4ScalaTestCase {
+	@Test
 	def testClick() {
 		val zscript = {
 <zk>
