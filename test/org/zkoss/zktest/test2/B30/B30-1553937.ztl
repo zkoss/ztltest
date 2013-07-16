@@ -19,7 +19,7 @@
 		--></server>
 		<client><![CDATA[
 			int w = Integer.valueOf(list.$n().parentNode().get("offsetWidth"));
-			verifyEquals(202, w);
+			verifyEquals(200, w);
 		]]></client>
 	</case>
 </test>

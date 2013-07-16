@@ -71,7 +71,7 @@ class B30_2075761Test extends ZTL4ScalaTestCase {
       verifyTrue("The west splitter should be visible", jq(jq(".z-west").toWidget().$n("split")).isVisible());
 
       // Verify the sizing of the center zone. It should be thinner than previously
-      verifyTrue("The width of the center zone should be smaller than without the splitter", (noSplitterWidth - withSplitterWidth) == 6);
+      verifyTrue("The width of the center zone should be smaller than without the splitter", (noSplitterWidth - withSplitterWidth) == 8);
 
       // Click again the button to change the splitter
       click(jq("@button"));

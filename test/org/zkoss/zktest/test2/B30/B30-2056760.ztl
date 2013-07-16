@@ -49,7 +49,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				verifyEquals("250",jq("@listbox").width());
+				verifyEquals("250",jq("@listbox").outerWidth());
 				int header = jq("@listheader:eq(0)").width();
 				int header1 = jq("@listheader:eq(1)").width();
 				int column = jq("@listcell:eq(0)").width();
@@ -61,6 +61,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				int header1x = jq("@listheader:eq(1)").width();
 				int columnx = jq("@listcell:eq(0)").width();
 				int column1x = jq("@listcell:eq(1)").width();
+				verifyEquals("350",jq("@listbox").outerWidth());
 				
 				verifyEquals("350",jq("@listbox").width());
 				verifyEquals(50, headerx - header);

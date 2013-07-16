@@ -108,50 +108,36 @@
 		]]></server>
 		<client><![CDATA[
 			// Test setting width
-			Element $head = grid.$n("head");			
-			Element $body = grid.$n("body");
-			verifyEquals("400px", grid.get("width"));
-				
+			JQuery  jgrid = jq(grid.$n()),
+			jhead = jq(grid.$n("head")),
+			jbody = jq(grid.$n("body"));
+			verifyEquals(400, jgrid.outerWidth());
 			click(width200);
 			waitResponse();
-			verifyEquals("200px", grid.get("width"));
-			
-			verifyEquals("200px", $head.get("style.width"));
-			
+			verifyEquals(200, jgrid.outerWidth());
+			verifyEquals(jhead.outerWidth(), jgrid.width());
 			click(width600);
 			waitResponse();
-			verifyEquals("600px", grid.get("width"));
-			verifyEquals("600px", $head.get("style.width"));
-			
+			verifyEquals(600, jgrid.outerWidth());
+			verifyEquals(jhead.outerWidth(), jgrid.width());
 			click(widthNull);
 			waitResponse();
 			verifyEquals("", grid.get("width"));
-			verifyNotEquals("", $head.get("style.width"));
-
+			verifyEquals(jhead.outerWidth(), jgrid.width());
 			// Test setting height
 			verifyEquals("", grid.get("height"));
-			String height = $body.get("style.height");
-			
 			click(height200);
 			waitResponse();
-			verifyEquals("200px", grid.get("height"));
-			
-			int hh = Integer.parseInt($head.get("offsetHeight"));
-			int bh = Integer.parseInt($body.get("offsetHeight"));
-			verifyEquals(200, hh + bh);
-			
-			click(height600);	
-			waitResponse();			
-			verifyEquals("600px", grid.get("height"));
-
-			hh = Integer.parseInt($head.get("offsetHeight"));
-			bh = Integer.parseInt($body.get("offsetHeight"));
-			verifyEquals(600, 600);
-			
+			verifyEquals(200, jgrid.outerHeight());
+			verifyEquals(jgrid.innerHeight(), jhead.outerHeight() + jbody.outerHeight());
+			click(height600);
+			waitResponse();
+			verifyEquals(600, jgrid.outerHeight());
+			verifyEquals(jgrid.innerHeight(), jhead.outerHeight() + jbody.outerHeight());
 			click(heightNull);
 			waitResponse();
 			verifyEquals("", grid.get("height"));
-			verifyEquals(height, $body.get("style.height"));
+			verifyEquals(jgrid.innerHeight(), jhead.outerHeight() + jbody.outerHeight());
 		]]></client>
 	</case>
 	<case id="ColumnSize">
@@ -168,52 +154,44 @@
 			</hbox>
 		]]></server>
 		<client><![CDATA[
-			Element $col1 = col1.$n();
-			Element $col2 = col2.$n();
-			Element $col3 = col3.$n();
-			
-			verifyEquals("50px", col1.get("width"));
+				JQuery jcol1 = jq(col1.$n()),
+						jcol2 = jq(col2.$n()),
+						jcol3 = jq(col3.$n());
+				verifyEquals("50px", col1.get("width"));
+				click(width20);
+				waitResponse();
+				verifyEquals("20px", col1.get("width"));
+				verifyEquals(20, jcol1.outerWidth());
+				click(width100);
+				waitResponse();
+				verifyEquals("100px", col1.get("width"));
+				verifyEquals(100, jcol1.outerWidth());
+				click(width200);
+				waitResponse();
+				verifyEquals("200px", col1.get("width"));
+				verifyEquals(200, jcol1.outerWidth());
 				
-			click(width20);
-			waitResponse();
-			verifyEquals("20px", col1.get("width"));
-			verifyEquals("20px", $col1.get("style.width"));
-			
-			click(width100);
-			waitResponse();
-			verifyEquals("100px", col1.get("width"));
-			verifyEquals("100px", $col1.get("style.width"));
-			
-			click(width200);
-			waitResponse();
-			verifyEquals("200px", col1.get("width"));
-			verifyEquals("200px", $col1.get("style.width"));
-
-			// col12 
-			verifyEquals("", col2.get("width"));
-			
-			click(width20b);
-			waitResponse();
-			verifyEquals("20px", col2.get("width"));
-			verifyEquals("20px", $col2.get("style.width"));
-			
-			click(width100b);
-			waitResponse();
-			verifyEquals("100px", col2.get("width"));
-			verifyEquals("100px", $col2.get("style.width"));
-			
-
-			// col3 
-			verifyEquals("", col3.get("width"));
-			click(width20c);
-			waitResponse();
-			verifyEquals("20px", col3.get("width"));
-			verifyEquals("20px", $col3.get("style.width"));
-			
-			click(width100c);
-			waitResponse();
-			verifyEquals("100px", col3.get("width"));
-			verifyEquals("100px", $col3.get("style.width"));
+				// col12
+				verifyEquals("", col2.get("width"));
+				click(width20b);
+				waitResponse();
+				verifyEquals("20px", col2.get("width"));
+				verifyEquals(20, jcol2.outerWidth());
+				click(width100b);
+				waitResponse();
+				verifyEquals("100px", col2.get("width"));
+				verifyEquals(100, jcol2.outerWidth());
+				
+				// col3
+				verifyEquals("", col3.get("width"));
+				click(width20c);
+				waitResponse();
+				verifyEquals("20px", col3.get("width"));
+				verifyEquals(20, jcol3.outerWidth());
+				click(width100c);
+				waitResponse();
+				verifyEquals("100px", col3.get("width"));
+				verifyEquals(100, jcol3.outerWidth());
 		]]></client>
 	</case>
 	<case id="Sizable">

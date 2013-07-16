@@ -39,28 +39,30 @@
 </zk>
 		 --></server>
 		<client><![CDATA[
-		    // growing
-			click(btn1);
-			waitResponse();
-			verifyEquals("20", jq(col1).outerWidth());
-			verifyEquals("20", jq("@row > td:eq(0)").outerWidth());
-			click(btn2);
-			waitResponse();
-			verifyEquals("100", jq(col1).outerWidth());
-			verifyEquals("100", jq("@row > td:eq(0)").outerWidth());
-			click(btn3);
-			waitResponse();
-			verifyEquals("200", jq(col1).outerWidth());
-			verifyEquals("200", jq("@row > td:eq(0)").outerWidth());
-			// shrinking
-			click(btn2);
-			waitResponse();
-			verifyEquals("100", jq(col1).outerWidth());
-			verifyEquals("100", jq("@row > td:eq(0)").outerWidth());
-			click(btn1);
-			waitResponse();
-			verifyEquals("20", jq(col1).outerWidth());
-			verifyEquals("20", jq("@row > td:eq(0)").outerWidth());
+				JQuery jcol1 = jq(col1.$n()),
+						jrow1 = jq(jq("@row").toWidget().firstChild().$n("chdextr"));
+				// growing
+				click(btn1);
+				waitResponse();
+				verifyEquals(20, jcol1.outerWidth());
+				verifyEquals(20, jrow1.outerWidth());
+				click(btn2);
+				waitResponse();
+				verifyEquals(100, jcol1.outerWidth());
+				verifyEquals(100, jrow1.outerWidth());
+				click(btn3);
+				waitResponse();
+				verifyEquals(200, jcol1.outerWidth());
+				verifyEquals(200, jrow1.outerWidth());
+				// shrinking
+				click(btn2);
+				waitResponse();
+				verifyEquals(100, jcol1.outerWidth());
+				verifyEquals(100, jrow1.outerWidth());
+				click(btn1);
+				waitResponse();
+				verifyEquals(20, jcol1.outerWidth());
+				verifyEquals(20, jrow1.outerWidth());		
 		]]></client>
 	</case>
 </test>

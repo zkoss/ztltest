@@ -14,7 +14,7 @@
 		<client><![CDATA[
 			click(jq(".z-button"));
 			waitResponse();
-			verifyEquals("OK", jq(".z-messagebox-btn:eq(0)").text());
+			verifyEquals("OK", jq(".z-messagebox-button:eq(0)").text());
 		]]></client>
 	</case>
 </test>
