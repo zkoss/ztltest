@@ -54,11 +54,11 @@ class B50_ZK_528Test extends ZTL4ScalaTestCase {
 		}
 		runZTL(zscript, () => {
 		  
-			val emp = jq(".z-grid").toWidget().$n("empty")
+			val emp = jq("@grid").toWidget().$n("empty")
 			verifyTrue(jq("$cols").find("@column:visible").length() == 1);
 			verifyEquals("Column1", jq("$cols").find("@column:visible").text());
 			verifyTrue(jq(emp).isVisible());
-			verifyEquals("Empty Message", jq(jq(".z-grid").toWidget().$n("empty")).text());
+			verifyEquals("Empty Message", jq(jq("@grid").toWidget().$n("empty")).text());
 
 			click(jq("@button:eq(0)"));
 			waitResponse();
