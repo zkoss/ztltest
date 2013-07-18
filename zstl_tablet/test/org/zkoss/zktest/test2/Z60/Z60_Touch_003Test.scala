@@ -147,18 +147,18 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 				waitResponse(true);
 				
 				// 3. Focus on the two textboxes, the label text color should change.
-				var label1 = jq("$h1 @label");
+				var label1 = jq("$h1").find("@label");
 				var style1 = label1.css("color");
-				var label2 = jq("$h2 @label");
+				var label2 = jq("$h2").find("@label");
 				var style2 = label2.css("color");
 				
-				singleTap(jq("$h1 @textbox"));
+				singleTap(jq("$h1").find("@textbox"));
 				waitResponse();
 				
 				verifyTrue(!label1.css("color").equals(style1) && 
 						    label2.css("color").equals(style2));
 				
-				singleTap(jq("$h2 @textbox"));
+				singleTap(jq("$h2").find("@textbox"));
 				waitResponse();
 				
 				verifyTrue( label1.css("color").equals(style1) && 
@@ -182,21 +182,15 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 				var listbody : WebElement = findElement(By.className("z-listbox-body"));
 				var touch    : TouchScreen = this.driver().asInstanceOf[HasTouchScreen].getTouch();
 				var coords   : Coordinates = listbody.asInstanceOf[Locatable].getCoordinates();
-				var location : Point = coords.getLocationOnScreen();
 				
 				// scroll down
-				touch.scroll(coords, 0, -40);
+				touch.scroll(coords, 0, -60);
 				waitResponse();
 				sleep(10000);
 				
-				// select an listitem
-				touch.down(location.getX() + 10, location.getY() + 10);
 				waitResponse(true);
 				
-				var selected_item : Int 
-					= jq(".z-listbox .z-listitem-selected .z-listcell").text().substring(7).toInt;
-				println(selected_item);
-				verifyTrue(selected_item > 50);
+				verifyTrue(jq(".z-listitem:contains(60)").exists());
 			}
 		);
 	}
