@@ -3,10 +3,12 @@ package org.zkoss.zktest.test2.B65
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1693.zul")
 class B65_ZK_1693Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk>
 	<label multiline="true">
@@ -96,7 +98,7 @@ class B65_ZK_1693Test extends ZTL4ScalaTestCase {
             waitResponse()
             sleep(500)
             val pp = jq("#" + cb.attr("id") + "-pp")
-            click(pp.find(".z-colorpalette-color:contains(" + color + ")"))
+            click(pp.find(".z-colorpalette-color[style*=" + color + "]"))
             waitResponse()
             verifyImage()
         }
