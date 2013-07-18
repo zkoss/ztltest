@@ -15,8 +15,9 @@ it will be useful, but WITHOUT ANY WARRANTY.
 package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.Tags
 import org.zkoss.ztl.ZK
+import org.junit.Test
 
 /**
  *
@@ -24,7 +25,9 @@ import org.zkoss.ztl.ZK
  */
 @Tags(tags = "B35-2568653.zul,A,E,Portallayout,VisionTest")
 class B35_2568653Test extends ZTL4ScalaTestCase {
-	def testCase() = {
+	
+  @Test
+  def testCase() = {
 		val zscript = {
 			<zk>
 				1.Please move the "Google Tools" from up to down after the "LabPixies Clock".
@@ -68,12 +71,10 @@ class B35_2568653Test extends ZTL4ScalaTestCase {
 		}
 		runZTL(zscript, () => {
 			sleep(500)
-			if (ZK.is("ie6"))
-				sleep(2000) // wait Iframe to load
 			
 			verifyImage();
 			val position = "10,10"
-	        val src = jq("$p1 .z-panel-header-move")
+	        val src = jq("$p1").find(".z-panel-header")
 	        mouseMoveAt(src, position)
 	        waitResponse
 	

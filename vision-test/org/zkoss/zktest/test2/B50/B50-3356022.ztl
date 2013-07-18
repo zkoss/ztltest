@@ -49,7 +49,7 @@
 		--></server>
 		<client><![CDATA[
 			verifyImage();
-			click(tabs.$n("right"));
+			click(jq(".z-tabbox").toWidget().$n("right"));
 			waitResponse();
 			click(tab2);
 			verifyImage();
