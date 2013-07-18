@@ -31,7 +31,7 @@
 		--></server>
 		<client><![CDATA[
 			verifyImage();
-			dragdropTo(jq(".z-west-splt"), "2,20", "-22, 20");
+			dragdropTo(jq(".z-west").toWidget().$n("split"), "2,20", "-22, 20");
 			verifyImage();
 		]]></client>
 	</case>
