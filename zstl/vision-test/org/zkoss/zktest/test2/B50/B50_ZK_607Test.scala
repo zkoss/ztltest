@@ -16,6 +16,7 @@ package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  *
@@ -23,6 +24,8 @@ import org.zkoss.ztl.Tags;
  */
 @Tags(tags = "B50-ZK-607.zul,A,E,Borderlayout,Hflex,Vflex,Native,VisionTest")
 class B50_ZK_607Test extends ZTL4ScalaTestCase {
+  
+	@Test
 	def testCase() = {
 		val zscript = {
 			<zk xmlns:n="native">
@@ -35,7 +38,7 @@ class B50_ZK_607Test extends ZTL4ScalaTestCase {
 			</zk>
 		}
 		runZTL(zscript, () => {
-			click(jq(".z-south-exp"))
+			click(jq(".z-south").toWidget().$n("btned"))
 			waitResponse(true)
 			verifyImage()
 		})

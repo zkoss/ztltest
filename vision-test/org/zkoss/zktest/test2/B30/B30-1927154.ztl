@@ -37,8 +37,8 @@ If failed, the position of the grid is wrong (overlapped with tabbox).
 </window>	--></server>
 		<client><![CDATA[
 		verifyImage();
-		JQuery tab1 = jq(".z-tab-accordion-hm:eq(0)");
-		JQuery tab2 = jq(".z-tab-accordion-hm:eq(1)");
+		JQuery tab1 = jq(".z-tab:contains(Tab 1)");
+		JQuery tab2 = jq(".z-tab:contains(Tab 2)");
 		click(tab2);
 		waitResponse(true);
 		click(tab1);

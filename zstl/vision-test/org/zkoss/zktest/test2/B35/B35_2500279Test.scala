@@ -16,6 +16,7 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  *
@@ -23,7 +24,9 @@ import org.zkoss.ztl.Tags;
  */
 @Tags(tags = "B35-2500279.zul,B,E,Listbox,Menu,Combobox,Datebox,Calendar,IE6,VisionTest")
 class B35_2500279Test extends ZTL4ScalaTestCase {
-	def testCase() = {
+	
+  @Test
+  def testCase() = {
 		val zscript = {
 			<zk>
 				Please test the popup of each drop-down component, menu, datebox, and combobox, should cover the drop-down list(IE6 only)
@@ -62,14 +65,13 @@ class B35_2500279Test extends ZTL4ScalaTestCase {
 			</zk>
 		}
 		runZTL(zscript, () => {
-			click(engine.$f("menu").$n("b"))
+			click(engine.$f("menu").$n("a"))
 			waitResponse
 			verifyImage()
 			
 			click(engine.$f("db").$n("btn"))
 			waitResponse
 			verifyImage()
-			
 			
 			click(engine.$f("cb").$n("btn"))
 			waitResponse

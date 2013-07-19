@@ -33,7 +33,7 @@ class Z60_Touch_012Test extends ZTL4ScalaTestCase {
 				waitResponse();
 				
 				// Should only see "Click xx time" message once
-				verifyEquals(1, jq("$vlayout > @label").length());
+				verifyEquals(1, jq("$vlayout").find("@label").length());
 			}
 		);
 	}
