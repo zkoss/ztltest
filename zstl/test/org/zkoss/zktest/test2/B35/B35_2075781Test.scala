@@ -127,7 +127,7 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
             val c1=jq("$ch0"); 
             var w=cl.width();
             var w1=c1.width();
-            var dif=(w-200)/2-w1-5; //padding 5px
+            var dif=(w-200)/2-w1; 
             verifyTrue(dif==0);
             
             

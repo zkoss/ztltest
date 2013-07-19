@@ -3,10 +3,12 @@ package org.zkoss.zktest.test2.F65
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.util.Scripts
+import org.junit.Test
 
 @Tags(tags = "F65-ZK-1655.zul")
 class F65_ZK_1655Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk>
 	<label multiline="true">
