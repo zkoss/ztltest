@@ -61,17 +61,17 @@ class B30_1894208Test extends ZTL4ScalaTestCase {
       }
 
       // Record the height of the north zone before drag (simulation)
-      var h1: Int = jq(".z-north").height();
+      var h1: Int = jq("@north").height();
 
       // Click on north splitter
-      click(jq(".z-north-splt").get(0));
+      click(jq(jq("@north").toWidget().$n("split")).get(0));
       waitResponse();
 
-      dragDrop(jq(".z-north-splt").get(0), "250,0", jq(".z-north-splt").get(0), "250,50");
+      dragDrop(jq(jq("@north").toWidget().$n("split")).get(0), "250,0", jq(jq("@north").toWidget().$n("split")).get(0), "250,50");
       waitResponse();
 
       // Record the height of the north zone after drag
-      var h2: Int = jq(".z-north").height();
+      var h2: Int = jq("@north").height();
 
       // Verify that h1 should not eq h2
       verifyTrue(h2 != h1);

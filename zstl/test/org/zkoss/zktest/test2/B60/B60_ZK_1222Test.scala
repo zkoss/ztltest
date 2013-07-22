@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B60
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B60-ZK-1222.zul")
 class B60_ZK_1222Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<?page title="B60-ZK-1222" contentType="text/html;charset=UTF-8"?>
                   <zk>

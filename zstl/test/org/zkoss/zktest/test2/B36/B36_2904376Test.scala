@@ -20,6 +20,7 @@ import java.util.Calendar
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
+import org.junit.Test
 
 /**
  * A test class for bug 2904376
@@ -29,6 +30,7 @@ import org.openqa.selenium.Keys
 @Tags(tags = "B36-2904376.zul,A,E,Window,Sizable")
 class B36_2904376Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """
 <?xml version="1.0" encoding="UTF-8"?>
@@ -87,8 +89,8 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         
         //Get Window
         var win2=jq("$win2");
-        var w=win2.width();
-        var h=win2.height();
+        var w=win2.outerWidth();
+        var h=win2.outerHeight();
         var dim = w/2 + ","  + h; 
         var dim2 = w/2 + ","  + (h*2);
         var dim3 = w + "," + (h/2);
