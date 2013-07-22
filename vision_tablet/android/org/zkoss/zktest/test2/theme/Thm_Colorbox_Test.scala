@@ -2,9 +2,11 @@ package org.zkoss.zktest.test2.theme
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Android,VisionTest")
 class Thm_Colorbox_Test extends ZTL4ScalaTestCase {
+	@Test
 	def testClick() = {
 		val zscript = """
 <hbox>
@@ -42,7 +44,7 @@ class Thm_Colorbox_Test extends ZTL4ScalaTestCase {
 				sleep(500);
 				verifyImage();
 				
-				singleTap(jq(".z-colorbox-popup[style*=\"display: block\"] .z-colorpalette-icon"));
+				singleTap(jq(".z-colorbox-popup[style*=block] .z-colorbox-paletteicon"));
 				sleep(500);
 				
 				singleTap(jq("@menu:eq(0)"));
@@ -51,7 +53,7 @@ class Thm_Colorbox_Test extends ZTL4ScalaTestCase {
 				sleep(500);
 				verifyImage();
 				
-				singleTap(jq(".z-colorpalette[style*=\"display: block\"] .z-colorpalette-icon:eq(1)"));
+				singleTap(jq(".z-colorbox-popup[style*=block] .z-colorbox-paletteicon"));
 				sleep(500);
 				
 				singleTap(jq("@colorbox:eq(1)"));

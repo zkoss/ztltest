@@ -1,4 +1,4 @@
-<test tags="B50-ZK-371.zul,A,E,Tree,zWatch,flex,VisionTest">
+<test tags="B50-ZK-410.zul,A,E,Tree,zWatch,flex,VisionTest">
 	<case id="Flex">
 		<server><!--
 
@@ -68,7 +68,7 @@
 		--></server>
 		<client><![CDATA[
 			verifyImage();
-			jq(".z-frozen-inner").scrollLeft(700);
+			horScroll(jq(".z-grid"), 0.5);
 			waitResponse();
 			verifyImage();
 		]]></client>
