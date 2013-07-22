@@ -45,23 +45,19 @@ class F65_ZK_1655Test extends ZTL4ScalaTestCase {
         Scripts.triggerMouseEventAt(getWebDriver(), cyan, "mouseover", "100,100")
         waitResponse()
         sleep(1000)
-        val cyanPP = jq(".z-popup")
-        val cyanPPTop = parseInt(cyanPP.css("top"))
-        val cyanPPLeft = parseInt(cyanPP.css("left"))
+        val cyanPP = jq("@popup")
 
-        verifyTrue("should see tooltip showed on 40px right of mouse pointer", cyanPPTop == cyan.offsetTop() + 100)
-        verifyTrue("should see tooltip showed on 40px right of mouse pointer", cyanPPLeft - 40 == cyan.offsetLeft() + 100)
+        verifyTrue("should see tooltip showed on 40px right of mouse pointer", cyanPP.offsetTop() == cyan.offsetTop() + 100)
+        verifyTrue("should see tooltip showed on 40px right of mouse pointer", cyanPP.offsetLeft() - 40 == cyan.offsetLeft() + 100)
 
         val pink = jq(".z-div[style*=pink]")
         clickAt(pink, "100,100")
         waitResponse()
         sleep(1000)
-        val pinkPP = jq(".z-popup")
-        val pinkPPTop = parseInt(pinkPP.css("top"))
-        val pinkPPLeft = parseInt(pinkPP.css("left"))
+        val pinkPP = jq("@popup")
 
-        verifyTrue("should see tooltip showed on 20px down of mouse pointer", pinkPPTop - 20 == pink.offsetTop() + 100)
-        verifyTrue("should see tooltip showed on 20px down of mouse pointer", pinkPPLeft == pink.offsetLeft() + 100)
+        verifyTrue("should see tooltip showed on 20px down of mouse pointer", cyanPP.offsetTop() - 20 == pink.offsetTop() + 100)
+        verifyTrue("should see tooltip showed on 20px down of mouse pointer", cyanPP.offsetLeft() == pink.offsetLeft() + 100)
 
           
 //        contextMenu cant work fine

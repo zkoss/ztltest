@@ -63,13 +63,13 @@ class B50_3352909Test extends ZTL4ScalaTestCase {
 		var grid: Widget = engine.$f("grid");
 		waitResponse();
 
-		jq(lb.$n("body")).get(0).eval("scrollTop = 2955");
+		verScroll(jq(lb.$n("body")).get(0), 0.5)
 		waitResponse();
-		verifyTrue(Integer.parseInt(jq(lb.$n("body")).get(0).get("scrollTop")) > 2700);
+		verifyTrue(lb.$n("cave").toElement().get("style.top").compare("-2000px") > 0);
 
-		jq(grid.$n("body")).get(0).eval("scrollTop = 2955");
+		verScroll(jq(grid.$n("body")).get(0), 0.5)
 		waitResponse();
-		verifyTrue(Integer.parseInt(jq(grid.$n("body")).get(0).get("scrollTop")) > 2700);
+		verifyTrue(grid.$n("cave").toElement().get("style.top").compare("-2000px") > 0);
     }
    // Run syntax 1 
    runZTL(zscript, executor);

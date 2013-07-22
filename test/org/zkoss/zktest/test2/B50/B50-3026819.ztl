@@ -36,7 +36,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				focus(txt1.$n());
 				sendKeys(txt1.$n(), Keys.TAB);
 				waitResponse();
-				verifyEquals("tabindex2",jq(".z-textbox-focus").val());
+				verifyTrue(!"".equals(jq(txt3).css("box-shadow")));
 		]]></client>
 	</case>
 </test>
