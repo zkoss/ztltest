@@ -2,10 +2,13 @@ package org.zkoss.zktest.test2.theme
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Android,VisionTest")
 class Thm_Chosenbox_Test extends ZTL4ScalaTestCase {
-	def testClick() = {
+	
+  @Test
+  def testClick() = {
 		val zscript = """
 <zk xmlns:n="native">
 	<zscript><![CDATA[
@@ -66,7 +69,7 @@ class Thm_Chosenbox_Test extends ZTL4ScalaTestCase {
 				verifyImage();
 				
 				// Remove 1st selected item
-				singleTap(jq(".z-chosenbox-del-btn:eq(0)"));
+				singleTap(jq(".z-chosenbox-delete:eq(0)"));
 				sleep(500);
 				verifyImage();
 				

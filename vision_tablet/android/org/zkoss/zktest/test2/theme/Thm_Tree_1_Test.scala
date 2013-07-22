@@ -2,10 +2,13 @@ package org.zkoss.zktest.test2.theme
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Android,VisionTest")
 class Thm_Tree_1_Test extends ZTL4ScalaTestCase {
-	def testClick() = {
+	
+  @Test
+  def testClick() = {
 		val zscript = """
 <zk>
 	<tree id="tree" width="400px" rows="8">
@@ -127,27 +130,29 @@ class Thm_Tree_1_Test extends ZTL4ScalaTestCase {
 			() => {
 				verifyImage();
 				
+				val tree = jq("$tree")
 				// Close 2nd level tree node of 1st tree
-				singleTap(jq("$tree .z-tree-ico:eq(2)"));
+				singleTap(tree.find(".z-treerow:contains(2.1)").toWidget().$n("open"));
 				sleep(500);
 				verifyImage();
 				
 				// Close 1st level tree node of 1st tree
-				singleTap(jq("$tree .z-tree-ico:eq(1)"));
+				singleTap(tree.find(".z-treerow:contains(2)").toWidget().$n("open"));
 				sleep(500);
 				verifyImage();
 				
+				val tree2 = jq("$tree2")
 				// Expand 1st level tree node of 2nd tree
-				singleTap(jq("$tree2 .z-tree-ico:eq(0)"));
+				singleTap(tree2.find(".z-treerow:contains(1)").toWidget().$n("open"));
 				sleep(500);
-				singleTap(jq("$tree2 .z-tree-ico:eq(3)"));
+				singleTap(tree2.find(".z-treerow:contains(2)").toWidget().$n("open"));
 				sleep(500);
 				verifyImage();
 				
 				// Expand 2nd level tree node of 2nd tree
-				singleTap(jq("$tree2 .z-tree-ico:eq(1)"));
+				singleTap(tree2.find(".z-treerow:contains(3)").toWidget().$n("open"));
 				sleep(500);
-				singleTap(jq("$tree2 .z-tree-ico:eq(4)"));
+				singleTap(tree2.find(".z-treerow:contains(4)").toWidget().$n("open"));
 				sleep(500);
 				verifyImage();
 			});
