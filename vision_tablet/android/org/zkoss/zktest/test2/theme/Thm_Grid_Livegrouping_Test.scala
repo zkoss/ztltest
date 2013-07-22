@@ -2,9 +2,11 @@ package org.zkoss.zktest.test2.theme
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Android,VisionTest")
 class Thm_Grid_Livegrouping_Test extends ZTL4ScalaTestCase {
+	@Test
 	def testClick() = {
 		val zscript = """
 <zk>

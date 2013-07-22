@@ -2,9 +2,12 @@ package org.zkoss.zktest.test2.theme
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Android,VisionTest")
 class Thm_Messagebox_Test extends ZTL4ScalaTestCase {
+  
+	@Test
 	def testClick() = {
 		val zscript = """
 <zk xmlns:w="client">
@@ -105,9 +108,9 @@ class Thm_Messagebox_Test extends ZTL4ScalaTestCase {
 					verifyImage();
 					
 					if (i != last) {
-    					singleTap(jq(".z-messagebox-window .z-window-highlighted").toWidget().$n("close"));
+    					singleTap(jq(".z-messagebox-window").toWidget().$n("close"));
 					} else {
-    					singleTap(jq(".z-window-modal .z-window-modal").toWidget().$n("close"));
+    					singleTap(jq(".z-window-modal").toWidget().$n("close"));
 					}
    					sleep(500);
 				}

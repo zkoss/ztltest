@@ -2,10 +2,13 @@ package org.zkoss.zktest.test2.theme
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Android,VisionTest")
 class Thm_Borderlayout_Test extends ZTL4ScalaTestCase {
-	def testClick() = {
+	
+  @Test
+  def testClick() = {
 		val zscript = """
 <zk>
 	<borderlayout>
@@ -34,23 +37,23 @@ class Thm_Borderlayout_Test extends ZTL4ScalaTestCase {
 				verifyImage();
 				
 				// Collapse north
-				singleTap(jq(".z-north-colps"));
-				waitForCondition(jq(".z-north-exp").toString(), "1000");
+				singleTap(jq(".z-north").toWidget().$n("btn"));
+				waitForCondition(jq(".z-north").toWidget().$n("btned").toString(), "1000");
 				verifyImage();
 				
 				// Collapse east
-				singleTap(jq(".z-east-colps"));
-				waitForCondition(jq(".z-east-exp").toString(), "1000");
+				singleTap(jq(".z-east").toWidget().$n("btn"));
+				waitForCondition(jq(".z-east").toWidget().$n("btned").toString(), "1000");
 				verifyImage();
 				
 				// Collapse south
-				singleTap(jq(".z-south-colps"));
-				waitForCondition(jq(".z-south-exp").toString(), "1000");
+				singleTap(jq(".z-south").toWidget().$n("btn"));
+				waitForCondition(jq(".z-south").toWidget().$n("btned").toString(), "1000");
 				verifyImage();
 
 				// Collapse west
-				singleTap(jq(".z-west-colps"));
-				waitForCondition(jq(".z-west-exp").toString(), "1000");
+				singleTap(jq(".z-west").toWidget().$n("btn"));
+				waitForCondition(jq(".z-west").toWidget().$n("btned").toString(), "1000");
 				verifyImage();
 			});
 	}

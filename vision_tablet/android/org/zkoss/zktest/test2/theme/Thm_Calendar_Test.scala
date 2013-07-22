@@ -2,10 +2,13 @@ package org.zkoss.zktest.test2.theme
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Android,VisionTest")
 class Thm_Calendar_Test extends ZTL4ScalaTestCase {
-	def testClick() = {
+	
+  @Test
+  def testClick() = {
 		val zscript = """
 <hlayout>
 	<vlayout>

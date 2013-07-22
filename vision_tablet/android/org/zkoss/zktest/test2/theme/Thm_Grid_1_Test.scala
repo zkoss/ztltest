@@ -2,9 +2,11 @@ package org.zkoss.zktest.test2.theme
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 @Tags(tags = "Android,VisionTest")
 class Thm_Grid_1_Test extends ZTL4ScalaTestCase {
+	@Test
 	def testClick() = {
 		val zscript = """
 <zk>
@@ -92,7 +94,9 @@ class Thm_Grid_1_Test extends ZTL4ScalaTestCase {
 				verifyImage();
 				
 				// Verify Column menu dropdown
-				singleTap(jq(".z-column-menuicon:eq(0)"));
+				singleTap(jq(".z-column:contains(Author)"))
+				val btn = jq(".z-column:contains(Author)").toWidget().$n("btn")
+				singleTap(btn)
 				sleep(500);
 				verifyImage();
 				
@@ -102,21 +106,21 @@ class Thm_Grid_1_Test extends ZTL4ScalaTestCase {
 				verifyImage();
 				
 				// Verify Ungroup
-				singleTap(jq(".z-column-menuicon:eq(0)"));
+				singleTap(btn);
 				sleep(500);
 				singleTap(jq(".z-menuitem:eq(1)"));
 				sleep(500);
 				verifyImage();
 				
 				// Verify Sort Ascending
-				singleTap(jq(".z-column-menuicon:eq(0)"));
+				singleTap(btn);
 				sleep(500);
 				singleTap(jq(".z-menuitem:eq(2)"));
 				sleep(500);
 				verifyImage();
 				
 				// Verify Column Hiding
-				singleTap(jq(".z-column-menuicon:eq(0)"));
+				singleTap(btn);
 				sleep(500);
 				singleTap(jq(".z-menuitem:eq(5)"));
 				sleep(500);
