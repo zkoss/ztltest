@@ -19,6 +19,7 @@ package org.zkoss.zktest.test2.B35
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.util.Scripts
+import org.junit.Test
 
 /**
  * A test class for bug 2077181
@@ -28,6 +29,7 @@ import org.zkoss.ztl.util.Scripts
 @Tags(tags = "B35-2077181.zul,B,E,Window,Tabbox")
 class B35_2077181Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 <?xml version="1.0" encoding="UTF-8"?>

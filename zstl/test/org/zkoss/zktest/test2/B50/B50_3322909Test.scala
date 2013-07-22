@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-3322909.zul,A,E,Listbox,emptyMessage")
 class B50_3322909Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -92,21 +93,17 @@ class B50_3322909Test extends ZTL4ScalaTestCase {
 		var btn2: Widget = engine.$f("btn2");
 		waitResponse();
 
-		Scripts.triggerMouseEventAt(getWebDriver(), btn1, "click", "5,5");
+		click(btn1);
 		waitResponse();
-		Scripts.triggerMouseEventAt(getWebDriver(), btn2, "click", "5,5");
+		click(btn2);
 		waitResponse();
-		verifyTrue(Integer.parseInt(jq(test.$n("body")).get(0).get("scrollTop")) == 0
-		    && jq(test.$n("empty")).find("tr").find("td").get(0).get("innerHTML").contains("No items match your search")
-		);
-		Scripts.triggerMouseEventAt(getWebDriver(), btn1, "click", "5,5");
+		verifyTrue(getText(test.$n("empty")).contains("No items match your search"))
+		click(btn1);
 		waitResponse();
-		Scripts.triggerMouseEventAt(getWebDriver(), btn2, "click", "5,5");
+		click(btn2);
 		waitResponse();
-		verifyTrue(Integer.parseInt(jq(test.$n("body")).get(0).get("scrollTop")) == 0
-		    && jq(test.$n("empty")).find("tr").find("td").get(0).get("innerHTML").contains("No items match your search")
-		);
-    }
+		verifyTrue(getText(test.$n("empty")).contains("No items match your search"))
+	}
    // Run syntax 1 
    runZTL(zscript, executor);
    

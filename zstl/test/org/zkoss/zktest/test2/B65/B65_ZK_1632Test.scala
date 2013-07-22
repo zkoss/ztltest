@@ -3,10 +3,12 @@ package org.zkoss.zktest.test2.B65
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.openqa.selenium.Keys
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1632.zul")
 class B65_ZK_1632Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
