@@ -22,6 +22,7 @@
 			String strClickBefor = getText(l1);
 			click(l1);
 			waitResponse();
+			String strClickAfter = getText(l1);
 			verifyNotEquals(strClickBefor, getText(l1));
 			strClickBefor = getText(l2);
 			click(l2);

@@ -55,8 +55,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			waitResponse();
 			click(jq(".z-treerow:contains(something):eq(1)").toWidget().$n("open"));
 			waitResponse();
-			int scrollTop = parseInt(groupTree.$n("body").get("scrollTop"));
-			verifyTrue(scrollTop > 200);
+			verifyTrue(getScrollTop(groupTree) > 200);
 		]]></client>
 	</case>
 </test>

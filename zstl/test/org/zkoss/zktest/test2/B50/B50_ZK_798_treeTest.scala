@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B50
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B50-ZK-798-tree.zul")
 class B50_ZK_798_treeTest extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk>
                     <h:pre xmlns:h="xhtml">
