@@ -256,7 +256,7 @@ class B65_ZK_1632Test extends ZTL4ScalaTestCase {
 						            </row> 
 						            <row>
                                                       	    <hlayout>
-									        <label value="textBox 40s"></label>
+									        <label value="textBox 40"></label>
 									        <textbox  width="150px" constraint="no empty: Textbox 40"></textbox>
                                                              </hlayout>
 						            </row> 
@@ -283,8 +283,9 @@ class B65_ZK_1632Test extends ZTL4ScalaTestCase {
           sendKeys(jq(".z-textbox:eq(" + i + ")"), Keys.TAB)
         }
         waitResponse()
-        jq(".z-center-body").toElement().set("scrollTop", 3000)
-        jq(".z-center-body").toElement().set("scrollTop", 0)
+        jq(".z-center").toWidget().$n("cave").firstChild().set("style.top", 3000) 
+        sleep(3000)
+        jq(".z-center").toWidget().$n("cave").firstChild().set("style.top", 0) 
         verifyTrue("errorbox should disappear. ", jq(".z-errorbox:contains(Textbox 1)").css("display") == "none")
       })
 

@@ -16,13 +16,13 @@ it will be useful, but WITHOUT ANY WARRANTY.
 	<case id="ztl">
 		<server><!--
 <zk>
- you shall see 5 "30px" widget in the screen ;
+ you shall see 5 "35px" widget in the screen ;
  <div id="div">
-  <combobox width="30px" />
-  <bandbox width="30px" />
-  <datebox width="30px" />
-  <timebox width="30px" />
-  <spinner width="30px" />
+  <combobox width="35px" />
+  <bandbox width="35px" />
+  <datebox width="35px" />
+  <timebox width="35px" />
+  <spinner width="35px" />
  </div>
  
  
@@ -32,7 +32,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			JQuery widgets= jq("$div > *");
 			for(int i =0 ,len = widgets.length() ; i< len;++i){
 				int width = Integer.parseInt(widgets.eval("eq("+i+").width()"));
-				verifyEquals(30,width);
+				verifyEquals(35,width);
 			}
 		]]></client>
 	</case>
