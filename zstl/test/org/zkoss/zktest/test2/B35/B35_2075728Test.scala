@@ -19,6 +19,7 @@ package org.zkoss.zktest.test2.B35
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.util.Scripts;
+import org.junit.Test
 
 /**
  * A test class for bug 2075728
@@ -28,6 +29,7 @@ import org.zkoss.ztl.util.Scripts;
 @Tags(tags = "B35-2075728.zul,A,E,Portallayout")
 class B35_2075728Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
     		<window title="Test PortalLayout" border="normal">

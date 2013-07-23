@@ -61,13 +61,13 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				sleep(500);
 				}
 				waitResponse();
-				verifyTrue(parseInt(menubar.$n("body").get("scrollLeft")) - (fullWidth - parseInt(menubar.$n("body").get("offsetWidth"))) < 15);
+				verifyTrue(getScrollLeft(menubar) - (fullWidth - parseInt(menubar.$n("body").get("offsetWidth"))) < 15);
 				for (int j = 0;j < 5;j ++) {
 				click(jq(".z-menubar").toWidget().$n("left"));
 				sleep(500);
 				}
 				waitResponse();
-				verifyTrue(parseInt(menubar.$n("body").get("scrollLeft")) < 10);
+				verifyTrue(getScrollLeft(menubar) < 10);
 		]]></client>
 	</case>
 </test>

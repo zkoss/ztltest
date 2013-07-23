@@ -68,7 +68,6 @@ class B50_3285714Test extends ZTL4ScalaTestCase {
 
         verScroll(grid.$n("body"), 1)
         sleep(600);
-        var fullHeight: Int = Integer.parseInt(jq(grid.$n("body")).get(0).get("scrollTop"));
         verScroll(grid.$n("body"), .5)
         sleep(600);
 
@@ -83,7 +82,7 @@ class B50_3285714Test extends ZTL4ScalaTestCase {
         	  return findTopRow(i+1, max);
         }
         var topRow: Element = findTopRow(0, rowCnt);
-        var content: String = jq(topRow).find(".z-label").get(0).get("innerHTML");
+        var content: String = getText(topRow);
 
         var itemCnt: Integer = Integer.parseInt(content.substring(content.length()-4, content.length()));
         verifyTrue(Math.abs(5000-itemCnt) <= 15);

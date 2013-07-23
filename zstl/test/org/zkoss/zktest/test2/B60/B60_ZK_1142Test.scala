@@ -40,16 +40,18 @@ class B60_ZK_1142Test extends ZTL4ScalaTestCase {
         val strs = List("Document", "Spreadsheet", "Presentation")
         val newMenu = jq(".z-menu:contains(New)")
         strs foreach { str =>
-          click(jq(".z-menu:contains(File)"))
+          click(jq("@menu:contains(File)"))
           waitResponse()
           click(newMenu)
           waitResponse()
           mouseOver(newMenu)
           waitResponse()
-          click(jq(".z-menuitem:contains(" + str + ")"))
+          mouseOver(jq("@menuitem:contains(" + str + ")"))
           waitResponse()
-          verifyEquals("should see alert message displayed", jq(".z-messagebox-window .z-label").text(), str)
-          click(jq(".z-button"))
+          click(jq("@menuitem:contains(" + str + ")"))
+          waitResponse()
+          verifyEquals("should see alert message displayed", jq(".z-messagebox-window @label").text(), str)
+          click(jq("@button"))
           waitResponse()
         }
 

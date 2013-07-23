@@ -23,6 +23,7 @@ import org.zkoss.ztl.Element
 import org.zkoss.ztl.JQuery
 import org.zkoss.ztl.ZK
 import org.zkoss.ztl.util.Scripts
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -30,6 +31,7 @@ import org.zkoss.ztl.util.Scripts
  */
 @Tags(tags = "B35-2075722.zul,B,E,Window,Button")
 class B35_2075722Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
     val zscript = {
       <window title="Grid with Group feature" border="normal">

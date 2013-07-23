@@ -4,10 +4,12 @@ import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.ZK
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1661.zul")
 class B65_ZK_1661Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk>
 <zscript><![CDATA[
@@ -35,12 +37,13 @@ ListModelList model = new ListModelList(listShop);
         sendKeys(chosenbox, "S")
         waitResponse()
         val pp = jq(".z-chosenbox-popup")
+        val from = pp.css("top")
 
         for (i <- 1 to 30)
           sendKeys(pp, Keys.DOWN)
         waitResponse()
 
-        verifyTrue("Drop-down list should scroll by using keyboard.", pp.scrollTop() != 0)
+        verifyNotEquals("Drop-down list should scroll by using keyboard.", from, pp.css("top"))
       })
 
   }

@@ -79,18 +79,17 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
 		waitResponse();
 		verScroll(grid.$n("body"), 1)
 		waitResponse();
-		
-		var st1: Int = Integer.parseInt(jq(grid.$n("body")).get(0).get("scrollTop"));
-		var btns = jq(grid.$n("body")).find(".z-button");
+		var beforeRemove = getScrollTop(grid);
+		var btns = jq(grid.$n("body")).find("@button");
 		var lastBtn = btns.last();
 		waitResponse();
 		click(lastBtn);
 		waitResponse();
-		var st2: Int = Integer.parseInt(jq(grid.$n("body")).get(0).get("scrollTop"));
-		verifyTrue(st2 < st1);
-		btns = jq(grid.$n("body")).find(".z-button");
+		var afterRemove = getScrollTop(grid);
+		verifyTrue(beforeRemove > afterRemove);
+		btns = jq(grid.$n("body")).find("@button");
 		lastBtn = btns.last();
-		verifyTrue(lastBtn.get(0).get("innerHTML").contains("remove 198"))
+		verifyTrue(getText(lastBtn).contains("remove 198"))
     }
    // Run syntax 1 
    runZTL(zscript, executor);

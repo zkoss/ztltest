@@ -36,7 +36,6 @@ import java.lang._
 @Tags(tags = "B50-ZK-596.zul,B,E,Tabbox,Toolbar")
 class B50_ZK_596Test extends ZTL4ScalaTestCase {
 	
-  @Test
   def testClick() = {
     val zscript = {
 			<zk>
@@ -157,7 +156,7 @@ class B50_ZK_596Test extends ZTL4ScalaTestCase {
 
 	   		def checkWidth = () => {
 	   		  verifyTrue("the sum of tabs header width and toobar width should smaller or equal to tabs width",
-	   		      $tbsHeader.outerWidth(true) + $tbar.outerWidth(true) <= $tbs.outerWidth());
+	   		      $tbsHeader.outerWidth(true) + $tbar.outerWidth(true) <= $tbs.width());
 	   		}
 	   		clickAndWait(btn1, null);
 	   		checkWidth();
