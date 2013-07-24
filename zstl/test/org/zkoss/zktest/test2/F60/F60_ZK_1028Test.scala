@@ -38,7 +38,7 @@ class F60_ZK_1028Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<zscript>
 					<![CDATA[
@@ -140,8 +140,7 @@ class F60_ZK_1028Test extends ZTL4ScalaTestCase {
 				</button>
 				<hbox id="cloneThreeArea" />
 			</zk>
-
-    }
+    """
 
     runZTL(zscript,
         () => {
@@ -164,8 +163,9 @@ class F60_ZK_1028Test extends ZTL4ScalaTestCase {
           var $item: JQuery = jq(wgt.$n("sel")).find("div:contains("+item+")");
           var dropDown: JQuery = jq(wgt.$n("pp"));
           var ofs: Int = $item.offsetTop() - dropDown.offsetTop();
-
-          click(wgt.$n()); waitResponse();
+          click(wgt.$n("inp"))
+          waitResponse()
+          var height = dropDown.innerHeight()
           dropDown.get(0).eval("scrollTop = " + ofs);
           click($item); waitResponse();
         }

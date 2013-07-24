@@ -87,7 +87,7 @@ class Z30_grid_0005Test extends ZTL4ScalaTestCase {
 		// check colSpan
 		var c1 = Integer.parseInt(jq("$head1").toWidget().firstChild().$n().get("colSpan"));
 		var c2 = Integer.parseInt(jq("$head2").toWidget().lastChild().$n().get("colSpan"));
-		verifyEquals(3, c1 + c2);
+		verifyEquals(4, c1 + c2);
 		c1 = Integer.parseInt(jq("$head2").toWidget().firstChild().$n().get("colSpan"));
 		c2 = Integer.parseInt(jq("$head2").toWidget().lastChild().$n().get("colSpan"));
 		verifyEquals(3, c1 + c2);
