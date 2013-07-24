@@ -63,29 +63,29 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				verifyEquals(300,jq("@combobox:eq(0)").width());
-				verifyEquals(300,jq("@bandbox:eq(0)").width());
-				verifyEquals(300,jq("@datebox:eq(0)").width());
-				verifyEquals(300,jq("@spinner:eq(0)").width());
-				verifyEquals(300,jq("@timebox:eq(0)").width());
-				verifyEquals(300,jq("@doublespinner:eq(0)").width());
-				verifyEquals(300,jq("@textbox:eq(0)").width());
-				verifyEquals(300,jq("@decimalbox:eq(0)").width());
-				verifyEquals(300,jq("@intbox:eq(0)").width());
-				verifyEquals(300,jq("@doublebox:eq(0)").width());
-				verifyEquals(300,jq("@longbox:eq(0)").width());
-				
-				verifyEquals(300,jq("@combobox:eq(1)").width());
-				verifyEquals(300,jq("@bandbox:eq(1)").width());
-				verifyEquals(300,jq("@datebox:eq(1)").width());
-				verifyEquals(300,jq("@spinner:eq(1)").width());
-				verifyEquals(300,jq("@timebox:eq(1)").width());
-				verifyEquals(300,jq("@doublespinner:eq(1)").width());
-				verifyTolerant(300,jq("@textbox:eq(1)").width(),2);
-				verifyTolerant(300,jq("@decimalbox:eq(1)").width(),2);
-				verifyTolerant(300,jq("@intbox:eq(1)").width(),2);
-				verifyTolerant(300,jq("@doublebox:eq(1)").width(),2);
-				verifyTolerant(300,jq("@longbox:eq(1)").width(),2);
+			verifyEquals(300,jq("@combobox:eq(0)").outerWidth());
+			verifyEquals(300,jq("@bandbox:eq(0)").outerWidth());
+			verifyEquals(300,jq("@datebox:eq(0)").outerWidth());
+			verifyEquals(300,jq("@spinner:eq(0)").outerWidth());
+			verifyEquals(300,jq("@timebox:eq(0)").outerWidth());
+			verifyEquals(300,jq("@doublespinner:eq(0)").outerWidth());
+			verifyEquals(300,jq("@textbox:eq(0)").outerWidth());
+			verifyEquals(300,jq("@decimalbox:eq(0)").outerWidth());
+			verifyEquals(300,jq("@intbox:eq(0)").outerWidth());
+			verifyEquals(300,jq("@doublebox:eq(0)").outerWidth());
+			verifyEquals(300,jq("@longbox:eq(0)").outerWidth());
+			
+			verifyEquals(300,jq("@combobox:eq(1)").outerWidth());
+			verifyEquals(300,jq("@bandbox:eq(1)").outerWidth());
+			verifyEquals(300,jq("@datebox:eq(1)").outerWidth());
+			verifyEquals(300,jq("@spinner:eq(1)").outerWidth());
+			verifyEquals(300,jq("@timebox:eq(1)").outerWidth());
+			verifyEquals(300,jq("@doublespinner:eq(1)").outerWidth());
+			verifyTolerant(300,jq("@textbox:eq(1)").outerWidth(),2);
+			verifyTolerant(300,jq("@decimalbox:eq(1)").outerWidth(),2);
+			verifyTolerant(300,jq("@intbox:eq(1)").outerWidth(),2);
+			verifyTolerant(300,jq("@doublebox:eq(1)").outerWidth(),2);
+			verifyTolerant(300,jq("@longbox:eq(1)").outerWidth(),2);
 		]]></client>
 	</case>
 </test>
