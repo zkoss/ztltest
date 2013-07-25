@@ -72,7 +72,7 @@ new Datebox().setParent(row);
 			verifyEquals(50, $col1hd.outerWidth())
 			verifyEquals(50, $col1bd.outerWidth())
 
-			var halfWidth = (400 - 50) / 2
+			var halfWidth = (jq(g1).innerWidth() - 50) / 2
 			verifyEquals(halfWidth, $col2hd.outerWidth())
 			verifyEquals(halfWidth, $col2bd.outerWidth())
 			verifyEquals(halfWidth, $col3hd.outerWidth())
@@ -88,7 +88,7 @@ new Datebox().setParent(row);
 				verifyEquals(size, $col1hd.outerWidth())
 				verifyEquals(size, $col1bd.outerWidth())
 
-				halfWidth = (400 - size) / 2
+				halfWidth = (jq(g1).innerWidth() - size) / 2
 				verifyEquals(halfWidth, $col2hd.outerWidth())
 				verifyEquals(halfWidth, $col2bd.outerWidth())
 				verifyEquals(halfWidth, $col3hd.outerWidth())

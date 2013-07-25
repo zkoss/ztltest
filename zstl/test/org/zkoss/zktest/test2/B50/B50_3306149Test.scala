@@ -79,13 +79,13 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
 		waitResponse();
 		verScroll(grid.$n("body"), 1)
 		waitResponse();
-		var beforeRemove = getScrollTop(grid);
+		var beforeRemove = getMeshScrollTop(grid);
 		var btns = jq(grid.$n("body")).find("@button");
 		var lastBtn = btns.last();
 		waitResponse();
 		click(lastBtn);
 		waitResponse();
-		var afterRemove = getScrollTop(grid);
+		var afterRemove = getMeshScrollTop(grid);
 		verifyTrue(beforeRemove > afterRemove);
 		btns = jq(grid.$n("body")).find("@button");
 		lastBtn = btns.last();

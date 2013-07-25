@@ -65,12 +65,11 @@ class B50_3352909Test extends ZTL4ScalaTestCase {
 
 		verScroll(jq(lb.$n("body")).get(0), 0.5)
 		waitResponse();
-		var top = getScrollTop(lb);
-		verifyTrue(top > 2700);
+		verifyTrue(getMeshScrollTop(lb).abs > 2700)
 
 		verScroll(jq(grid.$n("body")).get(0), 0.5)
 		waitResponse();
-		verifyTrue(getScrollTop(grid) > 2700);
+		verifyTrue(getMeshScrollTop(grid).abs > 2700)
     }
    // Run syntax 1 
    runZTL(zscript, executor);

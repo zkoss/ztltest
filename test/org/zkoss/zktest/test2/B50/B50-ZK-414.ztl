@@ -56,7 +56,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			click(jq(".z-treerow:contains(something):eq(1)").toWidget().$n("open"));
 			waitResponse();
 			sleep(2000);
-			verifyTrue(getScrollTop(groupTree) > 200);
+			verifyTrue(java.lang.Math.abs(getMeshScrollTop(groupTree)) > 200);
 		]]></client>
 	</case>
 </test>

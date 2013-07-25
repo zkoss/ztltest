@@ -283,7 +283,9 @@ class B65_ZK_1632Test extends ZTL4ScalaTestCase {
           sendKeys(jq(".z-textbox:eq(" + i + ")"), Keys.TAB)
         }
         waitResponse()
-        jq(".z-center").toWidget().$n("cave").firstChild().set("style.top", 3000) 
+        //jq(".z-center").toWidget().$n("cave").firstChild().set("style.top", 3000)
+       jq(".z-center").toElement.set("style.top", 3000)
+        //verScroll(jq(".z-center").toWidget().$n("cave"), 1);
         sleep(3000)
         jq(".z-center").toWidget().$n("cave").firstChild().set("style.top", 0) 
         verifyTrue("errorbox should disappear. ", jq(".z-errorbox:contains(Textbox 1)").css("display") == "none")

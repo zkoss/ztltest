@@ -77,10 +77,10 @@ class B30_2003798Test extends ZTL4ScalaTestCase {
       // Mouse over the "foo" word
       // Option 2: mouseOver(jq(".z-label:contains(foo)"));
       val img = engine.$f("img");
-      mouseOver(img);
+      mouseOver(img)
       waitResponse();
       // Verify that the first row is selected
-      verifyFalse("The row must be highlighted", "".equals(jq("@treecell:eq(0)").css("background")));
+      verifyFalse("The row must be highlighted", "".equals(jq(".z-treecell:eq(0)").css("background")));
       click(img);
       waitResponse();
 

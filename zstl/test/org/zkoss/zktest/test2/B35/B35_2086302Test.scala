@@ -131,10 +131,10 @@ onClick="gb2.setOpen(!gb2.isOpen());"/>
         	var w2w = jq("$w2").width().intValue();
         	verifyEquals((bl2w*.25).intValue(),w2w);
         	
-        	var c2w=jq("$c2").width().intValue()+6;
+        	var c2w=jq("$c2").width().intValue() + 8;
         	verifyEquals((bl2w*.25).intValue(),c2w);
         	
-        	var e2w=jq("$bl2 .z-east-body").width().intValue();
+        	var e2w=jq(jq("$bl2").find("@east").toWidget().$n("cave")).width().intValue();
         	verifyEquals((bl2w*.5).intValue(),e2w);
         	
         	//Verify no border
@@ -151,10 +151,10 @@ onClick="gb2.setOpen(!gb2.isOpen());"/>
         	var w3w = jq("$w3").width().intValue();
         	verifyEquals((bl3w*.3).intValue(),w3w);
         	
-        	var c3w=jq("$bl3 .z-center-body").width().intValue()+6;
+        	var c3w=jq(jq("$bl3").find("@center").toWidget().$n("cave")).width().intValue()+ 8;
         	verifyTolerant((bl3w*.4).intValue(), c3w+1, 1);
         	
-        	var bl3center = jq("$bl3").find("@center");
+        	var bl3center = jq("$bl3").find(".z-center");
         	
         	//Verify border
         	verifyEquals(bl3center.css("border-top-width"),"1px");
@@ -162,13 +162,13 @@ onClick="gb2.setOpen(!gb2.isOpen());"/>
         	verifyEquals(bl3center.css("border-right-width"),"1px");
         	verifyEquals(bl3center.css("border-bottom-width"),"1px");
         	
-        	var e3w=jq("$e3 ").width().intValue();
+        	var e3w=jq("$e3").width().intValue();
         	verifyTolerant((bl3w*.3).intValue(), e3w, 1);
         	
         	//Vertical dimensions
         	
         	var bl2h=bl2.height().intValue();
-        	var bl3h=bl3.height().intValue()+6;
+        	var bl3h=bl3.height().intValue()+8;
         	         
         	verifyEquals(bl2h,(bl1h/2).intValue());
         	verifyEquals(bl3h,(bl1h/2).intValue());

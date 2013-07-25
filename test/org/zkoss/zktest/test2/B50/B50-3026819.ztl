@@ -33,10 +33,10 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				focus(txt1.$n());
-				sendKeys(txt1.$n(), Keys.TAB);
-				waitResponse();
-				verifyTrue(!"".equals(jq(txt3).css("box-shadow")));
+			focus(txt1.$n());
+			sendKeys(txt1.$n(), Keys.TAB);
+			waitResponse();
+			verifyTrue(!"".equals(jq(txt3).css("box-shadow")));
 		]]></client>
 	</case>
 </test>

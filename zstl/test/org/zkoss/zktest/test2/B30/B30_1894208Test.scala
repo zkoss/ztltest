@@ -53,25 +53,18 @@ class B30_1894208Test extends ZTL4ScalaTestCase {
       </zk>
     }
     runZTL(zscript, () => {
-      def dragDrop(from: Element, fromPos: String, to: Element, toPos: String) {
-        mouseDownAt(from, fromPos);
-        mouseMoveAt(to, toPos);
-        mouseUpAt(to, toPos);
-        waitResponse();
-      }
 
       // Record the height of the north zone before drag (simulation)
-      var h1: Int = jq("@north").height();
+      var h1: Int = jq(".z-north").height();
 
-      // Click on north splitter
-      click(jq(jq("@north").toWidget().$n("split")).get(0));
       waitResponse();
 
-      dragDrop(jq(jq("@north").toWidget().$n("split")).get(0), "250,0", jq(jq("@north").toWidget().$n("split")).get(0), "250,50");
+      dragAndDrop(jq(jq(".z-north").toWidget().$n("split")).get(0), "250, 50")
+      
       waitResponse();
 
       // Record the height of the north zone after drag
-      var h2: Int = jq("@north").height();
+      var h2: Int = jq(".z-north").height();
 
       // Verify that h1 should not eq h2
       verifyTrue(h2 != h1);

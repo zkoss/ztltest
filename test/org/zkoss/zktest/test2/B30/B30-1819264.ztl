@@ -14,15 +14,18 @@
 </borderlayout>
 		 --></server>
 		<client><![CDATA[
-			Element cave = widget(jq("@center")).$n("cave");
+			Element cave = widget(jq(".z-center")).$n("cave");
 			focus(tb);
 			blur(tb);
-			verifyTrue(jq(".z-errorbox").exists());
-			int top = zk(jq(".z-errorbox")).revisedOffset()[1];
-			cave.eval("scrollTop = 20");
-			verifyEquals(top - 20, zk(jq(".z-errorbox")).revisedOffset()[1]);
-			cave.eval("scrollTop = 0");
-			verifyEquals(top, zk(jq(".z-errorbox")).revisedOffset()[1]);
+			verifyTrue(jq("@errorbox").exists());
+			int top = zk(jq("@errorbox")).revisedOffset()[1];
+			top = getScrollTop(jq("@errorbox").toWidget());
+			verScroll(cave, .1);
+			JQuery rail = jq(widget(jq(".z-center")).$n("ver-rail"));
+			int totalhgh = rail.outerHeight();
+			verifyEquals(Math.round(totalhgh * .1) - top, getScrollTop(jq("@errorbox").toWidget()));
+			verScroll(cave, 0);
+			verifyEquals(top, getScrollTop(jq("@errorbox").toWidget()));
 		]]></client>
 	</case>
 </test>
