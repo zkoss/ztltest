@@ -132,7 +132,7 @@
 		</zk>
 		 --></server>
 		<client><![CDATA[
-		sleep(1000);//for DataBinding
+			sleep(1000);//for DataBinding
 			JQuery listitem = jq("@listbox > @listitem:first-child");
 			click(listitem);
 			waitResponse();
@@ -167,11 +167,15 @@
 			verifyEquals("ZKoss", pa.val());
 			verifyEquals(jq(street).val(), pa.val());
 			verifyEquals(jq(street2).val(), pa.val());
+			horScroll(jq("@listbox").toWidget(), 0);
+			waitResponse();
 			select(email, "email11@potix.com");
 			waitResponse();
 			verifyEquals("email11@potix.com", email.val());
 			verifyEquals(jq(email1).val(), email.val());
 			verifyEquals(jq(email2).val(), email.val());
+			horScroll(jq("@listbox").toWidget(), 1);
+			waitResponse();
 			type(firstName, "FirstName1");
 			waitResponse();
 			verifyEquals("FirstName1", fn.val());
@@ -188,12 +192,16 @@
 			verifyEquals("ZKoss1", pa.val());
 			verifyEquals(jq(street).val(), pa.val());
 			verifyEquals(jq(street2).val(), pa.val());
+			horScroll(jq("@listbox").toWidget(), 0);
+			waitResponse();
 			select(email1, "email1@potix.com");
 			waitResponse();
 			verifyEquals("email1@potix.com", email.val());
 			verifyEquals(jq(email1).val(), email.val());
 			verifyEquals(jq(email2).val(), email.val());
 			// test for nothing change
+			horScroll(jq("@listbox").toWidget(), 1);
+			waitResponse();
 			type(firstName2, "FirstName2");
 			waitResponse();
 			verifyEquals("FirstName2", jq(firstName2).val());
