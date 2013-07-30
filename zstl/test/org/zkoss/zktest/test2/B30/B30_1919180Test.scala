@@ -67,21 +67,16 @@ class B30_1919180Test extends ZTL4ScalaTestCase {
 		}
 		runZTL(zscript, () => {
 			val g1 = engine $f "g1"
-			val $col1hd = jq(engine $f "col1" $n "hdfaker")
-			val $col1bd = jq(engine $f "col1" $n "bdfaker")
-			val $col2hd = jq(engine $f "col2" $n "hdfaker")
-			val $col2bd = jq(engine $f "col2" $n "bdfaker")
-			val $col3hd = jq(engine $f "col3" $n "hdfaker")
-			val $col3bd = jq(engine $f "col3" $n "bdfaker")
+			
+			val $col1 = jq("$col1")
+			val $col2 = jq("$col2")
+			val $col3 = jq("$col3")
 
-			verifyEquals(50, $col1hd.outerWidth())
-			verifyEquals(50, $col1bd.outerWidth())
+			verifyEquals(50, $col1.outerWidth())
 
 			var halfWidth = (jq(g1).innerWidth() - 50) / 2
-			verifyEquals(halfWidth, $col2hd.outerWidth())
-			verifyEquals(halfWidth, $col2bd.outerWidth())
-			verifyEquals(halfWidth, $col3hd.outerWidth())
-			verifyEquals(halfWidth, $col3bd.outerWidth())
+			verifyEquals(halfWidth, $col2.outerWidth())
+			verifyEquals(halfWidth, $col3.outerWidth())
 
 			// add row
 			click(jq("@button:eq(0)"))
@@ -92,14 +87,17 @@ class B30_1919180Test extends ZTL4ScalaTestCase {
 			for ((btn, size) <- List((btn2, 150), (btn3, 300), (btn1, 50))) {
 				click(btn)
 				waitResponse
-				verifyEquals(size, $col1hd.outerWidth())
-				verifyEquals(size, $col1bd.outerWidth())
+				val $row1 = jq(jq(".z-row:eq(0)").children().get(0))
+				val $row2 = jq(jq(".z-row:eq(0)").children().get(1))
+				val $row3 = jq(jq(".z-row:eq(0)").children().get(2))
+				verifyEquals(size, $col1.outerWidth())
+				verifyEquals(size, $row1.outerWidth())
 
 				halfWidth = (jq(g1).innerWidth() - size) / 2
-				verifyEquals(halfWidth, $col2hd.outerWidth())
-				verifyEquals(halfWidth, $col2bd.outerWidth())
-				verifyEquals(halfWidth, $col3hd.outerWidth())
-				verifyEquals(halfWidth, $col3bd.outerWidth())
+				verifyEquals(halfWidth, $col2.outerWidth())
+				verifyEquals(halfWidth, $row2.outerWidth())
+				verifyEquals(halfWidth, $col3.outerWidth())
+				verifyEquals(halfWidth, $row3.outerWidth())
 			}
 		})
 	}

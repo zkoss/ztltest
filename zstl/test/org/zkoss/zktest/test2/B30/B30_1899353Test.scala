@@ -18,6 +18,7 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * A test class for bug 1899353
@@ -27,6 +28,7 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B30-1899353.zul,B,E,Macro,BI")
 class B30_1899353Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
     		<?component name="B1899353" macro-uri="B1899353.zul"

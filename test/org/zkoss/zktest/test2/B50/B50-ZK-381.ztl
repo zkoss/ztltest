@@ -50,24 +50,24 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 			int fullWidth = 0,
-				i = jq(menubar.$n("cave")).children().length();
-				Element e = jq(menubar.$n("cave")).get(0).firstChild();
-				for (int j = 0;j < i;j ++) {
-				fullWidth += parseInt(e.get("offsetWidth"));
-				e = e.nextSibling();
-				}
-				for (int j = 0;j < 5;j ++) {
-				click(jq(".z-menubar").toWidget().$n("right"));
-				sleep(500);
-				}
-				waitResponse();
-				verifyTrue(parseInt(menubar.$n("body").get("scrollLeft")) == (fullWidth - parseInt(menubar.$n("body").get("offsetWidth"))));
-				for (int j = 0;j < 5;j ++) {
-				click(jq(".z-menubar").toWidget().$n("left"));
-				sleep(500);
-				}
-				waitResponse();
-				verifyTrue(parseInt(menubar.$n("body").get("scrollLeft")) == 0);
+			i = jq(menubar.$n("cave")).children().length();
+			Element e = jq(menubar.$n("cave")).get(0).firstChild();
+			for (int j = 0;j < i;j ++) {
+			fullWidth += parseInt(e.get("offsetWidth"));
+			e = e.nextSibling();
+			}
+			for (int j = 0;j < 5;j ++) {
+			click(jq(".z-menubar").toWidget().$n("right"));
+			sleep(500);
+			}
+			waitResponse();
+			verifyTolerant(parseInt(menubar.$n("body").get("scrollLeft")), (fullWidth - parseInt(menubar.$n("body").get("offsetWidth"))), 16);
+			for (int j = 0;j < 5;j ++) {
+			click(jq(".z-menubar").toWidget().$n("left"));
+			sleep(500);
+			}
+			waitResponse();
+			verifyTrue(parseInt(menubar.$n("body").get("scrollLeft")) == 2);
 		]]></client>
 	</case>
 </test>
