@@ -42,7 +42,7 @@ class Z60_TreeTest extends ZTL4ScalaTestCase {
       ZKSeleneseTestCase.assertEquals("Root.1", getText(selectedLabel));
       
       val open = engine $f "open"
-      click(jq(".z-tree-ico").first())
+      click(jq(".z-treerow:contains(0)").toWidget().$n("open"))
       waitResponse()
       ZKSeleneseTestCase.assertEquals("true", getText(open));
       
@@ -50,7 +50,7 @@ class Z60_TreeTest extends ZTL4ScalaTestCase {
       waitResponse()
       ZKSeleneseTestCase.assertEquals("Root.0.0", getText(selectedLabel));
 
-      click(jq(".z-tree-ico").eq(1))
+      click(jq(".z-treerow:contains(1):eq(1)").toWidget().$n("open"))
       waitResponse()
       ZKSeleneseTestCase.assertEquals("false", getText(open));
     })
