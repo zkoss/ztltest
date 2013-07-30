@@ -34,10 +34,8 @@
 		</zk>
 		--></server>
 		<client><![CDATA[
-			int margin = 10;
-			
 			for (int i = 0; i < 9; i++) {
-			    verifyTolerant(jq("$header" + i).width(), (jq("$cell" + i).width() + margin), 5);
+				verifyTolerant(jq("$header" + i).width(), jq("$cell" + i).width(), 5);
 			}
 		]]></client>
 	</case>

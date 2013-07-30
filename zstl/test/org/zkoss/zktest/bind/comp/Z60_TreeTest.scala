@@ -19,12 +19,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZKSeleneseTestCase
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * @author Hawk
  */
 @Tags(tags = "zbind")
 class Z60_TreeTest extends ZTL4ScalaTestCase {
+  @Test
   def testAttribute() = {
     val zul = {
 	<include src="bind/comp/tree.zul"/>
