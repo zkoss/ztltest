@@ -10,11 +10,11 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = <zk>
+    val zscript = """<zk>
                     1. Select Dec 16 2012 and click right arrow, should see Jan 16 2013
     				2. Select Jan 31 2012 and click right arrow, should see Feb 28 2013
                     <calendar/>
-                  </zk>
+                  </zk>"""
 
     runZTL(zscript,
       () => {

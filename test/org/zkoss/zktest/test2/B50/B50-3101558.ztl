@@ -29,10 +29,10 @@ it will be useful, but WITHOUT ANY WARRANTY.
 </zk>
 		--></server>
 		<client><![CDATA[
-			JQuery widgets= jq("$div > *");
-			for(int i =0 ,len = widgets.length() ; i< len;++i){
-				int width = Integer.parseInt(widgets.eval("eq("+i+").width()"));
-				verifyEquals(35,width);
+			Widget w = div.firstChild();
+			for (int i = 0; i < div.nChildren(); i ++) {
+				verifyEquals(35, jq(w).width());
+				w = w.nextSibling();
 			}
 		]]></client>
 	</case>

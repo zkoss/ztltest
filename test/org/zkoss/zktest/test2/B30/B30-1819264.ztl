@@ -18,12 +18,10 @@
 			focus(tb);
 			blur(tb);
 			verifyTrue(jq("@errorbox").exists());
-			int top = zk(jq("@errorbox")).revisedOffset()[1];
-			top = getScrollTop(jq("@errorbox").toWidget());
+			int top = getScrollTop(jq("@errorbox").toWidget());
 			verScroll(cave, .1);
 			JQuery rail = jq(widget(jq(".z-center")).$n("ver-rail"));
-			int totalhgh = rail.outerHeight();
-			verifyEquals(Math.round(totalhgh * .1) - top, getScrollTop(jq("@errorbox").toWidget()));
+			verifyEquals(Math.round(rail.outerHeight() * .1 - top), getScrollTop(jq("@errorbox").toWidget()));
 			verScroll(cave, 0);
 			verifyEquals(top, getScrollTop(jq("@errorbox").toWidget()));
 		]]></client>

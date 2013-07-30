@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-3330762.zul,A,E,Doublespinner")
 class B50_3330762Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 

@@ -63,11 +63,12 @@ class B50_3352909Test extends ZTL4ScalaTestCase {
 		var grid: Widget = engine.$f("grid");
 		waitResponse();
 
-		verScroll(jq(lb.$n("body")).get(0), 0.5)
+		verScroll(lb, 0.5)
 		waitResponse();
-		verifyTrue(getMeshScrollTop(lb).abs > 2700)
+		var ii = getMeshScrollTop(lb).abs
+		verifyTrue(ii > 2700)
 
-		verScroll(jq(grid.$n("body")).get(0), 0.5)
+		verScroll(grid, 0.5)
 		waitResponse();
 		verifyTrue(getMeshScrollTop(grid).abs > 2700)
     }

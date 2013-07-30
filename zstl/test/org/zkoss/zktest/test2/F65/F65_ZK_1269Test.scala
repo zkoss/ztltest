@@ -3,10 +3,12 @@ package org.zkoss.zktest.test2.F65
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.openqa.selenium.Keys
+import org.junit.Test
 
 @Tags(tags = "F65-ZK-1269.zul")
 class F65_ZK_1269Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<?page title="new page title" contentType="text/html;charset=UTF-8"?>
 <zk>

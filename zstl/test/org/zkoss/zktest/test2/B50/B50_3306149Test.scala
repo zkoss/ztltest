@@ -75,20 +75,20 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
     }
 
     def executor = () => {
-    	var grid: Widget = engine.$f("grid");
-		waitResponse();
-		verScroll(grid.$n("body"), 1)
-		waitResponse();
-		var beforeRemove = getMeshScrollTop(grid);
-		var btns = jq(grid.$n("body")).find("@button");
-		var lastBtn = btns.last();
-		waitResponse();
-		click(lastBtn);
-		waitResponse();
-		var afterRemove = getMeshScrollTop(grid);
-		verifyTrue(beforeRemove > afterRemove);
-		btns = jq(grid.$n("body")).find("@button");
-		lastBtn = btns.last();
+    	var grid: Widget = engine.$f("grid")
+		waitResponse()
+		verScroll(grid, 1)
+		waitResponse()
+		var beforeRemove: Int = getMeshScrollTop(grid)
+		var btns = jq(grid.$n("body")).find("@button")
+		var lastBtn = btns.last()
+		waitResponse()
+		click(lastBtn)
+		waitResponse()
+		var afterRemove: Int = getMeshScrollTop(grid)
+		verifyTrue(beforeRemove < afterRemove)
+		btns = jq(grid.$n("body")).find("@button")
+		lastBtn = btns.last()
 		verifyTrue(getText(lastBtn).contains("remove 198"))
     }
    // Run syntax 1 
