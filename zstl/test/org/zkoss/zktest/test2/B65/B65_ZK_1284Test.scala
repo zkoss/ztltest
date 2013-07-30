@@ -57,13 +57,16 @@ class B65_ZK_1284Test extends ZTL4ScalaTestCase {
 """
     runZTL(zscript,
       () => {
-        jq(".z-grid-body").toElement().set("scrollLeft", 200)
+        val grid = jq("@grid").toWidget()
+        horScroll(grid, 1)
         focus(jq(".z-textbox:eq(0)"))
         waitResponse()
         
-        val bodyLeft = jq(".z-grid-body").scrollLeft()
-        verifyTrue("If the header scrolls to the left, the body should scroll along with it.", bodyLeft < 30 )
-        verifyTrue("Column headings should match the row content.", bodyLeft == jq(".z-grid-header").scrollLeft())
+        val bodyLeft = jq(grid.$n("body")).scrollLeft();
+        
+        verifyTrue("If the header scrolls to the left, the body should scroll along with it.", bodyLeft > 30 )
+        verifyTrue("Column headings should match the row content.", 
+            bodyLeft == jq(grid.$n("header")).scrollLeft())
       })
 
   }

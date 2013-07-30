@@ -160,7 +160,7 @@ class Z60_Listbox_ListModelArray_Multiple_noRODTest extends ZTL4ScalaTestCase {
           input(tbOne.$n(), id);
           click(btnFour);
           waitResponse();
-          var selection: String = msg.$n().get("innerHTML");
+          var selection: String = getText(msg.$n());
           var item: String = "";
           for (i <- 0 to toCheck.size()-1) {
             item = "data "+toCheck.get(i);

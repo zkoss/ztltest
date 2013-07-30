@@ -35,7 +35,8 @@ import java.lang._
  */
 @Tags(tags = "Z60-Grid-SimpleListModel-ROD.zul,Z60,A,E,Grid,SimpleListModel,ROD")
 class Z60_Grid_SimpleListModel_RODTest extends ZTL4ScalaTestCase {
-	
+
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>

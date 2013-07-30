@@ -37,15 +37,15 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				verScroll(list.$n("body"), 0.5);
-				// wait for rod
-				waitResponse();
-				int scOne = parseInt(list.$n("body").get("scrollTop"));
-				click(btn1);
-				waitResponse();
-				sleep(500);
-				int scTwo = parseInt(list.$n("body").get("scrollTop"));
-				verifyEquals(scOne, scTwo);
+			verScroll(list.$n("body"), 0.5);
+			// wait for rod
+			waitResponse();
+			int scOne = getMeshScrollTop(list);
+			click(btn1);
+			waitResponse();
+			sleep(500);
+			int scTwo = getMeshScrollTop(list);
+			verifyEquals(scOne, scTwo);
 		]]></client>
 	</case>
 </test>
