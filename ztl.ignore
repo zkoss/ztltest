@@ -45,6 +45,7 @@ B60-ZK-1338.ztl
 F60-ZK-1583.ztl
 B65-ZK-1215.ztl
 B65-ZK-1441.ztl
+Z60-Combobutton.ztl
 }
 firefox3={
 // unsupported
@@ -156,6 +157,7 @@ B35-2073451.ztl
 B65-ZK-1441.ztl
 }
 chrome={
+B35-2233787.ztl
 B50-3151694.ztl
 B65-ZK-1661.ztl
 B65-ZK-1215.ztl
