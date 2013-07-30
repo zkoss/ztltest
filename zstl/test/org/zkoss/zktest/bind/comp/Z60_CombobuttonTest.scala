@@ -19,12 +19,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZKSeleneseTestCase
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * @author Hawk
  */
 @Tags(tags = "zbind")
 class Z60_CombobuttonTest extends ZTL4ScalaTestCase {
+  @Test
   def testContainer() = {
     val zul = {
     		<include src="bind/comp/combobutton.zul"/>
@@ -33,10 +35,10 @@ class Z60_CombobuttonTest extends ZTL4ScalaTestCase {
     
       //button
       val open = engine $f "open"
-      ZKSeleneseTestCase.assertEquals("false", getText(open));
-      click(jq(".z-combobutton-btn-img"))
+      verifyEquals("false", getText(open));
+      click(jq(".z-combobutton").toWidget().$n("btn"))
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("true", getText(open));
+      verifyEquals("true", getText(open));
     })
   }
 }
