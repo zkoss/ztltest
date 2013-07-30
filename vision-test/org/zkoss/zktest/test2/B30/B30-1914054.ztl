@@ -99,7 +99,7 @@
 </zk>	--></server>
 		<client><![CDATA[
 		verifyImage();
-		click(jq(".z-treerow").toWidget().$n("icon"));
+		click(jq(".z-treerow:contains(Item 2)").toWidget().$n("open"));
 		verifyImage();
 		]]></client>
 	</case>
