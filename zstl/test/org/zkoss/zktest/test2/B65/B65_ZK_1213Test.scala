@@ -11,6 +11,14 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
     val zscript = """<zk>
+				    <button label="change to US">
+				  		<attribute name="onClick"><![CDATA[
+				    		Locale locale = new Locale("en", "US");
+				    		Sessions.getCurrent().setAttribute("px_preferred_locale", locale);
+				    		Clients.reloadMessages(locale);
+				    		org.zkoss.util.Locales.setThreadLocal(locale);
+				  		]]></attribute>
+					</button>
                     1. Select Dec 16 2012 and click right arrow, should see Jan 16 2013
     				2. Select Jan 31 2012 and click right arrow, should see Feb 28 2013
                     <calendar/>
@@ -18,6 +26,9 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
+
+        click(jq(".z-button"))
+        waitResponse()
 
         /**
          * 1. Select Dec 16 2012 and click right arrow, should see Jan 16 2013
@@ -41,7 +52,9 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
         click(jq(".z-calendar").toWidget().$n("right"))
         waitResponse()
 
+        sleep(500)
         verifyEquals(jq(".z-calendar-title").text(), yearMonth)
+        
         verifyEquals(jq(".z-calendar-weekday.z-calendar-selected").text(), dayOfNextMonth)
 
         // 2. Select Jan 31 2012 and click right arrow, should see Feb 29 2012
