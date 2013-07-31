@@ -36,12 +36,13 @@
 				waitResponse();
 				click(toggle);
 				waitResponse();
-				sleep(500);
-				verifyFalse(isVisible(jq(".z-errorbox")));
+				click(close); // errorbox cant be hidden in simulate env
+				waitResponse();
+				verifyFalse(jq(".z-errorbox").exists());
 				verifyFalse(isVisible(jq("@select > option ")));
 				click(toggle);
 				waitResponse();
-				verifyTrue(isVisible(jq("@select > option ")));	
+				verifyTrue(isVisible(jq("@select > option ")));
 			]]></client>
 	</case>
 </test>

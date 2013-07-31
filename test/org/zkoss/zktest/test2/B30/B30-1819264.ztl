@@ -21,7 +21,7 @@
 			int top = getScrollTop(jq("@errorbox").toWidget());
 			verScroll(cave, .1);
 			JQuery rail = jq(widget(jq(".z-center")).$n("ver-rail"));
-			verifyEquals(Math.round(rail.outerHeight() * .1 - top), getScrollTop(jq("@errorbox").toWidget()));
+			verifyEquals(jq(tb).offsetTop(), jq("@errorbox").offsetTop());
 			verScroll(cave, 0);
 			verifyEquals(top, getScrollTop(jq("@errorbox").toWidget()));
 		]]></client>
