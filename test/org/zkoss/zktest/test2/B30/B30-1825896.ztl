@@ -26,7 +26,7 @@
 		<client><![CDATA[
 			int colWidth = jq(".z-column:eq(3)").width();
 			dragdropTo(jq(".z-column:eq(3)"), (colWidth - 2) + ",5", (colWidth / 2) + ",5");
-			verifyTrue(jq(".z-column:eq(3)").width() > jq(".z-datebox:eq(0)").width());
+			verifyTrue(jq(".z-column:eq(3)").find(".z-datebox").innerWidth() < jq(".z-column:eq(3)").outerWidth());
 		]]></client>
 	</case>
 </test>

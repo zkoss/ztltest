@@ -19,6 +19,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.ZKSeleneseTestCase
+import org.junit.Test
 
 /**
  * @author Hawk
@@ -26,6 +27,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
  */
 @Tags(tags = "zbind")
 class Z60_ArgTest extends ZTL4ScalaTestCase {
+  @Test
   def testArg() = {
     val zul = {
       <include src="/bind/basic/args.zul"/>
