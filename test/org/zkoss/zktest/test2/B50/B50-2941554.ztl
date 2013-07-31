@@ -22,19 +22,11 @@
 		<client><![CDATA[
 				verifyFalse(jq("@popup").exists());
 				verifyFalse(jq("@errorbox").exists());
-
-				if (ZK.is("ie < 9")) {
-				mouseOver(jq("@button"));
-				mouseDownAt(jq("@button"), "3,3");
-				mouseUpAt(jq("@button"), "3,3");
-				} else {
-				click(jq("@button"));
-				}
-				waitResponse();
 				
+				click(jq("@button"));
+				waitResponse();
 				verifyTrue(jq("@popup").isVisible());
 				verifyTrue(jq("@errorbox").isVisible());
-				
 				click(t2);
 				waitResponse();
 				verifyFalse(jq("@popup").isVisible());

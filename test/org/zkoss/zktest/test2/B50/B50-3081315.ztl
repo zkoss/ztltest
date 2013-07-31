@@ -61,14 +61,12 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				
 			verifyEquals(3, jq(".z-tab").length());
-			
-			click(jq(".z-tab-close:eq(1)"));
+			click(jq(".z-tab:eq(1)").toWidget().$n("cls"));
 			waitResponse();
 			click(jq(".z-button:eq(0)"));
 			waitResponse();
 			verifyEquals(2, jq(".z-tab").length());
-			
-			click(jq(".z-tab-close:eq(0)"));
+			click(jq(".z-tab:eq(0)").toWidget().$n("cls"));
 			waitResponse();
 			click(jq(".z-button:eq(1)"));
 			waitResponse();

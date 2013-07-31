@@ -61,12 +61,12 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				verifyFalse(jq(".z-menubar").toWidget().$n("right").exists());
-				verifyFalse(jq(".z-menubar").toWidget().$n("left").exists());
+				verifyFalse(isVisible(menubar.$n("right")));
+				verifyFalse(isVisible(menubar.$n("left")));
 				click(cb.$n("real"));
-				waitResponse();
-				verifyTrue(jq(".z-menubar").toWidget().$n("right").exists());
-				verifyTrue(jq(".z-menubar").toWidget().$n("left").exists());
+				waitResponse();				
+				verifyTrue(isVisible(menubar.$n("right")));
+				verifyTrue(isVisible(menubar.$n("left")));
 		]]></client>
 	</case>
 </test>
