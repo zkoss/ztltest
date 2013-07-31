@@ -38,7 +38,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				click(jq(".z-tab-close:eq(1)"));
+				click(jq(".z-tab:eq(1)").toWidget().$n("cls"));
 				waitResponse();
 				verifyFalse(jq(".z-error").exists());
 		]]></client>

@@ -27,25 +27,25 @@
 		<client><![CDATA[
     	int hgh = jq(tabpanel1).outerHeight();
    		int tabhgh = jq(tabpanel2).outerHeight();
-		click(tb2.$n("close"));
+		click(tb2.$n("cls"));
 		waitResponse();
 		int hgh2 = jq(tabpanel1).outerHeight();
 		verifyEquals(hgh2 - hgh, tabhgh);
 
 		hgh = hgh2;
-		click(tb3.$n("close"));
+		click(tb3.$n("cls"));
 		waitResponse();
 		hgh2 = jq(tabpanel1).outerHeight();
 		verifyEquals(hgh2 - hgh, tabhgh);
 
 		hgh = hgh2;
-		click(tb4.$n("close"));
+		click(tb4.$n("cls"));
 		waitResponse();
 		hgh2 = jq(tabpanel1).outerHeight();
 		verifyEquals(hgh2 - hgh, tabhgh);
 
 		hgh = hgh2;
-		click(tb5.$n("close"));
+		click(tb5.$n("cls"));
 		waitResponse();
 		hgh2 = jq(tabpanel1).outerHeight();
 		verifyEquals(hgh2 - hgh, tabhgh);

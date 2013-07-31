@@ -46,8 +46,8 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 				click(jq("@tab[label=\"Tab 3\"]"));waitResponse();
-				click(jq(".z-tab-close:eq(0)"));waitResponse();
-				click(jq(".z-tab-close:eq(0)"));waitResponse();
+				click(jq(".z-tab:eq(0)").toWidget().$n("cls"));waitResponse();
+				click(jq(".z-tab:eq(0)").toWidget().$n("cls"));waitResponse();
 				click(jq("@tab[label=\"Tab 5\"]"));waitResponse();
 				verifyEquals("This is panel 5",jq("@tabpanel:visible").text());
 		]]></client>

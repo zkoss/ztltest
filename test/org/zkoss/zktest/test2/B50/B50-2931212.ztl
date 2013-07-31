@@ -33,7 +33,7 @@
 			-->
 		</server>
 		<client>	<![CDATA[
-    			click(jq("$aa").toWidget().$n("close"));
+    			click(aa.$n("cls"));
 				waitResponse();
 				verifyEquals("aa", jq(".z-messagebox-window .z-label").html());
 		]]></client>

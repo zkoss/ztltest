@@ -11,10 +11,11 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			type(jq(jq(".z-combobox").toWidget().$n("real")), "zk");
-			click(jq(jq(".z-combobox").toWidget().$n("btn")));
+			Widget cb = jq(".z-combobox").toWidget();
+			sendKeys(cb.$n("real"), "zk");
+			click(jq(cb.$n("btn")));
 			waitResponse();
-			click(jq(jq(".z-combobox").toWidget().$n("pp")));
+			click(cb.$n("pp"));
 			waitResponse();
 			clickAt(jq("p"), "3,4");
 			waitResponse();
