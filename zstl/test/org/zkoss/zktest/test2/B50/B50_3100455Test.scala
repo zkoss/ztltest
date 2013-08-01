@@ -192,10 +192,10 @@ class B50_3100455Test extends ZTL4ScalaTestCase {
         var bodyWidth3: Int = jq(listbox.$n("body")).outerWidth();
         var bodyWidth4: Int = jq(listbox2.$n("body")).outerWidth();
 
-        clickAt(jq(".z-scrollbar:eq(0)").toWidget().$n("hor-rail"), "100,8");
-        clickAt(jq(".z-scrollbar:eq(1)").toWidget().$n("hor-rail"), "100,8");
-        clickAt(jq(".z-scrollbar:eq(2)").toWidget().$n("hor-rail"), "100,8");
-        clickAt(jq(".z-scrollbar:eq(3)").toWidget().$n("hor-rail"), "100,8");
+        horScroll(grid, .5);
+        horScroll(listbox, .5);
+        horScroll(grid2, .5);
+        horScroll(listbox2, .5);
 
         var left0 = jq(".z-grid:eq(0) .z-column:contains(C)").offsetLeft()
         var left1 = jq(".z-listbox:eq(0) .z-listheader:contains(C)").offsetLeft()

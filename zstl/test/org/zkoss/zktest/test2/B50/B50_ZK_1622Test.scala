@@ -49,18 +49,17 @@ for (int i = 1; i <= 70; ++i)
     runZTL(zscript,
       () => {
         List("listbox", "tree") foreach { compName =>
-          val main = jq(".z-" + compName)
-          val body = jq(".z-" + compName + "-body")
-          verScroll(body, 1)
+          val main = jq(".z-" + compName).toWidget()
+          verScroll(main, 1)
           
           val cell = if(compName == "listbox") "listcell" else "treecell"
           click(jq(".z-" + cell + ":contains(50)"))
           waitResponse()
-          click(jq("[name=" + main.find(".z-paging").attr("id") + "-next]"))
+          click(jq("[name=" + jq(main).find(".z-paging").attr("id") + "-next]"))
           waitResponse()
-          verScroll(body, 1)
+          verScroll(main, 1)
 
-          verifyTrue("should not see blank area.", body.scrollTop() < 350)
+          verifyTrue("should not see blank area.", getMeshScrollTop(main) < 350)
         }
       })
 

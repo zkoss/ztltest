@@ -84,11 +84,9 @@ class B50_ZK_182Test extends ZTL4ScalaTestCase {
     	click(btn2);
     	waitResponse();
     	for (i <- 0 until 6) {
-    	  horScroll(grid.$n("body"), i * 0.15)
+    	  horScroll(grid, i * 0.15)
     	  waitResponse();
-    	  verifyTrue(Integer.parseInt((jq(grid.$n("head")).get(0).get("scrollLeft")))
-    	      .equals(Integer.parseInt(jq(grid.$n("body")).get(0).get("scrollLeft")))
-    	  );
+    	  verifyTrue(jq(grid.$n("body")).scrollLeft() == jq(grid.$n("head")).scrollLeft())
     	}
     }
    // Run syntax 1 
