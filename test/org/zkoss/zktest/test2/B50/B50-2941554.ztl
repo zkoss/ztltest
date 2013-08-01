@@ -9,7 +9,7 @@
 				    </tabs>
 				    <tabpanels>
 				        <tabpanel>
-				            <textbox constraint="no empty" focus="true"/>
+				            <textbox constraint="no empty, after_start" focus="true"/>
 				            <button id="btn" label="click me" popup="pp"/>
 				            <popup width="300px" id="pp">
 				                After click the t2 tab, the popup and the errorbox should be hidden.
@@ -29,6 +29,7 @@
 				verifyTrue(jq("@errorbox").isVisible());
 				click(t2);
 				waitResponse();
+				sleep(500);
 				verifyFalse(jq("@popup").isVisible());
 				verifyFalse(jq("@errorbox").isVisible());
 			]]></client>
