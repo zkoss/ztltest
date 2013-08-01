@@ -29,6 +29,7 @@
 				verifyTrue(jq("@errorbox").isVisible());
 				click(t2);
 				waitResponse();
+				sleep(500);
 				verifyFalse(jq("@popup").isVisible());
 				verifyFalse(jq("@errorbox").isVisible());
 			]]></client>
