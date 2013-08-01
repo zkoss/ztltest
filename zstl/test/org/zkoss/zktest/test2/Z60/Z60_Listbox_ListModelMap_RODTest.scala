@@ -189,7 +189,7 @@ class Z60_Listbox_ListModelMap_RODTest extends ZTL4ScalaTestCase {
           input(tbOne.$n(), id);
           click(btnFour);
           waitResponse();
-          var selection: String = msg.$n().get("innerHTML");
+          var selection: String = getText(msg)
           var item: String = "";
           for (i <- 0 to toCheck.size()-1) {
             item = "item "+toCheck.get(i)+"=data "+toCheck.get(i);
@@ -207,10 +207,10 @@ class Z60_Listbox_ListModelMap_RODTest extends ZTL4ScalaTestCase {
           waitResponse();
           if (assertValue)
             verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should the same",
-                msg.$n().get("innerHTML").equals("true"));
+                getText(msg).equals("true"));
           else
             verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should different",
-                msg.$n().get("innerHTML").equals("false"));
+                getText(msg).equals("false"));
         }
         def input = (tb: Element, value: String) => {
           click(tb);
@@ -242,11 +242,10 @@ class Z60_Listbox_ListModelMap_RODTest extends ZTL4ScalaTestCase {
               getSelection("lbxThree").equals(selsThree));
         }
         def getSelection (id: String): String = {
-          input(tbOne.$n(), id);
-          click(btnFour);
-          waitResponse();
-          var sels: String = msg.$n().get("innerHTML");
-          return sels;
+          input(tbOne.$n(), id)
+          click(btnFour)
+          waitResponse()
+          return getText(msg)
         }
         selectItem("lbxOne", 2);
         checkEqualSelection("lbxOne", "lbxTwo", true);

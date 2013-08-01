@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "Z60-Grid-GroupsModelArray-Paging-noROD.zul,Z60,A,E,Grid,GroupsModelArray,Paging")
 class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<zk>

@@ -63,10 +63,10 @@ class B65_ZK_1284Test extends ZTL4ScalaTestCase {
         waitResponse()
         
         val bodyLeft = jq(grid.$n("body")).scrollLeft();
+        val headLeft = jq(grid.$n("head")).scrollLeft();
         
         verifyTrue("If the header scrolls to the left, the body should scroll along with it.", bodyLeft > 30 )
-        verifyTrue("Column headings should match the row content.", 
-            bodyLeft == jq(grid.$n("header")).scrollLeft())
+        verifyTrue("Column headings should match the row content.", bodyLeft == headLeft)
       })
 
   }

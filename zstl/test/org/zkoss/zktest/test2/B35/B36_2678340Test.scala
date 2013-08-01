@@ -22,6 +22,7 @@ import org.openqa.selenium.Keys
 import org.zkoss.ztl.Widget
 import java.text.DateFormat
 import java.text.SimpleDateFormat
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -29,9 +30,18 @@ import java.text.SimpleDateFormat
  */
 @Tags(tags = "B36-2678340.zul,B,E,Window,Button")
 class B36_2678340Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
     val zscript = {
-      <zk>
+	  <zk>
+    		<button id="change" label="change to US">
+    			<attribute name="onClick"><![CDATA[
+    				Locale locale = new Locale("en", "US");
+    				Sessions.getCurrent().setAttribute("px_preferred_locale", locale);
+    				Clients.reloadMessages(locale);
+    				org.zkoss.util.Locales.setThreadLocal(locale);
+    		]]></attribute>
+    		</button>
         <window>
           <html><![CDATA[  
 		step1.click timebox btn to scroll the time value <br />
@@ -41,7 +51,7 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
         ]]></html>
           <timebox id="tb1"/>
           <label id="lab" value="1"/>
-          <button label="show value" mold="os">
+          <button id="show" label="show value" mold="os">
             <attribute name="onClick"><![CDATA[  
 				lab.setValue(""+tb1.getValue());
 				]]></attribute>
@@ -50,25 +60,32 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
       </zk>
     }
     runZTL(zscript, () => {
+		click(jq("$change"))
+		waitResponse()
       // Click upper button twice
-      click(jq(".z-timebox").toWidget().$n("btn-up"))
-      click(jq(".z-timebox").toWidget().$n("btn-up"))
+      click(jq(".z-timebox").toWidget().$n("btn-down"))
+      click(jq(".z-timebox").toWidget().$n("btn-down"))
+       waitResponse()
+       sleep(500)
 
       // Click on show value button
-      click(jq("@button"));
-      waitResponse();
+      click(jq("$show"));
+      waitResponse()
+      sleep(500)
 
-      val tb = engine.$f("tb1");
-      val lab = engine.$f("lab");
+      val tb = engine.$f("tb1")
+      val lab = engine.$f("lab")
 
       // Value of the label
-      val v = lab.get("value");
+      val v = getText(lab)
       // Location of time separator ':'
-      val p = v.indexOf(":");
+      var p = v.indexOf(":")
       // Construct a parseable time format
-      val value1 = v.substring(p - 2, p + 6);
+      val value1 = v.substring(p - 2, p + 6)
       // value of the timebox
-      val value2 = jq(tb.$n("real")).`val`();
+      val r = jq(tb.$n("real")).`val`()
+      p = r.indexOf(":")
+      val value2 = r.substring(p - 2, p + 6)
 
       val df1: DateFormat = new SimpleDateFormat("hh:mm:ss");
       var hh1 = df1.parse(value1).getHours();
