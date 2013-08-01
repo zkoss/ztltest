@@ -24,7 +24,7 @@
 		mouseDownAt(jq("@splitter"), "0,138");
 		mouseMoveAt(jq("@splitter"), "-250,138");
 		mouseUpAt(jq("@splitter"), "-250,138");
-		verifyTrue(i - 250 - jq("$cell1").width() < 2);
+		verifyTrue(i - 250 - jq("$cell1").width() < 8);
 		]]></client>
 	</case>
 </test>
