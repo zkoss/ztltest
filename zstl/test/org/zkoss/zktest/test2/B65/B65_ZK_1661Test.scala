@@ -37,13 +37,13 @@ ListModelList model = new ListModelList(listShop);
         sendKeys(chosenbox, "S")
         waitResponse()
         val pp = jq(".z-chosenbox-popup")
-        val from = pp.css("top")
+        val from = pp.scrollTop()
 
         for (i <- 1 to 30)
           sendKeys(pp, Keys.DOWN)
         waitResponse()
 
-        verifyNotEquals("Drop-down list should scroll by using keyboard.", from, pp.css("top"))
+        verifyNotEquals("Drop-down list should scroll by using keyboard.", from, pp.scrollTop())
       })
 
   }
