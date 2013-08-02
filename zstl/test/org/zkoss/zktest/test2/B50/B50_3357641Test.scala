@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-3357641.zul,A,E,ROD,Listbox,Model")
 class B50_3357641Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk xmlns:w="http://www.zkoss.org/2005/zk/client">
@@ -144,9 +145,9 @@ class B50_3357641Test extends ZTL4ScalaTestCase {
     	var btnNewModel: Widget = engine.$f("btnNewModel");
     	waitResponse();
 
-    	jq(testListbox.$n("body")).get(0).eval("scrollTop = 7065");
+    	verScroll(testListbox.$n("body"), 0.5)
     	waitResponse();
-    	Scripts.triggerMouseEventAt(getWebDriver(), btnNewModel, "click", "5,5");
+    	click(btnNewModel)
     	waitResponse();
 
     	for (i <- 0 until 5) {

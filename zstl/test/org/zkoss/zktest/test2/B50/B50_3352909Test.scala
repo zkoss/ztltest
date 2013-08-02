@@ -65,7 +65,7 @@ class B50_3352909Test extends ZTL4ScalaTestCase {
 
 		verScroll(lb, 0.5)
 		waitResponse();
-		verifyTrue(getMeshScrollTop(lb).abs > 2700)
+		verifyTrue(getMeshScrollTop(lb).abs < 2700)
 
 		verScroll(grid, 0.5)
 		waitResponse();

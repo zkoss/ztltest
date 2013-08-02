@@ -20,12 +20,12 @@
 		--></server>
 		<client>
 			String strClickBefor = getText(l1);
-			click(l1);
+			clickAt(l1, "2,2"); // firefox need
 			waitResponse();
 			String strClickAfter = getText(l1);
 			verifyNotEquals(strClickBefor, getText(l1));
 			strClickBefor = getText(l2);
-			click(l2);
+			clickAt(l2, "2,2");
 			waitResponse();
 			verifyNotEquals(strClickBefor, getText(l2));
 		</client>

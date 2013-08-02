@@ -11,13 +11,12 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			Widget cb = jq(".z-combobox").toWidget();
-			sendKeys(cb.$n("real"), "zk");
-			click(jq(cb.$n("btn")));
+			sendKeys(cb1.$n("real"), "zk");
+			click(jq(cb1.$n("btn")));
 			waitResponse();
-			click(cb.$n("pp"));
+			click(cb1.$n("pp"));
 			waitResponse();
-			clickAt(jq("p"), "3,4");
+			blur(cb1.$n("real"));
 			waitResponse();
 			verifyTrue(jq(".z-errorbox").exists());
 		]]></client>
