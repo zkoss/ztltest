@@ -6,7 +6,7 @@
 			.z-calendar {
 				width: 360px;
 			}
-			.z-calendar-calmon td, .z-calendar-calday td, .z-calendar-calday td a, .z-calendar-calday td a:visited, .z-datebox-calmon td, .z-datebox-calday td, .z-datebox-calday td a, .z-datebox-calday td a:visited {
+			.z-calendar-cell {
 			   font-size: 20px;
 			}
 			</style>
@@ -18,13 +18,7 @@
 			click(db.$n("btn"));
 			waitResponse();
 			Element pp = db.$n("pp");
-			// gecko = firefox(all version)
-            if (ZK.is("gecko") || ZK.is("opera")) {
-                verifyEquals(pp.get("scrollHeight"), jq(pp).outerHeight());
-            } else {
-				//it seems fine in safari . when scrollHeight is bigger then clientHeight 6
-				verifyTolerant( parseInt(pp.get("scrollHeight")), parseInt(pp.get("clientHeight")), 6);
-            }
+			verifyTolerant(Integer.parseInt(pp.get("scrollHeight")), jq(pp).outerHeight(), 6);
 		]]></client>
 	</case>
 </test>
