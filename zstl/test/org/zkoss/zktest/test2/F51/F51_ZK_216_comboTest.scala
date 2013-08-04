@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "F51-ZK-216-combo.zul,F60,A,E,template,combobox")
 class F51_ZK_216_comboTest extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<window>

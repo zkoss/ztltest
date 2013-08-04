@@ -21,6 +21,7 @@ import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
 import org.openqa.selenium.By
 import org.junit.Test
+import org.zkoss.ztl.ZK
 
 /**
  * @author Fernando Selvatici
@@ -60,12 +61,17 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
     }
     runZTL(zscript, () => {
 
-      click(jq("$anc"));
-
-      // Press the TAB key
-      // Note: Does not work on Chrome due to a ChromeDriver issue: http://code.google.com/p/selenium/issues/detail?id=2328
-      sendKeys(jq("$anc"), Keys.TAB);
-      waitResponse();
+      if(!ZK.is("ie")) {
+	      click(jq("$anc"));
+	
+	      // Press the TAB key
+	      // Note: Does not work on Chrome due to a ChromeDriver issue: http://code.google.com/p/selenium/issues/detail?id=2328
+	      sendKeys(jq("$anc"), Keys.TAB);
+	      waitResponse();      
+      } else { // ie cant focus correct
+        click(jq("$FocusOnMe"));
+        waitResponse();
+      }
       // Fails with sendKeys. I works clicking on the button
       // click(jq(".z-button:contains(FocusOnMe)"));
 
@@ -74,12 +80,12 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
 
       // Press the TAB key on first button
       // This doesn't work: sendKeys(jq(".z-button:contains(FocusOnMe)"), Keys.TAB);
-      sendKeys(engine.$f("FocusOnMe").$n("btn"), Keys.TAB);
+      sendKeys(jq("$FocusOnMe"), Keys.TAB);
       waitResponse();
 
       // Press the TAB key on second button
       // This doesn't work: sendKeys(jq(".z-button:contains(BlurMe)"), Keys.TAB);
-      sendKeys(engine.$f("BlurMe").$n("btn"), Keys.TAB);
+      sendKeys(jq("$BlurMe"), Keys.TAB);
       waitResponse();
 
       // Verify that the label of the second button is correct

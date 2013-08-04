@@ -3,10 +3,12 @@ package org.zkoss.zktest.test2.B65
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZK
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1430.zul")
 class B65_ZK_1430Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk>
 <label multiline="true">
@@ -63,13 +65,8 @@ IE6 / IE7 only.
       () => {
         click(jq(".z-bandbox").toWidget().$n("btn"))
         waitResponse()
-        val height = if (ZK.is("ff") || ZK.is("opera") || ZK.is("safari") || ZK.is("chrome")) {
-          jq(".z-listbox-body").height()
-        } else {
-          jq(".z-listbox-body").height() - 2
-        }
 
-        verifyTrue("The bandpopup size must be the same as listbox's size.", height == jq(".z-listitem").height() * 5)
+        verifyTrue("The bandpopup size must be the same as listbox's size.", jq(".z-listbox-body").height() == jq(".z-listitem").height() * 5)
       })
 
   }
