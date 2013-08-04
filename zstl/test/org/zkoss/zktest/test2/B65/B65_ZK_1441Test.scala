@@ -3,10 +3,12 @@ package org.zkoss.zktest.test2.B65
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1441.zul")
 class B65_ZK_1441Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = <zk>
                     <label multiline="true">
@@ -184,12 +186,8 @@ class B65_ZK_1441Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         waitResponse()
-        val tab8 = jq(".z-tabpanel-accordion-outer:contains(Tab 8)")
-        if (isFirefox) {
-          click(jq("@tab:contains(Tab 8)"))
-        } else {
-          click(tab8)
-        }
+        val tab8 = jq("@tab:contains(Tab 8)")
+        click(tab8)        
         waitResponse()
         val height8 = tab8.height()
 
@@ -206,9 +204,9 @@ class B65_ZK_1441Test extends ZTL4ScalaTestCase {
         click(jq("@tab:contains(Tab " + 1 + ")"))
         waitResponse()
 
-        val tab1 = jq(".z-tabpanel-accordion-outer:contains(Tab 1)")
+        val tab1 = jq("@tab:contains(Tab 1)")
         val isHeightSame = (tab1.height() == height8)
-        val isContentSame = tab1.find(".z-tabpanel-ver:contains(This is panel A)").isVisible()
+        val isContentSame = jq(".z-tabpanel:eq(0):contains(This is panel A)").isVisible()
 
         verifyTrue("The content and height of 'Tab 1' must correctly.", isHeightSame && isContentSame)
       })

@@ -36,7 +36,7 @@ B50-ZK-926.ztl
 B50-3204965.ztl
 B36-2844707.ztl
 B30-2003798.ztl
-B01185CollectionBindingNPE.ztl
+Z60-B01185CollectionBindingNPE.ztl
 }
 ### ignore all firefox
 firefox*={
@@ -92,6 +92,8 @@ Z60-Listbox-ListModelList-noROD.ztl
 Z60-Listbox-SimpleListModel-noROD.ztl
 // end for unpredictable row's height
 B60-ZK-1338.ztl
+// cant drag correct
+B50-3303684.ztl
 }
 ie={
 // stuck in ie10
@@ -290,7 +292,6 @@ Z60-B01189FormNotifyChange1.ztl
 Z60-B01189FormNotifyChange2.ztl
 Z60-B01188MixingELWithRef1.ztl
 Z60-B01188MixingELWithRef2.ztl
-Z60-B01185CollectionBindingNPE.ztl
 Z60-B01196BinderUiLcConfusion.ztl
 Z60-B01194NestedVMInit.ztl
 Z60-F01231AfterComposeVM.ztl

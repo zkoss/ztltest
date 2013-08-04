@@ -75,65 +75,29 @@
 			</window>
 		--></server>
 		<client><![CDATA[
-		if (ZK.is("ie") && !ZK.is("ie8")) {
-			int[] offset1 = zk(cb1).revisedOffset();
-			int[] offset2 = zk(cb1.$n("btn")).revisedOffset();
-			verifyEquals(offset1[1] + 1, offset2[1]);
-			verifyEquals(jq(cb1.$n("real")).outerHeight(),
-					jq(cb1.$n("btn")).outerHeight());
-			verifyEquals(offset1[0] + jq(cb1).outerWidth() - jq(cb1.$n("btn")).outerWidth(),
-					offset2[0]);
-			offset1 = zk(cb2).revisedOffset();
-			offset2 = zk(cb2.$n("btn")).revisedOffset();
-			verifyEquals(offset1[1] + 1, offset2[1]);
-			verifyEquals(jq(cb2.$n("real")).outerHeight(), jq(cb2.$n("btn")).outerHeight());
-			verifyEquals(offset1[0] + jq(cb2).outerWidth() - jq(cb2.$n("btn")).outerWidth(),
-					offset2[0]);
-			offset1 = zk(cb3).revisedOffset();
-			offset2 = zk(cb3.$n("btn")).revisedOffset();
-			verifyEquals(offset1[1] + 1, offset2[1]);
-			verifyEquals(jq(cb3.$n("real")).outerHeight(), jq(cb3.$n("btn")).outerHeight());
-			verifyEquals(offset1[0] + jq(cb3).outerWidth() - jq(cb3.$n("btn")).outerWidth(),
-					offset2[0]);
-			offset1 = zk(cb4).revisedOffset();
-			offset2 = zk(cb4.$n("btn")).revisedOffset();
-			verifyEquals(offset1[1] + 1, offset2[1]);
-			verifyEquals(jq(cb4.$n("real")).outerHeight(), jq(cb4.$n("btn")).outerHeight());
-			verifyEquals(offset1[0] + jq(cb4).outerWidth() - jq(cb4.$n("btn")).outerWidth(),
-					offset2[0]);
-		} else {
-			int[] offset1 = zk(cb1).revisedOffset();
-			int[] offset2 = zk(cb1.$n("btn")).revisedOffset();
-			verifyEquals(offset1[1], offset2[1]);
-			verifyEquals(jq(cb1.$n("real")).outerHeight(),
-					jq(cb1.$n("btn")).outerHeight());
-			verifyEquals(offset1[0] + jq(cb1).outerWidth() - jq(cb1.$n("btn")).outerWidth(),
-					offset2[0]);
-			offset1 = zk(cb2).revisedOffset();
-			offset2 = zk(cb2.$n("btn")).revisedOffset();
-			verifyEquals(offset1[1], offset2[1]);
-			verifyEquals(jq(cb2.$n("real")).outerHeight(), jq(
-			cb2.$n("btn")).outerHeight());
-			verifyEquals(offset1[0] + jq(cb2).outerWidth()
-				- jq(cb2.$n("btn")).outerWidth(),
-				offset2[0]);
-			offset1 = zk(cb3).revisedOffset();
-			offset2 = zk(cb3.$n("btn")).revisedOffset();
-			verifyEquals(offset1[1], offset2[1]);
-			verifyEquals(jq(cb3.$n("real")).outerHeight(), jq(
-			cb3.$n("btn")).outerHeight());
-			verifyEquals(offset1[0]	+ jq(cb3).outerWidth()
-					- jq(cb3.$n("btn")).outerWidth(),
-					offset2[0]);
-			offset1 = zk(cb4).revisedOffset();
-			offset2 = zk(cb4.$n("btn")).revisedOffset();
-			verifyEquals(offset1[1], offset2[1]);
-			verifyEquals(jq(cb4.$n("real")).outerHeight(), jq(
-			cb4.$n("btn")).outerHeight());
-			verifyEquals(offset1[0] + jq(cb4).outerWidth()
-					- jq(cb4.$n("btn")).outerWidth(),
-					offset2[0]);
-		}
+				verifyEquals(jq(cb1.$n()).outerWidth(), jq(cb2.$n()).outerWidth());
+				verifyEquals(jq(cb2.$n()).outerWidth(), jq(cb3.$n()).outerWidth());
+				verifyEquals(jq(cb3.$n()).outerWidth(), jq(cb4.$n()).outerWidth());
+				
+				verifyEquals(jq(cb1.$n("btn")).outerWidth(), jq(cb2.$n("btn")).outerWidth());
+				verifyEquals(jq(cb2.$n("btn")).outerWidth(), jq(cb3.$n("btn")).outerWidth());
+				verifyEquals(jq(cb3.$n("btn")).outerWidth(), jq(cb4.$n("btn")).outerWidth());
+				
+				verifyEquals(jq(cb1).find("i").outerWidth(), jq(cb2).find("i").outerWidth());
+				verifyEquals(jq(cb2).find("i").outerWidth(), jq(cb3).find("i").outerWidth());
+				verifyEquals(jq(cb3).find("i").outerWidth(), jq(cb4).find("i").outerWidth());
+				
+				verifyEquals(jq(cb1.$n()).outerHeight(), jq(cb2.$n()).outerHeight());
+				verifyEquals(jq(cb2.$n()).outerHeight(), jq(cb3.$n()).outerHeight());
+				verifyEquals(jq(cb3.$n()).outerHeight(), jq(cb4.$n()).outerHeight());
+				
+				verifyEquals(jq(cb1.$n("btn")).outerHeight(), jq(cb2.$n("btn")).outerHeight());
+				verifyEquals(jq(cb2.$n("btn")).outerHeight(), jq(cb3.$n("btn")).outerHeight());
+				verifyEquals(jq(cb3.$n("btn")).outerHeight(), jq(cb4.$n("btn")).outerHeight());
+				
+				verifyEquals(jq(cb1).find("i").outerHeight(), jq(cb2).find("i").outerHeight());
+				verifyEquals(jq(cb2).find("i").outerHeight(), jq(cb3).find("i").outerHeight());
+				verifyEquals(jq(cb3).find("i").outerHeight(), jq(cb4).find("i").outerHeight());	
 		]]></client>
 	</case>
 </test>

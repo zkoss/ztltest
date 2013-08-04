@@ -29,16 +29,15 @@
 			</zk>
 		--></server>
 		<client wait="200"><![CDATA[
-			Element b = isIE() ? btn.$n("btn") : btn.$n();
-			Scripts.triggerMouseEventAt(getWebDriver(), b, "click", "1,1");
+			click(btn);
 			waitResponse();
-			verifyEquals(2, jq("div.z-errorbox").length());
-			Scripts.triggerMouseEventAt(getWebDriver(), b, "click", "1,1");
+			verifyEquals(2, jq(".z-errorbox").length());
+			click(btn);
 			waitResponse();
-			verifyEquals(2, jq("div.z-errorbox").length());
-			Scripts.triggerMouseEventAt(getWebDriver(), b, "click", "1,1");
+			verifyEquals(2, jq(".z-errorbox").length());
+			click(btn);
 			waitResponse();
-			verifyEquals(2, jq("div.z-errorbox").length());
+			verifyEquals(2, jq(".z-errorbox").length());
 		]]></client>
 	</case>
 </test>
