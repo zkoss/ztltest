@@ -3,10 +3,12 @@ package org.zkoss.zktest.test2.B65
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import scala.io.Source
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1600.zul")
 class B65_ZK_1600Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """
     			   <zk>
@@ -30,7 +32,7 @@ class B65_ZK_1600Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        val datebox = jq(jq(".z-datebox").toWidget().$n("real"))
+        val datebox = jq(".z-datebox").toWidget().$n("real")
         sendKeys(datebox, "123")
         waitResponse()
         blur(datebox)

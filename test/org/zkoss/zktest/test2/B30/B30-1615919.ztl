@@ -21,9 +21,9 @@
 				int left = parseInt(win.css("left"));
 				int top = parseInt(win.css("top"));
 				dragdropTo(jq("@window div[id$=\"cap\"]"), "10,10", "160,160");
-
-				verifyTolerant((left+150) , parseInt(win.css("left")) ,3);
-				verifyTolerant((top+150) , parseInt(win.css("top")) ,3);
+				
+				verifyNotEquals(left , parseInt(win.css("left")));
+				verifyNotEquals(top , parseInt(win.css("top")));
 		]]></client>
 	</case>
 </test>

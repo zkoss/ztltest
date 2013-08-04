@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B60-ZK-827.zul,A,E,Listbox,ListModel,Selection,Checkmark")
 class B60_ZK_827Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<zk>
