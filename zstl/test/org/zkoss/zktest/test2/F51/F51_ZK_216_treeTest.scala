@@ -164,10 +164,10 @@ class F51_ZK_216_treeTest extends ZTL4ScalaTestCase {
           $childOne = jq(actor.$n("body")).find(".z-treerow:contains("+child+")");
           $childTwo = jq(checker.$n("body")).find(".z-treerow:contains("+child+")");
 
-          verifyTrue("Should "+status,
-              $childOne.exists() && $childTwo.exists()
-              && (($childOne.offsetTop() - $nodeOne.offsetTop) == ($childTwo.offsetTop() - $nodeTwo.offsetTop)
-                  || ($childOne.offsetTop() == 0) && $childTwo.offsetTop() == 0));
+          verifyTrue("Should " + status,
+            $childOne.exists() && $childTwo.exists()
+              && isVisible($childOne) == isVisible($childTwo));
+         
         }
         
         clickAndVerify("/dist", "/src", trOne, trTwo, true);
