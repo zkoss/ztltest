@@ -130,6 +130,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 								</menupopup>
 							</combobutton>
 						</hbox>
+    					<separator></separator>
 						<menubar id="menubar" width="100%">
 							<menu label="Project" image="/img/Centigrade-Widget-Icons/Briefcase-16x16.png">
 								<menupopup>
@@ -225,7 +226,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         var ppTwo: Widget = engine.$f("ppTwo");
         var pp2About = ".z-menu:contains(About)";
         var pp2Menu = ".z-menu:contains(Menu)";
-        var pp2ColorPicker = ".z-menu:contains(Color Picker)";
+        var pp2ColorPicker = ".z-menu:contains(Color)";
         var mbHelp: Widget = engine.$f("mbHelp");
 
         def clickAndWait(wgt: org.zkoss.ztl.ClientWidget) {
@@ -298,7 +299,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
             Array(messageBox));
         
         // to avoid click 'Help' menu 
-        click(jq(".z-button:contains(change image)"))
+        clickAt(jq(".z-button:contains(change image)"), "2,2")
         waitResponse()
         
         openMenu(Array(pp2About, pp2Menu, pp2ColorPicker));
@@ -306,7 +307,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
             jq(".z-colorpalette-popup").is(":visible"));
         
         // to avoid click 'Help' menu, reset
-        click(jq(".z-button:contains(change image)"))
+        clickAt(jq(".z-button:contains(image)"), "2,2")
         waitResponse()
 
         // step 9
