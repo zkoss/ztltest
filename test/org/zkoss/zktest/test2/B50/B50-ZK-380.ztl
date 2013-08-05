@@ -58,8 +58,8 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			click(i2);
 			waitResponse();
 
-			verifyTrue("true".equals(l1.$n().get("innerHTML")));
-			verifyTrue("false".equals(l2.$n().get("innerHTML")));
+			verifyTrue("true".equals(getText(l1)));
+			verifyTrue("false".equals(getText(l2)));
 		]]></client>
 	</case>
 </test>

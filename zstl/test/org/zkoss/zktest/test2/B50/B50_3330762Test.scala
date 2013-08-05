@@ -74,6 +74,7 @@ class B50_3330762Test extends ZTL4ScalaTestCase {
         clickThenCheck("1.0");
 
         click(ds.$n("btn-up"));
+        waitResponse();
         clickThenCheck("1.1");
 
         def clickThenCheck(value: String) {
@@ -81,7 +82,7 @@ class B50_3330762Test extends ZTL4ScalaTestCase {
         	waitResponse();
 
         	verifyTrue("the value of label should equal to the value of doublespinner",
-        	    value.equals(lb.$n().get("innerHTML")));
+        	    value.equals(getText(lb)));
         	verifyFalse("should not have Exception",
         	    jq(".z-window-highlighted").exists());
         	verifyFalse("should not have Exception",

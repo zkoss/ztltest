@@ -60,6 +60,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				Element right = jq(".z-calendar").toWidget().$n("right");
 				click(right);
 				waitResponse();
+				sleep(500);
 				click(jq(".z-calendar-cell.z-calendar-weekday:contains(2):eq(0)"));
 				waitResponse();
 				verifyEquals("01/02/2001",jq(jq(".z-datebox").toWidget().$n("real")).val());

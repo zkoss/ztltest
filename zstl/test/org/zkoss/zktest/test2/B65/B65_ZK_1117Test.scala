@@ -7,10 +7,12 @@ import org.openqa.selenium.HasTouchScreen
 import org.zkoss.ztl.util.Scripts
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.ZK
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1117.zul")
 class B65_ZK_1117Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript =
       """<window title="My First Window" border="normal">

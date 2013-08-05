@@ -42,23 +42,24 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			</window>
 		--></server>
 		<client><![CDATA[
+			JQuery $cap = jq(jq("@window").toWidget().$n("cap"));
 			verifyEquals(0,	jq("@menupopup:visible").length());
 			contextMenu(jq("$lb1"));
 			waitResponse();
 			verifyTrue(jq("@menupopup:visible").exists());
-			clickAt(desp,"10,10");
+			clickAt($cap, "10,10");
 			waitResponse();
 			verifyEquals(0,	jq("@menupopup:visible").length());
 			contextMenu(jq("$test"));
 			waitResponse();
 			verifyTrue(jq("@menupopup:visible").exists());
-			clickAt(desp,"10,10");
+			clickAt($cap,"10,10");
 			waitResponse();
 			verifyEquals(0,	jq("@menupopup:visible").length());
 			contextMenu(jq("$test2"));
 			waitResponse();
 			verifyTrue(jq("@menupopup:visible").exists());
-			clickAt(desp,"10,10");
+			clickAt($cap,"10,10");
 			waitResponse();
 			verifyEquals(0,	jq("@menupopup:visible").length());
 		]]></client>
