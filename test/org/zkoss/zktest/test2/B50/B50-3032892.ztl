@@ -90,18 +90,21 @@
 			focus(ti1.$n("real"));
 			verifyEquals(jq(ti1).outerWidth(), jq(t1).outerWidth());
 			focus(ti2.$n("real"));
-			verifyTolerant(jq(ti2).outerWidth() ,  jq(t2).outerWidth(), 5);
+			verifyEquals(jq(ti2).outerWidth(), jq(t2).outerWidth());
 			focus(ti3.$n("real"));
 			verifyEquals(jq(ti3).outerWidth(), jq(t3).outerWidth());
 			focus(ti4.$n("real"));
 			verifyEquals(jq(ti4).outerWidth(), jq(t4).outerWidth());
 			focus(ci1.$n("real"));
-			verifyEquals(jq(ci1).outerWidth(), jq(c1).outerWidth());
+			waitResponse();
+			sleep(500);
+			verifyTolerant(jq(ci1).outerWidth(), jq(c1).outerWidth(), 2); // firefox
 			focus(ci2.$n("real"));
-
-			verifyTolerant(jq(ci2).outerWidth() ,  jq(c2).outerWidth(), 5);
+			verifyEquals(jq(ci2).outerWidth(), jq(c2).outerWidth());
 			focus(ci3.$n("real"));
-			verifyEquals(jq(ci3).outerWidth(), jq(c3).outerWidth());
+			waitResponse();
+			sleep(500);
+			verifyTolerant(jq(ci3).outerWidth(), jq(c3).outerWidth(), 2); // firefox
 			focus(ci4.$n("real"));
 			verifyEquals(jq(ci4).outerWidth(), jq(c4).outerWidth());
 		]]></client>
