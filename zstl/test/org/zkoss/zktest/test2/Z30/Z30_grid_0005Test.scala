@@ -22,6 +22,7 @@ import org.zkoss.ztl.Tags
 import org.junit.Test
 import org.zkoss.ztl.Element
 import org.zkoss.ztl.JQuery
+import org.zkoss.ztl.ZK
 
 /**
  * A test class for bug grid-0005
@@ -102,16 +103,19 @@ class Z30_grid_0005Test extends ZTL4ScalaTestCase {
 		verifyEquals(w + "", jq($body).outerWidth());
 		var h = jq("$grid").height();
 		verifyEquals(h, Integer.parseInt($head.get("offsetHeight")) + Integer.parseInt($body.get("offsetHeight")));
-		// check sizing
-		click(checkId);
-		waitResponse();
-		var width = getElementWidth(uuid);
-		mouseMoveAt($jq.toWidget(), width + ",0");
-		verifyTrue($jq.hasClass("z-column-sizing"));
-		//a workaround to chrome, move 10px per drag
-		dragdropTo(jq("$column")toWidget(), width + ",0", width.intValue() - 10 + ",0");
-		dragdropTo(jq("$column")toWidget(), width.intValue() - 10 + ",0", width.intValue() - 20 + ",0");
-		verifyNotEquals(width.intValue(), getElementWidth(uuid).intValue());
+		if(!ZK.is("ie10")) {
+			// check sizing
+			click(checkId);
+			waitResponse();
+			var width = getElementWidth(uuid);
+			mouseMoveAt($jq.toWidget(), width + ",0");
+		
+			verifyTrue($jq.hasClass("z-column-sizing"));
+			//a workaround to chrome, move 10px per drag
+			dragdropTo(jq("$column").toWidget(), width + ",0", width.intValue() - 10 + ",0");
+			dragdropTo(jq("$column").toWidget(), width.intValue() - 10 + ",0", width.intValue() - 20 + ",0");
+			verifyNotEquals(width.intValue(), getElementWidth(uuid).intValue());
+		}
     }
    );
   }
