@@ -50,17 +50,14 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-			jq(".z-scrollbar").eval("opacity = 1");
 			int wh1 = jq(jq(grid.$n("head")).find(".z-columns").find(".z-column").get(0)).outerWidth();
 			int wb1 = jq(jq(grid.$n("body")).find(".z-rows").find(".z-row-inner").get(0)).outerWidth();
 			int wf1 = jq(jq(grid.$n("foot")).find(".z-foot").find(".z-footer").get(0)).outerWidth();
-			
-			clickAt(jq(".z-scrollbar-rail"),"150,8");
-			waitResponse();
-			
+
+			horScroll(grid, 1);
 			verifyTrue(jq(jq(grid.$n("head")).find(".z-columns").find(".z-column").get(0)).outerWidth() == wh1);
 			verifyTrue(jq(jq(grid.$n("body")).find(".z-rows").find(".z-row-inner").get(0)).outerWidth() == wb1);
-			verifyTrue(jq(jq(grid.$n("foot")).find(".z-foot").find(".z-footer").get(0)).outerWidth() == wf1);			
+			verifyTrue(jq(jq(grid.$n("foot")).find(".z-foot").find(".z-footer").get(0)).outerWidth() == wf1);		
 		]]></client>
 	</case>
 </test>
