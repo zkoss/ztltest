@@ -14,7 +14,6 @@
 		click(cb.$n("btn"));
 		waitResponse();
 		mouseOver(cbi);
-		Scripts.triggerMouseEventAt(getWebDriver(), cbi, "mousemove", "5,1");
 		sleep(1000);
 		verifyTrue(jq(popup).isVisible());
 		String zindex = jq(cb.$n("pp")).css("z-index");

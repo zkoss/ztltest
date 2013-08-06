@@ -213,14 +213,16 @@
 			
 			String width = $col1.get("offsetWidth");
 			mouseMoveAt(col1, width + ",0");
-			verifyTrue($jq.hasClass("z-column-sizing"));
+			if(!ZK.is("ie10"))
+				verifyTrue($jq.hasClass("z-column-sizing"));
 
 			click(disable);
 			waitResponse();
 			verifyFalse(cols.is("sizable"));
 			
 			mouseMoveAt(col1, width + ",0");
-			verifyFalse($jq.hasClass("z-column-sizing"));
+			if(!ZK.is("ie10"))
+				verifyFalse($jq.hasClass("z-column-sizing"));
 			
 			//drag-drop test
 			click(enable);
