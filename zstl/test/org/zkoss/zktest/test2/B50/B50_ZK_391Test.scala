@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-ZK-391.zul,A,E,Popup,onOpen")
 class B50_ZK_391Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 

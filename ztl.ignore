@@ -38,6 +38,10 @@ B36-2844707.ztl
 B30-2003798.ztl
 Z60-B01185CollectionBindingNPE.ztl
 
+// cant fix in ztl 
+B65-ZK-1578.ztl
+B50-3032892.ztl
+
 // tmp ignore scrollbar case
 B30-1769047.ztl
 B30-1819264.ztl 
