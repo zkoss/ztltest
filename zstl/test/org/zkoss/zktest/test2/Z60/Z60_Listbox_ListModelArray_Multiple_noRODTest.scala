@@ -178,10 +178,10 @@ class Z60_Listbox_ListModelArray_Multiple_noRODTest extends ZTL4ScalaTestCase {
           waitResponse();
           if (assertValue)
             verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should the same",
-                msg.$n().get("innerHTML").equals("true"));
+                getText(msg).equals("true"));
           else
             verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should different",
-                msg.$n().get("innerHTML").equals("false"));
+                getText(msg).equals("false"));
         }
         def input = (tb: Element, value: String) => {
           click(tb);

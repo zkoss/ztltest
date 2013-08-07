@@ -43,13 +43,14 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-			verScroll(list.$n("body"), 0.5);
+			verScroll(list, 0.5);
 			waitResponse();
-			verScroll(grid.$n("body"), 0.5);
+			verScroll(grid, 0.5);
+			waitResponse();
 			click(btnRefresh);
 			waitResponse();
-			verifyTrue(0 == parseInt(list.$n("body").get("scrollTop")));
-			verifyTrue(0 == parseInt(grid.$n("body").get("scrollTop")));
+			verifyEquals(0, jq(list.$n("body")).scrollTop());
+			verifyEquals(0, jq(grid.$n("body")).scrollTop());
 			verifyTrue(jq(list.$n("rows")).find(".z-listcell").eq(0).text().contains("Option 0"));
 			verifyTrue(jq(grid.$n("body")).find(".z-row").eq(0).text().contains("0"));
 		]]></client>

@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.junit.Test
 import org.apache.xalan.Version
+import org.zkoss.ztl.Widget
 
 
 /**
@@ -165,8 +166,6 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
     runZTL(zscript,
         () => {
         	
-            waitResponse();
-            
             //1 - click item 1.a
         	click(jq("$i1a").toWidget().$n("open"));
         	waitResponse();
@@ -179,14 +178,12 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
         	click(jq("$i3a").toWidget().$n("open"));
         	waitResponse();
         	
-        	verScroll(jq(".z-tree"), 1)
+        	verScroll(jq("$tree").toWidget(), 1)
         	//4 - scroll to 23.A and open it
         	click(jq(".z-treerow:contains(23.A)").toWidget().$n("open"));
         	waitResponse();
         	
-        	val scrollH= jq("$tree").scrollHeight();
-        	val scrollT= jq("$tree").scrollTop();
-        	verifyTrue(scrollH>400);
+        	verifyTrue(jq(jq("$tree").toWidget().$n("body")).scrollTop() > 40);
         	     
         }
     );
