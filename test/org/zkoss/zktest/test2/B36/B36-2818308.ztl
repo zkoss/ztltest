@@ -83,17 +83,17 @@
 			click(jq("@button[label=\"add under bottom\"]"));
 			waitResponse();
 			int tableScrollTop = table.outerHeight() - table.find("tr:last").outerHeight();
-			int scrollTop = getMeshScrollTop(tree) + body.outerHeight();
+			int scrollTop = getScrollTop(tree) + body.outerHeight();
 			verifyEquals(tableScrollTop, scrollTop);
 			click(jq("@button[label=\"add under bottom\"]"));
 			waitResponse();
 			tableScrollTop = table.outerHeight() - table.find("tr:last").outerHeight();
-			scrollTop = getMeshScrollTop(tree) + body.outerHeight();
+			scrollTop = getScrollTop(tree) + body.outerHeight();
 			verifyEquals(tableScrollTop, scrollTop);
 			click(jq("@button[label=\"add upon top\"]"));
 			waitResponse();
 			click(jq("@button[label=\"add upon top\"]"));
-			verifyEquals(0, getMeshScrollTop(tree));
+			verifyEquals(0, getScrollTop(tree));
 		]]></client>
 	</case>
 </test>

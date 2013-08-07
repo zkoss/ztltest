@@ -3,6 +3,7 @@ package org.zkoss.zktest.test2.B65
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.openqa.selenium.Keys
 
 @Tags(tags = "B65-ZK-1284.zul")
 class B65_ZK_1284Test extends ZTL4ScalaTestCase {
@@ -59,13 +60,13 @@ class B65_ZK_1284Test extends ZTL4ScalaTestCase {
       () => {
         val grid = jq("@grid").toWidget()
         horScroll(grid, 1)
+        waitResponse()
         focus(jq(".z-textbox:eq(0)"))
         waitResponse()
         
         val bodyLeft = jq(grid.$n("body")).scrollLeft();
         val headLeft = jq(grid.$n("head")).scrollLeft();
         
-        verifyTrue("If the header scrolls to the left, the body should scroll along with it.", bodyLeft > 30 )
         verifyTrue("Column headings should match the row content.", bodyLeft == headLeft)
       })
 
