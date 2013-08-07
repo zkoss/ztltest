@@ -145,7 +145,7 @@ class B50_3357641Test extends ZTL4ScalaTestCase {
     	var btnNewModel: Widget = engine.$f("btnNewModel");
     	waitResponse();
 
-    	verScroll(testListbox.$n("body"), 0.5)
+    	verScroll(testListbox, 0.5)
     	waitResponse();
     	click(btnNewModel)
     	waitResponse();

@@ -49,7 +49,7 @@ for (int i = 1; i <= 70; ++i)
     runZTL(zscript,
       () => {
         List("listbox", "tree") foreach { compName =>
-          val main = jq(".z-" + compName).toWidget()
+          val main = jq("@" + compName).toWidget()
           verScroll(main, 1)
           
           val cell = if(compName == "listbox") "listcell" else "treecell"
@@ -59,7 +59,7 @@ for (int i = 1; i <= 70; ++i)
           waitResponse()
           verScroll(main, 1)
 
-          verifyTrue("should not see blank area.", getMeshScrollTop(main) < 350)
+          verifyTrue("should not see blank area.", jq(main.$n("body")).scrollTop() < 350)
         }
       })
 

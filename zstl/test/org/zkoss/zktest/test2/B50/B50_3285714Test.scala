@@ -72,7 +72,7 @@ class B50_3285714Test extends ZTL4ScalaTestCase {
         sleep(600);
 
         var rowCnt: Int = jq(rows.$n()).find(".z-row").length();
-        val top = getMeshScrollTop(grid) - jq(grid.$n("tpad")).outerHeight();
+        val top = getScrollTop(grid) - jq(grid.$n("tpad")).outerHeight();
         def findTopRow (i: Int, max: Int): Element = {
         	var row: Element = jq(rows.$n()).find(".z-row").get(i);
         	if (Integer.parseInt(row.get("offsetTop")) >= top
