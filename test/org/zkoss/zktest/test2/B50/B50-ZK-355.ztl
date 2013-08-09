@@ -37,14 +37,14 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-			verScroll(list.$n("body"), 0.5);
+			verScroll(list, 0.5);
 			// wait for rod
 			waitResponse();
-			int scOne = getMeshScrollTop(list);
+			int scOne = getScrollTop(list);
 			click(btn1);
 			waitResponse();
 			sleep(500);
-			int scTwo = getMeshScrollTop(list);
+			int scTwo = getScrollTop(list);
 			verifyEquals(scOne, scTwo);
 		]]></client>
 	</case>
