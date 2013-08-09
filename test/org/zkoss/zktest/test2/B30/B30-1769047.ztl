@@ -133,101 +133,37 @@
 		 --></server>
 		<client><![CDATA[
 			sleep(1000);//for DataBinding
-			JQuery listitem = jq("@listbox > @listitem:first-child");
+			JQuery listitem = jq("@listbox > @listitem:eq(1)");
 			click(listitem);
 			waitResponse();
-			JQuery fn = listitem.find("> @listcell:nth-child(1) @textbox");
-			JQuery ln = listitem.find("> @listcell:nth-child(2) @textbox");
-			JQuery pa = listitem.find("> @listcell:nth-child(3) @textbox");
-			JQuery full = listitem.find("> @listcell:nth-child(4) @label");
-			JQuery email = listitem.find("> @listcell:nth-child(5) @select");
+			JQuery st = listitem.find("> @listcell:nth-child(3) @textbox");
 			waitResponse();
-			verifyEquals(jq(firstName).val(), fn.val());
-			verifyEquals(jq(firstName2).val(), fn.val());
-			verifyEquals(jq(lastName).val(), ln.val());
-			verifyEquals(jq(lastName2).val(), ln.val());
-			verifyEquals(jq(full).html(), fn.val() + " " + ln.val());
-			verifyEquals(jq(email1).val(), email.val());
-			verifyEquals(jq(email2).val(), email.val());
-			verifyEquals(jq(street).val(), pa.val());
-			verifyEquals(jq(street2).val(), pa.val());
-			type(fn, "FirstName");
+			sendKeys(st, "1" + Keys.TAB);
 			waitResponse();
-			verifyEquals("FirstName", fn.val());
-			verifyEquals(jq(firstName).val(), fn.val());
-			verifyEquals(jq(firstName2).val(), fn.val());
-			type(ln, "LastName");
+			JQuery st0 = jq(".z-grid:eq(0) .z-row:contains(Street) @textbox");
+			JQuery st1 = jq(".z-grid:eq(1) .z-row:contains(Street) @textbox");
+			
+			verifyEquals("the two grids should get the updated value", st.val(), st0.val());
+			verifyEquals("the two grids should get the updated value", st0.val(), st1.val());
+			
+			sendKeys(st0, "12" + Keys.TAB);
 			waitResponse();
-			verifyEquals("LastName", ln.val());
-			verifyEquals(jq(lastName).val(), ln.val());
-			verifyEquals(jq(lastName2).val(), ln.val());
-			verifyEquals(jq(full).html(), fn.val() + " " + ln.val());
-			type(pa, "ZKoss");
+			
+			verifyEquals("the bottom grid and the listbox should gets the updated value", st.val(), st0.val());
+			verifyEquals("the bottom grid and the listbox should gets the updated value", st0.val(), st1.val());
+			
+			sendKeys(st1, "123" + Keys.TAB);
 			waitResponse();
-			verifyEquals("ZKoss", pa.val());
-			verifyEquals(jq(street).val(), pa.val());
-			verifyEquals(jq(street2).val(), pa.val());
-			horScroll(jq("@listbox").toWidget(), 0);
+			
+			verifyNotEquals("the right hand side grid and listbox should NOT change", st1.val(), st.val());
+			verifyNotEquals("the right hand side grid and listbox should NOT change", st1.val(), st0.val());
+				
+			click(jq(".z-button:contains(Save)"));
 			waitResponse();
-			select(email, "email11@potix.com");
-			waitResponse();
-			verifyEquals("email11@potix.com", email.val());
-			verifyEquals(jq(email1).val(), email.val());
-			verifyEquals(jq(email2).val(), email.val());
-			horScroll(jq("@listbox").toWidget(), 1);
-			waitResponse();
-			type(firstName, "FirstName1");
-			waitResponse();
-			verifyEquals("FirstName1", fn.val());
-			verifyEquals(jq(firstName).val(), fn.val());
-			verifyEquals(jq(firstName2).val(), fn.val());
-			type(lastName, "LastName1");
-			waitResponse();
-			verifyEquals("LastName1", ln.val());
-			verifyEquals(jq(lastName).val(), ln.val());
-			verifyEquals(jq(lastName2).val(), ln.val());
-			verifyEquals(jq(full).html(), fn.val() + " " + ln.val());
-			type(street, "ZKoss1");
-			waitResponse();
-			verifyEquals("ZKoss1", pa.val());
-			verifyEquals(jq(street).val(), pa.val());
-			verifyEquals(jq(street2).val(), pa.val());
-			horScroll(jq("@listbox").toWidget(), 0);
-			waitResponse();
-			select(email1, "email1@potix.com");
-			waitResponse();
-			verifyEquals("email1@potix.com", email.val());
-			verifyEquals(jq(email1).val(), email.val());
-			verifyEquals(jq(email2).val(), email.val());
-			// test for nothing change
-			horScroll(jq("@listbox").toWidget(), 1);
-			waitResponse();
-			type(firstName2, "FirstName2");
-			waitResponse();
-			verifyEquals("FirstName2", jq(firstName2).val());
-			verifyEquals("FirstName1", fn.val());
-			verifyEquals(jq(firstName).val(), fn.val());
-			type(lastName2, "LastName2");
-			waitResponse();
-			verifyEquals("LastName2", jq(lastName2).val());
-			verifyEquals("LastName1", ln.val());
-			verifyEquals(jq(lastName).val(), ln.val());
-			verifyEquals(jq(full).html(), fn.val() + " " + ln.val());
-			type(street2, "ZKoss2");
-			waitResponse();
-			verifyEquals("ZKoss2", jq(street2).val());
-			verifyEquals("ZKoss1", pa.val());
-			verifyEquals(jq(street).val(), pa.val());
-			// test for change
-			click(SaveButton);
-			waitResponse();
-			verifyEquals("FirstName2", fn.val());
-			verifyEquals(jq(firstName).val(), fn.val());
-			verifyEquals("LastName2", ln.val());
-			verifyEquals(jq(lastName).val(), ln.val());
-			verifyEquals(jq(full).html(), fn.val() + " " + ln.val());
-			verifyEquals("ZKoss2", pa.val());
-			verifyEquals(jq(street).val(), pa.val());
+				
+			verifyEquals("the right hand side grid and the listbox should gets the updated value now.", st.val(), st0.val());
+			verifyEquals("the right hand side grid and the listbox should gets the updated value now.", st0.val(), st1.val());
+				
 		]]></client>
 	</case>
 </test>

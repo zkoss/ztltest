@@ -21,11 +21,11 @@
 			String str = jq("@errorbox").toElement().get("style.top").trim();
 			int beforeTop = Math.round(Float.parseFloat(str.substring(0, str.lastIndexOf("px"))));
 			center.eval("_scrollbar.scrollTo(0, 20)");
-			verifyEquals(jq(tb).offsetTop(), jq("@errorbox").offsetTop());
+			verifyTolerant(jq(tb).offsetTop(), jq("@errorbox").offsetTop(), 1);
 			center.eval("_scrollbar.scrollTo(0, 0)");
 			str = jq("@errorbox").toElement().get("style.top").trim();
 			int afterTop = Math.round(Float.parseFloat(str.substring(0, str.lastIndexOf("px"))));
-			verifyEquals(beforeTop, afterTop);
+			verifyTolerant(beforeTop, afterTop, 1);
 		]]></client>
 	</case>
 </test>
