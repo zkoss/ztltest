@@ -49,10 +49,12 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         verifyTrue("Should show a message box",
           jq(".z-errorbox").exists())
         click(jq(".z-errorbox").toWidget().$n("cls"))
+        waitResponse()
 
         // change the spinner value to 1,then click button, you should get alert : spinner value is 1
         click(jq(upperbtn))
         waitResponse()
+        blur(snpinerinp)
         click(clickbtn)
         waitResponse()
         verifyTrue("Should show a alert box",
