@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-3011319.zul,A,E,Datebox")
 class B50_3011319Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<window>

@@ -16,6 +16,7 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  * 
@@ -23,6 +24,7 @@ import org.zkoss.ztl.Tags;
  */
 @Tags(tags = "B35-2083025.zul,A,E,Tablelayout,VisionTest")
 class B35_2083025Test extends ZTL4ScalaTestCase {
+  @Test
 	def testCase() = {
 		val zscript = {"""
 			<?component name="panel" extends="panel" width="200px" height="200px" ?>
