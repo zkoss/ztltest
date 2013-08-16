@@ -16,6 +16,7 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  * 
@@ -23,6 +24,7 @@ import org.zkoss.ztl.Tags;
  */
 @Tags(tags = "B35-2073417.zul,A,E,Button,VisionTest")
 class B35_2073417Test extends ZTL4ScalaTestCase {
+  @Test
 	def testCase() = {
 		val zscript = {"""
 		<?page id="testZul" title=" New ZUL Title" cacheable="false" 

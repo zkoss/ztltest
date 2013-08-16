@@ -16,6 +16,7 @@ package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  *
@@ -23,6 +24,8 @@ import org.zkoss.ztl.Tags;
  */
 @Tags(tags = "B50-ZK-539.zul,B,E,Groupbox,VisionTest")
 class B50_ZK_539Test extends ZTL4ScalaTestCase {
+  
+  @Test
 	def resetTheme(theme: String) {
 		runZTL({
 			"""<zk>
