@@ -106,33 +106,37 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 			Widget[] w1 = {lb, grid, tree};
+			double[] p1 = {0.5, 0, 1};
+			enterFullScreen();
 			for (int i = 0;i < 3;i ++) {
 			int[] hOld = {0, 0, 0};
 			for (int j = 0;j < 3;j ++) {
-			verScroll(w1[j], 0.5);
+			verScrollMesh(w1[j], p1[i]);
 			waitResponse();
 			hOld[j] = jq(w1[j].$n("body")).scrollTop();
 			}
-			click(btn1);
+			click(btn1, false);
 			waitResponse();
 			for (int k = 0;k < 3;k ++) {
 			verifyEquals(hOld[k], jq(w1[k].$n("body")).scrollTop());
 			}
 			}
 			Widget[] w2 = {lb2, lb3, grid2, tree2};
+			double[] p2 = {1, 0, 1};
 			for (int i = 0;i < 3;i ++) {
 			int[] hOld = {0, 0, 0, 0};
 			for (int j = 0;j < 4;j ++) {
-			verScroll(w2[j], 1);
+			verScrollMesh(w2[j], p2[i]);
 			waitResponse();
 			hOld[j] = jq(w2[j].$n("body")).scrollTop();
 			}
-			click(btn2);
+			click(btn2, false);
 			waitResponse();
 			for (int k = 0;k < 4;k ++) {
 				verifyEquals(hOld[k], jq(w2[k].$n("body")).scrollTop());
 			}
 			}
+			exitFullScreen();
 		]]></client>
 	</case>
 </test>

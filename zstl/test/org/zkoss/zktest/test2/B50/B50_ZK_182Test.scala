@@ -78,16 +78,14 @@ class B50_ZK_182Test extends ZTL4ScalaTestCase {
     	var btn1: Widget = engine.$f("btn1");
     	var btn2: Widget = engine.$f("btn2");
     	var grid: Widget = engine.$f("grid");
-    	waitResponse();
-    	click(btn1);
-    	waitResponse();
-    	click(btn2);
-    	waitResponse();
-    	for (i <- 0 until 6) {
-    	  horScroll(grid, i * 0.15)
-    	  waitResponse();
+    	enterFullScreen()
+    	click(btn1, false)
+    	click(btn2, false)
+    	for (i <- 1 to 5) {
+    	  horScrollMesh(grid, 0.2)
     	  verifyTrue(jq(grid.$n("body")).scrollLeft() == jq(grid.$n("head")).scrollLeft())
     	}
+    	exitFullScreen()
     }
    // Run syntax 1 
    runZTL(zscript, executor);

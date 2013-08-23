@@ -50,14 +50,15 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
+			enterFullScreen();
 			int wh1 = jq(jq(grid.$n("head")).find(".z-columns").find(".z-column").get(0)).outerWidth();
 			int wb1 = jq(jq(grid.$n("body")).find(".z-rows").find(".z-row-inner").get(0)).outerWidth();
 			int wf1 = jq(jq(grid.$n("foot")).find(".z-foot").find(".z-footer").get(0)).outerWidth();
-
-			horScroll(grid, 1);
+			horScrollMesh(grid, 1);
 			verifyTrue(jq(jq(grid.$n("head")).find(".z-columns").find(".z-column").get(0)).outerWidth() == wh1);
 			verifyTrue(jq(jq(grid.$n("body")).find(".z-rows").find(".z-row-inner").get(0)).outerWidth() == wb1);
-			verifyTrue(jq(jq(grid.$n("foot")).find(".z-foot").find(".z-footer").get(0)).outerWidth() == wf1);		
+			verifyTrue(jq(jq(grid.$n("foot")).find(".z-foot").find(".z-footer").get(0)).outerWidth() == wf1);
+			exitFullScreen();	
 		]]></client>
 	</case>
 </test>

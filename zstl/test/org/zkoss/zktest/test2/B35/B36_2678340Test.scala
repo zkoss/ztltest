@@ -64,9 +64,10 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
 		waitResponse()
       // Click upper button twice
       click(jq(".z-timebox").toWidget().$n("btn-down"))
+      waitResponse();
       click(jq(".z-timebox").toWidget().$n("btn-down"))
-       waitResponse()
-       sleep(500)
+      waitResponse()
+      sleep(500)
 
       // Click on show value button
       click(jq("$show"));
@@ -101,7 +102,9 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
 
       // Click upper button again
       click(jq(".z-timebox").toWidget().$n("btn-up"))
+      waitResponse();
       sendKeys(tb.$n("real"), Keys.TAB);
+      waitResponse();
 
       // Click on show value button again
       click(jq("@button"));

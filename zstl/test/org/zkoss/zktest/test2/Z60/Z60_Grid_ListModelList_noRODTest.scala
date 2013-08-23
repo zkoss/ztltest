@@ -116,12 +116,12 @@ class Z60_Grid_ListModelList_noRODTest extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
-        var clone: Widget = engine.$f("clone");
-        var serialize: Widget = engine.$f("serialize");
+        var clone: Widget = engine.$f("clone")
+        var serialize: Widget = engine.$f("serialize")
 
         def sort (id: String, cate: String) {
-          var grid: Widget = engine.$f(id);
-          click(jq(grid.$n("head")).find(".z-columns").find(".z-column:contains("+cate+")"));
+          var grid: Widget = engine.$f(id)
+          click(jq(grid.$n("head")).find(".z-columns").find(".z-column:contains("+cate+")"), false)
           waitResponse();
         }
         def isAscending (id: String): Boolean = {

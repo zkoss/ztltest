@@ -119,65 +119,61 @@ class Z60_Listbox_ListModelArray_noRODTest extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
-        var outer: Widget = engine.$f("outer");
-        var lbxOne: Widget = engine.$f("lbxOne");
-        var lbxTwo: Widget = engine.$f("lbxTwo");
-        var lbxThree: Widget = engine.$f("lbxThree");
-        var tbOne: Widget = engine.$f("tbOne");
-        var tbTwo: Widget = engine.$f("tbTwo");
-        var btnOne: Widget = engine.$f("btnOne");
-        var btnTwo: Widget = engine.$f("btnTwo");
-        var btnThree: Widget = engine.$f("btnThree");
-        var msg: Widget = engine.$f("msg");
-        var itemHgh: Int = jq(lbxOne.$n()).find(".z-listitem").outerHeight(true);
+        var outer: Widget = engine.$f("outer")
+        var lbxOne: Widget = engine.$f("lbxOne")
+        var lbxTwo: Widget = engine.$f("lbxTwo")
+        var lbxThree: Widget = engine.$f("lbxThree")
+        var tbOne: Widget = engine.$f("tbOne")
+        var tbTwo: Widget = engine.$f("tbTwo")
+        var btnOne: Widget = engine.$f("btnOne")
+        var btnTwo: Widget = engine.$f("btnTwo")
+        var btnThree: Widget = engine.$f("btnThree")
+        var msg: Widget = engine.$f("msg")
+        var itemHgh: Int = jq(lbxOne.$n()).find(".z-listitem").outerHeight(true)
 
         def selectItem = (id: String, num: Int) => {
-          var lbx: Widget = engine.$f(id);
+          var lbx: Widget = engine.$f(id)
           
-          verScroll(lbx, if(num > 2) (num - 3) / 300.0 else 0.0)
-	      waitResponse();
-          
-          sleep(600);
-          var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0);
+          if(num > 4) 
+            verScrollMesh(lbx, (num + 1) / 300.0)
+          var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0)
 
-          click(listitem);
+          click(listitem, false)
         }
         def checkEqualSelection = (idOne: String, idTwo: String, assertValue: Boolean) => {
-          input(tbOne.$n(), idOne);
-          input(tbTwo.$n(), idTwo);
-          click(btnOne);
-          waitResponse();
+          input(tbOne.$n(), idOne)
+          input(tbTwo.$n(), idTwo)
+          click(btnOne, false)
           if (assertValue)
             verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should the same",
-                msg.$n().get("innerHTML").equals("true"));
+                "true".equals(getText(msg)))
           else
             verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should different",
-                msg.$n().get("innerHTML").equals("false"));
+               "false".equals(getText(msg)))
         }
         def input = (tb: Element, value: String) => {
-          click(tb);
-          tb.eval("value = \"" + value+"\"");
-          click(outer);
-          waitResponse();
+          click(tb, false)
+          tb.eval("value = \"" + value + "\"")
+          click(outer, false)
         }
-        selectItem("lbxOne", 2);
-        checkEqualSelection("lbxOne", "lbxTwo", true);
-        selectItem("lbxTwo", 200);
-        checkEqualSelection("lbxOne", "lbxTwo", true);
+        enterFullScreen()
+        selectItem("lbxOne", 2)
+        checkEqualSelection("lbxOne", "lbxTwo", true)
+        selectItem("lbxTwo", 200)
+        checkEqualSelection("lbxOne", "lbxTwo", true)
 
-        selectItem("lbxThree", 10);
-        click(btnTwo);
-        sleep(1000);
-        click(btnThree);
-        sleep(1000);
-        checkEqualSelection("lbxThree", "lbxThree_clone0", true);
-        checkEqualSelection("lbxThree", "lbxThree_serialize1", true);
-        selectItem("lbxThree", 212);
-        selectItem("lbxThree_clone0", 213);
-        selectItem("lbxThree_serialize1", 214);
-        checkEqualSelection("lbxThree", "lbxThree_clone0", false);
-        checkEqualSelection("lbxThree", "lbxThree_serialize1", false);
-        checkEqualSelection("lbxThree_clone0", "lbxThree_serialize1", false);
+        selectItem("lbxThree", 12)
+        click(btnTwo, false)
+        click(btnThree, false)
+        checkEqualSelection("lbxThree", "lbxThree_clone0", true)
+        checkEqualSelection("lbxThree", "lbxThree_serialize1", true)
+        selectItem("lbxThree", 212)
+        selectItem("lbxThree_clone0", 213)
+        selectItem("lbxThree_serialize1", 214)
+        checkEqualSelection("lbxThree", "lbxThree_clone0", false)
+        checkEqualSelection("lbxThree", "lbxThree_serialize1", false)
+        checkEqualSelection("lbxThree_clone0", "lbxThree_serialize1", false)
+        exitFullScreen()
     }
    );
   }

@@ -16,17 +16,18 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.basic
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * @author pao
  */
 @Tags(tags = "zbind")
 class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
+  @Test
   def testArg() = {
     val zul = {
       <include src="bind/basic/collection-template-listbox.zul"/>
     }
-
     runZTL(zul, () => {
       		var outerbox = jq("$outerbox").toWidget()
 		var outeritems = outerbox.firstChild() // include header

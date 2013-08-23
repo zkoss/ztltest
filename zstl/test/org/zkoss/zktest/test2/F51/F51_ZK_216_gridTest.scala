@@ -101,31 +101,30 @@ class F51_ZK_216_gridTest extends ZTL4ScalaTestCase {
 
    runZTL(zscript,
         () => {
-        var gbOne: Widget = engine.$f("gbOne");
-        var gbTwo: Widget = engine.$f("gbTwo");
+        var gbOne: Widget = engine.$f("gbOne")
+        var gbTwo: Widget = engine.$f("gbTwo")
 
-        var bodyTwo: Element = gbTwo.$n("body");
-        var scrollHeight: Int = Integer.parseInt(bodyTwo.get("scrollHeight"));
+        var bodyTwo: Element = gbTwo.$n("body")
+        var scrollHeight: Int = Integer.parseInt(bodyTwo.get("scrollHeight"))
 
         // verify listitem contents
         def verifyItem (leftContent: String, rightContent: String, grid: Widget) {
-          var lCell: JQuery = jq(grid.$n("body")).find(".z-row:contains("+leftContent+")");
-          var rCell: JQuery = jq(grid.$n("body")).find(".z-row:contains("+rightContent+")");
-          verifyTrue("item exist", lCell.exists() && rCell.exists());
+          var lCell: JQuery = jq(grid.$n("body")).find(".z-row:contains("+leftContent+")")
+          var rCell: JQuery = jq(grid.$n("body")).find(".z-row:contains("+rightContent+")")
+          verifyTrue("item exist", lCell.exists() && rCell.exists())
         }
 
-        verifyItem ("Apple", "10kg", gbOne);
-        verifyItem ("Orange", "20kg", gbOne);
-        verifyItem ("Mango", "12kg", gbOne);
+        verifyItem ("Apple", "10kg", gbOne)
+        verifyItem ("Orange", "20kg", gbOne)
+        verifyItem ("Mango", "12kg", gbOne)
 
         verifyItem ("#0", ":Option 0", gbTwo);
-        
-        verScroll(bodyTwo, .5)
-        sleep(500);
-        verifyItem ("#10000", ":Option 10000", gbTwo);
-        verScroll(bodyTwo, 1)
-        sleep(500);
+        enterFullScreen()
+        verScrollMesh(gbTwo, .5)
+        verifyItem ("#10080", ":Option 10085", gbTwo)
+        verScrollMesh(gbTwo, 1)
         verifyItem ("#19999", ":Option 19999", gbTwo);
+        exitFullScreen()
     }
    );
   }
