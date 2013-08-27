@@ -16,7 +16,7 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z60
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.zstl.ZTL4MeshTestCase
 import scala.collection.JavaConversions._
 import org.junit.Test;
 import org.zkoss.ztl.Element;
@@ -34,7 +34,7 @@ import java.lang._
  *
  */
 @Tags(tags = "Z60-Listbox-ListModelList-noROD.zul,Z60,A,E,Listbox,ListModelList")
-class Z60_Listbox_ListModelList_noRODTest extends ZTL4ScalaTestCase {
+class Z60_Listbox_ListModelList_noRODTest extends ZTL4MeshTestCase {
 	
   @Test
   def testClick() = {
@@ -154,100 +154,32 @@ class Z60_Listbox_ListModelList_noRODTest extends ZTL4ScalaTestCase {
         var btnTwo: Widget = engine.$f("btnTwo")
         var btnThree: Widget = engine.$f("btnThree")
         var btnFour: Widget = engine.$f("btnFour")
-        var btnSix: Widget = engine.$f("btnSix")
-        var btnSeven: Widget = engine.$f("btnSeven")
         var msg: Widget = engine.$f("msg")
         var itemHgh: Int = jq(lbxOne.$n()).find(".z-listitem").outerHeight(true)
         var checkList: java.util.List[Int] = new java.util.ArrayList[Int]()
 
-        def selectItem = (id: String, num: Int) => {
-          var lbx: Widget = engine.$f(id)
-          
-          if(num > 4) 
-            verScrollMesh(lbx, (num + 1) / 300.0)
-          var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0)
-
-          click(listitem, false)
-        }
-        // check whether the selection of a listbox contains exactly the content in check list
-        def checkSelection = (toCheck: java.util.List[Int], id: String) => {
-          input(tbOne.$n(), id)
-          click(btnFour, false)
-          waitResponse()
-          var selection: String = getText(msg)
-          var item: String = ""
-          for (i <- 0 until toCheck.size()) {
-            item = "data " + toCheck.get(i)
-            verifyTrue("the selection of " + id + "should contains " + item,
-                selection.contains(item))
-            selection = selection.replace(item, "")
-          }
-          verifyTrue("the selection should exactly contains the check list data, no more",
-              selection.length() == 0)
-        }
-        def checkEqualSelection = (idOne: String, idTwo: String, assertValue: Boolean) => {
-          input(tbOne.$n(), idOne)
-          input(tbTwo.$n(), idTwo)
-          click(btnOne, false)
-          if (assertValue)
-            verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should the same",
-                "true".equals(getText(msg)))
-          else
-            verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should different",
-               "false".equals(getText(msg)))
-        }
-        def input = (tb: Element, value: String) => {
-          click(tb, false)
-          tb.eval("value = \"" + value + "\"")
-          click(outer, false)
-        }
-        def checkInsertRemove = () => {
-          var selsOne: String = getSelection("lbxOne")
-          var selsTwo: String = getSelection("lbxTwo")
-          var selsThree: String = getSelection("lbxThree")
-          click(btnSix, false)
-          click(btnSix, false)
-          click(btnSix, false)
-          verifyTrue("The selection should not change after insert items",
-              getSelection("lbxOne").equals(selsOne))
-          verifyTrue("The selection should not change after insert items",
-              getSelection("lbxTwo").equals(selsTwo))
-          verifyTrue("The selection should not change after insert items",
-              getSelection("lbxThree").equals(selsThree))
-          click(btnSeven, false)
-          click(btnSeven, false)
-          click(btnSeven, false)
-          verifyTrue("The selection should not change after insert items",
-              getSelection("lbxOne").equals(selsOne))
-          verifyTrue("The selection should not change after insert items",
-              getSelection("lbxTwo").equals(selsTwo))
-          verifyTrue("The selection should not change after insert items",
-              getSelection("lbxThree").equals(selsThree))
-        }
-        def getSelection (id: String): String = {
-          input(tbOne.$n(), id)
-          click(btnFour, false)
-          return getText(msg)
-        }
-        enterFullScreen()
-        selectItem("lbxOne", 2)
+        enterFullScreen
+        selectListitem(lbxOne, 2)
         checkEqualSelection("lbxOne", "lbxTwo", true)
-        selectItem("lbxTwo", 200)
+        selectListitem(lbxTwo, 200)
         checkEqualSelection("lbxOne", "lbxTwo", true)
 
-        selectItem("lbxThree", 12)
+        selectListitem(lbxThree, 12)
         click(btnTwo, false)
         click(btnThree, false)
 
-        checkList.add(12);
+        checkList.add(12)
         checkSelection(checkList, "lbxThree")
+        
+        var lbxThree_clone0: Widget = engine.$f("lbxThree_clone0")
+        var lbxThree_serialize1: Widget = engine.$f("lbxThree_serialize1")
 
         checkEqualSelection("lbxThree", "lbxThree_clone0", true)
         checkEqualSelection("lbxThree", "lbxThree_serialize1", true)
 
-        selectItem("lbxThree", 212)
-        selectItem("lbxThree_clone0", 213)
-        selectItem("lbxThree_serialize1", 214)
+        selectListitem(lbxThree, 212)
+        selectListitem(lbxThree_clone0, 213)
+        selectListitem(lbxThree_serialize1, 214)
         checkEqualSelection("lbxThree", "lbxThree_clone0", false)
         checkEqualSelection("lbxThree", "lbxThree_serialize1", false)
         checkEqualSelection("lbxThree_clone0", "lbxThree_serialize1", false)
@@ -255,14 +187,16 @@ class Z60_Listbox_ListModelList_noRODTest extends ZTL4ScalaTestCase {
         click(btnTwo, false)
         click(btnThree, false)
 
-        checkList.clear();
+        checkList.clear()
         checkList.add(212)
         checkSelection(checkList, "lbxThree")
 
         checkEqualSelection("lbxThree", "lbxThree_clone2", true)
         checkEqualSelection("lbxThree", "lbxThree_serialize3", true)
 
-        checkInsertRemove()
+        checkInsertRemove
+        
+        exitFullScreen
     }
    );
   }

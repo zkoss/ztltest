@@ -20,7 +20,7 @@ class ZTL4MeshTestCase extends ZTL4ScalaTestCase {
     }
     
     def getSelection (id: String): String = {
-      input(engine.$n("tbOne"), id)
+      input(engine.$f("tbOne"), id)
       click(engine.$f("btnFour"), false)
       return getText(engine.$f("msg"))
     }
@@ -44,10 +44,10 @@ class ZTL4MeshTestCase extends ZTL4ScalaTestCase {
       click(engine.$f("btnOne"), false)
       if (assertValue)
         verifyTrue("The selection of these two listbox (" + idOne + ", " + idTwo + ") should the same",
-            "true".equals(getText(engine.$n("msg"))))
+            "true".equals(getText(engine.$f("msg"))))
       else
         verifyTrue("The selection of these two listbox (" + idOne + ", " + idTwo + ") should different",
-           "false".equals(getText(engine.$n("msg"))))
+           "false".equals(getText(engine.$f("msg"))))
     }
     
     def input = (tb: ClientWidget, value: String) => {
@@ -55,22 +55,25 @@ class ZTL4MeshTestCase extends ZTL4ScalaTestCase {
       tb.toElement().eval("value = \"" + value + "\"")
     }
  
-    def checkInsertRemove = () => {
+    def checkInsertRemove = {
       var selsOne: String = getSelection("lbxOne")
       var selsTwo: String = getSelection("lbxTwo")
       var selsThree: String = getSelection("lbxThree")
-      var btnSix: Element = engine.$n("btnSix")
-      var btnSeven: Element = engine.$n("btnSeven")
-      for (i <- 1 to 3)
+      var btnSix: ClientWidget = engine.$f("btnSix")
+      var btnSeven: ClientWidget = engine.$f("btnSeven")
+      
+      for (i <- 1 to 3) {
     	  click(btnSix, false)
+      }
       verifyTrue("The selection should not change after insert items",
           getSelection("lbxOne").equals(selsOne))
       verifyTrue("The selection should not change after insert items",
           getSelection("lbxTwo").equals(selsTwo))
       verifyTrue("The selection should not change after insert items",
           getSelection("lbxThree").equals(selsThree))
-      for (i <- 1 to 3)
+      for (i <- 1 to 3) {
     	  click(btnSeven, false)
+      }
       verifyTrue("The selection should not change after insert items",
           getSelection("lbxOne").equals(selsOne))
       verifyTrue("The selection should not change after insert items",

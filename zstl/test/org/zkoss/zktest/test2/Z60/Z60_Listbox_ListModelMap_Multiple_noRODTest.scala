@@ -16,7 +16,7 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z60
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.zstl.ZTL4MeshTestCase
 import scala.collection.JavaConversions._
 import org.junit.Test;
 import org.zkoss.ztl.Element;
@@ -34,7 +34,7 @@ import java.lang._
  *
  */
 @Tags(tags = "Z60-Listbox-ListModelMap-Multiple-noROD.zul,Z60,A,E,Listbox,ListModelMap,Multiple")
-class Z60_Listbox_ListModelMap_Multiple_noRODTest extends ZTL4ScalaTestCase {
+class Z60_Listbox_ListModelMap_Multiple_noRODTest extends ZTL4MeshTestCase {
 	
   @Test
   def testClick() = {
@@ -155,137 +155,65 @@ class Z60_Listbox_ListModelMap_Multiple_noRODTest extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
-        var outer: Widget = engine.$f("outer");
-        var lbxOne: Widget = engine.$f("lbxOne");
-        var lbxTwo: Widget = engine.$f("lbxTwo");
-        var lbxThree: Widget = engine.$f("lbxThree");
-        var tbOne: Widget = engine.$f("tbOne");
-        var tbTwo: Widget = engine.$f("tbTwo");
-        var btnOne: Widget = engine.$f("btnOne");
-        var btnTwo: Widget = engine.$f("btnTwo");
-        var btnThree: Widget = engine.$f("btnThree");
-        var btnFour: Widget = engine.$f("btnFour");
-        var btnSix: Widget = engine.$f("btnSix");
-        var btnSeven: Widget = engine.$f("btnSeven");
-        var msg: Widget = engine.$f("msg");
-        var itemHgh: Int = jq(lbxOne.$n()).find(".z-listitem").outerHeight(true);
-        var checkList: java.util.List[Int] = new java.util.ArrayList[Int]();
+        var outer: Widget = engine.$f("outer")
+        var lbxOne: Widget = engine.$f("lbxOne")
+        var lbxTwo: Widget = engine.$f("lbxTwo")
+        var lbxThree: Widget = engine.$f("lbxThree")
+        var tbOne: Widget = engine.$f("tbOne")
+        var tbTwo: Widget = engine.$f("tbTwo")
+        var btnOne: Widget = engine.$f("btnOne")
+        var btnTwo: Widget = engine.$f("btnTwo")
+        var btnThree: Widget = engine.$f("btnThree")
+        var btnFour: Widget = engine.$f("btnFour")
+        var btnSix: Widget = engine.$f("btnSix")
+        var btnSeven: Widget = engine.$f("btnSeven")
+        var itemHgh: Int = jq(lbxOne.$n()).find(".z-listitem").outerHeight(true)
+        var checkList: java.util.List[Int] = new java.util.ArrayList[Int]()
+        
+        enterFullScreen
 
-        def selectItem = (id: String, num: Int) => {
-          var lbx: Widget = engine.$f(id);
-          
-          verScroll(lbx, if(num > 2) (num - 3) / 300.0 else 0.0)
-	      waitResponse();
-           
-          sleep(1000);
-          var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0);
+        selectListitem(lbxOne, 2)
+        checkEqualSelection("lbxOne", "lbxTwo", true)
+        selectListitem(lbxTwo, 200)
+        checkEqualSelection("lbxOne", "lbxTwo", true)
 
-          click(listitem);
-        }
-        // check whether the selection of a listbox contains exactly the content in check list
-        def checkSelection = (toCheck: java.util.List[Int], id: String) => {
-          input(tbOne.$n(), id);
-          click(btnFour);
-          waitResponse();
-          var selection: String = getText(msg);
-          var item: String = "";
-          for (i <- 0 to toCheck.size()-1) {
-            item = "item "+toCheck.get(i)+"=data "+toCheck.get(i);
-            verifyTrue("the selection of "+id+"should contains "+item,
-                selection.contains(item));
-            selection = selection.replace(item, "");
-          }
-          verifyTrue("the selection should exactly contains the check list data, no more",
-              selection.length() == 0);
-        }
-        def checkEqualSelection = (idOne: String, idTwo: String, assertValue: Boolean) => {
-          input(tbOne.$n(), idOne);
-          input(tbTwo.$n(), idTwo);
-          click(btnOne);
-          waitResponse();
-          if (assertValue)
-            verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should the same",
-                getText(msg).equals("true"));
-          else
-            verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should different",
-                getText(msg).equals("false"));
-        }
-        def input = (tb: Element, value: String) => {
-          click(tb);
-          tb.eval("value = \"" + value+"\"");
-          click(outer);
-          waitResponse();
-        }
-        def checkInsertRemove = () => {
-          var selsOne: String = getSelection("lbxOne");
-          var selsTwo: String = getSelection("lbxTwo");
-          var selsThree: String = getSelection("lbxThree");
-          click(btnSix); waitResponse();
-          click(btnSix); waitResponse();
-          click(btnSix); waitResponse();
-          verifyTrue("The selection should not change after insert items",
-              getSelection("lbxOne").equals(selsOne));
-          verifyTrue("The selection should not change after insert items",
-              getSelection("lbxTwo").equals(selsTwo));
-          verifyTrue("The selection should not change after insert items",
-              getSelection("lbxThree").equals(selsThree));
-          click(btnSeven); waitResponse();
-          click(btnSeven); waitResponse();
-          click(btnSeven); waitResponse();
-          verifyTrue("The selection should not change after insert items",
-              getSelection("lbxOne").equals(selsOne));
-          verifyTrue("The selection should not change after insert items",
-              getSelection("lbxTwo").equals(selsTwo));
-          verifyTrue("The selection should not change after insert items",
-              getSelection("lbxThree").equals(selsThree));
-        }
-        def getSelection (id: String): String = {
-          input(tbOne.$n(), id);
-          click(btnFour);
-          waitResponse();
-          var sels: String = getText(msg);
-          return sels;
-        }
-        selectItem("lbxOne", 2);
-        checkEqualSelection("lbxOne", "lbxTwo", true);
-        selectItem("lbxTwo", 200);
-        checkEqualSelection("lbxOne", "lbxTwo", true);
+        selectListitem(lbxThree, 12)
+        selectListitem(lbxThree, 15)
+        
+        click(btnTwo, false)
+        click(btnThree, false)
 
-        selectItem("lbxThree", 10);
-        selectItem("lbxThree", 11);
-        click(btnTwo);
-        sleep(1000);
-        click(btnThree);
-        sleep(1000);
+        checkList.add(12);
+        checkList.add(15);
+        checkSelection(checkList, "lbxThree")
 
-        checkList.add(10);
-        checkList.add(11);
-        checkSelection(checkList, "lbxThree");
+        var lbxThree_clone0: Widget = engine.$f("lbxThree_clone0")
+        var lbxThree_serialize1: Widget = engine.$f("lbxThree_serialize1")
+        
+        checkEqualSelection("lbxThree", "lbxThree_clone0", true)
+        checkEqualSelection("lbxThree", "lbxThree_serialize1", true)
+        selectListitem(lbxThree, 212)
+        selectListitem(lbxThree_clone0, 213)
+        selectListitem(lbxThree_serialize1, 214)
 
-        checkEqualSelection("lbxThree", "lbxThree_clone0", true);
-        checkEqualSelection("lbxThree", "lbxThree_serialize1", true);
-        selectItem("lbxThree", 212);
-        selectItem("lbxThree_clone0", 213);
-        selectItem("lbxThree_serialize1", 214);
+        checkEqualSelection("lbxThree", "lbxThree_clone0", false)
+        checkEqualSelection("lbxThree", "lbxThree_serialize1", false)
+        checkEqualSelection("lbxThree_clone0", "lbxThree_serialize1", false)
 
-        checkEqualSelection("lbxThree", "lbxThree_clone0", false);
-        checkEqualSelection("lbxThree", "lbxThree_serialize1", false);
-        checkEqualSelection("lbxThree_clone0", "lbxThree_serialize1", false);
+        click(btnTwo, false)
+        click(btnThree, false)
 
-        click(btnTwo);
-        sleep(1000);
-        click(btnThree);
-        sleep(1000);
+        checkList.clear()
+        checkList.add(12)
+        checkList.add(15)
+        checkList.add(212)
+        checkSelection(checkList, "lbxThree")
 
-        checkList.clear();
-        checkList.add(10);
-        checkList.add(11);
-        checkList.add(212);
-        checkSelection(checkList, "lbxThree");
-
-        checkEqualSelection("lbxThree", "lbxThree_clone2", true);
-        checkEqualSelection("lbxThree", "lbxThree_serialize3", true);
-        checkInsertRemove();
+        checkEqualSelection("lbxThree", "lbxThree_clone2", true)
+        checkEqualSelection("lbxThree", "lbxThree_serialize3", true)
+        checkInsertRemove
+        
+        exitFullScreen
     }
    );
   }

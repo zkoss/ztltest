@@ -164,14 +164,14 @@ class Z60_Listbox_ListModelList_RODTest extends ZTL4MeshTestCase {
         selectListitem(lbxTwo, 200)
         checkEqualSelection("lbxOne", "lbxTwo", true)
 
-        selectListitem(lbxThree, 10)
+        selectListitem(lbxThree, 12)
         click(btnTwo, false)
         click(btnThree, false)
         
         var lbxThree_clone0: Widget = engine.$f("lbxThree_clone0")
         var lbxThree_serialize1: Widget = engine.$f("lbxThree_serialize1")
 
-        checkList.add(10)
+        checkList.add(12)
         checkSelection(checkList, "lbxThree")
 
         checkEqualSelection("lbxThree", "lbxThree_clone0", true)
