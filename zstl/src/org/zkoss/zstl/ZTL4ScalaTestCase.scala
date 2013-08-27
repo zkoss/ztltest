@@ -31,10 +31,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
         _engine = new Widget(new StringBuffer("zk.Desktop._dt"))
 
         if (!zscript.isEmpty())
-	        runRawZscript(
-	          zscript 
-	          toString())
-
+	        runRawZscript(zscript.toString)
         waitResponse();
 
         executor();

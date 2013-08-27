@@ -187,16 +187,16 @@ class B50_3100455Test extends ZTL4ScalaTestCase {
     	        engine.$f("btn3"),
     	        engine.$f("btn4")
     	    );
-        var bodyWidth1: Int = jq(grid.$n("body")).outerWidth();
-        var bodyWidth2: Int = jq(grid2.$n("body")).outerWidth();
-        var bodyWidth3: Int = jq(listbox.$n("body")).outerWidth();
-        var bodyWidth4: Int = jq(listbox2.$n("body")).outerWidth();
-
-        horScroll(grid, .5);
-        horScroll(listbox, .5);
-        horScroll(grid2, .5);
-        horScroll(listbox2, .5);
-
+        var bodyWidth1: Int = jq(grid.$n("body")).outerWidth()
+        var bodyWidth2: Int = jq(grid2.$n("body")).outerWidth()
+        var bodyWidth3: Int = jq(listbox.$n("body")).outerWidth()
+        var bodyWidth4: Int = jq(listbox2.$n("body")).outerWidth()
+        enterFullScreen()
+        horScrollMesh(grid, .5)
+        horScrollMesh(listbox, .5)
+        horScrollMesh(grid2, .5)
+        horScrollMesh(listbox2, .5)
+        exitFullScreen()
         var left0 = jq(".z-grid:eq(0) .z-column:contains(C)").offsetLeft()
         var left1 = jq(".z-listbox:eq(0) .z-listheader:contains(C)").offsetLeft()
         var left2 = jq(".z-grid:eq(1) .z-column:contains(C)").offsetLeft()
@@ -209,23 +209,23 @@ class B50_3100455Test extends ZTL4ScalaTestCase {
           verifyEquals(left3, jq(".z-listbox:eq(0) .z-listheader:contains(C)").offsetLeft())
         }
         
-        checkAllVisible();
+        checkAllVisible()
 
-        click(btn1);
-        waitResponse();
-        checkAllVisible();
+        click(btn1)
+        waitResponse()
+        checkAllVisible()
 
-        click(btn2);
-        waitResponse();
-        checkAllVisible();
+        click(btn2)
+        waitResponse()
+        checkAllVisible()
 
-        click(btn3);
-        waitResponse();
-        checkAllVisible();
+        click(btn3)
+        waitResponse()
+        checkAllVisible()
 
-        click(btn4);
-        waitResponse();
-        checkAllVisible();
+        click(btn4)
+        waitResponse()
+        checkAllVisible()
     }
    );
 

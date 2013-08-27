@@ -33,13 +33,12 @@ class B60_ZK_750Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         val listbox = jq(".z-listbox")
-        verScroll(listbox, 1)
-        waitResponse()
-        verScroll(listbox, 0)
-        waitResponse()
-        verScroll(listbox, 1)
-        waitResponse()
+        enterFullScreen()
+        verScrollMesh(listbox, 1)
+        verScrollMesh(listbox, 0)
+        verScrollMesh(listbox, 1)
         verifyTrue("should not see the content of the listbox is blank", jq(".z-listitem:contains(999)").exists())
+        exitFullScreen()
       })
 
   }

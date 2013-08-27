@@ -77,8 +77,13 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
     def executor = () => {
     	var grid: Widget = engine.$f("grid")
 		waitResponse()
-		verScroll(grid, 1)
+		enterFullScreen()
+		verScrollMesh(grid, 1)
 		waitResponse()
+		if (ZK.is("ie") || ZK.is("gecko")) {
+			verScrollMesh(grid, 1)
+			waitResponse()
+		}
 		var beforeRemove: Int = jq(grid.$n("body")).scrollTop()
 		var btns = jq(grid.$n("body")).find("@button")
 		var lastBtn = btns.last()
@@ -90,6 +95,8 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
 		btns = jq(grid.$n("body")).find("@button")
 		lastBtn = btns.last()
 		verifyTrue(getText(lastBtn).contains("remove 198"))
+		exitFullScreen()
+		waitResponse()
     }
    // Run syntax 1 
    runZTL(zscript, executor);

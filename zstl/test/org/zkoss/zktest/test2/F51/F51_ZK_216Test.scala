@@ -111,34 +111,33 @@ class F51_ZK_216Test extends ZTL4ScalaTestCase {
 
    runZTL(zscript,
         () => {
-        var lbOne: Widget = engine.$f("lbOne");
-        var lbTwo: Widget = engine.$f("lbTwo");
-        var btnOne: Widget = engine.$f("btnOne");
-        var btnTwo: Widget = engine.$f("btnTwo");
-        var bodyTwo: Element = lbTwo.$n("body");
-        var scrollHeight: Int = Integer.parseInt(bodyTwo.get("scrollHeight"));
+        var lbOne: Widget = engine.$f("lbOne")
+        var lbTwo: Widget = engine.$f("lbTwo")
+        var btnOne: Widget = engine.$f("btnOne")
+        var btnTwo: Widget = engine.$f("btnTwo")
+        var bodyTwo: Element = lbTwo.$n("body")
+        var scrollHeight: Int = Integer.parseInt(bodyTwo.get("scrollHeight"))
 
         // verify listitem contents
         def verifyItem (leftContent: String, rightContent: String, listbox: Widget) {
-          var lCell: JQuery = jq(listbox).find(".z-listcell:contains("+leftContent+")");
-          var rCell: JQuery = jq(listbox).find(".z-listcell:contains("+rightContent+")");
+          var lCell: JQuery = jq(listbox).find(".z-listcell:contains("+leftContent+")")
+          var rCell: JQuery = jq(listbox).find(".z-listcell:contains("+rightContent+")")
           verifyTrue("item exist",
               lCell.exists() && rCell.exists()
-              && lCell.offsetTop() == rCell.offsetTop());
+              && lCell.offsetTop() == rCell.offsetTop())
         }
-        verifyItem ("Apple", "10kg", lbOne);
-        verifyItem ("Orange", "20kg", lbOne);
-        verifyItem ("Mango", "12kg", lbOne);
+        verifyItem ("Apple", "10kg", lbOne)
+        verifyItem ("Orange", "20kg", lbOne)
+        verifyItem ("Mango", "12kg", lbOne)
 
         verifyItem ("#0", ":Option 0", lbTwo);
+        enterFullScreen()
+        verScrollMesh(lbTwo, .5)
+        verifyItem ("#10000", ":Option 10000", lbTwo)
         
-        verScroll(bodyTwo, .5)
-        sleep(1000);
-        verifyItem ("#10000", ":Option 10000", lbTwo);
-        
-        verScroll(bodyTwo, 1)
-        sleep(1000);
-        verifyItem ("#19999", ":Option 19999", lbTwo);
+        verScrollMesh(lbTwo, 1)
+        verifyItem ("#19999", ":Option 19999", lbTwo)
+        exitFullScreen()
     }
    );
   }

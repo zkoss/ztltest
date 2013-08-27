@@ -21,10 +21,23 @@
 		<client><![CDATA[
 			Element btn = jq("$sl").toWidget().$n("btn");
 			verifyEquals(jq(btn).attr("title"), "50");
-			mouseDownAt(jq(btn), "8,6");
-			mouseMoveAt(jq(btn), "47,8");
-			mouseUpAt(jq(btn), "47,8");
-			verifyEquals(jq(btn).attr("title"), "70");
+			enterFullScreen();
+			waitResponse();
+			mouseMove(btn, false);
+			waitResponse();
+			mousePress();
+			waitResponse();
+			int offsetTop = jq(btn).offsetTop();
+			int height = jq(btn).outerHeight() / 2;
+			int sliderLeft = jq("$sl").offsetLeft();
+			float sliderWidth = jq("$sl").innerWidth();
+			mouseMove(sliderLeft + (int) Math.round(sliderWidth * .7), offsetTop + height);
+			mouseRelease();
+			waitResponse();
+			exitFullScreen();
+			int dest = parseInt(jq(btn).attr("title"));
+			verifyTolerant(dest, 70, 5);
+			sleep(500);
 			click(jq("@button"));
 			waitResponse();
 			verifyEquals(jq(btn).attr("title"), "10");

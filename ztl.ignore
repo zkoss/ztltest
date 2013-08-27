@@ -44,28 +44,28 @@ B50-3032892.ztl
 
 // tmp ignore scrollbar case
 B30-1769047.ztl
-B50-3100455.ztl 
-B50-3306149.ztl
+//B50-3100455.ztl 
+//B50-3306149.ztl
 //B50-ZK-1622.ztl
-B50-ZK-322.ztl
-B50-ZK-343.ztl 
-B50-ZK-353.ztl
+//B50-ZK-322.ztl
+//B50-ZK-343.ztl 
+//B50-ZK-353.ztl
 //B50-ZK-355.ztl
 //B50-ZK-373.ztl 
-B60-ZK-750.ztl
+//B60-ZK-750.ztl
 //B65-ZK-1284.ztl
-F51-ZK-216.ztl
-F51-ZK-216-grid.ztl
+//F51-ZK-216.ztl
+//F51-ZK-216-grid.ztl
 Z60-Grid-GroupsModelArray-Paging-noROD.ztl
-Z60-Listbox-ListModelArray-Multiple-ROD.ztl 
-Z60-Listbox-ListModelArray-Paging-Multiple.ztl 
-Z60-Listbox-ListModelArray-Paging.ztl 
-Z60-Listbox-ListModelArray-ROD.ztl 
-Z60-Listbox-ListModelList-Multiple-noROD.ztl
-Z60-Listbox-ListModelList-Multiple-ROD.ztl 
-Z60-Listbox-ListModelList-Paging-Multiple.ztl 
-Z60-Listbox-ListModelList-Paging.ztl 
-Z60-Listbox-ListModelList-ROD.ztl 
+//Z60-Listbox-ListModelArray-Multiple-ROD.ztl 
+//Z60-Listbox-ListModelArray-Paging-Multiple.ztl 
+//Z60-Listbox-ListModelArray-Paging.ztl 
+//Z60-Listbox-ListModelArray-ROD.ztl 
+//Z60-Listbox-ListModelList-Multiple-noROD.ztl
+//Z60-Listbox-ListModelList-Multiple-ROD.ztl 
+//Z60-Listbox-ListModelList-Paging-Multiple.ztl 
+//Z60-Listbox-ListModelList-Paging.ztl 
+//Z60-Listbox-ListModelList-ROD.ztl 
 Z60-Listbox-ListModelMap-Multiple-ROD.ztl 
 Z60-Listbox-ListModelMap-Paging-Multiple.ztl 
 Z60-Listbox-ListModelMap-Paging.ztl 
@@ -119,18 +119,15 @@ B65-ZK-1215.ztl
 }
 ie*={
 // unsupported, due to the unpredictable row's height
-Z60-Listbox-ListModelMap-Multiple-noROD.ztl
-Z60-Listbox-SimpleListModel-Multiple-noROD.ztl
-Z60-Listbox-ListModelSet-Multiple_noROD.ztl
-Z60-Listbox_SimpleListModel-noROD.ztl
-Z60-Listbox-ListModelArray-Multiple-noROD.ztl
-Z60-Listbox-ListModelArray-noROD.ztl
-Z60-Listbox-ListModelSet-noROD.ztl
-Z60-Listbox-ListModelList-Multiple-noROD.ztl
-Z60-Listbox-ListModelMap-noROD.ztl
-Z60-Listbox-ListModelSet-Multiple-noROD.ztl
-Z60-Listbox-ListModelList-noROD.ztl
-Z60-Listbox-SimpleListModel-noROD.ztl
+//Z60-Listbox-SimpleListModel-Multiple-noROD.ztl
+//Z60-Listbox-ListModelSet-Multiple_noROD.ztl
+//Z60-Listbox_SimpleListModel-noROD.ztl
+//Z60-Listbox-ListModelSet-noROD.ztl
+//Z60-Listbox-ListModelList-Multiple-noROD.ztl
+//Z60-Listbox-ListModelMap-noROD.ztl
+//Z60-Listbox-ListModelSet-Multiple-noROD.ztl
+//Z60-Listbox-ListModelList-noROD.ztl
+//Z60-Listbox-SimpleListModel-noROD.ztl
 // end for unpredictable row's height
 B60-ZK-1338.ztl
 // cant drag correct
