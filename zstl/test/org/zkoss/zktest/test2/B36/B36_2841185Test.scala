@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Widget
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -27,6 +28,7 @@ import org.zkoss.ztl.Widget
  */
 @Tags(tags = "B36-2841185.zul,B,E,Window,Button")
 class B36_2841185Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
     val zscript = {
       <window height="400px">

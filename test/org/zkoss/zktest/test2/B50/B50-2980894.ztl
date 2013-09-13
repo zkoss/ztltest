@@ -5,13 +5,17 @@
 		]]></server>
 		<client><![CDATA[
 			click(db.$n("btn"));
+			waitResponse();
 			Widget cal = new Widget(db.$n("pp").firstChild().get("id"));
 			click(cal.$n("ty"));
+			waitResponse();
 			Element mid = cal.$n("mid");
 			verifyTrue(mid.get("className").contains("z-calendar-year"));
 			click(cal.$n("y0"));
+			waitResponse();
 			verifyTrue(mid.get("className").contains("z-calendar-mon"));
 			click(cal.$n("m0"));
+			waitResponse();
 			verifyTrue(mid.get("className").contains("z-calendar-body"));
 		]]></client>
 	</case>

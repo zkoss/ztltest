@@ -51,14 +51,15 @@ String[] msgs = {
 			verifyImage();
 			int w = jq(col3).width();
 			doubleClickAt(col3, w - 2 + "");
+			waitResponse();
 			verifyImage();
-			
 			w = jq(col2).width();
 			doubleClickAt(col2, w - 2 + "");
+			waitResponse();
 			verifyImage();
-			
 			w = jq(col1).width();
 			doubleClickAt(col1, w - 2 + "");
+			waitResponse();
 			verifyImage();
 		]]></client>
 	</case>
