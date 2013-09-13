@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B60-ZK-985.zul,A,E,Grid,onChanging")
 class B60_ZK_985Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>

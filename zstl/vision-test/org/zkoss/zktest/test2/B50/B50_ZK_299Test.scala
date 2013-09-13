@@ -34,6 +34,7 @@ import java.lang._
  */
 @Tags(tags = "B50-ZK-299.zul,B,E,Grid,Detail,Chrome,VisionTest")
 class B50_ZK_299Test extends ZTL4ScalaTestCase {
+  @Test
 	def resetTheme(theme: String) {
 		runZTL({
 			"""<zk>
