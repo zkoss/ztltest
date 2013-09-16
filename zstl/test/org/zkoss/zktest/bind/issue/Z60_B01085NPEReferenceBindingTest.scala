@@ -15,6 +15,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Widget
+import org.junit.Test
 
 /**
  * @author pao
@@ -22,6 +23,7 @@ import org.zkoss.ztl.Widget
 @Tags(tags = "zbind")
 class Z60_B01085NPEReferenceBindingTest extends ZTL4ScalaTestCase {
 
+  @Test
   def testArg() = {
     val zul = {
       <include src="/bind/issue/B01085NPEReferenceBinding.zul"/>

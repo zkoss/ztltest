@@ -37,7 +37,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				click(jq("[name=" + jq("@paging").attr("id") + "-next]"));waitResponse();
 				click(jq("[name=" + jq("@paging").attr("id") + "-next]"));waitResponse();
-				for(int i = 0; i < 6; i++){
+				for(int i = 1; i < 6; i++){
 				click(jq("@listitem:eq("+i+")"));waitResponse();
 				verifyTrue(jq("@listitem:eq("+i+")").hasClass("z-listitem-selected"));
 				}

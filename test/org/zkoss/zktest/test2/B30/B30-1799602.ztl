@@ -29,13 +29,9 @@ If the popup of combox out of position, that is wrong.
 		int[] offset1 = zk(cb).revisedOffset();
 		click(cb.$n("btn"));
 		int[] offset2 = zk(cb.$n("pp")).revisedOffset();
-		if (ZK.is("ie") && !ZK.is("ie8")) {
-			verifyEquals(offset1[0], offset2[0]);
-			verifyEquals(offset1[1] + jq(cb).outerHeight() - 1, offset2[1]);
-		} else {
-			verifyEquals(offset1[0], offset2[0]);
-			verifyEquals(offset1[1] + jq(cb).outerHeight(), offset2[1]);
-		}
+				
+		verifyEquals(offset1[0], offset2[0]);			
+		verifyEquals(offset1[1] + jq(cb).outerHeight() - (ZK.is("ie") ? 1 : 0), offset2[1]);
 		]]></client>
 	</case>
 </test>
