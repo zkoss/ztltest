@@ -48,8 +48,6 @@ class B60_ZK_1142Test extends ZTL4ScalaTestCase {
           waitResponse()
           mouseOver(newMenu)
           waitResponse()
-          mouseMove(jq("@menuitem:contains(" + str + ")"))
-          waitResponse()
           click(jq("@menuitem:contains(" + str + ")"))
           waitResponse()
           verifyEquals("should see alert message displayed", jq(".z-messagebox-window @label").text(), str)

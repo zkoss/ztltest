@@ -19,6 +19,7 @@ package org.zkoss.zktest.test2.B35
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -26,6 +27,7 @@ import org.openqa.selenium.Keys
  */
 @Tags(tags = "B35-2094308.zul,B,E,Window,Button")
 class B35_2094308Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
     val zscript = {
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">

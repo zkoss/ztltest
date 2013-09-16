@@ -45,8 +45,9 @@
 				verifyTrue(false);
 				click(btn);
 				waitResponse();
+				String c = jq(bandinp).css("color");
 				boolean color1 = ColorVerifingHelper.getInstance().
-				isEqualColor("black",jq(bandinp).css("color"));
+				isEqualColor("black", c) || "#000".equals(c);
 				verifyTrue(color1);
 				if (!("normal".equals(jq(bandinp)
 				.css("font-weight"))

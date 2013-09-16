@@ -22,8 +22,8 @@
 			Element btn = jq("$sl").toWidget().$n("btn");
 			verifyEquals(jq(btn).attr("title"), "50");
 			mouseDownAt(jq(btn), "8,6");
-			mouseMoveAt(jq(btn), "47,8");
-			mouseUpAt(jq(btn), "47,8");
+			mouseMoveAt(jq(btn), "45,8");
+			mouseUpAt(jq(btn), "45,8");
 			verifyEquals(jq(btn).attr("title"), "70");
 			click(jq("@button"));
 			waitResponse();

@@ -16,12 +16,14 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.comp
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * @author pao
  */
 @Tags(tags = "zbind")
 class Z60_TabboxSelected2Test extends ZTL4ScalaTestCase {
+  @Test
   def testArg() = {
     val zul = {
       <include src="/bind/comp/tabbox-selected.zul"/>

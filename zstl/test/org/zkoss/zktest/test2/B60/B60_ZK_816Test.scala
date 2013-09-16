@@ -1,11 +1,13 @@
-package org.zkoss.zktest.test2.B65
+package org.zkoss.zktest.test2.B60
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B60-ZK-816.zul")
 class B60_ZK_816Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk>
                     <div>1. Mouseover 'new label', you should see a tooltip 'this is tool tip'</div>

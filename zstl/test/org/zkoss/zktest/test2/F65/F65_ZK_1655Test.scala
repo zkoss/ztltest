@@ -64,8 +64,8 @@ class F65_ZK_1655Test extends ZTL4ScalaTestCase {
         val pinkPP = jq("@popup")
 
         // should see tooltip showed on 20px down of mouse pointer
-        verifyTolerant(cyanPP.offsetTop() - 20, pink.offsetTop() + 100, 1)
-        verifyTolerant(cyanPP.offsetLeft(), pink.offsetLeft() + 100, 1)
+        verifyTolerant(cyanPP.offsetTop() - 20, pink.offsetTop() + 100, 3)
+        verifyTolerant(cyanPP.offsetLeft(), pink.offsetLeft() + 100, 3)
 
           
 //        contextMenu cant work fine
