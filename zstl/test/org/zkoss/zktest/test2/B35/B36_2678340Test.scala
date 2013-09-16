@@ -64,6 +64,7 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
 		waitResponse()
       // Click upper button twice
       click(jq(".z-timebox").toWidget().$n("btn-down"))
+      waitResponse()
       click(jq(".z-timebox").toWidget().$n("btn-down"))
        waitResponse()
        sleep(500)

@@ -3,6 +3,7 @@ package org.zkoss.zktest.test2.B60
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.ztl.ZK
 
 @Tags(tags = "B60-ZK-1222.zul")
 class B60_ZK_1222Test extends ZTL4ScalaTestCase {
@@ -87,18 +88,16 @@ class B60_ZK_1222Test extends ZTL4ScalaTestCase {
         verifyTrue("If you see the tooltip appearing and disappearing several times while it is loading, it is an error.", jq(".z-popup").exists())
         sleep(1500)
         verifyTrue(!jq(".z-apply-mask").exists())
-        waitResponse()
-        mouseMove(jq(".z-listitem:contains(Click - popup)"))
-        waitResponse()
         click(jq(".z-listitem:contains(Click - popup)"))
-        sleep(2000)
-        verifyEquals("Then, the tooltip should keep displaying until the mouse cursor is click outside the second data row.", isVisible(jq(".z-popup")))
-        mouseMove(jq(".z-listhead"))
-        waitResponse()
-        click(jq(".z-listhead"))
         waitResponse()
         sleep(2000)
-        verifyNotEquals("Then, the tooltip should keep displaying until the mouse cursor is click outside the second data row.", isVisible(jq(".z-popup")))
+        verifyTrue("Then, the tooltip should keep displaying until the mouse cursor is click outside the second data row.", isVisible(jq(".z-popup")))
+        
+        val id = jq(".z-popup").attr("id")
+        clickAt(jq(".z-listhead"), "3,3")
+        waitResponse()
+        sleep(2000)
+        verifyTrue("Then, the tooltip should keep displaying until the mouse cursor is click outside the second data row.", !jq("#" + id).isVisible()) 
       })
 
   }

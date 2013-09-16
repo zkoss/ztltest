@@ -11,7 +11,7 @@
 			</zk>
 		]]></server>
 		<client><![CDATA[
-			dragdropTo(sld.$n("btn"), "0,0", "50,0");
+			dragdropTo(sld.$n("btn"), "0,0", "46,0");
 			click(btn1);
 			waitResponse();
 			verifyEquals("75", jq(ib1).val());

@@ -15,10 +15,11 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.bind.issue
 import java.util.ArrayList
-
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
+import org.junit.Test
+import org.zkoss.ztl.ZK
 
 /**
  * @author pao
@@ -45,6 +46,7 @@ class Z60_F00743_1Test extends ZTL4ScalaTestCase {
     indexes
   }
 
+  @Test
   def testIssue() = {
     val zul = {
       <include src="/bind/issue/F00743_1.zul"/>
@@ -75,7 +77,7 @@ class Z60_F00743_1Test extends ZTL4ScalaTestCase {
       click(showselect.toWidget())
       waitResponse()
       verifyEquals("[]", range.toWidget().get("value"))
-      click(outerbox.find("@listitem").eq(2).toWidget())
+      clickAt(outerbox.find("@listitem:contains(2)"), "3,3") // fix for ie8
       waitResponse()
       click(outerbox.find("@listitem").eq(4).toWidget())
       waitResponse()

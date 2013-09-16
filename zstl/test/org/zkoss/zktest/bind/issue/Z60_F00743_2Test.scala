@@ -15,10 +15,10 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.bind.issue
 import java.util.ArrayList
-
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
+import org.junit.Test
 
 /**
  * @author pao
@@ -45,6 +45,7 @@ class Z60_F00743_2Test extends ZTL4ScalaTestCase {
     indexes
   }
 
+  @Test
   def testIssue() = {
     val zul = {
       <include src="/bind/issue/F00743_2.zul"/>
