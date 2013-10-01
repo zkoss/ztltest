@@ -7,7 +7,7 @@
 	<grid id="grid1">
 		<rows>
 			<row>
-				<detail id="detail" width="32px">
+				<detail id="detail">
 					<grid id="grid">
 						<columns>
 							<column width="15%" />
@@ -55,9 +55,6 @@
 				click(detail.$n("icon"));
 				int x = jq(grid1).height();
 				click(bd.$n("btn"));
-				waitResponse();
-				verifyEquals(x,jq(grid1).height());
-				click(detail.$n("icon"));
 				waitResponse();
 				verifyEquals(x,jq(grid1).height());
 			]]></client>
