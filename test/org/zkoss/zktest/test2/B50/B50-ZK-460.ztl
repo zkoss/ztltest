@@ -23,19 +23,15 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				<listbox width="350px">
 					<listitem>
 						<listcell>
-							<spinner onChange='lc1.value = event.value' />
+							<spinner onChange='lc1.label = event.value' />
 						</listcell>
-						<listcell>
-							<textbox  id="lc1" />
-						</listcell>
+						<listcell id="lc1" />
 					</listitem>
 					<listitem>
 						<listcell>
-							<timebox onChange='lc2.value = event.value' />
+							<timebox onChange='lc2.label = event.value' />
 						</listcell>
-						<listcell>
-							<textbox  id="lc2" />
-						</listcell>
+						<listcell id="lc2" />
 					</listitem>
 				</listbox>
 			</zk>

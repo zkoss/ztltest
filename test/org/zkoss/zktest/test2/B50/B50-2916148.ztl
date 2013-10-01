@@ -11,14 +11,17 @@ be closed.
 			-->
 		</server>
 		<client>	<![CDATA[
+				JQuery eb = jq(".z-errorbox");
 				focus(tb);
 				blur(tb);
 				waitResponse();
-				verifyTrue(jq(".z-errorbox").exists());
+				verifyTrue(eb.exists());
 				waitResponse();
-				click(jq(".z-errorbox").toWidget().$n("cls"));
+				click(eb.toWidget().$n("cls"));
+				if(ZK.is("ie8_")) // selenium issue
+					click(eb.toWidget().$n("cls"));
 				waitResponse();
-				verifyFalse(jq(".z-errorbox").exists());		
+				verifyFalse(eb.exists());		
 			]]></client>
 	</case>
 </test>

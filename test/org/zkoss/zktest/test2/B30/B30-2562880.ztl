@@ -24,7 +24,7 @@
 				verifyTrue(isVisible(popup));
 				clickAt(lh.$n("cave"),"0,0");
 				waitResponse();
-				verifyFalse(isVisible(popup));
+				verifyTrue(!popup.exists() || !isVisible(popup));
 		]]></client>
 	</case>
 </test>
