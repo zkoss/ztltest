@@ -14,6 +14,7 @@
 			verifyTrue(popup.exists());
 			mouseOut(tbNode);
 			mouseOver(cb.$n());
+			sleep(1000);
 			verifyTrue(popup.exists());
 		]]></client>
 	</case>
