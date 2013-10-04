@@ -15,7 +15,6 @@
 				String before = jq(".z-textbox").val();
 				focus(tb.$n());
 				waitResponse();
-				verifyTrue("" != jq(".z-textbox").css("box-shadow"));
 				sendKeys(tb.$n(), Keys.END);
 				waitResponse();
 				sendKeys(tb.$n(), Keys.BACK_SPACE);
