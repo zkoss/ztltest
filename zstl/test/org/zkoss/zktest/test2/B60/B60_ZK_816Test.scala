@@ -3,6 +3,7 @@ package org.zkoss.zktest.test2.B60
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.ztl.ZK
 
 @Tags(tags = "B60-ZK-816.zul")
 class B60_ZK_816Test extends ZTL4ScalaTestCase {
@@ -47,7 +48,10 @@ class B60_ZK_816Test extends ZTL4ScalaTestCase {
         mouseOver(jq(".z-label:contains(new label):eq(3)"))
         waitResponse()
         sleep(2000)
-        verifyEquals(jq(".z-popup:contains(this is tool tip):eq(1)").css("display"), "block")
+        if (ZK.is("ie"))
+          verifyEquals(jq(".z-popup:contains(this is tool tip):eq(0)").css("display"), "block")
+        else
+          verifyEquals(jq(".z-popup:contains(this is tool tip):eq(1)").css("display"), "block")
       })
 
   }

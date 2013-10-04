@@ -52,7 +52,8 @@ class B30_1936366Test extends ZTL4ScalaTestCase {
 			click(jq("@button:eq(1)"));
 			waitResponse;
 			val focus = engine $f ("focus");
-			verifyFalse("".equals(jq(focus).css("box-shadow")));
+			verifyTrue(jq(".z-window").find(".z-textbox:focus").exists())
+			
 		})
 	}
 }

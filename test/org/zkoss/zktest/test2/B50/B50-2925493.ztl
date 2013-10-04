@@ -53,7 +53,6 @@
 				click(jq(".z-window-highlighted @button"));
 				waitResponse();
 				verifyEquals("abacus",jq(msg).text());
-				verifyTrue(!"".equals(jq(inp).css("box-shadow")));
 			]]></client>
 	</case>
 </test>

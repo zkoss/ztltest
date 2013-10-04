@@ -16,7 +16,7 @@
 		waitResponse();				
 		focus(jq(jq("@bandbox").toWidget().$n("pp")).find("@intbox"));
 		waitResponse();
-				
+		if(!ZK.is("ie8"))
 		verifyTrue(!"".equals(jq("@bandbox").css("box-shadow")));
 		]]></client>
 	</case>
