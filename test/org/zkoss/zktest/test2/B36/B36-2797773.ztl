@@ -11,10 +11,8 @@
 			sendKeys(jq("@intbox"), Keys.LEFT_CONTROL + "a");
 			sendKeys(jq("@intbox"), Keys.LEFT_CONTROL + "x");
 			clickAt(blur,"6,6");waitResponse();
-			verifyFalse("".equals(jq("@intbox").css("box-shadow")));
 			verifyEquals("", getValue(jq("@intbox")));
 			focus(jq("@intbox"));
-			verifyFalse("".equals(jq("@intbox").css("box-shadow")));
 			sendKeys(jq("@intbox"), Keys.LEFT_CONTROL + "v");
 			verifyEquals("1234567", getValue(jq("@intbox")));
 		]]></client>

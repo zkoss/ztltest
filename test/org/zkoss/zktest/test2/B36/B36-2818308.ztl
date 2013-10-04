@@ -89,7 +89,7 @@
 			waitResponse();
 			tableScrollTop = table.outerHeight() - table.find("tr:last").outerHeight();
 			scrollTop = getScrollTop(tree) + body.outerHeight();
-			verifyEquals(tableScrollTop, scrollTop);
+			verifyTolerant(tableScrollTop, scrollTop, 1);
 			click(jq("@button[label=\"add upon top\"]"));
 			waitResponse();
 			click(jq("@button[label=\"add upon top\"]"));

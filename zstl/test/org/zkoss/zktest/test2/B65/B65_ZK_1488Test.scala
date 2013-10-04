@@ -74,12 +74,13 @@ public class TestComposer extends GenericForwardComposer{
       () => {
         contextMenu(jq(".z-listitem:eq(0)"))
         waitResponse()
-        verifyNotEquals(jq(".z-menupopup:contains(context menu A)").css("display"), "none")
+        val pp0 = jq(".z-menupopup:contains(context menu A)")
+        verifyNotEquals(pp0.css("display"), "none")
         
         click(jq(".z-listitem:eq(1)"))
         waitResponse()
-        verifyEquals(jq(".z-menupopup:contains(context menu A)").css("display"), "none")
-        verifyNotEquals(jq(".z-menupopup:contains(menu A):eq(1)").css("display"), "none")
+        verifyTrue(!pp0.exists() || jq(".z-menupopup:contains(context menu A)").css("display") == "none")
+        verifyTrue(jq(".z-menupopup:contains(menu A):eq(1)").css("display") != "none")
       })
 
   }
