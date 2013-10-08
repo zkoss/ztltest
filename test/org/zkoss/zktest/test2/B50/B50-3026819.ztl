@@ -36,7 +36,6 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			focus(txt1.$n());
 			sendKeys(txt1.$n(), Keys.TAB);
 			waitResponse();
-			if(!ZK.is("ie8"))
 			verifyTrue(!"".equals(jq(txt3).css("box-shadow")));
 		]]></client>
 	</case>

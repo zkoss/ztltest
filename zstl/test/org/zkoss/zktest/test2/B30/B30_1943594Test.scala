@@ -15,8 +15,9 @@ it will be useful, but WITHOUT ANY WARRANTY.
 package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.Tags
 import org.zkoss.ztl.util.Scripts
+import org.junit.Test
 
 /**
  *
@@ -24,6 +25,7 @@ import org.zkoss.ztl.util.Scripts
  */
 @Tags(tags = "B30-1943594.zul,A,E,Combobox,Datebox,Calendar")
 class B30_1943594Test extends ZTL4ScalaTestCase {
+  @Test
 	def testCase() = {
 		val zscript = {
 			<window border="none" width="100%" xmlns="http://www.zkoss.org/2005/zul">
