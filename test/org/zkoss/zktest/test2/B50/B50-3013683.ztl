@@ -24,8 +24,7 @@
 		]]></server>
 		<client><![CDATA[
 		 	sleep(200);
-			if(!isFakeScrollbar())
-				verifyEquals(jq("@columns").width(), jq("@row:eq(0)").width());
+			verifyEquals(jq("@columns").width(), jq("@row:eq(0)").width());
 		]]></client>
 	</case>
 </test>

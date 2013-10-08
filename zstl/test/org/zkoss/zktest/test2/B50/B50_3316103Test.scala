@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-3316103.zul,A,M,Combobox,Datebox,EE")
 class B50_3316103Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 
@@ -83,6 +84,7 @@ class B50_3316103Test extends ZTL4ScalaTestCase {
     	        engine.$f("label3")
     	    );
         click(cbx.$n("btn"));
+        waitResponse();
         click(jq(cbx.$n("pp")).find(".z-comboitem").get(1));
         waitResponse();
         verifyTrue("the value of combobox should equal to the label text next to it",

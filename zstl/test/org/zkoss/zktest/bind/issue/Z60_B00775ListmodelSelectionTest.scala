@@ -18,6 +18,8 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
 import org.junit.Test
+import org.zkoss.ztl.ZK
+import org.zkoss.ztl.util.Scripts
 
 /**
  * @author pao
@@ -52,9 +54,15 @@ class Z60_B00775ListmodelSelectionTest extends ZTL4ScalaTestCase {
       var header = jq("$header")
       var shrink = jq("$shrink")
 
-      click(header.toWidget())
+      if(!ZK.is("ie8_"))
+    	click(header)
+      else
+        Scripts.triggerMouseEventAt(getWebDriver(), header, "click", "10,10");
       waitResponse()
-      click(header.toWidget()) // twice
+      if (!ZK.is("ie8_"))
+        click(header)
+      else
+        Scripts.triggerMouseEventAt(getWebDriver(), header, "click", "10,10"); // twice
       waitResponse()
 
       click(listbox.find("@listitem").eq(8).toWidget())
