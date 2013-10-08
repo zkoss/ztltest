@@ -20,6 +20,7 @@ import java.util.Calendar
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.junit.Test
+import org.zkoss.ztl.ZK
 
 /**
  * A test class for bug 2874098
@@ -100,6 +101,8 @@ class B36_2874098Test extends ZTL4ScalaTestCase {
         
         //Click save button
         var save = jq("$buttonSave");
+        if(ZK.is("ie8"))
+        	blur(txt2)
         click(save);
         waitResponse();
                 

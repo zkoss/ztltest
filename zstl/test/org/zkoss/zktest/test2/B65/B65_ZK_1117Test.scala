@@ -17,9 +17,9 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
     val zscript =
       """<window title="My First Window" border="normal">
         <label multiline="true">
-          1.click button, you should get the spinner error message. 
+          1.click button, you should get alert : spinner value is null
 2.change the spinner value to 1,then click button, you should get alert : spinner value is 1
-3.clear the spinner value to empty,then click button, you should get the spinner error messag.
+3.clear the spinner value to empty,then click button, you should get alert : spinner value is null
 4. please check the behavior with double spinner, the result should be the same
         </label>
         <spinner id="s"/>
@@ -46,9 +46,9 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         val clickbtn = jq("@button:contains(" + clickTxt + ")")
         click(clickbtn)
         waitResponse()
-        verifyTrue("Should show a message box",
-          jq(".z-errorbox").exists())
-        click(jq(".z-errorbox").toWidget().$n("cls"))
+        verifyTrue("Should show a alert box",
+          jq(".z-messagebox-window").isVisible())
+        click(jq(".z-messagebox-window .z-button"))
         waitResponse()
 
         // change the spinner value to 1,then click button, you should get alert : spinner value is 1
@@ -70,9 +70,9 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         waitResponse()
         click(clickbtn)
         waitResponse()
-        verifyTrue("Should show a message box",
-          jq(".z-errorbox").exists())
-        click(jq(".z-errorbox").toWidget().$n("cls"))
+        verifyTrue("Should show a alert box",
+          jq(".z-messagebox-window").isVisible())
+        click(jq(".z-messagebox-window .z-button"))
       }
     }
 
