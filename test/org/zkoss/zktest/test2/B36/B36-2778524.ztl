@@ -13,11 +13,11 @@
 		<client><![CDATA[
 				click(db1.$n("btn"));
 				waitResponse();
-				click(jq(db1.$n("pp")).find("@calendar td:eq(12)"));
+				click(jq(db1.$n("pp")).find("@calendar").find("td:eq(12)"));
 				verifyFalse(jq(db1.$n("real")).val().indexOf("1999") > 0);
 				click(db2.$n("btn"));
 				waitResponse();
-				click(jq(db2.$n("pp")).find("@calendar td:eq(12)"));
+				click(jq(db2.$n("pp")).find("@calendar").find("td:eq(12)"));
 				waitResponse();
 				blur(db2.$n("real"));
 				verifyFalse(jq("div.z-errorbox").exists());

@@ -34,7 +34,7 @@
 		<client><![CDATA[
 				click(widget(jq("@detail")).$n("icon"));
 				waitResponse();
-				click(jq("@listitem[label=\"aaaaaaa\"] span.z-listitem-checkbox"));
+				click(jq("@listitem:contains(aaaaaaa)").find(".z-listitem-checkbox"));
 				waitResponse();
 				click(widget(jq("@detail")).$n("icon"));
 				waitResponse();

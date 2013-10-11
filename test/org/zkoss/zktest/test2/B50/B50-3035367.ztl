@@ -36,13 +36,13 @@
 				click(jq("@button[label=\"update list model of listbox on second tab panel\"]"));
 				waitResponse();
 				verifyFalse(jq(".z-error").exists());
-				click(jq("@window @tab[label=\"Not visible (selected) by default\"] span.z-tab-text:eq(0)"));
+				click(jq("@tab:contains(Not)"));
 				waitResponse();
 				verifyEquals("Listbox", getText(jq("@listheader")));
 				verifyEquals("element", getText(jq("@listcell")));
-				click(jq("@tab[label=\"Visible (selected) Tab\"] .z-tab-text"));
+				click(jq("@tab:contains(Tab)"));
 				waitResponse();
-				click(jq("@button[label=\"update list model of grid on third tab panel\"]"));
+				click(jq("@button:contains(grid)"));
 				waitResponse();
 				verifyFalse(jq(".z-error").exists());
 				clickAt(jq(t3).find(".z-tab-text"), "3,3");

@@ -41,7 +41,7 @@
 			click(jq("@treecell[label=\"1.1.1\"]"));
 			if(ZK.is("ie"))
 			blur(jq("a"));
-			click(jq("@page @treerow").toWidget().$n("icon"));
+			click(jq("@treerow").toWidget().$n("icon"));
 			waitResponse();
 			Element node = tree.$n().firstChild();
 			verifyEquals(node.get("clientHeight"), node.get("scrollHeight"));
