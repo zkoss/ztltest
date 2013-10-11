@@ -30,7 +30,7 @@
 				focus(inp);
 				click(returnDate.$n("btn"));
 				waitResponse();
-				String time = jq("@timebox input").val();
+				String time = jq("@timebox").find("input").val();
 				click(jq("td.z-calendar-selected"));
 				waitResponse();
 				blur(inp);
@@ -42,7 +42,7 @@
 		<server ref="zulCode"/>
 		<client><![CDATA[
 				Element inp = returnDate.$n("real");
-				JQuery timeInp = jq("@timebox input");
+				JQuery timeInp = jq("@timebox").find("input");
 				focus(inp);
 				click(returnDate.$n("btn"));
 				waitResponse();

@@ -20,7 +20,7 @@
 				JQuery win= jq("@window");
 				int left = parseInt(win.css("left"));
 				int top = parseInt(win.css("top"));
-				dragdropTo(jq("@window div[id$=\"cap\"]"), "10,10", "160,160");
+				dragdropTo(jq("@window").toWidget().$n("cap"), "10,10", "160,160");
 				
 				verifyNotEquals(left , parseInt(win.css("left")));
 				verifyNotEquals(top , parseInt(win.css("top")));

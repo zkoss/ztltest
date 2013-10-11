@@ -20,14 +20,14 @@
 		<client><![CDATA[
 				click(jq("@treecell:contains(3)"));
 				waitResponse();
-				click(jq("@page @treerow:eq(0)").toWidget().$n("icon"));
+				click(jq("@treerow:eq(0)").toWidget().$n("icon"));
 				waitResponse();
-				click(jq("@page @treerow:eq(0)").toWidget().$n("icon"));
+				click(jq("@treerow:eq(0)").toWidget().$n("icon"));
 				waitResponse();
 				sendKeys(tree.$n("a"), Keys.DOWN);
 				sendKeys(tree.$n("a"), Keys.DOWN);
 				sendKeys(tree.$n("a"), Keys.UP);
-				verifyTrue(jq("@treecell[label=\"7\"]").parent(".z-treerow").hasClass("z-treerow-selected"));
+				verifyTrue(jq("@treecell:contains(7)").parent(".z-treerow").hasClass("z-treerow-selected"));
 		]]></client>
 	</case>
 </test>
