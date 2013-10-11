@@ -19,9 +19,9 @@ package org.zkoss.zktest.test2.B36
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
-
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -29,6 +29,7 @@ import org.zkoss.ztl.Tags
  */
 @Tags(tags = "B36-2688620.zul,B,E,Window,Button")
 class B36_2688620Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
     val zscript = {
       <window>
@@ -47,7 +48,7 @@ tb.focus();
       var df: SimpleDateFormat = new SimpleDateFormat("hh:MM:ss");
       var str = df.format(d);
       val msg = "[" + str.substring(0, 2) + "] should be selected";
-      verifyTrue(msg, zk(jq("@timebox input")).eval("getSelectionRange()").equals("[0, 2]"));
+      verifyTrue(msg, zk(jq("@timebox").find("input")).eval("getSelectionRange()").equals("[0, 2]"));
     })
   }
 }

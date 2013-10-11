@@ -6,6 +6,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import scala.util.control.Breaks._
 import org.zkoss.ztl.JQuery
 import org.zkoss.ztl.ZK
+import org.junit.Test
 /**
  * there is some diff with origin zul: add width for panel, 
  * or ie will click in wrong position cuz width is not enough 
@@ -14,6 +15,7 @@ import org.zkoss.ztl.ZK
 @Tags(tags = "B65-ZK-1462.zul")
 class B65_ZK_1462Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = <zk>
                     <label>
@@ -44,8 +46,8 @@ class B65_ZK_1462Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         sleep(2000)
-        val panel1 = jq("@panel:contains(1) .z-panel-header")
-        val panel2 = jq("@panel:contains(2) .z-panel-header")
+        val panel1 = jq("@panel:contains(1)").find(".z-panel-header")
+        val panel2 = jq("@panel:contains(2)").find(".z-panel-header")
         val areShowed = panel1.isVisible() && panel2.isVisible()
         verifyTrue("should see two panels showed ", areShowed)
 
@@ -60,7 +62,7 @@ class B65_ZK_1462Test extends ZTL4ScalaTestCase {
         val pc2 = jq(".z-portalchildren:eq(0)")
         verifyEquals("should be draggable and droppable", parent2.html, pc2.html)
 
-        val movey = jq("@panel:contains(2) .z-panel-header").positionTop() - jq("@panel:contains(1) .z-panel-header").positionTop()
+        val movey = jq("@panel:contains(2)").find(".z-panel-header").positionTop() - jq("@panel:contains(1)").find(".z-panel-header").positionTop()
 
         if (isIE) {
           dragdropTo(panel1, "0,0", "0," + movey)

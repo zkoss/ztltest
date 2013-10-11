@@ -23,7 +23,7 @@
 		    click(cb.$n("btn"));
 		    verifyTrue(isVisible(cb.$n("pp")));
 			waitResponse();
-			dragdropTo(jq("@window div[id$=\"cap\"]"), "10,10", "160,160");
+			dragdropTo(jq("@window").toWidget().$n("cap"), "10,10", "160,160");
 			verifyFalse(isVisible(cb.$n("pp")));
 		]]></client>
 	</case>
