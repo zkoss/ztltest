@@ -20,9 +20,9 @@
 		<client><![CDATA[
 		click(jq("@button"));
 		waitResponse();
-		click(jq("@listcell[label=\"option 5\"]"));
+		click(jq("@listcell:contains(option 5)"));
 		waitResponse();
-		verifyEquals("block", jq("@groupbox .z-groupbox-content").css("display"));
+		verifyEquals("block", jq("@groupbox").find(".z-groupbox-content").css("display"));
 		]]></client>
 	</case>
 </test>
