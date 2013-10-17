@@ -27,7 +27,7 @@
 </row>
 </rows>
 </grid>
-<hbox hflex="min">
+<hlayout hflex="min">
 <cell>
 <button label="i" />
 </cell>
@@ -36,7 +36,7 @@
 <button label="Close" />
 <button label="Help" />
 </cell>
-</hbox>
+</hlayout>
 </window>
 </zk>
 		--></server>
