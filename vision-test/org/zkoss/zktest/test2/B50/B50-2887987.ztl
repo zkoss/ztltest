@@ -3,7 +3,7 @@
 		<server><!--
 <window>
 In IE, each panel should display well (the corner of each panel should not disappear)
-<vbox>
+<vlayout>
     <panel title="Test0" closable="false" framable="true"
 collapsible="true" width="300px">
         <panelchildren>
@@ -44,7 +44,7 @@ collapsible="true">
             </listbox>
         </panelchildren>
     </panel>
-</vbox>
+</vlayout>
 </window>
 		--></server>
 		<client><![CDATA[
