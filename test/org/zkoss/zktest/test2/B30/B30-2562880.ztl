@@ -19,7 +19,10 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-				click(jq(".z-listcell"));
+				if(!ZK.is("opera"))
+					click(jq(".z-listcell"));
+				else
+					clickAt(jq(".z-listcell"),"2,2");
 				waitResponse();
 				verifyTrue(isVisible(popup));
 				clickAt(lh.$n("cave"),"0,0");

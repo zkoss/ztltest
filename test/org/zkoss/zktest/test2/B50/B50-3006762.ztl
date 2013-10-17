@@ -44,7 +44,7 @@
 			click(jq("@treerow").toWidget().$n("icon"));
 			waitResponse();
 			Element node = tree.$n().firstChild();
-			verifyEquals(node.get("clientHeight"), node.get("scrollHeight"));
+			verifyTolerant(Integer.parseInt(node.get("clientHeight")), Integer.parseInt(node.get("scrollHeight")), 1);
 		]]></client>
 	</case>
 </test>

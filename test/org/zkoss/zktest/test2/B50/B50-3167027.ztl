@@ -45,7 +45,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				click(jq("@button"));
 				waitResponse();
 				verifyTrue(isVisible(jq("@treecell:eq(0)")));
-				verifyEquals(" new Item",jq("@treecell:eq(0)").text());
+				verifyTrue(jq("@treecell:eq(0)").text().contains("new Item"));
 		]]></client>
 	</case>
 </test>

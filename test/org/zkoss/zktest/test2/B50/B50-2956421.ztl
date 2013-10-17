@@ -29,7 +29,10 @@
 		</server>
 		<client>
 		<![CDATA[
-				click(a1);
+				if(!ZK.is("opera"))
+					click(a1);
+				else
+					clickAt(a1, "2,2");
 				waitResponse();
 				verifyTrue(item1.is("selected"));
 				verifyTrue(jq(item1).hasClass("z-listitem-selected"));

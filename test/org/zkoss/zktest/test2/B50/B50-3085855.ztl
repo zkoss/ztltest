@@ -49,7 +49,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 				verifyFalse(isVisible(jq(".z-treerow:eq(2)")));
-				verifyEquals(" Item 1",jq(".z-treerow:visible").text());
+				verifyTrue(jq(".z-treerow:visible").text().contains("Item 1"));
 		]]></client>
 	</case>
 </test>

@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "F60-ZK-468.zul,F60,A,E,Selectbox,Databinding,Model")
 class F60_ZK_468Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>

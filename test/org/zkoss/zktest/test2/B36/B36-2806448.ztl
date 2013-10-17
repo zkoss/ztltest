@@ -27,7 +27,10 @@
 			contextMenu(jq("@listcell[label=\"female\"]"));
 			waitResponse();
 			verifyTrue(jq("@menupopup").exists());
-			click(jq("@listcell[label=\"Mary\"]"));
+			if(!ZK.is("opera"))
+				click(jq("@listcell[label=\"Mary\"]"));
+			else
+				clickAt(jq("@listcell[label=\"Mary\"]"), "2,2");
 			waitResponse();
 			verifyFalse(jq("@menupopup").exists());
 		]]></client>

@@ -21,6 +21,7 @@ import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
 import org.zkoss.ztl.Element
 import org.junit.Test
+import org.zkoss.ztl.ZK
 
 /**
  * A test class for bug 2078184
@@ -53,6 +54,12 @@ class B35_2078184Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
+        	val fixClick = (e: Element) => {
+        	  if(!ZK.is("opera"))
+        		click(e);
+        	  else
+        		clickAt(e,"2,2");
+        	} 
         	
         	//Scroll down
         	jq("$div1").get(0).eval("scrollTop = 40");
@@ -61,15 +68,17 @@ class B35_2078184Test extends ZTL4ScalaTestCase {
         	//click spinner1 button down
         	var ds: Widget = engine.$f("sp1");
         	var dsInp: Element = ds.$n("real");
-        	click(ds.$n("btn-down"));
-        	
+
+        	fixClick(ds.$n("btn-down"));
+
         	waitResponse();
         	
         	var v=getValue(dsInp);
         	verifyEquals(v,"-1");
         	
         	//click spinner again
-        	click(ds.$n("btn-down"));
+        	fixClick(ds.$n("btn-down"));
+
         	
         	waitResponse();
         	
@@ -80,15 +89,15 @@ class B35_2078184Test extends ZTL4ScalaTestCase {
         	//click spinner2 button down
         	var ds2: Widget = engine.$f("sp2");
         	var ds2Inp: Element = ds2.$n("real");
-        	click(ds2.$n("btn-down"));
+        	fixClick(ds2.$n("btn-down"));
         	
         	waitResponse();
         	
         	var v2=getValue(ds2Inp);
         	verifyEquals(v2,"-1");
         	
-        	//click spinner again
-        	click(ds2.$n("btn-down"));
+        	//click spinner again      
+        	fixClick(ds2.$n("btn-down"));
         	
         	waitResponse();
         	

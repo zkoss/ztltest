@@ -23,6 +23,7 @@ import org.zkoss.ztl.Element
 import org.zkoss.ztl.ZK
 import org.zkoss.ztl.util.Scripts
 import org.openqa.selenium.Keys
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -30,6 +31,7 @@ import org.openqa.selenium.Keys
  */
 @Tags(tags = "B35-2349456.zul,B,E,Window,Button")
 class B35_2349456Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
     val zscript = {
       <window title="Live Data" border="normal">
