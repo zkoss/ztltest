@@ -3,7 +3,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.By
 import org.openqa.selenium.internal.Locatable
-import org.openqa.selenium.HasTouchScreen
+import org.openqa.selenium.interactions.HasTouchScreen
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_007Test extends ZTL4ScalaTestCase {
