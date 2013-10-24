@@ -26,6 +26,7 @@ all={
 // unsupported
 B30-2009958.ztl
 B35-2580752.ztl
+B65-ZK-1715.ztl
 // zkbind bean validation
 Z60-B01005BeanValidatorPath.ztl
 // unsupported marcoURI
@@ -316,7 +317,6 @@ Z60-B00775ListmodelSelection.ztl
 opera,chrome,safari,firefox*={
 B65-ZK-1642.ztl
 B65-ZK-1215.ztl
-B65-ZK-1748.ztl 
 }
 // ie10 only
 opera,chrome,safari,firefox*,ie6,ie7,ie8,ie9={
