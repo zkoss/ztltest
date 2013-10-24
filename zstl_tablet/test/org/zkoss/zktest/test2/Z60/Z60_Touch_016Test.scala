@@ -4,7 +4,7 @@ import org.zkoss.ztl.Tags
 import org.openqa.selenium.By
 import org.openqa.selenium.interactions.internal.Coordinates
 import org.openqa.selenium.internal.Locatable
-import org.openqa.selenium.HasTouchScreen
+import org.openqa.selenium.interactions.HasTouchScreen
 import org.junit.Test
 
 @Tags(tags = "Touch,Android")

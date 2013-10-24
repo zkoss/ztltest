@@ -19,7 +19,6 @@ package org.zkoss.zktest.test2.B36
 import java.util.Calendar
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.internal.selenesedriver.GetUrl
 
 /**
  * A test class for bug 3000305
