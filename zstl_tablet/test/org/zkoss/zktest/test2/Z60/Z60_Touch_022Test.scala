@@ -1,7 +1,7 @@
 package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.HasTouchScreen
+import org.openqa.selenium.interactions.HasTouchScreen
 import org.openqa.selenium.By
 import org.openqa.selenium.internal.Locatable
 import org.openqa.selenium.interactions.touch.FlickAction
