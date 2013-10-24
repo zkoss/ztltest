@@ -3,7 +3,7 @@ import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.openqa.selenium.By
 import org.openqa.selenium.internal.Locatable
-import org.openqa.selenium.HasTouchScreen
+import org.openqa.selenium.interactions.HasTouchScreen
 import org.zkoss.ztl.util.Scripts
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.ZK
