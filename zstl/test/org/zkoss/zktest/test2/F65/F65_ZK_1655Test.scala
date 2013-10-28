@@ -3,10 +3,12 @@ package org.zkoss.zktest.test2.F65
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.util.Scripts
+import org.junit.Test
 
 @Tags(tags = "F65-ZK-1655.zul")
 class F65_ZK_1655Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk>
 	<label multiline="true">
@@ -32,7 +34,7 @@ class F65_ZK_1655Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
 
-        val pxPattern = """(\d+})px""".r
+        val pxPattern = """([0-9]*)px""".r
         val parseInt = (num: String) =>
           num match {
             case pxPattern(i) => i.toInt
@@ -47,8 +49,8 @@ class F65_ZK_1655Test extends ZTL4ScalaTestCase {
         val cyanPPTop = parseInt(cyanPP.css("top"))
         val cyanPPLeft = parseInt(cyanPP.css("left"))
 
-        verifyTrue("should see tooltip showed on 40px right of mouse pointer", cyanPPTop == cyan.offsetTop() + 100)
-        verifyTrue("should see tooltip showed on 40px right of mouse pointer", cyanPPLeft - 40 == cyan.offsetLeft() + 100)
+        verifyTolerant(cyanPPTop, cyan.offsetTop() + 100, 2)
+        verifyTolerant(cyanPPLeft - 40, cyan.offsetLeft() + 100, 2)
 
         val pink = jq(".z-div[style*=pink]")
         clickAt(pink, "100,100")

@@ -18,6 +18,8 @@ package org.zkoss.zktest.bind.basic
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.ZKSeleneseTestCase
+import org.junit.Test
+import org.openqa.selenium.Keys
 
 /**
  * @author Hawk
@@ -25,6 +27,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
  */
 @Tags(tags = "zbind")
 class Z60_PropertyTest extends ZTL4ScalaTestCase {
+  @Test
   def testBasic() = {
     val zul = {
       <include src="/bind/basic/property.zul"/>
@@ -40,8 +43,9 @@ class Z60_PropertyTest extends ZTL4ScalaTestCase {
       //		Assert.assertEquals("A",findWidget("$l1").getAttribute("value"));
       //		Assert.assertEquals("",findWidget("$l1x").getAttribute("value"));
 
-      typeKeys(t1, "XX")
+      sendKeys(t1, Keys.END + "XX")
       waitResponse()
+      blur(t1)
       //FIXME XX or AXX
       ZKSeleneseTestCase.assertEquals("AXX", getValue(t1));
       ZKSeleneseTestCase.assertEquals("AXX", getText(l1));
@@ -105,7 +109,7 @@ class Z60_PropertyTest extends ZTL4ScalaTestCase {
       //		Assert.assertEquals("",findWidget("$l3").getAttribute("value"));
       //		Assert.assertEquals("",findWidget("$l3x").getAttribute("value"));
 
-      typeKeys(t3, "ZZ")
+      sendKeys(t3, Keys.END + "ZZ")
       waitResponse()
       ZKSeleneseTestCase.assertEquals("CZZ", getValue(t3));
       ZKSeleneseTestCase.assertEquals("", getText(l3));

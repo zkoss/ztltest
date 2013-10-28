@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B65
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1647.zul")
 class B65_ZK_1647Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk>
 	<label multiline="true">
@@ -35,7 +37,7 @@ class B65_ZK_1647Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         verifyTrue("Should not see horizontal scrollbar showed.", jq(".z-tree-body").width() >= jq("z-treerow").width())
-        val diff = (jq(".z-treecell[style*=pink]").width() - 2 * jq(".z-treecell[style*=cyan]").width())
+        val diff = (jq(".z-treecell[style*=pink]").outerWidth() - 2 * jq(".z-treecell[style*=cyan]").outerWidth())
         verifyTrue("Pink area should be twice as wide as the blue area.", diff <= 1)
       })
 

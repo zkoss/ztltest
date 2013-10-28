@@ -7,17 +7,19 @@ import org.openqa.selenium.interactions.HasTouchScreen
 import org.zkoss.ztl.util.Scripts
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.ZK
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1117.zul")
 class B65_ZK_1117Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript =
       """<window title="My First Window" border="normal">
         <label multiline="true">
-          1.click button, you should get the spinner error message. 
+          1.click button, you should get alert : spinner value is null
 2.change the spinner value to 1,then click button, you should get alert : spinner value is 1
-3.clear the spinner value to empty,then click button, you should get the spinner error messag.
+3.clear the spinner value to empty,then click button, you should get alert : spinner value is null
 4. please check the behavior with double spinner, the result should be the same
         </label>
         <spinner id="s"/>
@@ -36,21 +38,23 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         spinnerTest(0)
       } else {
         val (clickTxt, upperbtn, snpinerinp) = if (nth == 0)
-          ("click1", ".z-spinner-btn-upper", ".z-spinner-inp")
+          ("click1", jq(".z-spinner").toWidget().$n("btn-up"), jq(".z-spinner").toWidget().$n("real"))
         else
-          ("click2", ".z-doublespinner-btn-upper", ".z-doublespinner-inp")
+          ("click2", jq(".z-doublespinner").toWidget().$n("btn-up"), jq(".z-doublespinner").toWidget().$n("real"))
 
         // click button, you should get the spinner error message. 
         val clickbtn = jq("@button:contains(" + clickTxt + ")")
         click(clickbtn)
         waitResponse()
-        verifyTrue("Should show a message box",
-          jq(".z-popup-cl").exists())
-        closeErrbox()
+        verifyTrue("Should show a alert box",
+          jq(".z-messagebox-window").isVisible())
+        click(jq(".z-messagebox-window .z-button"))
+        waitResponse()
 
         // change the spinner value to 1,then click button, you should get alert : spinner value is 1
         click(jq(upperbtn))
         waitResponse()
+        blur(snpinerinp)
         click(clickbtn)
         waitResponse()
         verifyTrue("Should show a alert box",
@@ -58,28 +62,19 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         click(jq(".z-messagebox-window .z-button"))
 
         // clear the spinner value to empty,then click button, you should get the spinner error messag.
-        focus(jq(snpinerinp))
+        focus(snpinerinp)
 
-        sendKeys(jq(snpinerinp), Keys.END + "" + Keys.BACK_SPACE)
+        sendKeys(snpinerinp, Keys.END + "" + Keys.BACK_SPACE)
 
-        verifyEquals(jq(snpinerinp).toElement().get("value"), "")
+        verifyEquals(snpinerinp.get("value"), "")
         waitResponse()
         click(clickbtn)
         waitResponse()
-        verifyTrue("Should show a message box",
-          jq(".z-popup-cl").exists())
-        closeErrbox()
+        verifyTrue("Should show a alert box",
+          jq(".z-messagebox-window").isVisible())
+        click(jq(".z-messagebox-window .z-button"))
       }
     }
 
-    // Click once on 'X' should close the error box
-    def closeErrbox() {
-      var errbox = jq(".z-errbox-close")
-      var close_x = errbox.positionLeft() + errbox.width() - 5
-      var close_y = errbox.positionTop() + 5
-
-      Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-errbox-close"), "click", close_x + "," + close_y);
-
-    }
   }
 }
