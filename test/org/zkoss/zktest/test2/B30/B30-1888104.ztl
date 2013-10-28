@@ -21,15 +21,15 @@
 			click(clickLbl);
 			waitResponse();
 			verifyTrue(jq(mypopup).height() > 0);
-			focus(myIntbox);
+			click(myIntbox);
 			waitResponse();
-			type(myIntbox, "5");
+			sendKeys(myIntbox, "5" + Keys.TAB);
+			waitResponse();
 			JQuery errbox = jq(".z-errbox");
-            verifyTrue(errbox.exists());
-            
-            int errboxZIdx = Integer.parseInt(errbox.css("z-index"));
-            int popupZIdx = Integer.parseInt(jq(mypopup).css("z-index"));
-            verifyTrue(errboxZIdx > popupZIdx);
+			verifyTrue(errbox.exists());
+			int errboxZIdx = Integer.parseInt(errbox.css("z-index"));
+			int popupZIdx = Integer.parseInt(jq(mypopup).css("z-index"));
+			verifyTrue(errboxZIdx > popupZIdx);
 		]]></client>
 	</case>
 </test>
