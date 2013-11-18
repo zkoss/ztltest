@@ -16,13 +16,16 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			type(myIntbox, "100");
-            waitResponse();
-            verifyFalse(jq(".z-errorbox").exists());
-            
-			type(myIntbox, "-100");
+			sendKeys(myIntbox, "100");
 			waitResponse();
-            verifyTrue(jq(".z-errorbox").exists());
+			blur(myIntbox);
+			verifyFalse(jq(".z-errorbox").exists());
+			myIntbox.toElement().set("value", "");
+			sendKeys(myIntbox, "-100");
+			waitResponse();
+			blur(myIntbox);
+			waitResponse();
+			verifyTrue(jq(".z-errorbox").exists());
 		]]></client>
 	</case>
 </test>

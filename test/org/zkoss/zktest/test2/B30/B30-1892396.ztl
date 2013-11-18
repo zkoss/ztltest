@@ -38,21 +38,16 @@ Steps:<br/>
 
 		--></server>
 		<client><![CDATA[
-		focus(t1);
-		type(t1,"mm");
-
-		blur(t1);
-		waitResponse();
-		
-		verifyEquals("mm",l.get("value"));
-
-		focus(t2);
-		type(t2,"kk");
-
-		blur(t2);
-		waitResponse();
-		
-		verifyEquals("kk",l.get("value"));
+			focus(t1);
+			sendKeys(t1,"mm");
+			blur(t1);
+			waitResponse();
+			verifyEquals("mm",l.get("value"));
+			focus(t2);
+			type(t2,"kk");
+			blur(t2);
+			waitResponse();
+			verifyEquals("kk",l.get("value"));
 		]]></client>
 	</case>
 </test>
