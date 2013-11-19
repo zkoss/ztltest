@@ -65,7 +65,7 @@ public class Order {
 			click(jq(".z-comboitem").get(4));
 			waitResponse();
 			verifyEquals(comboInput.get("value"), name.get("value"));
-			type(comboInput, "xxx");
+			sendKeys(comboInput, "xxx");
 			blur(comboInput);
 			waitResponse();
 			verifyEquals("", name.get("value"));

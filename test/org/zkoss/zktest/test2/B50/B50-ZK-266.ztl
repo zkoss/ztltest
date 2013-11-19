@@ -78,13 +78,13 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			verifyTrue(jq(grid.$n("body")).find(".z-rows")
 			.find(".z-row").eq(i).text().endsWith((i)+""));
 			}
-			click(esort);
+			Scripts.triggerMouseEventAt(getWebDriver(), esort, "click", "2,2");
 			waitResponse();
 			for (int i = 0;i < 10;i ++) {
 			verifyTrue(jq(grid.$n("body")).find(".z-rows")
 			.find(".z-row").eq(i).text().endsWith((10-i-1)+""));
 			}
-			click(esort);
+			Scripts.triggerMouseEventAt(getWebDriver(), esort, "click", "2,2");
 			waitResponse();
 			for (int i = 0;i < 10;i ++) {
 			verifyTrue(jq(grid.$n("body")).find(".z-rows")

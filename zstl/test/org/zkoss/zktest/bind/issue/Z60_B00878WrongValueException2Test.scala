@@ -18,6 +18,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.ClientWidget
 import org.openqa.selenium.Keys
+import org.junit.Test
 
 /**
  * @author pao
@@ -25,6 +26,7 @@ import org.openqa.selenium.Keys
 @Tags(tags = "zbind")
 class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testArg() = {
     val zul = {
       <include src="/bind/issue/B00878WrongValueException2.zul"/>
@@ -329,7 +331,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
       verifyEquals("", l.toWidget().get("value"))
       inp.toWidget().$n("real").eval("focus()")
       sendKeys(inp.toWidget().$n("real"), Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE)
-      sendKeys(inp.toWidget().$n("real"), "13:00")
+      `type`(inp.toWidget().$n("real"), "13:00")
       blur(inp.toWidget().$n("real"))
       waitResponse()
       //		`type`(inp.toWidget().$n("real"), "13:00")
@@ -342,7 +344,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
 
       inp.toWidget().$n("real").eval("focus()")
       sendKeys(inp.toWidget().$n("real"), Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE)
-      sendKeys(inp.toWidget().$n("real"), "10:00")
+      `type`(inp.toWidget().$n("real"), "10:00")
       blur(inp.toWidget().$n("real"))
       waitResponse()
       //		`type`(inp.toWidget().$n("real"), "10:00")
@@ -355,7 +357,7 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
 
       inp.toWidget().$n("real").eval("focus()")
       sendKeys(inp.toWidget().$n("real"), Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE)
-      sendKeys(inp.toWidget().$n("real"), "14:02")
+      `type`(inp.toWidget().$n("real"), "14:02")
       blur(inp.toWidget().$n("real"))
       waitResponse()
       //		`type`(inp.toWidget().$n("real"), "14:02")

@@ -119,6 +119,10 @@ B50-ZK-434.ztl
 B60-ZK-1338.ztl
 B65-ZK-1661.ztl
 B65-ZK-1215.ztl
+// selenium
+B50-2916148.ztl
+B50-3214754.ztl
+B50-ZK-909.ztl
 }
 ie*={
 // unsupported, due to the unpredictable row's height

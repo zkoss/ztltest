@@ -18,12 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZKSeleneseTestCase
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * @author pao
  */
 @Tags(tags = "zbind")
 class Z60_LoadSavePromptCommandValidationTest extends ZTL4ScalaTestCase {
+  @Test
   def testArg() = {
     val zul = { 
       <include src="/bind/basic/load-save-prompt-command-validation.zul" />

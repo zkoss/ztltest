@@ -96,18 +96,18 @@ class F60_ZK_468Test extends ZTL4ScalaTestCase {
         var box: Widget = engine.$f("box");
         var _val: Widget = engine.$f("val");
 
-        def select (num: Int, content: String) {
-          this.select(box, content);
+        def selectItem (content: String) {
+          select(box, content);
           click(outer);
           waitResponse();
           verifyTrue("the label below should be changed as your selection",
               _val.$n().get("innerHTML").equals(content));
         }
-        select(0, "Tony");
-        select(1, "Ryan");
-        select(2, "Jumper");
-        select(3, "Wing");
-        select(4, "Sam");
+        selectItem("Tony");
+        selectItem("Ryan");
+        selectItem("Jumper");
+        selectItem("Wing");
+        selectItem("Sam");
     }
    );
   }

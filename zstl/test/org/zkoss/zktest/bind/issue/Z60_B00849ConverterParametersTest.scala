@@ -16,6 +16,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.issue
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
+import org.openqa.selenium.Keys
 
 /**
  * @author pao
@@ -23,6 +25,7 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_B00849ConverterParametersTest extends ZTL4ScalaTestCase {
 
+  @Test
   def testArg() = {
     val zul = {
       <include src="/bind/issue/B00849ConverterParameters.zul"/>
@@ -46,7 +49,8 @@ class Z60_B00849ConverterParametersTest extends ZTL4ScalaTestCase {
       var cmd2 = jq("$btn2");
       var cmd3 = jq("$btn3");
 
-      `type`(tb1.toWidget(), "A");
+      tb1.toElement().set("value", "")
+      sendKeys(tb1.toWidget(), "A" + Keys.TAB);
       waitResponse();
       click(cmd1.toWidget());
       waitResponse();
@@ -54,7 +58,8 @@ class Z60_B00849ConverterParametersTest extends ZTL4ScalaTestCase {
       verifyEquals("", l12.toWidget().get("value"));
       verifyEquals("A:value1", tb1.toWidget().get("value"));
 
-      `type`(tb2.toWidget(), "B");
+      tb2.toElement().set("value", "")
+      sendKeys(tb2.toWidget(), "B" + Keys.TAB);
       waitResponse();
       click(cmd2.toWidget());
       waitResponse();
@@ -62,7 +67,8 @@ class Z60_B00849ConverterParametersTest extends ZTL4ScalaTestCase {
       verifyEquals("", l22.toWidget().get("value"));
       verifyEquals("B:value2", tb2.toWidget().get("value"));
 
-      `type`(tb3.toWidget(), "C");
+      tb3.toElement().set("value", "")
+      sendKeys(tb3.toWidget(), "C" + Keys.TAB);
       waitResponse();
       click(cmd3.toWidget());
       waitResponse();

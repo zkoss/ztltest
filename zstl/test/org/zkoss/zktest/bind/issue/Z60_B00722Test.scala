@@ -17,6 +17,7 @@ package org.zkoss.zktest.bind.issue
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.junit.Test
+import org.openqa.selenium.Keys
 
 /**
  * @author pao
@@ -38,7 +39,8 @@ class Z60_B00722Test extends ZTL4ScalaTestCase {
       verifyEquals("abc", l11.toWidget().get("value"))
       verifyEquals("abc", t21.toWidget().get("value"))
       verifyEquals("", m21.toWidget().get("value"))
-      `type`(t21.toWidget(), "efg")
+      t21.toElement().set("value", "")
+      sendKeys(t21.toWidget(), "efg" + Keys.TAB)
       waitResponse()
       verifyEquals("abc", l11.toWidget().get("value"))
       verifyEquals("efg", t21.toWidget().get("value"))
@@ -48,7 +50,8 @@ class Z60_B00722Test extends ZTL4ScalaTestCase {
       verifyEquals("abc", l11.toWidget().get("value"))
       verifyEquals("efg", t21.toWidget().get("value"))
       verifyEquals("the value has to be 'abc' or 'ABC'", m21.toWidget().get("value"))
-      `type`(t21.toWidget(), "ABC")
+      t21.toElement().set("value", "")
+      sendKeys(t21.toWidget(), "ABC" + Keys.TAB)
       waitResponse()
       verifyEquals("abc", l11.toWidget().get("value"))
       verifyEquals("ABC", t21.toWidget().get("value"))
@@ -58,7 +61,8 @@ class Z60_B00722Test extends ZTL4ScalaTestCase {
       verifyEquals("ABC:saved", l11.toWidget().get("value"))
       verifyEquals("ABC", t21.toWidget().get("value"))
       verifyEquals("", m21.toWidget().get("value"))
-      `type`(t21.toWidget(), "kkk")
+      t21.toElement().set("value", "")
+      sendKeys(t21.toWidget(), "kkk" + Keys.TAB)
       waitResponse()
       verifyEquals("ABC:saved", l11.toWidget().get("value"))
       verifyEquals("kkk", t21.toWidget().get("value"))

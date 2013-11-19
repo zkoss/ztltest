@@ -105,8 +105,8 @@ ListModel people = new BindingListModelList(peopleList, true);
 		<client><![CDATA[
 		sleep(1000);//for DataBinding
 			// A, 123
-			type(jq(newName), "A");
-            type(jq(newBalance), "123");
+			sendKeys(jq(newName), "A");
+            sendKeys(jq(newBalance), "123");
             click(jq(add));
             waitResponse();
             JQuery lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")");
@@ -115,8 +115,8 @@ ListModel people = new BindingListModelList(peopleList, true);
             verifyTrue("The balance of last row is not match. Balance: " + lastRecBalance.val(), lastRecBalance.val().equals("123"));
             
             // B, -123
-            type(jq(newName), "B");
-            type(jq(newBalance), "-123");
+            sendKeys(jq(newName), "B");
+            sendKeys(jq(newBalance), "-123");
             click(jq(add));
             waitResponse();
             lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")");
@@ -125,8 +125,8 @@ ListModel people = new BindingListModelList(peopleList, true);
             verifyTrue("The balance of last row is not match. Balance: " + lastRecBalance.val(), lastRecBalance.val().equals("-123"));
             
             // C, 1.255
-            type(jq(newName), "C");
-            type(jq(newBalance), "1.255");
+            sendKeys(jq(newName), "C");
+            sendKeys(jq(newBalance), "1.255");
             click(jq(add));
             waitResponse();
             lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")");
@@ -135,8 +135,8 @@ ListModel people = new BindingListModelList(peopleList, true);
             verifyTrue("The balance of last row is not match. Balance: " + lastRecBalance.val(), lastRecBalance.val().equals("1.26"));
             
             // D, 1.285
-            type(jq(newName), "D");
-            type(jq(newBalance), "1.285");
+            sendKeys(jq(newName), "D");
+            sendKeys(jq(newBalance), "1.285");
             click(jq(add));
             waitResponse();
             lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")");
@@ -145,8 +145,8 @@ ListModel people = new BindingListModelList(peopleList, true);
             verifyTrue("The balance of last row is not match. Balance: " + lastRecBalance.val(), lastRecBalance.val().equals("1.28"));
             
             // E, 12345678901234567890
-            type(jq(newName), "E");
-            type(jq(newBalance), "12345678901234567890");
+            sendKeys(jq(newName), "E");
+            sendKeys(jq(newBalance), "12345678901234567890");
             click(jq(add));
             waitResponse();
             lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")");

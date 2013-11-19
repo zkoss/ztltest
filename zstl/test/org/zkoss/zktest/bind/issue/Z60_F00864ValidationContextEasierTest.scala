@@ -17,6 +17,7 @@ package org.zkoss.zktest.bind.issue
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
+import org.junit.Test
 
 /**
  * @author pao
@@ -24,6 +25,7 @@ import org.zkoss.ztl.Widget
 @Tags(tags = "zbind")
 class Z60_F00864ValidationContextEasierTest extends ZTL4ScalaTestCase {
 
+  @Test
   def testArg() = {
     val zul = {
       <include src="/bind/issue/F00864ValidationContextEasier.zul"/>
@@ -39,9 +41,11 @@ class Z60_F00864ValidationContextEasierTest extends ZTL4ScalaTestCase {
       var err = jq("$err")
 
       verifyEquals("", err.toWidget().get("value"))
-      `type`(inp1.toWidget(), "Dennis")
+      inp1.toElement().set("value", "")
+      sendKeys(inp1.toWidget(), "Dennis")
       waitResponse()
-      `type`(inp2.toWidget(), "100")
+      inp2.toElement().set("value", "")
+      sendKeys(inp2.toWidget(), "100")
       waitResponse()
       click(save1.toWidget())
       waitResponse()
