@@ -26,14 +26,17 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			type(jq(".z-datebox:eq(0)").toWidget().$n("real"), "12-13-98");
+			Element inp = jq(".z-datebox:eq(0)").toWidget().$n("real");
+				sendKeys(inp, "12-13-98" + Keys.TAB);
 				waitResponse();
 				verifyTrue(jq(".z-errorbox").exists());
 				click(jq(".z-errorbox").toWidget().$n("cls"));
 				waitResponse();
-				type(jq(".z-datebox:eq(1)").toWidget().$n("real"), "12-13-98");
+				Element inp1 = jq(".z-datebox:eq(1)").toWidget().$n("real");
+				sendKeys(inp1, "12-13-98" + Keys.TAB);
 				waitResponse();
-				type(jq(".z-datebox:eq(2)").toWidget().$n("real"), "12-13-98");
+				Element inp2 = jq(".z-datebox:eq(2)").toWidget().$n("real");
+				sendKeys(inp2, "12-13-98" + Keys.TAB);
 				waitResponse();
 				verifyTrue(jq(".z-errorbox").exists());
 		]]></client>

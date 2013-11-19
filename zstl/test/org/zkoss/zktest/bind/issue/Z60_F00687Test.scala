@@ -16,12 +16,15 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.issue
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
+import org.openqa.selenium.Keys
 
 /**
  * @author pao
  */
 @Tags(tags = "zbind")
 class Z60_F00687Test extends ZTL4ScalaTestCase {
+  @Test
   def testIssue() = {
     val zul = {
       <include src="/bind/issue/F00687.zul"/>
@@ -40,19 +43,22 @@ class Z60_F00687Test extends ZTL4ScalaTestCase {
       verifyEquals("B", l12.get("value"))
       verifyEquals("C", l13.get("value"))
       verifyEquals("D", l14.get("value"))
-      `type`(t11, "Q")
+      t11.toElement().set("value", "")
+      sendKeys(t11, "Q" + Keys.TAB)
       waitResponse()
       verifyEquals("Q", l11.get("value"))
       verifyEquals("B", l12.get("value"))
       verifyEquals("C", l13.get("value"))
       verifyEquals("D", l14.get("value"))
-      `type`(t12, "W")
+      t12.toElement().set("value", "")
+      sendKeys(t12, "W" + Keys.TAB)
       waitResponse()
       verifyEquals("Q", l11.get("value"))
       verifyEquals("B", l12.get("value"))
       verifyEquals("C", l13.get("value"))
       verifyEquals("D", l14.get("value"))
-      `type`(t13, "E")
+      t13.toElement().set("value", "")
+      sendKeys(t13, "E" + Keys.TAB)
       waitResponse()
       verifyEquals("Q", l11.get("value"))
       verifyEquals("W", l12.get("value"))

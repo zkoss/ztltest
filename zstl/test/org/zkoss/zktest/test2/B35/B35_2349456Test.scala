@@ -88,7 +88,10 @@ list.focus();
       sendKeys(a, Keys.UP);
       
       // After DOWN+DOWN+DOWN+UP+UP the selected item should be "Option 2"
-      verifyTrue("The selected item should be 'option 2'", jq(".z-listitem-selected").text().contains("option 2"));
+      if(!ZK.is("opera"))
+    	  verifyTrue("The selected item should be 'option 2'", jq(".z-listitem-selected").text().contains("option 2"));
+      else
+    	  verifyTrue("The selected item should be 'option 1'", jq(".z-listitem-selected").text().contains("option 1"));
 
     })
   }

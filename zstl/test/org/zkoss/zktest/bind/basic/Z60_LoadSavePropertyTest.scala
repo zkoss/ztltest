@@ -18,25 +18,32 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZKSeleneseTestCase
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * @author pao
  */
 @Tags(tags = "zbind")
 class Z60_LoadSavePropertyTest extends ZTL4ScalaTestCase {
+  @Test
   def testArg() = {
     val zul = {
       <include src="/bind/basic/load-save-property.zul"/>
     }
 
     runZTL(zul, () => {
+      val t21 = jq("$t21")
+      val t22 = jq("$t22")
+      val t23 = jq("$t23")
+      
       verifyEquals("A", jq("$l11").toWidget().get("value"))
       verifyEquals("B", jq("$l12").toWidget().get("value"))
       verifyEquals("C", jq("$l13").toWidget().get("value"))
       verifyEquals("A", jq("$l14").toWidget().get("value"))
       verifyEquals("B", jq("$l15").toWidget().get("value"))
       verifyEquals("C", jq("$l16").toWidget().get("value"))
-      `type`(jq("$t21").toWidget(), "X")
+      t21.toElement().set("value", "")
+      sendKeys(t21, "X" + Keys.TAB)
       waitResponse()
       verifyEquals("A", jq("$l11").toWidget().get("value"))
       verifyEquals("X", jq("$l12").toWidget().get("value"))
@@ -44,7 +51,8 @@ class Z60_LoadSavePropertyTest extends ZTL4ScalaTestCase {
       verifyEquals("X", jq("$l14").toWidget().get("value"))
       verifyEquals("X", jq("$l15").toWidget().get("value"))
       verifyEquals("X", jq("$l16").toWidget().get("value"))
-      `type`(jq("$t22").toWidget(), "Y")
+      t22.toElement().set("value", "")
+      sendKeys(t22, "Y" + Keys.TAB)
       waitResponse()
       verifyEquals("A", jq("$l11").toWidget().get("value"))
       verifyEquals("X", jq("$l12").toWidget().get("value"))
@@ -52,7 +60,8 @@ class Z60_LoadSavePropertyTest extends ZTL4ScalaTestCase {
       verifyEquals("Y", jq("$l14").toWidget().get("value"))
       verifyEquals("X", jq("$l15").toWidget().get("value"))
       verifyEquals("Y", jq("$l16").toWidget().get("value"))
-      `type`(jq("$t23").toWidget(), "Z")
+      t23.toElement().set("value", "")
+      sendKeys(t23, "Z" + Keys.TAB)
       waitResponse()
       verifyEquals("A", jq("$l11").toWidget().get("value"))
       verifyEquals("X", jq("$l12").toWidget().get("value"))
@@ -68,7 +77,8 @@ class Z60_LoadSavePropertyTest extends ZTL4ScalaTestCase {
       verifyEquals("Z", jq("$l14").toWidget().get("value"))
       verifyEquals("Z", jq("$l15").toWidget().get("value"))
       verifyEquals("Z", jq("$l16").toWidget().get("value"))
-      `type`(jq("$t23").toWidget(), "G")
+      t23.toElement().set("value", "")
+      sendKeys(t23, "G" + Keys.TAB)
       waitResponse()
       verifyEquals("A", jq("$l11").toWidget().get("value"))
       verifyEquals("Z", jq("$l12").toWidget().get("value"))
@@ -84,7 +94,8 @@ class Z60_LoadSavePropertyTest extends ZTL4ScalaTestCase {
       verifyEquals("G", jq("$l14").toWidget().get("value"))
       verifyEquals("Z", jq("$l15").toWidget().get("value"))
       verifyEquals("G", jq("$l16").toWidget().get("value"))
-      `type`(jq("$t23").toWidget(), "H")
+      t23.toElement().set("value", "")
+      sendKeys(t23, "H" + Keys.TAB)
       waitResponse()
       verifyEquals("A", jq("$l11").toWidget().get("value"))
       verifyEquals("Z", jq("$l12").toWidget().get("value"))

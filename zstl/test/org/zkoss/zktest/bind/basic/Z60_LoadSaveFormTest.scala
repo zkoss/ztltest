@@ -18,19 +18,23 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZKSeleneseTestCase
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * @author pao
  */
 @Tags(tags = "zbind")
 class Z60_LoadSaveFormTest extends ZTL4ScalaTestCase {
+  @Test
   def testArg() = {
     val zul = { // 
       <include src="/bind/basic/load-save-form.zul"/>
     }
 
     runZTL(zul, () => {
-      `type`(jq("$t21").toWidget(), "X");
+      val t21 = jq("$t21")
+      t21.toElement().set("value", "")
+      sendKeys(t21.toWidget(), "X");
       waitResponse();
       verifyEquals("A", jq("$l11").toWidget().get("value"));
       verifyEquals("B", jq("$l12").toWidget().get("value"));
@@ -46,7 +50,8 @@ class Z60_LoadSaveFormTest extends ZTL4ScalaTestCase {
       verifyEquals("A", jq("$l14").toWidget().get("value"));
       verifyEquals("X", jq("$l15").toWidget().get("value"));
       verifyEquals("X", jq("$l16").toWidget().get("value"));
-      `type`(jq("$t21").toWidget(), "Y");
+      t21.toElement().set("value", "")
+      sendKeys(t21.toWidget(), "Y");
       waitResponse();
       verifyEquals("A", jq("$l11").toWidget().get("value"));
       verifyEquals("X", jq("$l12").toWidget().get("value"));
@@ -62,7 +67,8 @@ class Z60_LoadSaveFormTest extends ZTL4ScalaTestCase {
       verifyEquals("A", jq("$l14").toWidget().get("value"));
       verifyEquals("X", jq("$l15").toWidget().get("value"));
       verifyEquals("Y", jq("$l16").toWidget().get("value"));
-      `type`(jq("$t21").toWidget(), "Z");
+      t21.toElement().set("value", "")
+      sendKeys(t21.toWidget(), "Z");
       waitResponse();
       verifyEquals("A", jq("$l11").toWidget().get("value"));
       verifyEquals("X", jq("$l12").toWidget().get("value"));

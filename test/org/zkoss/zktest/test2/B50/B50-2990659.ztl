@@ -4,7 +4,9 @@
 		<decimalbox id="db" format="R ##,###,###,###.00"/>
 		--></server>
 		<client>
-			type(db, "1111");
+			sendKeys(db, "1111");
+			waitResponse();
+			blur(db);
 			verifyEquals("R 1,111.00", jq(db).val());
 		</client>
 	</case>

@@ -42,6 +42,9 @@ Z60-B01185CollectionBindingNPE.ztl
 B65-ZK-1578.ztl
 B50-3032892.ztl
 
+// manual
+B30-1870821.ztl
+
 // tmp ignore scrollbar case
 B30-1769047.ztl
 B50-3100455.ztl 
@@ -116,6 +119,10 @@ B50-ZK-434.ztl
 B60-ZK-1338.ztl
 B65-ZK-1661.ztl
 B65-ZK-1215.ztl
+// selenium
+B50-2916148.ztl
+B50-3214754.ztl
+B50-ZK-909.ztl
 }
 ie*={
 // unsupported, due to the unpredictable row's height

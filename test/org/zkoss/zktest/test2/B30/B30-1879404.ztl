@@ -31,18 +31,18 @@
 		 --></server>
 		<client><![CDATA[
 				/**
-			 	 * 2010/10/27:TonyQ
-				 * @browsers ie6,ie7,ie8,chrome,firefox,safari402
-				 * @version zk505
+				* 2010/10/27:TonyQ
+				* @browsers ie6,ie7,ie8,chrome,firefox,safari402
+				* @version zk505
 				*/
 				JQuery $nickname = jq("$nickname");
-				type(nickname, "123");
+				sendKeys(nickname, "123");
 				focus(nickname);
 				sendKeys(nickname, Keys.ENTER);
 				waitResponse();
 				JQuery $msg = jq("$msg");
 				verifyTrue($msg.isVisible());
-				type($msg, "ryan is boring");
+				sendKeys($msg, "ryan is boring");
 				waitResponse();
 				focus($msg);
 				sendKeys($msg, Keys.ENTER);

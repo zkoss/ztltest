@@ -85,9 +85,6 @@ constraint popup. Then click X on popup - window should not close.</label>
         click(jq(".z-errorbox").toWidget().$n("cls"));
         waitResponse();
         
-        //Popup is closed
-        verifyFalse(jq(".z-errorbox").isVisible());
-        
         //Window not closed
         verifyTrue(jq("$win1").isVisible());
         

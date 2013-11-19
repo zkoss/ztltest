@@ -18,12 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZKSeleneseTestCase
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * @author pao
  */
 @Tags(tags = "zbind")
 class Z60_DeferInitTest extends ZTL4ScalaTestCase {
+  @Test
   def testArg() = {
     val zul = {
       <include src="/bind/basic/deferinit.zul"/>
@@ -60,7 +62,8 @@ class Z60_DeferInitTest extends ZTL4ScalaTestCase {
       verifyEquals("Y", w2t11.toWidget().get("value"))
       verifyEquals("Z:byForm", w2l21.toWidget().get("value"))
       verifyEquals("Z:byForm", w2t21.toWidget().get("value"))
-      `type`(w1t11.toWidget(), "DD")
+      w1t11.toElement().set("value", "")
+      sendKeys(w1t11.toWidget(), "DD" + Keys.TAB)
       waitResponse()
       verifyEquals("A", w1l11.toWidget().get("value"))
       verifyEquals("DD", w1l12.toWidget().get("value"))
@@ -121,7 +124,8 @@ class Z60_DeferInitTest extends ZTL4ScalaTestCase {
       verifyEquals("Z:byForm", w2l21.toWidget().get("value"))
       verifyEquals("Z:byForm", w2t21.toWidget().get("value"))
       // test defer
-      `type`(w2t11.toWidget(), "GG")
+      w2t11.toElement().set("value", "")
+      sendKeys(w2t11.toWidget(), "GG" + Keys.TAB)
       waitResponse()
       verifyEquals("DD:cmd1", w1l11.toWidget().get("value"))
       verifyEquals("C:cmd2:cmd3:byForm:cmd4", w1l12.toWidget().get("value"))

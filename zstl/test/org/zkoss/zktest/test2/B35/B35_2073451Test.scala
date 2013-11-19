@@ -92,7 +92,7 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
       verifyTrue("The button label must be 'Blurred OK'", jq(".z-button:contains(Blurred OK)").exists());
 
       // Click on third button
-      click(jq(".z-button:contains(www.google.com)"));
+      click(jq(".z-button:contains(google)"));
 
       waitForPageToLoad("2000")
       // Verify that the google page is opened by verifying the existence of the "Search" button

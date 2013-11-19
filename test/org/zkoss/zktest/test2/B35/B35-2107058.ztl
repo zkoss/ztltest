@@ -74,8 +74,8 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				type(jq("$username"),"hello");
-				type(jq("$password"),"world");
+				sendKeys(jq("$username"),"hello");
+				sendKeys(jq("$password"),"world");
 				click(jq("$btn"));
 				waitResponse();
 				verifyEquals("Login button clicked",jq(".z-window-highlighted .z-label").text());

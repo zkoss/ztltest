@@ -53,7 +53,7 @@
 		<client>	<![CDATA[
 			
     			int before = jq(".z-treerow").length();
-				click(jq("@treecell"));
+				clickAt(jq(".z-treecell"), "5,5");
 				waitResponse();
 				int after = jq(".z-treerow").length();
 				verifyEquals(5, after-before);
