@@ -29,7 +29,7 @@ class Thm_Colorbox_Test extends ZTL4ScalaTestCase {
     	border="normal" width="300px" height="300px" >
     	<hbox height="100%" align="stretch">
     		<toolbar orient="vertical" width="38px" height="100%">
-    			<colorbox width="22px" height="12px" color="#FFFFFF">
+    			<colorbox width="30px" height="20px" color="#FFFFFF">
     			</colorbox>
     		</toolbar>
     	</hbox>
