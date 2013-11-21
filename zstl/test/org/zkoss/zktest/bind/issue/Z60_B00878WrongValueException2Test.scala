@@ -33,6 +33,12 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
     }
 
     runZTL(zul, () => {
+      
+      def `type` = (n: ClientWidget, input: String) => {
+    	n.toElement().set("value", "")
+        sendKeys(n, input)
+    	waitResponse()
+      }
 
       var focus = jq("@button")
       var l = jq("$l1")
