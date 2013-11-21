@@ -130,7 +130,7 @@ For example, if you click the datepicker, and then choose a day, which is upon t
 				}
 				
 				var coords = msg.asInstanceOf[Locatable].getCoordinates();
-				var location = coords.onScreen();
+				var location = coords.onPage()
 
 				// Needs to long press at a slightly offset position for this to work
 				touch.down(location.getX()+2, location.getY()+2);
