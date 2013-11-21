@@ -18,18 +18,28 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZKSeleneseTestCase
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Tags
+import org.zkoss.ztl.ClientWidget
+import org.junit.Test
 
 /**
  * @author pao
  */
 @Tags(tags = "zbind")
 class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
+  @Test
   def testArg() = {
     val zul = {
       <include src="bind/basic/validationmessages.zul"/>
     }
 
     runZTL(zul, () => {
+      def `type` = (n: ClientWidget, input: String) => {
+    	n.toElement().set("value", "")
+        sendKeys(n, input)
+    	waitResponse()
+    	blur(n)
+      }
+      
       var l11 = jq("$l11")
       var l12 = jq("$l12")
       var t21 = jq("$t21")
@@ -67,6 +77,7 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
       waitResponse(true)
       `type`(t22.toWidget(), "6")
       waitResponse(true)
+      sleep(500)
       verifyEquals("ABC", l11.toWidget().get("value"))
       verifyEquals("10", l12.toWidget().get("value"))
       verifyEquals("ABCD", t21.toWidget().get("value"))
