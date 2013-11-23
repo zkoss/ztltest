@@ -17,6 +17,7 @@ package org.zkoss.zktest.bind.issue
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.junit.Test
+import org.zkoss.ztl.ClientWidget
 
 /**
  * @author pao
@@ -31,6 +32,13 @@ class Z60_B00913ValueReloadTest extends ZTL4ScalaTestCase {
     }
 
     runZTL(zul, () => {
+      
+      def `type` = (n: ClientWidget, input: String) => {
+    	n.toElement().set("value", "")
+        sendKeys(n, input)
+    	waitResponse()
+    	blur(n)
+      }
 
       var tb1 = jq("$tb1")
       var l1 = jq("$l1")

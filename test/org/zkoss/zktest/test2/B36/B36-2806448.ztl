@@ -24,7 +24,11 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			contextMenu(jq("@listcell[label=\"female\"]"));
+			JQuery cell = jq("@listcell[label=\"female\"]");
+			if(!ZK.is("ie9_"))
+				contextMenu(cell);
+			else
+				Scripts.triggerMouseEventAt(getWebDriver(), cell, "contextmenu", "3,3");
 			waitResponse();
 			verifyTrue(jq("@menupopup").exists());
 			if(!ZK.is("opera"))

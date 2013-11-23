@@ -7,7 +7,7 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			type(txt_test,"-");
+			sendKeys(txt_test,"-");
 			blur(txt_test);
 			verifyTrue(jq(".z-errorbox").exists());
 		]]></client>

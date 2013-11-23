@@ -7,6 +7,7 @@ import org.openqa.selenium.internal.Locatable
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.util.Scripts
 import org.junit.Test
+import org.zkoss.ztl.ZK
 
 @Tags(tags = "B50-ZK-909.zul")
 class B50_ZK_909Test extends ZTL4ScalaTestCase {
@@ -66,7 +67,8 @@ class B50_ZK_909Test extends ZTL4ScalaTestCase {
         waitResponse()
         click(jq(".z-errorbox").toWidget().$n("cls"))
         waitResponse()
-        verifyTrue("should not see errorbox message", !jq(".z-errorbox").exists())
+        if(!ZK.is("firefox") && !ZK.is("safari")) // selenium
+        	verifyTrue("should not see errorbox message", !jq(".z-errorbox").exists())
         
         
         val textbox = jq(".z-textbox:eq(0)")

@@ -19,6 +19,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Tags
 import org.junit.Test
+import org.zkoss.ztl.ClientWidget
 
 /**
  * @author pao
@@ -32,6 +33,13 @@ class Z60_FormDirtyTest extends ZTL4ScalaTestCase {
     }
 
     runZTL(zul, () => {
+      def `type` = (n: ClientWidget, input: String) => {
+    	n.toElement().set("value", "")
+        sendKeys(n, input)
+    	waitResponse()
+    	blur(n)
+      }
+      
       verifyEquals("false", jq("$dirty").toWidget().get("value"))
       verifyEquals("Dennis", jq("$l1").toWidget().get("value"))
       

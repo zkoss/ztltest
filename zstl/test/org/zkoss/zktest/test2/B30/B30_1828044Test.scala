@@ -18,15 +18,16 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
+import org.junit.Test
+import org.zkoss.ztl.Element
+import org.zkoss.ztl.JQuery
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.util.Scripts
+import org.zkoss.ztl.Widget
+import org.zkoss.ztl.ZK
+import org.zkoss.ztl.ZKClientTestCase
 import java.lang._
+import org.zkoss.ztl.ClientWidget
 
 /**
  * A test class for bug 1828044
@@ -36,6 +37,7 @@ import java.lang._
 @Tags(tags = "B30-1828044.zul,A,E,Grid,Column")
 class B30_1828044Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<window>
@@ -65,25 +67,26 @@ class B30_1828044Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
+          def isHidden = (wgt: ClientWidget) =>  jq(wgt).attr("style").contains("hidden")
         
             click(jq("@button:eq(0)"));
             waitResponse();
             //col1 must be visible & col2 invisible
-            verifyTrue(jq("$col1").isVisible());
-            verifyTrue(!jq("$col2").isVisible());
+            val faker1 = jq(jq("$col1").toWidget().$n("hdfaker"))
+            val faker2 = jq(jq("$col2").toWidget().$n("hdfaker"))
+            verifyTrue(!isHidden(faker1));
+            verifyTrue(isHidden(faker2));
             
             click(jq("@button:eq(0)"));
             waitResponse();
             //col1 must be invisible & col2 visible
-            verifyTrue(jq("$col2").isVisible());
-            verifyTrue(!jq("$col1").isVisible());
+            verifyTrue(!isHidden(faker2));
+            verifyTrue(isHidden(faker1));
             
             click(jq("@button:eq(1)"));
             waitResponse();
             //Header must be invisible & cols too
             verifyTrue(!jq("$cols").isVisible());
-            verifyTrue(!jq("$col1").isVisible());
-            verifyTrue(!jq("$col2").isVisible());
             
             click(jq("@button:eq(1)"));
             waitResponse();

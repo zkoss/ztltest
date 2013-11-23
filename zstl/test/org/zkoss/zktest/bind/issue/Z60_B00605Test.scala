@@ -17,6 +17,7 @@ package org.zkoss.zktest.bind.issue
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.junit.Test
+import org.zkoss.ztl.ClientWidget
 
 /**
  * @author pao
@@ -30,6 +31,13 @@ class Z60_B00605Test extends ZTL4ScalaTestCase {
     }
 
     runZTL(zul, () => {
+      def `type` = (n: ClientWidget, input: String) => {
+    	n.toElement().set("value", "")
+        sendKeys(n, input)
+    	waitResponse()
+    	blur(n)
+      }
+      
       verifyEquals("A", engine.$f("tb1").get("value"));
       verifyEquals("A", engine.$f("lb1").get("value"));
       verifyEquals("A", engine.$f("tb2").get("value"));

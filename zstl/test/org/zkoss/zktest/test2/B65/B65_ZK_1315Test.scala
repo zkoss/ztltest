@@ -80,7 +80,7 @@ class B65_ZK_1315Test extends ZTL4ScalaTestCase {
         waitResponse()
 
         val titleColumn = jq(".z-column:contains(Title):eq(0)")
-        verifyEquals("Hide 'Title' column by menupopup.", titleColumn.css("display"), "none")
+        verifyTrue("Hide 'Title' column by menupopup.", titleColumn.isVisible())
 
         val publisher = jq(".z-column:contains(Publisher):eq(0)")
         click(publisher)

@@ -60,11 +60,10 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				String msg = jq("@label:last").text();
 				verifyTrue(msg.indexOf("d2:onChange:")!=-1 && msg.indexOf("null") == -1);
 				JQuery dateInput = jq(jq(".z-datebox").toWidget().$n("real"));
-				focus(dateInput);
+				dateInput.toElement().set("value", "");
+				sendKeys(dateInput, "" + Keys.TAB);
 				waitResponse();
-				type(dateInput, "");
 				blur(dateInput);
-				waitResponse();
 				msg = jq("@label:last").text();
 				verifyEquals("d2:onChange: null",jq("@label:last").text());
 				verifyTrue(msg.indexOf("d2:onChange:")!=-1 && msg.indexOf("null") != -1);

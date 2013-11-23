@@ -19,6 +19,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Tags
 import org.junit.Test
+import org.zkoss.ztl.ClientWidget
 
 /**
  * @author pao
@@ -32,6 +33,14 @@ class Z60_LoadSavePromptCommandValidationTest extends ZTL4ScalaTestCase {
     }
 
     runZTL(zul, () => {
+      
+      def `type` = (n: ClientWidget, input: String) => {
+    	n.toElement().set("value", "")
+        sendKeys(n, input)
+    	waitResponse()
+    	blur(n)
+      }
+      
       verifyEquals("A", jq("$l11").toWidget().get("value"))
       verifyEquals("B", jq("$l12").toWidget().get("value"))
       verifyEquals("C", jq("$l13").toWidget().get("value"))
