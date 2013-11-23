@@ -92,6 +92,8 @@ F60-ZK-1583.ztl
 B65-ZK-1215.ztl
 B65-ZK-1441.ztl
 Z60-Combobutton.ztl
+// selenium scroll
+B50-3285714.ztl
 }
 firefox3={
 // unsupported
@@ -146,6 +148,8 @@ B50-3303684.ztl
 ie={
 // stuck in ie10
 B36-2813877.ztl
+// selenium scroll
+B50-3285714.ztl
 }
 ie9={
 // unsupported
@@ -163,6 +167,7 @@ B35-2149043.ztl
 B36-2678340.ztl
 B36-2904376.ztl
 B65-ZK-1441.ztl
+F65-ZK-1655.ztl
 // zkbind
 Z60-RadiogroupSelected.ztl
 Z60-B00810ListboxMultiple.ztl
@@ -179,6 +184,7 @@ B60-ZK-985.ztl
 // unsupported
 B65-ZK-1540.ztl
 B35-2094308.ztl
+F65-ZK-1655.ztl
 // focus
 B65-ZK-1324.ztl
 B65-ZK-1295.ztl

@@ -98,6 +98,7 @@ class F60_ZK_468Test extends ZTL4ScalaTestCase {
 
         def selectItem (content: String) {
           select(box, content);
+          waitResponse()
           click(outer);
           waitResponse();
           verifyTrue("the label below should be changed as your selection",

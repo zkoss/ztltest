@@ -7,10 +7,12 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			String testValue = "+123";
-			type(myIntbox, testValue);
+			myIntbox.toElement().set("value", "");
+		    sendKeys(myIntbox, "+123");
+		    waitResponse();
+		    blur(myIntbox);
 			waitResponse();
-			verifyNotEquals(testValue, jq(myIntbox).val());
+			verifyNotEquals("+123", jq(myIntbox).val());
 		]]></client>
 	</case>
 </test>

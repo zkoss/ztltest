@@ -15,7 +15,11 @@
 		 --></server>
 		<client><![CDATA[
 			verifyFalse(jq(".z-errorbox").exists());
-			type(cb.$n("real"), "abc");
+			Element inp = cb.$n("real");
+			inp.toElement().set("value", "");
+		    sendKeys(inp, "abc");
+		    waitResponse();
+		    blur(inp);
 			waitResponse();
 			verifyEquals("abc", msg.get("value"));
 			blur(cb);

@@ -47,25 +47,25 @@
 		waitResponse();
 		click(jq("@menuitem[label=\"Hardcover\"]").toWidget().$n("a"));
 		waitResponse();
-		verifyEquals("none", jq("@window @column[label=\"Hardcover\"]").css("display"));
+		verifyEquals("hidden", jq(jq("@column[label=\"Hardcover\"]").toWidget().$n("hdfaker")).css("visibility"));
 		mouseOver(col0.$n("btn"));
 		click(col0.$n("btn"));
 		waitResponse();
 		click(jq("@menuitem[label=\"Publisher\"]").toWidget().$n("a"));
 		waitResponse();
-		verifyEquals("none", jq("@window @column[label=\"Publisher\"]").css("display"));
+		verifyEquals("hidden", jq(jq("@column[label=\"Publisher\"]").toWidget().$n("hdfaker")).css("visibility"));
 		mouseOver(col0.$n("btn"));
 		click(col0.$n("btn"));
 		waitResponse();
 		click(jq("@menuitem[label=\"Title\"]").toWidget().$n("a"));
 		waitResponse();
-		verifyEquals("none", jq("@window @column[label=\"Title\"]:eq(0)").css("display"));
+		verifyEquals("hidden", jq(jq("@column[label=\"Title\"]:eq(0)").toWidget().$n("hdfaker")).css("visibility"));
 		mouseOver(col4.$n("btn"));
 		click(col4.$n("btn"));
 		waitResponse();
 		click(jq("@menuitem[label=\"Title\"]").toWidget().$n("a"));
 		waitResponse();
-		verifyEquals("none", jq("@window @column[label=\"Title\"]:eq(1)").css("display"));
+		verifyEquals("hidden", jq(jq("@column[label=\"Title\"]:eq(1)").toWidget().$n("hdfaker")).css("visibility"));
 		]]></client>
 	</case>
 </test>

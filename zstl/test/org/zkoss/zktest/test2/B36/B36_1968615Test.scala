@@ -19,6 +19,7 @@ package org.zkoss.zktest.test2.B36
 import java.util.Calendar
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * A test class for bug 3000305
@@ -28,6 +29,7 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B36-1968615.zul,A,E,Databind,Constraint")
 class B36_1968615Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """
 <?xml version="1.0" encoding="UTF-8"?>

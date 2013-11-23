@@ -38,7 +38,6 @@ class Z60_B00877NPEInSaveOnlyBindingTest extends ZTL4ScalaTestCase {
 
       sendKeys(tb.toWidget(), "abc" + Keys.TAB)
       waitResponse()
-      blur(tb)
       sleep(500)
       var errorPopup = jq(".z-errorbox")
       verifyEquals("", msg.toWidget().get("value"))
@@ -47,7 +46,6 @@ class Z60_B00877NPEInSaveOnlyBindingTest extends ZTL4ScalaTestCase {
       tb.toElement().set("value", "")
       sendKeys(tb.toWidget(), "Lin" + Keys.TAB)
       waitResponse()
-      blur(tb)
       sleep(500)
       verifyEquals("Lin", msg.toWidget().get("value"))
       errorPopup = jq(".z-errorbox")

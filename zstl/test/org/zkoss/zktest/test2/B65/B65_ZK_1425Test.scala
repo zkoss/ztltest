@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B65
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1425.zul")
 class B65_ZK_1425Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = <zk>
                     <listbox id="box" width="400px">
@@ -50,11 +52,12 @@ class B65_ZK_1425Test extends ZTL4ScalaTestCase {
       () => {
         click(jq("@button"))
         waitResponse()
-        verifyEquals(jq(".z-listheader:contains(name)").css("display"), "none")
+        val hdfaker = jq(jq(".z-listheader:contains(name)").toWidget().$n("hdfaker"))
+        verifyEquals(hdfaker.css("visibility"), "hidden")
         
         click(jq("@button"))
         waitResponse()
-        verifyEquals(jq(".z-listheader:contains(name)").css("display"), "table-cell")
+        verifyEquals(hdfaker.css("visibility"), "visible")
       })
 
   }
