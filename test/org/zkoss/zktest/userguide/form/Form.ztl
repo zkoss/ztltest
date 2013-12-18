@@ -169,7 +169,7 @@
 				type(jq("@decimalbox"), "12.345");
 				waitResponse();
 				verifyEquals("12.34", getValue(jq("@decimalbox")));
-				/** datebox (it may fail on different browser language)*/
+				/** datebox (it may fail on different browser language)
 				click(jq("$db i.z-datebox-btn"));
 				click(jq("@calendar td:eq(23)"));
 				type(jq("$db input"), "Jun 10, 2010");
@@ -193,6 +193,7 @@
 
 				waitResponse();
 				verifyEquals("06-10-10", getValue(jq("$db input.z-datebox-inp")));
+				*/
 				/** constraint */
 				type(jq("$view @textbox:eq(4)"), "zk");
 

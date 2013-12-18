@@ -43,8 +43,8 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
   runZTL(zscript,
     () => {
       
+      sleep(500);
       val v = jq("#zk_log").`val`()
-      println(v)
       verifyTrue("If you can see the log with '</script>' three times, the bug is fixed.", 
           v.contains("</Script>") && v.contains("</ScripT>") && v.contains("</ScrIpt>"))
     })

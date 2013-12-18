@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
 import org.zkoss.ztl.Element
+import org.junit.Test
 
 /**
  * A test class for bug 2078184
@@ -29,6 +30,7 @@ import org.zkoss.ztl.Element
 @Tags(tags = "B35-2078184.zul,A,E,Spinner")
 class B35_2078184Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 <zk>
@@ -53,7 +55,7 @@ class B35_2078184Test extends ZTL4ScalaTestCase {
         () => {
         	
         	//Scroll down
-        	jq("$div1").get(0).eval("scrollTop = " + jq("$div1").scrollHeight());
+        	jq("$div1").get(0).eval("scrollTop = 40");
         	waitResponse();
         	
         	//click spinner1 button down

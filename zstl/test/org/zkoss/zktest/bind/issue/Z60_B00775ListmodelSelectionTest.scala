@@ -17,6 +17,9 @@ package org.zkoss.zktest.bind.issue
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
+import org.junit.Test
+import org.zkoss.ztl.ZK
+import org.zkoss.ztl.util.Scripts
 
 /**
  * @author pao
@@ -39,6 +42,7 @@ class Z60_B00775ListmodelSelectionTest extends ZTL4ScalaTestCase {
     "-1"
   }
 
+  @Test
   def testArg() = {
     val zul = {
       <include src="/bind/issue/B00775ListmodelSelection.zul"/>
@@ -50,10 +54,13 @@ class Z60_B00775ListmodelSelectionTest extends ZTL4ScalaTestCase {
       var header = jq("$header")
       var shrink = jq("$shrink")
 
-      click(header.toWidget())
-      waitResponse()
-      click(header.toWidget()) // twice
-      waitResponse()
+      1 to 2 foreach { n =>
+        if(!ZK.is("ie8_"))
+        	click(header.toWidget())
+        else
+        	Scripts.triggerMouseEventAt(getWebDriver(), header, "click", "10,10");
+      	waitResponse()
+      }
 
       click(listbox.find("@listitem").eq(8).toWidget())
       waitResponse()

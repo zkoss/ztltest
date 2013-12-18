@@ -11,8 +11,8 @@
 						"backgroundColor"));
 				verifyEquals("", jq("@rows:eq(1) td").css("border"));
 				verifyEquals("#000000", jq("@rows:eq(1) td").css("color"));
-				verifyEquals("white", jq("@rows:eq(1) td").css(
-						"backgroundColor"));
+				String bgcolor = jq("@rows:eq(1) td").css("backgroundColor");
+				verifyTrue("white".equals(bgcolor) || "#fff".equals(bgcolor));
 			} else {
 				verifyTrue(borderCss.equals("1px solid blue")
 						|| borderCss.equals("1px solid #0000ff"));
