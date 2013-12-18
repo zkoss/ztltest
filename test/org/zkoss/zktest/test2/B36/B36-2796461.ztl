@@ -18,8 +18,7 @@
 			click(db.$n("btn"));
 			waitResponse();
 			Element pp = db.$n("pp");
-			// gecko = firefox(all version)
-            if (ZK.is("gecko") || ZK.is("opera")) {
+            if (ZK.is("opera")) {
                 verifyEquals(pp.get("scrollHeight"), jq(pp).outerHeight());
             } else {
 				//it seems fine in safari . when scrollHeight is bigger then clientHeight 6

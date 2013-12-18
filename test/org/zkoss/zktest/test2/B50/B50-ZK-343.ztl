@@ -68,10 +68,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 			verifyTrue(parseInt(fz.$n("scrollX").get("scrollLeft")) == oldScrollLeft);
 			
-			if (ZK.is("ff > 6"))
-				verifyTolerant(oldOffsetLeft, parseInt(lh.$n().get("offsetLeft")), 1);
-			else
-				verifyTrue(parseInt(lh.$n().get("offsetLeft")) == oldOffsetLeft);
+			verifyTolerant(oldOffsetLeft, parseInt(lh.$n().get("offsetLeft")), 1);
 		]]></client>
 	</case>
 </test>

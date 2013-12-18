@@ -46,6 +46,8 @@ B60-ZK-1338.ztl
 F60-ZK-1583.ztl
 B65-ZK-1215.ztl
 B65-ZK-1441.ztl
+// selenium: cant click option
+B60-ZK-1303.ztl
 }
 firefox3={
 // unsupported

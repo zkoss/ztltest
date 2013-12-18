@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B60
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B60-ZK-1222.zul")
 class B60_ZK_1222Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<?page title="B60-ZK-1222" contentType="text/html;charset=UTF-8"?>
                   <zk>
@@ -85,11 +87,16 @@ class B60_ZK_1222Test extends ZTL4ScalaTestCase {
         verifyTrue("If you see the tooltip appearing and disappearing several times while it is loading, it is an error.", jq(".z-popup").exists())
         sleep(1500)
         verifyTrue(!jq(".z-apply-mask").exists())
-
-        mouseOut(jq(".z-listitem:contains(Mouse hover - tooltip)"))
+        click(jq(".z-listitem:contains(Click - popup)"))
         waitResponse()
         sleep(2000)
-        verifyEquals("Then, the tooltip should keep displaying until the mouse cursor is moved outside the first data row.", jq(".z-popup").css("display"), "none")
+        verifyTrue("Then, the tooltip should keep displaying until the mouse cursor is click outside the second data row.", isVisible(jq(".z-popup")))
+        
+        val id = jq(".z-popup").attr("id")
+        clickAt(jq(".z-listhead"), "3,3")
+        waitResponse()
+        sleep(2000)
+        verifyTrue("Then, the tooltip should keep displaying until the mouse cursor is click outside the second data row.", !jq("#" + id).isVisible()) 
       })
 
   }
