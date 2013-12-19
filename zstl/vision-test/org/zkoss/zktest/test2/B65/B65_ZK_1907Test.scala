@@ -19,7 +19,7 @@ def testClick() = {
   runZTL(zscript,
     () => {
       val box = jq(".z-intbox")
-      sendKeys(box, "81374562389765913874569283746592837465918645923749238475923745927349572934857")
+      typeKeys(box, "81374562389765913874569283746592837465918645923749238475923745927349572934857")
       waitResponse()
       clickAt(box, "100,100")
       waitResponse()
