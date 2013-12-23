@@ -83,7 +83,7 @@ select tab2 and close it, should not cause an error, also creation of new tabs s
             waitResponse()
             verifyFalse("should see no javascript error", jq(".z-error").exists())
 
-            click(jq(".z-button").eq(index))
+            click(jq(".z-button:contains(add)").eq(index))
             waitResponse()
             verifyFalse("should see no javascript error", jq(".z-error").exists())
         }
