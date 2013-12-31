@@ -2,7 +2,7 @@ package org.zkoss.zktest.test2.Z60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.JQuery
-import org.openqa.selenium.TouchScreen
+import org.openqa.selenium.interactions.TouchScreen
 import org.openqa.selenium.interactions.HasTouchScreen
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.By
@@ -180,22 +180,15 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 				var listbody : WebElement = findElement(By.className("z-listbox-body"));
 				var touch    : TouchScreen = this.driver().asInstanceOf[HasTouchScreen].getTouch();
 				var coords   : Coordinates = listbody.asInstanceOf[Locatable].getCoordinates();
-				var location : Point = coords.getLocationOnScreen();
 				
 				// scroll down
 				touch.scroll(coords, 0, -40);
 				waitResponse();
 				sleep(10000);
 				
-				// select an listitem
-				touch.down(location.getX() + 10, location.getY() + 10);
 				waitResponse(true);
 				
-				var selected_item : Int 
-					= listbody.findElement(jq(".z-listitem-seld .z-listcell-cnt"))
-					          .getText().substring(7).toInt;
-				println(selected_item);
-				verifyTrue(selected_item > 50);
+				verifyTrue(jq(".z-listitem:contains(60)").exists());
 			}
 		);
 	}

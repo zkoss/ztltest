@@ -1,7 +1,7 @@
 package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.TouchScreen
+import org.openqa.selenium.interactions.TouchScreen
 import org.openqa.selenium.interactions.HasTouchScreen
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.By
@@ -127,7 +127,7 @@ For example, if you click the datepicker, and then choose a day, which is upon t
 				}
 				
 				var coords = msg.asInstanceOf[Locatable].getCoordinates();
-				var location = coords.getLocationOnScreen();
+				var location = coords.onPage()
 
 				// Needs to long press at a slightly offset position for this to work
 				touch.down(location.getX()+2, location.getY()+2);

@@ -32,7 +32,7 @@ class Z60_Touch_007Test extends ZTL4ScalaTestCase {
 				// Click once on 'X' should close the error box
 				var errbox_close  = findElement(By.className("z-errbox-close"));
 				var close_topleft = 
-					errbox_close.asInstanceOf[Locatable].getCoordinates().getLocationOnScreen();
+					errbox_close.asInstanceOf[Locatable].getCoordinates().onPage();
 				var close_width   = errbox_close.getSize().getWidth();
 				
 				var close_x = close_topleft.getX() + close_width - 5;
