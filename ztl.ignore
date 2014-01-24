@@ -323,6 +323,17 @@ Z60-B01615ChildrenBindingInForm.ztl
 Z60-B01640CommandSend2WrongViewModel.ztl
 Z60-B01666ToolbarbuttonCheck.ztl
 Z60-B01691DropuploadNative.ztl
+Z60-B01699IncludeMultipleTimes.ztl
+Z60-B01787NotifyChangeChildren.ztl
+Z60-B01787NotifyChangeCombobox.ztl
+Z60-B01787NotifyChangeGrid.ztl
+Z60-B01787NotifyChangeListbox.ztl
+Z60-B01787NotifyChangeRadiogroup.ztl
+Z60-B01787NotifyChangeTree.ztl
+Z60-B01791GlobalCommand.ztl
+Z60-B01795NestedTemplate.ztl
+Z60-B01887DetachAttach.ztl
+Z60-B01908DatabindingOnPaging.ztl
 }
 opera,chrome,safari,ie6={
 Z60-B00775ListmodelSelection.ztl 
