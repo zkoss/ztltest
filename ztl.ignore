@@ -95,21 +95,6 @@ Z60-Combobutton.ztl
 // selenium scroll
 B50-3285714.ztl
 }
-firefox3={
-// unsupported
-B30-1878840.ztl
-B30-1984643.ztl
-}
-firefox4,firefox5,firefox6={
-// unstable
-B50-3285610.ztl
-}
-firefox7,firefox8={
-// unsupported window.resizeTo
-B30-1914104-1.ztl
-B30-1914104-2.ztl
-B30-1820180.ztl
-}
 opera={
 // unsupported
 B30-1914104-1.ztl
