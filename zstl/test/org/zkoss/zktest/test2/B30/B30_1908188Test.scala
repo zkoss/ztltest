@@ -21,6 +21,7 @@ import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
 import org.zkoss.ztl.Element
 import org.zkoss.ztl.ZK
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -28,6 +29,7 @@ import org.zkoss.ztl.ZK
  */
 @Tags(tags = "B30-1908188.zul,B,E,Window,Button")
 class B30_1908188Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
     val zscript = {
       <window id="testWindow" border="normal" mode="modal" title="Test Window" width="600px" sizable="true" contentStyle="overflow:auto">

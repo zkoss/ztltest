@@ -19,6 +19,8 @@ package org.zkoss.zktest.test2.B35
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
+import org.junit.Test
+import org.zkoss.ztl.ZK
 
 /**
  * @author Fernando Selvatici
@@ -26,6 +28,7 @@ import org.openqa.selenium.Keys
  */
 @Tags(tags = "B35-2149043.zul,B,E,Window,Button")
 class B35_2149043Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
     val zscript = {
       <window height="600px">
@@ -54,11 +57,13 @@ class B35_2149043Test extends ZTL4ScalaTestCase {
       // Verify that the image is changed
       verifyTrue("The image should be /test2/img/icon_email.png", img.contains("/test2/img/icon_email.png"));
       
-      for ( i <- -20 to 10 by(5))
-    	  mouseMoveAt(jq("$f1"), i + "," + i);
-      waitResponse();
-      verifyTrue(height < jq("$f1").outerHeight());
-      verifyTrue(width < jq("$f1").outerWidth());
+      if (!ZK.is("ie11_")) {
+	      for ( i <- -20 to 10 by(5))
+	    	  mouseMoveAt(jq(".z-fisheye:eq(0) img"), i + "," + i);
+	      waitResponse();
+	      verifyTrue(height < jq("$f1").outerHeight());
+	      verifyTrue(width < jq("$f1").outerWidth());
+      }
 
     })
   }

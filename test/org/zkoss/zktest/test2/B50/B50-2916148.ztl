@@ -18,7 +18,7 @@ be closed.
 				verifyTrue(eb.exists());
 				waitResponse();
 				click(eb.toWidget().$n("cls"));
-				if(ZK.is("ie8_")) // selenium issue
+				if(eb.exists()) // selenium issue
 					click(eb.toWidget().$n("cls"));
 				waitResponse();
 				verifyFalse(eb.exists());		

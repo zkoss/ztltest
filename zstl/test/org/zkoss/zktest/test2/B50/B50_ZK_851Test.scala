@@ -3,10 +3,12 @@ package org.zkoss.zktest.test2.B50
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.openqa.selenium.Keys
+import org.junit.Test
 
 @Tags(tags = "B50-ZK-851.zul")
 class B50_ZK_851Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk xmlns="http://www.zkoss.org/2005/zul" xmlns:n="http://www.zkoss.org/2005/zk/native">
                     <div>step 1: open Popup by click the first button</div>

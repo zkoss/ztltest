@@ -24,6 +24,8 @@
 			focus(myIntbox);
 			waitResponse();
 			type(myIntbox, "5");
+			waitResponse(true);
+			sleep(300);
 			JQuery errbox = jq(".z-errorbox");
             verifyTrue(errbox.exists());
             

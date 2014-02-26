@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B50
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B50-ZK-831.zul")
 class B50_ZK_831Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """<zk>
                     <window title="Spinner" border="normal">

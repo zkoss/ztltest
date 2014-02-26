@@ -21,6 +21,7 @@ import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
 import org.zkoss.ztl.Element
 import org.junit.Test
+import org.zkoss.ztl.ZK
 
 /**
  * @author Fernando Selvatici
@@ -59,7 +60,23 @@ class B30_1894208Test extends ZTL4ScalaTestCase {
 
       waitResponse();
 
-      dragAndDrop(jq(jq(".z-north").toWidget().$n("split")).get(0), "250, 50")
+       val src = jq(jq(".z-north").toWidget().$n("split")).get(0)
+      if (!ZK.is("safari"))
+    	  dragAndDrop(src, "250, 50")
+      else {
+    	  val position = "2,2"
+	      mouseMoveAt(src, position)
+	      waitResponse
+	
+	      mouseDownAt(src, position)
+	      waitResponse
+	
+	      mouseMoveAt(src, position)
+	      waitResponse
+	        
+	      mouseUpAt(src, position)
+	      waitResponse
+      }
       
       waitResponse();
 

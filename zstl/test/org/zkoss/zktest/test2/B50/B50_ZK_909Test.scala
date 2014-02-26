@@ -65,9 +65,11 @@ class B50_ZK_909Test extends ZTL4ScalaTestCase {
 
         click(jq(".z-errorbox").toWidget().$n("cls"))
         waitResponse()
+        sleep(500)
         click(jq(".z-errorbox").toWidget().$n("cls"))
         waitResponse()
-        if(!ZK.is("firefox") && !ZK.is("safari")) // selenium
+        sleep(500)
+        if(!ZK.is("ff") && !ZK.is("safari")) // selenium
         	verifyTrue("should not see errorbox message", !jq(".z-errorbox").exists())
         
         

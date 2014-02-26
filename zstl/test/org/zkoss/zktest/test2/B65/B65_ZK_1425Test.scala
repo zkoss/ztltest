@@ -57,7 +57,7 @@ class B65_ZK_1425Test extends ZTL4ScalaTestCase {
         
         click(jq("@button"))
         waitResponse()
-        verifyEquals(hdfaker.css("visibility"), "visible")
+        verifyNotEquals(hdfaker.css("visibility"), "hidden")
       })
 
   }

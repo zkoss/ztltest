@@ -47,25 +47,14 @@ is the same as what is shown on the page<br/>
 
 		 --></server>
 		<client><![CDATA[
-		sleep(1000);//for DataBinding
-			if (ZK.is("ie") && !ZK.is("ie8")) {
-				verifyEquals("http://www.zkoss.org/", jq("a:eq(0)").attr("href"));
-				verifyEquals("http://jp.zkoss.org/", jq("a:eq(1)").attr("href"));
-				verifyEquals("http://zh.zkoss.org/", jq("a:eq(2)").attr("href"));
-				click(btn);
-				waitResponse();
-				if (ZK.is("ie6_"))
-					verifyEquals("http://www.potix.com", jq("a:eq(0)").attr("href"));
-				else
-					verifyEquals("http://www.potix.com", jq("a:eq(0)").attr("href"));
-			} else {
+				sleep(1000);//for DataBinding
 				verifyEquals("http://www.zkoss.org", jq("a:eq(0)").attr("href"));
 				verifyEquals("http://jp.zkoss.org", jq("a:eq(1)").attr("href"));
 				verifyEquals("http://zh.zkoss.org", jq("a:eq(2)").attr("href"));
 				click(btn);
 				waitResponse();
+				sleep(500);
 				verifyEquals("http://www.potix.com", jq("a:eq(0)").attr("href"));
-			}
 		]]></client>
 	</case>
 </test>

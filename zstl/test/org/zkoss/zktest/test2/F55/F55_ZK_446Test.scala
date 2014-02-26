@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "F55-ZK-446.zul,F60,A,E,InputElement")
 class F55_ZK_446Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>

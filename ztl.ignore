@@ -26,6 +26,12 @@ all={
 // unsupported
 B30-2009958.ztl
 B35-2580752.ztl
+B65-ZK-1284.ztl
+
+// window resize
+B30-1914104-1.ztl
+B30-1914104-2.ztl
+
 // zkbind bean validation
 Z60-B01005BeanValidatorPath.ztl
 // unsupported marcoURI
@@ -44,6 +50,7 @@ B50-3032892.ztl
 
 // manual
 B30-1870821.ztl
+B30-1498895.ztl
 
 // tmp ignore scrollbar case
 B30-1769047.ztl
@@ -56,7 +63,6 @@ B50-ZK-353.ztl
 //B50-ZK-355.ztl
 //B50-ZK-373.ztl 
 B60-ZK-750.ztl
-//B65-ZK-1284.ztl
 F51-ZK-216.ztl
 F51-ZK-216-grid.ztl
 Z60-Grid-GroupsModelArray-Paging-noROD.ztl
@@ -95,25 +101,8 @@ Z60-Combobutton.ztl
 // selenium scroll
 B50-3285714.ztl
 }
-firefox3={
-// unsupported
-B30-1878840.ztl
-B30-1984643.ztl
-}
-firefox4,firefox5,firefox6={
-// unstable
-B50-3285610.ztl
-}
-firefox7,firefox8={
-// unsupported window.resizeTo
-B30-1914104-1.ztl
-B30-1914104-2.ztl
-B30-1820180.ztl
-}
 opera={
 // unsupported
-B30-1914104-1.ztl
-B30-1914104-2.ztl
 B30-1878840.ztl
 B50-ZK-692.ztl
 B50-3322795.ztl
@@ -168,6 +157,9 @@ B36-2678340.ztl
 B36-2904376.ztl
 B65-ZK-1441.ztl
 F65-ZK-1655.ztl
+B65-ZK-1693.ztl
+B36-2811990.ztl
+
 // zkbind
 Z60-RadiogroupSelected.ztl
 Z60-B00810ListboxMultiple.ztl
@@ -181,47 +173,35 @@ Z60-RadiogroupSelected.ztl
 Z60-F00823RadiogroupModel1.ztl
 Z60-F00823RadiogroupModel2.ztl
 B60-ZK-985.ztl
+
 // unsupported
 B65-ZK-1540.ztl
 B35-2094308.ztl
 F65-ZK-1655.ztl
+Z65-Flex-064.ztl
+Z65-Flex-065.ztl
+Z65-Flex-066.ztl
+Z65-Flex-067.ztl
+Z65-Flex-068.ztl
+Z65-Flex-069.ztl
+B65-ZK-1540.ztl
+
 // focus
 B65-ZK-1324.ztl
 B65-ZK-1295.ztl
 B50-3058028.ztl
 B50-3026665.ztl
 B50-3026819.ztl
+
 // column-bar
 B50-3013683.ztl
+
 // mouse over
 B35-2149043.ztl
 }
-ie7={
-// unstable
-B30-1876292.ztl
-// unsupported
-B35-2073451.ztl
-// zkbind
-Z60-Panel.ztl
-// unsupported
-B65-ZK-1540.ztl
-}
-ie6={
-// unsupported
-B35-2073451.ztl
-// zkbind
-Z60-Panel.ztl
-// stuck 
-B36-2789915.ztl
-// crash
-F60-ZK-83.ztl
-B30-2105802.ztl
-Z60-B00878WrongValueException1.ztl
-}
+
 chrome,safari={
 // unsupported
-B30-1914104-1.ztl
-B30-1914104-2.ztl
 F50-0000001.ztl
 B35-2073451.ztl
 B65-ZK-1441.ztl
@@ -244,6 +224,10 @@ B50-1756559.ztl
 B50-3026819.ztl
 B36-2904376.ztl
 B36-3049167.ztl
+B50-2916148.ztl
+
+// out of viewport
+B65-ZK-1632.ztl
 }
 #zbind
 #ignore for browser difference issue
@@ -381,24 +365,23 @@ Z60-B01640CommandSend2WrongViewModel.ztl
 Z60-B01666ToolbarbuttonCheck.ztl
 Z60-B01691DropuploadNative.ztl
 }
-opera,chrome,safari,ie6={
+
+ie8,ie9,ie10={
+// unsupport
+Z60-ChildrenMenu.ztl
+}
+
+opera,chrome,safari={
 Z60-B00775ListmodelSelection.ztl 
 }
+
+// ie only
 opera,chrome,safari,firefox*={
 B65-ZK-1642.ztl
 B65-ZK-1215.ztl
 B65-ZK-1748.ztl 
 }
 // ie10 only
-opera,chrome,safari,firefox*,ie6,ie7,ie8,ie9={
+opera,chrome,safari,firefox*,ie8,ie9={
 B65-ZK-1769.ztl
-}
-ie6,ie7,ie8={
-Z65-Flex-064.ztl
-Z65-Flex-065.ztl
-Z65-Flex-066.ztl
-Z65-Flex-067.ztl
-Z65-Flex-068.ztl
-Z65-Flex-069.ztl
-B65-ZK-1540.ztl
 }

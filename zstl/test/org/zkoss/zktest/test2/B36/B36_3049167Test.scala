@@ -20,6 +20,7 @@ import java.util.Calendar
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
+import org.junit.Test
 
 /**
  * A test class for bug 3049167
@@ -29,6 +30,7 @@ import org.openqa.selenium.Keys
 @Tags(tags = "B36-3049167.zul,A,E,Listbox,Grid,DragDrop")
 class B36_3049167Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """
 <zk><html>
