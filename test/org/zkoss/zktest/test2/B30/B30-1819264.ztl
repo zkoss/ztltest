@@ -17,6 +17,7 @@
 			Widget center = jq(".z-center").toWidget();
 			focus(tb);
 			blur(tb);
+			sleep(300);
 			verifyTrue(jq("@errorbox").exists());
 			String str = jq("@errorbox").toElement().get("style.top").trim();
 			int beforeTop = Math.round(Float.parseFloat(str.substring(0, str.lastIndexOf("px"))));

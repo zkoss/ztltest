@@ -47,16 +47,13 @@ class B60_ZK_1303Test extends ZTL4ScalaTestCase {
       () => {
         click(jq("@button:contains(update)"))
         waitResponse()
-        click(jq(".z-select"))
-        waitResponse()
         verifyTrue(jq(".z-option:contains(test1)").exists())
-        click(jq(".z-option:contains(test1)"))
+        select(jq(".z-select"), "test1")
         waitResponse()
         click(jq("@button:contains(test)"))
         waitResponse()
         
-        if(!ZK.is("ff"))
-        	verifyEquals(jq(".z-messagebox-window .z-label").text(), "test1")
+        verifyEquals(jq(".z-messagebox-window .z-label").text(), "test1")
       })
 
   }

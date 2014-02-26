@@ -4,6 +4,7 @@ import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.junit.Test
+import org.zkoss.ztl.ZK
 
 @Tags(tags = "B65-ZK-1693.zul")
 class B65_ZK_1693Test extends ZTL4ScalaTestCase {
@@ -98,7 +99,10 @@ class B65_ZK_1693Test extends ZTL4ScalaTestCase {
             waitResponse()
             sleep(500)
             val pp = jq("#" + cb.attr("id") + "-pp")
-            click(pp.find(".z-colorpalette-color[style*=" + color + "]"))
+            if(!ZK.is("ie11_"))
+            	click(pp.find(".z-colorpalette-color[style*=" + color + "]"))
+            else
+            	click(pp.find(".z-colorpalette-color[data-color*=" + color + "]"))
             waitResponse()
             verifyImage()
         }

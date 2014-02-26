@@ -53,7 +53,7 @@ class F65_ZK_1655Test extends ZTL4ScalaTestCase {
         verifyTolerant(cyanPP.offsetLeft() - 40, cyan.offsetLeft() + 100, 1)
 
         val pink = jq(".z-div[style*=pink]")
-        if (!ZK.is("ie")) {
+        if (!ZK.is("ie") && !ZK.is("safari")) {
           clickAt(pink, "100,100")
           waitResponse()
         } else {

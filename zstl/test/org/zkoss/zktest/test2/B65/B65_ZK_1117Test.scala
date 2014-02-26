@@ -43,7 +43,7 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
           ("click2", jq(".z-doublespinner").toWidget().$n("btn-up"), jq(".z-doublespinner").toWidget().$n("real"))
 
         // click button, you should get the spinner error message. 
-        val clickbtn = jq("@button:contains(" + clickTxt + ")")
+        val clickbtn = jq(".z-button:contains(" + clickTxt + ")")
         click(clickbtn)
         waitResponse()
         verifyTrue("Should show a alert box",
@@ -64,7 +64,7 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         // clear the spinner value to empty,then click button, you should get the spinner error messag.
         focus(snpinerinp)
 
-        sendKeys(snpinerinp, Keys.END + "" + Keys.BACK_SPACE)
+        sendKeys(snpinerinp, Keys.END + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE)
 
         verifyEquals(snpinerinp.get("value"), "")
         waitResponse()

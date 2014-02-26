@@ -25,28 +25,19 @@ class B50_ZK_989Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         val sel = jq(".z-select")
-        click(sel)
-        waitResponse()
-        click(sel.find(".z-option:contains(3)"))
-        waitResponse()
+        select(sel, "3")
         
         click(jq(".z-button:contains(Disable)"))
         waitResponse()
         
-        click(sel)
-        waitResponse()
-        click(sel.find(".z-option:contains(4)"))
-        waitResponse()
+        select(sel, "4")
         
         click(jq(".z-button:contains(Get Selected)"))
         waitResponse()
 
         verifyTrue("should see '4' next to the button.", jq(".z-label:contains(4)").exists())
         
-        click(sel)
-        waitResponse()
-        click(sel.find(".z-option:contains(3)"))
-        waitResponse()
+        select(sel, "3")
         
         click(jq(".z-button:contains(Get Selected)"))
         waitResponse()

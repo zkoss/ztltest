@@ -28,7 +28,7 @@
 			if(!ZK.is("ie9_"))
 				contextMenu(cell);
 			else
-				Scripts.triggerMouseEventAt(getWebDriver(), cell, "contextmenu", "3,3");
+				Scripts.triggerMouseEventAt(getWebDriver(), cell.find(".z-listcell-content"), "contextmenu", "3,3");
 			waitResponse();
 			verifyTrue(jq("@menupopup").exists());
 			if(!ZK.is("opera"))

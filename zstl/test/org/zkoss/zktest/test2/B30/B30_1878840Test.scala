@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
 import org.zkoss.ztl.Element
+import org.junit.Test
 
 /**
  * @author Fernando Selvatici
@@ -27,6 +28,7 @@ import org.zkoss.ztl.Element
  */
 @Tags(tags = "B30-1878840.zul,B,E,Window,Button")
 class B30_1878840Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
     val zscript = {
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">

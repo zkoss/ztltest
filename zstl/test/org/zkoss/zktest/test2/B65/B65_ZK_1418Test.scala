@@ -34,9 +34,7 @@ class B65_ZK_1418Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        click(jq("select"))
-        click(jq("option:contains(SELECT)"))
-        waitResponse()
+        select(jq("select"), "SELECT ME")
         click(jq("@button"))
         waitResponse()
 

@@ -44,14 +44,14 @@ class B60_ZK_816Test extends ZTL4ScalaTestCase {
         mouseOver(jq(".z-label:contains(new label):eq(2)"))
         waitResponse()
         sleep(2000)
-        verifyEquals(jq(".z-popup:contains(this is tool tip):eq(0)").css("display"), "block")
+        verifyTrue(jq(".z-popup:contains(this is tool tip):eq(0)").is(":visible"))
         mouseOver(jq(".z-label:contains(new label):eq(3)"))
         waitResponse()
         sleep(2000)
-        if (ZK.is("ie"))
-          verifyEquals(jq(".z-popup:contains(this is tool tip):eq(0)").css("display"), "block")
+        if (ZK.is("ie") && !ZK.is("ie11_"))
+          verifyTrue(jq(".z-popup:contains(this is tool tip):eq(0)").is(":visible"))
         else
-          verifyEquals(jq(".z-popup:contains(this is tool tip):eq(1)").css("display"), "block")
+          verifyTrue(jq(".z-popup:contains(this is tool tip):eq(1)").is(":visible"))
       })
 
   }

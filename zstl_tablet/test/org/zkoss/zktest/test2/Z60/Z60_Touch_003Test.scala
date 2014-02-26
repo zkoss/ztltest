@@ -175,6 +175,7 @@ class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 				
 				singleTap(grid_tbx.eq(1));
 				waitResponse(true);
+				sleep(500)
 
 				verifyTrue(!help1.isVisible() && help2.isVisible());
 

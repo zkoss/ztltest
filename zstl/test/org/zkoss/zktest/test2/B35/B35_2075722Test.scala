@@ -112,7 +112,7 @@ panels.remove(panels.size()-1);
     runZTL(zscript, () => {
       def dragDrop(from: JQuery, fromPos: String, to: JQuery, toPos: String) {
         val mousemoveAt = (locator: JQuery, coordString: String) => {
-          if (ZK.is("ie7") || ZK.is("ie8") || ZK.is("ie9")) {
+          if (ZK.is("ie")) {
             val froms = coordString.split(",")
             val x0 = Integer.parseInt(froms(0))
             val y0 = Integer.parseInt(froms(1))

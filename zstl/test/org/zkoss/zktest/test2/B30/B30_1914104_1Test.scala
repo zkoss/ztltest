@@ -16,12 +16,14 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  * @author jumperchen
  */
 @Tags(tags = "B30-1914104-1.zul,C,Window,IE")
 class B30_1914104_1Test extends ZTL4ScalaTestCase {
+  @Test
   def testCase() = {
     val zscript = {
       <window title="Grid Demo" border="normal" width="360px" height="100%" contentStyle="background:#dd8" xmlns:n="http://www.zkoss.org/2005/zk/native">

@@ -80,10 +80,10 @@
 		--></server>
 		<client><![CDATA[
 		verifyImage();
-		click(tc1);
+		clickAt(tc1, "100,5");
 		waitResponse();
 		verifyImage();
-		click(tc2);
+		clickAt(tc2, "50,5");
 		waitResponse();
 		verifyImage();
 		if (!ZK.is("ie9")) {

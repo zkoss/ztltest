@@ -39,20 +39,32 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 				type(jq("@textbox:eq(0)"),"test");
+				waitResponse(true);
+				sleep(300);
 				verifyTrue(jq(".z-errorbox").exists());
 				click(jq(".z-errorbox").toWidget().$n("cls"));
 				type(jq("@textbox:eq(0)"),"123");
+				waitResponse(true);
+				sleep(300);
 				verifyFalse(jq(".z-errorbox").exists());
 				type(jq("@textbox:eq(0)"),"12A3");
+				waitResponse(true);
+				sleep(300);
 				verifyTrue(jq(".z-errorbox").exists());
 				click(jq(".z-errorbox").toWidget().$n("cls"));
 				type(jq("@textbox:eq(0)"),"123");
 				type(jq("@textbox:eq(1)"),"test");
+				waitResponse(true);
+				sleep(300);
 				verifyTrue(jq(".z-errorbox").exists());
 				click(jq(".z-errorbox").toWidget().$n("cls"));
 				type(jq("@textbox:eq(1)"),"123");
+				waitResponse(true);
+				sleep(300);
 				verifyFalse(jq(".z-errorbox").exists());
 				type(jq("@textbox:eq(1)"),"12A3");
+				waitResponse(true);
+				sleep(300);
 				verifyTrue(jq(".z-errorbox").exists());
 				click(jq(".z-errorbox").toWidget().$n("cls"));
 		]]></client>

@@ -39,7 +39,7 @@
 		]]></server>
 		<client><![CDATA[
 			click(jq("@treecell[label=\"1.1.1\"]"));
-			if(ZK.is("ie"))
+			if(ZK.is("ie") && !ZK.is("ie11_"))
 			blur(jq("a"));
 			click(jq("@treerow").toWidget().$n("icon"));
 			waitResponse();
