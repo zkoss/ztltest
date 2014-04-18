@@ -53,7 +53,7 @@ class B60_ZK_1512Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         val setBtn = jq(".z-button:contains(Set Data)")
-        val seldAllChk = jq(".z-listheader .z-listheader-img")
+        val seldAllChk = jq(".z-listheader").find(".z-listheader-checkable")
 
         click(setBtn)
         waitResponse()
@@ -67,7 +67,7 @@ class B60_ZK_1512Test extends ZTL4ScalaTestCase {
         jq(".z-listbox-body").toElement().set("scrollTop", 2500)
         waitResponse()
 
-        val listitem = jq("tbody[id*=rows]").find(".z-listitem-seld")
+        val listitem = jq("tbody[id*=rows]").find(".z-listitem-selected")
 
         verifyFalse("if the 51 - 100 data has checkbox selected, it is a bug.", 
             listitem.length() >= 50)
@@ -75,8 +75,8 @@ class B60_ZK_1512Test extends ZTL4ScalaTestCase {
         click(jq(".z-button:contains(popup)"))
         waitResponse()
         
-        val setBtnInWindow = jq(".z-window-modal .z-button:contains(Set Data)")
-        val seldAllChkInWindow = jq(".z-window-modal .z-listheader .z-listheader-img")
+        val setBtnInWindow = jq(".z-window-modal").find(".z-button:contains(Set Data)")
+        val seldAllChkInWindow = jq(".z-window-modal").find(".z-listheader").find(".z-listheader-checkable")
 
         click(setBtnInWindow)
         waitResponse()
@@ -90,9 +90,9 @@ class B60_ZK_1512Test extends ZTL4ScalaTestCase {
         click(seldAllChkInWindow)
         waitResponse()
 
-        val jqliInWindow = jq(".z-window-modal tbody[id*=rows]").find("z-listitem").iterator().toList
+        val jqliInWindow = jq(".z-window-modal").find("tbody[id*=rows]").find("z-listitem").iterator().toList
 
-        val allSeldInWindow = jqliInWindow.forall(e => e.hasClass("z-listitem-seld"))
+        val allSeldInWindow = jqliInWindow.forall(e => e.hasClass("z-listitem-selected"))
 
         verifyTrue("Listbox 'Select All' Checkbox should work correctly.", allSeldInWindow)
 

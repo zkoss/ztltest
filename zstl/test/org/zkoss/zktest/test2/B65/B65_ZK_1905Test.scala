@@ -50,7 +50,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
       waitResponse()
       click(jq(".z-chosenbox-option:eq(0)"))
       waitResponse()
-      click(jq(".z-chosenbox-del-btn"))
+      click(jq(".z-chosenbox-delete"))
       waitResponse()
       verifyTrue("the '--------' text should not appear", !inp.get("value").contains("-"))
     })

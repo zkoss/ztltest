@@ -39,12 +39,12 @@ class B65_ZK_2028Test extends ZTL4ScalaTestCase {
           waitResponse
         }
 
-        click(jq(".z-chosenbox-sel-item:contains(cake) .z-chosenbox-del-btn"))
+        click(jq(".z-chosenbox-item:contains(cake) .z-chosenbox-delete"))
         waitResponse
 
         verifyTrue("'book' and 'apple' should still be selected.",
-          jq(".z-chosenbox-sel-item:contains(apple)").exists
-            && jq(".z-chosenbox-sel-item:contains(book)").exists())
+          jq(".z-chosenbox-item:contains(apple)").exists
+            && jq(".z-chosenbox-item:contains(book)").exists())
       })
 
   }

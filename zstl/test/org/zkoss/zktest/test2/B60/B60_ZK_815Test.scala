@@ -71,7 +71,7 @@ class B60_ZK_815Test extends ZTL4ScalaTestCase {
             verifyTrue(msg.exists())
           val txt = msg.text()
           1 to 12 foreach { i =>
-            val seld = listbox.find(".z-listitem-seld")
+            val seld = listbox.find(".z-listitem-selected")
             sendKeys(seld, Keys.DOWN)
           }
           waitResponse()

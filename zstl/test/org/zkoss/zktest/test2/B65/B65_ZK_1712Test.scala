@@ -18,7 +18,7 @@ def testClick() = {
       val db = jq(".z-datebox").toWidget()
       click(db.$n("btn"))
       waitResponse()
-      click(jq(db.$n("pp")).find(".z-calendar").toWidget().$n("tdr"))
+      click(jq(db.$n("pp")).find(".z-calendar").toWidget().$n("right"))
       waitResponse()
       
       verifyTrue("should see input value keep blank.", db.$n("real").get("value")  == "")

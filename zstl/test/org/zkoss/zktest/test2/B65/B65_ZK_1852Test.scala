@@ -10,7 +10,7 @@ class B65_ZK_1852Test extends ZTL4ScalaTestCase {
 @Test
 def testClick() = {
   val zscript = """<window>
-	Click the button, should show "處理中".
+	Click the button, should show "".
 	<separator/>
 	<button label="Click">
 		<attribute name="onClick"><![CDATA[
@@ -29,7 +29,7 @@ def testClick() = {
       waitResponse
       sleep(2000)
       
-      verifyTrue("should show '處理中'.", jq("#zk_log").`val`().contains("處理中"))
+      verifyTrue("should show ''.", jq("#zk_log").`val`().contains(""))
     })
     
   }

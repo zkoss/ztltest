@@ -41,7 +41,7 @@ def testClick() = {
       sendKeys(items(2), Keys.DOWN)
       waitResponse()
       
-      val hasOneSeld = items(3).hasClass("z-listitem-seld") || items(4).hasClass("z-listitem-seld") 
+      val hasOneSeld = items(3).hasClass("z-listitem-selected") || items(4).hasClass("z-listitem-selected") 
       verifyTrue("'item 4' and 'item 5' should not be selected.", !hasOneSeld)
       
       sendKeys(items(3), Keys.UP)

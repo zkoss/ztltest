@@ -17,17 +17,17 @@ def testClick() = {
 </zk>"""  
   runZTL(zscript,
     () => {
-      click(jq(".z-calendar-title .z-calendar-ctrler:eq(1)"))
+      click(jq(".z-calendar-title .z-calendar-text:eq(1)"))
       waitResponse()
       val cal = jq(".z-calendar").toWidget()
       1 to 8 foreach { n =>
-        click(cal.$n("tdr"))
+        click(cal.$n("right"))
       }
       waitResponse()
       verifyTrue("Should not be able to select year greater than 2099", !jq("td:contains(2100)").exists)
       
       1 to 19 foreach { n =>
-        click(cal.$n("tdl"))
+        click(cal.$n("left"))
       }
       waitResponse()
       verifyTrue("Should not be able to select year less than 1900", !jq("td:contains(1899)").exists)

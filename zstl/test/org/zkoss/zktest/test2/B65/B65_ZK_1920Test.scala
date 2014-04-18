@@ -53,7 +53,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
           click(handler)
           waitResponse()
           verifyTrue("5 items were selected",
-            jq(".z-listbox:eq(1) .z-listitem-seld").length() == 5)
+            jq(".z-listbox:eq(1) .z-listitem-selected").length() == 5)
 
         }
 

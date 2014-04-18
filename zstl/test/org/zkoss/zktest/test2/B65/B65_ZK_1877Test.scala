@@ -47,7 +47,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
 </zk>"""
     runZTL(zscript,
       () => {
-        val slider = jq(".z-slider-hor").toWidget()
+        val slider = jq(".z-slider-horizontal").toWidget()
         val btn = slider.$n("btn")
         val rail = slider.$n("inner")
         

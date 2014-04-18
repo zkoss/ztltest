@@ -81,9 +81,9 @@ class B65_ZK_1785Test extends ZTL4ScalaTestCase {
       () => {
         'A' to 'L' foreach { char =>
           val tab = if (char != 'E')
-            jq(".z-tab-accordion:contains(" + char + ")")
+            jq(".z-tabbox-accordion .z-tab:contains(" + char + ")")
           else
-            jq(".z-tab-accordion:contains(" + char + "):eq(1)")
+            jq(".z-tabbox-accordion .z-tab:contains(" + char + "):eq(1)")
           click(tab)
           waitResponse()
           verifyImage()

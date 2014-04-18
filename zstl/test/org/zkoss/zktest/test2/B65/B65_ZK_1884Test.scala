@@ -30,7 +30,7 @@ class B65_ZK_1884Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        val slider = jq(".z-slider-hor").toWidget()
+        val slider = jq(".z-slider-horizontal").toWidget()
         val btn = slider.$n("btn")
         val rail = slider.$n("inner")
         val from = "2,2"

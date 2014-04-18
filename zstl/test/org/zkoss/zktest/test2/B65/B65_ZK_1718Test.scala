@@ -28,7 +28,7 @@ def testClick() = {
       
       21 to 30 foreach { n =>
       	verifyTrue("should see the 2013/4/" + n + " after 2013/4/20 are disabled.", 
-      	    jq(".z-calendar-calday td:contains(" + n + ")").hasClass("z-calendar-disd"))
+      	    jq(".z-calendar-body td:contains(" + n + ")").hasClass("z-calendar-disabled"))
       }      
     })
     

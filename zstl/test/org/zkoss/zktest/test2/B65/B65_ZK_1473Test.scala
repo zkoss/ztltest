@@ -40,7 +40,7 @@ class B65_ZK_1473Test extends ZTL4ScalaTestCase {
         click(opt)
         waitResponse()
 
-        val seld = jq(".z-listitem-seld")
+        val seld = jq(".z-listitem-selected")
 
         keyPress(seld, Keys.DOWN + "")
         verifyNotEquals("should not see it jump back to top.", seld.html(), opt.html())

@@ -24,7 +24,7 @@ def testClick() = {
   runZTL(zscript,
     () => {
       
-      verifyTrue("Should see checkbox in Header is checked.", jq(".z-listheader .z-listheader-img-seld").exists)
+      verifyTrue("Should see checkbox in Header is checked.", jq(".z-listheader-checkable.z-listheader-checked").exists)
     })
     
   }

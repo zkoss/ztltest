@@ -40,16 +40,16 @@ class B65_ZK_2047Test extends ZTL4ScalaTestCase {
           verifyImage
 
           val cal = jq(db.$n("pp")).find(".z-calendar:eq(0)")
-          click(cal.find(".z-calendar-title .z-calendar-ctrler:eq(1)"))
+          click(cal.find(".z-calendar-title .z-calendar-text:eq(1)"))
           waitResponse()
           verifyImage
-          click(cal.find(".z-calendar-calyear td:contains(2013)"))
+          click(cal.find(".z-calendar-body td:contains(2013)"))
           waitResponse()
           verifyImage
-          click(cal.find(".z-calendar-calmon td:eq(9)"))
+          click(cal.find(".z-calendar-body td:eq(9)"))
           waitResponse()
           verifyImage
-          click(cal.find(".z-calendar-calday td:contains(20)"))
+          click(cal.find(".z-calendar-body td:contains(20)"))
           waitResponse()
           verifyImage
         }

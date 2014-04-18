@@ -33,7 +33,7 @@ def testClick() = {
       click(jq(".z-chosenbox"))
       waitResponse()
       
-      verifyTrue("the listitem should not be selected", !jq(".z-listitem-seld").exists)
+      verifyTrue("the listitem should not be selected", !jq(".z-listitem-selected").exists)
     })
     
   }
