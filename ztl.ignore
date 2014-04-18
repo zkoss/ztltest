@@ -32,6 +32,7 @@ B65-ZK-1284.ztl
 B30-1914104-1.ztl
 B30-1914104-2.ztl
 
+B65-ZK-1715.ztl
 // zkbind bean validation
 Z60-B01005BeanValidatorPath.ztl
 // unsupported marcoURI
@@ -100,6 +101,13 @@ B65-ZK-1441.ztl
 Z60-Combobutton.ztl
 // selenium scroll
 B50-3285714.ztl
+B65-ZK-1284.ztl
+// unsupport
+B60-ZK-815.ztl
+// selenium: cant click option
+B60-ZK-1303.ztl
+// selenium: cant support keypress
+B65-ZK-1473.ztl
 }
 opera={
 // unsupported
@@ -176,6 +184,7 @@ B60-ZK-985.ztl
 
 // unsupported
 B65-ZK-1540.ztl
+
 B35-2094308.ztl
 F65-ZK-1655.ztl
 Z65-Flex-064.ztl
@@ -185,6 +194,7 @@ Z65-Flex-067.ztl
 Z65-Flex-068.ztl
 Z65-Flex-069.ztl
 B65-ZK-1540.ztl
+B65-ZK-1706.ztl
 
 // focus
 B65-ZK-1324.ztl
@@ -212,6 +222,11 @@ B50-3151694.ztl
 B65-ZK-1661.ztl
 B65-ZK-1215.ztl
 B65-ZK-1441.ztl
+B65-ZK-1284.ztl
+// unsupport
+B60-ZK-815.ztl
+// selenium: cant support keypress
+B65-ZK-1473.ztl
 }
 safari={
 // unsupported
@@ -364,6 +379,17 @@ Z60-B01615ChildrenBindingInForm.ztl
 Z60-B01640CommandSend2WrongViewModel.ztl
 Z60-B01666ToolbarbuttonCheck.ztl
 Z60-B01691DropuploadNative.ztl
+Z60-B01699IncludeMultipleTimes.ztl
+Z60-B01787NotifyChangeChildren.ztl
+Z60-B01787NotifyChangeCombobox.ztl
+Z60-B01787NotifyChangeGrid.ztl
+Z60-B01787NotifyChangeListbox.ztl
+Z60-B01787NotifyChangeRadiogroup.ztl
+Z60-B01787NotifyChangeTree.ztl
+Z60-B01791GlobalCommand.ztl
+Z60-B01795NestedTemplate.ztl
+Z60-B01887DetachAttach.ztl
+Z60-B01908DatabindingOnPaging.ztl
 }
 
 ie8,ie9,ie10={

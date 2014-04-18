@@ -19,6 +19,9 @@ package org.zkoss.zktest.test2.B35
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.util.ColorVerifingHelper
+import org.junit.Test
+import org.zkoss.ztl.ZK
+import org.zkoss.ztl.util.Scripts
 
 /**
  * A test class for bug 2073428
@@ -28,6 +31,7 @@ import org.zkoss.ztl.util.ColorVerifingHelper
 @Tags(tags = "B35-2073428.zul,A,E,Menu")
 class B35_2073428Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
     		<?xml version="1.0" encoding="UTF-8"?>
@@ -56,7 +60,10 @@ class B35_2073428Test extends ZTL4ScalaTestCase {
         	
         	waitResponse();
         	
-        	mouseOver(menu);
+        	if(!ZK.is("ie9_"))
+        		mouseOver(menu);
+        	else
+        		Scripts.triggerMouseEventAt(getWebDriver(), menu, "mouseover", "5,5");
         	
         	waitResponse();
         	

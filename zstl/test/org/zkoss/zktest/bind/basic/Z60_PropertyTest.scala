@@ -19,6 +19,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.ZKSeleneseTestCase
 import org.junit.Test
+import org.openqa.selenium.Keys
 
 /**
  * @author Hawk
@@ -40,11 +41,11 @@ class Z60_PropertyTest extends ZTL4ScalaTestCase {
       verifyEquals("A", getText(l1))
       verifyEquals("", getText(l1x))
 
-      typeKeys(t1, "XX")
+      sendKeys(t1, Keys.END + "XX")
       waitResponse()
-       if (isIE) {
-    	   str = "XXA"
-       }
+      if (isIE) {
+        str = "XXA"
+      }
       verifyEquals(str, getValue(t1));
       verifyEquals(str, getText(l1));
       verifyEquals("", getText(l1x));
@@ -87,7 +88,7 @@ class Z60_PropertyTest extends ZTL4ScalaTestCase {
       verifyEquals("", getText(l3));
       verifyEquals("", getText(l3x));
 
-      typeKeys(t3, "ZZ")
+      sendKeys(t3, Keys.END + "ZZ")
       waitResponse()
       verifyEquals(str, getValue(t3));
       verifyEquals("", getText(l3));

@@ -1,0 +1,66 @@
+package org.zkoss.zktest.test2.B65
+
+import org.zkoss.ztl.Tags
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
+
+@Tags(tags = "B65-ZK-1932.zul")
+class B65_ZK_1932Test extends ZTL4ScalaTestCase {
+
+@Test
+def testClick() = {
+  val zscript = """<zk>
+	<style>
+		.displaynone {
+			display: none;
+		}
+	</style>
+
+	the cyan and purple area should span the whole red area, in the left case the vflex is getting calculated incorrectly
+
+	<div height="80%" width="200px" style="position: absolute; left: 0; background-color: red;">
+		<div height="105px" style="background-color: lightgrey;" >
+			the invisible div between grey and cyan uses ---> sclass="displaynone" FAIL (when the div is empty) 
+		</div>
+		<div width="100%" vflex="1">
+			<div width="100%" sclass="displaynone">
+				<!--!!!!!!!!!! EMPTY !!!!!!!!!!! -->
+			</div>
+			<div width="100%" vflex="1" style="background-color: cyan;" />
+			<div width="100%" vflex="1" style="background-color: purple;"/>
+		</div>
+	</div>
+
+	<div height="80%" width="200px" style="position: absolute; left: 210px; background-color: red;">
+		<div height="105px" style="background-color: lightgrey;">
+			the invisible div between grey and cyan uses ---> sclass="displaynone" OK (when the div is NOT empty) 
+		</div>
+		<div width="100%" vflex="1">
+			<div width="100%" sclass="displaynone">
+				<span />
+			</div>
+			<div width="100%" vflex="1" style="background-color: cyan;" />
+			<div width="100%" vflex="1" style="background-color: purple;"/>
+		</div>
+	</div>
+
+	<div height="80%" width="200px" style="position: absolute; left: 420px; background-color: red;">
+		<div height="105px" style="background-color: lightgrey;" >
+			the invisible div between grey and cyan uses ---> style="displaynone" OK (even if the div is empty) 
+		</div>
+		<div width="100%" vflex="1">
+			<div width="100%" style="display: none;">
+				<!--!!!!!!!!!! EMPTY !!!!!!!!!!! -->
+			</div>
+			<div width="100%" vflex="1" style="background-color: cyan;" />
+			<div width="100%" vflex="1" style="background-color: purple;"/>
+		</div>
+	</div>
+</zk>"""  
+  runZTL(zscript,
+    () => {
+      verifyImage()
+    })
+    
+  }
+}

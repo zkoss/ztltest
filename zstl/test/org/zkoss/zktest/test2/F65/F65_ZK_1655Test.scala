@@ -35,7 +35,7 @@ class F65_ZK_1655Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
 
-        val pxPattern = """(\d+})px""".r
+        val pxPattern = """([0-9]*)px""".r
         val parseInt = (num: String) =>
           num match {
             case pxPattern(i) => i.toInt
