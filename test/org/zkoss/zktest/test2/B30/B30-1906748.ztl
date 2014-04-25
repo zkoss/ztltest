@@ -37,10 +37,9 @@
 			    selected = orders.get(0);
 			  </zscript>
 			
-			  <combobox id="c" model="@{orders}" selectedItem="@{selected}">
+			  <combobox model="@{orders}" selectedItem="@{selected}">
 			       <comboitem self="@{each=order}" label="@{order.orderName}" value="@{order.orderNumber}"/>
 			   </combobox>
-			   <div height="650px"/>
 			  <grid>
 				<auxhead><auxheader align="center" colspan="2">Order Information</auxheader></auxhead>
 			  	<columns>
@@ -57,9 +56,9 @@
 		--></server>
 		<client><![CDATA[
 		sleep(1000);//for DataBinding
-			click(c.$n("btn"));
-			waitResponse();
-			click(jq(".z-combobox-pp .z-comboitem:eq(2)"));
+			click(jq(".z-combobox-btn"));
+			waitResponse(true);
+			click(jq(".z-comboitem:eq(5)"));
 			waitResponse();
 			verifyEquals("OrderNumber - 5", jq(oNumberLbl).text());
 			verifyEquals("OrderName - 5", jq(oNameLbl).text());
