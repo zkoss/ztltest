@@ -40,7 +40,7 @@
 			  <combobox id="c" model="@{orders}" selectedItem="@{selected}">
 			       <comboitem self="@{each=order}" label="@{order.orderName}" value="@{order.orderNumber}"/>
 			   </combobox>
-			   <div height="550px"/>
+			   <div height="650px"/>
 			  <grid>
 				<auxhead><auxheader align="center" colspan="2">Order Information</auxheader></auxhead>
 			  	<columns>
