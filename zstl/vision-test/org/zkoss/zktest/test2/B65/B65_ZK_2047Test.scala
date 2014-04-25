@@ -33,25 +33,25 @@ class B65_ZK_2047Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         0 to 1 foreach { i =>
-          verifyImage
+          verifyImage()
           var db = jq(".z-datebox").eq(i).toWidget()
           click(db.$n("btn"))
           waitResponse
-          verifyImage
+          verifyImage()
 
           val cal = jq(db.$n("pp")).find(".z-calendar:eq(0)")
           click(cal.find(".z-calendar-title .z-calendar-ctrler:eq(1)"))
           waitResponse()
-          verifyImage
+          verifyImage()
           click(cal.find(".z-calendar-calyear td:contains(2013)"))
           waitResponse()
-          verifyImage
+          verifyImage()
           click(cal.find(".z-calendar-calmon td:eq(9)"))
           waitResponse()
-          verifyImage
+          verifyImage()
           click(cal.find(".z-calendar-calday td:contains(20)"))
           waitResponse()
-          verifyImage
+          verifyImage()
         }
       })
 

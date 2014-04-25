@@ -46,7 +46,7 @@ def testClick() = {
     () => {
       click(jq(".z-listitem:eq(9)"))
       waitResponse
-      verifyImage
+      verifyImage()
     })
     
   }

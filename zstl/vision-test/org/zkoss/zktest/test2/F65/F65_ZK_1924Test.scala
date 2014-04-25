@@ -38,10 +38,10 @@ Click 'scroll to top-left', then you should see green area contains topLeft text
     () => {
       click(jq(".z-button:contains(bottom)"))
       waitResponse
-      verifyImage
+      verifyImage()
       click(jq(".z-button:contains(top)"))
       waitResponse
-      verifyImage
+      verifyImage()
     })
     
   }
