@@ -68,7 +68,7 @@
 		--></server>
 		<client><![CDATA[
 			verifyImage();
-			jq(".z-frozen-inner").scrollLeft(700);
+			jq(".z-frozen-inner").toElement().set("scrollLeft", 700);
 			waitResponse();
 			verifyImage();
 		]]></client>
