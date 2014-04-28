@@ -148,6 +148,7 @@ B65-ZK-1540.ztl
 ie6={
 // unsupported
 B35-2073451.ztl
+B30-1906748.ztl
 // zkbind
 Z60-Panel.ztl
 // stuck 
@@ -355,4 +356,8 @@ Z65-Flex-067.ztl
 Z65-Flex-068.ztl
 Z65-Flex-069.ztl
 B65-ZK-1540.ztl
+}
+ie10={
+// unsupport drag and drop
+B36-2904376.ztl
 }

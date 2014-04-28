@@ -57,7 +57,7 @@
 		<client><![CDATA[
 		sleep(1000);//for DataBinding
 			click(jq(".z-combobox-btn"));
-			waitResponse();
+			waitResponse(true);
 			click(jq(".z-comboitem:eq(5)"));
 			waitResponse();
 			verifyEquals("OrderNumber - 5", jq(oNumberLbl).text());
