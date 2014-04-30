@@ -107,6 +107,7 @@ B60-ZK-815.ztl
 // selenium: cant click option
 B60-ZK-1303.ztl
 B70-ZK-2148.ztl
+B65-ZK-2185.ztl
 // selenium: cant support keypress
 B65-ZK-1473.ztl
 }
@@ -143,11 +144,13 @@ B60-ZK-1338.ztl
 // cant drag correct
 B50-3303684.ztl
 }
-ie={
+ie10={
 // stuck in ie10
 B36-2813877.ztl
 // selenium scroll
 B50-3285714.ztl
+// unsupport drag and drop
+B36-2904376.ztl
 }
 ie9={
 // unsupported
@@ -184,8 +187,6 @@ Z60-F00823RadiogroupModel2.ztl
 B60-ZK-985.ztl
 
 // unsupported
-B65-ZK-1540.ztl
-
 B35-2094308.ztl
 F65-ZK-1655.ztl
 Z65-Flex-064.ztl
@@ -213,7 +214,6 @@ B50-3013683.ztl
 // mouse over
 B35-2149043.ztl
 }
-
 chrome,safari={
 // unsupported
 F50-0000001.ztl
