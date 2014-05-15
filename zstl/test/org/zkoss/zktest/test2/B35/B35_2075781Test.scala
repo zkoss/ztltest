@@ -128,13 +128,13 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
             var w=cl.width();
             var w1=c1.width();
             var dif=(w-200)/2-w1; 
-            verifyTrue(dif==0);
+            
+            verifyTolerant(dif, 0, 2);
             
             
             //button remove
             val remove=jq("$remove");
             click(remove);
-            
             waitResponse();
 
             //Column removed
