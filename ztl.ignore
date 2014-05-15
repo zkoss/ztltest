@@ -237,7 +237,7 @@ B65-ZK-1632.ztl
 }
 #zbind
 #ignore for browser difference issue
-opera,chrome,safari={
+opera,ie*,firefox*,safari={
 Z60-Arg.ztl
 Z60-CommandIndirect.ztl
 Z60-Converter.ztl
