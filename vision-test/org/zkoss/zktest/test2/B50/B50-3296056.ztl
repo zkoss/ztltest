@@ -2,8 +2,8 @@
 	<case id="Vflex">
 		<server><!--
 <zk>
-<tablelayout hflex="1">
-<tablechildren hflex="1">
+<tablelayout width="100%">
+<tablechildren width="100%">
 <panel>
 <panelchildren>
 <vlayout>
