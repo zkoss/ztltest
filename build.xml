@@ -37,7 +37,6 @@ Usage:
 		<!--<delete dir="${javadoc.dir}"/>-->
 	</target>
 	<target name="init">
-		<delete dir="${target.dir}" />
 		<mkdir dir="${report.dir}" />
 		<mkdir dir="${test.dir}"/>
 	
@@ -80,11 +79,15 @@ Usage:
 		<javac srcdir="${codegen.dir}" destdir="${test.dir}" includes="**/*.java">
 			<classpath refid="dependency.classpath" />
 		</javac>
-		<!-- compile scala -->
+		<!-- compile scala using mvn instead of ant for speed up compiling time
 		<scalac srcdir="${zstl.src}" destdir="${test.dir}"
 			includes="**/*.scala" excludes="vision-test/** test/ExampleTest.scala">
 			<classpath refid="dependency.classpath" />
-		</scalac>
+		</scalac> -->
+		<exec executable="bash" dir=".">
+			<arg value="mvn"/>
+			<arg line="compile -DskipTests=true"/>
+		</exec>
 	</target>
 	<target name="run" depends="compileztl">
 		<echo>Tags: -Dtags=${tags}</echo>
