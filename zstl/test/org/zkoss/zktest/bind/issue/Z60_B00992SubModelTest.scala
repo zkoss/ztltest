@@ -33,8 +33,6 @@ class Z60_B00992SubModelTest extends ZTL4ScalaTestCase {
 
       `type`(combobox.toWidget().$n("real"), "9")
       waitResponse()
-      sendKeys(combobox, Keys.TAB)
-      waitResponse()
       verifyEquals("9", lab.toWidget().get("value"))
 
       combobox.toWidget().eval("open()")
