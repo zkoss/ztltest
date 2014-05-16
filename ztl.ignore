@@ -250,7 +250,7 @@ B65-ZK-1632.ztl
 }
 #zbind
 #ignore for browser difference issue
-opera,chrome,safari={
+opera,ie*,firefox*,safari={
 Z60-Arg.ztl
 Z60-CommandIndirect.ztl
 Z60-Converter.ztl
@@ -394,6 +394,10 @@ Z60-B01791GlobalCommand.ztl
 Z60-B01795NestedTemplate.ztl
 Z60-B01887DetachAttach.ztl
 Z60-B01908DatabindingOnPaging.ztl
+Z60-Property.ztl
+Z60-LoadSaveForm.ztl
+Z60-F00687.ztl
+Z60-TabboxSelected1.ztl
 }
 
 ie8,ie9,ie10={

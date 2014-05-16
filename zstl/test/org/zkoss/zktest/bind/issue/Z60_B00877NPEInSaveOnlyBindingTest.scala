@@ -37,10 +37,7 @@ class Z60_B00877NPEInSaveOnlyBindingTest extends ZTL4ScalaTestCase {
       var msg = jq("$msg")
       var tb = jq("$tb")
 
-      if (!ZK.is("safari"))
-          sendKeys(tb.toWidget(), "abc" + Keys.TAB)
-      else
-          typeKeys(tb.toWidget(), "abc" + Keys.TAB)
+      typeKeys(tb.toWidget(), "abc")
       waitResponse()
       sleep(500)
       var errorPopup = jq(".z-errorbox")
@@ -48,10 +45,7 @@ class Z60_B00877NPEInSaveOnlyBindingTest extends ZTL4ScalaTestCase {
       verifyEquals(1, errorPopup.length())
 
       tb.toElement().set("value", "")
-      if (!ZK.is("safari"))
-    	  sendKeys(tb.toWidget(), "Lin" + Keys.TAB)
-      else
-          typeKeys(tb.toWidget(), "Lin" + Keys.TAB)
+      typeKeys(tb.toWidget(), "Lin")
       waitResponse()
       sleep(500)
       verifyEquals("Lin", msg.toWidget().get("value"))

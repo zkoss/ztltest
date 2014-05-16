@@ -41,7 +41,7 @@ class Z60_PropertyTest extends ZTL4ScalaTestCase {
       verifyEquals("A", getText(l1))
       verifyEquals("", getText(l1x))
 
-      sendKeys(t1, Keys.END + "XX")
+      sendKeys(t1, Keys.END + "XX" + Keys.TAB)
       waitResponse()
       if (isIE) {
         str = "XXA"

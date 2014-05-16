@@ -103,7 +103,7 @@ Test Protal base Functionativity <br/>
         	verifyTrue(c4.toWidget().nChildren()>0);
         	
         	//click button "move" to move items
-        	if (isOpera())
+        	if (isOpera() || isIE())
         		Scripts.triggerMouseEventAt(getWebDriver(), jq("@button"), "click", "2,2");
         	else
         		click(jq("@button"));
