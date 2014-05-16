@@ -3,53 +3,67 @@
 		<server><!--
 <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
 	<n:ol>
-		<n:li>First of all, click the "name" header, and then the layout of grid should not be affected (the layout isn't gone).</n:li>
-		<n:li>Try to click the button of "add Column to end", "add Column to first", and "delete Column", then the layout of listbox should be formal.</n:li>
+		<n:li>First of all, click the "name" header, and then the layout of listbox should not be affected (the layout isn't gone).</n:li>
+		<n:li>Try to click the button of "add Listheader to end", "add Listheader to first", and "delete Listheader", then the layout of listbox should be formal.</n:li>
 	</n:ol>
-	<grid id="grid" width="250px">
-		<columns sizable="true">
-			<column label="name" onClick='self.label = "Header1"'
+	<listbox id="list" width="250px">
+		<listhead sizable="true">
+			<listheader label="name" onClick='self.label = "Header1"'
 				style="border: 1px solid red;" />
-			<column label="gender"/>
-		</columns>
-		<rows>
-			<row>
-				<label value="Mary" />
-				<label value="FEMALE" />
-			</row>
-			<row>
-				<label value="John" />
-				<label value="MALE" />
-			</row>
-			<row>
-				<label value="Jane" />
-				<label value="FEMALE" />
-			</row>
-			<row>
-				<label value="Henry" />
-				<label value="MALE" />
-		</row>
-		</rows>
-		<foot>
-			<footer label="Footer1"/>
-			<footer label="Footer2"/>
-		</foot>
-	</grid>
-	<button label="add Column to end">
+			<listheader label="gender" sort="auto"/>
+		</listhead>
+		<listitem>
+			<listcell label="Mary" />
+			<listcell label="FEMALE" />
+		</listitem>
+		<listitem>
+			<listcell label="John" />
+			<listcell label="MALE" />
+		</listitem>
+		<listitem>
+			<listcell label="Jane" />
+			<listcell label="FEMALE" />
+		</listitem>
+		<listitem>
+			<listcell label="Henry" />
+			<listcell label="MALE" />
+		</listitem>
+		<listfoot>
+		<listfooter label="Footer1"/>
+		<listfooter label="Footer2"/>
+		</listfoot>
+	</listbox>
+	<button label="add Listheader to end">
 		<attribute name="onClick">
-			new Column("Test").setParent(grid.getColumns());
+			new Listheader("Test").setParent(list.getListhead());
+			List rows = list.getItems();
+			for (Iterator it = rows.iterator(); it.hasNext();) {
+				Listitem row = it.next();
+				new Listcell("test").setParent(row);
+			}	
 		</attribute>
 	</button>
-	<button label="add Column to first">
+	<button label="add Listheader to first">
 		<attribute name="onClick">
-			grid.getColumns().insertBefore(new Column("Test"), grid.getColumns().getChildren().get(0));
+			list.getListhead().insertBefore(new Listheader("Test"), list.getListhead().getChildren().get(0));
+			
+			List rows = list.getItems();
+			for (Iterator it = rows.iterator(); it.hasNext();) {
+				Listitem row = it.next();
+				row.insertBefore(new Listcell("test"), row.getFirstChild());
+			}	
 		</attribute>
 	</button>
-	<button label="delete Column">
+	<button label="delete Listheader">
 		<attribute name="onClick">
-			if (grid.getColumns().getChildren().size() > 2)
-			((Column)grid.getColumns().getChildren().get(0)).detach();
-			else alert("Nothing to do.");
+			if (list.getListhead().getChildren().size() > 2) {
+				((Listheader)list.getListhead().getChildren().get(0)).detach();
+				List rows = list.getItems();
+				for (Iterator it = rows.iterator(); it.hasNext();) {
+					Listitem row = it.next();
+					row.getFirstChild().detach();
+				}	
+			} else alert("Nothing to do.");
 		</attribute>
 	</button>
 </zk>	--></server>
