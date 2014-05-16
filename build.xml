@@ -84,9 +84,8 @@ Usage:
 			includes="**/*.scala" excludes="vision-test/** test/ExampleTest.scala">
 			<classpath refid="dependency.classpath" />
 		</scalac> -->
-		<exec executable="bash" dir=".">
-			<arg value="mvn"/>
-			<arg line="compile -DskipTests=true"/>
+		<exec executable="sh" dir="." failonerror="true">
+			<arg line="./lib/run-maven.sh"/>
 		</exec>
 	</target>
 	<target name="run" depends="compileztl">
