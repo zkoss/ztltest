@@ -435,3 +435,21 @@ B65-ZK-1748.ztl
 opera,chrome,safari,firefox*,ie8,ie9={
 B65-ZK-1769.ztl
 }
+
+// this is used for ie6/7 only in vision
+// no need to run anymore
+all={
+B30-1472534.ztl
+B30-1914215.ztl
+B30-1920630.ztl
+B30-1926094-1.ztl
+B30-1926094.ztl
+B30-1927154.ztl
+B30-1927196.ztl
+B35-2090152.ztl
+B50-2937035.ztl
+B50-3166478.ztl
+B50-3185657.ztl
+B50-3186596.ztl
+B50-3201762.ztl
+}
