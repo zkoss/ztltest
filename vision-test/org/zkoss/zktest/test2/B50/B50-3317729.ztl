@@ -41,6 +41,9 @@
 </zk>
 		--></server>
 		<client><![CDATA[
+			// need to wait a moment for safari
+			sleep(500);
+			
 			verifyImage();
 		]]></client>
 	</case>
