@@ -66,10 +66,10 @@ class B60_ZK_1160Test extends ZTL4ScalaTestCase {
         click(jq(".z-toolbarbutton:contains(person)"))
         waitResponse()
         sleep(1500)
-        val tab = jq(".z-tab:contains(person)")
+        val tab = jq(".z-tab")
         verifyTrue(" A tab labeled 'person' should appear on the right panel below.",
           tab.exists)
-        click(tab.toWidget().$n("close"))
+        click(tab.toWidget().$n("btn"))
         waitResponse()
         verifyFalse("no exception", jq(".z-window-modal").exists());
       })

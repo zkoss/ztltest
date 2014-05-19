@@ -25,7 +25,7 @@ def testClick() = {
 """  
   runZTL(zscript,
     () => {
-      verifyTrue("The below should show 11111111 in the same line.", jq(".z-macro:contains(1111)").length() == 2)
+      verifyTrue("The below should show 11111111 in the same line.", jq("@macro .z-label:contains(1111)").length() == 2)
     })
     
   }
