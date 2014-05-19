@@ -74,20 +74,9 @@ Z60-Listbox-ListModelArray-ROD.ztl
 Z60-Listbox-ListModelList-Multiple-noROD.ztl
 Z60-Listbox-ListModelList-Multiple-ROD.ztl 
 Z60-Listbox-ListModelList-Paging-Multiple.ztl 
-Z60-Listbox-ListModelList-Paging.ztl 
-Z60-Listbox-ListModelList-ROD.ztl 
-Z60-Listbox-ListModelMap-Multiple-ROD.ztl 
+Z60-Listbox-ListModelList-Paging.ztl
 Z60-Listbox-ListModelMap-Paging-Multiple.ztl 
-Z60-Listbox-ListModelMap-Paging.ztl 
-Z60-Listbox-ListModelMap-ROD.ztl 
-Z60-Listbox-ListModelSet-Multiple-ROD.ztl
-Z60-Listbox-ListModelSet-Paging-Multiple.ztl 
-Z60-Listbox-ListModelSet-Paging.ztl 
-Z60-Listbox-ListModelSet-ROD.ztl
-Z60-Listbox-SimpleListModel-Multiple-ROD.ztl
-Z60-Listbox-SimpleListModel-Paging-Multiple.ztl 
-Z60-Listbox-SimpleListModel-Paging.ztl 
-Z60-Listbox-SimpleListModel-ROD.ztl 
+Z60-Listbox-ListModelMap-Paging.ztl
 }
 ### ignore all firefox
 firefox*={
@@ -416,6 +405,8 @@ Z60-Property.ztl
 Z60-LoadSaveForm.ztl
 Z60-F00687.ztl
 Z60-TabboxSelected1.ztl
+Z60-F00864ValidationContextEasier.ztl
+Z60-B00878WrongValueException2.ztl
 }
 
 ie8,ie9,ie10={

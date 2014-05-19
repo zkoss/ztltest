@@ -79,7 +79,7 @@ select tab2 and close it, should not cause an error, also creation of new tabs s
             click(tab)
             waitResponse()
 
-            click(tab.$n("close"))
+            click(tab.$n("btn"))
             waitResponse()
             verifyFalse("should see no javascript error", jq(".z-error").exists())
 

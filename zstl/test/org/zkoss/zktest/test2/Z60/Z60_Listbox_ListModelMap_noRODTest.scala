@@ -213,9 +213,8 @@ class Z60_Listbox_ListModelMap_noRODTest extends ZTL4ScalaTestCase {
                 msg.$n().get("innerHTML").equals("false"));
         }
         def input = (tb: Element, value: String) => {
-          click(tb);
-          tb.eval("value = \"" + value+"\"");
-          click(outer);
+          findElement(tb.toBy()).clear()
+          `type`(tb, value)
           waitResponse();
         }
         def checkInsertRemove = () => {
@@ -278,6 +277,7 @@ class Z60_Listbox_ListModelMap_noRODTest extends ZTL4ScalaTestCase {
         sleep(1000);
 
         checkList.clear();
+        checkList.add(10);
         checkList.add(212);
         checkSelection(checkList, "lbxThree");
 

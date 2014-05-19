@@ -87,8 +87,8 @@ class Z60_Listbox_SimpleListModel_RODTest extends ZTL4ScalaTestCase {
 					<listbox id="lbxThree" height="150px" width="140px" model="${model2}" onSelect="" checkmark="true" />
 				</hbox>
 				<hbox>
-					<textbox id="tbOne" value="box one" />
-					<textbox id="tbTwo" value="box two" />
+					<textbox id="tbOne" value="box one" onChange=""/>
+					<textbox id="tbTwo" value="box two" onChange="" />
 					<button id="btnOne" label="check equal selection" onClick='checkEqualSelection(tbOne.getValue(), tbTwo.getValue(), msg);' />
 					<label id="msg" />
 				</hbox>
@@ -156,9 +156,8 @@ class Z60_Listbox_SimpleListModel_RODTest extends ZTL4ScalaTestCase {
                 msg.$n().get("innerHTML").equals("false"));
         }
         def input = (tb: Element, value: String) => {
-          click(tb);
-          tb.eval("value = \"" + value+"\"");
-          click(outer);
+          findElement(tb.toBy()).clear()
+          `type`(tb, value)
           waitResponse();
         }
         selectItem("lbxOne", 2);
