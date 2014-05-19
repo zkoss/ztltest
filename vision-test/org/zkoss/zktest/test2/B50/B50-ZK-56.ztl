@@ -62,6 +62,9 @@
 </zk>
 		--></server>
 		<client><![CDATA[
+			jq("body").toElement().set("scrollTop", 1000);
+			verifyImage();
+			jq("body").toElement().set("scrollTop", 0);
 			verifyImage();
 		]]></client>
 	</case>
