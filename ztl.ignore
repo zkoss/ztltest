@@ -228,6 +228,7 @@ B65-ZK-1852.ztl
 #model cases
 Z60-Grid-GroupsModelArray-Paging-noROD.ztl
 Z60-Listbox-ListModelArray-Multiple-ROD.ztl
+Z60-Listbox-ListModelArray-Multiple-noROD.ztl
 Z60-Listbox-ListModelArray-Paging-Multiple.ztl
 Z60-Listbox-ListModelArray-Paging.ztl
 Z60-Listbox-ListModelArray-ROD.ztl
@@ -409,6 +410,7 @@ Z60-B00878WrongValueException2.ztl
 Z60-LoadSavePromptCommandValidation.ztl
 Z60-B00878WrongValueException1.ztl
 Z60-B00877NPEInSaveOnlyBinding.ztl
+Z60-B00913ValueReload.ztl
 }
 
 ie8,ie9,ie10={
