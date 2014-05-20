@@ -118,8 +118,8 @@ class Z60_Listbox_SimpleListModel_Multiple_noRODTest extends ZTL4ScalaTestCase {
 				</button>
 				<hbox id="cloneThreeArea" />
 				<hbox>
-					<textbox id="tbOne" value="box one" />
-					<textbox id="tbTwo" value="box two" />
+					<textbox id="tbOne" value="box one" onChange=""/>
+					<textbox id="tbTwo" value="box two" onChange="" />
 					<button id="btnOne" label="check equal selection" onClick='checkEqualSelection(tbOne.getValue(), tbTwo.getValue(), msg);' />
 					<button id="btnFour" label="show selection" onClick='showSelection(tbOne.getValue(), msg);' />
 					<label id="msg" />
@@ -184,9 +184,8 @@ class Z60_Listbox_SimpleListModel_Multiple_noRODTest extends ZTL4ScalaTestCase {
                 msg.$n().get("innerHTML").equals("false"));
         }
         def input = (tb: Element, value: String) => {
-          click(tb);
-          tb.eval("value = \"" + value+"\"");
-          click(outer);
+          findElement(tb.toBy()).clear()
+          `type`(tb, value)
           waitResponse();
         }
         selectItem("lbxOne", 2);

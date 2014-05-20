@@ -66,17 +66,6 @@ B50-ZK-353.ztl
 B60-ZK-750.ztl
 F51-ZK-216.ztl
 F51-ZK-216-grid.ztl
-Z60-Grid-GroupsModelArray-Paging-noROD.ztl
-Z60-Listbox-ListModelArray-Multiple-ROD.ztl 
-Z60-Listbox-ListModelArray-Paging-Multiple.ztl 
-Z60-Listbox-ListModelArray-Paging.ztl 
-Z60-Listbox-ListModelArray-ROD.ztl 
-Z60-Listbox-ListModelList-Multiple-noROD.ztl
-Z60-Listbox-ListModelList-Multiple-ROD.ztl 
-Z60-Listbox-ListModelList-Paging-Multiple.ztl 
-Z60-Listbox-ListModelList-Paging.ztl
-Z60-Listbox-ListModelMap-Paging-Multiple.ztl 
-Z60-Listbox-ListModelMap-Paging.ztl
 }
 ### ignore all firefox
 firefox*={
@@ -117,19 +106,6 @@ B50-3214754.ztl
 B50-ZK-909.ztl
 }
 ie*={
-// unsupported, due to the unpredictable row's height
-Z60-Listbox-ListModelMap-Multiple-noROD.ztl
-Z60-Listbox-SimpleListModel-Multiple-noROD.ztl
-Z60-Listbox-ListModelSet-Multiple_noROD.ztl
-Z60-Listbox_SimpleListModel-noROD.ztl
-Z60-Listbox-ListModelArray-Multiple-noROD.ztl
-Z60-Listbox-ListModelArray-noROD.ztl
-Z60-Listbox-ListModelSet-noROD.ztl
-Z60-Listbox-ListModelList-Multiple-noROD.ztl
-Z60-Listbox-ListModelMap-noROD.ztl
-Z60-Listbox-ListModelSet-Multiple-noROD.ztl
-Z60-Listbox-ListModelList-noROD.ztl
-Z60-Listbox-SimpleListModel-noROD.ztl
 // end for unpredictable row's height
 B60-ZK-1338.ztl
 // cant drag correct
@@ -169,22 +145,6 @@ Z60-B00810ListboxMultiple.ztl
 Z60-F00823RadiogroupModel1.ztl
 Z60-F00823RadiogroupModel2.ztl
 F50-0000001.ztl
-}
-ie8,ie9={
-// timeout issue for ZTL
-// unsupported, due to the unpredictable row's height
-Z60-Listbox-ListModelMap-Multiple-noROD.ztl
-Z60-Listbox-SimpleListModel-Multiple-noROD.ztl
-Z60-Listbox-ListModelSet-Multiple_noROD.ztl
-Z60-Listbox_SimpleListModel-noROD.ztl
-Z60-Listbox-ListModelArray-Multiple-noROD.ztl
-Z60-Listbox-ListModelArray-noROD.ztl
-Z60-Listbox-ListModelSet-noROD.ztl
-Z60-Listbox-ListModelList-Multiple-noROD.ztl
-Z60-Listbox-ListModelMap-noROD.ztl
-Z60-Listbox-ListModelSet-Multiple-noROD.ztl
-Z60-Listbox-ListModelList-noROD.ztl
-Z60-Listbox-SimpleListModel-noROD.ztl
 }
 ie8={
 // zkbind
@@ -255,9 +215,41 @@ B50-2916148.ztl
 // out of viewport
 B65-ZK-1632.ztl
 }
-#zbind
+#zbind or some test cases
 #ignore for browser difference issue
 opera,ie*,firefox*,safari={
+#model cases
+Z60-Grid-GroupsModelArray-Paging-noROD.ztl
+Z60-Listbox-ListModelArray-Multiple-ROD.ztl
+Z60-Listbox-ListModelArray-Paging-Multiple.ztl
+Z60-Listbox-ListModelArray-Paging.ztl
+Z60-Listbox-ListModelArray-ROD.ztl
+Z60-Listbox-ListModelArray-noROD.ztl
+Z60-Listbox-ListModelList-Multiple-noROD.ztl
+Z60-Listbox-ListModelList-Multiple-ROD.ztl
+Z60-Listbox-ListModelList-Paging-Multiple.ztl
+Z60-Listbox-ListModelList-Paging.ztl
+Z60-Listbox-ListModelList-ROD.ztl
+Z60-Listbox-ListModelList-noROD.ztl
+Z60-Listbox-ListModelMap-Multiple-ROD.ztl
+Z60-Listbox-ListModelMap-Multiple-noROD.ztl
+Z60-Listbox-ListModelMap-Paging-Multiple.ztl
+Z60-Listbox-ListModelMap-Paging.ztl
+Z60-Listbox-ListModelMap-ROD.ztl
+Z60-Listbox-ListModelMap-noROD.ztl
+Z60-Listbox-ListModelSet-Multiple-ROD.ztl
+Z60-Listbox-ListModelSet-Multiple-noROD.ztl
+Z60-Listbox-ListModelSet-Paging-Multiple.ztl
+Z60-Listbox-ListModelSet-Paging.ztl
+Z60-Listbox-ListModelSet-ROD.ztl
+Z60-Listbox-ListModelSet-noROD.ztl
+Z60-Listbox-SimpleListModel-Multiple-ROD.ztl
+Z60-Listbox-SimpleListModel-Paging-Multiple.ztl
+Z60-Listbox-SimpleListModel-Paging.ztl
+Z60-Listbox-SimpleListModel-ROD.ztl
+Z60-Listbox-SimpleListModel-noROD.ztl
+Z60-Listbox-SimpleListModel-Multiple-noROD.ztl
+#zbind
 Z60-Arg.ztl
 Z60-CommandIndirect.ztl
 Z60-Converter.ztl

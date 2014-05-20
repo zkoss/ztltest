@@ -156,8 +156,8 @@ class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
 					</template>
 			    </grid>
 			    <hbox>
-					<textbox id="tbOne" />
-					<textbox id="tbTwo" />
+					<textbox id="tbOne" onChange=""/>
+					<textbox id="tbTwo" onChange="" />
 					<button id="btnOne" label="change page" onClick="changePage(tbOne.getValue(), tbTwo.getValue(), self.getPage());" />
 					<button id="btnTwo" label="show items" onClick="showItems(tbOne.getValue(), tbTwo.getValue(), msg);" />
 					<button id="checkClose" label="check close" onClick="checkClose(tbOne.getValue(), tbTwo.getValue(), msg);" />
@@ -243,9 +243,8 @@ class Z60_Grid_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
           waitResponse();
         }
         def input = (tb: Element, value: String) => {
-          click(tb);
-          tb.eval("value = \"" + value+"\"");
-          click(outer);
+          findElement(tb.toBy()).clear()
+          `type`(tb, value)
           waitResponse();
         }
         def getGstr (gnum: String): String = {

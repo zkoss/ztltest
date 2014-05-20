@@ -143,8 +143,8 @@ class Z60_Listbox_ListModelMap_noRODTest extends ZTL4ScalaTestCase {
 				</button>
 				<hbox id="cloneThreeArea" />
 				<hbox>
-					<textbox id="tbOne" value="box one" />
-					<textbox id="tbTwo" value="box two" />
+					<textbox id="tbOne" value="box one" onChange=""/>
+					<textbox id="tbTwo" value="box two" onChange="" />
 					<button id="btnOne" label="check equal selection" onClick='checkEqualSelection(tbOne.getValue(), tbTwo.getValue(), msg);' />
 					<button id="btnFour" label="show selection" onClick='showSelection(tbOne.getValue(), msg);' />
 					<label id="msg" />
