@@ -73,6 +73,8 @@ B30-1526742.ztl
 ### ignore all firefox
 firefox*,ff*={
 // unsupported
+B65-ZK_2028.ztl
+F65-ZK-1269.ztl
 B30-1943594.ztl
 F50-0000001.ztl
 B35-2073451.ztl
@@ -119,6 +121,7 @@ B50-3303725.ztl
 }
 ie10={
 // stuck in ie10
+B35-2149043.ztl
 B36-2813877.ztl
 // selenium scroll
 B50-3285714.ztl
@@ -263,6 +266,7 @@ Z60-Listbox-SimpleListModel-Paging.ztl
 Z60-Listbox-SimpleListModel-ROD.ztl
 Z60-Listbox-SimpleListModel-noROD.ztl
 Z60-Listbox-SimpleListModel-Multiple-noROD.ztl
+Z60-SelectboxModelSelection.ztl
 #zbind
 Z60-Arg.ztl
 Z60-CommandIndirect.ztl
@@ -417,6 +421,7 @@ Z60-LoadSavePromptCommandValidation.ztl
 Z60-B00878WrongValueException1.ztl
 Z60-B00877NPEInSaveOnlyBinding.ztl
 Z60-B00913ValueReload.ztl
+Z60-B00849ConverterParameters.ztl
 }
 
 ie8,ie9,ie10={
