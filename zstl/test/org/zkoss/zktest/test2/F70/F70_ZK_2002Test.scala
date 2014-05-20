@@ -112,7 +112,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
 					}
 				}
 			</zscript>
-			<tabbox id="t4" model="${model4}"  hflex="1" tabboxRenderer="${renderer}"/>
+			<tabbox id="t4" model="${model4}"  width="400px" tabboxRenderer="${renderer}"/>
 			<button label="add New Tab" onClick='model4.add("Tab4")'/>
 			<button label="remove First Tab" onClick='model4.remove("Tab1")'/>
 			<button label="change model">

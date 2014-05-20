@@ -122,6 +122,7 @@ Usage:
 				<include name="**/*.jar" />
 			</fileset>
          </classpath>
+         <jvmarg value="-Dbrowser=${browser}"/>
        </java>
 	</target>
 	<target name="junitTag" depends="generate,compileztl">

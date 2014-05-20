@@ -41,19 +41,18 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
                   toString ())
 
             waitResponse();
-
-            executor();
-          } catch {
-            case e: SeleniumException =>
-              val zbrowser = browser.asInstanceOf[ZKSelenium]
-              ConfigHelper.getInstance().clearCache(zbrowser);
-              zbrowser.shutdown();
-              throw e;
-            case other =>
-              throw other;
-          } finally {
-            stop();
-          }
+	          executor();
+			} catch {
+				case e : SeleniumException =>
+					val zbrowser = browser.asInstanceOf[ZKSelenium]
+					ConfigHelper.getInstance().clearCache(zbrowser);
+					zbrowser.shutdown();
+					throw e;
+				case other: Throwable =>
+					throw other;
+			} finally {
+				stop();
+			}
         }
       })
     }

@@ -62,7 +62,7 @@ is shorter and has a scroll bar
     }
     runZTL(zscript, () => {
     	val list = engine $f "list"
-    	val height = jq(list) outerHeight
+    	val height = jq(list).outerHeight
     	val scrollHeight = jq(list) scrollHeight()
     	click(jq("@button"))
     	waitResponse

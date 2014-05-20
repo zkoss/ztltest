@@ -143,8 +143,8 @@ class Z60_Listbox_ListModelMap_noRODTest extends ZTL4ScalaTestCase {
 				</button>
 				<hbox id="cloneThreeArea" />
 				<hbox>
-					<textbox id="tbOne" value="box one" />
-					<textbox id="tbTwo" value="box two" />
+					<textbox id="tbOne" value="box one" onChange=""/>
+					<textbox id="tbTwo" value="box two" onChange="" />
 					<button id="btnOne" label="check equal selection" onClick='checkEqualSelection(tbOne.getValue(), tbTwo.getValue(), msg);' />
 					<button id="btnFour" label="show selection" onClick='showSelection(tbOne.getValue(), msg);' />
 					<label id="msg" />
@@ -213,9 +213,8 @@ class Z60_Listbox_ListModelMap_noRODTest extends ZTL4ScalaTestCase {
                 msg.$n().get("innerHTML").equals("false"));
         }
         def input = (tb: Element, value: String) => {
-          click(tb);
-          tb.eval("value = \"" + value+"\"");
-          click(outer);
+          findElement(tb.toBy()).clear()
+          `type`(tb, value)
           waitResponse();
         }
         def checkInsertRemove = () => {
@@ -278,6 +277,7 @@ class Z60_Listbox_ListModelMap_noRODTest extends ZTL4ScalaTestCase {
         sleep(1000);
 
         checkList.clear();
+        checkList.add(10);
         checkList.add(212);
         checkSelection(checkList, "lbxThree");
 

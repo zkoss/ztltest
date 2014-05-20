@@ -42,14 +42,14 @@ class B30_1991550Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
 
       // Click on the first image to collapse the groupbox
-      click(jq(".z-caption").toWidget().$n("cave"));
+      click(jq(".z-caption-image"));
       waitResponse(true);
 
       // The label in the groupbox must be invisible
       verifyFalse(jq(".z-label").isVisible());
 
       // Click on the first image to bring back the groupbox
-      click(jq(".z-caption").toWidget().$n("cave"));
+      click(jq(".z-caption-image"));
       waitResponse(true);
 
       // Click on the second image (toolbarbutton)

@@ -129,11 +129,7 @@ Test Protal base Functionativity <br/>
         	var l=c3.offsetLeft();
         	var t=10;
         	
-        	if(isIE()){
-        	  dragAndDrop(jq(".z-panel-header-move:eq(0)"),l+","+t);
-        	} else {
-        	  dragdropTo(jq(".z-panel-header-move:eq(0)"),c1.offsetLeft()+","+t,l+","+t);
-        	}
+        	dragdropTo(jq(".z-panel-header-move:eq(0)"),c1.offsetLeft()+","+t,l+","+t);
         	
         	waitResponse();
         	
