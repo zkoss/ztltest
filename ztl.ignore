@@ -73,6 +73,7 @@ B30-1526742.ztl
 ### ignore all firefox
 firefox*,ff*={
 // unsupported
+B30-1943594.ztl
 F50-0000001.ztl
 B35-2073451.ztl
 B60-ZK-1338.ztl
@@ -127,6 +128,7 @@ B50-2976323.ztl
 }
 ie9={
 // unsupported
+B60-ZK-1142.ztl
 B30-1822564.ztl
 B30-1822585.ztl
 B30-1823354.ztl
@@ -153,6 +155,7 @@ F50-0000001.ztl
 ie8={
 // zkbind
 Z60-RadiogroupSelected.ztl
+Z60-Radiogroup-ListModelSet.ztl
 Z60-F00823RadiogroupModel1.ztl
 Z60-F00823RadiogroupModel2.ztl
 B60-ZK-985.ztl
@@ -200,6 +203,7 @@ B65-ZK-1441.ztl
 B65-ZK-1284.ztl
 // unsupport
 B60-ZK-815.ztl
+Z60-Listbox-ListModelMap-ROD.ztl
 // selenium: cant support keypress
 B65-ZK-1473.ztl
 B50-1756559.ztl
@@ -226,6 +230,8 @@ opera,ie*,firefox*,ff*,safari={
 // test Locales
 B65-ZK-1852.ztl
 #model cases
+F60-ZK-1028.ztl
+Z60-Listbox-GroupsModelArray-Paging-noROD.ztl
 Z60-Grid-GroupsModelArray-Paging-noROD.ztl
 Z60-Listbox-ListModelArray-Multiple-ROD.ztl
 Z60-Listbox-ListModelArray-Multiple-noROD.ztl
