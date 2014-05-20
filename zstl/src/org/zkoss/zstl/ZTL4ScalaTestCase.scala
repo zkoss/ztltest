@@ -8,6 +8,8 @@ import org.zkoss.ztl.Widget
 import scala.collection.JavaConversions._
 import com.thoughtworks.selenium.SeleniumException
 import org.zkoss.ztl.util.ZKSelenium
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 /**
  * ZTL for Scala to test
@@ -19,37 +21,44 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
   browsers = getBrowsers(ch.getBrowser())
   _timeout = ch.getTimeout().toInt
   caseID = getClass().getSimpleName()
-
-  var _engine: Widget = null;
+  val _engine = new ThreadLocal[Widget]();
+  
   
   def runZTL(zscript: String, executor: () => Unit) {
-    for (browser <- browsers) {
-      try {
-        start(browser);
-        windowFocus();
-        windowMaximize();
-        _engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val executorService = Executors.newCachedThreadPool();
+    for (browser <- browsers) {    
+      executorService.execute(new Runnable() {
+        def run() {
+          try {
+            start(browser);
+            windowFocus();
+            windowMaximize();
+            _engine.set(new Widget(new StringBuffer("zk.Desktop._dt")));
 
-        if (!zscript.isEmpty())
-	        runRawZscript(
-	          zscript 
-	          toString())
+            if (!zscript.isEmpty())
+              runRawZscript(
+                zscript
+                  toString ())
 
-        waitResponse();
+            waitResponse();
 
-        executor();
-		} catch {
-			case e : SeleniumException =>
-				val zbrowser = browser.asInstanceOf[ZKSelenium]
-				ConfigHelper.getInstance().clearCache(zbrowser);
-				zbrowser.shutdown();
-				throw e;
-			case other =>
-				throw other;
-		} finally {
-			stop();
-		}
-    }  	  
+            executor();
+          } catch {
+            case e: SeleniumException =>
+              val zbrowser = browser.asInstanceOf[ZKSelenium]
+              ConfigHelper.getInstance().clearCache(zbrowser);
+              zbrowser.shutdown();
+              throw e;
+            case other =>
+              throw other;
+          } finally {
+            stop();
+          }
+        }
+      })
+    }
+    executorService.shutdown();
+    executorService.awaitTermination(_timeout, TimeUnit.MILLISECONDS);
   }
   
   def runRawZscript(zscript: String) {
@@ -65,6 +74,6 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 	runZTL(zscript.toString(),executor);
   }  
 
-  def engine(): Widget = _engine;
+  def engine(): Widget = _engine.get();
   def driver() = getWebDriver()
 }
