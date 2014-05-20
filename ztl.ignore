@@ -68,7 +68,7 @@ F51-ZK-216.ztl
 F51-ZK-216-grid.ztl
 }
 ### ignore all firefox
-firefox*={
+firefox*,ff*={
 // unsupported
 F50-0000001.ztl
 B35-2073451.ztl
@@ -217,7 +217,7 @@ B65-ZK-1632.ztl
 }
 #zbind or some test cases
 #ignore for browser difference issue
-opera,ie*,firefox*,safari={
+opera,ie*,firefox*,ff*,safari={
 #model cases
 Z60-Grid-GroupsModelArray-Paging-noROD.ztl
 Z60-Listbox-ListModelArray-Multiple-ROD.ztl
@@ -399,6 +399,9 @@ Z60-F00687.ztl
 Z60-TabboxSelected1.ztl
 Z60-F00864ValidationContextEasier.ztl
 Z60-B00878WrongValueException2.ztl
+Z60-LoadSavePromptCommandValidation.ztl
+Z60-B00878WrongValueException1.ztl
+Z60-B00877NPEInSaveOnlyBinding.ztl
 }
 
 ie8,ie9,ie10={
@@ -411,13 +414,13 @@ Z60-B00775ListmodelSelection.ztl
 }
 
 // ie only
-opera,chrome,safari,firefox*={
+opera,chrome,safari,firefox*,ff*={
 B65-ZK-1642.ztl
 B65-ZK-1215.ztl
 B65-ZK-1748.ztl 
 }
 // ie10 only
-opera,chrome,safari,firefox*,ie8,ie9={
+opera,chrome,safari,firefox*,ff*,ie8,ie9={
 B65-ZK-1769.ztl
 }
 
