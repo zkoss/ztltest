@@ -44,7 +44,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 				ConfigHelper.getInstance().clearCache(zbrowser);
 				zbrowser.shutdown();
 				throw e;
-			case other =>
+			case other: Throwable =>
 				throw other;
 		} finally {
 			stop();

@@ -39,7 +39,7 @@ class B50_ZK_692Test extends ZTL4ScalaTestCase {
 			for(i <- 0 to 5)
 				refresh();
 			
-			runRawZscript(zscript toString)
+			runRawZscript(zscript.toString())
 			
 			waitResponse
 			verifyTrue("The rmDesktop count should be greater than 1", 1 < Integer.parseInt(jq("$msg").text()));

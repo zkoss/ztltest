@@ -23,6 +23,7 @@ import org.zkoss.ztl.Widget
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import org.junit.Test
+import java.util.Calendar
 
 /**
  * @author Fernando Selvatici
@@ -89,14 +90,18 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
       val value2 = r.substring(p - 2, p + 6)
 
       val df1: DateFormat = new SimpleDateFormat("hh:mm:ss");
-      var hh1 = df1.parse(value1).getHours();
-      var mm1 = df1.parse(value1).getMinutes();
-      var ss1 = df1.parse(value1).getSeconds();
+      var calendar = Calendar.getInstance();
+      calendar.setTime(df1.parse(value1));
+      
+      var hh1 = calendar.get(Calendar.HOUR_OF_DAY);
+      var mm1 = calendar.get(Calendar.MINUTE);
+      var ss1 = calendar.get(Calendar.SECOND);
 
       val df2: DateFormat = new SimpleDateFormat("hh:mm:ss");
-      var hh2 = df2.parse(value2).getHours();
-      var mm2 = df2.parse(value2).getMinutes();
-      var ss2 = df2.parse(value2).getSeconds();
+      calendar.setTime(df2.parse(value2));
+      var hh2 = calendar.get(Calendar.HOUR_OF_DAY);
+      var mm2 = calendar.get(Calendar.MINUTE);
+      var ss2 = calendar.get(Calendar.SECOND);
 
       verifyTrue("The time value should of the label should be equal to the timebox", hh1 == hh2 && mm1 == mm2 && ss1 == ss2);
 
@@ -108,13 +113,16 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
       click(jq("@button"));
       waitResponse();
 
-      hh1 = df1.parse(value1).getHours();
-      mm1 = df1.parse(value1).getMinutes();
-      ss1 = df1.parse(value1).getSeconds();
+      calendar.setTime(df1.parse(value1));
+      
+      hh1 = calendar.get(Calendar.HOUR_OF_DAY);
+      mm1 = calendar.get(Calendar.MINUTE);
+      ss1 = calendar.get(Calendar.SECOND);
 
-      hh2 = df2.parse(value2).getHours();
-      mm2 = df2.parse(value2).getMinutes();
-      ss2 = df2.parse(value2).getSeconds();
+      calendar.setTime(df2.parse(value2));
+      hh2 = calendar.get(Calendar.HOUR_OF_DAY);
+      mm2 = calendar.get(Calendar.MINUTE);
+      ss2 = calendar.get(Calendar.SECOND);
 
       verifyTrue("The time value should of the label should be equal to the timebox", hh1 == hh2 && mm1 == mm2 && ss1 == ss2);
     })
