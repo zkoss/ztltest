@@ -100,7 +100,7 @@ class B35_2075716Test extends ZTL4ScalaTestCase {
       // Record the remainder width
       val remainder_width: Int = ((total_width - panel0_width) - 10);
 
-      verifyTrue("The new panel width should be the 50% of remainder width", remainder_width / 2 == new_panel_width);
+      verifyTolerant(remainder_width / 2, new_panel_width, 2);
       verifyFalse(jq(".z-error").exists())
     })
   }

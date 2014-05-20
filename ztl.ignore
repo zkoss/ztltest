@@ -66,6 +66,9 @@ B50-ZK-353.ztl
 B60-ZK-750.ztl
 F51-ZK-216.ztl
 F51-ZK-216-grid.ztl
+
+// out of date test case
+B30-1526742.ztl
 }
 ### ignore all firefox
 firefox*,ff*={
@@ -110,6 +113,8 @@ ie*={
 B60-ZK-1338.ztl
 // cant drag correct
 B50-3303684.ztl
+B30-1894208.ztl
+B50-3303725.ztl
 }
 ie10={
 // stuck in ie10
@@ -118,6 +123,7 @@ B36-2813877.ztl
 B50-3285714.ztl
 // unsupport drag and drop
 B36-2904376.ztl
+B50-2976323.ztl
 }
 ie9={
 // unsupported
@@ -127,9 +133,7 @@ B30-1823354.ztl
 Z30-grid-0005.ztl
 Z30-grid-0001.ztl
 B36-2813877.ztl
-B50-3303725.ztl
 B50-3303684.ztl
-B30-1894208.ztl
 B35-2075722.ztl
 B35-2149043.ztl
 B36-2678340.ztl
@@ -198,6 +202,7 @@ B65-ZK-1284.ztl
 B60-ZK-815.ztl
 // selenium: cant support keypress
 B65-ZK-1473.ztl
+B50-1756559.ztl
 }
 safari={
 // unsupported
@@ -215,9 +220,11 @@ B50-2916148.ztl
 // out of viewport
 B65-ZK-1632.ztl
 }
-#zbind or some test cases
+#zbind or some test cases for server side
 #ignore for browser difference issue
 opera,ie*,firefox*,ff*,safari={
+// test Locales
+B65-ZK-1852.ztl
 #model cases
 Z60-Grid-GroupsModelArray-Paging-noROD.ztl
 Z60-Listbox-ListModelArray-Multiple-ROD.ztl
