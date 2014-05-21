@@ -39,7 +39,7 @@ select tab2 and close it, should not cause an error, also creation of new tabs s
 			]]>
 		</attribute>
 	</button>
-	<idspace>
+	<idspace id="sec">
 	same should work in accordion mold
 	
 		<tabbox id="tabbox-accordion" mold="accordion" width="200px">
@@ -73,13 +73,13 @@ select tab2 and close it, should not cause an error, also creation of new tabs s
 </zk>"""
     runZTL(zscript,
       () => {
-        List("tab", "tab-accordion").zipWithIndex foreach {
+        List("tabbox", "tabbox-accordion").zipWithIndex foreach {
           case (value, index) =>
-            val tab = jq(".z-" + value + ":contains(Tab 2)").toWidget()
+            val tab = jq(".z-" + value + " .z-tab-text:contains(Tab 2)").toWidget()
             click(tab)
             waitResponse()
 
-            click(tab.$n("btn"))
+            click(tab.$n("cls"))
             waitResponse()
             verifyFalse("should see no javascript error", jq(".z-error").exists())
 

@@ -103,7 +103,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
       click(jq(".z-listitem:contains(i)"))
       waitResponse()
       
-      click(jq(".z-menuitem").toWidget().$n("b"))
+      click(jq(".z-menuitem").toWidget().$n("a"))
       waitResponse()
       
       click(open)

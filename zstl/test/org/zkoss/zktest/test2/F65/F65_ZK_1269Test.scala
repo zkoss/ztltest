@@ -179,53 +179,53 @@ class F65_ZK_1269Test extends ZTL4ScalaTestCase {
 
         val removeThen = (nth: String, result: String) => {
           sendKeys(removeInp, nth)
-          waitResponse()
+          waitResponse(true)
           blur(removeInp)
-          waitResponse()
+          waitResponse(true)
           
           click(remove)
-          waitResponse()
+          waitResponse(true)
           sleep(1000)
           verifyTrue("should show component " + result + ".", jq(".z-cardlayout-inner:contains(" + result + ")").css("top") == "0px")
 
           // restore removeInp
           sendKeys(removeInp, Keys.END + ("" + Keys.BACK_SPACE) * removeInp.`val`().length)
-          waitResponse()
+          waitResponse(true)
           blur(removeInp)
-          waitResponse()
+          waitResponse(true)
         }
 
         val showThen = (result: String) => {
           click(show)
-          waitResponse()
+          waitResponse(true)
           verifyTrue("should show selected index " + result + ".", jq(".z-messagebox-window .z-label").text() == result)
 
           // confirm
           click(confirm)
-          waitResponse()
+          waitResponse(true)
         }
 
         val selectThen = (nth: String, result: String) => {
           sendKeys(selectedInp, nth)
-          waitResponse()
+          waitResponse(true)
           blur(selectedInp)
-          waitResponse()
+          waitResponse(true)
           
           click(go)
-          waitResponse()
+          waitResponse(true)
           sleep(1000)
           verifyTrue("should show component " + result + ".", jq(".z-cardlayout-inner:contains(" + result + ")").css("top") == "0px")
 
           // restore selectedInp
           sendKeys(selectedInp, Keys.END + ("" + Keys.BACK_SPACE) * selectedInp.`val`().length)
-          waitResponse()
+          waitResponse(true)
           blur(selectedInp)
-          waitResponse()
+          waitResponse(true)
         }
 
         verifyTrue("should show component 9.", jq(".z-cardlayout-inner:contains(9)").css("top") == "0px")
         click(jq(".z-button:contains(append component):eq(0)"))
-        waitResponse()
+        waitResponse(true)
 
         selectThen("11", "11")
 
@@ -233,7 +233,7 @@ class F65_ZK_1269Test extends ZTL4ScalaTestCase {
 
         sendKeys(insertInp, "9")
         click(add)
-        waitResponse()
+        waitResponse(true)
 
         showThen("10")
 

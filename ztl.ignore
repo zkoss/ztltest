@@ -66,10 +66,16 @@ B50-ZK-353.ztl
 B60-ZK-750.ztl
 F51-ZK-216.ztl
 F51-ZK-216-grid.ztl
+
+// out of date test case
+B30-1526742.ztl
 }
 ### ignore all firefox
 firefox*,ff*={
 // unsupported
+F70-ZK-2049.ztl
+F65-ZK-1269.ztl
+B30-1943594.ztl
 F50-0000001.ztl
 B35-2073451.ztl
 B60-ZK-1338.ztl
@@ -93,6 +99,7 @@ B35_2103813Test
 }
 opera={
 // unsupported
+F70-ZK-2049.ztl
 B30-1878840.ztl
 B50-ZK-692.ztl
 B50-3322795.ztl
@@ -110,26 +117,29 @@ ie*={
 B60-ZK-1338.ztl
 // cant drag correct
 B50-3303684.ztl
+B30-1894208.ztl
+B50-3303725.ztl
 }
 ie10={
 // stuck in ie10
+B35-2149043.ztl
 B36-2813877.ztl
 // selenium scroll
 B50-3285714.ztl
 // unsupport drag and drop
 B36-2904376.ztl
+B50-2976323.ztl
 }
 ie9={
 // unsupported
+B60-ZK-1142.ztl
 B30-1822564.ztl
 B30-1822585.ztl
 B30-1823354.ztl
 Z30-grid-0005.ztl
 Z30-grid-0001.ztl
 B36-2813877.ztl
-B50-3303725.ztl
 B50-3303684.ztl
-B30-1894208.ztl
 B35-2075722.ztl
 B35-2149043.ztl
 B36-2678340.ztl
@@ -149,6 +159,7 @@ F50-0000001.ztl
 ie8={
 // zkbind
 Z60-RadiogroupSelected.ztl
+Z60-Radiogroup-ListModelSet.ztl
 Z60-F00823RadiogroupModel1.ztl
 Z60-F00823RadiogroupModel2.ztl
 B60-ZK-985.ztl
@@ -196,8 +207,10 @@ B65-ZK-1441.ztl
 B65-ZK-1284.ztl
 // unsupport
 B60-ZK-815.ztl
+Z60-Listbox-ListModelMap-ROD.ztl
 // selenium: cant support keypress
 B65-ZK-1473.ztl
+B50-1756559.ztl
 }
 safari={
 // unsupported
@@ -215,12 +228,17 @@ B50-2916148.ztl
 // out of viewport
 B65-ZK-1632.ztl
 }
-#zbind or some test cases
+#zbind or some test cases for server side
 #ignore for browser difference issue
 opera,ie*,firefox*,ff*,safari={
+// test Locales
+B65-ZK-1852.ztl
 #model cases
+F60-ZK-1028.ztl
+Z60-Listbox-GroupsModelArray-Paging-noROD.ztl
 Z60-Grid-GroupsModelArray-Paging-noROD.ztl
 Z60-Listbox-ListModelArray-Multiple-ROD.ztl
+Z60-Listbox-ListModelArray-Multiple-noROD.ztl
 Z60-Listbox-ListModelArray-Paging-Multiple.ztl
 Z60-Listbox-ListModelArray-Paging.ztl
 Z60-Listbox-ListModelArray-ROD.ztl
@@ -249,6 +267,7 @@ Z60-Listbox-SimpleListModel-Paging.ztl
 Z60-Listbox-SimpleListModel-ROD.ztl
 Z60-Listbox-SimpleListModel-noROD.ztl
 Z60-Listbox-SimpleListModel-Multiple-noROD.ztl
+Z60-SelectboxModelSelection.ztl
 #zbind
 Z60-Arg.ztl
 Z60-CommandIndirect.ztl
@@ -402,6 +421,10 @@ Z60-B00878WrongValueException2.ztl
 Z60-LoadSavePromptCommandValidation.ztl
 Z60-B00878WrongValueException1.ztl
 Z60-B00877NPEInSaveOnlyBinding.ztl
+Z60-B00913ValueReload.ztl
+Z60-B00849ConverterParameters.ztl
+Z60-ValidationMessages.ztl
+Z60-Radiogroup-ListModelArray.ztl
 }
 
 ie8,ie9,ie10={

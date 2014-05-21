@@ -66,7 +66,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
     () => {
       val bb = jq(".z-bandbox").toWidget()
       val log = jq("#zk_log")
-      click(bb.$n("real"))
+      focus(bb.$n("real"))
       waitResponse()
       sleep(300)
       verifyTrue(log.`val`().contains("focus is in bandbox"))

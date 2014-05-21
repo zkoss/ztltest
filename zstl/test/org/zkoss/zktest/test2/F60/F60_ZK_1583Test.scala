@@ -65,9 +65,7 @@ class F60_ZK_1583Test extends ZTL4ScalaTestCase {
           "after_start", "after_center", "after_end", "start_before",
           "start_center", "start_after", "end_before", "end_center",
           "end_after") foreach { pos =>
-            click(jq(".z-selectbox"))
-            waitResponse()
-            click(jq("option:contains(" + pos + ")"))
+            select(jq(".z-selectbox"), pos);
             waitResponse()
             Map("info" -> "green", "warning" -> "yellow", "error" -> "red") foreach {
               case (notifyType, color) =>

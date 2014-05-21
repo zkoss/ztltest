@@ -33,7 +33,7 @@ class B65_ZK_1706Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
 
-        verifyTolerant(jq(".z-button:contains(Go):eq(0)").width(), jq(".z-button:contains(Go):eq(1)").width(), 2)
+        verifyTolerant(jq(".z-button:contains(Go):eq(0)").width(), jq(".z-button:contains(Go):eq(1)").width(), 4)
       })
 
   }

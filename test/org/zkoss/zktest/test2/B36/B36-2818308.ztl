@@ -78,22 +78,20 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-			JQuery body = jq(tree.$n("body"));
-			JQuery table = body.find("table");
-			click(jq("@button[label=\"add under bottom\"]"));
-			waitResponse();
-			int tableScrollTop = table.outerHeight() - table.find("tr:last").outerHeight();
-			int scrollTop = getScrollTop(tree) + body.outerHeight();
-			verifyEquals(tableScrollTop, scrollTop);
-			click(jq("@button[label=\"add under bottom\"]"));
-			waitResponse();
-			tableScrollTop = table.outerHeight() - table.find("tr:last").outerHeight();
-			scrollTop = getScrollTop(tree) + body.outerHeight();
-			verifyTolerant(tableScrollTop, scrollTop, 1);
-			click(jq("@button[label=\"add upon top\"]"));
-			waitResponse();
-			click(jq("@button[label=\"add upon top\"]"));
-			verifyEquals(0, getScrollTop(tree));
+				JQuery body = jq(tree.$n("body"));
+				JQuery table = body.find("table");
+				click(jq("@button[label=\"add under bottom\"]"));
+				waitResponse();
+				int scrollTop = getScrollTop(tree);
+				verifyTolerant(144, scrollTop, 10);
+				click(jq("@button[label=\"add under bottom\"]"));
+				waitResponse();
+				scrollTop = getScrollTop(tree);
+				verifyTolerant(168, scrollTop, 10);
+				click(jq("@button[label=\"add upon top\"]"));
+				waitResponse();
+				click(jq("@button[label=\"add upon top\"]"));
+				verifyEquals(0, getScrollTop(tree));
 		]]></client>
 	</case>
 </test>

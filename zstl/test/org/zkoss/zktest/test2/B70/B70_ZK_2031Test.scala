@@ -30,7 +30,7 @@ def testClick() = {
 </window>"""  
   runZTL(zscript,
     () => {
-      click(jq(".z-checkbox"))
+      check(jq(".z-checkbox input"))
       waitResponse()
       
       verifyTrue("The button's image should show up.", jq(".z-button-image").exists)

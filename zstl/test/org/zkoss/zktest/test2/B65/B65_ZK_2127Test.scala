@@ -84,7 +84,7 @@ class SelectionModel{
       click(jq(".z-radio:eq(1)").toWidget().$n("real"))
       waitResponse()
       
-      verifyTrue("the combobox should be enable", !jq(".z-combobox-disabled").exists)
+      verifyTrue("the combobox should be enable", !jq(".z-combobox.z-combobox-disabled").exists)
     })
     
   }
