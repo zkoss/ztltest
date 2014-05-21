@@ -34,13 +34,13 @@ class B65_ZK_2028Test extends ZTL4ScalaTestCase {
         var inp = jq(".z-chosenbox").toWidget().$n("inp")
         List("book", "apple", "cake") foreach { item =>
           sendKeys(inp, item)
-          waitResponse
+          waitResponse(true)
           sendKeys(inp, Keys.ENTER)
-          waitResponse
+          waitResponse(true)
         }
 
         click(jq(".z-chosenbox-item:contains(cake) .z-chosenbox-delete"))
-        waitResponse
+        waitResponse(true)
 
         verifyTrue("'book' and 'apple' should still be selected.",
           jq(".z-chosenbox-item:contains(apple)").exists

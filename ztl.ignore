@@ -73,7 +73,6 @@ B30-1526742.ztl
 ### ignore all firefox
 firefox*,ff*={
 // unsupported
-B65-ZK_2028.ztl
 F65-ZK-1269.ztl
 B30-1943594.ztl
 F50-0000001.ztl
