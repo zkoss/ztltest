@@ -23,7 +23,6 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
   caseID = getClass().getSimpleName()
   val _engine = new ThreadLocal[Widget]();
   
-  
   def runZTL(zscript: String, executor: () => Unit) {
     val executorService = Executors.newCachedThreadPool();
     for (browser <- browsers) {    
