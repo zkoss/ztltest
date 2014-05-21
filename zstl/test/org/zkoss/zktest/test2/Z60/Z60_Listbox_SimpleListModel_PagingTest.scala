@@ -221,7 +221,6 @@ class Z60_Listbox_SimpleListModel_PagingTest extends ZTL4ScalaTestCase {
         sleep(1000);
 
         checkList.clear();
-        checkList.add(10);
         checkList.add(212);
         checkSelection(checkList, "lbxThree");
 

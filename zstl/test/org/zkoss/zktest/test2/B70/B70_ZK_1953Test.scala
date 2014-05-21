@@ -26,7 +26,7 @@ def testClick() = {
 </zk>"""  
   runZTL(zscript,
     () => {
-      verifyTrue("Listhead's checkmark should be invisible", !jq(".z-listheader-checkable").exists)
+      verifyTrue("Listhead's checkmark should be invisible", !jq(".z-listheader-checked").exists)
     })
     
   }

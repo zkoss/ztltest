@@ -39,18 +39,22 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
 
         click(jq(".z-calendar").toWidget().$n("ty"))
         waitResponse(true) // wait for animation
+        sleep(200);
 
         click(jq(".z-calendar-cell:contains(" + year + ")"))
         waitResponse(true) // wait for animation
+        sleep(200);
 
         click(jq(".z-calendar-cell:contains(" + month + ")"))
         waitResponse(true) // wait for animation
+        sleep(200);
 
         click(jq(".z-calendar-cell:contains(" + day + ")"))
         waitResponse(true) // wait for animation
+        sleep(200);
 
         click(jq(".z-calendar").toWidget().$n("right"))
-        waitResponse()
+        waitResponse(true)
 
         sleep(500)
         verifyEquals(jq(".z-calendar-title").text(), yearMonth)
@@ -63,18 +67,23 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
 
         click(jq(".z-calendar").toWidget().$n("ty"))
         waitResponse(true) // wait for animation
+        sleep(200);
 
         click(jq(".z-calendar-cell:contains(" + year1 + ")"))
         waitResponse(true) // wait for animation
+        sleep(200);
 
         click(jq(".z-calendar-cell:contains(" + month1 + ")"))
         waitResponse(true) // wait for animation
+        sleep(200);
 
         click(jq(".z-calendar-cell:contains(" + day1 + ")"))
         waitResponse(true) // wait for animation
+        sleep(200);
 
         click(jq(".z-calendar").toWidget().$n("right"))
         waitResponse(true) // wait for animation
+        sleep(200);
 
         verifyEquals(jq(".z-calendar-title").text(), yearMonth1)
         verifyEquals(jq(".z-calendar-weekday.z-calendar-selected").text(), dayOfNextMonth1)

@@ -73,6 +73,7 @@ B30-1526742.ztl
 ### ignore all firefox
 firefox*,ff*={
 // unsupported
+F70-ZK-2049.ztl
 F65-ZK-1269.ztl
 B30-1943594.ztl
 F50-0000001.ztl
@@ -98,6 +99,7 @@ B35_2103813Test
 }
 opera={
 // unsupported
+F70-ZK-2049.ztl
 B30-1878840.ztl
 B50-ZK-692.ztl
 B50-3322795.ztl
@@ -421,6 +423,8 @@ Z60-B00878WrongValueException1.ztl
 Z60-B00877NPEInSaveOnlyBinding.ztl
 Z60-B00913ValueReload.ztl
 Z60-B00849ConverterParameters.ztl
+Z60-ValidationMessages.ztl
+Z60-Radiogroup-ListModelArray.ztl
 }
 
 ie8,ie9,ie10={

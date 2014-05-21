@@ -124,7 +124,7 @@ class Z30_grid_0006Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
-        verifyTolerant(jq("$col").outerWidth(),125, if(isFakeScrollbar()) 2 else 5);
+        verifyTolerant(jq("$col").outerWidth(),125, if(!hasNativeScroll(jq("$grid"))) 2 else 5);
         
         click(jq("$btnWid"))
         waitResponse
