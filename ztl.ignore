@@ -103,6 +103,11 @@ B35_2103813Test
 }
 opera={
 // unsupported
+B35-2349456.ztl
+B60-ZK-1113.ztl
+F65-ZK-1269.ztl
+B50-2906453.ztl
+B35-2073451.ztl
 F70-ZK-2049.ztl
 B30-1878840.ztl
 B50-ZK-692.ztl
@@ -123,7 +128,7 @@ B60-ZK-1338.ztl
 B50-3303684.ztl
 B30-1894208.ztl
 B50-3303725.ztl
-B35_2075722.ztl
+B35-2075722.ztl
 // ignore
 F60-ZK-701-Listmodel.ztl
 }
@@ -134,11 +139,23 @@ B36-2813877.ztl
 // selenium scroll
 B50-3285714.ztl
 // unsupport drag and drop
+B65-ZK-1612.ztl
 B36-2904376.ztl
 B50-2976323.ztl
+B36-2811990.ztl
+B60-ZK-803.ztl
+B50-ZK-266.ztl
+B65-ZK-1617.ztl
+B65-ZK-1689.ztl
+B50-ZK-488.ztl
+B65-ZK-1877.ztl
+B60-ZK-1305.ztl
+B50-3147909.ztl
 }
 ie9={
 // unsupported
+B65-ZK-1877.ztl
+B50-ZK-266.ztl
 B60-ZK-1142.ztl
 B30-1822564.ztl
 B30-1822585.ztl
@@ -155,6 +172,7 @@ B65-ZK-1441.ztl
 F65-ZK-1655.ztl
 B65-ZK-1693.ztl
 B36-2811990.ztl
+B70-ZK-2003.ztl
 
 // zkbind
 Z60-RadiogroupSelected.ztl
@@ -172,8 +190,12 @@ Z60-F00823RadiogroupModel2.ztl
 Z60-Radiogroup-SimpleListModel.ztl
 B60-ZK-707-ListModel.ztl
 B60-ZK-985.ztl
+B50-2880236.ztl
 
 // unsupported
+B35-2073451.ztl
+B30-1822564.ztl
+B50-ZK-909.ztl
 Form.ztl
 Popup.ztl
 B35-2094308.ztl
@@ -208,6 +230,7 @@ chrome,safari={
 F50-0000001.ztl
 B35-2073451.ztl
 B65-ZK-1441.ztl
+B60-ZK-815.ztl
 }
 chrome={
 B35-2233787.ztl
@@ -225,6 +248,13 @@ B50-1756559.ztl
 }
 safari={
 // unsupported
+B30-1898094.ztl
+B30-1936366.ztl
+B60-ZK-1377.ztl
+B65-ZK-1955T.ztl
+B65-ZK-1407.ztl
+B36-2807475.ztl
+F65-ZK-1269.ztl
 Popup.ztl
 Form.ztl
 B50-2997037.ztl
@@ -448,7 +478,10 @@ Z60-DeferInit.ztl
 Z60-Window.ztl
 Z60-B00722.ztl
 }
-
+ie11={
+//unstable
+B50-ZK-909.ztl
+}
 ie8,ie9,ie10={
 // unsupport
 Z60-ChildrenMenu.ztl
