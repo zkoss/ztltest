@@ -119,6 +119,8 @@ B60-ZK-1338.ztl
 B50-3303684.ztl
 B30-1894208.ztl
 B50-3303725.ztl
+// ignore
+F60-ZK-701-Listmodel.ztl
 }
 ie10={
 // stuck in ie10
@@ -162,6 +164,7 @@ Z60-RadiogroupSelected.ztl
 Z60-Radiogroup-ListModelSet.ztl
 Z60-F00823RadiogroupModel1.ztl
 Z60-F00823RadiogroupModel2.ztl
+Z60-Radiogroup-SimpleListModel.ztl
 B60-ZK-985.ztl
 
 // unsupported

@@ -37,6 +37,7 @@ class B65_ZK_2028Test extends ZTL4ScalaTestCase {
           waitResponse(true)
           sendKeys(inp, Keys.ENTER)
           waitResponse(true)
+          sleep(200)
         }
 
         click(jq(".z-chosenbox-item:contains(cake) .z-chosenbox-delete"))
