@@ -93,7 +93,7 @@ class B50_ZK_568Test extends ZTL4ScalaTestCase {
     		clickAndWait(boxBtn);
 
     		top = Integer.parseInt(pp.get("scrollTop"));
-    		offset = Integer.parseInt(jq(item15).get(0).get("offsetTop"));
+    		offset = Integer.parseInt(jq(item15).get(0).get("offsetTop")) + 4;
     		bottom = Integer.parseInt(pp.get("scrollTop"))+jq(pp).height();
 
    			verifyTrue("item 15 should in view of drop down list",

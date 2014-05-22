@@ -40,6 +40,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				int x = getElementPositionLeft(jq("@textbox")).intValue();
 				type(jq("@textbox"),"");
+				waitResponse(true);
 				verifyTrue(jq(".z-errorbox").exists());
 				int y = getElementPositionLeft(jq(".z-errorbox")).intValue();
 				int y1 = getElementWidth(jq(".z-errorbox")).intValue();

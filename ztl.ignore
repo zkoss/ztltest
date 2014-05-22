@@ -69,10 +69,14 @@ F51-ZK-216-grid.ztl
 
 // out of date test case
 B30-1526742.ztl
+B35-2149043.ztl
+B50-3013683.ztl
 }
 ### ignore all firefox
 firefox*,ff*={
 // unsupported
+Popup.ztl
+Form.ztl
 F70-ZK-2049.ztl
 F65-ZK-1269.ztl
 B30-1943594.ztl
@@ -119,6 +123,7 @@ B60-ZK-1338.ztl
 B50-3303684.ztl
 B30-1894208.ztl
 B50-3303725.ztl
+B35_2075722.ztl
 // ignore
 F60-ZK-701-Listmodel.ztl
 }
@@ -165,9 +170,12 @@ Z60-Radiogroup-ListModelSet.ztl
 Z60-F00823RadiogroupModel1.ztl
 Z60-F00823RadiogroupModel2.ztl
 Z60-Radiogroup-SimpleListModel.ztl
+B60-ZK-707-ListModel.ztl
 B60-ZK-985.ztl
 
 // unsupported
+Form.ztl
+Popup.ztl
 B35-2094308.ztl
 F65-ZK-1655.ztl
 Z65-Flex-064.ztl
@@ -217,6 +225,8 @@ B50-1756559.ztl
 }
 safari={
 // unsupported
+Popup.ztl
+Form.ztl
 B50-2997037.ztl
 B30-2487562.ztl
 B50-3058028.ztl
@@ -227,7 +237,7 @@ B50-3026819.ztl
 B36-2904376.ztl
 B36-3049167.ztl
 B50-2916148.ztl
-
+F70-ZK-2007.ztl
 // out of viewport
 B65-ZK-1632.ztl
 }
@@ -428,6 +438,15 @@ Z60-B00913ValueReload.ztl
 Z60-B00849ConverterParameters.ztl
 Z60-ValidationMessages.ztl
 Z60-Radiogroup-ListModelArray.ztl
+Z60-Radiogroup-ListModelList.ztl
+Z60-Radiogroup-ListModelMap.ztl
+Z60-Radiogroup-ListModelSet.ztl
+Z60-B00657.ztl
+Z60-LoadSaveProperty.ztl
+Z60-B00634.ztl
+Z60-DeferInit.ztl
+Z60-Window.ztl
+Z60-B00722.ztl
 }
 
 ie8,ie9,ie10={

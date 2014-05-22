@@ -73,7 +73,7 @@ class B65_ZK_1768Test extends ZTL4ScalaTestCase {
       () => {
         val item2 = jq(".z-row:contains(Item 2) .z-radio")
         val show = jq(".z-button:contains(Show Index)")
-        click(item2)
+        check(item2)
         waitResponse()
         click(show)
         waitResponse()
@@ -85,7 +85,7 @@ class B65_ZK_1768Test extends ZTL4ScalaTestCase {
         waitResponse()
         verifyTrue(jq(".z-label:contains(index: -1)").exists())
         
-        click(item2)
+        check(item2)
         waitResponse()
         click(show)
         waitResponse()
@@ -101,7 +101,7 @@ class B65_ZK_1768Test extends ZTL4ScalaTestCase {
       () => {
         val item2 = jq(".z-row:contains(Item 2) .z-radio")
         val show = jq(".z-button:contains(Show Index)")
-        click(item2)
+        check(item2)
         waitResponse()
         click(show)
         waitResponse()
@@ -113,7 +113,7 @@ class B65_ZK_1768Test extends ZTL4ScalaTestCase {
         waitResponse()
         verifyTrue(jq(".z-label:contains(index: 0)").exists())
         
-        click(jq(".z-row:contains(Item 3) .z-radio"))
+        check(jq(".z-row:contains(Item 3) .z-radio"))
         waitResponse()
         click(show)
         waitResponse()
