@@ -13,15 +13,17 @@ be closed.
 		<client>	<![CDATA[
 				JQuery eb = jq(".z-errorbox");
 				focus(tb);
+				waitResponse();
 				blur(tb);
 				waitResponse();
 				verifyTrue(eb.exists());
 				waitResponse();
 				click(eb.toWidget().$n("cls"));
-				if(eb.exists()) // selenium issue
-					click(eb.toWidget().$n("cls"));
 				waitResponse();
-				verifyFalse(eb.exists());		
+				if(eb.exists()) // selenium issue
+				click(eb.toWidget().$n("cls"));
+				waitResponse();
+				verifyFalse(eb.exists());	
 			]]></client>
 	</case>
 </test>
