@@ -99,7 +99,7 @@ B65-ZK-2185.ztl
 // selenium: cant support keypress
 B65-ZK-1473.ztl
 // word show outside of the button
-B35_2103813Test
+B35-2103813.ztl
 }
 opera={
 // unsupported
@@ -518,4 +518,6 @@ B50-3166478.ztl
 B50-3185657.ztl
 B50-3186596.ztl
 B50-3201762.ztl
+Z65-Flex-073.ztl
+B50-3210336.ztl
 }
