@@ -2,7 +2,7 @@
 <project>
 	<property name="zstl.src" value="zstl" />
 	<property name="source.dir" value="src/" />
-	<property name="test.src" value="zstl/test/org/zkoss/zktest/test2/B50" />
+	<property name="test.src" value="test/" />
 	<!-- property name="test.src" value="zstl/vision-test/" /-->
 	<property name="build.dir" value="build/" />
 	<property name="lib.dir" value="lib/" />

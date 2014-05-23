@@ -10,6 +10,9 @@ import com.thoughtworks.selenium.SeleniumException
 import org.zkoss.ztl.util.ZKSelenium
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
+import java.util.ArrayList
+import java.util.concurrent.Callable
+import java.util.HashSet
 
 /**
  * ZTL for Scala to test
@@ -25,9 +28,18 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
   
   def runZTL(zscript: String, executor: () => Unit) {
     val executorService = Executors.newCachedThreadPool();
-    for (browser <- browsers) {    
-      executorService.execute(new Runnable() {
-        def run() {
+    val callables = new ArrayList[Callable[String]];
+    val browserSet = new HashSet[String];
+    
+    for (browser <- browsers) { 
+      
+      
+      val zkSelenium = browser.asInstanceOf[ZKSelenium];
+      browserSet.add(zkSelenium.getBrowserName());
+      println("add browser: " + zkSelenium.getBrowserName());
+
+      callables.add(new Callable[String] {
+        def call():String = {
           try {
             start(browser);
             windowFocus();
@@ -37,15 +49,14 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
             if (!zscript.isEmpty())
               runRawZscript(
                 zscript
-                  toString ())
-
-            waitResponse();
+                  toString ());
+              waitResponse();
 	          executor();
+	          return zkSelenium.getBrowserName();
 			} catch {
 				case e : SeleniumException =>
-					val zbrowser = browser.asInstanceOf[ZKSelenium]
-					ConfigHelper.getInstance().clearCache(zbrowser);
-					zbrowser.shutdown();
+					ConfigHelper.getInstance().clearCache(zkSelenium);
+					zkSelenium.shutdown();
 					throw e;
 				case other: Throwable =>
 					throw other;
@@ -53,10 +64,19 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 				stop();
 			}
         }
-      })
+      });
     }
-    executorService.shutdown();
-    executorService.awaitTermination(_timeout, TimeUnit.MILLISECONDS);
+    val futures = executorService.invokeAll(callables, _timeout, TimeUnit.MILLISECONDS);
+    for( f <- futures) browserSet.remove(f.get(0, TimeUnit.MILLISECONDS));
+    
+    for(b <- browserSet) {
+      println("kill thread belong to browser:" + b);
+      // add restert code here
+    }
+    
+    //if(browserSet.size() > 0) Thread.sleep(90000);
+    
+    executorService.shutdownNow();
   }
   
   def runRawZscript(zscript: String) {

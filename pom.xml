@@ -8,6 +8,7 @@
 	<description>A sets of testing cases for ZK project</description>
 	<properties>
 		<selenium.version>2.37.0</selenium.version>
+		<report.dir>${project.build.directory}/surefire-reports</report.dir>
 	</properties>
 	<repositories>
 		<repository>
@@ -247,8 +248,8 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.17</version>
 				<configuration>
-					<useFile>false</useFile>
-					<forkCount>2</forkCount>
+					<reportsDirectory>${report.dir}</reportsDirectory>
+					<forkCount>3</forkCount>
 					<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
 					<reuseForks>true</reuseForks>
 				</configuration>
