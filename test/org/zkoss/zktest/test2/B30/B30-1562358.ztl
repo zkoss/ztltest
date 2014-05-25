@@ -15,12 +15,12 @@
 			</groupbox>
 		]]></server>
 		<client><![CDATA[
-			if (true) return;
-			verifyTrue(getElementHeight(row.firstChild()).intValue() < 35);
-			Element body = grid.$n("body");
-			int ch = Integer.parseInt(body.get("clientHeight"));
-			int oh = Integer.parseInt(body.get("offsetHeight"));
-			verifyEquals(oh - ch, JQuery.scrollbarWidth());
+			// if (true) return;
+//			verifyTrue(getElementHeight(row.firstChild()).intValue() < 35);
+//			Element body = grid.$n("body");
+//			int ch = Integer.parseInt(body.get("clientHeight"));
+//			int oh = Integer.parseInt(body.get("offsetHeight"));
+//			verifyEquals(oh - ch, JQuery.scrollbarWidth());
 		]]></client>
 	</case>
 </test>
