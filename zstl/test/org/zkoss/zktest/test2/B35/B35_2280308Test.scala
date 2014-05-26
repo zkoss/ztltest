@@ -48,7 +48,7 @@ uiDecimalbox.getValue();
           </zscript>
           Please scroll down to press the submit button, than you should see the Warning box.
           <panel style="margin-left:10px" width="800px" height="500px" title="TEST PANEL" border="normal" visible="true">
-            <panelchildren style='background:white;background:white;overflow:auto;'>
+            <panelchildren id="pc" style='background:white;background:white;overflow:auto;'>
               <decimalbox id="uiDecimalbox" constraint="no empty"/>
               <listbox id="list" model="${strset}" width="200px">
                 <listhead>
@@ -62,10 +62,10 @@ uiDecimalbox.getValue();
       </zk>
     }
     runZTL(zscript, () => {
-      var lb = jq(engine.$f("list").$n("body"));
+      var pc = engine.$f("pc").$n();
 
-      // Scroll the listbox
-      lb.eval("scrollTop = " + lb.scrollHeight()); 
+      // Scroll the panelchildren
+      pc.eval("scrollTop = " + jq(pc).scrollHeight()); 
       waitResponse();
 
       // Click on submit button
