@@ -158,9 +158,11 @@ B50-3147909.ztl
 B30-1898094.ztl
 B36-2807475.ztl
 F50-0000001.ztl
+B50-ZK-909.ztl
 }
 ie9={
 // unsupported
+B36-2806448.ztl
 B65-ZK-1877.ztl
 B50-ZK-266.ztl
 B60-ZK-1142.ztl
@@ -255,6 +257,7 @@ B50-1756559.ztl
 }
 safari={
 // unsupported
+B65-ZK-1297.ztl
 B65-ZK-1955.ztl
 B60-ZK-1202.ztl 
 F70-ZK-2049.ztl
