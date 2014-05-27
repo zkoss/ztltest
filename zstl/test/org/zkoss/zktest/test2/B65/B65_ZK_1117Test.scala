@@ -55,17 +55,21 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         click(jq(upperbtn))
         waitResponse()
         blur(snpinerinp)
+        waitResponse()
         click(clickbtn)
         waitResponse()
         verifyTrue("Should show a alert box",
           jq(".z-messagebox-window").isVisible())
         click(jq(".z-messagebox-window .z-button"))
 
+        waitResponse()
         // clear the spinner value to empty,then click button, you should get the spinner error messag.
         focus(snpinerinp)
 
+        waitResponse()
         sendKeys(snpinerinp, Keys.END + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE)
 
+        waitResponse()
         verifyEquals(snpinerinp.get("value"), "")
         waitResponse()
         click(clickbtn)
@@ -73,6 +77,7 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         verifyTrue("Should show a alert box",
           jq(".z-messagebox-window").isVisible())
         click(jq(".z-messagebox-window .z-button"))
+        waitResponse()
       }
     }
 

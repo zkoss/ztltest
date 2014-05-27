@@ -98,14 +98,14 @@ panel 2
         var tab2=jq("$tab2");
         
         click(tab1);
-        waitResponse();
+        waitResponse(true);
 
         //Panels 1 visible, 2 invisible
         verifyTrue(jq("$p1").find(".z-tabpanel-content").isVisible());
         verifyFalse(jq("$p2").find(".z-tabpanel-content").isVisible());
         
         click(tab2);
-        waitResponse();
+        waitResponse(true);
 
         //Panels 2 visible, 1 invisible
         verifyTrue(jq("$p2").find(".z-tabpanel-content").isVisible());

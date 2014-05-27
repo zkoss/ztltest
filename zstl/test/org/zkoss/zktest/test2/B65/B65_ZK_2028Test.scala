@@ -35,8 +35,10 @@ class B65_ZK_2028Test extends ZTL4ScalaTestCase {
         List("book", "apple", "cake") foreach { item =>
           sendKeys(inp, item)
           waitResponse(true)
+          sleep(200)
           sendKeys(inp, Keys.ENTER)
           waitResponse(true)
+          sleep(200)
         }
 
         click(jq(".z-chosenbox-item:contains(cake) .z-chosenbox-delete"))

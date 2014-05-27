@@ -33,14 +33,20 @@ def testClick() = {
       waitResponse()
       verifyTrue("open the menupopup", jq(".z-menupopup").exists)
       
-      clickAt(btn, "0,0")
+      if (!isSafari())
+    	 clickAt(btn, "0,0")
+      else
+      	click(btn)
       waitResponse()
       verifyTrue("it will close", !jq(".z-menupopup").isVisible())
       
       contextMenu(btn1)
       waitResponse()
       verifyTrue("open the menupopup", jq(".z-menupopup").exists)
-      contextMenuAt(btn1, "0,0")
+      if (!isSafari())
+    	  contextMenuAt(btn1, "0,0")
+      else
+          contextMenu(btn1)	
       waitResponse()
       verifyTrue("it will close", !jq(".z-menupopup").isVisible())
     })

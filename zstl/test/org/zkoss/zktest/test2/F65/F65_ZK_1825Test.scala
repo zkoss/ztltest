@@ -44,15 +44,15 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         
         val calendar0 = jq(".z-calendar:eq(0)")
         click(calendar0.find(".z-calendar-title .z-calendar-text:eq(1)"))
-        waitResponse()
+        waitResponse(true)
         click(calendar0.find(".z-calendar-body td:contains(2013)"))
-        waitResponse()
+        waitResponse(true)
         click(calendar0.find(".z-calendar-body td:eq(9)"))
-        waitResponse()
+        waitResponse(true)
         click(calendar0.find(".z-calendar-body td:contains(20)"))
-        waitResponse()
+        waitResponse(true)
         click(jq(".z-button"))
-        waitResponse()
+        waitResponse(true)
 
         verifyTrue("It shouldn't be reset to today", 
             jq(".z-messagebox-window .z-label:contains(Sun Oct 20)").exists)

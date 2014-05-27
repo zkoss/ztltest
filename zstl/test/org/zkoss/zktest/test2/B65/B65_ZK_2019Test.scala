@@ -25,7 +25,8 @@ apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest
     () => {
       var cb = jq(".z-chosenbox").toWidget()
       sendKeys(cb.$n("inp"), "oh")
-      waitResponse
+      waitResponse(true)
+      sleep(300)
       verifyTrue("Your will see 'John (john@company.org)' option.", jq(".z-chosenbox-option:contains(john@company.org)").exists)
     })
     
