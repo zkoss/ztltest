@@ -13,6 +13,9 @@ import java.util.concurrent.TimeUnit
 import java.util.ArrayList
 import java.util.concurrent.Callable
 import java.util.HashSet
+import org.zkoss.ztl.ConnectionManager
+import org.apache.commons.exec.CommandLine
+import org.apache.commons.exec.DefaultExecutor
 
 /**
  * ZTL for Scala to test
@@ -66,16 +69,45 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
         }
       });
     }
+    println("p0");
     val futures = executorService.invokeAll(callables, _timeout, TimeUnit.MILLISECONDS);
-    for( f <- futures) browserSet.remove(f.get(0, TimeUnit.MILLISECONDS));
     
-    for(b <- browserSet) {
+    println("p1");
+    for( f <- futures) browserSet.remove(f.get(0, TimeUnit.MILLISECONDS));
+    println("p2");
+    
+    val iter = browserSet.iterator();
+    while (iter.hasNext()) {
+      val b = iter.next();
       println("kill thread belong to browser:" + b);
-      // add restert code here
+      
+      val url = ConnectionManager.getInstance().getOpenedRemote(b);
+      
+      // get URL means it got block ....
+      if(url != null) {
+    	val cl = new CommandLine(ClassLoader.getSystemResource("restartVm.sh").getFile());
+        cl.addArgument(b);
+        cl.addArgument(url.replaceAll(".*//", "").replaceAll(":.*", ""));
+        new DefaultExecutor().execute(cl);
+      } else
+        iter.remove();
+      
     }
     
-    //if(browserSet.size() > 0) Thread.sleep(90000);
     
+    for(b <- browserSet) {
+      
+    }
+    
+    println("p3");
+    
+    if(browserSet.size() > 0) Thread.sleep(ch.getRestartSleep());
+    
+    println("p4");
+    for(b <- browserSet) {
+      ConnectionManager.getInstance().releaseRemote(b);
+    }
+    println("p5");
     executorService.shutdownNow();
   }
   
