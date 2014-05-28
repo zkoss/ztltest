@@ -26,4 +26,5 @@
 	<property name="jar.name" value="ztl.jar" />
 	<property name="javadoc.dir" value="javadoc/" />
 	<property name="project.title" value="Zul Testing Language" />
+	<property name="thread.count" value="2" />
 </project>

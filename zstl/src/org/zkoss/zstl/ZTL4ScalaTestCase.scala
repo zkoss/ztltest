@@ -88,12 +88,6 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
         new DefaultExecutor().execute(cl);
       } else
         iter.remove();
-      
-    }
-    
-    
-    for(b <- browserSet) {
-      
     }
         
     if(browserSet.size() > 0) Thread.sleep(ch.getRestartSleep());
