@@ -185,6 +185,7 @@ Usage:
 		<exec executable="sh" dir="." failonerror="true">
 			<arg line="./lib/run-maven-test.sh"/>
 			<arg value="${report.dir}"/>
+			<arg value="${test.dir}"/>
 		</exec>
 	</target>
 	<target name="report" >

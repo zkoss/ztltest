@@ -9,6 +9,7 @@
 	<properties>
 		<selenium.version>2.37.0</selenium.version>
 		<report.dir>report/</report.dir>
+		<test.dir>arget/classes</test.dir>
 	</properties>
 	<repositories>
 		<repository>
@@ -210,7 +211,7 @@
 				<version>2.17</version>
 				<configuration>
 					<forkedProcessTimeoutInSeconds>100</forkedProcessTimeoutInSeconds>
-					<testClassesDirectory>target/classes</testClassesDirectory>
+					<workingDirectory>${test.dir}</workingDirectory>
 					<additionalClasspathElements>
 						<additionalClasspathElement>${basedir}/lib</additionalClasspathElement>
 					</additionalClasspathElements>
