@@ -69,12 +69,9 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
         }
       });
     }
-    println("p0");
     val futures = executorService.invokeAll(callables, _timeout, TimeUnit.MILLISECONDS);
     
-    println("p1");
     for( f <- futures) browserSet.remove(f.get(0, TimeUnit.MILLISECONDS));
-    println("p2");
     
     val iter = browserSet.iterator();
     while (iter.hasNext()) {
@@ -98,16 +95,12 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
     for(b <- browserSet) {
       
     }
-    
-    println("p3");
-    
+        
     if(browserSet.size() > 0) Thread.sleep(ch.getRestartSleep());
     
-    println("p4");
     for(b <- browserSet) {
       ConnectionManager.getInstance().releaseRemote(b);
     }
-    println("p5");
     executorService.shutdownNow();
   }
   
