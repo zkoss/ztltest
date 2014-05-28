@@ -162,7 +162,7 @@ Usage:
 		</junit>
 	</target>	
 	<target name="junit" depends="generate,compileztl">
-		<junit printsummary="on" threads="${thread.count}" fork="true" forkmode="perTest" haltonfailure="false"
+		<junit printsummary="on" timeout="${thread.timeout}" threads="${thread.count}" fork="true" forkmode="perTest" haltonfailure="false"
 			   showoutput="true">
 			<classpath refid="dependency.classpath" />
 			<classpath>

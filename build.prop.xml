@@ -27,4 +27,5 @@
 	<property name="javadoc.dir" value="javadoc/" />
 	<property name="project.title" value="Zul Testing Language" />
 	<property name="thread.count" value="2" />
+	<property name="thread.timeout" value="90000" />
 </project>
