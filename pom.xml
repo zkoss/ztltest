@@ -8,6 +8,7 @@
 	<description>A sets of testing cases for ZK project</description>
 	<properties>
 		<selenium.version>2.37.0</selenium.version>
+		<report.dir>report/</report.dir>
 	</properties>
 	<repositories>
 		<repository>
@@ -202,7 +203,26 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.17</version>
+				<configuration>
+					<forkedProcessTimeoutInSeconds>100</forkedProcessTimeoutInSeconds>
+					<testClassesDirectory>target/classes</testClassesDirectory>
+					<additionalClasspathElements>
+						<additionalClasspathElement>${basedir}/lib</additionalClasspathElement>
+					</additionalClasspathElements>
+					<includes>
+						<include>**/*Test.*</include>
+					</includes>
+					<reportsDirectory>${report.dir}</reportsDirectory>
+					<forkCount>3</forkCount>
+					<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+					<reuseForks>true</reuseForks>
+				</configuration>
+			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>

@@ -161,8 +161,9 @@ Usage:
 			</batchtest>
 		</junit>
 	</target>	
+	<!-- use target "mtest" instead, you will get parallel test performance -->
 	<target name="junit" depends="generate,compileztl">
-		<junit printsummary="on" timeout="${thread.timeout}" threads="${thread.count}" fork="true" forkmode="perTest" haltonfailure="false"
+		<junit printsummary="on" fork="true" forkmode="once" haltonfailure="false"
 			   showoutput="true">
 			<classpath refid="dependency.classpath" />
 			<classpath>
@@ -178,6 +179,13 @@ Usage:
 				</fileset>
 			</batchtest>
 		</junit>
+	</target>
+	<!-- this will call maven surefire:test with optional test case parameter -->
+	<target name="mtest" depends="generate,compileztl">
+		<exec executable="sh" dir="." failonerror="true">
+			<arg line="./lib/run-maven-test.sh"/>
+			<arg value="${report.dir}"/>
+		</exec>
 	</target>
 	<target name="report" >
 		<junitreport todir="${report.dir}">

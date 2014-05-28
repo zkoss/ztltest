@@ -36,7 +36,6 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
     
     for (browser <- browsers) { 
       
-      
       val zkSelenium = browser.asInstanceOf[ZKSelenium];
       browserSet.add(zkSelenium.getBrowserName());
       println("add browser: " + zkSelenium.getBrowserName());

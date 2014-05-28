@@ -18,6 +18,7 @@
 	<property name="test.src" value="test/" />
 	<property name="zstl.src" value="zstl/" />
 	<property name="target.dir" value="target/" />
+	<!-- lib.dir also need to change the setting in surefire plugin in pom.xml -->
 	<property name="lib.dir" value="lib/" />
 	<property name="test.dir" value="${target.dir}/classes" />
 	<property name="report.dir" value="report/" />
@@ -26,6 +27,4 @@
 	<property name="jar.name" value="ztl.jar" />
 	<property name="javadoc.dir" value="javadoc/" />
 	<property name="project.title" value="Zul Testing Language" />
-	<property name="thread.count" value="2" />
-	<property name="thread.timeout" value="90000" />
 </project>
