@@ -62,7 +62,6 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
               waitResponse();
 	          executor();
 	          println(getTimeUUID() + "-" + luuid + ":log 4-3");
-	          return zkSelenium.getBrowserName();
 			} catch {
 				case e : SeleniumException =>
 					ConfigHelper.getInstance().clearCache(zkSelenium);
@@ -75,6 +74,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 				stop();
 				println(getTimeUUID() + "-" + luuid + ":log 4-5");
 			}
+			return zkSelenium.getBrowserName();
         }
       });
     }
