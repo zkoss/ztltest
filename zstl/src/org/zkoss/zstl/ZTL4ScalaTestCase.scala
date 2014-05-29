@@ -69,6 +69,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 					zkSelenium.shutdown();
 					throw e;
 				case other: Throwable =>
+				  	print(getTimeUUID() + "-" + luuid + ":" + other.getMessage());
 					throw other;
 			} finally {
 				println(getTimeUUID() + "-" + luuid + ":log 4-4");
