@@ -34,7 +34,6 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
     val luuid = new Date().getTime();
     println(getTimeUUID() + "-" + luuid + ":log 1");
     val executorService = Executors.newCachedThreadPool();
-    val callables = new ArrayList[Callable[String]];
     val browserSet = new HashSet[String];
         
     for (browser <- browsers) { 
@@ -45,8 +44,8 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
       browserSet.add(zkSelenium.getBrowserName());
       println("add browser: " + zkSelenium.getBrowserName());
 
-      callables.add(new Callable[String] {
-        def call():String = {
+      executorService.execute(new Runnable() {
+        def run() = {
           println(getTimeUUID() + "-" + luuid + ":log 3");
           try {
             println(getTimeUUID() + "-" + luuid + ":log 4-1");
@@ -62,14 +61,20 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
               waitResponse();
 	          executor();
 	          println(getTimeUUID() + "-" + luuid + ":log 4-3");
+	          browserSet.remove(zkSelenium.getBrowserName());
 			} catch {
 				case e : SeleniumException =>
 				  	println(getTimeUUID() + "-" + luuid + "selenium exception...");
 					ConfigHelper.getInstance().clearCache(zkSelenium);
 					zkSelenium.shutdown();
+					browserSet.remove(zkSelenium.getBrowserName());
 					throw e;
+				case a : AssertionError => 
+					browserSet.remove(zkSelenium.getBrowserName());
+					throw a;
 				case other: Throwable =>
-				  	print(getTimeUUID() + "-" + luuid + ":" + other.getMessage());
+				  	println(getTimeUUID() + "-" + luuid +  ":other exception-" + other.getMessage());
+				  	other.printStackTrace();
 					throw other;
 			} finally {
 				println(getTimeUUID() + "-" + luuid + ":log 4-4");
@@ -77,19 +82,14 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 				println(getTimeUUID() + "-" + luuid + ":log 4-5");
 			}
 			println(getTimeUUID() + "-" + luuid + ":log 4-6-" + zkSelenium.getBrowserName());
-			return zkSelenium.getBrowserName();
         }
       });
     }
-
-    val futures = executorService.invokeAll(callables, _timeout, TimeUnit.MILLISECONDS);
-    println(getTimeUUID() + "-" + luuid + ":log 5");
     
-    try{
-    	for( f <- futures) browserSet.remove(f.get(0, TimeUnit.MILLISECONDS));      
-    } catch {
-    	case t:Exception => println(getTimeUUID() + "-" + luuid + ": in catch: " + t.getMessage());  
-    }
+    executorService.shutdown();
+    try {
+    	executorService.awaitTermination(_timeout, TimeUnit.MILLISECONDS);
+    } catch {case e: InterruptedException => }
     
     println(getTimeUUID() + "-" + luuid + ":log 5-1");
     
@@ -123,8 +123,6 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
     }
     
     println(getTimeUUID() + "-" + luuid + ":log 7");
-    
-    executorService.shutdownNow();
   }
   
   def runRawZscript(zscript: String) {
