@@ -49,17 +49,19 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
         def call():String = {
           println(getTimeUUID() + "-" + luuid + ":log 3");
           try {
+            println(getTimeUUID() + "-" + luuid + ":log 4-1");
             start(browser);
             windowFocus();
             windowMaximize();
             _engine.set(new Widget(new StringBuffer("zk.Desktop._dt")));
-
+            println(getTimeUUID() + "-" + luuid + ":log 4-2");
             if (!zscript.isEmpty())
               runRawZscript(
                 zscript
                   toString ());
               waitResponse();
 	          executor();
+	          println(getTimeUUID() + "-" + luuid + ":log 4-3");
 	          return zkSelenium.getBrowserName();
 			} catch {
 				case e : SeleniumException =>
@@ -69,7 +71,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 				case other: Throwable =>
 					throw other;
 			} finally {
-				println(getTimeUUID() + "-" + luuid + ":log 4");
+				println(getTimeUUID() + "-" + luuid + ":log 4-4");
 				stop();
 			}
         }
