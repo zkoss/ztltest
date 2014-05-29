@@ -32,14 +32,14 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
   
   def runZTL(zscript: String, executor: () => Unit) {
     val luuid = new Date().getTime();
-    println(luuid + ":log 1");
+    println(getTimeUUID() + "-" + luuid + ":log 1");
     val executorService = Executors.newCachedThreadPool();
     val callables = new ArrayList[Callable[String]];
     val browserSet = new HashSet[String];
         
     for (browser <- browsers) { 
       
-      println(luuid + ":log 2");
+      println(getTimeUUID() + "-" + luuid + ":log 2");
       
       val zkSelenium = browser.asInstanceOf[ZKSelenium];
       browserSet.add(zkSelenium.getBrowserName());
@@ -47,7 +47,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 
       callables.add(new Callable[String] {
         def call():String = {
-          println(luuid + ":log 3");
+          println(getTimeUUID() + "-" + luuid + ":log 3");
           try {
             start(browser);
             windowFocus();
@@ -69,7 +69,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 				case other: Throwable =>
 					throw other;
 			} finally {
-				println(luuid + ":log 4");
+				println(getTimeUUID() + "-" + luuid + ":log 4");
 				stop();
 			}
         }
@@ -77,7 +77,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
     }
 
     val futures = executorService.invokeAll(callables, _timeout, TimeUnit.MILLISECONDS);
-    println(luuid + ":log 5");
+    println(getTimeUUID() + "-" + luuid + ":log 5");
     for( f <- futures) browserSet.remove(f.get(0, TimeUnit.MILLISECONDS));
     
     val iter = browserSet.iterator();
@@ -97,7 +97,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
         iter.remove();
     }
     
-    println(luuid + ":log 6");
+    println(getTimeUUID() + "-" + luuid + ":log 6");
         
     if(browserSet.size() > 0) Thread.sleep(ch.getRestartSleep());
     
@@ -105,7 +105,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
       ConnectionManager.getInstance().releaseRemote(b);
     }
     
-    println(luuid + ":log 7");
+    println(getTimeUUID() + "-" + luuid + ":log 7");
     
     executorService.shutdownNow();
   }
