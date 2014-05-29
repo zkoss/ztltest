@@ -64,6 +64,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 	          println(getTimeUUID() + "-" + luuid + ":log 4-3");
 			} catch {
 				case e : SeleniumException =>
+				  	println(getTimeUUID() + "-" + luuid + "selenium exception...");
 					ConfigHelper.getInstance().clearCache(zkSelenium);
 					zkSelenium.shutdown();
 					throw e;
@@ -74,6 +75,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 				stop();
 				println(getTimeUUID() + "-" + luuid + ":log 4-5");
 			}
+			println(getTimeUUID() + "-" + luuid + ":log 4-6-" + zkSelenium.getBrowserName());
 			return zkSelenium.getBrowserName();
         }
       });
@@ -99,10 +101,14 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
       
       // get URL means it got block ....
       if(url != null) {
-    	val cl = new CommandLine(ClassLoader.getSystemResource("restartVm.sh").getFile());
-        cl.addArgument(b);
-        cl.addArgument(url.replaceAll(".*//", "").replaceAll(":.*", ""));
-        new DefaultExecutor().execute(cl);
+        try {
+        	val cl = new CommandLine(ClassLoader.getSystemResource("restartVm.sh").getFile());
+        	cl.addArgument(b);
+        	cl.addArgument(url.replaceAll(".*//", "").replaceAll(":.*", ""));
+        	new DefaultExecutor().execute(cl);
+        } catch {
+        	case t:Exception => println(t); t.printStackTrace();
+        }
       } else
         iter.remove();
     }
