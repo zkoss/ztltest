@@ -16,6 +16,7 @@ import java.util.HashSet
 import org.zkoss.ztl.ConnectionManager
 import org.apache.commons.exec.CommandLine
 import org.apache.commons.exec.DefaultExecutor
+import java.util.Date
 
 /**
  * ZTL for Scala to test
@@ -30,11 +31,17 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
   val _engine = new ThreadLocal[Widget]();
   
   def runZTL(zscript: String, executor: () => Unit) {
+    val luuid = new Date().getTime();
+    println(luuid + ":log 1");
     val executorService = Executors.newCachedThreadPool();
     val callables = new ArrayList[Callable[String]];
     val browserSet = new HashSet[String];
     
+    println(luuid + ":log 2");
+    
     for (browser <- browsers) { 
+      
+      println(luuid + ":log 3");
       
       val zkSelenium = browser.asInstanceOf[ZKSelenium];
       browserSet.add(zkSelenium.getBrowserName());
@@ -42,6 +49,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 
       callables.add(new Callable[String] {
         def call():String = {
+          println(luuid + ":log 6");
           try {
             start(browser);
             windowFocus();
@@ -63,13 +71,18 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 				case other: Throwable =>
 					throw other;
 			} finally {
+				println(luuid + ":log 7");
 				stop();
 			}
         }
       });
+      
+      println(luuid + ":log 4");
     }
-    val futures = executorService.invokeAll(callables, _timeout, TimeUnit.MILLISECONDS);
     
+    println(luuid + ":log 5");
+    val futures = executorService.invokeAll(callables, _timeout, TimeUnit.MILLISECONDS);
+    println(luuid + ":log 8");
     for( f <- futures) browserSet.remove(f.get(0, TimeUnit.MILLISECONDS));
     
     val iter = browserSet.iterator();
@@ -88,12 +101,19 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
       } else
         iter.remove();
     }
+    
+    println(luuid + ":log 9");
         
     if(browserSet.size() > 0) Thread.sleep(ch.getRestartSleep());
+    
+    println(luuid + ":log 10");
     
     for(b <- browserSet) {
       ConnectionManager.getInstance().releaseRemote(b);
     }
+    
+    println(luuid + ":log 11");
+    
     executorService.shutdownNow();
   }
   
