@@ -85,8 +85,10 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
     try{
     	for( f <- futures) browserSet.remove(f.get(0, TimeUnit.MILLISECONDS));      
     } catch {
-    	case t => println(getTimeUUID() + "-" + luuid + ": in catch: " + t.getMessage());  
+    	case t:Exception => println(getTimeUUID() + "-" + luuid + ": in catch: " + t.getMessage());  
     }
+    
+    println(getTimeUUID() + "-" + luuid + ":log 5-1");
     
     val iter = browserSet.iterator();
     while (iter.hasNext()) {
