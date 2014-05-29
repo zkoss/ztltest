@@ -73,6 +73,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 			} finally {
 				println(getTimeUUID() + "-" + luuid + ":log 4-4");
 				stop();
+				println(getTimeUUID() + "-" + luuid + ":log 4-5");
 			}
         }
       });
@@ -80,7 +81,12 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 
     val futures = executorService.invokeAll(callables, _timeout, TimeUnit.MILLISECONDS);
     println(getTimeUUID() + "-" + luuid + ":log 5");
-    for( f <- futures) browserSet.remove(f.get(0, TimeUnit.MILLISECONDS));
+    
+    try{
+    	for( f <- futures) browserSet.remove(f.get(0, TimeUnit.MILLISECONDS));      
+    } catch {
+    	case t => println(getTimeUUID() + "-" + luuid + ": in catch: " + t.getMessage());  
+    }
     
     val iter = browserSet.iterator();
     while (iter.hasNext()) {
