@@ -1,3 +1,4 @@
+#!/bin/bash
 set +e
 
 if [$1 == "safari"] then
