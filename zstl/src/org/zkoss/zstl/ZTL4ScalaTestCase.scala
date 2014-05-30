@@ -103,7 +103,8 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
       // get URL means it got block ....
       if(url != null) {
         try {
-        	val cl = new CommandLine(ClassLoader.getSystemResource("restartVm.sh").getFile());
+        	val cl = new CommandLine("/bin/bash");
+        	cl.addArgument(ClassLoader.getSystemResource("restartVm.sh").getFile());
         	cl.addArgument(b);
         	cl.addArgument(url.replaceAll(".*//", "").replaceAll(":.*", ""));
         	new DefaultExecutor().execute(cl);
