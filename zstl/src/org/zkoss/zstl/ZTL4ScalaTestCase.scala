@@ -46,7 +46,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 
       executorService.execute(new Runnable() {
         def run() = {
-          println(getTimeUUID() + "-" + luuid + ":log 3");
+          println(getTimeUUID() + "-" + luuid + ":log 3" + ConnectionManager.getInstance().getOpenedRemote(zkSelenium.getBrowserName()));
           try {
             println(getTimeUUID() + "-" + luuid + ":log 4-1");
             start(browser);
