@@ -67,14 +67,16 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 					ConfigHelper.getInstance().clearCache(zkSelenium);
 					zkSelenium.shutdown();
 					throw e;
+				case e : InterruptedException =>
+				  	println(getTimeUUID() + "-" + luuid +  ":interupt exception-" + e.getMessage());
 				case other: Throwable =>
 				  	println(getTimeUUID() + "-" + luuid +  ":other exception-" + other.getMessage());
 				  	other.printStackTrace();
 					throw other;
 			} finally {
+				println(getTimeUUID() + "-" + luuid + ":log 4-4");
 				browserSet.remove(zkSelenium.getBrowserName());
 				stop();
-				println(getTimeUUID() + "-" + luuid + ":log 4-4");
 				println(getTimeUUID() + "-" + luuid + ":log 4-5");
 			}
 			println(getTimeUUID() + "-" + luuid + ":log 4-6-" + zkSelenium.getBrowserName());
@@ -84,9 +86,12 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
     
     executorService.shutdown();
     try {
-    	executorService.awaitTermination(_timeout, TimeUnit.MILLISECONDS);
+    	if(!executorService.awaitTermination(_timeout, TimeUnit.MILLISECONDS))
+    	  executorService.shutdownNow();
     } catch {
-      case e: InterruptedException => println(getTimeUUID() + "-" + luuid + ":in termination...");
+      case a: Throwable => 
+        println(getTimeUUID() + "-" + luuid + ":in termination ex..." + a.getMessage());
+        a.printStackTrace();
     }
     
     println(getTimeUUID() + "-" + luuid + ":log 5-1");
@@ -101,6 +106,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
       // get URL means it got block ....
       if(url != null) {
         try {
+        	println(getTimeUUID() + "-" + luuid + ":restart browser-" + url);
         	val cl = new CommandLine("/bin/bash");
         	cl.addArgument(ClassLoader.getSystemResource("restartVm.sh").getFile());
         	cl.addArgument(b);
