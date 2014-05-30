@@ -75,11 +75,12 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 					throw other;
 			} finally {
 				println(getTimeUUID() + "-" + luuid + ":log 4-4");
-				browserSet.remove(zkSelenium.getBrowserName());
 				stop();
 				println(getTimeUUID() + "-" + luuid + ":log 4-5");
+				browserSet.remove(zkSelenium.getBrowserName());
+				println(getTimeUUID() + "-" + luuid + ":log 4-6");
 			}
-			println(getTimeUUID() + "-" + luuid + ":log 4-6-" + zkSelenium.getBrowserName());
+			println(getTimeUUID() + "-" + luuid + ":log 4-7-" + zkSelenium.getBrowserName());
         }
       });
     }
