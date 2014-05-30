@@ -61,24 +61,20 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
               waitResponse();
 	          executor();
 	          println(getTimeUUID() + "-" + luuid + ":log 4-3");
-	          browserSet.remove(zkSelenium.getBrowserName());
 			} catch {
 				case e : SeleniumException =>
 				  	println(getTimeUUID() + "-" + luuid + "selenium exception...");
 					ConfigHelper.getInstance().clearCache(zkSelenium);
 					zkSelenium.shutdown();
-					browserSet.remove(zkSelenium.getBrowserName());
 					throw e;
-				case a : AssertionError => 
-					browserSet.remove(zkSelenium.getBrowserName());
-					throw a;
 				case other: Throwable =>
 				  	println(getTimeUUID() + "-" + luuid +  ":other exception-" + other.getMessage());
 				  	other.printStackTrace();
 					throw other;
 			} finally {
-				println(getTimeUUID() + "-" + luuid + ":log 4-4");
+				browserSet.remove(zkSelenium.getBrowserName());
 				stop();
+				println(getTimeUUID() + "-" + luuid + ":log 4-4");
 				println(getTimeUUID() + "-" + luuid + ":log 4-5");
 			}
 			println(getTimeUUID() + "-" + luuid + ":log 4-6-" + zkSelenium.getBrowserName());
@@ -89,7 +85,9 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
     executorService.shutdown();
     try {
     	executorService.awaitTermination(_timeout, TimeUnit.MILLISECONDS);
-    } catch {case e: InterruptedException => }
+    } catch {
+      case e: InterruptedException => println(getTimeUUID() + "-" + luuid + ":in termination...");
+    }
     
     println(getTimeUUID() + "-" + luuid + ":log 5-1");
     
