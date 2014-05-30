@@ -17,6 +17,7 @@ import org.zkoss.ztl.ConnectionManager
 import org.apache.commons.exec.CommandLine
 import org.apache.commons.exec.DefaultExecutor
 import java.util.Date
+import java.util.Arrays
 
 /**
  * ZTL for Scala to test
@@ -122,13 +123,17 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
     
     println(getTimeUUID() + "-" + luuid + ":log 6");
         
-    if(browserSet.size() > 0) Thread.sleep(ch.getRestartSleep());
+    if(browserSet.size() > 0)
+      Thread.sleep(ch.getRestartSleep()); 
     
     for(b <- browserSet) {
       ConnectionManager.getInstance().releaseRemote(b);
     }
     
     println(getTimeUUID() + "-" + luuid + ":log 7");
+    
+    if(browserSet.size() > 0)
+      throw new SeleniumException("case time out for browser:" + Arrays.toString(browserSet.toArray()));
   }
   
   def runRawZscript(zscript: String) {
