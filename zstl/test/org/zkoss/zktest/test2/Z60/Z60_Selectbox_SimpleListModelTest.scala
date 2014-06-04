@@ -102,7 +102,7 @@ class Z60_Selectbox_SimpleListModelTest extends ZTL4ScalaTestCase {
           return getSelectedItem(idOne).equals(getSelectedItem(idTwo));
         }
         def getSelectedItem(id: String): String = {
-          return selenium.get().getEval("jq('$"+id+"')[0].options[jq('$"+id+"')[0].selectedIndex].innerHTML");
+          return getSelenium().getEval("jq('$"+id+"')[0].options[jq('$"+id+"')[0].selectedIndex].innerHTML");
         }
         def clickAndWait (target: ClientWidget, delay: Int) = {
           click(target);
@@ -112,7 +112,7 @@ class Z60_Selectbox_SimpleListModelTest extends ZTL4ScalaTestCase {
             waitResponse();
         }
         def getItemAt (id: String, num: Int): String = {
-          return selenium.get().getEval("jq('$"+id+"')[0].options["+num+"].innerHTML");
+          return getSelenium().getEval("jq('$"+id+"')[0].options["+num+"].innerHTML");
         }
 
         select("sbxOne", 3);

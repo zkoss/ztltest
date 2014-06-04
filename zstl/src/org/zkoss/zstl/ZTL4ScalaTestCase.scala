@@ -18,6 +18,7 @@ import org.apache.commons.exec.CommandLine
 import org.apache.commons.exec.DefaultExecutor
 import java.util.Date
 import java.util.Arrays
+import com.thoughtworks.selenium.Selenium
 
 /**
  * ZTL for Scala to test
@@ -151,4 +152,5 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 
   def engine(): Widget = _engine.get();
   def driver() = getWebDriver()
+  def getSelenium(): Selenium = selenium.get();
 }
