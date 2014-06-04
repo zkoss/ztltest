@@ -220,7 +220,7 @@
 						<include>**/*Test.*</include>
 					</includes>
 					<reportsDirectory>${report.dir}</reportsDirectory>
-					<forkCount>1</forkCount>
+					<forkCount>2</forkCount>
 					<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
 					<reuseForks>true</reuseForks>
 				</configuration>
