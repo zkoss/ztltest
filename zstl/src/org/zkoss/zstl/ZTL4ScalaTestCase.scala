@@ -19,12 +19,13 @@ import org.apache.commons.exec.DefaultExecutor
 import java.util.Date
 import java.util.Arrays
 import com.thoughtworks.selenium.Selenium
+import org.zkoss.ztl.ZKParallelClientTestCase
 
 /**
  * ZTL for Scala to test
  * @author jumperchen
  */
-class ZTL4ScalaTestCase extends ZKClientTestCase {
+class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
   var ch = ConfigHelper.getInstance()
   target = ch.getServer() + ch.getContextPath() + "/" + ch.getAction()
   browsers = getBrowsers(ch.getBrowser())
@@ -43,6 +44,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
       println(getTimeUUID() + "-" + luuid + ":log 2");
       
       val zkSelenium = browser.asInstanceOf[ZKSelenium];
+      println(zkSelenium);
       browserSet.add(zkSelenium.getBrowserName());
       println("add browser: " + zkSelenium.getBrowserName());
 
@@ -66,11 +68,13 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
 			} catch {
 				case e : SeleniumException =>
 				  	println(getTimeUUID() + "-" + luuid + "selenium exception...");
+				  	println(e.getMessage());
+				  	e.printStackTrace();
 					ConfigHelper.getInstance().clearCache(zkSelenium);
 					zkSelenium.shutdown();
 					throw e;
 				case e : InterruptedException =>
-				  	println(getTimeUUID() + "-" + luuid +  ":interupt exception-" + e.getMessage());
+				  	println(getTimeUUID() + "-" + luuid +  ":interrupt exception-" + e.getMessage());
 				case other: Throwable =>
 				  	println(getTimeUUID() + "-" + luuid +  ":other exception-" + other.getMessage());
 				  	other.printStackTrace();
@@ -88,6 +92,7 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
     }
     
     executorService.shutdown();
+    
     try {
     	if(!executorService.awaitTermination(_timeout, TimeUnit.MILLISECONDS))
     	  executorService.shutdownNow();
@@ -99,42 +104,14 @@ class ZTL4ScalaTestCase extends ZKClientTestCase {
     
     println(getTimeUUID() + "-" + luuid + ":log 5-1");
     
-    val iter = browserSet.iterator();
-    while (iter.hasNext()) {
-      val b = iter.next();
-      println("kill thread belong to browser:" + b);
-      
-      val url = ConnectionManager.getInstance().getOpenedRemote(b);
-      
-      // get URL means it got block ....
-      if(url != null) {
-        try {
-        	println(getTimeUUID() + "-" + luuid + ":restart browser-" + url);
-        	val cl = new CommandLine("/bin/bash");
-        	cl.addArgument(ClassLoader.getSystemResource("restartVm.sh").getFile());
-        	cl.addArgument(b);
-        	cl.addArgument(url.replaceAll(".*//", "").replaceAll(":.*", ""));
-        	new DefaultExecutor().execute(cl);
-        } catch {
-        	case t:Exception => println(t); t.printStackTrace();
-        }
-      } else
-        iter.remove();
-    }
+    handleTimeout(browserSet, luuid);
     
     println(getTimeUUID() + "-" + luuid + ":log 6");
         
-    if(browserSet.size() > 0)
-      Thread.sleep(ch.getRestartSleep()); 
-    
-    for(b <- browserSet) {
-      ConnectionManager.getInstance().releaseRemote(b);
-    }
+    waitAndRelease(browserSet);
     
     println(getTimeUUID() + "-" + luuid + ":log 7");
-    
-    if(browserSet.size() > 0)
-      throw new SeleniumException("case time out for browser:" + Arrays.toString(browserSet.toArray()));
+      
   }
   
   def runRawZscript(zscript: String) {
