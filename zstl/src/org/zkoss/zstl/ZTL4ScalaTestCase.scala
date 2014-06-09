@@ -20,6 +20,10 @@ import java.util.Date
 import java.util.Arrays
 import com.thoughtworks.selenium.Selenium
 import org.zkoss.ztl.ZKParallelClientTestCase
+import java.util.concurrent.Future
+import java.util.concurrent.CancellationException
+import java.util.concurrent.ExecutionException
+import org.zkoss.ztl.util.AggregateError
 
 /**
  * ZTL for Scala to test
@@ -38,6 +42,7 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
     println(getTimeUUID() + "-" + luuid + ":log 1");
     val executorService = Executors.newCachedThreadPool();
     val browserSet = new HashSet[String];
+    val futures = new ArrayList[Future[_]];
         
     for (browser <- browsers) { 
       
@@ -48,7 +53,8 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
       browserSet.add(zkSelenium.getBrowserName());
       println("add browser: " + zkSelenium.getBrowserName());
 
-      executorService.execute(new Runnable() {
+      
+      futures.add(executorService.submit(new Runnable() {
         def run() = {
           println(getTimeUUID() + "-" + luuid + ":log 3" + ConnectionManager.getInstance().getOpenedRemote(zkSelenium.getBrowserName()));
           try {
@@ -88,7 +94,7 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
 			}
 			println(getTimeUUID() + "-" + luuid + ":log 4-7-" + zkSelenium.getBrowserName());
         }
-      });
+      }));
     }
     
     executorService.shutdown();
@@ -96,10 +102,14 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
     try {
     	if(!executorService.awaitTermination(_timeout, TimeUnit.MILLISECONDS))
     	  executorService.shutdownNow();
+    	
+    	detectException(futures);
     } catch {
-      case a: Throwable => 
-        println(getTimeUUID() + "-" + luuid + ":in termination ex..." + a.getMessage());
-        a.printStackTrace();
+      case e: AggregateError =>
+        throw e;
+      case e: Throwable => 
+        println(getTimeUUID() + "-" + luuid + ":in termination ex..." + e.getMessage());
+        e.printStackTrace();
     }
     
     println(getTimeUUID() + "-" + luuid + ":log 5-1");
