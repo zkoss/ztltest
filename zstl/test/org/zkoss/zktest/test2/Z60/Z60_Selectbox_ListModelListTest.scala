@@ -118,7 +118,7 @@ class Z60_Selectbox_ListModelListTest extends ZTL4ScalaTestCase {
           return getSelectedItem(idOne).equals(getSelectedItem(idTwo));
         }
         def getSelectedItem(id: String): String = {
-          return selenium.getEval("jq('$"+id+"')[0].options[jq('$"+id+"')[0].selectedIndex].innerHTML");
+          return getSelenium().getEval("jq('$"+id+"')[0].options[jq('$"+id+"')[0].selectedIndex].innerHTML");
         }
         def clickAndWait (target: ClientWidget, delay: Int) = {
           click(target);
@@ -128,7 +128,7 @@ class Z60_Selectbox_ListModelListTest extends ZTL4ScalaTestCase {
             waitResponse();
         }
         def getItemAt (id: String, num: Int): String = {
-          return selenium.getEval("jq('$"+id+"')[0].options["+num+"].innerHTML");
+          return getSelenium().getEval("jq('$"+id+"')[0].options["+num+"].innerHTML");
         }
         def checkInsertRemove (irBtn: ClientWidget) = {
           var oldOne: String = getSelectedItem("sbxOne");

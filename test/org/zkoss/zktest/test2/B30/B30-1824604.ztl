@@ -42,7 +42,8 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 
-			if (true) return;
+//			if (true) return;
+/*
 			click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
 			waitResponse();
 
@@ -65,6 +66,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				verifyTrue($row.text().indexOf(""+i)!=-1);
 				--i;
 			}
+*/
 
 		]]></client>
 	</case>

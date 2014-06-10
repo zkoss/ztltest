@@ -161,6 +161,7 @@ Usage:
 			</batchtest>
 		</junit>
 	</target>	
+	<!-- use target "mtest" instead, you will get parallel test performance -->
 	<target name="junit" depends="generate,compileztl">
 		<junit printsummary="on" fork="true" forkmode="once" haltonfailure="false"
 			   showoutput="true">
@@ -178,6 +179,14 @@ Usage:
 				</fileset>
 			</batchtest>
 		</junit>
+	</target>
+	<!-- this will call maven surefire:test with optional test case parameter -->
+	<target name="mtest" depends="generate,compileztl">
+		<exec executable="sh" dir="." failonerror="true">
+			<arg line="./lib/run-maven-test.sh"/>
+			<arg value="${report.dir}"/>
+			<arg value="${test.dir}"/>
+		</exec>
 	</target>
 	<target name="report" >
 		<junitreport todir="${report.dir}">

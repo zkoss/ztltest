@@ -8,6 +8,8 @@
 	<description>A sets of testing cases for ZK project</description>
 	<properties>
 		<selenium.version>2.37.0</selenium.version>
+		<report.dir>report/</report.dir>
+		<test.dir>target/classes</test.dir>
 	</properties>
 	<repositories>
 		<repository>
@@ -109,6 +111,11 @@
 			<artifactId>scala-maven-plugin</artifactId>
 			<version>3.1.6</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-exec</artifactId>
+			<version>1.2</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<sourceDirectory>zstl/src</sourceDirectory>
@@ -196,6 +203,27 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.17</version>
+				<configuration>
+					<runOrder>alphabetical</runOrder>
+					<!--  <forkedProcessTimeoutInSeconds>100</forkedProcessTimeoutInSeconds>  -->
+					<testClassesDirectory>${test.dir}</testClassesDirectory>
+					<additionalClasspathElements>
+						<additionalClasspathElement>lib</additionalClasspathElement>
+					</additionalClasspathElements>
+					<includes>
+						<include>**/*Test.*</include>
+					</includes>
+					<reportsDirectory>${report.dir}</reportsDirectory>
+					<forkCount>2</forkCount>
+					<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+					<reuseForks>true</reuseForks>
+				</configuration>
 			</plugin>
 		</plugins>
 		<pluginManagement>
