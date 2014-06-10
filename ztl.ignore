@@ -104,6 +104,7 @@ B35-2103813.ztl
 }
 opera={
 // unsupported
+B30-1845026.ztl
 B35-2075722.ztl
 B30-2080346.ztl
 B30-1881557.ztl
@@ -162,6 +163,8 @@ F50-0000001.ztl
 B50-ZK-909.ztl
 }
 ie9={
+// timeout - take too long
+Z60-Grid-ListModelSet-noROD.ztl
 // unsupported
 B36-2806448.ztl
 B65-ZK-1877.ztl
