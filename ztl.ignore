@@ -165,6 +165,9 @@ B50-ZK-909.ztl
 ie9={
 // timeout - take too long
 Z60-Grid-ListModelSet-noROD.ztl
+Z60-Grid-ListModelMap-noROD.ztl
+Z60-Grid-ListModelList-noROD.ztl
+Z60-Grid-ListModelArray-noROD.ztl
 Z60-Grid-SimpleListModel-noROD.ztl
 // unsupported
 B36-2806448.ztl
