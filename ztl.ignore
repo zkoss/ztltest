@@ -71,6 +71,9 @@ F51-ZK-216-grid.ztl
 B30-1526742.ztl
 B35-2149043.ztl
 B50-3013683.ztl
+
+// manually check
+B70-ZK-2279.ztl
 }
 ### ignore all firefox
 firefox*,ff*={
@@ -122,10 +125,13 @@ B50-ZK-434.ztl
 B60-ZK-1338.ztl
 B65-ZK-1661.ztl
 B65-ZK-1215.ztl
+B70-ZK-2285.ztl
+B70-ZK-2307.ztl
 // selenium
 B50-2916148.ztl
 B50-3214754.ztl
 B50-ZK-909.ztl
+B70-ZK-2308.ztl
 }
 ie*={
 // end for unpredictable row's height
@@ -161,6 +167,7 @@ B30-1898094.ztl
 B36-2807475.ztl
 F50-0000001.ztl
 B50-ZK-909.ztl
+B70-ZK-2308.ztl
 }
 ie9={
 // timeout - take too long
@@ -190,7 +197,9 @@ F65-ZK-1655.ztl
 B65-ZK-1693.ztl
 B36-2811990.ztl
 B70-ZK-2003.ztl
-
+B70-ZK-2264.ztl
+B70-ZK-2136.ztl
+B70-ZK-2308.ztl
 // zkbind
 Z60-RadiogroupSelected.ztl
 Z60-B00810ListboxMultiple.ztl
@@ -290,6 +299,7 @@ B36-2904376.ztl
 B36-3049167.ztl
 B50-2916148.ztl
 F70-ZK-2007.ztl
+B70-ZK-2285.ztl
 // out of viewport
 B65-ZK-1632.ztl
 }
@@ -503,6 +513,8 @@ Z60-B00722.ztl
 ie11={
 //unstable
 B50-ZK-909.ztl
+// unsupported
+B70-ZK-2308.ztl
 }
 ie8,ie9,ie10={
 // unsupport
@@ -522,6 +534,11 @@ B65-ZK-1748.ztl
 // ie10 only
 opera,chrome,safari,firefox*,ff*,ie8,ie9={
 B65-ZK-1769.ztl
+}
+
+// can't work correct in ie9,ie10
+ie9,ie10={
+B70-ZK-2290.ztl
 }
 
 // this is used for ie6/7 only in vision

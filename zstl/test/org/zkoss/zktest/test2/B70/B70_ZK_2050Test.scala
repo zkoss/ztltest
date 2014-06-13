@@ -277,10 +277,10 @@ def testClick() = {
       waitResponse()
       
       val iter = jq(".z-listitem").iterator()
-      val hasSelected = true
+      var hasSelected = true
       while (iter.hasNext() && hasSelected) {
         val jq = iter.next()
-        jq.hasClass("z-listitem-selected")
+        hasSelected = jq.hasClass("z-listitem-selected")
       }
         
       verifyTrue("All the listitem should be selected.", hasSelected)
