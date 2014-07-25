@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--<project>
+	<property name="zstl.src" value="zstl" />
+	<property name="source.dir" value="src/" />
+	<property name="test.src" value="test/" />
+	<property name="build.dir" value="build/" />
+	<property name="lib.dir" value="lib/" />
+	<property name="classes.dir" value="${build.dir}/classes" />
+	<property name="test.dir" value="${build.dir}/test" />
+	<property name="report.dir" value="report/" />
+	<property name="codegen.dir" value="codegen/" />
+	<property name="dist.dir" value="${build.dir}/dist" />
+	<property name="jar.name" value="ztl.jar" />
+	<property name="javadoc.dir" value="javadoc/" />
+	<property name="project.title" value="Zul Testing Language" />
+</project>-->
 <project>
 	<property name="test.src" value="test/" />
 	<property name="zstl.src" value="zstl/" />
 	<property name="target.dir" value="target/" />
+	<!-- lib.dir also need to change the setting in surefire plugin in pom.xml -->
 	<property name="lib.dir" value="lib/" />
 	<property name="test.dir" value="${target.dir}/classes" />
 	<property name="report.dir" value="report/" />
