@@ -26,6 +26,12 @@ all={
 // unsupported
 B30-2009958.ztl
 B35-2580752.ztl
+B65-ZK-1284.ztl
+
+// window resize
+B30-1914104-1.ztl
+B30-1914104-2.ztl
+
 B65-ZK-1715.ztl
 // zkbind bean validation
 Z60-B01005BeanValidatorPath.ztl
@@ -36,44 +42,82 @@ B60-ZK-1070.ztl
 B50-ZK-926.ztl
 B50-3204965.ztl
 B36-2844707.ztl
+B30-2003798.ztl
+Z60-B01185CollectionBindingNPE.ztl
+
+// cant fix in ztl 
+B65-ZK-1578.ztl
+B50-3032892.ztl
+
+// manual
+B30-1870821.ztl
+B30-1498895.ztl
+
+// tmp ignore scrollbar case
+B30-1769047.ztl
+B50-3100455.ztl 
+B50-3306149.ztl
+//B50-ZK-1622.ztl
+B50-ZK-322.ztl
+B50-ZK-343.ztl 
+B50-ZK-353.ztl
+//B50-ZK-355.ztl
+//B50-ZK-373.ztl 
+B60-ZK-750.ztl
+F51-ZK-216.ztl
+F51-ZK-216-grid.ztl
+
+// out of date test case
+B30-1526742.ztl
+B35-2149043.ztl
+B50-3013683.ztl
+
+// manually check
+B70-ZK-2279.ztl
 }
 ### ignore all firefox
-firefox*={
+firefox*,ff*={
 // unsupported
+B60-ZK-1142.ztl
+Popup.ztl
+Form.ztl
+F70-ZK-2049.ztl
+F65-ZK-1269.ztl
+B30-1943594.ztl
 F50-0000001.ztl
 B35-2073451.ztl
 B60-ZK-1338.ztl
 F60-ZK-1583.ztl
 B65-ZK-1215.ztl
 B65-ZK-1441.ztl
+Z60-Combobutton.ztl
+// selenium scroll
+B50-3285714.ztl
 B65-ZK-1284.ztl
 // unsupport
 B60-ZK-815.ztl
 // selenium: cant click option
 B60-ZK-1303.ztl
+B70-ZK-2148.ztl
 B65-ZK-2185.ztl
 // selenium: cant support keypress
 B65-ZK-1473.ztl
-}
-firefox3={
-// unsupported
-B30-1878840.ztl
-B30-1984643.ztl
-}
-firefox4,firefox5,firefox6={
-// unstable
-B50-3285610.ztl
-}
-firefox7,firefox8={
-// unsupported window.resizeTo
-B30-1914104-1.ztl
-B30-1914104-2.ztl
-B30-1820180.ztl
+// word show outside of the button
+B35-2103813.ztl
 }
 opera={
 // unsupported
-B30-1914104-1.ztl
-B30-1914104-2.ztl
+B30-1845026.ztl
+B35-2075722.ztl
+B30-2080346.ztl
+B30-1881557.ztl
+Z60-B00605.ztl
+B35-2349456.ztl
+B60-ZK-1113.ztl
+F65-ZK-1269.ztl
+B50-2906453.ztl
+B35-2073451.ztl
+F70-ZK-2049.ztl
 B30-1878840.ztl
 B50-ZK-692.ztl
 B50-3322795.ztl
@@ -81,94 +125,143 @@ B50-ZK-434.ztl
 B60-ZK-1338.ztl
 B65-ZK-1661.ztl
 B65-ZK-1215.ztl
+B70-ZK-2285.ztl
+B70-ZK-2307.ztl
+// selenium
+B50-2916148.ztl
+B50-3214754.ztl
+B50-ZK-909.ztl
+B70-ZK-2308.ztl
 }
 ie*={
-// unsupported, due to the unpredictable row's height
-Z60-Listbox-ListModelMap-Multiple-noROD.ztl
-Z60-Listbox-SimpleListModel-Multiple-noROD.ztl
-Z60-Listbox-ListModelSet-Multiple_noROD.ztl
-Z60-Listbox_SimpleListModel-noROD.ztl
-Z60-Listbox-ListModelArray-Multiple-noROD.ztl
-Z60-Listbox-ListModelArray-noROD.ztl
-Z60-Listbox-ListModelSet-noROD.ztl
-Z60-Listbox-ListModelList-Multiple-noROD.ztl
-Z60-Listbox-ListModelMap-noROD.ztl
-Z60-Listbox-ListModelSet-Multiple-noROD.ztl
-Z60-Listbox-ListModelList-noROD.ztl
-Z60-Listbox-SimpleListModel-noROD.ztl
 // end for unpredictable row's height
 B60-ZK-1338.ztl
+// cant drag correct
+B50-3303684.ztl
+B30-1894208.ztl
+B50-3303725.ztl
+B35-2075722.ztl
+// ignore
+F60-ZK-701-Listmodel.ztl
 }
-ie={
+ie10={
 // stuck in ie10
+B35-2149043.ztl
 B36-2813877.ztl
+// selenium scroll
+B50-3285714.ztl
+// unsupport drag and drop
+B65-ZK-1612.ztl
+B36-2904376.ztl
+B50-2976323.ztl
+B36-2811990.ztl
+B60-ZK-803.ztl
+B50-ZK-266.ztl
+B65-ZK-1617.ztl
+B65-ZK-1689.ztl
+B50-ZK-488.ztl
+B65-ZK-1877.ztl
+B60-ZK-1305.ztl
+B50-3147909.ztl
+B30-1898094.ztl
+B36-2807475.ztl
+F50-0000001.ztl
+B50-ZK-909.ztl
+B70-ZK-2308.ztl
 }
 ie9={
+// timeout - take too long
+Z60-Grid-ListModelSet-noROD.ztl
+Z60-Grid-ListModelMap-noROD.ztl
+Z60-Grid-ListModelList-noROD.ztl
+Z60-Grid-ListModelArray-noROD.ztl
+Z60-Grid-SimpleListModel-noROD.ztl
 // unsupported
+B36-2806448.ztl
+B65-ZK-1877.ztl
+B50-ZK-266.ztl
+B60-ZK-1142.ztl
 B30-1822564.ztl
 B30-1822585.ztl
 B30-1823354.ztl
 Z30-grid-0005.ztl
 Z30-grid-0001.ztl
 B36-2813877.ztl
-B50-3303725.ztl
 B50-3303684.ztl
-B30-1894208.ztl
 B35-2075722.ztl
 B35-2149043.ztl
 B36-2678340.ztl
 B36-2904376.ztl
 B65-ZK-1441.ztl
+F65-ZK-1655.ztl
+B65-ZK-1693.ztl
+B36-2811990.ztl
+B70-ZK-2003.ztl
+B70-ZK-2264.ztl
+B70-ZK-2136.ztl
+B70-ZK-2308.ztl
 // zkbind
 Z60-RadiogroupSelected.ztl
 Z60-B00810ListboxMultiple.ztl
 Z60-F00823RadiogroupModel1.ztl
 Z60-F00823RadiogroupModel2.ztl
+F50-0000001.ztl
+// unstable
+B70-ZK-2313.ztl
 }
 ie8={
 // zkbind
 Z60-RadiogroupSelected.ztl
+Z60-Radiogroup-ListModelSet.ztl
 Z60-F00823RadiogroupModel1.ztl
 Z60-F00823RadiogroupModel2.ztl
+Z60-Radiogroup-SimpleListModel.ztl
+B60-ZK-707-ListModel.ztl
 B60-ZK-985.ztl
+B50-2880236.ztl
+
 // unsupported
-B65-ZK-1540.ztl
+B35-2073451.ztl
+B30-1822564.ztl
+B50-ZK-909.ztl
+Form.ztl
+Popup.ztl
+B35-2094308.ztl
+F65-ZK-1655.ztl
+Z65-Flex-064.ztl
+Z65-Flex-065.ztl
+Z65-Flex-066.ztl
+Z65-Flex-067.ztl
+Z65-Flex-068.ztl
+Z65-Flex-069.ztl
+
 B65-ZK-1706.ztl
 B65-ZK-1748.ztl
-}
-ie7={
-// unstable
-B30-1876292.ztl
-// unsupported
-B35-2073451.ztl
-// zkbind
-Z60-Panel.ztl
-// unsupported
 B65-ZK-1540.ztl
-}
-ie6={
-// unsupported
-B35-2073451.ztl
-B30-1906748.ztl
-// zkbind
-Z60-Panel.ztl
-// stuck 
-B36-2789915.ztl
-// crash
-F60-ZK-83.ztl
-B30-2105802.ztl
-B60-ZK-1100.ztl
-Z60-B00878WrongValueException1.ztl
+B65-ZK-1706.ztl
+
+// focus
+B65-ZK-1324.ztl
+B65-ZK-1295.ztl
+B50-3058028.ztl
+B50-3026665.ztl
+B50-3026819.ztl
+
+// column-bar
+B50-3013683.ztl
+
+// mouse over
+B35-2149043.ztl
 }
 chrome,safari={
 // unsupported
-B30-1914104-1.ztl
-B30-1914104-2.ztl
 F50-0000001.ztl
 B35-2073451.ztl
 B65-ZK-1441.ztl
+B60-ZK-815.ztl
 }
 chrome={
+B35-2233787.ztl
 B50-3151694.ztl
 B65-ZK-1661.ztl
 B65-ZK-1215.ztl
@@ -176,11 +269,27 @@ B65-ZK-1441.ztl
 B65-ZK-1284.ztl
 // unsupport
 B60-ZK-815.ztl
+Z60-Listbox-ListModelMap-ROD.ztl
 // selenium: cant support keypress
 B65-ZK-1473.ztl
+B50-1756559.ztl
 }
 safari={
 // unsupported
+B65-ZK-1297.ztl
+B65-ZK-1955.ztl
+B60-ZK-1202.ztl 
+F70-ZK-2049.ztl
+B65_ZK_1955.ztl 
+B30-1898094.ztl
+B30-1936366.ztl
+B60-ZK-1377.ztl
+B65-ZK-1955T.ztl
+B65-ZK-1407.ztl
+B36-2807475.ztl
+F65-ZK-1269.ztl
+Popup.ztl
+Form.ztl
 B50-2997037.ztl
 B30-2487562.ztl
 B50-3058028.ztl
@@ -190,10 +299,53 @@ B50-1756559.ztl
 B50-3026819.ztl
 B36-2904376.ztl
 B36-3049167.ztl
+B50-2916148.ztl
+F70-ZK-2007.ztl
+B70-ZK-2285.ztl
+// out of viewport
+B65-ZK-1632.ztl
 }
-#zbind
+#zbind or some test cases for server side
 #ignore for browser difference issue
-opera,chrome,safari={
+opera,ie*,firefox*,ff*,safari={
+// test Locales
+B65-ZK-1852.ztl
+#model cases
+F60-ZK-1028.ztl
+Z60-Listbox-GroupsModelArray-Paging-noROD.ztl
+Z60-Grid-GroupsModelArray-Paging-noROD.ztl
+Z60-Listbox-ListModelArray-Multiple-ROD.ztl
+Z60-Listbox-ListModelArray-Multiple-noROD.ztl
+Z60-Listbox-ListModelArray-Paging-Multiple.ztl
+Z60-Listbox-ListModelArray-Paging.ztl
+Z60-Listbox-ListModelArray-ROD.ztl
+Z60-Listbox-ListModelArray-noROD.ztl
+Z60-Listbox-ListModelList-Multiple-noROD.ztl
+Z60-Listbox-ListModelList-Multiple-ROD.ztl
+Z60-Listbox-ListModelList-Paging-Multiple.ztl
+Z60-Listbox-ListModelList-Paging.ztl
+Z60-Listbox-ListModelList-ROD.ztl
+Z60-Listbox-ListModelList-noROD.ztl
+Z60-Listbox-ListModelMap-Multiple-ROD.ztl
+Z60-Listbox-ListModelMap-Multiple-noROD.ztl
+Z60-Listbox-ListModelMap-Paging-Multiple.ztl
+Z60-Listbox-ListModelMap-Paging.ztl
+Z60-Listbox-ListModelMap-ROD.ztl
+Z60-Listbox-ListModelMap-noROD.ztl
+Z60-Listbox-ListModelSet-Multiple-ROD.ztl
+Z60-Listbox-ListModelSet-Multiple-noROD.ztl
+Z60-Listbox-ListModelSet-Paging-Multiple.ztl
+Z60-Listbox-ListModelSet-Paging.ztl
+Z60-Listbox-ListModelSet-ROD.ztl
+Z60-Listbox-ListModelSet-noROD.ztl
+Z60-Listbox-SimpleListModel-Multiple-ROD.ztl
+Z60-Listbox-SimpleListModel-Paging-Multiple.ztl
+Z60-Listbox-SimpleListModel-Paging.ztl
+Z60-Listbox-SimpleListModel-ROD.ztl
+Z60-Listbox-SimpleListModel-noROD.ztl
+Z60-Listbox-SimpleListModel-Multiple-noROD.ztl
+Z60-SelectboxModelSelection.ztl
+#zbind
 Z60-Arg.ztl
 Z60-CommandIndirect.ztl
 Z60-Converter.ztl
@@ -304,7 +456,6 @@ Z60-B01189FormNotifyChange1.ztl
 Z60-B01189FormNotifyChange2.ztl
 Z60-B01188MixingELWithRef1.ztl
 Z60-B01188MixingELWithRef2.ztl
-Z60-B01185CollectionBindingNPE.ztl
 Z60-B01196BinderUiLcConfusion.ztl
 Z60-B01194NestedVMInit.ztl
 Z60-F01231AfterComposeVM.ztl
@@ -338,28 +489,76 @@ Z60-B01791GlobalCommand.ztl
 Z60-B01795NestedTemplate.ztl
 Z60-B01887DetachAttach.ztl
 Z60-B01908DatabindingOnPaging.ztl
+Z60-Property.ztl
+Z60-LoadSaveForm.ztl
+Z60-F00687.ztl
+Z60-TabboxSelected1.ztl
+Z60-F00864ValidationContextEasier.ztl
+Z60-B00878WrongValueException2.ztl
+Z60-LoadSavePromptCommandValidation.ztl
+Z60-B00878WrongValueException1.ztl
+Z60-B00877NPEInSaveOnlyBinding.ztl
+Z60-B00913ValueReload.ztl
+Z60-B00849ConverterParameters.ztl
+Z60-ValidationMessages.ztl
+Z60-Radiogroup-ListModelArray.ztl
+Z60-Radiogroup-ListModelList.ztl
+Z60-Radiogroup-ListModelMap.ztl
+Z60-Radiogroup-ListModelSet.ztl
+Z60-B00657.ztl
+Z60-LoadSaveProperty.ztl
+Z60-B00634.ztl
+Z60-DeferInit.ztl
+Z60-Window.ztl
+Z60-B00722.ztl
 }
-opera,chrome,safari,ie6={
+ie11={
+//unstable
+B50-ZK-909.ztl
+// unsupported
+B70-ZK-2308.ztl
+}
+ie8,ie9,ie10={
+// unsupport
+Z60-ChildrenMenu.ztl
+}
+
+opera,chrome,safari={
 Z60-B00775ListmodelSelection.ztl 
 }
-opera,chrome,safari,firefox*={
+
+// ie only
+opera,chrome,safari,firefox*,ff*={
 B65-ZK-1642.ztl
 B65-ZK-1215.ztl
+B65-ZK-1748.ztl 
 }
 // ie10 only
-opera,chrome,safari,firefox*,ie6,ie7,ie8,ie9={
+opera,chrome,safari,firefox*,ff*,ie8,ie9={
 B65-ZK-1769.ztl
 }
-ie6,ie7,ie8={
-Z65-Flex-064.ztl
-Z65-Flex-065.ztl
-Z65-Flex-066.ztl
-Z65-Flex-067.ztl
-Z65-Flex-068.ztl
-Z65-Flex-069.ztl
-B65-ZK-1540.ztl
+
+// can't work correct in ie9,ie10
+ie9,ie10={
+B70-ZK-2290.ztl
 }
-ie10={
-// unsupport drag and drop
-B36-2904376.ztl
+
+// this is used for ie6/7 only in vision
+// no need to run anymore
+all={
+B30-1472534.ztl
+B30-1914215.ztl
+B30-1920630.ztl
+B30-1926094-1.ztl
+B30-1926094.ztl
+B30-1927154.ztl
+B30-1927196.ztl
+B35-2090152.ztl
+B50-2937035.ztl
+B50-3166478.ztl
+B50-3185657.ztl
+B50-3186596.ztl
+B50-3201762.ztl
+Z65-Flex-073.ztl
+B50-3210336.ztl
 }
