@@ -52,6 +52,7 @@ B50-3032892.ztl
 // manual
 B30-1870821.ztl
 B30-1498895.ztl
+B36-2818308.ztl
 
 // tmp ignore scrollbar case
 B30-1769047.ztl
@@ -74,11 +75,14 @@ B50-3013683.ztl
 
 // manually check
 B70-ZK-2279.ztl
+B30-1799602.ztl
+B36-2799258.ztl 
 }
 ### ignore all firefox
 firefox*,ff*={
 // unsupported
 B60-ZK-1142.ztl
+B50-ZK-989.ztl
 Popup.ztl
 Form.ztl
 F70-ZK-2049.ztl
@@ -94,6 +98,7 @@ Z60-Combobutton.ztl
 // selenium scroll
 B50-3285714.ztl
 B65-ZK-1284.ztl
+B35-2280308.ztl
 // unsupport
 B60-ZK-815.ztl
 // selenium: cant click option
@@ -168,6 +173,7 @@ B36-2807475.ztl
 F50-0000001.ztl
 B50-ZK-909.ztl
 B70-ZK-2308.ztl
+Z30-grid-0005.ztl
 }
 ie9={
 // timeout - take too long
@@ -273,6 +279,7 @@ Z60-Listbox-ListModelMap-ROD.ztl
 // selenium: cant support keypress
 B65-ZK-1473.ztl
 B50-1756559.ztl
+B30-1845026.ztl
 }
 safari={
 // unsupported
@@ -511,16 +518,20 @@ Z60-B00634.ztl
 Z60-DeferInit.ztl
 Z60-Window.ztl
 Z60-B00722.ztl
+B60-ZK-1303.ztl
 }
 ie11={
 //unstable
 B50-ZK-909.ztl
 // unsupported
 B70-ZK-2308.ztl
+F60-ZK-1583.ztl
+B50-3006762.ztl
 }
 ie8,ie9,ie10={
 // unsupport
 Z60-ChildrenMenu.ztl
+F60-ZK-1583.ztl
 }
 
 opera,chrome,safari={
@@ -541,6 +552,10 @@ B65-ZK-1769.ztl
 // can't work correct in ie9,ie10
 ie9,ie10={
 B70-ZK-2290.ztl
+}
+
+ie6={
+F65-ZK-1277.ztl
 }
 
 // this is used for ie6/7 only in vision

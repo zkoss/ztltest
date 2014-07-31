@@ -83,14 +83,19 @@ Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 """
     runZTL(zscript,
       () => {
-        val verifyHeight = (result: Int) =>
+        var value = -1
+        val verifyHeight = () =>
           List(".z-group", ".z-row", ".z-groupfoot") foreach { cls =>
-            verifyTrue("each row should be the same height", jq(cls).height() == result)
+            if(value == -1)
+              jq(cls).height()
+            else
+              verifyTrue("each row should be the same height", jq(cls).height() == value)
           }
-        verifyHeight(30)
+        verifyHeight()
         click(jq(".z-button:contains(Autopaging)"))
+        value = -1
         waitResponse()
-        verifyHeight(42)
+        verifyHeight()
       })
 
   }

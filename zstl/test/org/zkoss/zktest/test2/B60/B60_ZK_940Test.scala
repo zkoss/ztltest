@@ -19,7 +19,7 @@ class B60_ZK_940Test extends ZTL4ScalaTestCase {
         <div>
           Note that due to CSS limitation, we are skipping the fix for IE 6. (We can fix it by adding CSS class, but probably not worth it.)
         </div>
-        <listbox multiple="true" checkmark="true">
+        <listbox id="firstbox" multiple="true" checkmark="true">
           <listitem>
             <listcell>
               Listitem 1
@@ -65,9 +65,10 @@ class B60_ZK_940Test extends ZTL4ScalaTestCase {
           val cls = classWithLabel._1
           val label = classWithLabel._2
           val seltr = "." + cls
-          val item1 = jq(seltr + ":contains(" + label + ")")
-
-          click(item1)
+          val item1 = jq(seltr + " span[class*=img-checkbox]")
+          println(seltr + ":contains(" + label + ")");
+          
+          click(item1.eq(0))
           waitResponse()
           val items = jq(seltr + " " + seltr)
           verifyTrue("should NOT see any of other Listitems/Treeitems selected.", !items.hasClass(cls + "-seld"))

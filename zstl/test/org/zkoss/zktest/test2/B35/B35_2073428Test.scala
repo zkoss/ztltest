@@ -41,7 +41,7 @@ class B35_2073428Test extends ZTL4ScalaTestCase {
 		Corporation. All Rights Reserved. {{IS_RIGHT }}IS_RIGHT
 	-->
 <window title="Menu Demo" border="normal" id="lbl">	
-	<label  value='button "stone" should not be freezed after clicked and move the mouse away (it means the mouseover style should be removed)'/>
+	<label id="label" value='button "stone" should not be freezed after clicked and move the mouse away (it means the mouseover style should be removed)'/>
 	<menubar>		
 		<menu label="stone" id="stone" />
 	</menubar>	
@@ -72,6 +72,7 @@ class B35_2073428Test extends ZTL4ScalaTestCase {
         	
         	//Move the mouse out of the menu
         	mouseOut(menu);
+        	mouseMove(jq("$label"));
         	waitResponse();
         	
         	//Verify Over style isn't present

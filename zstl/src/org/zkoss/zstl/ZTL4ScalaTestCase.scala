@@ -43,9 +43,8 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
     val executorService = Executors.newCachedThreadPool();
     val browserSet = new HashSet[String];
     val futures = new ArrayList[Future[_]];
-        
+
     for (browser <- browsers) { 
-      
       println(getTimeUUID() + "-" + luuid + ":log 2");
       
       val zkSelenium = browser.asInstanceOf[ZKSelenium];
@@ -110,6 +109,7 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
       case e: Throwable => 
         println(getTimeUUID() + "-" + luuid + ":in termination ex..." + e.getMessage());
         e.printStackTrace();
+        throw e;
     }
     
     println(getTimeUUID() + "-" + luuid + ":log 5-1");
