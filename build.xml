@@ -186,6 +186,8 @@ Usage:
 			<arg line="./lib/run-maven-test.sh"/>
 			<arg value="${report.dir}"/>
 			<arg value="${test.dir}"/>
+			<arg value="${test.browser}"/>
+			<arg value="${test.openonce}"/>
 		</exec>
 	</target>
 	<target name="report" >
