@@ -27,4 +27,6 @@
 	<property name="jar.name" value="ztl.jar" />
 	<property name="javadoc.dir" value="javadoc/" />
 	<property name="project.title" value="Zul Testing Language" />
+	<property name="test.browser" value="" />
+	<property name="test.openonce" value="" />
 </project>

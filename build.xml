@@ -181,11 +181,13 @@ Usage:
 		</junit>
 	</target>
 	<!-- this will call maven surefire:test with optional test case parameter -->
-	<target name="mtest" depends="generate,compileztl">
+	<target name="mtest">
 		<exec executable="sh" dir="." failonerror="true">
 			<arg line="./lib/run-maven-test.sh"/>
 			<arg value="${report.dir}"/>
 			<arg value="${test.dir}"/>
+			<arg value="${test.browser}"/>
+			<arg value="${test.openonce}"/>
 		</exec>
 	</target>
 	<target name="report" >
