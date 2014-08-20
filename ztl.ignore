@@ -543,6 +543,11 @@ ie9,ie10={
 B70-ZK-2290.ztl
 }
 
+// chrome only
+opera,safari,firefox*,ff*,ie*={
+Z60-Selectbox.ztl
+}
+
 // this is used for ie6/7 only in vision
 // no need to run anymore
 all={
