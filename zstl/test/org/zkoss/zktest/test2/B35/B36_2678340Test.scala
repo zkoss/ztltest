@@ -50,7 +50,7 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
 		step3.click timebox btn to scroll the time value again, after value changing, press 'tab' to change focus,  <br />
 		step4.click show value btn, the label <span style="color:red">should change to new time string</span> <br />
         ]]></html>
-          <timebox id="tb1"/>
+          <timebox id="tb1" format="hh:mm:ss a"/>
           <label id="lab" value="1"/>
           <button id="show" label="show value" mold="os">
             <attribute name="onClick"><![CDATA[  

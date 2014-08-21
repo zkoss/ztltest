@@ -41,7 +41,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-			verifyFalse(jq("@listheader").isVisible());
+			verifyFalse(jq("@listhead").isVisible());
 			
 			int width1 = jq("@listcell").eq(0).outerWidth();
 			int width2 = jq("@listcell").eq(1).outerWidth();
@@ -49,7 +49,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			click(jq("@button"));
 			waitResponse();
 			
-			verifyTrue(jq("@listheader").isVisible());
+			verifyTrue(jq("@listhead").isVisible());
 			
 			verifyEquals(width1 , jq("@listcell").eq(0).outerWidth());
 			verifyEquals(width1 , jq("@listheader").eq(0).outerWidth());
@@ -60,7 +60,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			click(jq("@button"));
 			waitResponse();
 			
-			verifyFalse(jq("@listheader").isVisible());
+			verifyFalse(jq("@listhead").isVisible());
 			
 			verifyEquals(width1 , jq("@listcell").eq(0).outerWidth());
 			verifyEquals(width2 , jq("@listcell").eq(1).outerWidth());

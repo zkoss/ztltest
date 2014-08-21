@@ -129,7 +129,7 @@ class B50_3283943Test extends ZTL4ScalaTestCase {
 		checkGridUuid(li3, lb2s, lb2c);
     }
     def checkGridUuid(wgt: Widget, lbs: Widget, lbc: Widget) {
-    	click(wgt.$n());
+    	clickAt(wgt.$n(), "10,3");
 		waitResponse();
 		verifyTrue(lbs.$n().get("innerHTML").equals(lbc.$n().get("innerHTML")));
     }

@@ -83,11 +83,11 @@
 				click(jq("@button[label=\"add under bottom\"]"));
 				waitResponse();
 				int scrollTop = getScrollTop(tree);
-				verifyTolerant(144, scrollTop, 10);
+				verifyTolerant(120, scrollTop, 10);
 				click(jq("@button[label=\"add under bottom\"]"));
 				waitResponse();
 				scrollTop = getScrollTop(tree);
-				verifyTolerant(168, scrollTop, 10);
+				verifyTolerant(144, scrollTop, 10);
 				click(jq("@button[label=\"add upon top\"]"));
 				waitResponse();
 				click(jq("@button[label=\"add upon top\"]"));
