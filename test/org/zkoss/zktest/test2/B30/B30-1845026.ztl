@@ -51,9 +51,9 @@
 			JQuery $txtbox = jq("$txtbox");
 			JQuery firstRow = jq("@treerow:eq(0)");
 
-			click(firstRow);//get selected
+			clickAt(firstRow, "1,1");//get selected
 			waitResponse();
-			click(firstRow);//get selected
+			clickAt(firstRow, "1,1");//get selected
 			waitResponse();
 
 			focus($txtbox);
@@ -61,7 +61,7 @@
 			type($txtbox, "a");
 			waitResponse();
 
-			click(jq("@treerow:eq(1)"));
+			clickAt(jq("@treerow:eq(1)"), "1,1");
 			//when textbox onChange , the first row will be changed
 			waitResponse();
 
