@@ -43,7 +43,7 @@ def testClick() = {
       waitResponse();
       clickAt(btn, "1,1");
       waitResponse();
-      verifyTrue("it should show error box.", jq(".z-errorbox-content").exists());
+      verifyTrue("it should show error box.", jq("@errorbox").isVisible());
     })
     
   }
