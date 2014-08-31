@@ -9,7 +9,8 @@ class F70_ZK_2338Test extends ZTL4ScalaTestCase {
 
 @Test
 def testClick() = {
-  val zscript = """<?page title="F70-ZK-2049" contentType="text/html;charset=UTF-8"?>
+  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
 <!--
 F70-ZK-2338.zul
 
@@ -44,7 +45,6 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
   runZTL(zscript,
     () => {
       val ls = jq("@label");
-      println(ls.eq(1).html());
       verifyTrue(ls.eq(1).html().equals("HelloWorld"));
       verifyTrue(ls.eq(2).html().equals("HelloWorld3"));
       verifyTrue(ls.eq(3).html().equals("HelloWorld34"));

@@ -9,7 +9,7 @@ class F70_ZK_2076Test extends ZTL4ScalaTestCase {
 
 @Test
 def testClick() = {
-  val zscript = """<?page title="F70-ZK-2049" contentType="text/html;charset=UTF-8"?>
+  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
 <!--
 F70-ZK-2076.zul
 
