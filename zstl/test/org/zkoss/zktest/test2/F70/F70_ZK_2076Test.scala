@@ -67,6 +67,12 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 			text2: [] 
 	</div>
 	<div>
+		<button id="b6" label="test6" />
+		expceted:
+			text1: [test1]
+			text2: [test6] 
+	</div>
+	<div>
 		<button id="clean" label="clean" />
 	</div>
 </window>
@@ -108,6 +114,13 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       waitResponse();
       verifyTrue(t1.eval("val()").equals("test1"));
       verifyTrue(t2.eval("val()").equals(""));
+      clickAt(jq("$clean"), "1,1");
+      waitResponse();
+      
+      clickAt(jq("$b6"), "1,1");
+      waitResponse();
+      verifyTrue(t1.eval("val()").equals("test1"));
+      verifyTrue(t2.eval("val()").equals("test6"));
     })
     
   }
