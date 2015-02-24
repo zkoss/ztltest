@@ -74,6 +74,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       waitResponse();
       var inp = jq(".z-timebox-input").eq(0); 
       zk(inp).eval("setSelectionRange(0);'test'");
+      sendKeys(inp, Keys.chord(Keys.CONTROL, "a"));
       waitResponse();
       keyPress(inp, "210000"); 
       waitResponse();
@@ -85,6 +86,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       waitResponse();
       inp = jq(".z-timebox-input").eq(1); 
       zk(inp).eval("setSelectionRange(0);'test'");
+      sendKeys(inp, Keys.chord(Keys.CONTROL, "a"));
       waitResponse();
       keyPress(inp, "110000"); 
       waitResponse();
@@ -100,6 +102,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       waitResponse();
       inp = jq(".z-timebox-input").eq(2); 
       zk(inp).eval("setSelectionRange(0);'test'");
+      sendKeys(inp, Keys.chord(Keys.CONTROL, "a"));
       waitResponse();
       keyPress(inp, "110000"); 
       waitResponse();
@@ -115,6 +118,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       waitResponse();
       inp = jq(".z-timebox-input").eq(3); 
       zk(inp).eval("setSelectionRange(0);'test'");
+      sendKeys(inp, Keys.chord(Keys.CONTROL, "a"));
       waitResponse();
       keyPress(inp, "210000"); 
       waitResponse();
