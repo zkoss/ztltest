@@ -15,8 +15,9 @@ it will be useful, but WITHOUT ANY WARRANTY.
 package org.zkoss.zktest.test2.Z30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.Tags
 import org.zkoss.ztl.util.Scripts
+import org.junit.Test
 
 /**
  *
@@ -24,6 +25,7 @@ import org.zkoss.ztl.util.Scripts
  */
 @Tags(tags = "Z30-focus.zul,C,E,Window,Textbox")
 class Z30_focusTest extends ZTL4ScalaTestCase {
+  @Test
 	def testCase() = {
 		val zscript = {
 		  <window title="Test of focus">

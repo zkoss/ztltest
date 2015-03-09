@@ -17,8 +17,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.Z35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.Tags
 import org.zkoss.ztl.util.Scripts
+import org.junit.Test
 
 /**
  * A test class for bug panel-002
@@ -28,6 +29,7 @@ import org.zkoss.ztl.util.Scripts
 @Tags(tags = "Z35-panel-002.zul,Z35,A,E,Panel")
 class Z35_panel_002Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<window>
