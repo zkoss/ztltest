@@ -46,6 +46,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       var btn = jq("@button");
       click(btn);
       waitResponse();
+      sleep(1000);
       result = "hello\n" + 
     		  	"</Script>\n" +
     		  	"hello\n" + 

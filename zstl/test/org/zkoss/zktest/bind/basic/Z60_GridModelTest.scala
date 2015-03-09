@@ -16,12 +16,14 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.basic
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * @author pao
  */
 @Tags(tags = "zbind")
 class Z60_GridModelTest extends ZTL4ScalaTestCase {
+  @Test
   def testArg() = {
     val zul = {
       <include src="/bind/basic/gridmodel.zul"/>
