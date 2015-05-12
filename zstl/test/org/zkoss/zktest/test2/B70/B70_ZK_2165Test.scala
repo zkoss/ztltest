@@ -34,7 +34,7 @@ class B70_ZK_2165Test extends ZTL4ScalaTestCase {
 	<window>
 		<hlayout>
 			<tree hflex="1" height="500px" model="${model}"
-				mold="paging" span="true" pageSize="150" vflex="1">
+				mold="paging" span="true" pageSize="150">
 				<treecols sizable="true">
 					<treecol label="Column 1" />
 				</treecols>

@@ -42,27 +42,27 @@ def testClick() = {
   runZTL(zscript,
     () => {
       val icons = jq(".z-tree-icon");
-      clickAt(icons.eq(0), "1,1");
+      click(icons.eq(0));
       waitResponse();
-      clickAt(icons.eq(1), "1,1");
+      click(icons.eq(1));
       waitResponse();
-      clickAt(icons.eq(2), "1,1");
+      click(icons.eq(2));
       waitResponse();
-      clickAt(icons.eq(3), "1,1");
+      click(icons.eq(3));
       waitResponse();
-      clickAt(icons.eq(4), "1,1");
+      click(icons.eq(4));
       waitResponse();
-      clickAt(icons.eq(5), "1,1");
+      click(icons.eq(5));
       waitResponse();
-      clickAt(icons.eq(6), "1,1");
+      click(icons.eq(6));
       waitResponse();
-      clickAt(icons.eq(7), "1,1");
+      click(icons.eq(7));
       waitResponse();
-      clickAt(jq(".z-paging-next"), "1,1");
+      click(jq(".z-paging-next"));
       waitResponse();
-      clickAt(jq(".z-paging-previous"), "1,1");
+      click(jq(".z-paging-previous"));
       waitResponse();
-      clickAt(icons.eq(7), "1,1");
+      click(icons.eq(7));
       waitResponse();
       verifyTrue("node t8 should exist.", jq("span.z-treecell-text:contains(t8)").exists());
     })

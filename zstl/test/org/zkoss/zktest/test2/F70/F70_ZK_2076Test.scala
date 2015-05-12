@@ -82,42 +82,42 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       val t1 = jq("$t1");
       val t2 = jq("$t2");
       
-      clickAt(jq("$b1"), "1,1");
+      click(jq("$b1"));
       waitResponse();
       verifyTrue(t1.eval("val()").equals("test1"));
       verifyTrue(t2.eval("val()").equals(""));
-      clickAt(jq("$clean"), "1,1");
+      click(jq("$clean"));
       waitResponse();
       
-      clickAt(jq("$b2"), "1,1");
+      click(jq("$b2"));
       waitResponse();
       verifyTrue(t1.eval("val()").equals("test1"));
       verifyTrue(t2.eval("val()").equals("test2"));
-      clickAt(jq("$clean"), "1,1");
+      click(jq("$clean"));
       waitResponse();
       
-      clickAt(jq("$b3"), "1,1");
+      click(jq("$b3"));
       waitResponse();
       verifyTrue(t1.eval("val()").equals("test1"));
       verifyTrue(t2.eval("val()").equals("test3"));
-      clickAt(jq("$clean"), "1,1");
+      click(jq("$clean"));
       waitResponse();
       
-      clickAt(jq("$b4"), "1,1");
+      click(jq("$b4"));
       waitResponse();
       verifyTrue(t1.eval("val()").equals("test1"));
       verifyTrue(t2.eval("val()").equals("test4"));
-      clickAt(jq("$clean"), "1,1");
+      click(jq("$clean"));
       waitResponse();
       
-      clickAt(jq("$b5"), "1,1");
+      click(jq("$b5"));
       waitResponse();
       verifyTrue(t1.eval("val()").equals("test1"));
       verifyTrue(t2.eval("val()").equals(""));
-      clickAt(jq("$clean"), "1,1");
+      click(jq("$clean"));
       waitResponse();
       
-      clickAt(jq("$b6"), "1,1");
+      click(jq("$b6"));
       waitResponse();
       verifyTrue(t1.eval("val()").equals("test1"));
       verifyTrue(t2.eval("val()").equals("test6"));

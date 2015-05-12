@@ -2,10 +2,12 @@ package org.zkoss.zktest.test2.B65
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1278.zul")
 class B65_ZK_1278Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """
 <zk>
@@ -21,8 +23,7 @@ jq('#zk_log')[0].rows = 50;
 2. If the log information are added too much that is a bug. (the log textbox should not appear the scrollbar) 
 </label>
 <tree id="aggregationTree" zclass="z-dottree" mold="paging"
-height="100%" width="100%" multiple="false" vflex="true"
-hflex="true" style="border:none" renderdefer="0">
+height="100%" width="100%" multiple="false" style="border:none" renderdefer="0">
 <treecols sizable="true">
 <treecol label="Column Lable"/>
 </treecols>

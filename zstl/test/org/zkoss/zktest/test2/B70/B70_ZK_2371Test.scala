@@ -41,7 +41,7 @@ def testClick() = {
       val btn = jq("@button");
       zk(btn).eval("scrollIntoView();'test';");
       waitResponse();
-      clickAt(btn, "1,1");
+      click(btn);
       waitResponse();
       verifyTrue("it should show error box.", jq("@errorbox").isVisible());
     })

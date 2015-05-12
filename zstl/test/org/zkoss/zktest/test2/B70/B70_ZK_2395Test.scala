@@ -290,15 +290,15 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       sleep(3000);
       check();
       
-      clickAt(jq("@button").eq(0), "1,1");
+      click(jq("@button").eq(0));
       waitResponse();
-      clickAt(jq("@button").eq(2), "1,1");
+      click(jq("@button").eq(2));
       waitResponse();
       check();
       
-      clickAt(jq("@button").eq(1), "1,1");
+      click(jq("@button").eq(1));
       waitResponse();
-      clickAt(jq("@button").eq(3), "1,1");
+      click(jq("@button").eq(3));
       waitResponse();
       check();
     })

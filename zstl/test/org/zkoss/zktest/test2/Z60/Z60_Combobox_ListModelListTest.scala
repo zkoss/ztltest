@@ -16,18 +16,17 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z60
 
+import java.lang.Boolean
+import java.lang.Integer
+import java.lang.String
+
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ClientWidget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.ClientWidget
+import org.zkoss.ztl.Element
+import org.zkoss.ztl.JQuery
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.Widget
 
 /**
  * A test class for bug Combobox-ListModelList
@@ -37,6 +36,7 @@ import java.lang._
 @Tags(tags = "Z60-Combobox-ListModelList.zul,Z60,A,E,Combobox,ListModelList")
 class Z60_Combobox_ListModelListTest extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>
