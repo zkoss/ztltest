@@ -36,6 +36,7 @@ import java.lang._
 @Tags(tags = "B50-3278524.zul,B,E,Include")
 class B50_3278524Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<tabbox>

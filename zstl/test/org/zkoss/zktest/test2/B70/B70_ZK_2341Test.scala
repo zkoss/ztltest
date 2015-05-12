@@ -93,17 +93,18 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     () => {
       val left = jq("@cardlayout").offsetLeft();
       
-      clickAt(jq("@button").eq(1), "1,1");
+      //clickAt(jq("@button").eq(1), "1,1");
+      click(jq("@button").eq(1));
       waitResponse();
       sleep(1000);
       verifyTolerant(jq("span:contains(this is page 2-1)").eval("closest('table').parent().offset().left").toInt, left, 10);
       
-      clickAt(jq("@button").eq(2), "1,1");
+      click(jq("@button").eq(2));
       waitResponse();
       sleep(1000);
       verifyTolerant(jq("span:contains(this is page 3-1)").eval("closest('table').parent().offset().left").toInt, left, 10);
       
-      clickAt(jq("@button").eq(3), "1,1");
+      click(jq("@button").eq(3));
       waitResponse();
       sleep(1000);
       verifyTolerant(jq("span:contains(this is page 4-1)").eval("closest('table').parent().offset().left").toInt, left, 10);

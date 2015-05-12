@@ -70,7 +70,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """  
   runZTL(zscript,
     () => {
-      clickAt(jq(".z-datebox-button").eq(0), "1,1");
+      click(jq(".z-datebox-button").eq(0));
       waitResponse();
       var inp = jq(".z-timebox-input").eq(0); 
       zk(inp).eval("setSelectionRange(0);'test'");
@@ -82,7 +82,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       waitResponse();
       verifyTrue(jq("@datebox").eq(0).toWidget().get("text").equals("10/10/2014 21:00:00"));
       
-      clickAt(jq(".z-datebox-button").eq(1), "1,1");
+      click(jq(".z-datebox-button").eq(1));
       waitResponse();
       inp = jq(".z-timebox-input").eq(1); 
       zk(inp).eval("setSelectionRange(0);'test'");
@@ -98,7 +98,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       waitResponse();
       verifyTrue(jq("@datebox").eq(1).toWidget().get("text").equals("10/10/2014 11:00:00 AM"));
       
-      clickAt(jq(".z-datebox-button").eq(2), "1,1");
+      click(jq(".z-datebox-button").eq(2));
       waitResponse();
       inp = jq(".z-timebox-input").eq(2); 
       zk(inp).eval("setSelectionRange(0);'test'");
@@ -114,7 +114,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       waitResponse();
       verifyTrue(jq("@datebox").eq(2).toWidget().get("text").equals("10/10/2014 11:00:00 AM"));
       
-      clickAt(jq(".z-datebox-button").eq(3), "1,1");
+      click(jq(".z-datebox-button").eq(3));
       waitResponse();
       inp = jq(".z-timebox-input").eq(3); 
       zk(inp).eval("setSelectionRange(0);'test'");

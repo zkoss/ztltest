@@ -37,6 +37,7 @@ import java.lang._
 @Tags(tags = "Z60-Combobox-ListModelSet.zul,Z60,A,E,Combobox,ListModelSet")
 class Z60_Combobox_ListModelSetTest extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = {
 			<zk>

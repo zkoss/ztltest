@@ -76,13 +76,13 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """  
   runZTL(zscript,
     () => {
-      clickAt(jq("@treecol").eq(0), "1,1");
+      click(jq("@treecol").eq(0));
       waitResponse();
       verifyTrue("we should see the caret-up icon.", jq(".z-icon-caret-up").exists());
-      clickAt(jq("@treecol").eq(0), "1,1");
+      click(jq("@treecol").eq(0));
       waitResponse();
       
-      clickAt(jq("@treecol").eq(1), "1,1");
+      click(jq("@treecol").eq(1));
       waitResponse();
       verifyTrue("we should see the caret-up icon.", jq(".z-icon-caret-up").exists());
     })

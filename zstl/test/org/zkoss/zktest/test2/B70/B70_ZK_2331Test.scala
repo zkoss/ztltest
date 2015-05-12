@@ -51,7 +51,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """  
   runZTL(zscript,
     () => {
-      clickAt(jq(".z-combobox-button"), "1,1");
+      click(jq(".z-combobox-button"));
       waitResponse();
       val popup = jq(".z-combobox-popup");
       verifyTrue("popup shouldn't overlap the input.", popup.offsetTop() + popup.height() < jq("@combobox").offsetTop());
