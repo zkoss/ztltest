@@ -62,7 +62,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       contextMenu(jq("@button").eq(0));
       waitResponse();
       verifyTrue("button should be triggered.", tbox.toWidget().get("value").equals("1"));
-      clickAt(jq("@menu"), "1,1");
+      click(jq("@menu"));
       waitResponse();
       contextMenu(jq("@menuitem").eq(0));
       waitResponse();

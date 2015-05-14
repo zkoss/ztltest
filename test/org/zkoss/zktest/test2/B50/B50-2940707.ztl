@@ -199,7 +199,7 @@
 				verifyTrue(jq(".z-treerow-selected:eq(0) .z-treecell").text().contains("Item 2.1"));
 				verifyTrue(jq(".z-treerow-selected:eq(1) .z-treecell").text().contains("Item 2.1.1"));
 				verifyTrue(jq(".z-treerow-selected:eq(2) .z-treecell").text().contains("Item 2.1.2"));
-				clickAt(jq(".z-treerow-selected:eq(1)"), "1,1");
+				click(jq(".z-treerow-selected:eq(1)"));
 				verifyEquals(2,jq(".z-treerow-selected").length());
 				click(btn2);
 				waitResponse();
