@@ -75,7 +75,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       val iter = jq(".z-hbox-separator").iterator();
       while(iter.hasNext()){
         val s = iter.next();
-        verifyTrue("seperator shouldn't occupy 1 or 2px", s.width() == 0);
+        verifyTrue("seperator shouldn't occupy 1 or 2px", s.width() == 0 || s.css("display") == "none");
       }
       
     })
