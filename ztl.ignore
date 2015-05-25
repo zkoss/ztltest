@@ -33,8 +33,6 @@ B30-1914104-1.ztl
 B30-1914104-2.ztl
 
 B65-ZK-1715.ztl
-// zkbind bean validation
-Z60-B01005BeanValidatorPath.ztl
 // unsupported marcoURI
 B65-ZK-1433.ztl
 B60-ZK-1589.ztl
@@ -43,7 +41,6 @@ B50-ZK-926.ztl
 B50-3204965.ztl
 B36-2844707.ztl
 B30-2003798.ztl
-Z60-B01185CollectionBindingNPE.ztl
 
 // cant fix in ztl 
 B65-ZK-1578.ztl
@@ -90,7 +87,6 @@ B60-ZK-1338.ztl
 F60-ZK-1583.ztl
 B65-ZK-1215.ztl
 B65-ZK-1441.ztl
-Z60-Combobutton.ztl
 // selenium scroll
 B50-3285714.ztl
 B65-ZK-1284.ztl
@@ -111,7 +107,6 @@ B30-1845026.ztl
 B35-2075722.ztl
 B30-2080346.ztl
 B30-1881557.ztl
-Z60-B00605.ztl
 B35-2349456.ztl
 B60-ZK-1113.ztl
 F65-ZK-1269.ztl
@@ -170,12 +165,6 @@ B50-ZK-909.ztl
 B70-ZK-2308.ztl
 }
 ie9={
-// timeout - take too long
-Z60-Grid-ListModelSet-noROD.ztl
-Z60-Grid-ListModelMap-noROD.ztl
-Z60-Grid-ListModelList-noROD.ztl
-Z60-Grid-ListModelArray-noROD.ztl
-Z60-Grid-SimpleListModel-noROD.ztl
 // unsupported
 B36-2806448.ztl
 B65-ZK-1877.ztl
@@ -184,8 +173,6 @@ B60-ZK-1142.ztl
 B30-1822564.ztl
 B30-1822585.ztl
 B30-1823354.ztl
-Z30-grid-0005.ztl
-Z30-grid-0001.ztl
 B36-2813877.ztl
 B50-3303684.ztl
 B35-2075722.ztl
@@ -201,21 +188,11 @@ B70-ZK-2264.ztl
 B70-ZK-2136.ztl
 B70-ZK-2308.ztl
 // zkbind
-Z60-RadiogroupSelected.ztl
-Z60-B00810ListboxMultiple.ztl
-Z60-F00823RadiogroupModel1.ztl
-Z60-F00823RadiogroupModel2.ztl
 F50-0000001.ztl
 // unstable
 B70-ZK-2313.ztl
 }
 ie8={
-// zkbind
-Z60-RadiogroupSelected.ztl
-Z60-Radiogroup-ListModelSet.ztl
-Z60-F00823RadiogroupModel1.ztl
-Z60-F00823RadiogroupModel2.ztl
-Z60-Radiogroup-SimpleListModel.ztl
 B60-ZK-707-ListModel.ztl
 B60-ZK-985.ztl
 B50-2880236.ztl
@@ -228,12 +205,6 @@ Form.ztl
 Popup.ztl
 B35-2094308.ztl
 F65-ZK-1655.ztl
-Z65-Flex-064.ztl
-Z65-Flex-065.ztl
-Z65-Flex-066.ztl
-Z65-Flex-067.ztl
-Z65-Flex-068.ztl
-Z65-Flex-069.ztl
 
 B65-ZK-1706.ztl
 B65-ZK-1748.ztl
@@ -269,7 +240,6 @@ B65-ZK-1441.ztl
 B65-ZK-1284.ztl
 // unsupport
 B60-ZK-815.ztl
-Z60-Listbox-ListModelMap-ROD.ztl
 // selenium: cant support keypress
 B65-ZK-1473.ztl
 B50-1756559.ztl
@@ -305,11 +275,64 @@ B70-ZK-2285.ztl
 // out of viewport
 B65-ZK-1632.ztl
 }
-#zbind or some test cases for server side
-#ignore for browser difference issue
 opera,ie*,firefox*,ff*,safari={
 // test Locales
 B65-ZK-1852.ztl
+}
+ie11={
+//unstable
+B50-ZK-909.ztl
+// unsupported
+B70-ZK-2308.ztl
+}
+ie8,ie9,ie10={
+// unsupport
+}
+
+opera,chrome,safari={ 
+}
+
+// ie only
+opera,chrome,safari,firefox*,ff*={
+B65-ZK-1642.ztl
+B65-ZK-1215.ztl
+B65-ZK-1748.ztl 
+}
+// ie10 only
+opera,chrome,safari,firefox*,ff*,ie8,ie9={
+B65-ZK-1769.ztl
+}
+
+// can't work correct in ie9,ie10
+ie9,ie10={
+B70-ZK-2290.ztl
+}
+
+// chrome only
+opera,safari,firefox*,ff*,ie*={
+B70-ZK-2363.ztl
+}
+
+// this is used for ie6/7 only in vision
+// no need to run anymore
+all={
+B30-1472534.ztl
+B30-1914215.ztl
+B30-1920630.ztl
+B30-1926094-1.ztl
+B30-1926094.ztl
+B30-1927154.ztl
+B30-1927196.ztl
+B35-2090152.ztl
+B50-2937035.ztl
+B50-3166478.ztl
+B50-3185657.ztl
+B50-3186596.ztl
+B50-3201762.ztl
+Z65-Flex-073.ztl
+B50-3210336.ztl
+#zbind or some test cases for server side
+#ignore for browser difference issue
 #model cases
 F60-ZK-1028.ztl
 Z60-Listbox-GroupsModelArray-Paging-noROD.ztl
@@ -511,61 +534,38 @@ Z60-B00634.ztl
 Z60-DeferInit.ztl
 Z60-Window.ztl
 Z60-B00722.ztl
-}
-ie11={
-//unstable
-B50-ZK-909.ztl
-// unsupported
-B70-ZK-2308.ztl
-}
-ie8,ie9,ie10={
-// unsupport
+Z60-B00775ListmodelSelection.ztl
+// zkbind bean validation
+Z60-B01005BeanValidatorPath.ztl
+Z60-B01185CollectionBindingNPE.ztl
+Z60-Combobutton.ztl
+Z60-B00605.ztl
+// timeout - take too long
+Z60-Grid-ListModelSet-noROD.ztl
+Z60-Grid-ListModelMap-noROD.ztl
+Z60-Grid-ListModelList-noROD.ztl
+Z60-Grid-ListModelArray-noROD.ztl
+Z60-Grid-SimpleListModel-noROD.ztl
+Z30-grid-0005.ztl
+Z30-grid-0001.ztl
+// zkbind
+Z60-RadiogroupSelected.ztl
+Z60-B00810ListboxMultiple.ztl
+Z60-F00823RadiogroupModel1.ztl
+Z60-F00823RadiogroupModel2.ztl
+Z60-RadiogroupSelected.ztl
+Z60-Radiogroup-ListModelSet.ztl
+Z60-F00823RadiogroupModel1.ztl
+Z60-F00823RadiogroupModel2.ztl
+Z60-Radiogroup-SimpleListModel.ztl
+Z65-Flex-064.ztl
+Z65-Flex-065.ztl
+Z65-Flex-066.ztl
+Z65-Flex-067.ztl
+Z65-Flex-068.ztl
+Z65-Flex-069.ztl
+Z60-Listbox-ListModelMap-ROD.ztl
 Z60-ChildrenMenu.ztl
-}
-
-opera,chrome,safari={
-Z60-B00775ListmodelSelection.ztl 
-}
-
-// ie only
-opera,chrome,safari,firefox*,ff*={
-B65-ZK-1642.ztl
-B65-ZK-1215.ztl
-B65-ZK-1748.ztl 
-}
-// ie10 only
-opera,chrome,safari,firefox*,ff*,ie8,ie9={
-B65-ZK-1769.ztl
-}
-
-// can't work correct in ie9,ie10
-ie9,ie10={
-B70-ZK-2290.ztl
-}
-
-// chrome only
-opera,safari,firefox*,ff*,ie*={
 Z60-Selectbox.ztl
-B70-ZK-2363.ztl
-}
-
-// this is used for ie6/7 only in vision
-// no need to run anymore
-all={
-B30-1472534.ztl
-B30-1914215.ztl
-B30-1920630.ztl
-B30-1926094-1.ztl
-B30-1926094.ztl
-B30-1927154.ztl
-B30-1927196.ztl
-B35-2090152.ztl
-B50-2937035.ztl
-B50-3166478.ztl
-B50-3185657.ztl
-B50-3186596.ztl
-B50-3201762.ztl
-Z65-Flex-073.ztl
-B50-3210336.ztl
 Z60_B00604Test.scala
 }
