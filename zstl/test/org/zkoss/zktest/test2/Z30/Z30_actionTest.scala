@@ -16,6 +16,7 @@ package org.zkoss.zktest.test2.Z30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  *
@@ -23,6 +24,7 @@ import org.zkoss.ztl.Tags;
  */
 @Tags(tags = "Z30-action.zul,B,E,Html,UI")
 class Z30_actionTest extends ZTL4ScalaTestCase {
+  @Test
 	def testCase() = {
 		val zscript = {
 <window title="Test of JavaScript Utilities">

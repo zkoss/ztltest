@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
 import org.zkoss.ztl.Element
+import org.junit.Test
 
 
 /**
@@ -30,6 +31,7 @@ import org.zkoss.ztl.Element
 @Tags(tags = "B35-2100338.zul,A,E,Listbox")
 class B35_2100338Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 <?xml version="1.0" encoding="UTF-8"?>
