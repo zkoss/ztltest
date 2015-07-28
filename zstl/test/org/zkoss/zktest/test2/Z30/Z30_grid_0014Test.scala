@@ -18,6 +18,7 @@ package org.zkoss.zktest.test2.Z30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  * A test class for bug grid-0014
@@ -27,6 +28,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "Z30-grid-0014.zul,Z30,A,E,Grid,Paging")
 class Z30_grid_0014Test extends ZTL4ScalaTestCase {
 	
+  @Test
   def testClick() = {
     val zscript = """
 			<?xml version="1.0" encoding="UTF-8"?>
