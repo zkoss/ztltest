@@ -19,12 +19,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZKSeleneseTestCase
 import org.openqa.selenium.Keys
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * @author Hawk
  */
 @Tags(tags = "zbind")
 class Z60_SelectboxTest extends ZTL4ScalaTestCase {
+  @Test
   def test() = {
     val zul = {
 	<include src="bind/comp/selectbox.zul"/>
@@ -41,7 +43,6 @@ class Z60_SelectboxTest extends ZTL4ScalaTestCase {
       waitResponse()
       ZKSeleneseTestCase.assertEquals("2", getText(selectedLabel));
  
-      
     })
   }
 }

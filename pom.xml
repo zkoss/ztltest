@@ -7,7 +7,8 @@
 	<name>ZTL Test cases</name>
 	<description>A sets of testing cases for ZK project</description>
 	<properties>
-		<selenium.version>2.37.0</selenium.version>
+		 <selenium.version>2.47.1</selenium.version>
+		<scala.version>2.11.6</scala.version>
 		<report.dir>report/</report.dir>
 		<test.dir>target/classes</test.dir>
 	</properties>
@@ -99,12 +100,12 @@
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
-			<version>2.10.4</version>
+			<version>${scala.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-compiler</artifactId>
-			<version>2.10.4</version>
+			<version>${scala.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>net.alchim31.maven</groupId>
