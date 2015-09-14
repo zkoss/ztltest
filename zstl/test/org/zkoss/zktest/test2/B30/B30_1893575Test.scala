@@ -18,7 +18,6 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.internal.seleniumemulation.IsChecked
 import org.junit.Test
 
 /**

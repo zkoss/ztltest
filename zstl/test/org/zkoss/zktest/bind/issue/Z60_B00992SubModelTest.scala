@@ -14,6 +14,7 @@ package org.zkoss.zktest.bind.issue
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.openqa.selenium.Keys
+import org.junit.Test
 
 /**
  * @author pao
@@ -21,6 +22,7 @@ import org.openqa.selenium.Keys
 @Tags(tags = "zbind")
 class Z60_B00992SubModelTest extends ZTL4ScalaTestCase {
 
+  @Test
   def testArg() = {
     val zul = {
       <include src="/bind/issue/B00992SubModel.zul"/>
