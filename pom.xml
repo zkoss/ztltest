@@ -108,6 +108,11 @@
 			<version>${scala.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-reflect</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>net.alchim31.maven</groupId>
 			<artifactId>scala-maven-plugin</artifactId>
 			<version>3.1.6</version>
@@ -143,7 +148,7 @@
 						</execution>
 					</executions>
 				<configuration>
-					<scalaVersion>2.10.4</scalaVersion>
+					<scalaVersion>${scala.version}</scalaVersion>
 					<sendJavaToScalac>false</sendJavaToScalac>
 					<sourceDir>zstl/src</sourceDir>
 					<testSourceDir>zstl/test</testSourceDir>
