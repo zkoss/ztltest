@@ -49,6 +49,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       click(calendarTitle);
       waitResponse();
       click(calendarToday);
+      waitResponse();
       verifyEquals(title, jq(calendarTitle).text());
       
       click(jq(".z-datebox-button"));
