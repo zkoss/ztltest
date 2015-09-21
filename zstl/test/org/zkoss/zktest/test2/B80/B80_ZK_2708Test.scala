@@ -153,8 +153,8 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         }
         childrenWidth += rowchildren.outerWidth(true);
       }
-      verifyTrue(abs(totalWidth - childrenWidth) < 10);
-      
+      verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
+
       rowlayout = jq(".z-rowlayout").eq(6);
       totalWidth = rowlayout.outerWidth();
       childrenWidth = 0;
@@ -168,8 +168,8 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         }
         childrenWidth += rowchildren.outerWidth(true);
       }
-      verifyTrue(abs(totalWidth - childrenWidth) < 10);
-      
+      verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
+
       rowlayout = jq(".z-rowlayout").eq(9);
       totalWidth = rowlayout.outerWidth();
       childrenWidth = 0;
@@ -181,8 +181,8 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         }
         childrenWidth += rowchildren.outerWidth(true);
       }
-      verifyTrue(abs(totalWidth - childrenWidth) < 10);
-      
+      verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
+
       var spinner = jq(".z-spinner-input");
       sendKeys(spinner, Keys.ARROW_DOWN);
       waitResponse();
@@ -197,7 +197,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         }
         childrenWidth += rowchildren.outerWidth(true);
       }
-      verifyTrue(abs(totalWidth - childrenWidth) < 10);
+      verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
     })
     
   }
