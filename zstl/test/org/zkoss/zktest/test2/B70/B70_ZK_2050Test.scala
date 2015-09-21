@@ -273,7 +273,9 @@ def testClick() = {
 </window>"""  
   runZTL(zscript,
     () => {
-      click(jq(".z-listheader-checkable"))
+			//spec changes, no "check all" checkbox anymore since zk8
+			verifyTrue(true)
+/*      click(jq(".z-listheader-checkable"))
       waitResponse()
       
       val iter = jq(".z-listitem").iterator()
@@ -283,7 +285,7 @@ def testClick() = {
         hasSelected = jq.hasClass("z-listitem-selected")
       }
         
-      verifyTrue("All the listitem should be selected.", hasSelected)
+      verifyTrue("All the listitem should be selected.", hasSelected)*/
     })
     
   }

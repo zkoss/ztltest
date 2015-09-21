@@ -22,11 +22,10 @@ def testClick() = {
 	<include src="/test2/B70-ZK-2473_include.xhtml" />
 </zk>
 
-
-"""  
+"""
   runZTL(zscript,
     () => {
-      var label = jq(".z-text").first();
+      var label = jq("label > span").first();
             
       verifyTrue(label.length() > 0 && label.text().indexOf("Included content") > 0);
       
