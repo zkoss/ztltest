@@ -52,6 +52,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       verifyEquals("renderer1", options.eq(1).text());
       
       click(btn)
+      waitResponse();
       verifyEquals(2, options.length());
       verifyEquals("renderer2", options.eq(0).text());
       verifyEquals("renderer2", options.eq(1).text());

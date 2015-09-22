@@ -49,17 +49,17 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     () => {
       var div = jq("#xdiv");
       verifyEquals("red", div.text());
-      verifyEquals("color: red", div.attr("style"));
-      
+      verifyTrue(div.attr("style").contains("red") || div.attr("style").contains("RED"));
+
       click(jq(".z-button").first());
       waitResponse();
       verifyEquals("green", div.text());
-      verifyEquals("color: green;", div.attr("style"));
-      
+      verifyTrue(div.attr("style").contains("green") || div.attr("style").contains("GREEN"));
+
       click(jq(".z-button").last());
       waitResponse();
       verifyEquals("blue", div.text());
-      verifyEquals("color: blue;", div.attr("style"));
+      verifyTrue(div.attr("style").contains("blue") || div.attr("style").contains("BLUE"));
     })
     
   }
