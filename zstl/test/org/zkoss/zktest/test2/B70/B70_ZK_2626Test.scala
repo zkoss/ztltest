@@ -66,8 +66,8 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     () => {
       var tree1 = jq(".z-tree-body .z-treecell-content").eq(0);
       var tree2 = jq(".z-tree-body.z-tree-autopaging .z-treecell-content").eq(0);
-      verifyEquals(16, tree1.height());
-      verifyEquals(16, tree2.height());
+      verifyTolerant(16, tree1.height(), 2);
+      verifyTolerant(16, tree2.height(), 2);
     })
     
   }

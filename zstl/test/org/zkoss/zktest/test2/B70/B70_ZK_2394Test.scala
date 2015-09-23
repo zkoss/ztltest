@@ -1,11 +1,11 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.{ZK, Tags, ZKSeleneseTestBase}
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
 import java.awt.event.KeyEvent
 import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.ztl.util.ConfigHelper
 
 @Tags(tags = "B70-ZK-2394.zul")
 class B70_ZK_2394Test extends ZTL4ScalaTestCase {
@@ -66,6 +66,8 @@ def testClick() = {
     () => {
       val btn = jq(".z-button");
       click(btn);
+      if (ZK.is("ie8"))
+        sleep(100)
       waitResponse();
       var text = jq("#zk_log").eval("val()");
       var first = text.split("\n")(0);
