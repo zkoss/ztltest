@@ -225,6 +225,8 @@ B50-3013683.ztl
 B35-2149043.ztl
 //fake scrollbar
 B70-ZK-2418.ztl
+//very long operation
+B70-ZK-2538.ztl
 }
 chrome,safari={
 // unsupported
@@ -569,5 +571,5 @@ Z65-Flex-069.ztl
 Z60-Listbox-ListModelMap-ROD.ztl
 Z60-ChildrenMenu.ztl
 Z60-Selectbox.ztl
-Z60-B00604Test.ztl
+Z60-B00604.ztl
 }

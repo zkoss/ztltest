@@ -26,8 +26,8 @@ def testClick() = {
   runZTL(zscript,
     () => {
       var label = jq("label > span").first();
-            
-      verifyTrue(label.length() > 0 && label.text().indexOf("Included content") > 0);
+
+      verifyTrue(label.length() > 0 && label.text().contains("Included content"));
       
     })
     

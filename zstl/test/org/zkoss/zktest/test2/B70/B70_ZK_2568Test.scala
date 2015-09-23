@@ -1,11 +1,10 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.{ZK, Tags, ZKSeleneseTestBase}
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
 import java.awt.event.KeyEvent
 import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
 
 @Tags(tags = "B70-ZK-2568.zul")
 class B70_ZK_2568Test extends ZTL4ScalaTestCase {
@@ -36,9 +35,9 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 </label>
 <script type="text/javascript"><![CDATA[
  	function getColSpan() {
-		var colspan = jq('.z-group-inner').attr('colSpan');
+		var colspan = jq('.z-group-inner')[0].colSpan;
 		zk.log(colspan);
-		colspan = jq('.z-listgroup-inner').attr('colSpan');
+		colspan = jq('.z-listgroup-inner')[0].colSpan;
 		zk.log(colspan);
  	}
 ]]></script>
@@ -65,8 +64,10 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
   runZTL(zscript,
     () => {
       click(jq("@button"));
+			if (ZK.is("ie8"))
+				sleep(100)
       waitResponse();
-      var result = "undefined\nundefined";
+      var result = "1\n1";
       verifyTrue(jq("#zk_log").eval("val()").trim() == result);
     })
     
