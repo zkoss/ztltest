@@ -2,7 +2,7 @@ package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.{ZK, Tags}
 import org.zkoss.ztl.util.ConfigHelper
 
 @Tags(tags = "B80-ZK-2660.zul")
@@ -91,6 +91,8 @@ for (int i = 0; i < 10; i++) {
       click(header);
       waitResponse();
       mouseMoveAt(header, "1,1");
+      if (ZK.is("ie9"))
+        sleep(100)
       waitResponse();
       click(btn);
       waitResponse();
