@@ -42,7 +42,7 @@
 			click(jq("@treerow").toWidget().$n("icon"));
 			click(jq("@treerow").toWidget().$n("icon"));
 			click(jq("@treecell:contains(1.1.2)"));
-			verifyEquals(1, jq("td.z-treerow-focus").length());
+			verifyEquals(1, jq("tr.z-treerow-focus").length());
 		]]></client>
 	</case>
 </test>
