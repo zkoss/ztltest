@@ -109,6 +109,15 @@ Usage:
        </java>
 	</target>
 	<target name="runcase">
+		<exec executable="sh" dir="." failonerror="true">
+			<arg line="./lib/run-maven-test-one.sh"/>
+			<arg value="${test.dir}"/>
+			<arg value="${browser}"/>
+			<arg value="${case}"/>
+		</exec>
+	</target>
+	<!-- use maven to run case
+	<target name="runcase">
 		<echo>Case: -Dcase=${case}</echo>
 		<java classname="org.zkoss.ztl.util.ZtlGenerator"
            	fork="true">
@@ -124,7 +133,7 @@ Usage:
          </classpath>
          <jvmarg value="-Dbrowser=${browser}"/>
        </java>
-	</target>
+	</target> -->
 	<target name="junitTag" depends="generate,compileztl">
 		<junit printsummary="on" fork="true" forkmode="once" haltonfailure="false"
 			   showoutput="true">
