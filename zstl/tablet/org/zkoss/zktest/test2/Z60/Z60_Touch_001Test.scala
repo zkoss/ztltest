@@ -3,7 +3,6 @@ package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.Widget
-import org.openqa.selenium.android.AndroidDriver
 import org.zkoss.ztl.JQuery
 import org.openqa.selenium.interactions.TouchScreen
 import org.openqa.selenium.Keys
