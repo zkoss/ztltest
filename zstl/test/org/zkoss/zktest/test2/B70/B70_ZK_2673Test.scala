@@ -16,6 +16,7 @@ package org.zkoss.zktest.test2.B70
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+import org.junit.Test
 
 /**
  * 
@@ -23,6 +24,7 @@ import org.zkoss.ztl.Tags;
  */
 @Tags(tags = "B70-ZK-2673.zul")
 class B70_ZK_2673Test extends ZTL4ScalaTestCase {
+  @Test
 	def testCase() = {
 		val zscript = { """
 			|<?xml version="1.0" encoding="UTF-8"?>

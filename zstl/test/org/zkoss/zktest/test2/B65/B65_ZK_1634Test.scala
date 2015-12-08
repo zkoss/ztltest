@@ -2,22 +2,23 @@ package org.zkoss.zktest.test2.B65
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1634.zul")
 class B65_ZK_1634Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
     val zscript = """
-
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B65-ZK-1634.zul
 
 	Purpose:
-
+		
 	Description:
-
+		
 	History:
 		Mon, Feb 25, 2013  2:42:22 PM, Created by jumperchen
 
@@ -40,12 +41,57 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
 	model.addOpenObject(n1);
 	model.addOpenObject(n2);
 	model.addOpenObject(n3);
+	
+	
+	public class VR implements org.zkoss.xel.VariableResolver {
+		Object each;
+		public VR(Object each){
+			this.each = each;
+		}
+		
+		public Object resolveVariable(String name) {
+			if ("each".equals(name)) {
+				return each;
+			}
+		}
+	}
+	
+	public class TR implements TreeitemRenderer {
+		public void render(Treeitem ti, Object node, int index) {
+			Tree tree = ti.getTree();
+			Component parent = ti.getParent();
+			
+			if(tree==null){
+				throw new RuntimeException("Tree is null");
+			}
+			if(parent==null){
+				throw new RuntimeException("Parent is null");
+			}
+			
+			org.zkoss.zk.ui.util.Template tm = tree.getTemplate("model");
+			
+			final Object each = node;
+			
+			org.zkoss.xel.VariableResolver vr = new VR(node);
+			
+			Component[] items = tm.create(ti.getParent(), ti, vr, null);
+			if (items.length != 1)
+				throw new UiException("The model template must have exactly one item, not " + items.length);
 
-	TreeitemRenderer myRenderer = new org.zkoss.zktest.test2.B65_ZK_1634Renderer();
+			Treeitem nti = (Treeitem) items[0];
+			if (nti.getValue() == null) //template might set it
+				nti.setValue(node);
+			ti.setAttribute("org.zkoss.zul.model.renderAs", nti);
+			//indicate a new item is created to replace the existent one
+			ti.detach();
+		}
+	}
+	;
+	TreeitemRenderer myRenderer = new TR();
 ]]></zscript>
 	<label multiline="true">
 		1.click on set Node2 Data, the node 2 label should change to New Node 2, and still has child Node3
-		2.if the bug is not fixed, you will get exception
+		2.if the bug is not fixed, you will get exception 
 	</label>
 	<button label="set Node2 Data" onClick='n2.setData("New Node 2")'/>
 	<tree model="${model}" itemRenderer="${myRenderer}">
@@ -61,7 +107,6 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
 		</template>
 	</tree>
 </zk>
-
     """
 
     runZTL(zscript,
