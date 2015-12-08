@@ -2,12 +2,30 @@ package org.zkoss.zktest.test2.B65
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1634.zul")
 class B65_ZK_1634Test extends ZTL4ScalaTestCase {
 
+  @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript = """
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+B65-ZK-1634.zul
+
+	Purpose:
+		
+	Description:
+		
+	History:
+		Mon, Feb 25, 2013  2:42:22 PM, Created by jumperchen
+
+Copyright (C) 2013 Potix Corporation. All Rights Reserved.
+
+-->
+<zk>
 	<zscript><![CDATA[
 	DefaultTreeNode r = new DefaultTreeNode("root", new ArrayList());
 	DefaultTreeNode n1 = new DefaultTreeNode("Node 1", new ArrayList());
