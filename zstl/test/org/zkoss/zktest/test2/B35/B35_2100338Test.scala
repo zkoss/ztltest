@@ -109,6 +109,7 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
         	var a=jq(".z-listcell");
         	for (i <- 0 until a.length()) {
         		var vl=a.eq(i).text();
+                // should see the first 10 elements of model 2
         		verifyEquals(vl,"B option "+i);
         	}
         	
@@ -127,8 +128,9 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
         	//Label change 
         	a=jq(".z-listcell");
         	for (i <- 0 until a.length()) {
-        	    var i1=i;
-        		var vl=a.eq(i).text();
+        	    var i1 = i + 50;
+        		var vl = a.eq(i).text();
+                // should see the last 5 elements of model 1
         		verifyEquals(vl,"A option "+i1);
         	}
         	
@@ -143,8 +145,9 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
         	//Label change
         	a=jq(".z-listcell");
         	for (i <- 0 until a.length()) {
-        	    var i1=i+60;
-        		var vl=a.eq(i).text();
+        	    var i1 = i + 50;
+        		var vl = a.eq(i).text();
+                // should see the 50~59 elements of model 2
         		verifyEquals(vl,"B option "+i1);
         	}
         	
@@ -163,9 +166,10 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
         	//Label change
         	var b=jq(".z-row .z-label");
         	for (i <- 0 until b.length()) {
-						var i1=i+60;
+				var i1=i;
         		var vl=getText(b.eq(i));
         		var v1=("B option "+i1);
+                // should see the first 10 elements of model 2
         		verifyEquals(vl,v1);
         	}
         	
@@ -184,8 +188,9 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
         	//Label change 
         	b=jq(".z-row .z-label");
         	for (i <- 0 until b.length()) {
-        	    var i1=i;
-        		var vl=getText(b.eq(i));
+        	    var i1 = i + 50;
+        		var vl = getText(b.eq(i));
+                // should see the last 5 elements of model 1
         		verifyEquals(vl,"A option "+i1);
         	}
         	
@@ -200,8 +205,9 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
         	//Label change
         	b=jq(".z-row .z-label");
         	for (i <- 0 until b.length()) {
-        	    var i1=i+60;
+        	    var i1=i+50;
         		var vl=getText(b.eq(i));
+                // should see the 50~59 elements of model 2
         		verifyEquals(vl,"B option "+i1);
         	}
                    
