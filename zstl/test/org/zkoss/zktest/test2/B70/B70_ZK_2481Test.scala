@@ -64,7 +64,7 @@ def testClick() = {
 """  
   runZTL(zscript,
     () => {
-      var navbar = jq(".z-navbar:last");
+      var navbar = jq(".z-navbar:last a");
       click(navbar);
       waitResponse();
       var navitem = jq(".z-navbar:last>ul>li>ul");

@@ -67,7 +67,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       val icon = jq(".z-nav")
       click(icon)
       waitResponse()
-      click(jq(".z-nav-popup .z-nav").first())
+      click(jq(".z-nav-popup .z-nav-content").first())
       waitResponse()
       mouseOut(icon)
       waitResponse()
