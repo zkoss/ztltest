@@ -144,8 +144,8 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """  
   runZTL(zscript,
     () => {
-      var textbox = jq(".z-listbox .z-textbox");
-      click(textbox.eq(0));
+      var textbox = jq(".z-listbox .z-textbox")
+      click(textbox.first);
       waitResponse();
       for (i <- 0 to 10) {
         sendKeys(textbox.eq(i), Keys.TAB);

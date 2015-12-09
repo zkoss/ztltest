@@ -62,9 +62,9 @@ class B70_ZK_2709_1Test extends ZTL4ScalaTestCase {
 			clickAt(jq("@label"), "50,30")
 			waitResponse()
 			keyPress(jq("input"), "selenium is really suck!!!!!!")
-			waitResponse()
+			waitResponse(true)
 			blur(jq("input"))
-			waitResponse(500)
+			waitResponse(true)
 			verifyTrue(getZKLog().contains("it works"))
 		})
 	}

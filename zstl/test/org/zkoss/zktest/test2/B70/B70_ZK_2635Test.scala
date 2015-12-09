@@ -46,13 +46,14 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """  
   runZTL(zscript,
     () => {
-      var nav = jq(".z-nav");
-      click(nav);
-      waitResponse();
-      var left = jq(".z-nav-popup").css("left");
-      click(jq(".z-navitem").eq(0));
-      waitResponse();
-      verifyEquals(jq(".z-nav-popup").css("left"), left);
+      mouseMoveAt(jq(".z-navbar").first, "10, 10")
+      waitResponse()
+      click(jq(".z-nav").first)
+      waitResponse()
+      val left = jq(".z-nav-popup").css("left")
+      click(jq(".z-navitem").first)
+      waitResponse()
+      verifyEquals(jq(".z-nav-popup").css("left"), left)
     })
     
   }

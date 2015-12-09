@@ -47,9 +47,9 @@ class B70_ZK_2136Test extends ZTL4ScalaTestCase {
       () => {
         // don't support ie9
         mouseDownAt(jq("$item1"), "5,2");
-        waitResponse();
+        waitResponse(true);
         mouseMoveAt(jq("$target"), "10,10");
-        waitResponse();
+        waitResponse(true);
         sleep(500);
         
         verifyTrue("the detail text of the paging bar should be updated", jq(".z-drop-ghost").eval("attr('class')").contains("z-drop-allow"));

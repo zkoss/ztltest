@@ -29,19 +29,6 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 
 -->
 <zk>
-<label multiline="true">
-1. click the button
-2. zk.log should not be '2' (two undefined instead)
-</label>
-<script type="text/javascript"><![CDATA[
- 	function getColSpan() {
-		var colspan = jq('.z-group-inner')[0].colSpan;
-		zk.log(colspan);
-		colspan = jq('.z-listgroup-inner')[0].colSpan;
-		zk.log(colspan);
- 	}
-]]></script>
-	<button label="button" onClick='Clients.evalJavaScript("getColSpan()")' />
 	<grid width="100%">
 	    <rows>
 	        <group>
@@ -60,16 +47,11 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	</listbox>
 </zk>
     
-"""  
+"""
   runZTL(zscript,
     () => {
-      click(jq("@button"));
-			if (ZK.is("ie8"))
-				sleep(100)
-      waitResponse();
-      var result = "1\n1";
-      verifyTrue(jq("#zk_log").eval("val()").trim() == result);
+      verifyTrue(!jq(".z-group-inner").first.attr("colSpan").equals("2"))
+      verifyTrue(!jq(".z-listgroup-inner").first.attr("colSpan").equals("2"))
     })
-    
   }
 }

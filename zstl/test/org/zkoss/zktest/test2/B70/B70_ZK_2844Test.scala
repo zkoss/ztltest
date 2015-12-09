@@ -43,11 +43,12 @@ Copyright (C) 2015 Potix Corporation. All Rights Reserved.
     () => {
       //click the left button
       click(jq("button").eq(0))
-      waitResponse()
+      waitResponse(true)
       switchTab()
+      waitResponse(true)
       //click the right button
       click(jq("button").eq(1))
-      waitResponse()
+      waitResponse(true)
       //check message in zk.log is "au working"
       verifyEquals("au working\n", getZKLog())
     })
