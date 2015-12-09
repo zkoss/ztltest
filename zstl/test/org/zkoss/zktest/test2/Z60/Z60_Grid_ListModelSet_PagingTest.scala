@@ -35,7 +35,7 @@ import java.lang._
  */
 @Tags(tags = "Z60-Grid-ListModelSet-Paging.zul,Z60,A,E,Grid,ListModelSet,Paging")
 class Z60_Grid_ListModelSet_PagingTest extends ZTL4ScalaTestCase {
-	
+	@Test
   def testClick() = {
     val zscript = """
 			<zk>

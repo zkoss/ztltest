@@ -44,25 +44,26 @@ def testClick() = {
 """  
   runZTL(zscript,
     () => {
-      var vsplitter = jq(".z-splitter-horizontal");
+      var vsplitter = jq(".z-splitter-icon.z-icon-ellipsis-vertical").eq(0);
       var startL = vsplitter.positionLeft();
       var startT = vsplitter.positionTop();
       var endL = startL - 200;
       dragdropTo(vsplitter, startL + "," + startT, endL + "," + startT);
-      waitResponse();
+      waitResponse(true);
       var oldWidth = jq(".z-vbox").width();
       startL = vsplitter.positionLeft();
       startT = vsplitter.positionTop();
       dragdropTo(vsplitter, startL + "," + startT, (startL + 30) + "," + startT);
+      waitResponse(true);
       verifyTrue(jq(".z-vbox").width() - oldWidth > 0);
-      waitResponse();
       
-      var hsplitter = jq(".z-splitter-vertical");
+      var hsplitter = jq(".z-splitter-icon.z-icon-ellipsis-horizontal").eq(0);
       var oldHeight = jq(jq(".z-div").first().toWidget().$n("chdex")).height();
       startL = hsplitter.positionLeft();
       startT = hsplitter.positionTop();
       var endT = startT - 100;
       dragdropTo(hsplitter, startL + "," + startT, startL + "," + endT);
+      waitResponse(true);
       verifyTrue(jq(jq(".z-div").first().toWidget().$n("chdex")).height() - oldHeight < 0);
     })
     
