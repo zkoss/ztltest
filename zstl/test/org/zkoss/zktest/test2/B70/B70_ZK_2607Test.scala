@@ -40,8 +40,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	<button id="btn" label="Change renderer" />
   </window>
 </zk>
-    
-"""  
+"""
   runZTL(zscript,
     () => {
       var btn = jq("@button");

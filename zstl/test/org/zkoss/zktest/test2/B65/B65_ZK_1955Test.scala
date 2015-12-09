@@ -80,7 +80,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
       verifyTrue(log.`val`().contains("focus is in bandbox"))
       
       log.toElement().set("value", "")
-      clickAt(bb.$n("real"), "200,200")
+      click(jq(".z-window-content"))
       waitResponse()
       sleep(300)
       verifyTrue(log.`val`().contains("I do not know where is focus"))
