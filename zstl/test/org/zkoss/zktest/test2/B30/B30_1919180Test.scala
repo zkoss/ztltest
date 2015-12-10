@@ -86,7 +86,7 @@ class B30_1919180Test extends ZTL4ScalaTestCase {
 
 			for ((btn, size) <- List((btn2, 150), (btn3, 300), (btn1, 50))) {
 				click(btn)
-				waitResponse
+				waitResponse(true)
 				val $row1 = jq(jq(".z-row:eq(0)").children().get(0))
 				val $row2 = jq(jq(".z-row:eq(0)").children().get(1))
 				val $row3 = jq(jq(".z-row:eq(0)").children().get(2))

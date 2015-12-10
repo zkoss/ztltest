@@ -70,7 +70,7 @@ Copyright (C) 2015 Potix Corporation. All Rights Reserved.
       waitResponse()
       //click the local button once
       click(jq("button").eq(1))
-      waitResponse()
+      waitResponse(true)
       //check for 3 messages in zk.log
       verifyEquals("hello from global f1()\nhello from global f1()\nhello from local f2()\n", getZKLog())
     })

@@ -40,21 +40,20 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	<button id="btn" label="Change renderer" />
   </window>
 </zk>
+<<<<<<< HEAD
 """
   runZTL(zscript,
     () => {
-      var btn = jq("@button");
-      var options = jq(".z-selectbox option");
-      
-      verifyEquals(2, options.length());
-      verifyEquals("renderer1", options.eq(0).text());
-      verifyEquals("renderer1", options.eq(1).text());
-      
+      val btn = jq("@button")
+      val options = jq(".z-selectbox option")
+      verifyEquals(2, options.length())
+      verifyEquals("renderer1", options.eq(0).text())
+      verifyEquals("renderer1", options.eq(1).text())
       click(btn)
-      waitResponse();
-      verifyEquals(2, options.length());
-      verifyEquals("renderer2", options.eq(0).text());
-      verifyEquals("renderer2", options.eq(1).text());
+      waitResponse(true)
+      verifyEquals(2, options.length())
+      verifyEquals("renderer2", options.eq(0).text())
+      verifyEquals("renderer2", options.eq(1).text())
     })
     
   }

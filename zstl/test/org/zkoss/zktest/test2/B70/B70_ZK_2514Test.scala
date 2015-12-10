@@ -42,26 +42,25 @@ def testClick() = {
 """  
   runZTL(zscript,
     () => {
-      var vsplitter = jq(".z-splitter-horizontal");
-      var startL = vsplitter.positionLeft();
-      var startT = vsplitter.positionTop();
-      var endL = startL - 200;
-      dragdropTo(vsplitter, startL + "," + startT, endL + "," + startT);
-      waitResponse();
-      var oldWidth = jq(".z-vbox").width();
-      startL = vsplitter.positionLeft();
-      startT = vsplitter.positionTop();
-      dragdropTo(vsplitter, startL + "," + startT, (startL + 30) + "," + startT);
-      verifyTrue(jq(".z-vbox").width() - oldWidth > 0);
-      waitResponse();
-      
-      var hsplitter = jq(".z-splitter-vertical");
-      var oldHeight = jq(".z-vbox").height();
-      startL = hsplitter.positionLeft();
-      startT = hsplitter.positionTop();
-      var endT = startT - 100;
-      dragdropTo(hsplitter, startL + "," + startT, startL + "," + endT);
-      verifyTrue(jq(".z-vbox").height() - oldHeight == 0);
+      val vsplitter = jq(".z-splitter-horizontal")
+      var startL = vsplitter.positionLeft()
+      var startT = vsplitter.positionTop()
+      val endL = startL - 200;
+      dragdropTo(vsplitter, startL + "," + startT, endL + "," + startT)
+      waitResponse(true)
+      val oldWidth = jq(".z-vbox").width()
+      startL = vsplitter.positionLeft()
+      startT = vsplitter.positionTop()
+      dragdropTo(vsplitter, startL + "," + startT, (startL + 30) + "," + startT)
+      verifyTrue(jq(".z-vbox").width() - oldWidth > 0)
+      waitResponse(true)
+      val hsplitter = jq(".z-splitter-vertical")
+      val oldHeight = jq(".z-vbox").height()
+      startL = hsplitter.positionLeft()
+      startT = hsplitter.positionTop()
+      val endT = startT - 100
+      dragdropTo(hsplitter, startL + "," + startT, startL + "," + endT)
+      verifyTrue(jq(".z-vbox").height() - oldHeight == 0)
       
     })
     
