@@ -17,10 +17,10 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.Z30
 
 import scala.collection.mutable.ListBuffer
-
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.util.Scripts
 import org.zkoss.ztl.Tags
+import org.junit.Test
 
 /**
  * A test class for bug grid-0016
@@ -29,7 +29,7 @@ import org.zkoss.ztl.Tags
  */
 @Tags(tags = "Z30-grid-0016.zul,Z30,A,E,Grid,Row")
 class Z30_grid_0016Test extends ZTL4ScalaTestCase {
-	
+	@Test
   def testClick() = {
     val zscript ="""
 			<window>

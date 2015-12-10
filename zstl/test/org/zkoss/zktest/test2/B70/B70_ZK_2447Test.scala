@@ -48,6 +48,7 @@ def testClick() = {
       var last = jq("@listitem").last();
       var showBtn = jq(".z-button:contains(Show)");
       var removeBtn = jq(".z-button:contains(Remove)");
+      waitResponse(true);
       click(first);
       waitResponse();
       click(last);
