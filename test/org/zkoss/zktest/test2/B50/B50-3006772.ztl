@@ -39,10 +39,14 @@
 		]]></server>
 		<client><![CDATA[
 			click(jq("@treecell:contains(1.1.1)"));
+			waitResponse(true);
 			click(jq("@treerow").toWidget().$n("icon"));
+			waitResponse(true);
 			click(jq("@treerow").toWidget().$n("icon"));
+			waitResponse(true);
 			click(jq("@treecell:contains(1.1.2)"));
-			verifyEquals(1, jq("tr.z-treerow-focus").length());
+			waitResponse(true);
+			verifyEquals(1, jq("tr.z-treerow-selected").length());
 		]]></client>
 	</case>
 </test>

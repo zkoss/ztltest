@@ -61,12 +61,11 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """  
   runZTL(zscript,
     () => {
-      var label = jq(".z-tabpanel .z-label");
-      var tab = jq(".z-tab");
-      dragdropToObject(label, tab, "0,0", "0,0");
-      waitResponse();
-      
-      verifyEquals("dropped: 'in tabbox'", jq(".z-tab .z-tab-text").text());
+      val label = jq(".z-tabpanel .z-label")
+      val tab = jq(".z-tab")
+      dragdropToObject(label, tab, "0,0", "0,0")
+      waitResponse(true)
+      verifyEquals("dropped: 'in tabbox'", jq(".z-tab .z-tab-text").text())
     })
     
   }

@@ -44,17 +44,16 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """  
   runZTL(zscript,
     () => {
-      var btn = jq("@button");
-      var options = jq(".z-selectbox option");
-      
-      verifyEquals(2, options.length());
-      verifyEquals("renderer1", options.eq(0).text());
-      verifyEquals("renderer1", options.eq(1).text());
-      
+      var btn = jq("@button")
+      var options = jq(".z-selectbox option")
+      verifyEquals(2, options.length())
+      verifyEquals("renderer1", options.eq(0).text())
+      verifyEquals("renderer1", options.eq(1).text())
       click(btn)
-      verifyEquals(2, options.length());
-      verifyEquals("renderer2", options.eq(0).text());
-      verifyEquals("renderer2", options.eq(1).text());
+      waitResponse()
+      verifyEquals(2, options.length())
+      verifyEquals("renderer2", options.eq(0).text())
+      verifyEquals("renderer2", options.eq(1).text())
     })
     
   }
