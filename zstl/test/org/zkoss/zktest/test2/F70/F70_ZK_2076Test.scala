@@ -81,7 +81,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     () => {
       val t1 = jq("$t1");
       val t2 = jq("$t2");
-      
+      waitResponse(true);
       click(jq("$b1"));
       waitResponse();
       verifyTrue(t1.eval("val()").equals("test1"));

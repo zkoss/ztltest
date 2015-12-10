@@ -1,11 +1,8 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2622.zul")
 class B70_ZK_2622Test extends ZTL4ScalaTestCase {
@@ -13,7 +10,6 @@ class B70_ZK_2622Test extends ZTL4ScalaTestCase {
 @Test
 def testClick() = {
   val zscript = """
-
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -36,7 +32,6 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     <button id="btn" label="Click Me To Reproduce The Bug" onClick='inc.src=null; inc.src="test2/B70-ZK-2622_1.zul"' />
   </window>
 </zk>
-    
 """  
   runZTL(zscript,
     () => {
@@ -45,8 +40,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       verifyEquals(jq("#zk_log").eval("val()").trim(), result);
       var btn = jq("@button");
       click(btn);
-      waitResponse();
-      sleep(1000);
+      waitResponse(true);
       result = "hello\n" + 
     		  	"</Script>\n" +
     		  	"hello\n" + 
