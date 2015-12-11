@@ -55,13 +55,10 @@ public class SliderDoubleVM {
   runZTL(zscript,
     () => {
       val sliderBtn = jq(".z-slider-button");
-      var startL = sliderBtn.positionLeft();
-      var startT = sliderBtn.positionTop();
-      var endL = startL + 55;
       
       mouseOver(sliderBtn);
       waitResponse();
-      dragdropTo(sliderBtn, startL + "," + startT, endL + "," + startT);
+      dragdropTo(sliderBtn, "0,0", "55,0");
       waitResponse();
       verifyTrue(jq(".z-label").last().text().equals("3.5") && sliderBtn.attr("title").equals("3.5"));
     })
