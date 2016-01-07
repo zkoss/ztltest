@@ -12,38 +12,7 @@ class B70_ZK_2607Test extends ZTL4ScalaTestCase {
 
 @Test
 def testClick() = {
-  val zscript = """
-
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-B70-ZK-2607.zul
-
-	Purpose:
-		
-	Description:
-		
-	History:
-		Tue, Feb 24, 2015  4:06:05 PM, Created by jumperchen
-
-Copyright (C)  Potix Corporation. All Rights Reserved.
-
--->
-<zk>
-  <window border="normal" title="hello" apply="org.zkoss.zktest.test2.B70_ZK_2607">
-	You should see "renderer1" in the dropdown list.
-	<separator/>
-	After click the "Change renderer" button, you should only see "renderer2" in the dropdown list.
-    
-    <selectbox id="mySelectbox"/>
-  	
-	<button id="btn" label="Change renderer" />
-  </window>
-</zk>
-    
-"""  
-  runZTL(zscript,
-    () => {
+  runZTL(() => {
       var btn = jq("@button")
       var options = jq(".z-selectbox option")
       verifyEquals(2, options.length())

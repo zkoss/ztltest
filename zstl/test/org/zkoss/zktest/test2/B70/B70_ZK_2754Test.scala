@@ -54,14 +54,14 @@ def testClick() = {
         """
       executeScript(jqScript + "btns[0].click();")
       waitResponse()
-      verifyEquals(msg_q1 + "  " + msg_q1, jq(".z-label:eq(1)").text().trim)
+      verifyEquals(msg_q1 + " " + msg_q1, jq(".z-label:eq(1)").text().trim)
       executeScript(jqScript + "btns[1].click();")
       waitResponse()
-      verifyEquals(msg_q2 + "  " + msg_q2, jq(".z-label:eq(2)").text().trim)
+      verifyEquals(msg_q2 + " " + msg_q2, jq(".z-label:eq(2)").text().trim)
       executeScript(jqScript + "btns[2].click();")
       waitResponse()
-      verifyEquals(msg_q1 + "  " + msg_q1 + "  " + msg_q1, jq(".z-label:eq(1)").text().trim)
-      verifyEquals(msg_q2 + "  " + msg_q2 + "  " + msg_q2, jq(".z-label:eq(2)").text().trim)
+      verifyEquals(msg_q1 + " " + msg_q1 + " " + msg_q1, jq(".z-label:eq(1)").text().trim)
+      verifyEquals(msg_q2 + " " + msg_q2 + " " + msg_q2, jq(".z-label:eq(2)").text().trim)
     })
   }
 }
