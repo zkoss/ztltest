@@ -136,6 +136,10 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
   def runZTL(zscript: scala.xml.Elem, executor: () => Unit){
 	runZTL(zscript.toString(),executor);
   }  
+  def runZTL(executor: () => Unit){
+    val zscript = "<include src=\"/test2/" + this.getClass.getSimpleName.replace("_", "-").replace("Test", ".zul") + "\"/>"
+    runZTL(zscript.toString(),executor);
+  }
 
   def engine(): Widget = _engine.get();
   def driver() = getWebDriver()
