@@ -1,15 +1,15 @@
-package org.zkoss.zktest.test2.B80
+package org.zkoss.zktest.test2.F80
+
+import java.text.SimpleDateFormat
+import java.util.Date
 
 import org.junit.Test
+import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.util.ConfigHelper
-import org.openqa.selenium.Keys
-import java.util.Date
-import java.text.SimpleDateFormat
 
-@Tags(tags = "B80-ZK-2641.zul")
-class B80_ZK_2641Test extends ZTL4ScalaTestCase {
+@Tags(tags = "F80-ZK-2641.zul")
+class F80_ZK_2641Test extends ZTL4ScalaTestCase {
 
 @Test
 def testClick() = {
