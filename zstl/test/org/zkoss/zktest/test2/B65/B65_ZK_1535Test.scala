@@ -2,40 +2,52 @@ package org.zkoss.zktest.test2.B65
 
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.junit.Test
 
 @Tags(tags = "B65-ZK-1535.zul")
 class B65_ZK_1535Test extends ZTL4ScalaTestCase {
-
+  @Test
   def testClick() = {
-    val zscript =
-      """<zk>
-        <label multiline="true">
-          1. Open datebox calendar.
-	2. Change to December 2012 or March 2013, should see 6 weeks showed.
-	3. check calendar also.
-        </label>
-        <hlayout>
-          <datebox id="db"/>
-          <calendar/>
-        </hlayout>
-      </zk>"""
-
-    runZTL(zscript,
+    runZTL(
       () => {
-        click(engine.$f("db").$n("btn"))
-        waitResponse()
-        List(1, 1) foreach { i =>
-          val calendar = jq(".z-calendar:eq(" + i + ")")
-          click(calendar.find(".z-calendar-text:eq(0)"))
-          waitResponse()
-          click(calendar.find(".z-calendar-month td:eq(2)"))
-          waitResponse()
-          verifyEquals("should see 6 weeks showed.", calendar.find(".z-calendar tbody tr").length(), 6)
-          click(calendar.find(".z-calendar-weekday:contains(20)"))
-          waitResponse()
-        }
-
+        // check datebox popup
+        // 1. type the date
+        `type`(jq(".z-datebox-input"), "Mar 1, 2013");
+        waitResponse();
+        // 2. open popup
+        click(jq(".z-datebox-button"));
+        waitResponse(true);
+        // 3. make sure it is showing Mar, 2013
+        verifyEquals("should see Mar", "Mar", jq(".z-datebox-popup .z-calendar-text:eq(0)").text());
+        verifyEquals("should see 2013", "2013", jq(".z-datebox-popup .z-calendar-text:eq(1)").text());
+        // 4. make sure we're seeing 6 weeks shown
+        verifyEquals("should see 6 weeks showed.", jq(".z-datebox-popup").find(".z-calendar tbody tr").length(), 6)
+        // 5. close the popup first
+        click(jq(".z-datebox-button"));
+        waitResponse(true);
+        
+        // check calendar
+        // 6. click year three times
+        click(jq(".z-calendar-text").last());
+        waitResponse(true)
+        click(jq(".z-calendar-text").last());
+        waitResponse(true)
+        click(jq(".z-calendar-text").last());
+        waitResponse(true)
+        // 7. make sure we're seeing "2000-2099"
+        verifyEquals("should see 2000-2099", "2000-2099", jq(".z-calendar-text").last().text());
+        // 8. go to 2013
+        click(jq(".z-calendar-cell[data-value=2010]"))
+        waitResponse(true)
+        click(jq(".z-calendar-cell[data-value=2013]"))
+        waitResponse(true)
+        click(jq(".z-calendar-cell[data-value=2]"))
+        waitResponse(true)
+        // 9. make sure we're seeing Mar, 2013
+        verifyEquals("should see 2013", "2013", jq(".z-calendar-text").last())
+        verifyEquals("should see Mar", "Mar", jq(".z-calendar-text").last().prev())
+        // 10. make sure we're seeing 6 weeks shown
+        verifyEquals("should see 6 weeks showed.", jq(".z-calendar").last().find("tbody tr").length(), 6)
       })
-
   }
 }

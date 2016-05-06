@@ -35,38 +35,14 @@ import java.lang._
  */
 @Tags(tags = "F55-ZK-408.zul,F60,A,E,textAs")
 class F55_ZK_408Test extends ZTL4ScalaTestCase {
-	
+  @Test
   def testClick() = {
-    val zscript = """
-			<zk>
-				The content of the following block shall be the same.
-				<html><![CDATA[
-				<ol style="border: 1px solid blue;">
-					<li>Apple</li>
-					<li>Orange</li>
-				</ol>
-				]]></html>
-				<zscript>
-				String[] fruits = new String[] {"Apple", "Orange"};
-				</zscript>
-				<html>
-				<ol style="border: 1px solid blue;">
-					<li forEach="${fruits}">${each}</li>
-				</ol>
-				</html>
-			</zk>
-
-    """
-
-   runZTL(zscript,
-        () => {
-          var contentOne: String = jq("span:contains(Apple)").get(0).get("innerHTML");
-          var contentTwo: String = jq("span:contains(Apple)").get(1).get("innerHTML");
-          contentOne = contentOne.replaceAll("\r", "").replaceAll("\n", "").replaceAll("\t", "").trim();
-          contentTwo = contentTwo.replaceAll("\r", "").replaceAll("\n", "").replaceAll("\t", "").trim();
-          verifyTrue("Content of the two block should the same",
-              contentOne.equals(contentTwo));
-    }
-   );
+    runZTL(
+      () => {
+        //remove all whitespace using regex
+        var contentOne = jq(".z-html:eq(0)").html().replaceAll("\\s", "");
+        var contentTwo = jq(".z-html:eq(1)").html().replaceAll("\\s", "");
+        verifyEquals("content of the two blocks should be equal", contentOne, contentTwo);
+      });
   }
 }
