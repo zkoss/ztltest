@@ -16,13 +16,13 @@ def testClick() = {
       click(jq("button").eq(0))
       waitResponse()
       //check that message exists in the 1st label
-      verifyEquals("\n            CONTENT\n        ", jq(".z-div .z-label").eq(0).text())
+      verifyEquals("CONTENT", jq(".z-div .z-label").eq(0).text().trim())
       //click the works button
       click(jq("button").eq(1))
       waitResponse()
       //check that message exists in the both label
-      verifyEquals("\n            CONTENT\n        ", jq(".z-div .z-label").eq(0).text())
-      verifyEquals("\n            CONTENT\n        ", jq(".z-div .z-label").eq(1).text())
+      verifyEquals("CONTENT", jq(".z-div .z-label").eq(0).text().trim())
+      verifyEquals("CONTENT", jq(".z-div .z-label").eq(1).text().trim())
     })
   }
 }
