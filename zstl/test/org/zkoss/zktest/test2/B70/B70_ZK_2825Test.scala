@@ -9,7 +9,9 @@ import org.zkoss.ztl.ZKSeleneseTestBase
 
 @Tags(tags = "B70-ZK-2825.zul")
 class B70_ZK_2825Test extends ZTL4ScalaTestCase {
-
+/*
+ * Note: IE 8 will fail this test
+ */
 @Test
 def testClick() = {
   val zscript = """
