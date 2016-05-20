@@ -116,6 +116,8 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """
     runZTL(zscript,
       () => {
+        windowResizeTo(1024, 300)
+        waitResponse(true)
         
         val menu = jq("@menu:visible");
         click(menu);
