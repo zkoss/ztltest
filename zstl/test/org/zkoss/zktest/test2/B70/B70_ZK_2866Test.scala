@@ -21,22 +21,22 @@ class B70_ZK_2866Test extends ZTL4ScalaTestCase {
         for (j <- 0 to 2) {
           width = width + clmn.eq(j).outerWidth()
         }
-        verifyEquals(ahd.eq(2).outerWidth(), width)
+        verifyEquals("expecting width to be equal", ahd.eq(2).outerWidth(), width)
         width = 0
         for (j <- 3 to 5) {
           width = width + clmn.eq(j).outerWidth()
         }
-        verifyEquals(ahd.eq(3).outerWidth(), width)
+        verifyEquals("expecting width to be equal", ahd.eq(3).outerWidth(), width)
         width = 0
         for (j <- 6 to 8) {
           width = width + clmn.eq(j).outerWidth()
         }
-        verifyEquals(ahd.eq(4).outerWidth(), width)
+        verifyEquals("expecting width to be equal", ahd.eq(4).outerWidth(), width)
         width = 0
         for (j <- 9 to 11) {
           width = width + clmn.eq(j).outerWidth()
         }
-        verifyEquals(ahd.eq(5).outerWidth(), width)
+        verifyEquals("expecting width to be equal", ahd.eq(5).outerWidth(), width)
       }
     })
   }

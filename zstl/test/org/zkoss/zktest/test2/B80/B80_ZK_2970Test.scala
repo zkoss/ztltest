@@ -12,7 +12,7 @@ def testClick() = {
   runZTL(
     () => {
       val inp = jq("@textbox").eq(0)
-      clickAt(inp, "20,0")
+      clickAt(inp, "20,2")
       waitResponse(true)
       keyPressNative("65")
       waitResponse(true)

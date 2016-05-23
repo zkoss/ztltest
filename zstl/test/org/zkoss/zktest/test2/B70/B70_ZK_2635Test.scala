@@ -46,7 +46,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """  
   runZTL(zscript,
     () => {
-      mouseMoveAt(jq(".z-navbar").first, "10, 10")
+      mouseMoveAt(jq(".z-navbar").first, "10,10")
       waitResponse()
       click(jq(".z-nav").first)
       waitResponse()
