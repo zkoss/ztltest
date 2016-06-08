@@ -18,8 +18,11 @@ def testClick() = {
       val button = jq("button")
       // click button to start removing tree items
       click(button)
-      // wait for at most 3 seconds, if longer, it is a bug
+      // wait for at most 3 seconds, if longer, it is a bug (only IE)
       waitResponse(3000)
+      if (!isIE) {
+        waitResponse(1000)
+      }
       
       val itemText = jq(".z-treecell-content .z-label").eq(0).text()
       // check the content of the first item is "1490"

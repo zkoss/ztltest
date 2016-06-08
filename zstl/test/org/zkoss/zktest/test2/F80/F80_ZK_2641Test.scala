@@ -81,6 +81,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       sendKeys(ib, Keys.BACK_SPACE, Keys.BACK_SPACE);
       sendKeys(ib, "1");
       blur(ib);
+      waitResponse()
       verifyEquals("no pos", jq(".z-errorbox-content").eq(1).text());
       
       var ib2 = jq(".z-intbox").eq(1);
