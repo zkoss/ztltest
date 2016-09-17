@@ -11,15 +11,15 @@ class B70_ZK_2952Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(
       () => {
-        val textbox = jq(".z-textbox");
-        focus(textbox);
-        blur(textbox);
-        sleep(500);
-        val errorbox = jq(".z-errorbox");
-        val errorboxCloseBtn = errorbox.find(".z-errorbox-close");
-        click(errorboxCloseBtn);
-        sleep(50);
-        verifyTrue(!errorbox.isVisible() && !errorbox.is(":animated"));
+        val textbox = jq(".z-textbox")
+        focus(textbox)
+        blur(textbox)
+        sleep(500)
+        val errorbox = jq(".z-errorbox")
+        val errorboxCloseBtn = errorbox.find(".z-errorbox-close")
+        click(errorboxCloseBtn)
+        sleep(50)
+        verifyTrue(!errorbox.isVisible() && !errorbox.is(":animated"))
       })
 
   }

@@ -9,10 +9,7 @@ class B70_ZK_2783Test extends ZTL4ScalaTestCase {
 
 @Test
 def testClick() = {
-  val zscript = """
-    <include src="/test2/B70-ZK-2783.zul"/>
-  """
-  runZTL(zscript,
+  runZTL(
     () => {
       //open to check items number
       val combobox = jq("@combobox").toWidget

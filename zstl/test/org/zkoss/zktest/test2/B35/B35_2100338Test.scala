@@ -33,15 +33,14 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(
       () => {
-
         waitResponse();
-        var lm1 = jq("$lm1");
-        var lm2 = jq("$lm2");
-        var gm1 = jq("$gm1");
-        var gm2 = jq("$gm2");
+        val lm1 = jq("$lm1");
+        val lm2 = jq("$lm2");
+        val gm1 = jq("$gm1");
+        val gm2 = jq("$gm2");
 
-        var lm_last = jq("[name=" + jq("$lb1").find(".z-paging").attr("id") + "-last]");
-        var gm_last = jq("[name=" + jq("$gd1").find(".z-paging").attr("id") + "-last]");
+        val lm_last = jq("[name=" + jq("$lb1").find(".z-paging").attr("id") + "-last]");
+        val gm_last = jq("[name=" + jq("$gd1").find(".z-paging").attr("id") + "-last]");
 
         //1 - click List Model 1
         click(lm1);

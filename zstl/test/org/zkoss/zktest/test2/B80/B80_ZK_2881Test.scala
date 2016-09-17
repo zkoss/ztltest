@@ -9,10 +9,7 @@ class B80_ZK_2881Test extends ZTL4ScalaTestCase {
 
 @Test
 def testClick() = {
-  val zscript = """
-   <include src="/test2/B80-ZK-2881.zul"/>
-  """
-  runZTL(zscript,
+  runZTL(
     () => {
       waitResponse()
       var item = jq(".z-listitem:last")
