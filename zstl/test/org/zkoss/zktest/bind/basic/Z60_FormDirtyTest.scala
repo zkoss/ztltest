@@ -50,8 +50,8 @@ class Z60_FormDirtyTest extends ZTL4ScalaTestCase {
       
       `type`(jq("$t1").toWidget(), "Dennis")
       waitResponse()
-      // since we didn't save, model still holds the old value, so NOT dirty
-      verifyEquals("false", jq("$dirty").toWidget().get("value"))
+      // since ZK 8.0.2, once the value changed, it would become dirty.
+      verifyEquals("true", jq("$dirty").toWidget().get("value"))
       verifyEquals("Dennis", jq("$l1").toWidget().get("value"))
       
       `type`(jq("$t1").toWidget(), "Y")
