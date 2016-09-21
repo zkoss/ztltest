@@ -12,6 +12,7 @@ class B80_ZK_2861Test extends ZTL4ScalaTestCase {
 def testClick() = {
   runZTL(
     () => {
+      sleep(1000)
       //check that messages are correctly showing in zk.log
       verifyEquals("{\"id1\":\"<value1>\",\"id2\":\"value2\",\"id3\":\"value2\"}\n", getZKLog())
       //check that the custom attributes are set correctly

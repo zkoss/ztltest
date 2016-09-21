@@ -12,32 +12,7 @@ class B70_ZK_2466Test extends ZTL4ScalaTestCase {
 
 @Test
 def testClick() = {
-  val zscript = """
-
-<zk xmlns:w="client">
-	<label multiline="true">
-	  1. click the button
-	  2. you should see three columns show up
-	</label>
-	<button id="btn" label="Click me" />
-	<grid sizedByContent="true" span="true">
-		<columns fulfill="btn.onClick">
-			<column label="AAA"></column>
-			<column label="BBB" hflex="1"></column>
-			<column label="CCC"></column>
-		</columns>
-		<rows>
-			<row>
-				<label value="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
-				<label value="bbbbbbbbbbbbbbbbb" />
-				<label value="ccccccccccccc" />
-			</row>
-		</rows>
-	</grid>
-</zk>
-
-"""  
-  runZTL(zscript,
+  runZTL(
     () => {
       var btn = jq(".z-button");
       click(btn);

@@ -26,9 +26,13 @@ class B70_ZK_2616Test extends ZTL4ScalaTestCase {
 	def testCase() = {
 		runZTL(() => {
 			click(jq("@button"))
-			for (i <- 0 to 5) {
-				click(jq("@button").eq(1))
-			}
+			try {
+        for (i <- 0 to 5) {
+          click(jq("@button").eq(1))
+        }
+      } catch {
+        case throwable =>
+      }
 			waitResponse()
       val window = jq(".z-window-header")
       verifyTrue(!window.exists() || window.text().equals("Session Timeout"))

@@ -13,13 +13,13 @@ def testClick() = {
     () => {
       val icon = jq(".z-nav")
       click(icon)
-      waitResponse()
+      waitResponse(true)
       click(jq(".z-nav-popup .z-nav-content").first())
-      waitResponse()
+      waitResponse(true)
       mouseOut(icon)
-      waitResponse()
+      waitResponse(true)
       mouseOver(icon)
-      waitResponse()
+      waitResponse(true)
       verifyTrue(jq(".z-nav-popup .z-nav").hasClass("z-nav-open"))
     })
   }

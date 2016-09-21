@@ -12,7 +12,7 @@ def testClick() = {
   runZTL(
     () => {
       waitResponse()
-      var item = jq(".z-listitem:last")
+      val item = jq(".z-listitem:last")
       click(item)
       waitResponse()
       verifyTrue(item.hasClass("z-listitem-focus"))

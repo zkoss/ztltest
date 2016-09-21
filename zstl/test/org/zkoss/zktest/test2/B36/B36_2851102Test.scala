@@ -28,66 +28,30 @@ import org.junit.Test
  */
 @Tags(tags = "B36-2851102.zul,A,E,Window,Popup,Errorbox")
 class B36_2851102Test extends ZTL4ScalaTestCase {
-
   @Test
   def testClick() = {
-    val zscript = """
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-B36-2851102.zul
-
-	Purpose:
-		
-	Description:
-		
-	History:
-		Fri Oct 16 15:58:03     2009, Created by jumperchen
-
-Copyright (C) 2009 Potix Corporation. All Rights Reserved.
-
--->
-<window>
-<toolbarbutton id='bt1' label="Click ME" onClick="win1.doPopup()" />
-
-<window visible="false" closable="true" id="win1" border="normal"
-width="600px" height="300px">
-<caption label="Test" />
-<label>Test</label>
-<textbox id='txt1' constraint="no empty" />
-<label id="lbl1">Click in textbox, then click in whitespace below to trigger
-constraint popup. Then click X on popup - window should not close.</label>
-</window>
-</window>
-      """
-
-    runZTL(zscript,
+    runZTL(
       () => {
-
-        waitResponse();
-
         //Click 'Click Me' button
-        var btn = jq("$bt1");
-        click(btn);
-        waitResponse();
+        val btn = jq("@toolbarbutton")
+        click(btn)
+        waitResponse()
 
         //Click textbox
-        var txt = jq("$txt1");
-        click(txt);
-        waitResponse();
+        val txt = jq("@textbox")
+        click(txt)
+        waitResponse()
         
         //Click other place
-        var other = jq("$lbl1");
-        click(other);
-        waitResponse();
+        blur(txt)
+        waitResponse()
         
         //Click close
-        click(jq(".z-errorbox").toWidget().$n("cls"));
-        waitResponse();
+        click(jq(".z-errorbox").toWidget.$n("cls"))
+        waitResponse()
         
         //Window not closed
-        verifyTrue(jq("$win1").isVisible());
-        
+        verifyTrue(jq("$win1").isVisible)
       });
   }
      

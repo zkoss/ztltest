@@ -77,8 +77,8 @@ class F80_ZK_3133Test extends ZTL4ScalaTestCase {
 			verifyTrue(zwin1w < zwin1orgw)
 			verifyTrue(zwin2w < zwin2orgw)
 
-			runRawZscript("""<zscript>Executions.sendRedirect("");</zscript>""")
-			waitResponse()
+      refresh();
+      waitForPageToLoad("10000");
 			runRawZscript(zscript)
 			waitResponse()
 

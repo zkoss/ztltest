@@ -43,7 +43,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
       click(inp)
       waitResponse()
       verifyTrue("the '--------' text should be removed", !inp.get("value").contains("-"))
-      clickAt(jq(".z-label"), "200,200")
+      blur(inp)
       waitResponse()
       verifyTrue("the '--------' text should appear again", inp.get("value").contains("-"))
       click(inp)
