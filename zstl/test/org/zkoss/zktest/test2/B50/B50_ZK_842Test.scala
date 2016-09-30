@@ -9,20 +9,10 @@ class B50_ZK_842Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
-                    <zscript>
-                      Clients.reloadMessages(null);
-                    </zscript>
-                    <div>
-                      Enter '00' in the Intbox below and click on somewhere else. You should see an error message. Otherwise it is a bug.
-                    </div>
-                    <intbox/>
-                  </zk>"""
-
-    runZTL(zscript,
+    runZTL(
       () => {
         val intbox = jq(".z-intbox")
-        sendKeys(intbox, "00")
+        sendKeys(intbox, "-1")
         waitResponse()
         blur(intbox)
         waitResponse()

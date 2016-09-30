@@ -12,7 +12,6 @@ class B80_ZK_3207Test extends ZTL4ScalaTestCase {
   def test() = {
     runZTL(
       () => {
-        
         val h = jq(".z-groupbox").get(0).get("offsetHeight")
         
         click(jq(".z-button"))

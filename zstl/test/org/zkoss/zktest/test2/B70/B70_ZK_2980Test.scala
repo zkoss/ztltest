@@ -14,7 +14,7 @@ class B70_ZK_2980Test extends ZTL4ScalaTestCase {
         val saveButton = jq("button:contains(save)");
         click(saveButton);
         
-        waitResponse();
+        waitResponse(true);
         
         val editButton = jq("button:contains(edit)");
         verifyTrue(editButton.eq(0).is(":focus"));

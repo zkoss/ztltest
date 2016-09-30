@@ -9,15 +9,8 @@ class B70_ZK_2084Test extends ZTL4ScalaTestCase {
 
 @Test
 def testClick() = {
-  val zscript = """<zk>
-	<div>click 'up' and 'down' in each double spinner, then should see '0.0', '0.0', '0.00'</div>
-	<doublespinner />
-	<doublespinner step="0.1" />
-	<doublespinner step="0.01" />
-</zk>"""  
-  runZTL(zscript,
+  runZTL(
     () => {
-      
       List("0.0", "0.0", "0.00").zipWithIndex foreach { case (result, index) =>
         val ds = jq(".z-doublespinner").eq(index).toWidget()
         clickAt(ds.$n("btn-up"), "2,2")

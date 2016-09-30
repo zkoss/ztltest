@@ -81,63 +81,62 @@ Test Protal base Functionativity <br/>
 
     runZTL(zscript,
         () => {
-        	
-            waitResponse();
+          waitResponse()
           
         	//Portal Columns
-        	val c1=jq("$c1");
-        	val c2=jq("$c2");
-        	val c3=jq("$c3");
-        	val c4=jq("$c4");
+        	val c1=jq("$c1")
+        	val c2=jq("$c2")
+        	val c3=jq("$c3")
+        	val c4=jq("$c4")
         	
         	//1-check if there are 4 columns
-        	verifyTrue(c1.exists());
-        	verifyTrue(c2.exists());
-        	verifyTrue(c3.exists());
-        	verifyTrue(c4.exists());
+        	verifyTrue(c1.exists())
+        	verifyTrue(c2.exists())
+        	verifyTrue(c3.exists())
+        	verifyTrue(c4.exists())
           
         	//check childrens, column 1 and 3 empty
-        	verifyTrue(c1.toWidget().nChildren()==0);
-        	verifyTrue(c2.toWidget().nChildren()>0);
-        	verifyTrue(c3.toWidget().nChildren()==0);
-        	verifyTrue(c4.toWidget().nChildren()>0);
+        	verifyTrue(c1.toWidget.nChildren()==0)
+        	verifyTrue(c2.toWidget.nChildren()>0)
+        	verifyTrue(c3.toWidget.nChildren()==0)
+        	verifyTrue(c4.toWidget.nChildren()>0)
         	
         	//click button "move" to move items
-        	if (isOpera() || isIE())
-        		Scripts.triggerMouseEventAt(getWebDriver(), jq("@button"), "click", "2,2");
+        	if (isOpera || isIE)
+        		Scripts.triggerMouseEventAt(getWebDriver, jq("@button"), "click", "2,2")
         	else
-        		click(jq("@button"));
+        		click(jq("@button"))
         	
-        	waitResponse();        	        	
+        	waitResponse()
         	        	        	        	
         	//2-check move
         	//Panel 1 & 2 move from col2 to col1
-        	verifyTrue(c1.toWidget().nChildren()>0);
-        	verifyEquals(c1.toWidget().firstChild().id(),"p1");
-    		verifyEquals(c1.toWidget().lastChild().id(),"p2");
+        	verifyTrue(c1.toWidget.nChildren()>0)
+        	verifyEquals(c1.toWidget.firstChild().id(),"p1")
+    		  verifyEquals(c1.toWidget.lastChild().id(),"p2")
     		
     		//Panel 3 & 4 move from col4 to col2
-    		verifyTrue(c2.toWidget().nChildren()>0);
-        	verifyEquals(c2.toWidget().firstChild().id(),"p3");
-    		verifyEquals(c2.toWidget().lastChild().id(),"p4");
+    		  verifyTrue(c2.toWidget.nChildren()>0)
+        	verifyEquals(c2.toWidget.firstChild().id(),"p3")
+    		  verifyEquals(c2.toWidget.lastChild().id(),"p4")
     		
     		//Check Col3 & Col4 are empty
-    		verifyTrue(c3.toWidget().nChildren()==0);
-        	verifyTrue(c4.toWidget().nChildren()==0);
-    		
-        	//3-drag & drop
-        	var l=c3.offsetLeft();
-        	var t=10;
+    		  verifyTrue(c3.toWidget.nChildren()==0)
+        	verifyTrue(c4.toWidget.nChildren()==0)
+
+          //3-drag & drop
+          val l = c3.offsetLeft()
+          val t = 10
+
+          dragdropTo(jq(".z-panel-header-move:eq(0)"),c1.offsetLeft()+","+t,l+","+t)
         	
-        	dragdropTo(jq(".z-panel-header-move:eq(0)"),c1.offsetLeft()+","+t,l+","+t);
-        	
-        	waitResponse();
+        	waitResponse()
         	
         	//Verify panel1 is in c3
-        	verifyTrue(c1.toWidget().nChildren()==1);
-        	verifyEquals(c1.toWidget().firstChild().id(),"p2");
-        	verifyTrue(c3.toWidget().nChildren()==1);
-        	verifyEquals(c3.toWidget().firstChild().id(),"p1");
+        	verifyTrue(c1.toWidget.nChildren()==1)
+        	verifyEquals(c1.toWidget.firstChild().id(),"p2")
+        	verifyTrue(c3.toWidget.nChildren()==1)
+        	verifyEquals(c3.toWidget.firstChild().id(),"p1")
         	
         }
     );

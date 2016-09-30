@@ -19,6 +19,7 @@ class B70_ZK_2971Test extends ZTL4ScalaTestCase {
         var real = listbox2.toWidget().$n("a");
         for(i <- 6 to 19){
           sendKeys(real, Keys.DOWN);
+          waitResponse();
         }
         waitResponse();
         listboxs = jq(".z-listbox");
@@ -32,14 +33,18 @@ class B70_ZK_2971Test extends ZTL4ScalaTestCase {
         waitResponse();
 
         real = listbox4.toWidget().$n("a");
-        var scrollTop4 = listbox4.find(".z-listbox-body").scrollTop();
+        val scrollTop4 = listbox4.find(".z-listbox-body").scrollTop();
         for(i <- 6 to 7){
           sendKeys(real, Keys.SHIFT + "" + Keys.DOWN);
+          waitResponse();
         }
+        System.out.println(listbox4.find(".z-listbox-body").scrollTop())
+        System.out.println(scrollTop4)
         verifyTrue(listbox4.find(".z-listbox-body").scrollTop() > scrollTop4);
 
         `type`(jq(".z-intbox"), "8");
         val selectButton = jq(".z-button:contains(select)");
+        waitResponse();
         click(selectButton);
         waitResponse();
 

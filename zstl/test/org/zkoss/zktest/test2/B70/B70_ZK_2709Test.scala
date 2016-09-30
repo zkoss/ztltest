@@ -28,36 +28,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B70-ZK-2709.zul")
 class B70_ZK_2709Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = { """
-			|<?xml version="1.0" encoding="UTF-8"?>
-			|
-			|<!--
-			|B70-ZK-2709.zul
-			|
-			|	Purpose:
-			|
-			|	Description:
-			|
-			|	History:
-			|		Tue Jun  9 11:26:25 CST 2015, Created by jumperchen
-			|
-			|Copyright (C)  Potix Corporation. All Rights Reserved.
-			|
-			|-->
-			|<zk>
-			|<label multiline="true">
-			|1. Open the datebox's popup and focus in the first word of the timebox.
-			|2. Quickly type 11 and press "ENTER" key (Firefox only)
-			|3. You should see the input of the datebox should be updated to what you type.
-			|
-			|</label>
-			|<datebox width="250px" format="medium+short"/>
-			|</zk>
-			|
-		""".stripMargin
-		}
-
-		runZTL(zscript, () => {
+		runZTL(() => {
 			click(jq(".z-datebox-button"))
 			waitResponse()
 			var timebox = jq("@timebox input")

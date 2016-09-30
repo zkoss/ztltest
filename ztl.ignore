@@ -249,6 +249,7 @@ B65-ZK-1473.ztl
 B50-1756559.ztl
 }
 safari={
+B30-1881573.ztl
 // unsupported
 B65-ZK-1297.ztl
 B65-ZK-1955.ztl
@@ -289,8 +290,8 @@ B50-ZK-909.ztl
 // unsupported
 B70-ZK-2308.ztl
 }
-ie8,ie9,ie10={
-// unsupport
+ie8,ie9={
+F80-ZK-3133.ztl
 }
 
 opera,chrome,safari={ 

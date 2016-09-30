@@ -11,6 +11,7 @@ class B80_ZK_3095Test extends ZTL4ScalaTestCase {
   def test() = {
     runZTL(
       () => {
+        waitResponse(true)
         val miow = jq(".z-menuitem").get(0).get("offsetWidth")
         verifyFalse(jq(".z-menubar-left").isVisible())
         verifyFalse(jq(".z-menubar-right").isVisible())

@@ -48,7 +48,7 @@ class B65_ZK_1462Test extends ZTL4ScalaTestCase {
         sleep(2000)
         val panel1 = jq("@panel:contains(1)").find(".z-panel-header")
         val panel2 = jq("@panel:contains(2)").find(".z-panel-header")
-        val areShowed = panel1.isVisible() && panel2.isVisible()
+        val areShowed = panel1.isVisible && panel2.isVisible
         verifyTrue("should see two panels showed ", areShowed)
 
         val movex = panel1.positionLeft() - panel2.positionLeft()

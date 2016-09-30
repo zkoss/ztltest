@@ -74,26 +74,25 @@ class B30_1943594Test extends ZTL4ScalaTestCase {
 			</window>
 		}
 		runZTL(zscript, () => {
-			
 			// test combobox
-			click(jq(jq(".z-combobox").toWidget().$n("btn")))
-			waitResponse
+			click(jq(jq(".z-combobox").toWidget.$n("btn")))
+			waitResponse()
 			click(jq("@comboitem:eq(0)"))
 			click(jq("$a"))
-			waitResponse
+			waitResponse()
 			verifyTrue(jq(".z-messagebox").exists())
-			Scripts.triggerMouseEventAt(getWebDriver(), jq("@button"), "click", "2,2")
-			waitResponse
+			Scripts.triggerMouseEventAt(getWebDriver, jq("@button"), "click", "2,2")
+			waitResponse()
 			verifyFalse(jq(".z-messagebox").exists())
 			
 			// test datebox
-			click(jq(jq(".z-datebox").toWidget().$n("btn")))
-			waitResponse
+			click(jq(jq(".z-datebox").toWidget.$n("btn")))
+			waitResponse()
 			click(jq("$a"))
-			waitResponse
+			waitResponse()
 			verifyTrue(jq(".z-messagebox").exists())
 			click(jq("@button"))
-			waitResponse
+			waitResponse()
 			verifyFalse(jq(".z-messagebox").exists())
 		})
 	}

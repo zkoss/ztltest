@@ -26,38 +26,7 @@ import org.junit.Test
 class B70_ZK_2709_1Test extends ZTL4ScalaTestCase {
   @Test
 	def testCase() = {
-		val zscript = { """
-			|<?xml version="1.0" encoding="UTF-8"?>
-			|
-			|<!--
-			|B70-ZK-2709-1.zul
-			|
-			|	Purpose:
-			|
-			|	Description:
-			|
-			|	History:
-			|		Tue Jun  9 11:51:52 CST 2015, Created by jumperchen
-			|
-			|Copyright (C)  Potix Corporation. All Rights Reserved.
-			|
-			|-->
-			|<zk>
-			|<label multiline="true" popup="pp">
-			|1. click "ME" to open popup
-			|2. press enter at the textbox
-			|
-			|3. you should see "it works" message at zk console (Firefox only)
-			|</label>
-			|<popup id="pp">
-			|<textbox onBlur='Clients.log("it works")' onOK="self.parent.close()"></textbox>
-			|</popup>
-			|</zk>
-			|
-		""".stripMargin
-		}
-
-		runZTL(zscript, () => {
+		runZTL(() => {
 			//click on label!!!!!!
 			clickAt(jq("@label"), "50,30")
 			waitResponse()

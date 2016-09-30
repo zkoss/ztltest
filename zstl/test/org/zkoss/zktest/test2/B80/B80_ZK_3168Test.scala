@@ -12,10 +12,10 @@ class B80_ZK_3168Test extends ZTL4ScalaTestCase {
   def test() =  {
     runZTL(
       () => {
-        var chb = jq(".z-chosenbox").toWidget()
+        val chb = jq(".z-chosenbox").toWidget()
         click(chb)
         waitResponse(true)
-        keyPressNative("73")
+        sendKeys(chb.$n("inp"), "I")
         waitResponse(true)
         click(jq(".z-chosenbox-option:visible").get(2))
         waitResponse(true)

@@ -31,6 +31,7 @@ class B65_ZK_1689Test extends ZTL4ScalaTestCase {
 		</window>
 		Left: <label id="lLabel" />
 		Top: <label id="tLabel" />
+    <separator />
 		<button label="restore">
 			<attribute name="onClick"><![CDATA[
 				rWin.setVisible(true);
@@ -39,21 +40,21 @@ class B65_ZK_1689Test extends ZTL4ScalaTestCase {
 	</window>
 </zk>"""
     runZTL(zscript,
-      () => {
+      executor = () => {
         val position = "2,2"
         val src = jq("@window.z-window-popup:contains(relative win)").toWidget().$n("cap")
         val target = jq("@window.z-window-embedded:contains(parent win)").toWidget().$n("cap")
         mouseMoveAt(src, position)
-        waitResponse
+        waitResponse()
 
         mouseDownAt(src, position)
-        waitResponse
+        waitResponse()
 
         mouseMoveAt(target, position)
-        waitResponse
+        waitResponse()
 
         mouseUpAt(target, position)
-        waitResponse
+        waitResponse()
 
         val left = jq(".z-label:contains(px):eq(0)").text()
         val top = jq(".z-label:contains(px):eq(1)").text()
