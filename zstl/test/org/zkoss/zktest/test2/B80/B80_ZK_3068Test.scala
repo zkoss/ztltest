@@ -10,6 +10,7 @@ class B80_ZK_3068Test extends ZTL4ScalaTestCase {
   def test() = {
     runZTL(
       () => {
+        sleep(5000)
         val btn1 = jq("$btn1")
         val zcf = "zk.currentFocus.uuid"
         verifyEquals(getEval(zcf), btn1.get(0).get("id"));

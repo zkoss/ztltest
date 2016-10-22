@@ -33,14 +33,14 @@ def testClick() = {
       //make sure selected options are rendered correctly
       val expected = Array[String]("item0", "item121", "item10", "item2", "item11", "item22")
       for (i <- 0 to 5) {
-        verifyEquals(expected(i), jq(".z-chosenbox-item .z-icon").eq(i).text())
+        verifyEquals(expected(i), jq(".z-chosenbox-item-content").eq(i).text())
       }
       //click the invalidate button
       click(jq("button"))
       waitResponse()
       //check again
       for (i <- 0 to 5) {
-        verifyEquals(expected(i), jq(".z-chosenbox-item .z-icon").eq(i).text())
+        verifyEquals(expected(i), jq(".z-chosenbox-item-content").eq(i).text())
       }
     })
   }
