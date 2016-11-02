@@ -2,9 +2,9 @@
  *
  */
 package org.zkoss.zstl
-import org.zkoss.ztl.ZKClientTestCase
+import org.zkoss.ztl._
 import org.zkoss.ztl.util.ConfigHelper
-import org.zkoss.ztl.Widget
+
 import scala.collection.JavaConversions._
 import com.thoughtworks.selenium.SeleniumException
 import org.zkoss.ztl.util.ZKSelenium
@@ -13,16 +13,17 @@ import java.util.concurrent.TimeUnit
 import java.util.ArrayList
 import java.util.concurrent.Callable
 import java.util.HashSet
-import org.zkoss.ztl.ConnectionManager
+
 import org.apache.commons.exec.CommandLine
 import org.apache.commons.exec.DefaultExecutor
 import java.util.Date
 import java.util.Arrays
+
 import com.thoughtworks.selenium.Selenium
-import org.zkoss.ztl.ZKParallelClientTestCase
 import java.util.concurrent.Future
 import java.util.concurrent.CancellationException
 import java.util.concurrent.ExecutionException
+
 import org.zkoss.ztl.util.AggregateError
 
 /**
@@ -32,28 +33,27 @@ import org.zkoss.ztl.util.AggregateError
 class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
   var ch = ConfigHelper.getInstance()
   target = ch.getServer() + ch.getContextPath() + "/" + ch.getAction()
-  browsers = getBrowsers(ch.getBrowser())
   _timeout = ch.getTimeout().toInt
   caseID = getClass().getSimpleName()
   val _engine = new ThreadLocal[Widget]();
-  
   def runZTL(zscript: String, executor: () => Unit) {
+    //
     val luuid = new Date().getTime();
     println(getTimeUUID() + "-" + luuid + ":log 1");
     val executorService = Executors.newCachedThreadPool();
     val browserSet = new HashSet[String];
     val futures = new ArrayList[Future[_]];
-        
-    for (browser <- browsers) { 
-      
+    var annotIgnoreBrowsers = ""
+    if (this.getClass.isAnnotationPresent(classOf[IgnoreBrowsers]))
+      annotIgnoreBrowsers = this.getClass.getAnnotation(classOf[IgnoreBrowsers]).value();
+    println("ignore browsers : " + annotIgnoreBrowsers);
+    val browsers = getBrowsers(ch.getBrowser(), annotIgnoreBrowsers)
+    for (browser <- browsers) {
       println(getTimeUUID() + "-" + luuid + ":log 2");
-      
       val zkSelenium = browser.asInstanceOf[ZKSelenium];
       println(zkSelenium);
       browserSet.add(zkSelenium.getBrowserName());
       println("add browser: " + zkSelenium.getBrowserName());
-
-      
       futures.add(executorService.submit(new Runnable() {
         def run() = {
           println(getTimeUUID() + "-" + luuid + ":log 3" + ConnectionManager.getInstance().getOpenedRemote(zkSelenium.getBrowserName()));
