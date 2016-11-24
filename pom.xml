@@ -145,7 +145,7 @@
 						<jvmArg>-Xmx1024m</jvmArg>
 					  </jvmArgs>
 					  <args>
-					  	 <arg>-target:jvm-1.6</arg>
+					  	 <arg>-target:jvm-1.8</arg>
 							<arg>-deprecation</arg>
 							<arg>-unchecked</arg>
 							<arg>-uniqid</arg>
@@ -168,8 +168,8 @@
 				</execution>
 			</executions>
 			<configuration>
-				<source>1.5</source>
-				<target>1.5</target>
+				<source>1.8</source>
+				<target>1.8</target>
 			</configuration>
 		</plugin>
 			<plugin>
