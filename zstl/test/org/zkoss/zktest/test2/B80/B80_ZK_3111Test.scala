@@ -46,8 +46,6 @@ class B80_ZK_3111Test extends ZTL4ScalaTestCase {
         waitResponse()
         sendKeys(jq(":focus"), Keys.TAB)
         waitResponse()
-        sendKeys(jq(":focus"), Keys.TAB)
-        waitResponse()
         sendKeys(jq(":focus"), Keys.SPACE)
         waitResponse()
         verifyEquals(1, jq("[title=\"Maximize\"]").length())
