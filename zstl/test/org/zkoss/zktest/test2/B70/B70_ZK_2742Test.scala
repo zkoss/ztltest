@@ -2,7 +2,7 @@ package org.zkoss.zktest.test2.B70
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.{Tags, ZK}
 
 /**
  * Created by wenning on 1/20/16.
@@ -16,8 +16,12 @@ class B70_ZK_2742Test extends ZTL4ScalaTestCase {
       click(jq(".z-combobox-button"))
       waitResponse()
       var cb = jq(".z-combobox")
-      var cbpp = jq(".z-combobox-popup")
-      verifyEquals(cb.offsetTop() + cb.height() + "px", cbpp.get(0).eval("style.top"))
+      var cbpp = jq(".z-combobox-popup:eq(0)")
+      if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
+        verifyTolerant(cb.offsetTop() + cb.height(), cbpp.offsetTop(), 1)
+      } else {
+        verifyEquals(cb.offsetTop() + cb.height(), cbpp.offsetTop())
+      }
     })
   }
 

@@ -16,7 +16,7 @@ package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.{Tags, ZK};
 
 /**
  * 
@@ -31,19 +31,35 @@ class B80_ZK_3048Test extends ZTL4ScalaTestCase {
 			listbox.get(0).set("scrollTop", 1000)
 			waitResponse()
 			var listitem = listbox.eq(0).find(".z-listitem").last()
-			verifyEquals(listitem.positionTop() + listitem.outerHeight(), listbox.eq(0).height())
+			if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
+				verifyTolerant(listitem.positionTop() + listitem.outerHeight(), listbox.eq(0).height(), 1)
+			} else {
+				verifyEquals(listitem.positionTop() + listitem.outerHeight(), listbox.eq(0).height())
+			}
 
 			listbox.get(1).set("scrollLeft", 1000)
 			waitResponse()
 			listitem = listbox.eq(1).find(".z-listitem").first()
-			verifyEquals(listitem.positionLeft() + listitem.outerWidth(), listbox.eq(1).width())
+			if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
+				verifyTolerant(listitem.positionLeft() + listitem.outerWidth(), listbox.eq(1).width(), 1)
+			} else {
+				verifyEquals(listitem.positionLeft() + listitem.outerWidth(), listbox.eq(1).width())
+			}
 
 			listbox.get(2).set("scrollTop", 1000)
 			listbox.get(2).set("scrollLeft", 1000)
 			waitResponse()
 			listitem = listbox.eq(2).find(".z-listitem").last()
-			verifyEquals(listitem.positionTop() + listitem.outerHeight(), listbox.eq(2).height())
-			verifyEquals(listitem.positionLeft() + listitem.outerWidth(), listbox.eq(2).width())
+			if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
+				verifyTolerant(listitem.positionTop() + listitem.outerHeight(), listbox.eq(2).height(), 1)
+			} else {
+				verifyEquals(listitem.positionTop() + listitem.outerHeight(), listbox.eq(2).height())
+			}
+			if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
+				verifyTolerant(listitem.positionLeft() + listitem.outerWidth(), listbox.eq(2).width(), 1)
+			} else {
+				verifyEquals(listitem.positionLeft() + listitem.outerWidth(), listbox.eq(2).width())
+			}
 
 		})
 	}

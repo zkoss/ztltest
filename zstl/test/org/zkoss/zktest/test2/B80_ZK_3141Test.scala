@@ -16,7 +16,7 @@ package org.zkoss.zktest.test2
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.{Tags, ZK};
 
 /**
  * 
@@ -62,7 +62,15 @@ class B80_ZK_3141Test extends ZTL4ScalaTestCase {
 		val tt = t.offsetTop()
 		val tr = t.offsetLeft() + t.outerWidth()
 		val er = jq(".z-errorbox:visible")
-		verifyEquals(tt, er.offsetTop())
-		verifyEquals(tr, er.offsetLeft())
+		if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
+			verifyTolerant(tt, er.offsetTop(), 1)
+		} else {
+			verifyEquals(tt, er.offsetTop())
+		}
+		if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
+			verifyTolerant(tr, er.offsetLeft(), 1)
+		} else {
+			verifyEquals(tr, er.offsetLeft())
+		}
 	}
 }

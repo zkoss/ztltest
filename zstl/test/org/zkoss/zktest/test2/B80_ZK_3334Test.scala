@@ -17,7 +17,7 @@ package org.zkoss.zktest.test2
 import org.junit.Test
 import org.openqa.selenium.Dimension
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{JQuery, Tags};
+import org.zkoss.ztl.{JQuery, Tags, ZK};
 
 /**
  * 
@@ -28,7 +28,6 @@ class B80_ZK_3334Test extends ZTL4ScalaTestCase {
 	@Test
 	def test() = {
 		runZTL(() => {
-
 			click(jq(".z-bandbox-button"))
 			waitResponse()
 			verifyPopup(jq("@bandbox"), jq(".z-bandbox-popup"))
@@ -56,19 +55,35 @@ class B80_ZK_3334Test extends ZTL4ScalaTestCase {
 			val pp = jq(".z-errorbox")
 			val window = driver.manage().window()
 			val size = window.getSize()
-			verifyEquals(com.offsetLeft() + com.outerWidth(), pp.offsetLeft())
+			if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
+				verifyTolerant(com.offsetLeft() + com.outerWidth(), pp.offsetLeft(), 1)
+			} else {
+				verifyEquals(com.offsetLeft() + com.outerWidth(), pp.offsetLeft())
+			}
 			window.setSize(new Dimension(size.width - 100, size.height))
 			waitResponse()
-			verifyEquals(com.offsetLeft() + com.outerWidth(), pp.offsetLeft())
+			if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
+				verifyTolerant(com.offsetLeft() + com.outerWidth(), pp.offsetLeft(), 1)
+			} else {
+				verifyEquals(com.offsetLeft() + com.outerWidth(), pp.offsetLeft())
+			}
 		})
 	}
 	def verifyPopup(com :JQuery, pp :JQuery) = {
 		val window = driver.manage().window()
 		val size = window.getSize()
-		verifyEquals(com.offsetLeft(), pp.offsetLeft())
+		if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
+			verifyTolerant(com.offsetLeft(), pp.offsetLeft(), 1)
+		} else {
+			verifyEquals(com.offsetLeft(), pp.offsetLeft())
+		}
 		window.setSize(new Dimension(size.width - 100, size.height))
 		waitResponse()
-		verifyEquals(com.offsetLeft(), pp.offsetLeft())
+		if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
+			verifyTolerant(com.offsetLeft(), pp.offsetLeft(), 1)
+		} else {
+			verifyEquals(com.offsetLeft(), pp.offsetLeft())
+		}
 		window.setSize(size)
 		waitResponse()
 	}
