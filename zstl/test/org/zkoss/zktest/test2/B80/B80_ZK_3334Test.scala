@@ -1,9 +1,9 @@
 /* B80_ZK_3334Test.scala
 
 	Purpose:
-		
+
 	Description:
-		
+
 	History:
 		Fri, Sep 30, 2016 12:33:17 PM, Created by Sefi
 
@@ -12,7 +12,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 This program is distributed under LGPL Version 3.0 in the hope that
 it will be useful, but WITHOUT ANY WARRANTY.
 */
-package org.zkoss.zktest.test2
+package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
 import org.openqa.selenium.Dimension

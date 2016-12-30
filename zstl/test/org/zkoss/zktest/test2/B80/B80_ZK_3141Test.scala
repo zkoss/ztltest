@@ -1,9 +1,9 @@
 /* B80_ZK_3141Test.scala
 
 	Purpose:
-		
+
 	Description:
-		
+
 	History:
 		Fri, Sep 30, 2016 11:52:08 AM, Created by Sefi
 
@@ -12,7 +12,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 This program is distributed under LGPL Version 3.0 in the hope that
 it will be useful, but WITHOUT ANY WARRANTY.
 */
-package org.zkoss.zktest.test2
+package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
@@ -27,7 +27,7 @@ class B80_ZK_3141Test extends ZTL4ScalaTestCase {
 	@Test
 	def test() = {
 		runZTL(() => {
-			var t = jq("@textbox")
+      val t = jq("@textbox")
 			focus(t)
 			blur(t)
 			waitResponse()
@@ -50,8 +50,8 @@ class B80_ZK_3141Test extends ZTL4ScalaTestCase {
 			waitResponse()
 
 			val hd = jq(".z-window-header")
-			mouseDownAt(hd, "10, 10")
-			mouseMoveAt(hd, "30, 30")
+			mouseDownAt(hd, "10,10")
+			mouseMoveAt(hd, "30,30")
 			mouseUp(hd)
 			waitResponse()
 			chkpos

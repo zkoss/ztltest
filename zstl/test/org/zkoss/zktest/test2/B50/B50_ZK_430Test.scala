@@ -81,36 +81,52 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
 
         def clearAndInput (ele: Element, value: String) {
         	ele.eval("focus()");
+          waitResponse()
         	ele.eval("select()");
+          waitResponse()
         	sendKeys(ele, Keys.DELETE);
+          waitResponse()
         	sendKeys(ele, value);
+          waitResponse()
         }
         clearAndInput(tb1Inp, "1212");
+          waitResponse()
         verifyTrue("it should be able to type and display \"1212\" of first timebox.",
             "1212".equals(tb1Inp.get("value")));
         clearAndInput(tb2Inp, "121212");
+          waitResponse()
         verifyTrue("Type 121212 into the timebox, it should be able to type and display \"PM 12:12:12\" or \"AM 12:12:12\" (depended on when you test it).",
             "AM 12:12:12".equals(tb2Inp.get("value")) || "PM 12:12:12".equals(tb2Inp.get("value")));
         click(tb3Inp);
+          waitResponse()
         if (ZK.is("opera"))
         	clickAt(tb3Inp,"35,5"); // left/right arrow keys not work on opera
         else {
-	        // move to the lift most side
-	        for (i <- 1 to 10)
-	        	sendKeys(tb3Inp, Keys.LEFT);
+          // move to the lift most side
+          for (i <- 1 to 10) {
+          sendKeys(tb3Inp, Keys.LEFT);
+            waitResponse()
+          }
 	        // move to the position after AM00/PM00
-	        for (j <- 1 to 4)
-	        	sendKeys(tb3Inp, Keys.RIGHT);
+	        for (j <- 1 to 4) {
+            sendKeys(tb3Inp, Keys.RIGHT);
+            waitResponse()
+          }
         }
         clickAndCheck(tb3.$n("btn-up"));
+          waitResponse()
         clickAndCheck(tb3.$n("btn-up"));
+          waitResponse()
         clickAndCheck(tb3.$n("btn-down"));
+          waitResponse()
         clickAndCheck(tb3.$n("btn-down"));
+          waitResponse()
         def clickAndCheck (ele: Element) {
         	var checkStr: String = "PM";
         	if (!tb3Inp.get("value").contains(checkStr))
         		checkStr = "AM";
         	click(ele);
+          waitResponse()
         	verifyTrue("should change AM/PM",
         	    tb3Inp.get("value").contains(checkStr));
         }

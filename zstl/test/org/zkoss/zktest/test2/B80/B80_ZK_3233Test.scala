@@ -1,9 +1,9 @@
 /* B80_ZK_3233Test.scala
 
 	Purpose:
-		
+
 	Description:
-		
+
 	History:
 		Thu, Sep 29, 2016 12:26:45 PM, Created by Sefi
 
@@ -12,7 +12,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 This program is distributed under LGPL Version 3.0 in the hope that
 it will be useful, but WITHOUT ANY WARRANTY.
 */
-package org.zkoss.zktest.test2
+package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
@@ -67,10 +67,11 @@ class B80_ZK_3233Test extends ZTL4ScalaTestCase {
 			val inp1 = jq(".z-datebox-input:eq(0)");
 			val inp2 = jq(".z-textbox:eq(0)");
 			focus(inp1);
+      waitResponse();
 			`type`(inp1, "a");
+      waitResponse();
 			`type`(inp2, "a");
-			blur(inp2);
-			waitResponse();
+      waitResponse();
 			verifyEquals(2, jq(".z-errorbox:visible").length());
 			click(jq(".z-tab:eq(1)"));
 			waitResponse();

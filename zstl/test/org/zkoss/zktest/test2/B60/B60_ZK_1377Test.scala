@@ -31,10 +31,11 @@ class B60_ZK_1377Test extends ZTL4ScalaTestCase {
         click(box)
         waitResponse()
         box.toElement().set("value", "")
-
-        sendKeys(box, "123" + Keys.TAB)
         waitResponse()
-
+        sendKeys(box, "123")
+        waitResponse()
+        sendKeys(box, Keys.TAB)
+        waitResponse()
         verifyTrue("the window title should change to the value you edited",
           jq(jq(".z-window-embedded").toWidget().$n("cap")).text().contains("123"))
 

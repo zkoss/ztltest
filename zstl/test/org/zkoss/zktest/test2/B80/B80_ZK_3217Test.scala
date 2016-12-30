@@ -1,9 +1,9 @@
 /* B80_ZK_3217Test.scala
 
 	Purpose:
-		
+
 	Description:
-		
+
 	History:
 		Thu, Sep 29, 2016 11:41:45 AM, Created by Sefi
 
@@ -12,7 +12,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 This program is distributed under LGPL Version 3.0 in the hope that
 it will be useful, but WITHOUT ANY WARRANTY.
 */
-package org.zkoss.zktest.test2
+package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
