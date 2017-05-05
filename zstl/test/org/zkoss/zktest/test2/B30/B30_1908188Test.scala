@@ -31,7 +31,7 @@ import org.junit.Test
 class B30_1908188Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window id="testWindow" border="normal" mode="modal" title="Test Window" width="600px" sizable="true" contentStyle="overflow:auto">
         <html><![CDATA[
 <ol>
@@ -103,8 +103,8 @@ class B30_1908188Test extends ZTL4ScalaTestCase {
           </menu>
         </menubar>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Record Menu position
       var xMenu: Int = getElementPositionLeft(jq("$testMenu")).intValue();
       var yMenu: Int = getElementPositionTop(jq("$testMenu")).intValue();

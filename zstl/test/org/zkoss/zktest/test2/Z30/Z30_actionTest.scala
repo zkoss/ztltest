@@ -26,7 +26,7 @@ import org.junit.Test
 class Z30_actionTest extends ZTL4ScalaTestCase {
   @Test
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 <window title="Test of JavaScript Utilities">
 <script><![CDATA[
 var comm = {
@@ -60,8 +60,8 @@ You can click each link, then you should see that the label is the same as that 
 		<label id="l"/>
 	</vbox>
 </window>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 		  	click(jq("#a1"));
   		  	waitResponse
   		  	verifyEquals(widget(jq("$l")).get("value"),"onUser null");

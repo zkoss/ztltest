@@ -37,7 +37,7 @@ import java.lang._
 class B50_ZK_261Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 				<zscript><![CDATA[
@@ -71,8 +71,7 @@ class B50_ZK_261Test extends ZTL4ScalaTestCase {
 				</vlayout>
 			</zk>
 
-    }
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         click(jq(".z-button").get(0));

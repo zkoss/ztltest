@@ -27,7 +27,7 @@ import org.openqa.selenium.Keys
 @Tags(tags = "B35-2280308.zul,B,E,Window,Button")
 class B35_2280308Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk>
         <window title="Test Wrong Value Exception" border="normal" width="1200px" height="600px">
           <zscript>
@@ -60,8 +60,8 @@ uiDecimalbox.getValue();
           </panel>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       var pc = engine.$f("pc").$n();
 
       // Scroll the panelchildren

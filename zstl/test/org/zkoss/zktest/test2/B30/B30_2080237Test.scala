@@ -28,15 +28,15 @@ import org.openqa.selenium.By
 @Tags(tags = "B30-2080237.zul,B,E,Window,Button")
 class B30_2080237Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk>
         Please click the menuitem, and then nothing happens.(That is correct.)
         <menubar autodrop="true">
           <menuitem onClick='alert("This is error!");' label="Click Me..." href="http://www.zkoss.org" disabled="true"/>
         </menubar>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Click the button
       click(jq("@menuitem")); 
       waitForPageToLoad("5000")

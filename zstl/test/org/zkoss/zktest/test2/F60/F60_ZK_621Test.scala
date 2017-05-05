@@ -38,7 +38,7 @@ class F60_ZK_621Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div height="15px" />
 				<div height="25px">Open combobox (the left one).</div>
@@ -74,9 +74,8 @@ class F60_ZK_621Test extends ZTL4ScalaTestCase {
 				<label id="lb" value="message: " />
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var cbx: Widget = engine.$f("cbx");
         var bd: Widget = engine.$f("bd");

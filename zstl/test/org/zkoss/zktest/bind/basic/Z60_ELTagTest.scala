@@ -24,9 +24,9 @@ import org.zkoss.ztl.Tags
 class Z60_ELTagTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/eltag.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

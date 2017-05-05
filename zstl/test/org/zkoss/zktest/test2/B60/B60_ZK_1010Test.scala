@@ -38,7 +38,7 @@ class B60_ZK_1010Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
     		<zscript>
     			import java.util.Calendar;
@@ -68,9 +68,8 @@ class B60_ZK_1010Test extends ZTL4ScalaTestCase {
 			</hlayout>
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var outer: Widget = engine.$f("outer");
         var dbx1: Widget = engine.$f("dbx1");

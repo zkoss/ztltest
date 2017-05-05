@@ -21,9 +21,9 @@ import org.zkoss.ztl.Tags
 class Z60_B01666ToolbarbuttonCheckTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01666ToolbarbuttonCheck.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

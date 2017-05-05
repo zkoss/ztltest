@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B35-2313445.zul,B,E,Tabbox,VisionTest")
 class B35_2313445Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk>
 				After you click the button, the layout of the tabbox should be the same as previous one.
 				<tabbox id="tb2" orient="vertical">
@@ -38,8 +38,8 @@ class B35_2313445Test extends ZTL4ScalaTestCase {
 				</tabbox>
 				<button id="btn" label="tabs.invalidate()" onClick="tabs.invalidate();"/>
 			</zk>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			verifyImage();
 			click(engine.$f("btn"));
 			waitResponse();

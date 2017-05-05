@@ -38,7 +38,7 @@ class B50_ZK_549Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			<div>The groupboxes below should not overlapped and have the same height.</div>
 				<custom-attributes org.zkoss.zul.image.preload="true"/>
@@ -88,9 +88,8 @@ class B50_ZK_549Test extends ZTL4ScalaTestCase {
 				</hbox>
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         for (i <- 1 to 12) {
           var gbx: Widget = engine.$f("gbx"+i);

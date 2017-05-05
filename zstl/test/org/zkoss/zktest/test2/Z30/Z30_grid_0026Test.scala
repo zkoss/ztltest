@@ -30,7 +30,7 @@ class Z30_grid_0026Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			The update of list cell freeze IE.<separator/>
 			
@@ -72,8 +72,7 @@ class Z30_grid_0026Test extends ZTL4ScalaTestCase {
 				
 				]]></zscript>
 				<button id="btnStart" label="start timer" onClick="timer.start()"/>
-				<button id="btnStop" label="stop timer" onClick="timer.stop()"/>
-				| <checkbox id="update" checked="true" />Update | <checkbox id="add" />Add |
+				<button id="btnStop" label="stop timer" onClick="timer.stop()"/>| <checkbox id="update" checked="true" />Update | <checkbox id="add" />Add |
 				<checkbox id="remove"/>Remove (stop at last 3 rows)
 				<timer id="timer" delay="1500" repeats="true" running="false">
 					<attribute name="onTimer"><![CDATA[
@@ -149,9 +148,8 @@ class Z30_grid_0026Test extends ZTL4ScalaTestCase {
 			
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         verifyEquals(jq("@row").length.toString(),"32");
         

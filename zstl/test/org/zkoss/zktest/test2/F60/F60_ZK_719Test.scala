@@ -38,7 +38,7 @@ class F60_ZK_719Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>
 					<div>1. You can see a combobutton in each toolbar, their size should similar to toolbarbutton.</div>
@@ -142,9 +142,8 @@ class F60_ZK_719Test extends ZTL4ScalaTestCase {
 				</window>
 			</zk>
 
-    }
-
-   runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var lb: Widget = engine.$f("lb");
         var tbbtnOne: Widget = engine.$f("tbbtnOne");

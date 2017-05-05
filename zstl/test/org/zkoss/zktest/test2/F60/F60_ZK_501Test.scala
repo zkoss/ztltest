@@ -37,7 +37,7 @@ import java.lang._
 class F60_ZK_501Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
     		<zscript>
     		session.setAttribute(org.zkoss.web.Attributes.PREFERRED_LOCALE, new Locale("en_US"));
@@ -57,9 +57,8 @@ class F60_ZK_501Test extends ZTL4ScalaTestCase {
 			
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var btn: Widget = engine.$f("btn");
         var messagebox: JQuery = null;

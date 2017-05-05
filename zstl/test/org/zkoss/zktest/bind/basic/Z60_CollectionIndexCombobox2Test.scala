@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_CollectionIndexCombobox2 extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/collection-index-combobox.zul" />
-    }
+"""
 
     runZTL(zul, () => {
       var outerbox = jq("$outergrid")

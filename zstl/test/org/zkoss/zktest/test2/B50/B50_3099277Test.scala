@@ -37,7 +37,7 @@ import java.lang._
 class B50_3099277Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 				You shall see "value 1" on the right bottom corner after click the button.
@@ -53,16 +53,14 @@ class B50_3099277Test extends ZTL4ScalaTestCase {
 				</button>
 			</zk>
 
-    }
-
-    def executor = () => {
+    """
+def executor = () => {
     	var btn: Widget = engine.$f("btn");
 		click(btn);
 		sleep(500)
 		verifyTrue(jq(".z-log").find("textarea").get(0).get("value").contains("value 1"));
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

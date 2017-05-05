@@ -21,9 +21,9 @@ import org.zkoss.ztl.Widget
 class Z60_F01416DefaultCommandTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/F01416DefaultCommand.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

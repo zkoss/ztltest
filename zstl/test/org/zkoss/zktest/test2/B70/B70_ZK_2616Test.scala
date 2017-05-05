@@ -18,25 +18,25 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author chunfu
- */
+  *
+  * @author chunfu
+  */
 @Tags(tags = "B70-ZK-2616.zul")
 class B70_ZK_2616Test extends ZTL4ScalaTestCase {
-	def testCase() = {
-		runZTL(() => {
-			click(jq("@button"))
-			try {
+  def testCase() = {
+    runZTL(() => {
+      click(jq("@button"))
+      try {
         for (i <- 0 to 5) {
           click(jq("@button").eq(1))
         }
       } catch {
         case throwable =>
       }
-			waitResponse()
+      waitResponse()
       val window = jq(".z-window-header")
       verifyTrue(!window.exists() || window.text().equals("Session Timeout"))
 
-		})
-	}
+    })
+  }
 }

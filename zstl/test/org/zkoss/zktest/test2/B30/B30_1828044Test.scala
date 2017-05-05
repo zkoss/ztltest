@@ -39,7 +39,7 @@ class B30_1828044Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<window>
 			When the header is invisible, the whole column should be disappeared.
 			
@@ -63,9 +63,8 @@ class B30_1828044Test extends ZTL4ScalaTestCase {
 					onClick='cols.visible = !cols.visible;' />
 			</window>
 
-   }
-
-    runZTL(zscript,
+   """
+runZTL(zscript,
         () => {
           def isHidden = (wgt: ClientWidget) =>  jq(wgt).attr("style").contains("hidden")
         

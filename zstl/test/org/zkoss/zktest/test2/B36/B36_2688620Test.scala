@@ -31,7 +31,7 @@ import org.junit.Test
 class B36_2688620Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window>
         You should see the first two words are selected, that is correct.
         <timebox id="tb"/>
@@ -41,8 +41,8 @@ tb.setSelectionRange(0, 2);
 tb.focus();
         </zscript>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
 
       var d: Date = Calendar.getInstance().getTime();
       var df: SimpleDateFormat = new SimpleDateFormat("hh:MM:ss");

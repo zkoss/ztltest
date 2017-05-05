@@ -38,7 +38,7 @@ class B60_ZK_1053Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>Click on the selectbox component, you should see the msg become 'msg: Selectbox onFocus'</div>
 				<div>Click on the blank outside, you should see the msg become 'msg: Selectbox onBlur'</div>
@@ -68,9 +68,8 @@ class B60_ZK_1053Test extends ZTL4ScalaTestCase {
 				</chosenbox>
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var msg: Widget = engine.$f("msg");
         var sbx: Widget = engine.$f("sbx");

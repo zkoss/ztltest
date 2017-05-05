@@ -24,13 +24,13 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B30-1939059.zul,A,E,UI")
 class B30_1939059Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
 				<button label="Hi" onClick='alert("Hi")'/>
 				<n:p>Click Hi and you shall see a message box (rather than JS error).</n:p>
 			</zk>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			click(jq("@button"))
 			waitResponse
 			verifyFalse(jq(".z-errorbox").exists());

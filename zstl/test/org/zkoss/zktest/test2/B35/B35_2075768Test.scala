@@ -28,7 +28,7 @@ import org.zkoss.ztl.Element
 @Tags(tags = "B35-2075768.zul,B,E,Window,Button")
 class B30_2075768Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk>
         <borderlayout id="b" height="300px">
           <west maxsize="600" size="30%" flex="true" border="0" id="west">
@@ -48,8 +48,8 @@ class B30_2075768Test extends ZTL4ScalaTestCase {
         <button label="border/nonborder(West)" onClick='if ("normal".equals(west.border)) west.setBorder("none"); else west.setBorder("normal");'/>
         Please click the button to see that the result is expectable.
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Verify that the west zone has no border
       verifyTrue("The west zone should not have a border", jq(".z-west-noborder").exists());
 

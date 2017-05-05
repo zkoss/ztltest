@@ -33,7 +33,7 @@ import org.junit.Test
 class B35_2349456Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window title="Live Data" border="normal">
         <zscript><![CDATA[
 String[] data = new String[30];
@@ -53,8 +53,8 @@ list.focus();
           </zscript>
         </listbox>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       var listWidget =
         engine.$f("list");
       var listElement  =

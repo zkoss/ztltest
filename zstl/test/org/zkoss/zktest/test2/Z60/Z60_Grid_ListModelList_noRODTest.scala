@@ -37,7 +37,7 @@ import java.lang._
 class Z60_Grid_ListModelList_noRODTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			    <zscript><![CDATA[
 					import org.zkoss.zktest.test2.select.models.*;
@@ -112,9 +112,8 @@ class Z60_Grid_ListModelList_noRODTest extends ZTL4ScalaTestCase {
 				<hbox id="cloneThreeArea" />
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var clone: Widget = engine.$f("clone");
         var serialize: Widget = engine.$f("serialize");

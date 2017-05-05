@@ -26,9 +26,9 @@ import org.openqa.selenium.Keys
 class Z60_B00657Test extends ZTL4ScalaTestCase {
   @Test
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00657.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       verifyEquals("0", jq("$listbox").toWidget().get("selectedIndex"))

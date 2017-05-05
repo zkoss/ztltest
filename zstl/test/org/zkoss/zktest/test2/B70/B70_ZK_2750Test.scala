@@ -24,44 +24,44 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B70-ZK-2750.zul")
 class B70_ZK_2750Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = { """
-			|<?xml version="1.0" encoding="UTF-8"?>
-			|
-			|<!--
-			|B70-ZK-2750.zul
-			|
-			|	Purpose:
-			|
-			|	Description:
-			|
-			|	History:
-			|		Thu Jun  4 17:48:53 CST 2015, Created by chunfu
-			|
-			|Copyright (C)  Potix Corporation. All Rights Reserved.
-			|
-			|-->
-			|<zk>
-			|	<label multiline="true">
-			|	1. click each button in IE
-			|	2. the width of West won't change
-			|	</label>
-			|	<borderlayout id="borderLayout">
-			|		<west>
-			|			<vlayout>
-			|				resize the browserwindow, or pressing any of the buttons will move the separator 1px to the right
-			|				<button label="invalidate center" onClick="center.invalidate();"/>
-			|				<button label="invalidate borderlayout" onClick="borderLayout.invalidate();"/>
-			|				<button label="resize borderlayout" onClick="Clients.resize(borderLayout);"/>
-			|			</vlayout>
-			|		</west>
-			|		<center id="center">
-			|		</center>
-			|	</borderlayout>
-			|</zk>
-			|
-		""".stripMargin
-		}
-		runZTL(zscript, () => {
+		val zscript = """
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+B70-ZK-2750.zul
+
+	Purpose:
+
+	Description:
+
+	History:
+		Thu Jun  4 17:48:53 CST 2015, Created by chunfu
+
+Copyright (C)  Potix Corporation. All Rights Reserved.
+
+-->
+<zk>
+	<label multiline="true">
+	1. click each button in IE
+	2. the width of West won't change
+	</label>
+	<borderlayout id="borderLayout">
+		<west>
+			<vlayout>
+				resize the browserwindow, or pressing any of the buttons will move the separator 1px to the right
+				<button label="invalidate center" onClick="center.invalidate();"/>
+				<button label="invalidate borderlayout" onClick="borderLayout.invalidate();"/>
+				<button label="resize borderlayout" onClick="Clients.resize(borderLayout);"/>
+			</vlayout>
+		</west>
+		<center id="center">
+		</center>
+	</borderlayout>
+</zk>
+
+
+		"""
+runZTL(zscript, () => {
 			var buttons = jq("@button")
 			var beginWidth = jq("@west").width();
 			for (i <- 0 to buttons.length() - 1) {

@@ -21,9 +21,9 @@ import org.junit.Assert
 class Z60_B01196BinderUiLcConfusionTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01196BinderUiLcConfusion.zul"/>
-    }
+"""
     runZTL(zul, () => {
 
       var listItems = jq("@listbox").find("@listitem")

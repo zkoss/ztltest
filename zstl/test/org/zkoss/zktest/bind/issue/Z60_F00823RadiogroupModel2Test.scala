@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_F00823RadiogroupModel2Test extends ZTL4ScalaTestCase {
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/F00823RadiogroupModel2.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

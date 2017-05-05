@@ -29,7 +29,7 @@ import org.zkoss.ztl.ZK
 @Tags(tags = "B30-1896725.zul,B,E,Window,Button")
 class B30_1896725Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
         <n:p>
           In IE6, the listbox still can be active when Clients.showBusy() is
@@ -56,8 +56,8 @@ invoked (Please click the "Echo Event" button).
           </vbox>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       if (ZK.is("ie6")) {
         click(jq("@button"));
         waitResponse();

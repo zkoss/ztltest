@@ -27,7 +27,7 @@ import org.openqa.selenium.Keys
 @Tags(tags = "B30-2337652.zul,B,E,Window,Button")
 class B30_2337652Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window>
         It is correct if you see nothing but this line.
         <zscript>
@@ -42,8 +42,8 @@ class B30_2337652Test extends ZTL4ScalaTestCase {
 	root.appendChild( grid );
         </zscript>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Verify that the grid doesn't exists
       verifyFalse("The grid should doesn't exists", jq("$grid1").exists());
       

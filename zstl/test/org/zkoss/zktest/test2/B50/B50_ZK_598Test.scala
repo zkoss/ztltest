@@ -37,7 +37,7 @@ import java.lang._
 class B50_ZK_598Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<zscript>
 					Object[] o = new Object[50];
@@ -59,10 +59,8 @@ class B50_ZK_598Test extends ZTL4ScalaTestCase {
 				</div>
 			</zk>
 
-    }
-
-
-   runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
 			var div0: Widget = engine.$f("div0");
     		var div1: Widget = engine.$f("div1");
     		var div2: Widget = engine.$f("div2");

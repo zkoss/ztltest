@@ -10,7 +10,7 @@ import org.zkoss.ztl.JQuery
 class B65_ZK_1309Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = <zk>
+    val zscript = """<zk>
                     <label multiline="true">
                       1. Click "Open modal window" button, it will show modal window
 	2. Click "click me" button in modal window, it will show notification
@@ -32,7 +32,7 @@ class B65_ZK_1309Test extends ZTL4ScalaTestCase {
                       </button>
                     </window>
                   </zk>
-
+"""
     runZTL(zscript,
       () => {
         click(jq("@button:contains(Open)"))

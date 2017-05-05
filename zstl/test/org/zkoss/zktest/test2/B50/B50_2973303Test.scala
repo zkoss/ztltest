@@ -37,7 +37,7 @@ import java.lang._
 class B50_2973303Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			<html><![CDATA[
 				<ul>
@@ -51,18 +51,17 @@ class B50_2973303Test extends ZTL4ScalaTestCase {
 			</listbox>
 			</zk>
 
-    }
+    """
 
     def executor = () => {
-    	var listbox: Widget = engine.$f("listbox");
-		waitResponse();
+      var listbox: Widget = engine.$f("listbox");
+      waitResponse();
 
-		if (ZK.is("ie6_") || ZK.is("ie7_") || ZK.is("ie8_"))
-			verifyTrue(Integer.parseInt(listbox.$n().get("selectedIndex")) == -1);
-		else
-		  	verifyTrue(listbox.$n().get("value").length() == 0);
+      if (ZK.is("ie6_") || ZK.is("ie7_") || ZK.is("ie8_"))
+        verifyTrue(Integer.parseInt(listbox.$n().get("selectedIndex")) == -1);
+      else
+        verifyTrue(listbox.$n().get("value").length() == 0);
     }
-   // Run syntax 1 
    runZTL(zscript, executor);
    
    // Run syntax 2

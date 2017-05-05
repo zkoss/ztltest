@@ -37,7 +37,7 @@ import java.lang._
 class B50_3162238Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 				<html><![CDATA[
@@ -50,9 +50,7 @@ class B50_3162238Test extends ZTL4ScalaTestCase {
 				<button id="btn" label="Show Null" onClick='inc.src = null' />
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var btn: Widget = engine.$f("btn");

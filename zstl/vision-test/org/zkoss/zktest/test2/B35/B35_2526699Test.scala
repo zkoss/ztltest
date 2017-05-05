@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B35-2526699.zul,A,E,Tabpanel,IE,BI,VisionTest")
 class B35_2526699Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {"""
+		val zscript = """"""
 		<hbox id="mainBox" widths="20%,1024px,20%" height="768px"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://www.zkoss.org/2005/zul"
@@ -118,8 +118,8 @@ http://www.zkoss.org/2005/zul/zul.xsd">
 	</box>
 	<box />
 </hbox>
-		"""}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			verifyImage()
 			click(jq("$test2"))
 			waitResponse(true)

@@ -21,9 +21,9 @@ import org.junit.Assert
 class Z60_B01469ScopeParamRefTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01469ScopeParamRef.zul"/>
-    }
+"""
     
     runZTL(zul, () => {
       var l1 = jq("$l1")

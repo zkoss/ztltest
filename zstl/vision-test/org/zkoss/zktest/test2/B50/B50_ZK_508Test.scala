@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B50-ZK-508.zul,B,E,Tree,Alignmenet,Theme,VisionTest")
 class B50_ZK_508Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk>
 				You should see the two cells "_____" are aligned the same height.
 				<tree>
@@ -42,8 +42,8 @@ class B50_ZK_508Test extends ZTL4ScalaTestCase {
 					</treechildren>
 				</tree>
 			</zk>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			verifyImage()
 		})
 	}

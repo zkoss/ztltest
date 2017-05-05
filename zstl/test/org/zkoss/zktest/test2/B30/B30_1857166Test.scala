@@ -37,7 +37,7 @@ import java.lang._
 class B30_1857166Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
         <window title="Listbox Bug"> 
             <toolbarbutton id="With Bug" label="Click Me! And no error msg!" onClick="openNewTab()"/>
     
@@ -89,9 +89,8 @@ class B30_1857166Test extends ZTL4ScalaTestCase {
             }
             ]]></zscript>
         </window>
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         
             //Click button

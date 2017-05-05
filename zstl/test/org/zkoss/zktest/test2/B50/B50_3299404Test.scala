@@ -37,7 +37,7 @@ import java.lang._
 class B50_3299404Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 			<window width="600px">
@@ -92,9 +92,7 @@ class B50_3299404Test extends ZTL4ScalaTestCase {
 			</window>
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var btn: Widget = engine.$f("btn");

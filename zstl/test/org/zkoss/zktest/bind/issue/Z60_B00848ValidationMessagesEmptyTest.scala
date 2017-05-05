@@ -1,3 +1,4 @@
+
 /* Z60_B00848ValidationMessagesEmptyTest.scala
 
 	Purpose:
@@ -21,9 +22,9 @@ import org.zkoss.ztl.Tags
 class Z60_B00848ValidationMessagesEmptyTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00848ValidationMessagesEmpty.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

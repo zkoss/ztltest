@@ -26,7 +26,7 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B30-1829397.zul,B,E,Window,Button")
 class B30_1829397Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window title="Test of on-shot timer" xmlns:html="http://www.w3.org/1999/xhtml">
         <vbox id="v">
           You shall see only one label below:
@@ -37,8 +37,8 @@ class B30_1829397Test extends ZTL4ScalaTestCase {
           </timer>
         </vbox>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       verifyTrue(jq("$v").isVisible());
       verifyTrue(jq(".z-label").eq(0).text().contains("You shall see only one label below:"));
       sleep(1100);

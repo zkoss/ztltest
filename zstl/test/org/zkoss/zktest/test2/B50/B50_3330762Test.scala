@@ -38,7 +38,7 @@ class B50_3330762Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 				<label id="outer" value="outer" />
@@ -57,9 +57,7 @@ class B50_3330762Test extends ZTL4ScalaTestCase {
 				Doublespinner Value: <label id="lb" />
 			</zk>
 
-    }
- 
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var outer: Widget = engine.$f("outer");

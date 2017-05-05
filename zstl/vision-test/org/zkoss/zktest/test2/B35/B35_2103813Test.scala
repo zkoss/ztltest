@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B35-2103813.zul,B,E,Button,VisionTest")
 class B35_2103813Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk>
 				If the outline of the button looks great, the bug is fixed.
 				<window>
@@ -33,8 +33,8 @@ class B35_2103813Test extends ZTL4ScalaTestCase {
 					</window>
 				</window>
 			</zk>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			verifyImage()
 		})
 	}

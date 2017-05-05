@@ -35,24 +35,8 @@ import java.lang._
  */
 @Tags(tags = "B50-ZK-577.zul,B,E,Datebox")
 class B50_ZK_577Test extends ZTL4ScalaTestCase {
-	
   def testClick() = {
-    val zscript = """
-			<zk>
-				<div height="15px" />
-				<div height="25px">You should not see two buttons in the popup of the datebox. (no rod only)</div>
-				<custom-attributes org.zkoss.zul.client.rod="false"
-					scope="page"/>
-				<datebox id="dbx" format="short" timeZonesReadonly="true"
-					displayedTimeZones="UTC" /> 
-				<button id="btn1" label="Test #1" />
-				<button id="btn2" label="Test #2" />
-			</zk>
-
-    """
-
-
-   runZTL(zscript, () => {
+   runZTL(() => {
    			var dbx: Widget = engine.$f("dbx");
    			var btn1: Widget = engine.$f("btn1");
    			var btn2: Widget = engine.$f("btn2");

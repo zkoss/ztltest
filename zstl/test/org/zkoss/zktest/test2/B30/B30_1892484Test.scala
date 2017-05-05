@@ -28,7 +28,7 @@ import org.zkoss.ztl.Tags
 class B30_1892484Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
     	<window title="Serialize Live Data" border="normal">
     	<zscript><![CDATA[
     		import java.io.*;
@@ -91,9 +91,8 @@ class B30_1892484Test extends ZTL4ScalaTestCase {
 
    		<button label="serialize tree" onClick="serialize(tree)"/>
     	</window>
-   }
-
-    runZTL(zscript,
+   """
+runZTL(zscript,
         () => {
         
         	//Click 'serialize tree'

@@ -37,7 +37,7 @@ import java.lang._
 class Z30_composerTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 <window id="winO" title="Original" apply="org.zkoss.zktest.test2.MyComposer">
 	You shall see the title starting with "Composer: ", and with a border.
 	<window id="win1" title="You shall not see this" apply="org.zkoss.zktest.test2.VoidComposer">
@@ -51,8 +51,8 @@ class Z30_composerTest extends ZTL4ScalaTestCase {
 	</window>
 </window>
 
-    }
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         verifyEquals(jq("$win1").size,0)
         verifyEquals(jq("$win2").size,0)

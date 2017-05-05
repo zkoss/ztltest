@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_CollectionIndexDefaultTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/collection-index-default.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var listbox = jq("$listbox")

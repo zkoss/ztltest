@@ -37,7 +37,7 @@ import java.lang._
 class B50_ZK_630Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>You should see no Java Exception</div>
 				<doublespinner id="db" value="1" constraint="no negative" />
@@ -46,10 +46,8 @@ class B50_ZK_630Test extends ZTL4ScalaTestCase {
 				</zscript>
 			</zk>
 
-    }
-
-
-   runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
 			var db: Widget = engine.$f("db");
 
 			verifyTrue("page should rendered well",

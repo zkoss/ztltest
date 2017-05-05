@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B50-ZK-548.zul,B,M,Toolbar,CSS,VisionTest")
 class B50_ZK_548Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk>
 				<div>
 					Breeze only. The background color should not be cut in half.
@@ -41,8 +41,8 @@ class B50_ZK_548Test extends ZTL4ScalaTestCase {
 					</toolbar>
 				</window>
 			</zk>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			verifyImage()
 		})
 	}

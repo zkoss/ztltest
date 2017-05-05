@@ -8,7 +8,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 class B65_ZK_1438Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = <zk>
+    val zscript = """<zk>
                     <label multiline="true">
                       1.when clicking send event, you should see only one message shows in listbox
 	2.then use reload1 or reload 2 to reload the window, then clicking send event, you should see only one message shows in listbox1 and one in listbox2
@@ -52,7 +52,7 @@ class B65_ZK_1438Test extends ZTL4ScalaTestCase {
                       </vlayout>
                     </window>
                   </zk>
-
+"""
     runZTL(zscript,
       () => {
         click(jq("@button:contains(sendEvent)"))

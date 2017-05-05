@@ -17,7 +17,7 @@ class B65_ZK_1462Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = <zk>
+    val zscript = """<zk>
                     <label>
                       Wait around 1 seconds, should see two panels showed and they are draggable and droppable.
                     </label>
@@ -42,7 +42,7 @@ class B65_ZK_1462Test extends ZTL4ScalaTestCase {
                       </portalchildren>
                     </portallayout>
                   </zk>
-
+"""
     runZTL(zscript,
       () => {
         sleep(2000)

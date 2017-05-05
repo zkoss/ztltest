@@ -28,7 +28,7 @@ import org.zkoss.ztl.Element
 @Tags(tags = "B30-2487562.zul,B,E,Window,Button")
 class B30_2487562Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window title="Listbox" border="normal">
         Please press HOME and END on the keyboard, you should see that the cursor in the input element works well. (Firefox 3 only)
         <listbox rows="2">
@@ -42,8 +42,8 @@ class B30_2487562Test extends ZTL4ScalaTestCase {
           <listitem label="Draft"/>
         </listbox>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       var tb = jq("@textbox");
       var zk_tb = zk(tb);
 

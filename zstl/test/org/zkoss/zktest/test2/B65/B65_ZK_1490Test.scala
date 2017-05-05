@@ -7,7 +7,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 class B65_ZK_1490Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = <zk xmlns:w="client">
+    val zscript = """<zk xmlns:w="client">
                     <html>
                       Testing instructions: None
 		
@@ -56,7 +56,7 @@ class B65_ZK_1490Test extends ZTL4ScalaTestCase {
                       </south>
                     </borderlayout>
                   </zk>
-
+"""
     runZTL(zscript,
       () => {
         verifyTrue("No JavaScript exceptions should occur.", !jq(".z-window-modal").exists())

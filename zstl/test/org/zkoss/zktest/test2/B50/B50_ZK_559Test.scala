@@ -37,7 +37,7 @@ import java.lang._
 class B50_ZK_559Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>
 					Chrome/Safari only. There should be no vertical gap between listbox and tabbox. 
@@ -67,10 +67,8 @@ class B50_ZK_559Test extends ZTL4ScalaTestCase {
 				</vbox>
 			</zk>
 
-    }
-
-
-   runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
    			var listbox: Widget = engine.$f("listbox");
    			var tabbox: Widget = engine.$f("tabbox");
 

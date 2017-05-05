@@ -38,7 +38,7 @@ class B50_3011319Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<window>
 				<html><![CDATA[
 				<ol>
@@ -63,9 +63,7 @@ class B50_3011319Test extends ZTL4ScalaTestCase {
 				<button id="btn" label="reset" onClick="set()"/>
 			</window>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var db: Widget = engine.$f("db");

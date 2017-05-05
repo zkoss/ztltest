@@ -28,7 +28,7 @@ import org.zkoss.ztl.Tags
 class B30_1882320Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
 
     			<n:p>setSelectionRange won't work at following case due to the smartupdate. If you see the text is selected from 1 to 2, it is correct.</n:p>
@@ -46,9 +46,8 @@ class B30_1882320Test extends ZTL4ScalaTestCase {
     			</window>
     			
     		</zk>
-   }
-
-    runZTL(zscript,
+   """
+runZTL(zscript,
         () => {
 
         	 waitResponse();

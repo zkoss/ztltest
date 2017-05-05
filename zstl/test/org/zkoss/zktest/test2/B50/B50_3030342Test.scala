@@ -37,7 +37,7 @@ import java.lang._
 class B50_3030342Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			<html>
 			<![CDATA[
@@ -58,9 +58,8 @@ class B50_3030342Test extends ZTL4ScalaTestCase {
 				</listbox>
 			</zk>
 
-    }
-
-    def executor = () => {
+    """
+def executor = () => {
     	var listbox: Widget = engine.$f("listbox");
 		waitResponse();
 
@@ -68,8 +67,7 @@ class B50_3030342Test extends ZTL4ScalaTestCase {
 		verifyTrue(jq(listbox.$n("rows")).find(".z-listcell").eq(1).text().contains("Thomas"));
 		verifyTrue(jq(listbox.$n("rows")).find(".z-listcell").eq(2).text().contains("Steven"));
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

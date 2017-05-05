@@ -24,35 +24,34 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B70-ZK-2773.zul")
 class B70_ZK_2773Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = { """
-			|<?xml version="1.0" encoding="UTF-8"?>
-			|
-			|<!--
-			|B70-ZK-2773.zul
-			|
-			|	Purpose:
-			|
-			|	Description:
-			|
-			|	History:
-			|		Tue Jun  9 10:40:46 CST 2015, Created by jumperchen
-			|
-			|Copyright (C)  Potix Corporation. All Rights Reserved.
-			|
-			|-->
-			|<window border="normal" title="hello">
-			|	Please click the datebox's icon to show the popup, and it shouldn't cover the datebox itself.
-			|	<vlayout>
-			|		<div height="800px">Welcome to ZK</div>
-			|		<datebox format="dd/MM/yyyy" />
-			|		<div height="1200px">Welcome to ZK</div>
-			|	</vlayout>
-			|</window>
-			|
-		""".stripMargin
-		}
+		val zscript = """
+<?xml version="1.0" encoding="UTF-8"?>
 
-		runZTL(zscript, () => {
+<!--
+B70-ZK-2773.zul
+
+	Purpose:
+
+	Description:
+
+	History:
+		Tue Jun  9 10:40:46 CST 2015, Created by jumperchen
+
+Copyright (C)  Potix Corporation. All Rights Reserved.
+
+-->
+<window border="normal" title="hello">
+	Please click the datebox's icon to show the popup, and it shouldn't cover the datebox itself.
+	<vlayout>
+		<div height="800px">Welcome to ZK</div>
+		<datebox format="dd/MM/yyyy" />
+		<div height="1200px">Welcome to ZK</div>
+	</vlayout>
+</window>
+
+
+		"""
+runZTL(zscript, () => {
 			click(jq(".z-datebox-button"))
 			waitResponse()
 			var pp = jq(".z-datebox-popup")

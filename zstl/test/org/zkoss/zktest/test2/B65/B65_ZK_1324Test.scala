@@ -10,7 +10,7 @@ class B65_ZK_1324Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = <zk>
+    val zscript = """<zk>
                     <html>
                       Testing instructions:
                       <ol>
@@ -32,7 +32,7 @@ class B65_ZK_1324Test extends ZTL4ScalaTestCase {
                       </bandpopup>
                     </bandbox>
                   </zk>
-
+"""
     runZTL(zscript,
       () => {
         val bndbx = jq(".z-bandbox").toWidget()

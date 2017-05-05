@@ -28,9 +28,9 @@ import org.junit.Test
 class Z60_CombobuttonTest extends ZTL4ScalaTestCase {
   @Test
   def testContainer() = {
-    val zul = {
+    val zul = """
     		<include src="bind/comp/combobutton.zul"/>
-    }
+"""
     runZTL(zul, () => {
     
       //button

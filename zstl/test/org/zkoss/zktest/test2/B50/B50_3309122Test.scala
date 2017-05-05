@@ -38,7 +38,7 @@ class B50_3309122Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 			If you can see 10 and Western in the content, the bug has been fixed.
@@ -116,9 +116,8 @@ class B50_3309122Test extends ZTL4ScalaTestCase {
 			</grid>
 			</zk>
 
-    }
-
-    def executor = ()=> {
+    """
+def executor = ()=> {
     	var grid: Widget = engine.$f("grid");
 		waitResponse();
 
@@ -131,8 +130,7 @@ class B50_3309122Test extends ZTL4ScalaTestCase {
 			verifyTrue($row.find(".z-label").get(1).get("innerHTML").contains("Western"));
 		}
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

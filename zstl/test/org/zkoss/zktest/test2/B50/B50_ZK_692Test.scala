@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B50-ZK-692.zul,B,M,RemoveDesktop")
 class B50_ZK_692Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<window>
 				<zscript>
 					if (null == Sessions.getCurrent().getAttribute("MyDesktopCleanup"))
@@ -34,8 +34,8 @@ class B50_ZK_692Test extends ZTL4ScalaTestCase {
 				<separator/>
 				Counts:<label id="msg" value="${sessionScope.MyDesktopCleanup}"/>
 			</window>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			for(i <- 0 to 5)
 				refresh();
 			

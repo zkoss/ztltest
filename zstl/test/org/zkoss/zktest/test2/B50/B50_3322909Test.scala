@@ -38,7 +38,7 @@ class B50_3322909Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<n:pre xmlns:n="xhtml">
 			
@@ -85,9 +85,8 @@ class B50_3322909Test extends ZTL4ScalaTestCase {
 				</window>
 			</zk>
 
-    }
-
-    def executor = () => {
+    """
+def executor = () => {
     	var test: Widget = engine.$f("test");
 		var btn1: Widget = engine.$f("btn1");
 		var btn2: Widget = engine.$f("btn2");
@@ -104,8 +103,7 @@ class B50_3322909Test extends ZTL4ScalaTestCase {
 		waitResponse();
 		verifyTrue(getText(test.$n("empty")).contains("No items match your search"))
 	}
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

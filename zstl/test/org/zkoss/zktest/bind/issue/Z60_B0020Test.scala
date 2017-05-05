@@ -26,9 +26,9 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 @Tags(tags = "zbind")
 class Z60_B0020Test extends ZTL4ScalaTestCase {
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B0020.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       //test property init

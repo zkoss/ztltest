@@ -22,9 +22,9 @@ import org.zkoss.ztl.Widget
 class Z60_F01033InitClassTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/F01033InitClass.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

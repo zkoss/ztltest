@@ -27,7 +27,7 @@ import org.openqa.selenium.Keys
 @Tags(tags = "B30-1823959.zul,B,E,Window,Button")
 class B30_1823959Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk xmlns:h="http://www.w3.org/1999/xhtml">
         <h:h3> [ 1823959 ] Grid failed to re-sync model (Opera/IE/IE7)</h:h3>
         <h:pre>
@@ -46,8 +46,8 @@ class B30_1823959Test extends ZTL4ScalaTestCase {
           </grid>
         </vbox>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Click the button
       click(jq("@button"));
       

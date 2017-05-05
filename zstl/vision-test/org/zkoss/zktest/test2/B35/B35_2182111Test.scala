@@ -26,7 +26,7 @@ import org.junit.Test
 class B35_2182111Test extends ZTL4ScalaTestCase {
   @Test
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<window>
 				<tabbox width="400px">
 					<tabs>
@@ -42,8 +42,8 @@ The second panel
 					</tabpanels>
 				</tabbox>
 			</window>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			verifyImage()
 		})
 	}

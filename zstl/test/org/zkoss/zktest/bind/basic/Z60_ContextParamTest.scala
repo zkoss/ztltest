@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_ContextParamTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/contextparam.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       verifyEquals("applicationScope-A", jq("$l11").toWidget().get("value"))

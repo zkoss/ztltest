@@ -27,9 +27,9 @@ class Z60_B00849ConverterParametersTest extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00849ConverterParameters.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

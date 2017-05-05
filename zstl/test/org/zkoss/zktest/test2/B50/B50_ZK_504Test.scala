@@ -37,7 +37,7 @@ import java.lang._
 class B50_ZK_504Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			<html><![CDATA[
 			<ul><li>You shall see "onCreated received" inside the following window.</li></ul>
@@ -58,9 +58,8 @@ class B50_ZK_504Test extends ZTL4ScalaTestCase {
 			
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         verifyTrue("event fired",
             jq(".z-label:contains(onCreated received)").exists());

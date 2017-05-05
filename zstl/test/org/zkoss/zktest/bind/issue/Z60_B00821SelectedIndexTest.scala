@@ -42,9 +42,9 @@ class Z60_B00821SelectedIndexTest extends ZTL4ScalaTestCase {
   }
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00821SelectedIndex.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

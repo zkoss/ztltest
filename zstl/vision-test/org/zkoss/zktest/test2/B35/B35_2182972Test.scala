@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B35-2182972.zul,A,M,Window,VisionTest")
 class B35_2182972Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk>
 				Please test each mode ("Overlap, Popup, Embed, and Modal") with title and border, or not.
 	It should be looked well.
@@ -53,8 +53,8 @@ class B35_2182972Test extends ZTL4ScalaTestCase {
 					</button>
 				</window>
 			</zk>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			List("$b1", "$b2", "$b3", "$b4").foreach(id => {
 				click(jq(id))
 				waitResponse

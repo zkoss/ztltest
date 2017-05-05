@@ -1,3 +1,4 @@
+
 /* Z60_B01165InnerViewMdelTest.scala
 
 	Purpose:
@@ -20,9 +21,9 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 class Z60_B01165InnerViewMdelTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01165NestedBinder.zul"/>
-    }
+"""
     runZTL(zul, () => {
 
       var outerPidLb = jq("$outerPidLb")

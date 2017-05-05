@@ -21,9 +21,9 @@ import org.zkoss.ztl.Tags
 class Z60_B01908DatabindingOnPagingTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01908DatabindingOnPaging.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       val pg = jq("$pg").toWidget();

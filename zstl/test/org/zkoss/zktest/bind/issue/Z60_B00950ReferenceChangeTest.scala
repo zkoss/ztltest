@@ -24,9 +24,9 @@ class Z60_B00950ReferenceChangeTest extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00950ReferenceChange.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

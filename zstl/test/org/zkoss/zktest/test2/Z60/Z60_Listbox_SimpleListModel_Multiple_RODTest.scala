@@ -38,7 +38,7 @@ class Z60_Listbox_SimpleListModel_Multiple_RODTest extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<zscript>
 					<![CDATA[
@@ -125,9 +125,8 @@ class Z60_Listbox_SimpleListModel_Multiple_RODTest extends ZTL4ScalaTestCase {
 				<hbox id="cloneThreeArea" />
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var outer: Widget = engine.$f("outer");
         var lbxOne: Widget = engine.$f("lbxOne");

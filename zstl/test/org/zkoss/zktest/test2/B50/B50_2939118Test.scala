@@ -37,7 +37,7 @@ import java.lang._
 class B50_2939118Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			    <zscript><![CDATA[
 			        public class TreeComposer extends org.zkoss.zk.ui.util.GenericForwardComposer{
@@ -97,9 +97,7 @@ class B50_2939118Test extends ZTL4ScalaTestCase {
 			    <button id="btn" label="Click me, no error is correct." onClick='tree.setModel(new org.zkoss.zktest.test2.tree.BinaryTreeModel(new ArrayList(new org.zkoss.zktest.test2.BigList(10))));'/>
 			</zk>
 
-    }
- 
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var btn: Widget = engine.$f("btn");

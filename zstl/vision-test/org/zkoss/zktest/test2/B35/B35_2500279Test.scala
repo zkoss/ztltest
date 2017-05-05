@@ -27,7 +27,7 @@ class B35_2500279Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk>
 				Please test the popup of each drop-down component, menu, datebox, and combobox, should cover the drop-down list(IE6 only)
 				<vbox>
@@ -63,8 +63,8 @@ class B35_2500279Test extends ZTL4ScalaTestCase {
 					</listbox>
 				</vbox>
 			</zk>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			click(engine.$f("menu").$n("a"))
 			waitResponse
 			verifyImage()

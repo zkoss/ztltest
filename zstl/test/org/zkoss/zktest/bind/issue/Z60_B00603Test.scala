@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_B00603Test extends ZTL4ScalaTestCase {
   def testIssue() = {
-    val zul = { 
+    val zul = """ 
       <include src="/bind/issue/B00603.zul" />
-    }
+"""
 
     runZTL(zul, () => {
       val outerbox = engine.$f("outsidebox") 

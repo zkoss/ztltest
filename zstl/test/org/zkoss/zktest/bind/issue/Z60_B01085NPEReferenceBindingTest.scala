@@ -1,5 +1,7 @@
 /* Z60_B01085NPEReferenceBindingTest.scala
 
+
+
 	Purpose:
 		
 	Description:
@@ -25,9 +27,9 @@ class Z60_B01085NPEReferenceBindingTest extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01085NPEReferenceBinding.zul"/>
-    }
+"""
 
     def getSelectedIndex(listbox: Widget): String = {
       var outeritems = listbox.firstChild() // include header
@@ -43,8 +45,7 @@ class Z60_B01085NPEReferenceBindingTest extends ZTL4ScalaTestCase {
       }
       "-1"
     }
-
-    runZTL(zul, () => {
+runZTL(zul, () => {
 
       var listbox1 = jq("$listbox1")
       var listbox2 = jq("$listbox2")

@@ -47,9 +47,9 @@ class Z60_F00743_2Test extends ZTL4ScalaTestCase {
 
   @Test
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/F00743_2.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var outerbox = jq("$outerbox")

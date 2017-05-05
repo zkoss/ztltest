@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B50-ZK-597.zul,A,E,Hlayout,Vlayout,Tabbox,Tree,VisionTest")
 class B50_ZK_597Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<tabbox width="100%" tabscroll="false">
 				<tabs>
 					<tab label="Tab1"/>
@@ -107,8 +107,8 @@ class B50_ZK_597Test extends ZTL4ScalaTestCase {
 					</tabpanel>
 				</tabpanels>
 			</tabbox>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			click(jq("$srcView"))
 			waitResponse()
 			click(engine.$f("rd").$n("real"))

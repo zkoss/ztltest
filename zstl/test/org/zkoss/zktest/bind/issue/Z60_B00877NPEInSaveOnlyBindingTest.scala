@@ -28,9 +28,9 @@ class Z60_B00877NPEInSaveOnlyBindingTest extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00877NPEInSaveOnlyBinding.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

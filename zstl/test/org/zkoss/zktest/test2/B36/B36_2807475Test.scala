@@ -30,7 +30,7 @@ import org.junit.Test
 class B36_2807475Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk>
         When you click the menu popup then click the textbox. the textbox's focus
 event should be triggered in IE.
@@ -47,8 +47,8 @@ event should be triggered in IE.
           focus count:<intbox id="demo2" value="1"/>
         </hbox>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Click on menu popup
       click(jq("$menubar"));
       waitResponse();

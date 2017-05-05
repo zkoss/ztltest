@@ -39,7 +39,7 @@ class B50_ZK_539Test extends ZTL4ScalaTestCase {
 			})
 	}
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<groupbox width="200px" mold="3d" height="200px" open="false">
 				<caption image="/test2/img/inet.png" label="Testing Group Box">
 				</caption>

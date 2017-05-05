@@ -31,7 +31,7 @@ class B50_ZK_421Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
     		<zk>
     			<div>1. Select an item, go to page 2.</div>
     			<div>2. Select another item and go back to page 1. In the first Listbox you 
@@ -46,9 +46,8 @@ class B50_ZK_421Test extends ZTL4ScalaTestCase {
     				<listitem label="${each}" forEach="1,2,3,4,5,6,7,8,9,10" />
     			</listbox>
     		</zk>
-    }
-
-    def executor = () => {
+    """
+def executor = () => {
     	var lb1: Widget = engine.$f("lb1");
     	var lb2: Widget = engine.$f("lb2");
     	waitResponse();
@@ -71,8 +70,7 @@ class B50_ZK_421Test extends ZTL4ScalaTestCase {
     	else
     		verifyFalse(jq(lb).find(".z-listitem:eq(2)").hasClass("z-listitem-selected"));
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

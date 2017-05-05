@@ -28,9 +28,9 @@ import org.zkoss.ztl.ClientWidget
 class Z60_FormDirtyTest extends ZTL4ScalaTestCase {
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/form-dirty.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       def `type` = (n: ClientWidget, input: String) => {

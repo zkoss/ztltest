@@ -27,7 +27,7 @@ import org.openqa.selenium.Keys
 @Tags(tags = "B35-2465826.zul,B,E,Window,Button")
 class B35_2465826Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk>
         1. Please click on one listitem, and press Enter on the keyboard.
         <separator/>
@@ -69,8 +69,8 @@ class B35_2465826Test extends ZTL4ScalaTestCase {
           </listbox>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Click on second item
       click(jq("@listitem .z-listcell:eq(1)"));
       

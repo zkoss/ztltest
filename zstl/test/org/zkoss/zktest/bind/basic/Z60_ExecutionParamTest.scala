@@ -25,9 +25,9 @@ import org.junit.Test
 class Z60_ExecutionParamTest extends ZTL4ScalaTestCase {
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/executionparam.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       click(jq("$btn1").toWidget())

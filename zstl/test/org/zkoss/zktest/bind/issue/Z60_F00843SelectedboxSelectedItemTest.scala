@@ -40,9 +40,9 @@ class Z60_F00843SelectedboxSelectedItemTest extends ZTL4ScalaTestCase {
   }
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/F00843SelectboxSelectedItem.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

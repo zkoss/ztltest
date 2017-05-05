@@ -1,4 +1,5 @@
 
+
 /* 
 
 {{IS_NOTE
@@ -26,9 +27,9 @@ import org.zkoss.ztl.Widget
 class Z60_B00807GroupModel_2Test extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00807GroupModelListbox.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

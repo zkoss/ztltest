@@ -27,7 +27,7 @@ class B50_ZK_528Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testGridCase() = {
-		val zscript = {
+		val zscript = """
 			<div>
 				Grid
 				<grid emptyMessage="Empty Message">
@@ -51,8 +51,8 @@ class B50_ZK_528Test extends ZTL4ScalaTestCase {
 				</button>
 				<button label="clean columns" onClick="cols.getChildren().clear()"/>
 			</div>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 		  
 			val emp = jq("@grid").toWidget().$n("empty")
 			val hiddenCol = jq("@grid").find("col[id*=hdfaker][style*=hidden]")
@@ -86,7 +86,7 @@ class B50_ZK_528Test extends ZTL4ScalaTestCase {
 
   	@Test
 	def testListboxCase() = {
-		val zscript = {
+		val zscript = """
 			<div>
 				Listbox
 				<listbox id="list" emptyMessage="Empty Message">
@@ -108,8 +108,8 @@ class B50_ZK_528Test extends ZTL4ScalaTestCase {
 				</button>
 				<button label="clean columns" onClick="lh.getChildren().clear()"/>
 			</div>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 		  
 		    val emp = jq(".z-listbox").toWidget().$n("empty")
 		    val hiddenCol = jq("@listbox").find("col[id*=hdfaker][style*=hidden]")

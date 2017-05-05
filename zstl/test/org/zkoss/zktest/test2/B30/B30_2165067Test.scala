@@ -30,7 +30,7 @@ import org.zkoss.ztl.util.Scripts
 @Tags(tags = "B30-2165067.zul,B,E,Window,Button")
 class B30_2165067Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk>
         <html><![CDATA[
 		<ol>
@@ -54,8 +54,8 @@ class B30_2165067Test extends ZTL4ScalaTestCase {
 		]]></attribute>
         </button>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Verify the existence of the labels
       verifyTrue("The tree labels should does not exists", jq(".z-label:contains(test)").length()==3);
 

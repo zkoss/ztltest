@@ -32,7 +32,7 @@ import org.junit.Test
 class B30_2003798Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window title="tree and listbox bug" border="normal">
         1. When you mouse over the "foo" word, the entire row should be highlight.
         <separator/>
@@ -72,8 +72,8 @@ class B30_2003798Test extends ZTL4ScalaTestCase {
           </listitem>
         </listbox>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Mouse over the "foo" word
       // Option 2: mouseOver(jq(".z-label:contains(foo)"));
       val img = engine.$f("img");

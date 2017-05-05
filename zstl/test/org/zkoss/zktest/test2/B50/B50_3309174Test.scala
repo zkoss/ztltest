@@ -37,7 +37,7 @@ import java.lang._
 class B50_3309174Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 				<html><![CDATA[
@@ -68,9 +68,8 @@ class B50_3309174Test extends ZTL4ScalaTestCase {
 				</window>
 			</zk>
 
-    }
-
-    def executor = () => {
+    """
+def executor = () => {
     	var (btn: Widget,
     	    grid: Widget) = (
     	        engine.$f("btn"),
@@ -82,8 +81,7 @@ class B50_3309174Test extends ZTL4ScalaTestCase {
 		waitResponse();
 		verifyTrue(jq(grid.$n("body")).find(".z-row").eq(0).text().contains("20"));
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

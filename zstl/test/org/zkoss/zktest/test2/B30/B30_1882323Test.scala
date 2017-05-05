@@ -28,7 +28,7 @@ import org.zkoss.ztl.Element
 @Tags(tags = "B30-1882323.zul,B,E,Window,Button")
 class B30_1882323Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
         <n:p>
           Press LEFT and RIGHT key into the textbox to see if we can change the position of the cursor,
@@ -37,8 +37,8 @@ class B30_1882323Test extends ZTL4ScalaTestCase {
         </n:p>
         <intbox value="12345" id="intbox"/>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Selects the intbox
       click(jq(".z-intbox").get(0));
       waitResponse();

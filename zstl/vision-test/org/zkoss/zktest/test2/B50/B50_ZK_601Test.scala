@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B50-ZK-601.zul,B,E,Grid,Frozen,IE8,VisionTest")
 class B50_ZK_601Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk>
 				Please scroll to the end of the scrollbar (right-most), and then scroll back to the begin of the scrollbar.
 				<separator/>
@@ -61,8 +61,8 @@ class B50_ZK_601Test extends ZTL4ScalaTestCase {
 					</rows>
 				</grid>
 			</zk>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			val $jq = jq(".z-grid-body")
 			$jq.scrollLeft($jq.scrollWidth())
 			$jq.scrollLeft(0)

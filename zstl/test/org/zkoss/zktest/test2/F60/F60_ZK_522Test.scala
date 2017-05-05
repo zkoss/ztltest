@@ -37,7 +37,7 @@ import java.lang._
 class F60_ZK_522Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>This page should displaied without any problem.</div>
 				<tablelayout columns="3">
@@ -67,9 +67,8 @@ class F60_ZK_522Test extends ZTL4ScalaTestCase {
 				</tablelayout>
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         verifyTrue("The listbox in tablechildren is displayed well",
             jq(".z-listheader:contains(test listbox)").exists());

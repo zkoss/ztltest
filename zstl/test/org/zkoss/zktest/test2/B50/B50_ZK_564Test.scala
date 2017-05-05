@@ -37,7 +37,7 @@ import java.lang._
 class B50_ZK_564Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			<vbox id="vb" apply="org.zkoss.zktest.test2.B50_ZK_564_Composer">
 				<div>1. click the "Add" to add the tree nodes. </div>
@@ -63,10 +63,8 @@ class B50_ZK_564Test extends ZTL4ScalaTestCase {
 				</vbox>
 			</zk>
 
-    }
-
-
-   runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
    			var add: Widget = engine.$f("add");
    			var clone: Widget = engine.$f("clone");
 

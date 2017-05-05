@@ -27,7 +27,7 @@ import org.junit.Test
 class B30_1943594Test extends ZTL4ScalaTestCase {
   @Test
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<window border="none" width="100%" xmlns="http://www.zkoss.org/2005/zul">
 				<html><![CDATA[
 				<ul>
@@ -72,8 +72,8 @@ class B30_1943594Test extends ZTL4ScalaTestCase {
 				<label id="a" value="test"/>
 				<datebox use="MyDate"/>
 			</window>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			// test combobox
 			click(jq(jq(".z-combobox").toWidget.$n("btn")))
 			waitResponse()

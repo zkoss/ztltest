@@ -29,7 +29,7 @@ import org.zkoss.ztl.ZK
 @Tags(tags = "B30-1991859.zul,B,E,Window,Button")
 class B30_1991859Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window id="test" title="test" border="normal" height="100%">
         Please click the button, and then you should only see one alert message.
         <listbox width="400px">
@@ -44,8 +44,8 @@ class B30_1991859Test extends ZTL4ScalaTestCase {
           </listitem>
         </listbox>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Click on the button
       click(jq(".z-button"));
       waitResponse();

@@ -30,7 +30,7 @@ class B30_1898094Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
     		<zk>        
     			If you see the focus be at the textbox (rather than button), It is fixed.
     			<window title="Test Popup Focus" mode="popup" width="300px" >
@@ -38,9 +38,8 @@ class B30_1898094Test extends ZTL4ScalaTestCase {
     				<textbox onCreate="self.focus()"/>
     			</window>
     		</zk>
-   }
-
-    runZTL(zscript,
+   """
+runZTL(zscript,
         () => {
         
         	waitResponse();

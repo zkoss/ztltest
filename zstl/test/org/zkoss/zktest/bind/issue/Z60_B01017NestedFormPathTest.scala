@@ -22,9 +22,9 @@ import org.openqa.selenium.Keys
 class Z60_B01017NestedFormPathTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01017NestedFormPath.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

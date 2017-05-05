@@ -7,7 +7,7 @@ import org.junit.Test
 class Z60_Touch_005Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-		val zscript = {
+		val zscript = """
 <zk>
 	<div>
 		Click on icon button should not see native keyboard.

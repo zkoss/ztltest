@@ -102,7 +102,7 @@ class F55_ZK_12Test extends ZTL4ScalaTestCase {
           var logContent: String = null;
           click(wgt);
           sleep(delay);
-
+          waitResponse()
           zklog = jq("textarea").get(0);
           logContent = zklog.get("value");
 

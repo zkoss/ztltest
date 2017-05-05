@@ -38,7 +38,7 @@ class B50_ZK_480Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>Open the Treeitem. You should NOT see javascript error.</div>
 				<tree id="tree">
@@ -51,15 +51,13 @@ class B50_ZK_480Test extends ZTL4ScalaTestCase {
 					</treechildren>
 				</tree>
 			</zk>
-    }
-
-    def executor = ()=>{
+    """
+def executor = ()=>{
     	click(jq(".z-treerow").toWidget().$n("icon"));
     	waitResponse();
     	verifyFalse(jq(".z-error").exists());
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

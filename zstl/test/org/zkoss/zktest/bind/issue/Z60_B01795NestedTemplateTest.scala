@@ -21,9 +21,9 @@ import org.zkoss.ztl.Tags
 class Z60_B01795NestedTemplateTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01795NestedTemplate.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       val box1s = jq("@grid @label")

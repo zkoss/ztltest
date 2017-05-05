@@ -25,9 +25,9 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 class Z60_C2 extends ZTL4ScalaTestCase {
   def testArg = {
 
-    val zul = {
+    val zul = """
       <include src="/bind/collection/c2.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

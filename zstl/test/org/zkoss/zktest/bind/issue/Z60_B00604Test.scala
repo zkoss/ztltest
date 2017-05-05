@@ -25,9 +25,9 @@ import org.junit.Test
 class Z60_B00604Test extends ZTL4ScalaTestCase {
   @Test
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00604.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       val inc1 = engine.$f("inc1")

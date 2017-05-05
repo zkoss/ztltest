@@ -37,7 +37,7 @@ import java.lang._
 class B50_3020040Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			<html><![CDATA[
 			<ul>
@@ -56,9 +56,8 @@ class B50_3020040Test extends ZTL4ScalaTestCase {
 			<button id="btn" label="Unselect first" onClick="box.removeItemFromSelection(box.getItemAtIndex(0))"/>
 			</zk>
 
-    }
-
-    def executor = () => {
+    """
+def executor = () => {
     	var (btn: Widget,
     	    box: Widget) = (
     	        engine.$f("btn"),
@@ -74,8 +73,7 @@ class B50_3020040Test extends ZTL4ScalaTestCase {
     def checkSelected(ele: Element) = {
     	verifyTrue(ele.get("className").contains("z-listitem-selected"));
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

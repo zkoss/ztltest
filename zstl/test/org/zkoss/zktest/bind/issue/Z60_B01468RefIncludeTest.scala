@@ -22,9 +22,9 @@ import org.junit.Assert
 class Z60_B01468RefIncludeTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01468RefInclude.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

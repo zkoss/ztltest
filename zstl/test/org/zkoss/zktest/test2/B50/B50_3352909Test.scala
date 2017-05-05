@@ -38,7 +38,7 @@ class B50_3352909Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			1. Plese scroll to item99(or more than it), it shouldn't jump to item 41.
 			<zscript>
@@ -56,9 +56,8 @@ class B50_3352909Test extends ZTL4ScalaTestCase {
 			</grid>
 			</zk>
 
-    }
-
-    def executor = ()=>{
+    """
+def executor = ()=>{
     	var lb: Widget = engine.$f("lb")
 		var grid: Widget = engine.$f("grid")
 		waitResponse()
@@ -72,8 +71,7 @@ class B50_3352909Test extends ZTL4ScalaTestCase {
 		sleep(500)
 		verifyTrue(jq(grid.$n("body")).scrollTop() > 2000)
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

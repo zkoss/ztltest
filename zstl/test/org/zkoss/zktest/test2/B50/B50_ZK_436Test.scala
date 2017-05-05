@@ -37,15 +37,13 @@ import java.lang._
 class B50_ZK_436Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			You shouldn't see a "false" text in the page (IE only)
 			<iframe/>
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var bodyHTML: String = jq("body").get(0).get("innerHTML");

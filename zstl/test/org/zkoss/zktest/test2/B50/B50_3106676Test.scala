@@ -38,7 +38,7 @@ import java.util.Calendar;
 class B50_3106676Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 			<datebox id="dtbx1" constraint="no past" lenient="false"/>
@@ -48,9 +48,7 @@ class B50_3106676Test extends ZTL4ScalaTestCase {
 			-> Correct. You cannot select past days as well.
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var dtbx1: Widget = engine.$f("dtbx1");

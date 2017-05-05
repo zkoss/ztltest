@@ -38,7 +38,7 @@ class B50_3278524Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<tabbox>
 				<tabs>
 				<tab label="Hi"/>
@@ -51,9 +51,7 @@ class B50_3278524Test extends ZTL4ScalaTestCase {
 				</tabpanels>
 			</tabbox>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         waitResponse();

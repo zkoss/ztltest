@@ -37,7 +37,7 @@ import java.lang._
 class B50_ZK_631Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>Type "abc" in datebox then press tab, you shoud see the message like</div>
 				<div>You must specify a date, rather than abc. Format: yyyy/MM/dd.</div>
@@ -79,9 +79,7 @@ class B50_ZK_631Test extends ZTL4ScalaTestCase {
 						}
 					}
 					public void setCustomConstraint (Datebox dob, Label doberr) {
-						dob.setConstraint(new MyDateConstraint(doberr, MyDateConstraint.STRICT
-							| MyDateConstraint.SERVER | MyDateConstraint.NO_FUTURE
-							| MyDateConstraint.NO_TODAY));
+						dob.setConstraint(new MyDateConstraint(doberr, MyDateConstraint.STRICT | MyDateConstraint.SERVER | MyDateConstraint.NO_FUTURE| MyDateConstraint.NO_TODAY));
 					}
 				]]></zscript>
 				<window id="win">
@@ -103,9 +101,8 @@ class B50_ZK_631Test extends ZTL4ScalaTestCase {
 				</window>
 			</zk>
 
-    }
-
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
     		var dob: Widget = engine.$f("dob");
     		var doberr: Widget = engine.$f("doberr");
     		sendKeys(jq(dob.$n()).find("input"), "abc");

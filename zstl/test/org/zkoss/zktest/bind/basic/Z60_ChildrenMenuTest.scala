@@ -25,9 +25,9 @@ import java.util.ArrayList
 @Tags(tags = "zbind")
 class Z60_ChildrenMenuTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/children-menu.zul"/>
-    }
+    """
 
     runZTL(zul, () => {
       var nodes = new ArrayList[Node]()

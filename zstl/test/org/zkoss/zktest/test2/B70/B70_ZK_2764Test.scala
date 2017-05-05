@@ -24,8 +24,8 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "")
 class B70_ZK_2764Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
-			"""<?xml version="1.0" encoding="UTF-8"?>
+		val zscript = 
+"""<?xml version="1.0" encoding="UTF-8"?>
 
 			<!--
 B70-ZK-2764.zul
@@ -52,10 +52,9 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 						<button id="updateButton" label="update data"/>
 						<button id="rebuildButton" label="rebuild model"/>
 					</div>
-				</zk>"""
-
-		}
-		runZTL(zscript, () => {
+				</zk>
+"""
+runZTL(zscript, () => {
 			click(jq(".z-treerow .z-tree-icon"));
 			waitResponse();
 			click(jq(".z-treerow .z-tree-icon").eq(1));

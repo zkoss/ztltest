@@ -1,3 +1,4 @@
+
 /* 
 
 {{IS_NOTE
@@ -27,9 +28,9 @@ class Z60_B00807GroupModel_1Test extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00807GroupModel.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

@@ -22,9 +22,9 @@ import org.zkoss.ztl.Widget
 class Z60_F01046PublicEventTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/F01046PublicEvent.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B35-2154845.zul,A,E,Tabbox,VisionTest")
 class B35_2154845Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<window id="wnd1" border="normal" height="100%">
 				1.After Click the button , the background of tabs (long and blue) is
 	OK (not seperate into two)
@@ -52,8 +52,8 @@ class B35_2154845Test extends ZTL4ScalaTestCase {
 		
 ]]></zscript>
 			</window>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			click(jq("@button"))
 			waitResponse
 			verifyImage()

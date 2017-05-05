@@ -25,9 +25,9 @@ import java.util.ArrayList
 @Tags(tags = "zbind")
 class Z60_ChildrenComplexTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/children-complex.zul"/>
-    }
+    """
 
     runZTL(zul, () => {
       var nodes = new ArrayList[Node]()

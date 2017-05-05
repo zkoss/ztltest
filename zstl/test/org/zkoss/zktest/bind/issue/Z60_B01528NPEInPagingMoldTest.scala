@@ -20,9 +20,9 @@ import org.zkoss.ztl.Tags
 class Z60_B01528NPEInPagingMoldTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01528NPEInPagingMold.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

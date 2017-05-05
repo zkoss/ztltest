@@ -26,9 +26,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_MenuitemTest extends ZTL4ScalaTestCase {
   def testComponent() = {
-    val zul = {
+    val zul = """
     		<include src="bind/comp/menuitem.zul"/>
-    }
+"""
     runZTL(zul, () => {
     
       //button

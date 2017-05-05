@@ -28,7 +28,7 @@ import org.zkoss.ztl.Tags;
 class Z30_grid_0010Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<window title="Column should not show up here">
 				<grid>
 					<columns>
@@ -41,9 +41,8 @@ class Z30_grid_0010Test extends ZTL4ScalaTestCase {
 					</rows>
 				</grid>
 			</window>
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
 		verifyEquals(String.valueOf(jq("@column:visible").length),"0");
 		verifyEquals(String.valueOf(jq("@column").length),"3");

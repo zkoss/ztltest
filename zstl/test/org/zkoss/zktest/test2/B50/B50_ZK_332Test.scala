@@ -38,7 +38,7 @@ class B50_ZK_332Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 						<zk>
 			<html><![CDATA[
 			<ul>
@@ -60,9 +60,8 @@ class B50_ZK_332Test extends ZTL4ScalaTestCase {
 				</treechildren>
 			</tree>
 			</zk>
-    }
-
-    def executor = () => {
+    """
+def executor = () => {
     	var tree: Widget = engine.$f("tree");
     	var tr: Widget = engine.$f("tr");
     	waitResponse();
@@ -76,8 +75,7 @@ class B50_ZK_332Test extends ZTL4ScalaTestCase {
     	verifyTrue("".equals(jq(tree.$n("rows")).find(".z-treerow").get(2).get("style.display")));
     	verifyTrue("".equals(jq(tree.$n("rows")).find(".z-treerow").get(3).get("style.display")));
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

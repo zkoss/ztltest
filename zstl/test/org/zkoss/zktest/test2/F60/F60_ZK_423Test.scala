@@ -38,7 +38,7 @@ import java.lang._
 class F60_ZK_423Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>
 					1. Click on the first textbox so the textbox will gain focus.
@@ -69,9 +69,8 @@ class F60_ZK_423Test extends ZTL4ScalaTestCase {
 				<textbox id="tbxTwo" />
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var tbxOne: Widget = engine.$f("tbxOne");
         var lbx: Widget = engine.$f("lbx");

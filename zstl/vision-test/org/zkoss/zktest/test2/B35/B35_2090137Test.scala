@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B35-2090137.zul,B,E,Window,Grid,IE,VisionTest")
 class B35_2090137Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {"""
+		val zscript = """"""
 		<zk>
 <style>
 .ie6 .z-window-content {
@@ -54,8 +54,8 @@ The width of grid should not exceed the width of window, if any, that is wrong.
 
 </window>
 </zk>
-		"""}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 		verifyImage()
 		})
 	}

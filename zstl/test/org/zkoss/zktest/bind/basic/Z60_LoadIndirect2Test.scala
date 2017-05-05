@@ -28,9 +28,9 @@ import org.zkoss.ztl.ClientWidget
 @Tags(tags = "zbind")
 class Z60_LoadIndirect2Test extends ZTL4ScalaTestCase {
   def testBasic() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/load-indirect.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       val t1 = engine $f "l1"

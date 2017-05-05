@@ -37,7 +37,7 @@ import java.lang._
 class B60_ZK_765Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<window xmlns:w="http://www.zkoss.org/2005/zk/client">
 				<label multiline="true">
 				1.click show index, the message shows "selected index is undefined, no selection" (currently if selected index is -1 is better, however 'undefined/null' is acceptable.
@@ -101,9 +101,8 @@ class B60_ZK_765Test extends ZTL4ScalaTestCase {
 				]]></script>
 			</window>
 
-    }
-
-   runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var listbox: Widget = engine.$f("listbox");
         var msg: Widget = engine.$f("msg");

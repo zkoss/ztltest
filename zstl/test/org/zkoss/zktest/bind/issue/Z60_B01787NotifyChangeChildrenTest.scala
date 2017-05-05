@@ -20,9 +20,9 @@ import org.zkoss.ztl.Tags
 class Z60_B01787NotifyChangeChildrenTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01787NotifyChangeChildren.zul"/>
-    }
+"""
 
     // don't reuse this, data might different
     val btns = Array(null, "$updatePath", "$updateA", "$updateAName", "$updateB", "$updateBName")

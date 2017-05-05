@@ -24,9 +24,9 @@ import org.zkoss.ztl.Tags
 class Z60_B00911FormNotifyChangeTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00911FormNotifyChange.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

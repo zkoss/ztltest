@@ -28,7 +28,7 @@ import org.zkoss.ztl.ZK
 @Tags(tags = "B30-1914078.zul,C,E,Window,Animation")
 class B30_1914078Test extends ZTL4ScalaTestCase {
   def testPosition() = {
-    val zscript = {
+    val zscript = """
       <window title="Animation Effects" border="normal" xmlns:h="http://www.w3.org/1999/xhtml">
         <h:p>Repeatedly click on "Toggle Visible" Button. If the Window pops up from top-right corner, it is a bug.</h:p>
         <button label="Toggle Visible" onClick="win.visible = !win.visible"/>
@@ -37,9 +37,8 @@ class B30_1914078Test extends ZTL4ScalaTestCase {
           <checkbox label="Hello, Effects!"/>
         </window>
       </window>
-    }
-
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       val btn = jq("@button");
       val win = jq("$win")
       val (width, height) = (jq("body").width() / 2, jq("body").height() / 2);

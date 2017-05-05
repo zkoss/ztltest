@@ -30,7 +30,7 @@ import org.junit.Test
 class B30_1878840Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
         <n:p>You can scroll down the listbox to end, and then click the listheader to sort the live data.</n:p>
         <n:p>Then you should't see that the content containing some empty content.</n:p>
@@ -69,8 +69,8 @@ class B30_1878840Test extends ZTL4ScalaTestCase {
           </listbox>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
 
       var $jq = jq(engine.$f("list").$n("body"));
       

@@ -28,9 +28,9 @@ class Z60_B00878WrongValueException2Test extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00878WrongValueException2.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       

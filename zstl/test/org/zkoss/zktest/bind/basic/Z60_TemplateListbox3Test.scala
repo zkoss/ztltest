@@ -26,9 +26,9 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
   
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="bind/basic/collection-template-listbox.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       		var outerbox = jq("$outerbox").toWidget()

@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B30-1472534.zul,C,E,Listbox,IE,VisionTest")
 class B30_1472534Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
 				<n:p>
 					Click the "messageBox" button, and then the Error box should be
@@ -38,8 +38,8 @@ class B30_1472534Test extends ZTL4ScalaTestCase {
 WrongValueException(list2, &quot;!!!!!!!!!!&quot;);"/>
 				</vbox>
 			</zk>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			verifyImage()
 			click(jq("@button"))
 			waitResponse

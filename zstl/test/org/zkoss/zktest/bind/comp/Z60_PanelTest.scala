@@ -26,9 +26,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_PanelTest extends ZTL4ScalaTestCase {
   def testContainer() = {
-    val zul = {
+    val zul = """
     		<include src="bind/comp/panel.zul"/>
-    }
+"""
     runZTL(zul, () => {
     
       //button

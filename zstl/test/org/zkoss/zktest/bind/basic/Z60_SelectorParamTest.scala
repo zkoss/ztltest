@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_SelectorParamTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/selectorparam.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       verifyEquals("Init 0", jq("$l11").toWidget().get("value"))

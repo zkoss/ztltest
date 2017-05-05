@@ -1,3 +1,4 @@
+
 /* 
 
 {{IS_NOTE
@@ -28,9 +29,9 @@ import org.junit.Test
 class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="bind/basic/validationmessages.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       def `type` = (n: ClientWidget, input: String) => {

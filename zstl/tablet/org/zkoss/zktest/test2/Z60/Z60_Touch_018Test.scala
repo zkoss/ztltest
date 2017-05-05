@@ -8,7 +8,7 @@ class Z60_Touch_018Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() {
-		val zscript = {
+		val zscript = """
 <window title="color window" border="normal" width="500px">
 	<label multiline="true">
 		<attribute name="value"><![CDATA[

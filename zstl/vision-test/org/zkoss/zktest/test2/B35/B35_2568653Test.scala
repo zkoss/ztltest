@@ -28,7 +28,7 @@ class B35_2568653Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk>
 				1.Please move the "Google Tools" from up to down after the "LabPixies Clock".
 				<separator/>
@@ -68,8 +68,8 @@ class B35_2568653Test extends ZTL4ScalaTestCase {
 					</portalchildren>
 				</portallayout>
 			</zk>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			sleep(500)
 			
 			verifyImage();

@@ -37,7 +37,7 @@ import java.lang._
 class B50_3136963Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 				Please press the click button and the invalidate button, and each time it should only appear one message below.
@@ -47,9 +47,7 @@ class B50_3136963Test extends ZTL4ScalaTestCase {
 			</zk>
 			
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
           var btn1: Widget = engine.$f("btn1");

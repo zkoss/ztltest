@@ -8,7 +8,7 @@ class Z60_Touch_013Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() {
-		val zscript = {
+		val zscript = """
 <zk>
 	<vlayout>
 		Support HTML5 input type:<separator spacing="0" />

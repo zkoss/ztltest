@@ -24,9 +24,9 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 @Tags(tags = "zbind")
 class Z60_CollectionIndexGrid2 extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/collection-index-grid.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var outerbox = jq("$outergrid").toWidget()

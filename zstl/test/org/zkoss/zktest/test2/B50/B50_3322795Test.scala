@@ -37,7 +37,7 @@ import java.lang._
 class B50_3322795Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			
 			<zk>
 				1. click on the right side up/down button several times
@@ -48,9 +48,7 @@ class B50_3322795Test extends ZTL4ScalaTestCase {
 				<doublespinner id="ds" value="8.7" width="200px"></doublespinner>
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var ds: Widget = engine.$f("ds");

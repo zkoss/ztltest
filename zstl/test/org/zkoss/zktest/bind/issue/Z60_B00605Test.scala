@@ -26,9 +26,9 @@ import org.zkoss.ztl.ClientWidget
 class Z60_B00605Test extends ZTL4ScalaTestCase {
   @Test
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00605.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       def `type` = (n: ClientWidget, input: String) => {

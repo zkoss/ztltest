@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_CollectionIndexListbox2Test extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/collection-index-listbox.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var outerbox = jq("$outerbox").toWidget()

@@ -30,7 +30,7 @@ import org.junit.Test
 class B35_2075714Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd">
         Tabbox accordion-lite Test
         <groupbox>
@@ -170,8 +170,8 @@ The second panel
           </tabbox>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Verify that there is not an error message
       verifyFalse(jq(".z-error").exists());
 

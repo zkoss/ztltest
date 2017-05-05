@@ -37,7 +37,7 @@ import java.lang._
 class B60_ZK_622Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<window id="w" mode="modal" xmlns:n="http://www.zkoss.org/2005/zk/native" width="500px">
 				<n:p>Please click the "female" radio, and then click the "show" button, and then you should see that only "female" is checked and the label "undefined" is shown</n:p>
 				<radiogroup id="radiochoice">
@@ -48,9 +48,8 @@ class B60_ZK_622Test extends ZTL4ScalaTestCase {
 				 <label id="log"/>
 			</window>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var male1: Widget = engine.$f("male1");
         var female: Widget = engine.$f("female");

@@ -7,7 +7,7 @@ import org.junit.Test
 class Z60_Touch_012Test extends ZTL4ScalaTestCase {
 	@Test
   def testClick() {
-		val zscript = {
+		val zscript = """
 <zk>
 	<zscript><![CDATA[
 		int i = 0;

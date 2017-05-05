@@ -27,9 +27,9 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 @Tags(tags = "zbind")
 class Z60_CommandIndirectTest extends ZTL4ScalaTestCase {
   def testBasic() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/command-indirect.zul"/>
-    }
+"""
     
     runZTL(zul, () => {
       val commandLabel = engine $f "l1"

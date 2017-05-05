@@ -27,7 +27,7 @@ import org.junit.Test
 class Z30_focusTest extends ZTL4ScalaTestCase {
   @Test
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 		  <window title="Test of focus">
 <html><![CDATA[
 <ol>
@@ -45,8 +45,8 @@ and the focus remains on the first textbox</li>
 	<button id="tb2" label="Try 2" onClick="t2.focus();w.doModal()"/>
 	</window>
 </window>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			click(jq("$tb1"))
 			waitResponse
 			verifyEquals(this.getEval("zk.currentFocus.id"),"t1");

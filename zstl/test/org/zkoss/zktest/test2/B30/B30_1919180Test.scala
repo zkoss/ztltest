@@ -26,7 +26,7 @@ import org.junit.Test
 class B30_1919180Test extends ZTL4ScalaTestCase {
 	@Test
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
 				<n:ol>
 					<n:li>Click add row(end)</n:li>
@@ -64,8 +64,8 @@ class B30_1919180Test extends ZTL4ScalaTestCase {
 				</vbox>
 			</zk>
 
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			val g1 = engine $f "g1"
 			
 			val $col1 = jq("$col1")

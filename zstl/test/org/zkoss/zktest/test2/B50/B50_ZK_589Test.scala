@@ -38,7 +38,7 @@ class B50_ZK_589Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<hlayout hflex="min">
 					<window id="win" border="normal" vflex="min" hflex="min">
@@ -51,9 +51,8 @@ class B50_ZK_589Test extends ZTL4ScalaTestCase {
 				</hlayout>
 			</zk>
 
-    }
-
-   runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
 			var win: Widget = engine.$f("win");
 
     		verifyTrue("the width of top/bottom border should larger then cave width",

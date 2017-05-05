@@ -8,7 +8,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 class B65_ZK_1428Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = <zk>
+    val zscript = """<zk>
                     <window title="Hello World!!" border="normal">
                       <label multiline="true">
                         Click the three "remove" button, should not see any error message.
@@ -66,7 +66,7 @@ class B65_ZK_1428Test extends ZTL4ScalaTestCase {
                       </button>
                     </window>
                   </zk>
-
+"""
     runZTL(zscript,
       () => {
         click(jq("@button:eq(0)"))

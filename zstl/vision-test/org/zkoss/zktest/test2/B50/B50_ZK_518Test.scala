@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B50-ZK-518.zul,A,E,Combobox,Select,VisionTest")
 class B50_ZK_518Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk>
 				<html><![CDATA[
 <ol>
@@ -38,8 +38,8 @@ class B50_ZK_518Test extends ZTL4ScalaTestCase {
 					<comboitem id="ei" label="Enterprise Integration"/>
 				</combobox>
 			</zk>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			click(engine.$f("box").$n("btn"))
 			waitResponse
 			click(engine.$f("ei"))

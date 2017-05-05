@@ -21,9 +21,9 @@ import org.junit.Assert
 class Z60_B01268UnsupportChildExpTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01268UnsupportChildExp.zul"/>
-    }
+"""
     
     runZTL(zul, () => {
       var listbox = jq("@listbox")

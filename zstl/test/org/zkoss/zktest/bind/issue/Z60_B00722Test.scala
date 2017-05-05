@@ -1,3 +1,4 @@
+
 /* 
 
 {{IS_NOTE
@@ -26,9 +27,9 @@ import org.openqa.selenium.Keys
 class Z60_B00722Test extends ZTL4ScalaTestCase {
   @Test
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00722.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var l11 = jq("$l11")

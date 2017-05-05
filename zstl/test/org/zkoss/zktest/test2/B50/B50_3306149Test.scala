@@ -38,7 +38,7 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<html><![CDATA[
 					<ol>
@@ -72,9 +72,8 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
 					height="250px" />
 			</zk>
 
-    }
-
-    def executor = () => {
+    """
+def executor = () => {
     	var grid: Widget = engine.$f("grid")
 		waitResponse()
 		verScroll(grid, 1)
@@ -91,7 +90,6 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
 		lastBtn = btns.last()
 		verifyTrue(getText(lastBtn).contains("remove 198"))
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
   }
 }

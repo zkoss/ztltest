@@ -38,7 +38,7 @@ class B50_3357641Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk xmlns:w="http://www.zkoss.org/2005/zk/client">
 			Please scroll to the middle of the list, and click the buttom "Run Bug (make a..."
 			<separator/>
@@ -138,9 +138,8 @@ class B50_3357641Test extends ZTL4ScalaTestCase {
 			</window>
 			</zk>
 
-    }
-
-    def executor() = ()=> {
+    """
+def executor() = ()=> {
     	var testListbox: Widget = engine.$f("testListbox");
     	var btnNewModel: Widget = engine.$f("btnNewModel");
     	waitResponse();
@@ -155,8 +154,7 @@ class B50_3357641Test extends ZTL4ScalaTestCase {
     	}
     	verifyFalse(jq(testListbox.$n("rows")).find(".z-listcell").get(5).exists());
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

@@ -37,16 +37,15 @@ import java.lang._
 class B60_ZK_983Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>Click the 'detach' button, you should not see any error.</div>
 				<combobutton id="cb" label="Combobutton" />
 				<button id="btn" label="detach" onClick='cb.detach()' />
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var cb: Widget = engine.$f("cb");
         var btn: Widget = engine.$f("btn");

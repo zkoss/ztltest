@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_B00762Combobox2Test extends ZTL4ScalaTestCase {
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00762Combobox2.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var outerbox = jq("$outerbox")

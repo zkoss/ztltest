@@ -33,7 +33,7 @@ import org.junit.Test
 class B35_2075722Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window title="Grid with Group feature" border="normal">
         <html><![CDATA[
 Test Drag-Drop on each panel(The following steps should be true.)<br/>
@@ -108,8 +108,8 @@ panels.remove(panels.size()-1);
           </portallayout>
         </div>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       def dragDrop(from: JQuery, fromPos: String, to: JQuery, toPos: String) {
         val mousemoveAt = (locator: JQuery, coordString: String) => {
           if (ZK.is("ie")) {

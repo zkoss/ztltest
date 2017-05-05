@@ -37,7 +37,7 @@ import java.lang._
 class B50_3204965Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
     			<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
 				<html><![CDATA[
@@ -71,9 +71,8 @@ class B50_3204965Test extends ZTL4ScalaTestCase {
 				</window>
 			</zk>
 
-    }
-
-    def executor = () => {
+    """
+def executor = () => {
     	var btn: Widget = engine.$f("btn");
 		var tb: Widget = engine.$f("tb");
 		waitResponse();
@@ -83,8 +82,7 @@ class B50_3204965Test extends ZTL4ScalaTestCase {
 		var size2: Int = Integer.parseInt(tb.$n().get("value"));
 		verifyNotEquals(size1, size2);
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

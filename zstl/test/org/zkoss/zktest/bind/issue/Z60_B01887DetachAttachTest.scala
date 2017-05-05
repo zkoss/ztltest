@@ -21,9 +21,9 @@ import org.zkoss.ztl.Tags
 class Z60_B01887DetachAttachTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01887DetachAttach.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       verifyEquals("/bind/issue/B01887DetachAttachInner1.zul", jq("$lab1").toWidget().get("value"));

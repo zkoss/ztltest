@@ -38,7 +38,7 @@ class B50_3314143Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				Open the Treeitem. The dotted line should rendered correctly (NOT T shape).
 				<tree id="tree" zclass="z-dottree">
@@ -52,9 +52,7 @@ class B50_3314143Test extends ZTL4ScalaTestCase {
 				</tree>
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var tree: Widget = engine.$f("tree");

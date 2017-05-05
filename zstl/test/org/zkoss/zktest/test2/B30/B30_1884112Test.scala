@@ -30,7 +30,7 @@ import org.junit.Test
 class B30_1884112Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk>
         <window title="dynamic tree" border="normal" id="win">
           <zscript>
@@ -48,8 +48,8 @@ class B30_1884112Test extends ZTL4ScalaTestCase {
           <button label="update process icon at 0/0/0" onClick='model.updateProcessType(0,0,0,"C")'/>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Get the first node
       click(jq(".z-treerow:contains(Group0)").toWidget().$n("icon"));
       waitResponse();

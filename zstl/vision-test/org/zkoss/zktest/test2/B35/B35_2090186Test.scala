@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B35-2090186.zul,B,E,Window,VisionTest")
 class B35_2090186Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<window title="window1">
 				1. click the maximized button of window2
 				<separator/>
@@ -37,8 +37,8 @@ class B35_2090186Test extends ZTL4ScalaTestCase {
 					</window>
 				</window>
 			</window>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			verifyImage()
 			click(jq("$minmaxWin").toWidget().$n("max"))
 			waitResponse

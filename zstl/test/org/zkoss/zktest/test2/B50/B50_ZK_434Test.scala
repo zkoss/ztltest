@@ -38,7 +38,7 @@ import java.lang._
 class B50_ZK_434Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 			1. Please delete the "AM/PM" and then type 121212, it should appear "AM/PM" 12:12:12
@@ -48,9 +48,7 @@ class B50_ZK_434Test extends ZTL4ScalaTestCase {
 			<timebox id="tb" format="a h:m:s" width="150px" onCreate="self.value = new Date()" locale="en_US" />
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var tb: Widget = engine.$f("tb");

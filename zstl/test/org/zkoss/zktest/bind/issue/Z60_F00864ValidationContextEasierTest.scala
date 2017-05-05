@@ -27,9 +27,9 @@ class Z60_F00864ValidationContextEasierTest extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/F00864ValidationContextEasier.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

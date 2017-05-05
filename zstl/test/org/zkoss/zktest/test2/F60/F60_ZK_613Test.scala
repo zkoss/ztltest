@@ -37,7 +37,7 @@ import java.lang._
 class F60_ZK_613Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<html><![CDATA[
 				Clicks the following buttons one-by-one. They shall all generate "OK" at
@@ -90,9 +90,8 @@ class F60_ZK_613Test extends ZTL4ScalaTestCase {
 				<vlayout id="inf"/>
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var btnOne: Widget = engine.$f("btnOne");
         var btnTwo: Widget = engine.$f("btnTwo");

@@ -8,7 +8,7 @@ class Z60_Touch_015Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() {
-		val zscript = {
+		val zscript = """
 // <?meta name="viewport" content="width=800"?>
 <zk>
 	<n:h3 xmlns:n="native">iPad/Android</n:h3>

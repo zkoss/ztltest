@@ -25,9 +25,9 @@ import org.junit.Test
 class Z60_TemplateGrid2Test extends ZTL4ScalaTestCase {
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="bind/basic/collection-template-grid.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var outerbox = jq("$outergrid").toWidget();

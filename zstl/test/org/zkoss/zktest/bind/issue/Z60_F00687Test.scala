@@ -26,9 +26,9 @@ import org.openqa.selenium.Keys
 class Z60_F00687Test extends ZTL4ScalaTestCase {
   @Test
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/F00687.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var l11 = jq("$l11").toWidget()

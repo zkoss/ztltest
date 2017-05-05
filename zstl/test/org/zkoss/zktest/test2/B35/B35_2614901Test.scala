@@ -27,7 +27,7 @@ import org.openqa.selenium.Keys
 @Tags(tags = "B35-2614901.zul,B,E,Window,Button")
 class B35_2614901Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk>
         Please click on the "Project" and use the UP/Down key to navigate the menu, and it should work well (IE only)
         <menubar id="menubar" width="200px">
@@ -65,8 +65,8 @@ class B35_2614901Test extends ZTL4ScalaTestCase {
         </checkbox>
       </zk>
 
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Click on Project menu
       click(jq(".z-menu").get(0));
       

@@ -21,9 +21,9 @@ import org.junit.Assert
 class Z60_B01344DeletingEntryTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01344DeletingEntry.zul"/>
-    }
+"""
     runZTL(zul, () => {
 
       var btn1 = jq("$btn1")

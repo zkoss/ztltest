@@ -38,7 +38,7 @@ class B50_3343001Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>IE 6/7 only.</div>
 				<div>Open any Treeitem. If the Tree height does not increase, it is a bug.</div>
@@ -56,9 +56,7 @@ class B50_3343001Test extends ZTL4ScalaTestCase {
 				</tree>
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var tree: Widget = engine.$f("tree");

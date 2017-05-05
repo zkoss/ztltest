@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_ChildrenSimple2 extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/children-simple.zul"/>
-    }
+    """
 
     runZTL(zul, () => {
       var dependency = jq("$dependency")

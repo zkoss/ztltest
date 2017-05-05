@@ -26,9 +26,9 @@ class Z60_FunctionTest extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/function.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       verifyEquals("foo", jq("$l11").toWidget().get("value"))

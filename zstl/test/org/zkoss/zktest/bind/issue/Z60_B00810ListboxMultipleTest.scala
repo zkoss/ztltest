@@ -46,9 +46,9 @@ class Z60_B00810ListboxMultipleTest extends ZTL4ScalaTestCase {
   }
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00810ListboxMultiple.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var listbox1 = jq("$listbox1")

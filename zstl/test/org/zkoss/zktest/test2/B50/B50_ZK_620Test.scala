@@ -38,7 +38,7 @@ class B50_ZK_620Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<tabbox height="500px" width="500px">
 				<custom-attributes org.zkoss.zul.client.rod="false" />
 				<tabs>
@@ -69,10 +69,8 @@ class B50_ZK_620Test extends ZTL4ScalaTestCase {
 				</tabpanels>
 			</tabbox>
 
-    }
-
-
-   runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
    			var tab: Widget = engine.$f("tab");
    			var north: Widget = engine.$f("north");
    			var window: Widget = engine.$f("window");

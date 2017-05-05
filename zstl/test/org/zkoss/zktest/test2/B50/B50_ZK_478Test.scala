@@ -37,16 +37,14 @@ import java.lang._
 class B50_ZK_478Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 				<div>The Imagemap size should be 300px by 300px.</div>
 				<imagemap id="imap" width="300px" height="300px" src="/test2/img/icon_browser.png" />
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var imap: Widget = engine.$f("imap");

@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B35-2089073.zul,A,E,Window,onMaximize,FF3,VisionTest")
 class B35_2089073Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {"""
+		val zscript = """"""
 		<?page id="main" title=".:: ZK BUG 2089073 ::." style="height:100%"?>
 
 <window id="wndLayout" width="100%" height="100%" border="normal"
@@ -75,8 +75,8 @@ class B35_2089073Test extends ZTL4ScalaTestCase {
 	</zk:zscript>
 	
 </window>
-		"""}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			click(jq("@button"))
 			waitResponse()
 			verifyImage()

@@ -42,9 +42,9 @@ class Z60_B00762Listbox2Test extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00762Listbox2.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var outerbox = jq("$outerbox")

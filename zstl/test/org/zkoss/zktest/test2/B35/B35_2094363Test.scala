@@ -27,7 +27,7 @@ import org.openqa.selenium.Keys
 @Tags(tags = "B35-2094363.zul,B,E,Window,Button")
 class B35_2094363Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk>
         <html>
           <![CDATA[  
@@ -53,8 +53,8 @@ is wrong.
           </menubar>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Click on menu button
       click(jq(".z-menu"));
       waitResponse();

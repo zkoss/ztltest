@@ -38,7 +38,7 @@ class Z60_Listbox_ListModelSet_noRODTest extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<zscript>
 					<![CDATA[
@@ -151,9 +151,8 @@ class Z60_Listbox_ListModelSet_noRODTest extends ZTL4ScalaTestCase {
 				</hbox>
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var outer: Widget = engine.$f("outer");
         var lbxOne: Widget = engine.$f("lbxOne");

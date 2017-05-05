@@ -49,7 +49,7 @@ class B50_ZK_629Test extends ZTL4ScalaTestCase {
 			})
 	}
   def testNumberLocale() = {
-    val zscript = {
+    val zscript = """
 			<zk>
     			<zscript><![CDATA[
     			Sessions.getCurrent().setAttribute("px_preferred_locale", new Locale("de","DE"));
@@ -77,7 +77,7 @@ class B50_ZK_629Test extends ZTL4ScalaTestCase {
 				</zscript>
 			</zk>
 
-    }
+    """
 
    try {
 			runZTL(zscript, () => {

@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_B00757OnChangeTest extends ZTL4ScalaTestCase {
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00757OnChange.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var t1 = jq("$t1")

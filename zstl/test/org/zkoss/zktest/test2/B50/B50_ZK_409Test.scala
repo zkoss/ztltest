@@ -38,7 +38,7 @@ class B50_ZK_409Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			<zscript><![CDATA[
 			class MyDiv extends org.zkoss.zul.Div implements IdSpace {
@@ -52,9 +52,7 @@ class B50_ZK_409Test extends ZTL4ScalaTestCase {
 			</button>
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var btn: Widget = engine.$f("btn");

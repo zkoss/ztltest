@@ -38,7 +38,7 @@ class B60_ZK_917Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>
 					Blue color should fill the entire region bound by red border.
@@ -50,9 +50,8 @@ class B60_ZK_917Test extends ZTL4ScalaTestCase {
 				</div>
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var div1: Widget = engine.$f("div1");
         var div2: Widget = engine.$f("div2");

@@ -28,7 +28,7 @@ import org.zkoss.ztl.Element
 @Tags(tags = "B30-2125788.zul,B,E,Window,Button")
 class B30_2125788Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window>
         <window id="win" title="My First Window" border="normal" width="200px" closable="true">
           Hello, World!
@@ -36,8 +36,8 @@ class B30_2125788Test extends ZTL4ScalaTestCase {
         </window>
         <button label="1. Click ME First!" onClick="win.doHighlighted()"/>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       def dragDrop(from: Element, fromPos: String, to: Element, toPos: String) {
         mouseDownAt(from, fromPos);
         mouseMoveAt(to, toPos);

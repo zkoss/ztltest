@@ -10,7 +10,7 @@ import org.zkoss.ztl.ZKTestCase
 class B65_ZK_1454Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = <vlayout>
+    val zscript = """<vlayout>
                     <html>
                       <p>Testing instructions:</p>
                       <ol>
@@ -40,7 +40,7 @@ class B65_ZK_1454Test extends ZTL4ScalaTestCase {
                       </tabpanels>
                     </tabbox>
                   </vlayout>
-
+"""
     runZTL(zscript,
       () => {
         click(jq(".z-treerow:contains(1):eq(0)").toWidget().$n("icon"))

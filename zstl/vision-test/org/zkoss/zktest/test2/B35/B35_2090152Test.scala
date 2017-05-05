@@ -26,7 +26,7 @@ import scala.collection.JavaConversions._
 @Tags(tags = "B35-2090152.zul,B,E,Button,IE,VisionTest")
 class B35_2090152Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<window width="300px">
 				press button in grid, the image where is placed inside the button should appear in the left side of the
 button text label, that is correct. (IE6~7 only).
@@ -66,8 +66,8 @@ button text label, that is correct. (IE6~7 only).
 					</rows>
 				</grid>
 			</window>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			jq("@button").foreach(b => click(b));
 			waitResponse
 			verifyImage()

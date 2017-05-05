@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B30-1918796.zul,A,E,Grid,Groupbox")
 class B30_1918796Test extends ZTL4ScalaTestCase {
   def testCase() = {
-    val zscript = {
+    val zscript = """
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
         <n:p>Grid header should disappear in this case.</n:p>
         <window width="250px">
@@ -42,8 +42,8 @@ class B30_1918796Test extends ZTL4ScalaTestCase {
           <button label="Show Hide 2nd groupbox" onClick="gpb.setVisible(!gpb.isVisible())"/>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
     	verifyFalse("grid should not be visible", jq("@grid").isVisible)
     	click(jq("@button"))
     	waitResponse

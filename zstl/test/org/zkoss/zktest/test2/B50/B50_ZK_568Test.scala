@@ -38,7 +38,7 @@ class B50_ZK_568Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			<div>1. Open combobox then select item50.</div>
 			<div>2. Open combobox again, you should see item50 in drop down list without scroll.</div>
@@ -63,9 +63,8 @@ class B50_ZK_568Test extends ZTL4ScalaTestCase {
 				</button>
 			</zk>
 
-    }
-
-   runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
 			var box: Widget = engine.$f("box");
 			var boxBtn: Element = box.$n("btn");
     		var btn: Widget = engine.$f("btn");

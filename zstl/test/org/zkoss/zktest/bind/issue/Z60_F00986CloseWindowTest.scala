@@ -22,9 +22,9 @@ import org.zkoss.ztl.Widget
 class Z60_F00986CloseWindowTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/F00986CloseWindow.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

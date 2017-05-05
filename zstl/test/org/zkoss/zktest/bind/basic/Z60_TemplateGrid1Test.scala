@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_TemplateGrid1Test extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="bind/basic/collection-template-grid.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var outerbox = jq("$outergrid")

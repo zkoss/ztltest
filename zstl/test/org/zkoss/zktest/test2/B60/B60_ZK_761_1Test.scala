@@ -29,15 +29,18 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug ZK-761-1
- * @author benbai
- *
- */
+  * A test class for bug ZK-761-1
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-761-1.zul,A,E,ListModelList,Grid")
 class B60_ZK_761_1Test extends ZTL4ScalaTestCase {
-	
+
+  @Test
   def testClick() = {
-    val zscript = {
+    val zscript =
+      """
 			<window>
 			Please click the reset button, and then you should not see any exception dialog.
 			 <zscript>
@@ -57,21 +60,18 @@ class B60_ZK_761_1Test extends ZTL4ScalaTestCase {
 			 <button id="btnOne" label="reset" onClick="grid.setModel(model)"/>
 			 </window>
 
-    }
+    """
 
-    def executor() = {
-    	
-    }
-   runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var btnOne: Widget = engine.$f("btnOne");
         click(btnOne);
         waitResponse();
         verifyTrue("The grid should rendered (not exception page)",
-            jq(".z-row:contains(D)").exists());
+          jq(".z-row:contains(D)").exists());
         verifyFalse("Should no exception alert window",
-            jq(".z-window-modal").exists());
-    }
-   );
+          jq(".z-window-modal").exists());
+      }
+    );
   }
 }

@@ -25,9 +25,9 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 @Tags(tags = "zbind")
 class Z60_Va06Test extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/validator/va06.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       val UNDER_AGE = "Under Age";

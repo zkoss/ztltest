@@ -27,9 +27,9 @@ import org.junit.Test
 class Z60_DeferInitTest extends ZTL4ScalaTestCase {
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/deferinit.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var w1 = jq("$w1")

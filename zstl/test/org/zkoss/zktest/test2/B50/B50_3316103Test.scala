@@ -38,7 +38,7 @@ class B50_3316103Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 				<div>
@@ -69,9 +69,7 @@ class B50_3316103Test extends ZTL4ScalaTestCase {
 				</hlayout>
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var (cbx: Widget,

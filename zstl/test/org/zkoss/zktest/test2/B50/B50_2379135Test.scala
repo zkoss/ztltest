@@ -37,7 +37,7 @@ import java.lang._
 class B50_2379135Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<window>
 			<html><![CDATA[  
 			<ol>
@@ -72,33 +72,32 @@ class B50_2379135Test extends ZTL4ScalaTestCase {
 			</menupopup>
 			</window>
 
-    }
+    """
 
     def executor = () => {
-    	var (li1: Widget,
-    	     li2: Widget,
-    	     li3: Widget,
-    	     btn1: Widget,
-    	     l: Widget) = (
-    	        engine.$f("li1"),
-    	        engine.$f("li2"),
-    	        engine.$f("li3"),
-    	        engine.$f("btn1"),
-    	        engine.$f("l")
-    	    );
-		waitResponse();
+      var (li1: Widget,
+      li2: Widget,
+      li3: Widget,
+      btn1: Widget,
+      l: Widget) = (
+        engine.$f("li1"),
+        engine.$f("li2"),
+        engine.$f("li3"),
+        engine.$f("btn1"),
+        engine.$f("l")
+      );
+      waitResponse();
 
-		contextMenu(li2);
-		waitResponse();
-		verifyTrue(l.$n().get("innerHTML").contains("Second"));
-		contextMenu(li3);
-		waitResponse();
-		verifyTrue(l.$n().get("innerHTML").contains("Third"));
-		contextMenu(btn1);
-		waitResponse();
-		verifyTrue(l.$n().get("innerHTML").contains("Third"));
+      contextMenu(li2);
+      waitResponse();
+      verifyTrue(l.$n().get("innerHTML").contains("Second"));
+      contextMenu(li3);
+      waitResponse();
+      verifyTrue(l.$n().get("innerHTML").contains("Third"));
+      contextMenu(btn1);
+      waitResponse();
+      verifyTrue(l.$n().get("innerHTML").contains("Third"));
     }
-   // Run syntax 1 
    runZTL(zscript, executor);
    
    // Run syntax 2

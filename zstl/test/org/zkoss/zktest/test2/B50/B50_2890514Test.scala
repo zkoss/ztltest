@@ -37,8 +37,7 @@ import java.lang._
 class B50_2890514Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
-
+    val zscript = """
 			<zk>
 			The "File:" label should align to right.
 			<grid>
@@ -69,7 +68,7 @@ class B50_2890514Test extends ZTL4ScalaTestCase {
 			</grid>
 			</zk>
 
-    }
+    """
 
    // Run syntax 2
     runZTL(zscript,

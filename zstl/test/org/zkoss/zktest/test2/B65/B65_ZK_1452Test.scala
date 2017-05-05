@@ -7,7 +7,8 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 class B65_ZK_1452Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = <zk xmlns:h="native">
+    val zscript =
+      """ <zk xmlns:h="native">
                     <zscript><![CDATA[
 	import java.util.*;
 	import org.zkoss.zul.*;
@@ -63,14 +64,14 @@ class B65_ZK_1452Test extends ZTL4ScalaTestCase {
                       </grid>
                     </window>
                   </zk>
-
+"""
     runZTL(zscript,
       () => {
         1 to 3 foreach { i =>
-        	click(jq(".z-column:contains(A)"))
-        	waitResponse()
+          click(jq(".z-column:contains(A)"))
+          waitResponse()
         }
-        
+
         verifyTrue("Should not see js error message", !jq(".z-errorbox").exists())
       })
 

@@ -37,7 +37,7 @@ import java.lang._
 class B50_3309256Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 			If the text of the input element contains single quote ('), that is a bug.
@@ -45,9 +45,7 @@ class B50_3309256Test extends ZTL4ScalaTestCase {
 			<timebox id="tbx" format="long" locale="zh_TW" width="140px" onCreate="self.value = new Date()"/>
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var dbx: Widget = engine.$f("dbx");

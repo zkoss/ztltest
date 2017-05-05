@@ -38,7 +38,7 @@ import java.lang._
 class Z60_Radiogroup_SimpleListModelTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<zscript>
 					<![CDATA[
@@ -85,9 +85,8 @@ class Z60_Radiogroup_SimpleListModelTest extends ZTL4ScalaTestCase {
 				<vlayout id="cloneThreeArea" />
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var clone: Widget = engine.$f("clone");
         var serialize: Widget = engine.$f("serialize");

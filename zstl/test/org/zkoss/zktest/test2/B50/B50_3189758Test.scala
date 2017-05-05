@@ -37,7 +37,7 @@ import java.lang._
 class B50_3189758Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
     		<zk>
 				<zscript><![CDATA[
@@ -226,9 +226,7 @@ class B50_3189758Test extends ZTL4ScalaTestCase {
 				<datebox id="db" constraint="no future"/>
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var btn: Widget = engine.$f("btn");

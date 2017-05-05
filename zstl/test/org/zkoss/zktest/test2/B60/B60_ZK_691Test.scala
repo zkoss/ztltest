@@ -29,15 +29,18 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug ZK-691
- * @author benbai
- *
- */
+  * A test class for bug ZK-691
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-691.zul,B,E,stubonly")
 class B60_ZK_691Test extends ZTL4ScalaTestCase {
-	
+
+  @Test
   def testClick() = {
-    val zscript = {
+    val zscript =
+      """
 			<zk>
 				<html><![CDATA[
 				<ol>
@@ -50,13 +53,9 @@ class B60_ZK_691Test extends ZTL4ScalaTestCase {
 				 onClick='Executions.createComponents("/test2/B60-ZK-691-inc.zul", null, null)'/>
 			</zk>
 
-    }
-
-    def executor() = {
-    	
-    }
-   runZTL(zscript,
-        () => {
+    """
+    runZTL(zscript,
+      () => {
         var btnOne: Widget = engine.$f("btnOne");
 
         click(btnOne);
@@ -65,9 +64,9 @@ class B60_ZK_691Test extends ZTL4ScalaTestCase {
         waitResponse();
 
         verifyTrue("shall see two message: 'Correct' and another message starting with 'Stub: [StubEvent onStub'.",
-            jq(".z-window-embedded:contains(Correct)").exists()
+          jq(".z-window-embedded:contains(Correct)").exists()
             && jq(".z-window-embedded:contains(Stub:[StubEvent onStub)").exists());
-    }
-   );
+      }
+    );
   }
 }

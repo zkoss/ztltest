@@ -1,3 +1,5 @@
+
+
 /* Z60_B01164RenderedImageTest.scala
 
 	Purpose:
@@ -21,9 +23,9 @@ import org.zkoss.ztl.Tags
 class Z60_B01164RenderedImageTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01164ImageContentType.zul"/>
-    }
+"""
     runZTL(zul, () => {
 
       var img = jq("$img")

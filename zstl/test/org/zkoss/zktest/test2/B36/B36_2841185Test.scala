@@ -30,7 +30,7 @@ import org.junit.Test
 class B36_2841185Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window height="400px">
         <zscript>
           String[] data = new String[100];
@@ -59,8 +59,8 @@ ListModel model = new ListModelList(data);
           </center>
         </borderlayout>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Click paging field
       click(jq(".z-paging-input"));
       waitResponse();

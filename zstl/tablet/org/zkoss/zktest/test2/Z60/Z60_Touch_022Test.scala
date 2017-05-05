@@ -12,7 +12,7 @@ class Z60_Touch_022Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() {
-		val zscript = {
+		val zscript = """
 <zk xmlns:a="client/attribute">
 	1.Swipe up/down to change year.  2.Swipe left/right to change month.
 	<calendar width="400px" a:data-swipeable="true"/>

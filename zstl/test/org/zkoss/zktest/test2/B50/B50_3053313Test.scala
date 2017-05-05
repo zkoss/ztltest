@@ -40,7 +40,7 @@ import java.util.ArrayList;
 class B50_3053313Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 			<hbox>No Past:
@@ -57,9 +57,7 @@ class B50_3053313Test extends ZTL4ScalaTestCase {
 			</hbox>
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var dtbx1: Widget = engine.$f("dtbx1");

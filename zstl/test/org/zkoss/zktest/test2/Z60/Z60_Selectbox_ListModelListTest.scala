@@ -31,7 +31,7 @@ import org.zkoss.ztl.Widget
 class Z60_Selectbox_ListModelListTest extends ZTL4ScalaTestCase {
 	@Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<zscript>
 					<![CDATA[
@@ -92,9 +92,8 @@ class Z60_Selectbox_ListModelListTest extends ZTL4ScalaTestCase {
 				<div id="cloneThreeArea" />
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var outer: Widget = engine.$f("outer");
         var clone: Widget = engine.$f("clone");

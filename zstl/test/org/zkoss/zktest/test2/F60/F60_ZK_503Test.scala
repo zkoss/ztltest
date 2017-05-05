@@ -37,7 +37,7 @@ import java.lang._
 class F60_ZK_503Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			<div>Click the test button, you shoould see two window without any problem.</div>
 				<button id="btn" label="test">
@@ -62,9 +62,8 @@ class F60_ZK_503Test extends ZTL4ScalaTestCase {
 				<div id="div"></div>
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var btn: Widget = engine.$f("btn");
         click(btn);

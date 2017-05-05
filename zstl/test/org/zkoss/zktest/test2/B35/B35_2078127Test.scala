@@ -30,7 +30,7 @@ import org.zkoss.ztl.util.Scripts
 @Tags(tags = "B35-2078127.zul,B,E,Window,Button")
 class B35_2078127Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk>
         <vbox>
           1.click updateGroup 1, then click again. the [+] should not disappear.
@@ -167,8 +167,8 @@ f1.detach();
           </listbox>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Click on updateGroup1 button
       click(jq("@button").get(0));
       waitResponse();

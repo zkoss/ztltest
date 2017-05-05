@@ -38,7 +38,7 @@ class B50_2971982Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 				Check "Second footer" is in third column
@@ -83,9 +83,7 @@ class B50_2971982Test extends ZTL4ScalaTestCase {
 				</hbox>
 			</zk>
 
-    }
- 
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
 

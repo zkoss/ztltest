@@ -37,7 +37,7 @@ import java.lang._
 class B50_ZK_306Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>1. Click on a Treeitem in Tree 1 and click on "show selected" Button. You will see the selected item shown after the Button.</div>
 				<div>2. Click on another Treeitem in Tree 1 and click on "show selected" Button again. You should only see 1 Treeitem displayed after the Button. Otherwise it is a bug.</div>
@@ -87,9 +87,8 @@ class B50_ZK_306Test extends ZTL4ScalaTestCase {
     				tree2.getModel().setMultiple(true);
 				]]></zscript>
 			</zk>
-    }
-
-    def executor = ()=>{
+    """
+def executor = ()=>{
     	var btn: Widget = engine.$f("btn");
     	var btn2: Widget = engine.$f("btn2");
     	var tree: Widget = engine.$f("tree");
@@ -131,8 +130,7 @@ class B50_ZK_306Test extends ZTL4ScalaTestCase {
     def checkNumber(wgt: Widget, cnt: java.lang.Integer) {
       verifyTrue(jq(wgt.$n()).get(0).get("innerHTML").split("@").length == cnt+1);
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

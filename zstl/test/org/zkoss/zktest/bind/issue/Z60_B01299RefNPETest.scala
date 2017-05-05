@@ -21,9 +21,9 @@ import org.junit.Assert
 class Z60_B01299RefNPETest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01299RefNPE.zul"/>
-    }
+"""
     runZTL(zul, () => {
 
       `type`(jq("$tba1").toWidget(), "AA")

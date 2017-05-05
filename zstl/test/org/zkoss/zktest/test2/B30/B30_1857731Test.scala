@@ -28,7 +28,7 @@ import org.zkoss.ztl.Element
 @Tags(tags = "B30-1829397.zul,B,E,Window,Button")
 class B30_1857731Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window title="Listbox Bug">
         <toolbarbutton id="With Bug" label="Click Me! And no error msg!" onClick="openNewTab()"/>
         <tabbox>
@@ -78,8 +78,8 @@ class B30_1857731Test extends ZTL4ScalaTestCase {
 	}
 	]]></zscript>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Click on the toolbarbutton
       click(jq(".z-toolbarbutton"));
       waitResponse();

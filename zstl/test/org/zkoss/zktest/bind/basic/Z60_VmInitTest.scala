@@ -27,9 +27,9 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 @Tags(tags = "zbind")
 class Z60_VmInitTest extends ZTL4ScalaTestCase {
   def testBasic() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/vm-init.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       val vm1_l1 = engine $f "vm1_l1"

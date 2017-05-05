@@ -13,7 +13,7 @@ class Z60_Touch_006Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() {
-		val zscript = {
+		val zscript = """
 <zk>
 <n:h3 xmlns:n="native">
 Android Only

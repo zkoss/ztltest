@@ -38,7 +38,7 @@ import java.lang._
 class B50_ZK_430Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			1. Please focus into the first timebox and then select all(ctrl+A) to delete the content.
 			<separator/>
@@ -59,9 +59,7 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
 			<timebox id="tb3" format="aHH:mm:ss" width="150px" locale="en_US" />
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var (tb1: Widget,

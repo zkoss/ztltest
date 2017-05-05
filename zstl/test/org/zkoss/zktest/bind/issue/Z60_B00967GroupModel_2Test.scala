@@ -26,9 +26,9 @@ import org.zkoss.ztl.Widget
 class Z60_B00967GroupModel_2Test extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00967GroupModelListbox.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

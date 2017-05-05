@@ -25,9 +25,9 @@ import org.junit.Test
 class Z60_TabboxSelected2Test extends ZTL4ScalaTestCase {
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/comp/tabbox-selected.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       verifyEquals("1", jq("$listbox2").toWidget().get("selectedIndex"))

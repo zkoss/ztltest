@@ -38,7 +38,7 @@ class B60_ZK_761Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<window>
 			You should not see any exception after this page loaded.
 			 <zscript>
@@ -57,8 +57,8 @@ class B60_ZK_761Test extends ZTL4ScalaTestCase {
 			 </grid>
 			</window>
 
-    }
-   runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         waitResponse();
         verifyTrue("The grid should rendered (not exception page)",

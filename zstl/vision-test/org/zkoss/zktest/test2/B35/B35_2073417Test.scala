@@ -26,7 +26,7 @@ import org.junit.Test
 class B35_2073417Test extends ZTL4ScalaTestCase {
   @Test
 	def testCase() = {
-		val zscript = {"""
+		val zscript = """"""
 		<?page id="testZul" title=" New ZUL Title" cacheable="false" 
 	language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
 <?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
@@ -52,8 +52,8 @@ class B35_2073417Test extends ZTL4ScalaTestCase {
   </window>
 </zk>
 
-		"""}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			verifyImage()
 			click(jq("$btn1"))
 			click(jq("$btn2"))

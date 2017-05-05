@@ -27,7 +27,7 @@ import org.openqa.selenium.Keys
 @Tags(tags = "B35-2074948.zul,B,E,Window,Button")
 class B35_2074948Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window title="Menu Demo" border="normal">
         <label value="Vertical Menu Popup position shall be correct"/>
         <window>
@@ -58,8 +58,8 @@ class B35_2074948Test extends ZTL4ScalaTestCase {
           </menubar>
         </window>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       var item = engine.$f("menu")
       var popup = jq(".z-menupopup");
 

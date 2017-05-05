@@ -37,7 +37,7 @@ import java.lang._
 class B30_1836257Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<window title="listbox demo" border="normal">
                 [ 1836257 ] Click the Button. The stripe color should be correct.
                 <listbox width="250px">
@@ -64,9 +64,8 @@ class B30_1836257Test extends ZTL4ScalaTestCase {
                 </listbox>
                 <button label="change" onClick='row1.visible = !row1.visible'/>
             </window>
-   }
-
-    runZTL(zscript,
+   """
+runZTL(zscript,
         () => {
         
         	waitResponse();

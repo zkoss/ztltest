@@ -28,9 +28,9 @@ import org.zkoss.ztl.ClientWidget
 class Z60_LoadSavePromptCommandValidationTest extends ZTL4ScalaTestCase {
   @Test
   def testArg() = {
-    val zul = { 
+    val zul = """ 
       <include src="/bind/basic/load-save-prompt-command-validation.zul" />
-    }
+"""
 
     runZTL(zul, () => {
       

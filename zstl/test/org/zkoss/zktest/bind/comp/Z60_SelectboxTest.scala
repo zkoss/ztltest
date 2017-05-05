@@ -28,9 +28,9 @@ import org.junit.Test
 class Z60_SelectboxTest extends ZTL4ScalaTestCase {
   @Test
   def test() = {
-    val zul = {
+    val zul = """
 	<include src="bind/comp/selectbox.zul"/>
-    }
+"""
     runZTL(zul, () => {
     
       val selectbox = engine $f "sbox"

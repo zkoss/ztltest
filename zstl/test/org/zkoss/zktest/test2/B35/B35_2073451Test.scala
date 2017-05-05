@@ -31,7 +31,7 @@ import org.zkoss.ztl.ZK
 class B35_2073451Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd">
         <window title="Test button reference to processes" border="normal" width="400px">
     		<a id="anc" label="anchor"/>
@@ -58,8 +58,8 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
           </vbox>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
 
       if(!ZK.is("ie")) {
 	      click(jq("$anc"));

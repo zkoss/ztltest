@@ -26,7 +26,7 @@ import org.junit.Test
 class B35_2083025Test extends ZTL4ScalaTestCase {
   @Test
 	def testCase() = {
-		val zscript = {"""
+		val zscript = """"""
 			<?component name="panel" extends="panel" width="200px" height="200px" ?>
 <zk>
 <label value="if the layout displayed properly, it is correct"/>
@@ -81,8 +81,8 @@ class B35_2083025Test extends ZTL4ScalaTestCase {
 		</tablechildren>
 </tablelayout>
 </zk>
-		"""}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			verifyImage()
 		})
 	}

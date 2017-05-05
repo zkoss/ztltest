@@ -37,7 +37,7 @@ import java.lang._
 class B50_3317743Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>1. Click on item 3.</div>
 				<div>2. Go to next page.</div>
@@ -53,9 +53,8 @@ class B50_3317743Test extends ZTL4ScalaTestCase {
 					mold="paging" onCreate="self.setPageSize(5)" />
     			<textbox id="tb" />
 			</zk>
-    }
-
-    def executor = () => {
+    """
+def executor = () => {
 		var listbox: Widget = engine.$f("listbox");
 		var tb: Widget = engine.$f("tb");
 		waitResponse();
@@ -80,8 +79,7 @@ class B50_3317743Test extends ZTL4ScalaTestCase {
 		waitResponse();
 		verifyTrue(jq(".z-listitem:eq(3)").hasClass("z-listitem-selected"));
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

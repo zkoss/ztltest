@@ -30,7 +30,7 @@ import org.openqa.selenium.Keys
 @Tags(tags = "B30-1984643.zul,B,E,Window,Button")
 class B30_1984643Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zkoss.org/2005/zul" xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd" mode="modal" onCancel="self.detach()" onOK="self.detach()" title="listbox" border="normal" width="400px">
         Please select the select-list, and press the "Enter" or "Esc" button, the window should be closed.
         <label value="listbox : "/>
@@ -39,8 +39,8 @@ class B30_1984643Test extends ZTL4ScalaTestCase {
           <listitem label="item 2"/>
         </listbox>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       var sb: Widget = engine.$f("sb");
       def selectItem (item: String) {
           var doms: JQuery = jq(":contains("+item+")");

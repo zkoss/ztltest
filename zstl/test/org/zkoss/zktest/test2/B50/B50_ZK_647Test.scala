@@ -37,7 +37,7 @@ import java.lang._
 class B50_ZK_647Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div height="10px" />
 				<div height="20px">Check whether all the style of the 'Test' below are correct,</div>
@@ -46,10 +46,8 @@ class B50_ZK_647Test extends ZTL4ScalaTestCase {
 					style='color:#0000CC; font-family:"courier new","times new roman",""; font-size:30px;'/>
 			</zk>
 
-    }
-
-
-   runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
     		var lb: Widget = engine.$f("lb");
     		verifyTrue("the style of font-size should be applied",
     		    jq(lb.$n()).height() >= 30);

@@ -22,9 +22,9 @@ import org.openqa.selenium.Keys
 class Z60_B00994InitParamTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00994InitParam.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

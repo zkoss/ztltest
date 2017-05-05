@@ -38,7 +38,7 @@ class Z60_Combobox_ListModelListTest extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<zscript>
 					<![CDATA[
@@ -98,9 +98,8 @@ class Z60_Combobox_ListModelListTest extends ZTL4ScalaTestCase {
 				<div id="cloneThreeArea" />
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var clone: Widget = engine.$f("clone");
         var serialize: Widget = engine.$f("serialize");

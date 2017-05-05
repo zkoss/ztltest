@@ -28,7 +28,7 @@ import org.zkoss.ztl.Element
 @Tags(tags = "B30-1894197.zul,B,E,Window,Button")
 class B30_1894197Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk>
     	<html><![CDATA[
 			<ol>
@@ -102,8 +102,8 @@ class B30_1894197Test extends ZTL4ScalaTestCase {
 			</vbox>
 		</window>
 	</zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       var tree: Widget = engine.$f("tree");
       // Record the row count
       val count = jq(".z-treerow").length();

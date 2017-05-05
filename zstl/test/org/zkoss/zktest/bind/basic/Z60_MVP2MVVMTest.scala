@@ -24,9 +24,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_MVP2MVVMTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/mvp2mvvm_mvp.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       verifyEquals("true", jq("$textA").toWidget().get("disabled"))

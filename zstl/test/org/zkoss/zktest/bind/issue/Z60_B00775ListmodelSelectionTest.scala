@@ -1,3 +1,4 @@
+
 /* 
 
 {{IS_NOTE
@@ -44,9 +45,9 @@ class Z60_B00775ListmodelSelectionTest extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00775ListmodelSelection.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

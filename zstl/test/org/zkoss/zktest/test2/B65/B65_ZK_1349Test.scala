@@ -7,7 +7,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 class B65_ZK_1349Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = <zk>
+    val zscript = """<zk>
                     <label multiline="true">
                       1. Click "show" button.
     				  2. Should see a blue background cell.
@@ -34,7 +34,7 @@ class B65_ZK_1349Test extends ZTL4ScalaTestCase {
                     </grid>
                     <button label="show" onClick="col2.setVisible(true)"/>
                   </zk>
-
+"""
     runZTL(zscript,
       () => {
         click(jq("@button"))

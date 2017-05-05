@@ -21,9 +21,9 @@ import org.zkoss.ztl.Tags
 class Z60_F01048FormBindingMessageTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/F01048FormBindingMessage.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

@@ -35,9 +35,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_B00758IndirectTest extends ZTL4ScalaTestCase {
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00758Indirect.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

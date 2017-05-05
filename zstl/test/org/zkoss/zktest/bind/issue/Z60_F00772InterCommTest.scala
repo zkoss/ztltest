@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_F00772InterCommTest extends ZTL4ScalaTestCase {
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/F00772-inter-comm.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

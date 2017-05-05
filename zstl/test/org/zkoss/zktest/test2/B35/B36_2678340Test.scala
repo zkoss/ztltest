@@ -33,7 +33,7 @@ import java.util.Calendar
 class B36_2678340Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 	  <zk>
     		<button id="change" label="change to US">
     			<attribute name="onClick"><![CDATA[
@@ -59,8 +59,8 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
           </button>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
 		click(jq("$change"))
 		waitResponse()
       // Click upper button twice

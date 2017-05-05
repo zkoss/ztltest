@@ -37,16 +37,15 @@ import java.lang._
 class B60_ZK_702Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>Click on button of combobutton, you should see a message box.</div>
 				<combobutton id="cb" label="popup" onClick='alert(self.label)'>
 				</combobutton>
 			</zk>
 
-    }
-    
-   runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var cb: Widget = engine.$f("cb");
         click(cb);

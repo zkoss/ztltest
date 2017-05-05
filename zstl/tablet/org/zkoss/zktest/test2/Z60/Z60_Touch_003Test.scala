@@ -16,7 +16,7 @@ import org.junit.Test
 class Z60_Touch_003Test extends ZTL4ScalaTestCase {
 	@Test
 	def testClick() {
-		val zscript = {
+		val zscript = """
 <zk>
 	<vlayout>
 		<hlayout>

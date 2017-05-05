@@ -1,3 +1,5 @@
+
+
 /* Z60_B01188MixingELWithRef1Test.scala
 
 	Purpose:
@@ -20,9 +22,9 @@ import org.zkoss.ztl.Tags
 class Z60_B01188MixingELWithRef1Test extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01188MixingELWithRef.zul"/>
-    }
+"""
     runZTL(zul, () => {
 
       var lb = jq("$lb")

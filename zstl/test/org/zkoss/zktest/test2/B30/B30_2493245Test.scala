@@ -30,7 +30,7 @@ import org.zkoss.ztl.util.Scripts
 @Tags(tags = "B30-2493245.zul,B,E,Window,Button")
 class B30_2493245Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window id="main">
         You shall see a modal window on top of this
         <zscript><![CDATA[
@@ -41,8 +41,8 @@ zoom.setParent(main);
 zoom.afterCompose();
 	]]></zscript>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
 
       // Record modal mask z-index
       var winZindex = jq(".z-modal-mask").css("z-index");

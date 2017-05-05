@@ -38,7 +38,7 @@ class B50_3354086Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
     		<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
@@ -79,16 +79,14 @@ class B50_3354086Test extends ZTL4ScalaTestCase {
 				<listbox id="lb" mold="select" model="@{personLM}"/>
 			</zk>
 
-    }
-
-    def executor = ()=>{
+    """
+def executor = ()=>{
     	var lb: Widget = engine.$f("lb");
     	waitResponse();
     	verifyFalse(jq(".z-window-highlighted").exists());
    		verifyFalse(jq(".z-window-modal").exists())
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

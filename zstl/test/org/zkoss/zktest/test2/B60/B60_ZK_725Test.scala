@@ -37,7 +37,7 @@ import java.lang._
 class B60_ZK_725Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			<html><![CDATA[
 			Click the header (Author) to sort the grid. It is OK if it is sorted correctly.
@@ -61,9 +61,8 @@ class B60_ZK_725Test extends ZTL4ScalaTestCase {
 			</grid>
 			</zk>
 
-    }
-
-   runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var grid: Widget = engine.$f("grid");
         

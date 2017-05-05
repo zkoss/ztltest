@@ -31,7 +31,7 @@ import org.zkoss.ztl.ZK
 class B30_1894208Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
         <n:p>North region should be splittable.</n:p>
         <borderlayout height="500px">
@@ -52,8 +52,8 @@ class B30_1894208Test extends ZTL4ScalaTestCase {
           </south>
         </borderlayout>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
 
       // Record the height of the north zone before drag (simulation)
       var h1: Int = jq(".z-north").height();

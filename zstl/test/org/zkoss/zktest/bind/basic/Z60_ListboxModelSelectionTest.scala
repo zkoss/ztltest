@@ -24,9 +24,9 @@ import org.zkoss.ztl.Widget
 @Tags(tags = "zbind")
 class Z60_ListboxModelSelectionTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/listboxmodel.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var msg = jq("$msg").toWidget()

@@ -27,7 +27,7 @@ class B50_ZK_606Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk xmlns:n="native">
 				<borderlayout>
 					<center>Please click the south icon to open it, then you should see "south" label at the south area</center>
@@ -38,8 +38,8 @@ class B50_ZK_606Test extends ZTL4ScalaTestCase {
 					</south>
 				</borderlayout>
 			</zk>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			click(jq(".z-south").toWidget().$n("btned"))
 			waitResponse(true)
 			verifyImage()

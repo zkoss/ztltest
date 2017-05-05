@@ -75,21 +75,20 @@ class B50_ZK_182Test extends ZTL4ScalaTestCase {
 			</zk>"""
 
     def executor() = ()=> {
-    	var btn1: Widget = engine.$f("btn1");
-    	var btn2: Widget = engine.$f("btn2");
-    	var grid: Widget = engine.$f("grid");
-    	waitResponse();
-    	click(btn1);
-    	waitResponse();
-    	click(btn2);
-    	waitResponse();
-    	for (i <- 0 until 6) {
-    	  horScroll(grid, i * 0.15)
-    	  waitResponse();
-    	  verifyTrue(jq(grid.$n("body")).scrollLeft() == jq(grid.$n("head")).scrollLeft())
-    	}
+      var btn1: Widget = engine.$f("btn1");
+      var btn2: Widget = engine.$f("btn2");
+      var grid: Widget = engine.$f("grid");
+      waitResponse();
+      click(btn1);
+      waitResponse();
+      click(btn2);
+      waitResponse();
+      for (i <- 0 until 6) {
+        horScroll(grid, i * 0.15)
+        waitResponse();
+        verifyTrue(jq(grid.$n("body")).scrollLeft() == jq(grid.$n("head")).scrollLeft())
+      }
     }
-   // Run syntax 1 
    runZTL(zscript, executor);
    
    // Run syntax 2

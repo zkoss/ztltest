@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_TreeSelectionTest extends ZTL4ScalaTestCase {
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/tree-selection.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var tree = jq("$tree")

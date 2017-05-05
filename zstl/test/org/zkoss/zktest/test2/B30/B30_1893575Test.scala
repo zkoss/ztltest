@@ -30,7 +30,7 @@ class B30_1893575Test extends ZTL4ScalaTestCase {
   
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
     		<window id="w" mode="modal" xmlns:n="http://www.zkoss.org/2005/zk/native" width="500px">
     			<n:p>Please click the "female" radio, and then click the "show" button, and then you should see that only "female" is checked. (Only IE)</n:p>
     			<radiogroup id="radiochoice">
@@ -43,9 +43,8 @@ class B30_1893575Test extends ZTL4ScalaTestCase {
     				</attribute>
     			</button>
     		</window>
-   }
-
-    runZTL(zscript,
+   """
+runZTL(zscript,
         () => {
         
         	//Click 'female' radio

@@ -21,9 +21,9 @@ import org.junit.Assert
 class Z60_B01347CheckboxCrashTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01347CheckboxCrash.zul"/>
-    }
+"""
     runZTL(zul, () => {
       
 		var listbox = jq("@listbox")

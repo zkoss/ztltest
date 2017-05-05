@@ -1,3 +1,5 @@
+
+
 /* Z60_B01066IncorrectFormValueTest.scala
 
 	Purpose:
@@ -22,9 +24,9 @@ import org.openqa.selenium.Keys
 class Z60_B01066IncorrectFormValueTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01066IncorrectFormValue.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

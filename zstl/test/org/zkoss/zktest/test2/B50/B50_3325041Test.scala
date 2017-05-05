@@ -37,7 +37,7 @@ import java.lang._
 class B50_3325041Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 
 			<zk>
 				try to type floating number like "1.23" in the double spinner.
@@ -59,9 +59,7 @@ class B50_3325041Test extends ZTL4ScalaTestCase {
 				<button id="btn3" label="test3" onClick='alert(doub.value)'/>
 			</zk>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var (ds: Widget,

@@ -37,7 +37,7 @@ import java.lang._
 class F60_ZK_997Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>
 					1. Click on each of the 'Publish' button. You should see two messages regarding to event receiving for each click.
@@ -63,9 +63,8 @@ class F60_ZK_997Test extends ZTL4ScalaTestCase {
 				</window>
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var dBtn: Widget = engine.$f("dBtn");
         var gBtn: Widget = engine.$f("gBtn");

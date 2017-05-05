@@ -38,7 +38,7 @@ class F60_ZK_470Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			    <window id="parent" title="anchorlayout Demo" border="normal" width="100%" height="100%">
 			    		You should see the following layout display as its description that is according to its parent size.
@@ -77,9 +77,8 @@ class F60_ZK_470Test extends ZTL4ScalaTestCase {
 			    </window>
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var al: Widget = engine.$f("al");
         var win1: Widget = engine.$f("win1");

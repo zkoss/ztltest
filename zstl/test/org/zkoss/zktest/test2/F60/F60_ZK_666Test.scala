@@ -37,7 +37,7 @@ import java.lang._
 class F60_ZK_666Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<div>
 				<html><![CDATA[
 				<ul>
@@ -70,9 +70,8 @@ class F60_ZK_666Test extends ZTL4ScalaTestCase {
 				<separator onCreate="show(self.previousSibling)"/>
 			</div>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         verifyTrue("The first two lines shall be the same: value is \"abc\", and annotation is \"@annot()\".",
             jq(".z-textbox").get(0).get("value").contains("abc")

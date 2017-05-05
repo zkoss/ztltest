@@ -30,7 +30,7 @@ import org.zkoss.ztl.util.Scripts
 @Tags(tags = "B30-2522437.zul,B,E,Window,Button")
 class B30_2522437Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <borderlayout>
         <center>
           <div>
@@ -39,8 +39,8 @@ class B30_2522437Test extends ZTL4ScalaTestCase {
           </div>
         </center>
       </borderlayout>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Record the html of the page
       val contentBefore = getBodyText();
 

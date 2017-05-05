@@ -27,7 +27,7 @@ class Z60_F00862BeanValidator4FormTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
     // zktest environment doesn't provide bean validator
-//    val zul = {
+//    val zul = """
 //      <include src="/bind/issue/F00862BeanValidator4Form.zul"/>
 //    }
 //

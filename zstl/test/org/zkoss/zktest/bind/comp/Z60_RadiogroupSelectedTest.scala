@@ -24,9 +24,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_RadiogroupSelectedTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/comp/radiogroup-selected.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       verifyEquals("1", jq("$listbox").toWidget().get("selectedIndex"))

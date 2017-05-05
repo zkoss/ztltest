@@ -1,4 +1,5 @@
 
+
 /* 
 
 {{IS_NOTE
@@ -46,9 +47,9 @@ class Z60_B00807GroupModel_3Test extends ZTL4ScalaTestCase {
   }
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00807GroupModelListboxMultiple.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

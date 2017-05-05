@@ -38,7 +38,7 @@ import java.lang._
 class B60_ZK_767Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<zscript><![CDATA[//@DECLARATION
 			       	class MyTreeNode extends org.zkoss.zul.DefaultTreeNode {
@@ -107,9 +107,8 @@ class B60_ZK_767Test extends ZTL4ScalaTestCase {
 				</hlayout>
 			</zk>
 
-    }
-
-   runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         var treeOne: Widget = engine.$f("treeOne");
         var treeTwo: Widget = engine.$f("treeTwo");

@@ -30,7 +30,7 @@ class Z30_echoEventTest extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 <window id="w" title="Test echoEvent">
 	After clicked, you shall see "Execute..." and then, after 2 seconds, "Done.".
 
@@ -47,9 +47,8 @@ class Z30_echoEventTest extends ZTL4ScalaTestCase {
 	</button>
 </window>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
         verifyEquals(jq("$w").find("@label").length,1)
         click(jq("$btn"))

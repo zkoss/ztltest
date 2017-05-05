@@ -7,7 +7,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 class B65_ZK_1370Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = <zk>
+    val zscript = """<zk>
                     Click "Test" button, should not see error message box.<separator/>
                     <datebox id="dbx"/>
                     <button label="Test" onClick='dbx.setDisplayedTimeZones("GMT+12");'>
@@ -17,7 +17,7 @@ class B65_ZK_1370Test extends ZTL4ScalaTestCase {
 		]]></attribute>
                     </button>
                   </zk>
-
+"""
     runZTL(zscript,
       () => {
         click(jq("@button"))

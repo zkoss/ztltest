@@ -3,7 +3,6 @@ package org.zkoss.zktest.test2.B70
 import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
 import org.openqa.selenium.Keys
 import org.openqa.selenium.Dimension
 

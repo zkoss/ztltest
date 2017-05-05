@@ -26,7 +26,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B30-1912421.zul,B,E,Window,Button")
 class B30_1912421Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
         <n:p>1.Click the button</n:p>
         <n:p>2.Overlapped window shall NOT disappears</n:p>
@@ -35,8 +35,8 @@ class B30_1912421Test extends ZTL4ScalaTestCase {
           <button label="Please Click Me" onClick='win.invalidate()'/>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       verifyTrue(jq("$win").isVisible());
       click(jq("@button"));
       waitResponse();

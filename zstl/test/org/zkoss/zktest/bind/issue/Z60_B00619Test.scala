@@ -26,9 +26,9 @@ class Z60_B00619Test extends ZTL4ScalaTestCase {
   
   @Test
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00619.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       verifyEquals("1", jq("$listbox").toWidget().get("selectedIndex"))

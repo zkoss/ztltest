@@ -37,7 +37,7 @@ import java.lang._
 class B50_ZK_640Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
     	<zk>
 			<html><![CDATA[
 			There should no extra "&amp;nbsp;" (see the dom element) after the image of toolbarbutton if no label.
@@ -62,10 +62,8 @@ class B50_ZK_640Test extends ZTL4ScalaTestCase {
 				</tabbox>
 			</zk>
 
-    }
-
-
-   runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
    			var tbbOne: Widget = engine.$f("tbbOne");
    			var tbbTwo: Widget = engine.$f("tbbTwo");
 

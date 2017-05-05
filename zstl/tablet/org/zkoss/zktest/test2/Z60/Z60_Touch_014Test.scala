@@ -9,7 +9,7 @@ class Z60_Touch_014Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() {
-		val zscript = {
+		val zscript = """
 <zk>
 	<div>
 	1. click button on first datebox, should see a popup contains 3 spin wheels of year, month and date.<separator />

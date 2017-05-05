@@ -1,3 +1,6 @@
+
+
+
 /* Z60_B01139LoadInitTest.scala
 
 	Purpose:
@@ -20,9 +23,9 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 class Z60_B01139LoadInitTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01139LoadInit.zul"/>
-    }
+"""
     runZTL(zul, () => {
 
       var liChk = jq("$liChk")

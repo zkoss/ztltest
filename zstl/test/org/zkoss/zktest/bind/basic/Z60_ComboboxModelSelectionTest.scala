@@ -23,9 +23,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_ComboboxModelSelectionTest extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/comboboxmodelselection.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       var combobox1 = jq("$cb1")

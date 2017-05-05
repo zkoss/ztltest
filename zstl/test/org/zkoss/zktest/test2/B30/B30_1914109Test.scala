@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "")
 class B30_1914109Test extends ZTL4ScalaTestCase {
   def testCase() = {
-    val zscript = {
+    val zscript = """
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
         <n:ol>
           <n:li>
@@ -59,8 +59,8 @@ is shorter and has a scroll bar
           </listbox>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
     	val list = engine $f "list"
     	val height = jq(list).outerHeight
     	val scrollHeight = jq(list) scrollHeight()

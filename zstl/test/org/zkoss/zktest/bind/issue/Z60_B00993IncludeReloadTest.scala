@@ -26,9 +26,9 @@ import org.openqa.selenium.Keys
 class Z60_B00993IncludeReloadTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00993IncludeReload.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

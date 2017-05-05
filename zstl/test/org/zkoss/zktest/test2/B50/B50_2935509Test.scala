@@ -37,7 +37,7 @@ import java.lang._
 class B50_2935509Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<window title="Test" width="610px">
 			Click the button and the headers shall change (from 1 to 11, 2 to 22, and 3 to 33)
 			<button id="btn" label="new columns">
@@ -66,9 +66,7 @@ class B50_2935509Test extends ZTL4ScalaTestCase {
 			</grid>
 			</window>
 
-    }
-
-   // Run syntax 2
+    """
     runZTL(zscript,
         () => {
         var btn: Widget = engine.$f("btn");

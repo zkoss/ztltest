@@ -20,9 +20,9 @@ import org.zkoss.ztl.Tags
 class Z60_B01691DropuploadNativeTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01691DropuploadNative.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

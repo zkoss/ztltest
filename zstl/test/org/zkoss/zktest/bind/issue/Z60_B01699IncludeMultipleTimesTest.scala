@@ -20,9 +20,9 @@ import org.zkoss.ztl.Tags
 class Z60_B01699IncludeMultipleTimesTest extends ZTL4ScalaTestCase {
   
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01699IncludeMultipleTimes.zul"/>
-    }
+"""
     
     runZTL(zul, () => {
       val lab1 = jq("$lb1").toWidget();

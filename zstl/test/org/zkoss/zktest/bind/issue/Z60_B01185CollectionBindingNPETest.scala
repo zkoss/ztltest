@@ -1,3 +1,4 @@
+
 /* Z60_B01185CollectionBindingNPETest.scala
 
 	Purpose:
@@ -23,9 +24,9 @@ class Z60_B01185CollectionBindingNPETest extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01185CollectionBindingNPE.zul"/>
-    }
+"""
     runZTL(zul, () => {
       
 		click(jq("$addPersonBtn").toWidget())

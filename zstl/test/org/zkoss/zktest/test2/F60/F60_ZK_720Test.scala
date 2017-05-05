@@ -38,7 +38,7 @@ class F60_ZK_720Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk xmlns:h="xhtml">
 				<h:pre>
 					1.Click all the (left/Right) toolbarbutton and see if the toggle effect working.
@@ -80,9 +80,8 @@ class F60_ZK_720Test extends ZTL4ScalaTestCase {
 				</window>
 			</zk>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
 
           var lbl: Widget = engine.$f("lbl");

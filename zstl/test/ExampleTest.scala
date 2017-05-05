@@ -36,7 +36,7 @@ import java.lang._
 class ExampleTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <vbox>
         Click "hello world", if you see the message change, it is ok.
         <zscript><![CDATA[
@@ -50,23 +50,20 @@ class ExampleTest extends ZTL4ScalaTestCase {
         <label id="l1" onCreate="doCreate(event);" onClick="doClick(event)" style="font-family: monospace; white-space: pre;"/>
         <label id="l2" onCreate="doCreate(event);" onClick="doClick(event)" pre="true"/>
       </vbox>
-    }
-    
+  """
     def executor = ()=> {
-        var l1: Widget = engine.$f("l1");
-        var l2: Widget = engine.$f("l2");
-        waitResponse();
-        var strClickBefor = getText(l1);
-        click(l1);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l1));
-        strClickBefor = getText(l2);
-        click(l2);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l2));
+      var l1: Widget = engine.$f("l1");
+      var l2: Widget = engine.$f("l2");
+      waitResponse();
+      var strClickBefor = getText(l1);
+      click(l1);
+      waitResponse();
+      verifyNotEquals(strClickBefor, getText(l1));
+      strClickBefor = getText(l2);
+      click(l2);
+      waitResponse();
+      verifyNotEquals(strClickBefor, getText(l2));
     }
-   
-   // Run syntax 1 
    runZTL(zscript, executor);
    
    // Run syntax 2

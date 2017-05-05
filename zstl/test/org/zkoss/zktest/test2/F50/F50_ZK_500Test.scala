@@ -27,7 +27,7 @@ class F50_ZK_500Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk>
 				<vlayout>
 					1. You should see 1,234.57
@@ -82,8 +82,8 @@ class F50_ZK_500Test extends ZTL4ScalaTestCase {
 					</div>
 				</vlayout>
 			</zk>
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			var value = "1,234.57"
 			verifyEquals(value, jq("@decimalbox:eq(0)").`val`())
 			verifyEquals(value, jq("@doublebox:eq(0)").`val`())

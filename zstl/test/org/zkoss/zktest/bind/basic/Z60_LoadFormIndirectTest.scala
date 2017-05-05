@@ -27,9 +27,9 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 @Tags(tags = "zbind")
 class Z60_LoadFormIndirectTest extends ZTL4ScalaTestCase {
   def testBasic() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/load-form-indirect.zul"/>
-    }
+"""
     
     runZTL(zul, () => {
       val t1 = engine $f "l1"

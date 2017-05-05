@@ -36,9 +36,9 @@ import org.zkoss.ztl.Tags
 class Z60_B00869SerializationTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00869Serialization.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

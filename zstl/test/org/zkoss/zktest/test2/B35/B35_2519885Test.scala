@@ -29,8 +29,8 @@ import org.junit.Test
 class B35_2519885Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
-      """<zk>
+    val zscript = """
+      <zk>
         1. Check two or three rows on first page.
         <separator/>
         2. Click the next button to go to the next page.
@@ -53,9 +53,9 @@ class B35_2519885Test extends ZTL4ScalaTestCase {
 ]]>
           </attribute>
         </tree>
-      </zk>"""
-    }
-    runZTL(zscript, () => {
+      </zk>
+    """
+runZTL(zscript, () => {
       // Verify that there isn't a selected node
       verifyTrue("It should not be a selected nodes", jq(".z-treerow-selected").length() == 0);
 

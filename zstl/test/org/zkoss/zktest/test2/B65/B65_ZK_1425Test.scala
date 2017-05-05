@@ -9,7 +9,7 @@ class B65_ZK_1425Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = <zk>
+    val zscript = """<zk>
                     <listbox id="box" width="400px">
                       <listhead sizable="true">
                         <listheader id="name" label="name" sort="auto"/>
@@ -47,7 +47,7 @@ class B65_ZK_1425Test extends ZTL4ScalaTestCase {
                     </listbox>
                     <button label="hide/show name column" onClick='name.setVisible(!name.isVisible())'/>
                   </zk>
-
+"""
     runZTL(zscript,
       () => {
         click(jq("@button"))

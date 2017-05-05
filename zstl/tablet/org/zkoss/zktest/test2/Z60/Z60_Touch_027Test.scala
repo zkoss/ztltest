@@ -8,7 +8,7 @@ class Z60_Touch_027Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() {
-		val zscript = {
+		val zscript = """
 <zk>
 	<div>
 	1. click button on first timebox, should see a popup contains 3 spin wheels of hour, minute and second, and hour is 00-23.<separator />

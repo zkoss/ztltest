@@ -37,7 +37,7 @@ import java.lang._
 class B30_1852313Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk
                 xmlns="http://www.zkoss.org/2005/zul"
                 xmlns:h="http://www.w3.org/1999/xhtml"
@@ -152,9 +152,8 @@ class B30_1852313Test extends ZTL4ScalaTestCase {
 
                </window>
             </zk>
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
                 
         		val row = jq("@treerow:eq(0)")

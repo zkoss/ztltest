@@ -29,7 +29,7 @@ import org.junit.Test
 class B35_2075808Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
         <vbox>
           <label value="Orginally, three columns are 50%,20%,30% in width;"/>
@@ -176,8 +176,8 @@ import org.zkoss.zkmax.zul.Columnchildren;
           </columnchildren>
         </columnlayout>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       val totLay = jq("$cLay").width();
       val cLef = jq("$cLef").width();
       val cMid = jq("$cMid").width();

@@ -28,9 +28,9 @@ import org.junit.Test
 class Z60_TreeTest extends ZTL4ScalaTestCase {
   @Test
   def testAttribute() = {
-    val zul = {
+    val zul = """
 	<include src="bind/comp/tree.zul"/>
-    }
+"""
     runZTL(zul, () => {
     
       val tree = engine $f "tree"

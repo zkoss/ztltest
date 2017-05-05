@@ -49,7 +49,7 @@ class B50_ZK_299Test extends ZTL4ScalaTestCase {
 	}
 
 	def testDetailTheme() = {
-		val zscript = {
+		val zscript = """
 			<zk>
 				the detail's icon (+/-) should display correctly in each theme
 				<grid width="600px">

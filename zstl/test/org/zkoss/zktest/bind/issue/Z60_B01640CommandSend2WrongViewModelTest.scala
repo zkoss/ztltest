@@ -21,9 +21,9 @@ import org.zkoss.ztl.Tags
 class Z60_B01640CommandSend2WrongViewModelTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01640CommandSend2WrongViewModel.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

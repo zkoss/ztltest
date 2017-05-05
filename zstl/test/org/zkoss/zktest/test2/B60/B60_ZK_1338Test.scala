@@ -37,8 +37,8 @@ import java.lang._
 class B60_ZK_1338Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
-	"""	<?page title="If nothing in the page, that is a bug"?>
+    val zscript = 
+"""	<?page title="If nothing in the page, that is a bug"?>
 <?script content="zk.log('if nothing in the page, that is a bug')"?>
 <zk xmlns:w="http://www.zkoss.org/2005/zk/client">
 <zscript><![CDATA[
@@ -96,11 +96,9 @@ public class MyComposer extends GenericForwardComposer {
 		</listbox>
 	</window>
 </zk>
-    	"""
-
-    }
-
-    runZTL(zscript,
+    	
+"""
+runZTL(zscript,
         () => {
         	try {
 		       sleep(5000);

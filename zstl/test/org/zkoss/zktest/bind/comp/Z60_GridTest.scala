@@ -26,9 +26,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_GridTest extends ZTL4ScalaTestCase {
   def testGridGroupOpen() = {
-    val zul = {
+    val zul = """
 	<include src="bind/comp/grid.zul"/>
-    }
+"""
     runZTL(zul, () => {
     
       //button

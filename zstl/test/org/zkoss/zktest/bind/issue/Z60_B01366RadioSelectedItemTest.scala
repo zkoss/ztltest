@@ -21,9 +21,9 @@ import org.junit.Assert
 class Z60_B01366RadioSelectedItemTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01366RadioSelectedItem.zul"/>
-    }
+"""
     runZTL(zul, () => {
 
       var rg1 = jq("$radiogroup1")

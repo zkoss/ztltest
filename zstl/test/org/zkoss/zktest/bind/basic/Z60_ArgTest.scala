@@ -29,9 +29,9 @@ import org.junit.Test
 class Z60_ArgTest extends ZTL4ScalaTestCase {
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/basic/args.zul"/>
-    }
+    """
     runZTL(zul, () => {
       val l1 = engine $f "l1"
       val l2 = engine $f "l2"

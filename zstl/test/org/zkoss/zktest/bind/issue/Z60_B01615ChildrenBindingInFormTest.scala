@@ -23,9 +23,9 @@ class Z60_B01615ChildrenBindingInFormTest extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01615ChildrenBindingInForm.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

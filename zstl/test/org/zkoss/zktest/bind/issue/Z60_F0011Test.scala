@@ -29,9 +29,9 @@ import org.zkoss.ztl.ZKSeleneseTestCase
 @Tags(tags = "zbind")
 class Z60_F0011Test extends ZTL4ScalaTestCase {
   def testIssue() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/F0011.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       val sdf = new SimpleDateFormat("yyyy/MM/dd");

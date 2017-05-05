@@ -38,7 +38,7 @@ class B50_ZK_641Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<borderlayout>
 					<west>
@@ -57,10 +57,8 @@ class B50_ZK_641Test extends ZTL4ScalaTestCase {
 				</borderlayout>
 			</zk>
 
-    }
-
-
-   runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
    			var lbOne: Widget = engine.$f("lbOne");
    			var lbTwo: Widget = engine.$f("lbTwo");
    			var lbThree: Widget = engine.$f("lbThree");

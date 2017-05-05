@@ -28,7 +28,7 @@ import org.zkoss.ztl.Tags;
 class Z30_sendEventTest extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<vbox>
 				sendEvent: You shall see TWO "done" lines after clicking the Test1 button.
 				<button id="btn1" label="Test1" onClick='Events.sendEvent(new Event("onOK", self));b.value = a.value'
@@ -43,9 +43,8 @@ class Z30_sendEventTest extends ZTL4ScalaTestCase {
 				<label id="y"/>
 			</vbox>
 
-    }
-
-    runZTL(zscript,
+    """
+runZTL(zscript,
         () => {
           
           click(jq("$btn1"));

@@ -29,7 +29,7 @@ import org.junit.Test
 class B35_2094308Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
         <window border="none" style="border:1px solid black;">
           <vbox>
@@ -51,8 +51,8 @@ left.value + "px";'/>
           </window>
         </window>
       </zk>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Set the top value
       sendKeys(engine.$f("top"), "200");
 

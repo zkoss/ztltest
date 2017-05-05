@@ -30,7 +30,7 @@ import org.zkoss.ztl.util.Scripts
 @Tags(tags = "B30-2227929.zul,B,E,Window,Button")
 class B30_2227929Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window border="normal">
         Click
         <button label="Create">
@@ -42,8 +42,8 @@ class B30_2227929Test extends ZTL4ScalaTestCase {
 	Then click<button label="Attach" onClick="newc[0].setParent(self.parent)"/>
         and you shall see a group of components are appended
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
       // Click on first button
       click(jq("@button").get(0));
       waitResponse();

@@ -10,7 +10,7 @@ class B65_ZK_1315Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = <zk>
+    val zscript = """<zk>
                     <div>
                       1. Hide 'Title' column by menupopup.<separator/>
                       2. Click 'Publisher' column to sort.<separator/>
@@ -65,7 +65,7 @@ class B65_ZK_1315Test extends ZTL4ScalaTestCase {
                       </listitem>
                     </listbox>
                   </zk>
-
+"""
     runZTL(zscript,
       () => {
         mouseOver(jq(".z-column"))

@@ -30,7 +30,7 @@ import org.zkoss.ztl.ZK
 class B35_2149043Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
       <window height="600px">
         <fisheyebar id="fish" style="position: absolute; top: 50px; left:100px;margin:20px;" attachEdge="top">
           <fisheye id="f1" image="/test2/img/icon_browser.png" label="Web Browser" onClick="alert(self.label)"/>
@@ -44,8 +44,8 @@ class B35_2149043Test extends ZTL4ScalaTestCase {
         <separator/>
         <button label="Change image" onClick='f1.setImage("/test2/img/icon_email.png")'/>
       </window>
-    }
-    runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
 
       // Record the image after the click on the button
       val (height, width) = (jq("$f1").outerHeight(), jq("$f1").outerWidth())

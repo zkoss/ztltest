@@ -37,7 +37,7 @@ import java.lang._
 class B50_ZK_623Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				<div>	
 					You should see the green area have height 400px, no larger.
@@ -52,10 +52,8 @@ class B50_ZK_623Test extends ZTL4ScalaTestCase {
 				</vbox>
 			</zk>
 
-    }
-
-
-   runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
 			var vbox: Widget = engine.$f("vbox");
 
 			verifyTrue("the height of vbox should equal to 400",

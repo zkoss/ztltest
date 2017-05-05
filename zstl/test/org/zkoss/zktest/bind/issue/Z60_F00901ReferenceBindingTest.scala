@@ -25,9 +25,9 @@ import org.zkoss.ztl.Widget
 class Z60_F00901ReferenceBindingTest extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/F00901ReferenceBinding.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

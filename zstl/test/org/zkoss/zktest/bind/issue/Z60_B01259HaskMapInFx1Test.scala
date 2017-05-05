@@ -21,9 +21,9 @@ import org.junit.Assert
 class Z60_B01259HaskMapInFx1Test extends ZTL4ScalaTestCase {
 
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01259HaskMapInFx1.zul"/>
-    }
+"""
     runZTL(zul, () => {
 
       var l11 = jq("$l11")

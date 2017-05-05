@@ -27,9 +27,9 @@ class Z60_B00913ValueReloadTest extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B00913ValueReload.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
       

@@ -24,7 +24,7 @@ import org.zkoss.ztl.Tags;
 @Tags(tags = "B50-ZK-398.zul,B,E,Listbox,Grid,Tree,VisionTest,IE8")
 class B50_ZK_398Test extends ZTL4ScalaTestCase {
 	def testCase() = {
-		val zscript = {
+		val zscript = """
 			<zk>
 				<div>Auxheader and header (first and second rows) in each Grid/Listbox/Tree should align.</div>
 				<div>The each cell should be enclosed by border (IE8 only).</div>
@@ -114,8 +114,8 @@ class B50_ZK_398Test extends ZTL4ScalaTestCase {
 				</tree>
 			</zk>
 
-		}
-		runZTL(zscript, () => {
+		"""
+runZTL(zscript, () => {
 			verifyImage()
 		})
 	}

@@ -37,7 +37,7 @@ import java.lang._
 class B50_3340841Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 				The first Listitem/Treeitem should be selected (and the checkmark should be checked).
 				<listbox id="listbox" multiple="true" checkmark="true" width="200px"
@@ -71,14 +71,12 @@ class B50_3340841Test extends ZTL4ScalaTestCase {
 				</tree>
 			</zk>
 
-    }
-
-    def executor = ()=>{
+    """
+def executor = ()=>{
 		verifyTrue(jq(".z-listitem:eq(0)").hasClass("z-listitem-selected"));
 		verifyTrue(jq(".z-treerow:eq(0)").hasClass("z-treerow-selected"));
     }
-   // Run syntax 1 
-   runZTL(zscript, executor);
+runZTL(zscript, executor);
    
    // Run syntax 2
    /**

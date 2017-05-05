@@ -9,7 +9,7 @@ class Z60_Touch_004Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-		val zscript = {
+		val zscript = """
 <zk>
 	<div>
 		Click on calendar button should not see native keyboard.

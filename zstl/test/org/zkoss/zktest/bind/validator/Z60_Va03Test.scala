@@ -25,9 +25,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "zbind")
 class Z60_Va03Test extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/validator/va03.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 

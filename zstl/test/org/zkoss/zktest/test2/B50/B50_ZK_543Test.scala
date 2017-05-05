@@ -38,7 +38,7 @@ class B50_ZK_543Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = {
+    val zscript = """
 			<zk>
 			<div>There should no extra space below the last row of the listbox.</div>
 				<listbox id="listbox" width="400px" sizedByContent="true"
@@ -85,10 +85,8 @@ class B50_ZK_543Test extends ZTL4ScalaTestCase {
 				</listbox>
 			</zk>
 
-    }
-
-
-   runZTL(zscript, () => {
+    """
+runZTL(zscript, () => {
 			var listbox: Widget = engine.$f("listbox");
 
 			// IE may have few pixel below

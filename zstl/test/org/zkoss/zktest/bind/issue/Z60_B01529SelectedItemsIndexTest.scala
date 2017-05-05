@@ -23,9 +23,9 @@ class Z60_B01529SelectedItemsIndexTest extends ZTL4ScalaTestCase {
 
   @Test
   def testArg() = {
-    val zul = {
+    val zul = """
       <include src="/bind/issue/B01529SelectedItemsIndex.zul"/>
-    }
+"""
 
     runZTL(zul, () => {
 
