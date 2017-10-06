@@ -16,7 +16,7 @@ class B80_ZK_3095Test extends ZTL4ScalaTestCase {
         verifyFalse(jq(".z-menubar-left").isVisible())
         verifyFalse(jq(".z-menubar-right").isVisible())
         System.out.println(miow);
-        windowResizeTo((Integer.parseInt(miow) + 12) * 7 + 10, 500)
+        windowResizeTo((Integer.parseInt(miow) + 12) * 5 + 10, 500)
         waitResponse(true)
         verifyTrue(jq(".z-menubar-left").isVisible())
         verifyTrue(jq(".z-menubar-right").isVisible())
