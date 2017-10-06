@@ -36,32 +36,8 @@ import java.lang._
  */
 @Tags(tags = "B50-ZK-430.zul,A,E,Timebox,Format")
 class B50_ZK_430Test extends ZTL4ScalaTestCase {
-	
   def testClick() = {
-    val zscript = """
-			<zk>
-			1. Please focus into the first timebox and then select all(ctrl+A) to delete the content.
-			<separator/>
-			2. Type 1212 into the timebox, it should be able to type and display "1212".
-			<separator/>
-			<timebox id="tb1" cols="14" format="HHmm" onCreate="self.value = new Date()" mold="rounded" locale="en_US" />
-			<separator/>
-			3. Please focus into the second timebox and then select all(ctrl+A) to delete the content.
-			<separator/>
-			4. Type 121212 into the timebox, it should be able to type and display "PM 12:12:12" or "AM 12:12:12" (depended on when you test it).
-			<separator/>
-			<timebox id="tb2" format="a HH:mm:ss" width="150px" onCreate="self.value = new Date()" locale="en_US" />
-			<separator/>
-			5. Please focus into the last timebox and put your cursor after "AM00" or "PM00" (depended on when you test it).
-			<separator/>
-			6. Press the UP or Down arrow key on the keyboard to change it, and then it should be only changed in the number area (not AM or PM)
-			<separator/>
-			<timebox id="tb3" format="aHH:mm:ss" width="150px" locale="en_US" />
-			</zk>
-
-    """
-    runZTL(zscript,
-        () => {
+    runZTL(() => {
         var (tb1: Widget,
     	     tb2: Widget,
     	     tb3: Widget) = (
@@ -82,8 +58,6 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
           waitResponse()
         	ele.eval("select()");
           waitResponse()
-        	sendKeys(ele, Keys.DELETE);
-          waitResponse()
         	sendKeys(ele, value);
           waitResponse()
         }
@@ -100,15 +74,13 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
         if (ZK.is("opera"))
         	clickAt(tb3Inp,"35,5"); // left/right arrow keys not work on opera
         else {
-          // move to the lift most side
+          // move to the right most side
           for (i <- 1 to 10) {
-          sendKeys(tb3Inp, Keys.LEFT);
-            waitResponse()
+            sendKeys(tb3Inp, Keys.RIGHT);
           }
 	        // move to the position after AM00/PM00
-	        for (j <- 1 to 4) {
-            sendKeys(tb3Inp, Keys.RIGHT);
-            waitResponse()
+	        for (j <- 1 to 6) {
+            sendKeys(tb3Inp, Keys.LEFT);
           }
         }
         clickAndCheck(tb3.$n("btn-up"));

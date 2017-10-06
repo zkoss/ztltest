@@ -18,7 +18,7 @@ class B80_ZK_3049Test extends ZTL4ScalaTestCase {
         click(cb_btn)
         waitResponse(true)
         verifyNotEquals("none", jq(".z-combobox-popup").css("display"))
-        click(cb_btn)
+        clickAt(cb_btn, "10,10") // FIXME: Firefox strange workaround for not losing focus
         waitResponse(true)
         verifyEquals("none", jq(".z-combobox-popup").css("display"))
         click(cb_btn)

@@ -30,47 +30,7 @@ class B30_1911864Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """
-    		<window title="combobox in listbox" border="normal">
-    			<vbox>
-    				Clicks the dropdown button of the combobox to see if the dropdown
-    				appears or not (it shall appear).
-    				<listbox width="250px">
-    					<listhead sizable="true">
-    						<listheader label="name" sort="auto"/>
-    						<listheader label="gender" sort="auto"/>
-    					</listhead>
-    					<listitem>
-    						<listcell label="Mary"/>
-    						<listcell label="FEMALE"/>
-    					</listitem>
-    					<listitem>
-    						<listcell label="John"/>
-    						<listcell>
-    							<combobox id="cf8" cols="7">
-    								<comboitem label="male"/>
-    								<comboitem label="female"/>
-    								<comboitem label="unkown"/>
-    							</combobox>
-    						</listcell>
-    					</listitem>
-    					<listitem>
-    						<listcell label="Jane"/>
-    						<listcell>
-    							<datebox/>
-    						</listcell>
-    					</listitem>
-    					<listitem>
-    						<listcell label="Henry"/>
-    						<listcell label="MALE"/>
-    					</listitem>
-    				</listbox>
-    			</vbox>
-    		</window>
-    """
-
-    runZTL(zscript,
-        () => {
+    runZTL(() => {
         
         	waitResponse();
             

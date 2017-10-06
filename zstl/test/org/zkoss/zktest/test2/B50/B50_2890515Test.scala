@@ -35,23 +35,9 @@ import java.lang._
  */
 @Tags(tags = "B50-2890515.zul,A,E,Datebox,Calendar,Constraint,Before")
 class B50_2890515Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
-
-			<zk>
-    		<label id="outer" value="outer" />
-    		<div></div>
-			Please choose a date, for example, 20091102. And foucs in and out the
-			datebox it should not show an error.
-			<datebox id="dtbx" constraint="before 20091102" format="yyyyMMdd"/>
-			</zk>
-
-    }
-"""
-   // Run syntax 2
-    runZTL(zscript,
-        () => {
+    runZTL(() => {
         var outer: Widget = engine.$f("outer");
         var dtbx: Widget = engine.$f("dtbx");
 

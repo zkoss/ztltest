@@ -31,63 +31,7 @@ class B36_1968615Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """
-<?xml version="1.0" encoding="UTF-8"?>
-<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
-<zk>
-<html>
-<![CDATA[
-<ol>
-<li>You shall see three rows. 1st row and 2nd row has two column. 3rd row has only one spanned column</li>
-<li>2nd column of the 1st row and 2nd row are also a Grid of 3 rows.</li>
-<li>You shall see on 1st column of the 1st row: [AAA, AAB]</li>
-<li>You shall see on 2nd column of the 1st row: AAA, AAB, and [AAA, AAB]</li>
-<li>You shall see on 1st column of the 2nd row: [BAA, BAB]</li>
-<li>You shall see on 2nd column of the 2nd row: BAA, BAB, and [BAA, BAB]</li>
-<li>You shall see on 3rd row: [[AAA, AAB],[BAA,BAB]].</li>
-<li>If everything as specified, it is OK.</li>
-<li>done</li>
-</ol>
-]]>
-</html>
-<window title="My First Window" border="normal" width="200px">
-<zscript>
-	Vector a = new Vector();
-	
-	Vector aa = new Vector();
-	aa.add("AAA");
-	aa.add("AAB");
-	
-	Vector ba = new Vector();
-	ba.add("BAA");
-	ba.add("BAB");
-	
-	a.add(aa);
-	a.add(ba);
-</zscript>
-<listbox id="lb" model="@{a}">
-	<listitem self="@{each=r}" value="@{r}">
-		<listcell label="@{r}"/>
-		<listcell>
-			<listbox model="@{r}">
-				<listitem self="@{each=rr}" value="@{rr}" label="@{rr}"/>
-				<listfoot>
-					<listfooter label="@{r}"/>
-				</listfoot>
-			</listbox>
-		</listcell>
-	</listitem>
-	<listfoot>
-		<listfooter label="@{a}"/>
-	</listfoot>
-</listbox>
-</window>
-</zk>
-
-      """
-
-    runZTL(zscript,
-      () => {
+    runZTL(() => {
 
         waitResponse();
 
@@ -122,17 +66,17 @@ class B36_1968615Test extends ZTL4ScalaTestCase {
         verifyEquals(r22.toWidget().nChildren(),3);
         
         //3. You shall see on 1st column of the 1st row: [AAA, AAB]
-        var txt1=getText(jq(r1.firstChild()));
-        verifyEquals(txt1,"[AAA, AAB]");
+        var txt1=getText(jq(r1.firstChild())).trim;
+        verifyEquals("[AAA, AAB]", txt1);
         
         //4. You shall see on 2nd column of the 1st row: AAA, AAB, and [AAA, AAB]
         var r121=jq(r12.toWidget().firstChild());
         var r122=jq(r12.toWidget().firstChild().nextSibling());
         var r123=jq(r12.toWidget().lastChild());
         
-        var r121t=getText(r121);
-        var r122t=getText(r122);
-        var r123t=getText(r123);
+        var r121t=getText(r121).trim;
+        var r122t=getText(r122).trim;
+        var r123t=getText(r123).trim;
         
         verifyEquals(r121t,"AAA");
         verifyEquals(r122t,"AAB");
@@ -140,7 +84,7 @@ class B36_1968615Test extends ZTL4ScalaTestCase {
               
         
         //5. You shall see on 1st column of the 2nd row: [BAA, BAB]
-        var txt2=getText(jq(r2.firstChild()));
+        var txt2=getText(jq(r2.firstChild())).trim;
         verifyEquals(txt2,"[BAA, BAB]");
         
         //6. You shall see on 2nd column of the 2nd row: BAA, BAB, and [BAA, BAB]
@@ -148,16 +92,16 @@ class B36_1968615Test extends ZTL4ScalaTestCase {
         var r222=jq(r22.toWidget().firstChild().nextSibling());
         var r223=jq(r22.toWidget().lastChild());
         
-        var r221t=getText(r221);
-        var r222t=getText(r222);
-        var r223t=getText(r223);
+        var r221t=getText(r221).trim;
+        var r222t=getText(r222).trim;
+        var r223t=getText(r223).trim;
         
         verifyEquals(r221t,"BAA");
         verifyEquals(r222t,"BAB");
         verifyEquals(r223t,"[BAA, BAB]");
         
         //7. You shall see on 3rd row: [[AAA, AAB],[BAA, BAB]]
-        var txt7=getText(jq(r3.firstChild()));
+        var txt7=getText(jq(r3.firstChild())).trim;
         verifyEquals(txt7,"[[AAA, AAB], [BAA, BAB]]");
         
         waitResponse();

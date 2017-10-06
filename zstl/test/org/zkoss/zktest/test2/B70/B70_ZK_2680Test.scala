@@ -11,8 +11,8 @@ class B70_ZK_2680Test extends ZTL4ScalaTestCase {
 def testClick() = {
   runZTL(
     () => {
-      val icon = jq(".z-nav")
-      click(icon)
+      val icon = jq(".z-nav:eq(0) > a")
+      mouseOver(icon)
       waitResponse(true)
       click(jq(".z-nav-popup .z-nav-content").first())
       waitResponse(true)

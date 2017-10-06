@@ -27,16 +27,18 @@ class B80_ZK_2461Test extends ZTL4ScalaTestCase {
   @Test
 	def testCase() = {
 		runZTL(() => {
-			var initWidth = 0
-			for (w <- getZKLog.split('\n')) initWidth += w.toInt
+			var initWidth = 0.0
+			for (w <- getZKLog.split('\n')) initWidth += w.toDouble
 			click(jq("@button"))
 			waitResponse()
 			click(jq("@button").eq(1))
 			waitResponse()
-			var afterWidth = 0
-			for (w <- getZKLog.split('\n')) afterWidth += w.toInt
+			var afterWidth = 0.0
+			for (w <- getZKLog.split('\n')) afterWidth += w.toDouble
 			println("************", initWidth, afterWidth)
-			verifyTolerant(initWidth, afterWidth - initWidth, 2)
+			verifyTolerant(ceilInt(initWidth), ceilInt(afterWidth - initWidth), 2)
 		})
 	}
+
+	def ceilInt(x: Double) = Math.ceil(x).toInt
 }

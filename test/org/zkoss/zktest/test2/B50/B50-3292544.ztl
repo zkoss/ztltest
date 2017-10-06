@@ -28,9 +28,9 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				Element input = jq("@doublespinner").toWidget().$n("real");
 				focus(input);
-				sendKeys(input, Keys.END);
-				sendKeys(input, Keys.DECIMAL);
-				sendKeys(input, Keys.NUMPAD5);
+				sendKeys(input, "0");
+				sendKeys(input, ".");
+				sendKeys(input, "5");
 				blur(input);
 				verifyEquals("0.5",input.get("value"));
 		]]></client>

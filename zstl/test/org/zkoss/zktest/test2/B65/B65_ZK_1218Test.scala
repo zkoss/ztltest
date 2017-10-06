@@ -10,22 +10,12 @@ class B65_ZK_1218Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
-                    <label multiline="true">
-                      1. Type 1.224323423452352345345345634534634634 in the doublebox and doublespinner
-    				2. Should see "Illegal value" message instead of "You must specify a number, rather than 'input'"
-                    </label>
-                    <doublebox width="300px"/><separator/>
-                    <doublespinner width="300px"/>
-                  </zk>
-"""
-    runZTL(zscript,
-      () => {
+    runZTL(() => {
         val doublebox = jq(".z-doublebox")
         val doublespinner = jq(".z-doublespinner-input")
 
         sendKeys(doublebox, "1")
-        sendKeys(doublebox, Keys.DECIMAL)
+        sendKeys(doublebox, ".")
         sendKeys(doublebox, "224323423452352345345345634534634634")
 
         blur(doublebox)
@@ -35,11 +25,11 @@ class B65_ZK_1218Test extends ZTL4ScalaTestCase {
 
         focus(doublespinner)
         sendKeys(doublespinner, "1")
-        sendKeys(doublespinner, Keys.DECIMAL)
+        sendKeys(doublespinner, ".")
         sendKeys(doublespinner, "224323423452352345345345634534634634")
 
         blur(doublespinner)
-        waitResponse
+        waitResponse()
         verifyTrue(jq(".z-errorbox:eq(1)").exists())
       })
 

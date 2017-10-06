@@ -62,15 +62,7 @@ class B80_ZK_3141Test extends ZTL4ScalaTestCase {
 		val tt = t.offsetTop()
 		val tr = t.offsetLeft() + t.outerWidth()
 		val er = jq(".z-errorbox:visible")
-		if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_") || isSafari()) {
-			verifyTolerant(tt, er.offsetTop(), 1)
-		} else {
-			verifyEquals(tt, er.offsetTop())
-		}
-		if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_") || isSafari()) {
-			verifyTolerant(tr, er.offsetLeft(), 1)
-		} else {
-			verifyEquals(tr, er.offsetLeft())
-		}
+		verifyTolerant(tt, er.offsetTop(), 1)
+		verifyTolerant(tr, er.offsetLeft(), 1)
 	}
 }
