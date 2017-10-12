@@ -14,8 +14,7 @@ def testClick() = {
     () => {
       val header = jq(".z-listheader").last()
       val btn = jq(".z-listheader").last().find("a")
-      //click(jq(".z-button"));
-      click(header)
+      mouseOver(header)
       waitResponse()
       mouseMoveAt(header, "1,1")
       if (ZK.is("ie9"))

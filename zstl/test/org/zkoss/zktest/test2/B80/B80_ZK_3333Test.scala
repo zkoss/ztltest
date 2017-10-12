@@ -28,7 +28,7 @@ class B80_ZK_3333Test extends ZTL4ScalaTestCase {
 	def test() = {
 		runZTL(() => {
 			val tb = jq(".z-tbeditor-editor")
-			clickAt(tb, (tb.innerWidth() - 1) + "," + (tb.innerHeight() - 1))
+			click(tb)
 			`type`(tb, "ss")
 			click(jq("@button"))
 			waitResponse()

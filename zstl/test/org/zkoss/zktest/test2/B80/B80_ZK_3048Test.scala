@@ -31,36 +31,20 @@ class B80_ZK_3048Test extends ZTL4ScalaTestCase {
 			listbox.get(0).set("scrollTop", 1000)
 			waitResponse()
 			var listitem = listbox.eq(0).find(".z-listitem").last()
-			if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
-				verifyTolerant(listitem.positionTop() + listitem.outerHeight(), listbox.eq(0).height(), 1)
-			} else {
-				verifyEquals(listitem.positionTop() + listitem.outerHeight(), listbox.eq(0).height())
-			}
+			verifyTolerant(listitem.positionTop() + listitem.outerHeight(), listbox.get(0).get("clientHeight").toInt, 1)
+
 
 			listbox.get(1).set("scrollLeft", 1000)
 			waitResponse()
 			listitem = listbox.eq(1).find(".z-listitem").first()
-			if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
-				verifyTolerant(listitem.positionLeft() + listitem.outerWidth(), listbox.eq(1).width(), 1)
-			} else {
-				verifyEquals(listitem.positionLeft() + listitem.outerWidth(), listbox.eq(1).width())
-			}
+			verifyTolerant(listitem.positionLeft() + listitem.outerWidth(), listbox.get(1).get("clientWidth").toInt, 1)
 
 			listbox.get(2).set("scrollTop", 1000)
 			listbox.get(2).set("scrollLeft", 1000)
 			waitResponse()
 			listitem = listbox.eq(2).find(".z-listitem").last()
-			if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
-				verifyTolerant(listitem.positionTop() + listitem.outerHeight(), listbox.eq(2).height(), 1)
-			} else {
-				verifyEquals(listitem.positionTop() + listitem.outerHeight(), listbox.eq(2).height())
-			}
-			if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
-				verifyTolerant(listitem.positionLeft() + listitem.outerWidth(), listbox.eq(2).width(), 1)
-			} else {
-				verifyEquals(listitem.positionLeft() + listitem.outerWidth(), listbox.eq(2).width())
-			}
-
+			verifyTolerant(listitem.positionTop() + listitem.outerHeight(), listbox.get(2).get("clientHeight").toInt, 1)
+			verifyTolerant(listitem.positionLeft() + listitem.outerWidth(), listbox.get(2).get("clientWidth").toInt, 1)
 		})
 	}
 }

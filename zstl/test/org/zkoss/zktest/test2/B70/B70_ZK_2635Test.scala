@@ -12,41 +12,8 @@ class B70_ZK_2635Test extends ZTL4ScalaTestCase {
 
 @Test
 def testClick() = {
-  val zscript = """
-
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-B70-ZK-2635.zul
-
-	Purpose:
-		
-	Description:
-		
-	History:
-		Tue, Mar 03, 2015 11:18:06 AM, Created by JamesChu
-
-Copyright (C)  Potix Corporation. All Rights Reserved.
-
--->
-<zk>
-	<label multiline="true">
-		1.hover on the icon
-		2.click "one"
-		3.the position should not move
-	</label>
-	<navbar orient="vertical" width="50px" collapsed="true">
-		<nav label="Get Started" iconSclass="z-icon-th-list">
-			<navitem label="One"/>
-			<navitem label="Two"/>
-		</nav>
-	</navbar>
-</zk>
-    
-"""  
-  runZTL(zscript,
-    () => {
-      mouseMoveAt(jq(".z-navbar").first, "10,10")
+  runZTL(() => {
+      mouseOver(jq(".z-nav a"))
       waitResponse()
       click(jq(".z-nav").first)
       waitResponse()

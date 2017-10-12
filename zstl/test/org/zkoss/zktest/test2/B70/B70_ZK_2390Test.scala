@@ -48,9 +48,9 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     () => {
       val hlayout = jq("@hlayout");
       val win = jq("@window");
-      println(hlayout.offsetLeft() + hlayout.width(), " ", win.offsetLeft() + win.width());
-      verifyTrue("window should be extended to right edge.", 
-          hlayout.offsetLeft() + hlayout.width() - 10 == win.offsetLeft() + win.width());
+      println(hlayout.offsetLeft() + hlayout.width(), " ", win.offsetLeft() + win.outerWidth());
+      verifyEquals("window should be extended to right edge.",
+          hlayout.offsetLeft() + hlayout.width(), win.offsetLeft() + win.outerWidth());
     })
     
   }
