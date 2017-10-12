@@ -82,43 +82,39 @@ class B36_2874098Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-
         waitResponse();
-
         //Text a on Text1
-        var txt1= jq("$tb");
+        var txt1 = jq("$tb");
         focus(txt1);
         waitResponse();
-        keyPress(txt1,"a");
+        keyPress(txt1, "a");
         waitResponse();
-        
+
         //Text b on Text2
-        var txt2= jq("$tb2");
+        var txt2 = jq("$tb2");
         focus(txt2);
         waitResponse();
-        keyPress(txt2,"b");
+        keyPress(txt2, "b");
         waitResponse();
-        
+
         //Click save button
         var save = jq("$buttonSave");
-        if(ZK.is("ie8"))
-        	blur(txt2)
+        if (ZK.is("ie8"))
+          blur(txt2)
         click(save);
         waitResponse();
-                
         //Get errorbox exists
-        var error=jq(".z-errorbox");
+        var error = jq(".z-errorbox");
         verifyTrue(error.exists());
         verifyTrue(error.isVisible());
-
         //Error box message
-        var em="All values are wrong: a";
-        var erval=getText(error);
-        
+        var em = "All values are wrong: a";
+        var erval = getText(error).trim;
+
         //Verify error message
-        verifyEquals(em,erval);
-        
+        verifyEquals(em, erval);
+
       });
   }
-     
+
 }

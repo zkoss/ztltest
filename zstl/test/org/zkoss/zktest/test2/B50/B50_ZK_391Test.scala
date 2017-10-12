@@ -38,54 +38,7 @@ class B50_ZK_391Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = """
-
-			<zk>
-			<html><![CDATA[
-			<ol>
-			<li>mouseover and wait until the tootip showed for each label below twice</li>
-			<li>the right side of tooltip should align with the right side of label it belongs.</li>
-			</ol>
-			]]></html>
-				<window>
-					<popup id="zulPu1"><label>content here</label></popup>
-					<popup id="zulPu2">
-						<attribute name="onOpen"><![CDATA[
-							if (zulPu2.getChildren().size() == 0) { zulPu2.appendChild(new Label("content here")); }
-						]]></attribute>
-					</popup>
-					<popup id="zulPu3">
-						<attribute name="onOpen"><![CDATA[
-							self.appendChild(new Label("content here"));
-						]]></attribute>
-					</popup>
-					<vlayout id="container">
-						<label id="lb1" tooltip="zulPu1, position=after_end">Popup created in zul - good positioning</label>
-						<label id="lb2" tooltip="zulPu2, position=after_end">Popup created in zul, check for children and add child in Java - bad positioning, good on second hover</label>
-						<label id="lb3" tooltip="zulPu3, position=after_end">Popup created in zul 2, add child with no check for children in Java - bad positioning, good on second hover</label>
-						<label id="javaLbl">
-							<attribute name="onCreate"><![CDATA[
-								final Popup javaPu = new Popup();
-								container.appendChild(javaPu);
-								javaPu.setId("javaPu");
-								javaPu.addEventListener("onOpen", new EventListener() {
-								
-									public void onEvent(Event e) throws Exception {
-										if (javaPu.getChildren().size() == 0) {
-											javaPu.appendChild(new Label("content here"));
-										}
-									}
-								});
-								javaLbl.setTooltip("javaPu, position=after_end");
-							]]></attribute>
-							Popup created in java, check for children and add child in Java - bad positioning, good on second hover
-						</label>
-					</vlayout>
-				</window>
-			</zk>
-
-    """
-    runZTL(zscript,
+    runZTL(
         () => {
         var (lb1: Widget,
     	     lb2: Widget,
@@ -105,15 +58,16 @@ class B50_ZK_391Test extends ZTL4ScalaTestCase {
 	        while (!pp.exists() && System.currentTimeMillis()-t1 <= 3000) {
 	            sleep(300);
 	        }
-	        verifyTrue("popup should exist and visible",
-	            pp.exists() && "visible".equals(pp.$n().get("style.visibility")) &&
+          waitResponse()
+	        verifyTrue("popup should exist and visible", pp.exists() && "visible".equals(pp.$n().get("style.visibility")) &&
 	            	!pp.$n().get("style.display").contains("none"));
-	        var ppRight: Int = Integer.parseInt(pp.$n().get("offsetLeft"))+jq(pp.$n()).outerWidth();
+	        var ppRight: Int = Integer.parseInt(pp.$n().get("offsetLeft")) + jq(pp.$n()).outerWidth();
 	        var lbRight: Int = Integer.parseInt(lb.$n().get("offsetLeft")) + jq(lb.$n()).outerWidth();
-	        if (!ZK.is("ie6_"))
-		        verifyTrue("the right side of popup should close to and slightly over the right side of label except IE6",
-		            ppRight > lbRight && (ppRight - lbRight <= 10));
+          println("offsetLeft: " + pp.$n().get("offsetLeft") + "," + lb.$n().get("offsetLeft"))
+          println("outerWidth: " + jq(pp.$n()).outerWidth() + "," + jq(lb.$n()).outerWidth())
+          verifyTrue("the right side of popup should close to and slightly over the right side of label", Math.abs(ppRight - lbRight) <= 10);
 	        mouseOut(lb);
+          waitResponse()
         }
         checkPopup(lb1, "zulPu1");
         checkPopup(lb2, "zulPu2");

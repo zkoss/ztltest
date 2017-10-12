@@ -31,34 +31,8 @@ class B36_2935398Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-B36-2935398.zul
-
-	Purpose:
-		
-	Description:
-		
-	History:
-		Wed Jan 20 10:46:55 TST 2010, Created by jumperchen
-
-Copyright (C) 2009 Potix Corporation. All Rights Reserved.
-
--->
-<zk>
-    <textbox id="tb" constraint="no empty"/>
-    Please scroll down to press the button.
-    <div id="div" height="1400px"/>
-    <button id="btn" label="Click me to show an errorbox on the textbox." onClick='Clients.scrollIntoView(tb); tb.getValue();'/>
-</zk>
-
-      """
-
-    runZTL(zscript,
+    runZTL(
       () => {
-
         waitResponse();
         var b=jq("$div").height().toInt+jq("$tb").height().toInt;
         //Scroll down
@@ -81,10 +55,9 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         var po=error.positionTop();
         var p1=jq("$tb").positionTop();
         verifyTolerant(po,0, 2);
-        var l=jq("$tb").positionLeft()+jq("$tb").outerWidth()
-        var l1=error.positionLeft();
+        var l=jq("$tb").offsetLeft()+jq("$tb").outerWidth()
+        var l1=error.offsetLeft();
         verifyEquals(l,l1);
       });
   }
-     
 }

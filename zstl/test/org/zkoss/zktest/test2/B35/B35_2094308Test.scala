@@ -29,36 +29,13 @@ import org.junit.Test
 class B35_2094308Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = """
-      <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
-        <window border="none" style="border:1px solid black;">
-          <vbox>
-            <label value="Set the top and left values for window 2 and click save, you
-shouldn't see any errors."/>
-          </vbox>
-          <hbox>
-            Top :
-            <intbox id="top"/>
-            Left:
-            <intbox id="left"/>
-            <button id="save" label="save" onClick='win2.top = top.value + "px";win2.left =
-left.value + "px";'/>
-          </hbox>
-          <window id="win2" border="normal" width="450px" top="50px" height="200px" style="overflow:visible;" mode="overlapped" left="50px" title="InnerWindow- top=50px, left=50px- position=parent" position="parent" onMove='msg.value = "Inner: " + event.top + "," + event.left;'>
-            <window id="win3" border="normal" mode="overlapped" width="300px" top="50px" onMove='msg1.value = "Nexted: " + event.top + "," + event.left;' left="50px" title="NestedWindow-pos=parent" position="parent">
-              <button label="embed NestedWindow" onClick="win3.doEmbedded()"/>
-            </window>
-          </window>
-        </window>
-      </zk>
-    """
-runZTL(zscript, () => {
+runZTL(() => {
       // Set the top value
       sendKeys(engine.$f("top"), "200");
-
+      waitResponse();
       // Set the left value
       sendKeys(engine.$f("left"), "300");
-
+      waitResponse();
       // Click on save button
       click(engine.$f("save"));
       waitResponse();

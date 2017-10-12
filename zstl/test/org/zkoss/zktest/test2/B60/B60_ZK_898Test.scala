@@ -37,47 +37,16 @@ import java.lang._
 class B60_ZK_898Test extends ZTL4ScalaTestCase {
 	
   def testClick() = {
-    val zscript = """
-			<zk>
-				<div>
-					1. Press Clear button. You should see paging disappeared with Listbox content.
-				</div>
-				<zscript><![CDATA[
-					String[] strs = new String[50];
-					for (int i = 0; i < 50; i++)
-						strs[i] = "Item " + i;
-				]]></zscript>
-				<button id="btn" label="Clear" onClick="lb.items.clear(); rs.children.clear()" />
-				<hlayout>
-					<listbox id="lb" mold="paging" width="300px">
-						<listitem label="${each}" forEach="${strs}" />
-					</listbox>
-					<grid mold="paging" width="300px">
-						<rows id="rs">
-							<row forEach="${strs}">
-								<label>${each}</label>
-							</row>
-						</rows>
-					</grid>
-				</hlayout>
-			</zk>
-
-    """
-
-    runZTL(zscript,
-        () => {
-        var btn: Widget = engine.$f("btn");
+    runZTL(() => {
         var containers: JQuery = null;
         var container: JQuery = null;
-
-        click(btn);
+        click(jq("@button"));
         waitResponse();
-
         containers = jq(".z-hlayout-inner");
         for (i <- 0 until containers.length()) {
           container = jq(containers.get(i));
           verifyTrue("You should see paging disappeared with Listbox content",
-            container.height() < 5);
+            !isVisible(jq(".z-paging").eq(i)));
         }
     }
    );
