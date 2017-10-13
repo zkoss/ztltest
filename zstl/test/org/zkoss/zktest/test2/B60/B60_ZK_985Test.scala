@@ -29,53 +29,30 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug ZK-985
- * @author benbai
- *
- */
+  * A test class for bug ZK-985
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-985.zul,A,E,Grid,onChanging")
 class B60_ZK_985Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
-			<zk>
-			<html>
-			<ul>
-				<li>Enter something in the textbox below and wait. You shall see nothing happen.
-				(The bug is that the content you entered is cleared wrongly.)</li>
-			</ul>
-			</html>
-			<zscript>
-			import org.zkoss.zktest.test2.select.models.*;
-			ListModel model = ListModelArrays.getModel(ListModelArrays.DEFAULT);
-			</zscript>
-    		<button id="btn" label="test" onClick='lb.setValue(tbx.getValue())' />
-    		<label id="lb" />
-			<grid id="grid" model="${model}">
-			    <columns>
-			        <column label="Category"/>
-			    </columns>
-			    <auxhead>
-			    	<auxheader>
-			    		<textbox id="tbx" onChanging="grid.setModel(ListModelArrays.getModel(ListModelArrays.DEFAULT))"/>
-			    	</auxheader>
-			    </auxhead>
-			</grid>
-			</zk>
-
-    """
-runZTL(zscript,
-        () => {
+    runZTL(
+      () => {
         var btn: Widget = engine.$f("btn");
         var lb: Widget = engine.$f("lb");
         var tbx: Widget = engine.$f("tbx");
 
-        sendKeys(tbx, "asdf"); sleep(2000);
-        click(btn); waitResponse();
-        verifyTrue("Textbox not cleared",
-            lb.$n().get("innerHTML").contains("asdf"));
-    }
-   );
+        sendKeys(tbx, "asdf");
+        sleep(2000);
+        click(btn);
+        waitResponse();
+        println(lb.$n().get("innerHTML"))
+        verifyTrue("Textbox should not be cleared",
+          lb.$n().get("innerHTML").trim.contains("asdf"));
+      }
+    );
   }
 }

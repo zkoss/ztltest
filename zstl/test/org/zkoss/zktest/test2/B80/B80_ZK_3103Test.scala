@@ -11,27 +11,30 @@ class B80_ZK_3103Test extends ZTL4ScalaTestCase {
   def test() = {
     runZTL(
       () => {
-        typeKeys(jq("@intbox").get(0), "2")
+        var selBtn = jq("$select")
+        var clearBtn = jq("$clear")
+        var intbox = jq("@intbox").get(0)
+        typeKeys(intbox, "2")
         waitResponse(true)
-        click(jq("@button").get(0))
+        click(selBtn)
         waitResponse(true)
         for (i <- 0 to 3) {
           verifyEquals("Item 2", jq(".z-listitem-selected div:eq(" + i + ")").text().substring(1))
         }
-        getEval("jq('.z-intbox')[0].value = '18'")
+        click(clearBtn)
         waitResponse(true)
-        click(jq("@intbox").get(0))
+        typeKeys(intbox, "18")
         waitResponse(true)
-        click(jq("@button").get(0))
+        click(selBtn)
         waitResponse(true)
         for (i <- 0 to 3) {
           verifyEquals("Item 18", jq(".z-listitem-selected div:eq(" + i + ")").text().substring(1))
         }
-        getEval("jq('.z-intbox')[0].value = '21'")
+        click(clearBtn)
         waitResponse(true)
-        click(jq("@intbox").get(0))
+        typeKeys(intbox, "21")
         waitResponse(true)
-        click(jq("@button").get(0))
+        click(selBtn)
         waitResponse(true)
         for (i <- 0 to 3) {
           verifyEquals("Item 21", jq(".z-listitem-selected div:eq(" + i + ")").text().substring(1))
@@ -40,11 +43,12 @@ class B80_ZK_3103Test extends ZTL4ScalaTestCase {
           verifyTrue((lbb.eval("getBoundingClientRect().top")).toDouble + lbb.eval("offsetHeight").toDouble >= li.eval("getBoundingClientRect().top").toDouble + li.eval("offsetHeight").toDouble)
           verifyTrue(lbb.eval("getBoundingClientRect().top").toDouble <= li.eval("getBoundingClientRect().top").toDouble)
         }
-        getEval("jq('.z-intbox')[0].value = '17'")
+        click(clearBtn)
         waitResponse(true)
-        click(jq("@intbox").get(0))
+        typeKeys(intbox, "17")
         waitResponse(true)
-        click(jq("@button").get(0))
+        click(selBtn)
+        waitResponse(true)
         waitResponse(true)
         for (i <- 0 to 3) {
           verifyEquals("Item 17", jq(".z-listitem-selected div:eq(" + i + ")").text().substring(1))
