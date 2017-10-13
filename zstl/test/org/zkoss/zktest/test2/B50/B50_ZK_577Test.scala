@@ -51,13 +51,13 @@ class B50_ZK_577Test extends ZTL4ScalaTestCase {
    			var btn1Width: Integer = jq(btn1.$n()).width();
    			
    			verifyTrue("The top of datebox and button 1 should almost the same",
-   			    Math.abs(btn1Top-dbxTop) < 10);
+   			    Math.abs(btn1Top-dbxTop) <= 10);
    			verifyTrue("The top of datebox and button 2 should almost the same",
-   			    Math.abs(btn2Top-dbxTop) < 10);
+   			    Math.abs(btn2Top-dbxTop) <= 10);
    			verifyTrue("The left of button 1 should larger then the right of datebox",
-   			    btn1Left > dbxLeft + dbxWidth);
+   			    btn1Left >= dbxLeft + dbxWidth);
    			verifyTrue("The left of button 2 should larger then the right of button 1",
-   			    btn2Left > btn1Left + btn1Width);
+   			    btn2Left >= btn1Left + btn1Width);
 		})
   }
 }

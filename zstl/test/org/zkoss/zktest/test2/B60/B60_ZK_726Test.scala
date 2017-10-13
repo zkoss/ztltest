@@ -33,10 +33,10 @@ class B60_ZK_726Test extends ZTL4ScalaTestCase {
         val loadingLeft = loading.offsetLeft()
         val loadingTop = loading.offsetTop()
 
-        verifyTrue(divLeft < loadingLeft)
-        verifyTrue(divTop < loadingTop)
-        verifyTrue(loadingLeft + loading.width() < divLeft + div.width())
-        verifyTrue(loadingTop + loading.height() < divTop + div.height())
+        verifyTrue(divLeft <= loadingLeft)
+        verifyTrue(divTop <= loadingTop)
+        verifyTrue(loadingLeft + loading.width() <= divLeft + div.width())
+        verifyTrue(loadingTop + loading.height() <= divTop + div.height())
       })
 
   }

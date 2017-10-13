@@ -43,7 +43,7 @@ class B50_ZK_596Test extends ZTL4ScalaTestCase {
 		<div height="25px">1. Click the buttons below from left to right. </div>
 		<div height="25px">2. The header of tabbox should shrink or expand while</div>
 		<hbox><div height="25px" width="20px"></div><div height="25px"> the toolbar expand or shrink.</div></hbox>
-			<tabbox id="tb" width="500px">
+			<tabbox id="tb" width="800px">
 				<tabs id="tbs">
 					<tab label="Tab 1" closable="true" />
 					<tab label="Tab 2" closable="true"/>
@@ -109,12 +109,12 @@ class B50_ZK_596Test extends ZTL4ScalaTestCase {
 			</button>
 			<button id="btn5" label="shrink toolbar width">
 				<attribute name="onClick">
-					tbar.setWidth("100px");
+					tbar.setWidth("200px");
 				</attribute>
 			</button>
 			<button id="btn6" label="enlarge toolbar width">
 				<attribute name="onClick">
-					tbar.setWidth("300px");
+					tbar.setWidth("400px");
 				</attribute>
 			</button>
 		</zk>
@@ -157,8 +157,8 @@ class B50_ZK_596Test extends ZTL4ScalaTestCase {
 	   		var $tbar: JQuery = jq(tbar.$n())
 
 	   		def checkWidth = () => {
-	   		  verifyTrue("the sum of tabs header width and toobar width should smaller or equal to tabs width",
-	   		      $tbs.outerWidth(true) + $tbar.outerWidth(true) <= $tb.width())
+					verifyTrue("the sum of tabs header width and toobar width should smaller or equal to tabs width",
+							$tbs.outerWidth(true) + $tbar.outerWidth(true) <= $tb.outerWidth())
 	   		}
 	   		clickAndWait(btn1, null)
 	   		checkWidth()
