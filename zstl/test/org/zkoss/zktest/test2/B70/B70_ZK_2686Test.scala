@@ -2,9 +2,10 @@ package org.zkoss.zktest.test2.B70
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.{IgnoreBrowsers, Tags}
 
 @Tags(tags = "B70-ZK-2686.zul")
+@IgnoreBrowsers("ie8")
 class B70_ZK_2686Test extends ZTL4ScalaTestCase {
 
 @Test

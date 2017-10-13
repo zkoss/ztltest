@@ -18,7 +18,7 @@ def testClick() = {
     	val tree = jq("@tree");
     	val listbox = jq("@listbox");
         val grid = jq("@grid");
-        println(tree.eq(0).find("@treecol").last().offsetLeft(), tree.eq(0).find("@treerow").first().find("@treecell").offsetLeft());
+        println(tree.eq(0).find("@treecol").last().offsetLeft(), tree.eq(0).find("@treerow").first().find("@treecell").last().offsetLeft());
         verifyTrue("tree header and content shouldn't misaligned.", 
             tree.eq(0).find("@treecol").last().offsetLeft() == 
               tree.eq(0).find("@treerow").first().find("@treecell").last().offsetLeft());

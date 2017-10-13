@@ -13,10 +13,10 @@ def testClick() = {
     () => {
       List("0.0", "0.0", "0.00").zipWithIndex foreach { case (result, index) =>
         val ds = jq(".z-doublespinner").eq(index).toWidget()
-        clickAt(ds.$n("btn-up"), "2,2")
+        clickAt(ds.$n("btn-up"), "5,5")
         waitResponse()
         
-        clickAt(ds.$n("btn-down"), "2,2")
+        clickAt(ds.$n("btn-down"), "5,5")
         waitResponse()
         
         verifyTrue("should see " + result, ds.$n("real").get("value") == result)
