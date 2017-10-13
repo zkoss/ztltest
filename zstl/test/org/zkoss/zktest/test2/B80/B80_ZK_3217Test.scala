@@ -29,7 +29,7 @@ class B80_ZK_3217Test extends ZTL4ScalaTestCase {
 		runZTL(() => {
 			val db = jq("@datebox")
 			val window = driver.manage().window()
-			val clientHeight = getEval("window.innerHeight").toInt
+			val clientHeight = getEval("document.documentElement.clientHeight").toInt
 			val offset = db.offsetTop() + db.outerHeight() - clientHeight
 			val button = jq(".z-datebox-button")
 			runScript("window.scrollTo(0," + offset + ")")
