@@ -4,8 +4,8 @@
 <window title="Test Case: Updating list model of not yet rendered listbox" border="normal" width="500px" height="400px">
 <tabbox height="100%" >
 <tabs>
-<tab label="Visible (selected) Tab" selected="true"></tab>
-<tab label="Not visible (selected) by default" selected="false"></tab>
+<tab id="t1" label="Visible (selected) Tab" selected="true"></tab>
+<tab id="t2" label="Not visible (selected) by default" selected="false"></tab>
 <tab id="t3" label="Not visible (selected) by default" selected="false"></tab>
 </tabs>
 <tabpanels>
@@ -36,16 +36,22 @@
 				click(jq("@button[label=\"update list model of listbox on second tab panel\"]"));
 				waitResponse();
 				verifyFalse(jq(".z-error").exists());
-				click(jq("@tab:contains(Not)"));
+				click(jq(t2));
 				waitResponse();
 				verifyEquals("Listbox", getText(jq("@listheader")));
 				verifyEquals("element", getText(jq("@listcell")));
-				click(jq("@tab:contains(Tab)"));
+				click(jq(".z-tabbox-left-scroll").get(0));
+				waitResponse();
+				click(jq(t1));
 				waitResponse();
 				click(jq("@button:contains(grid)"));
 				waitResponse();
 				verifyFalse(jq(".z-error").exists());
-				clickAt(jq(t3).find(".z-tab-text"), "3,3");
+				click(jq(".z-tabbox-right-scroll").get(0));
+				waitResponse();
+				click(jq(".z-tabbox-right-scroll").get(0));
+				waitResponse();
+				click(jq(t3));
 				waitResponse();
 				verifyEquals("Grid", getText(jq("@column")));
 				verifyEquals("element", getText(jq("@label")));
