@@ -11,29 +11,30 @@ class B80_ZK_3103Test extends ZTL4ScalaTestCase {
   def test() = {
     runZTL(
       () => {
-        var intbox = jq("@intbox").get(0);
-        var button = jq("@button").get(0);
-        `type`(intbox, "2")
+        var selBtn = jq("$select")
+        var clearBtn = jq("$clear")
+        var intbox = jq("@intbox").get(0)
+        typeKeys(intbox, "2")
         waitResponse(true)
-        click(button)
+        click(selBtn)
         waitResponse(true)
         for (i <- 0 to 3) {
           verifyEquals("Item 2", jq(".z-listitem-selected div:eq(" + i + ")").text().substring(1))
         }
-        `type`(intbox, "18");
+        click(clearBtn)
         waitResponse(true)
-        click(intbox)
+        typeKeys(intbox, "18")
         waitResponse(true)
-        click(button)
+        click(selBtn)
         waitResponse(true)
         for (i <- 0 to 3) {
           verifyEquals("Item 18", jq(".z-listitem-selected div:eq(" + i + ")").text().substring(1))
         }
-        `type`(intbox, "21");
+        click(clearBtn)
         waitResponse(true)
-        click(intbox)
+        typeKeys(intbox, "21")
         waitResponse(true)
-        click(button)
+        click(selBtn)
         waitResponse(true)
         for (i <- 0 to 3) {
           verifyEquals("Item 21", jq(".z-listitem-selected div:eq(" + i + ")").text().substring(1))
@@ -42,11 +43,12 @@ class B80_ZK_3103Test extends ZTL4ScalaTestCase {
           verifyTrue(lbb.offsetTop() + lbb.height() >= li.offsetTop() + li.height())
           verifyTrue(lbb.offsetTop() <= li.offsetTop())
         }
-        `type`(intbox, "17");
+        click(clearBtn)
         waitResponse(true)
-        click(intbox)
+        typeKeys(intbox, "17")
         waitResponse(true)
-        click(button)
+        click(selBtn)
+        waitResponse(true)
         waitResponse(true)
         for (i <- 0 to 3) {
           verifyEquals("Item 17", jq(".z-listitem-selected div:eq(" + i + ")").text().substring(1))
