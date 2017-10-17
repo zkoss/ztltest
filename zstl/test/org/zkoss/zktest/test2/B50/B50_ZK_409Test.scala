@@ -38,22 +38,7 @@ class B50_ZK_409Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = """
-			<zk>
-			<zscript><![CDATA[
-			class MyDiv extends org.zkoss.zul.Div implements IdSpace {
-			}
-			]]></zscript>
-			<div use="MyDiv"/>
-			<button id="btn" label="Click me, then close the messabebox, and click me again, you should not see any error" width="150px">
-			<attribute name="onClick">
-			Messagebox.show("Question is pressed. Are you sure?", "Question", Messagebox.OK | Messagebox.CANCEL, Messagebox.QUESTION);
-			</attribute>
-			</button>
-			</zk>
-
-    """
-    runZTL(zscript,
+    runZTL(
         () => {
         var btn: Widget = engine.$f("btn");
 

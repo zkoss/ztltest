@@ -29,53 +29,26 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug ZK-725
- * @author benbai
- *
- */
+  * A test class for bug ZK-725
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-725.zul,A,E,sort")
 class B60_ZK_725Test extends ZTL4ScalaTestCase {
-	
-  def testClick() = {
-    val zscript = """
-			<zk>
-			<html><![CDATA[
-			Click the header (Author) to sort the grid. It is OK if it is sorted correctly.
-			]]></html>
-			
-			<grid id="grid">
-				<columns>
-					<column label="Author" sort="auto" />
-				</columns>
-				<rows>
-					<row>
-						<label value="BRow" />
-					</row>
-					<row>
-						<label value="CRow" />
-					</row>
-					<row>
-						<label value="ARow" />
-					</row>
-				</rows>
-			</grid>
-			</zk>
 
-    """
-runZTL(zscript,
-        () => {
+  def testClick() = {
+    runZTL(
+      () => {
         var grid: Widget = engine.$f("grid");
-        
-        click (jq(".z-column:contains(Author)").get(0));
-        waitResponse();
-        
+        Scripts.triggerMouseEventAt(getWebDriver, jq("@column:eq(0)"), "click", "2,2")
         verifyTrue("should sorted correctly",
-            jq(".z-row:contains(ARow)").get(0).get("id").equals(jq(".z-row").get(0).get("id")));
+          jq("@row").get(0).get("id").equals(jq(".z-row").get(0).get("id")));
         verifyTrue("should sorted correctly",
-            jq(".z-row:contains(BRow)").get(0).get("id").equals(jq(".z-row").get(1).get("id")));
+          jq("@row").get(1).get("id").equals(jq(".z-row").get(1).get("id")));
         verifyTrue("should sorted correctly",
-            jq(".z-row:contains(CRow)").get(0).get("id").equals(jq(".z-row").get(2).get("id")));
-    }
-   );
+          jq("@row").get(2).get("id").equals(jq(".z-row").get(2).get("id")));
+      }
+    );
   }
 }

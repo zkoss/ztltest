@@ -29,75 +29,24 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug ZK-12
- * @author benbai
- *
- */
+  * A test class for bug ZK-12
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F55-ZK-12.zul,F60,B,E,Checkbox,autodisable")
 class F55_ZK_12Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
-			<zk xmlns:w="client">
-			<html><![CDATA[
-			<ol>
-			<li>Click 'ok' checkbox, the 'ok' checkbox should be disabled and enable again in a moment, the 'cancel' checkbox should be disabled.</li>
-			<li>Click 'active cancel checkbox' button, the 'cancel' checkbox should be enabled.</li>
-			<li>Click 'cancel' checkbox, the 'cancel' checkbox should be disabled and enable again in a moment, the 'ok' checkbox should be disabled.</li>
-			<li>Click 'active ok checkbox' button, the 'ok' checkbox should be enabled.</li>
-			</ol>
-			]]></html>
-				<vbox>
-					<hbox>
-						<checkbox id="ok" onClick="" label="ok" autodisable="self, +cancel">
-							<attribute w:name="setDisabled">
-								function (v) {
-									if (v)
-										zk.log(" ok is disabled");
-									else
-										zk.log(" ok is enabled");
-									this.$setDisabled(v);
-								}
-							</attribute>
-						</checkbox>
-						<checkbox id="cancel" label="cancel" autodisable="self, +ok">
-							<attribute w:name="setDisabled">
-								function (v) {
-									if (v)
-										zk.log(" cancel is disabled");
-									else
-										zk.log(" cancel is enabled");
-									this.$setDisabled(v);
-								}
-							</attribute>
-						</checkbox>
-					</hbox>
-					<hbox>
-						<button id="btnOne" label="active cancel checkbox">
-							<attribute name="onClick">
-								cancel.setDisabled(false);
-							</attribute>
-						</button>
-						<button id="btnTwo" label="active ok checkbox">
-							<attribute name="onClick">
-								ok.setDisabled(false);
-							</attribute>
-						</button>
-					</hbox>
-				</vbox>
-			</zk>
-
-    """
-
-    runZTL(zscript,
-        () => {
+    runZTL(
+      () => {
         var ok: Widget = engine.$f("ok");
         var cancel: Widget = engine.$f("cancel");
         var btnOne: Widget = engine.$f("btnOne");
         var btnTwo: Widget = engine.$f("btnTwo");
 
-        def clickAndVerify (wgt: org.zkoss.ztl.ClientWidget, delay: Int,
-        	okEn: Boolean, okDis: Boolean, canEn: Boolean, canDis: Boolean) {
+        def clickAndVerify(wgt: org.zkoss.ztl.ClientWidget, delay: Int,
+                           okEn: Boolean, okDis: Boolean, canEn: Boolean, canDis: Boolean) {
           var zklog: Element = null;
           var logContent: String = null;
           click(wgt);
@@ -106,27 +55,28 @@ class F55_ZK_12Test extends ZTL4ScalaTestCase {
           zklog = jq("textarea").get(0);
           logContent = zklog.get("value");
 
-          verifyTrue("The ok checkbox should "+(if (okEn) "" else " not")+"be enabled.",
-              logContent.contains("ok is enabled") == okEn);
-          verifyTrue("The ok checkbox should "+(if (okDis) "" else " not")+"be disabled.",
-              logContent.contains("ok is disabled") == okDis);
-          verifyTrue("The cancel checkbox should "+(if (canEn) "" else " not")+"be enabled.",
-              logContent.contains("cancel is enabled") == canEn);
-          verifyTrue("The cancel checkbox should "+(if (canDis) "" else " not")+"be disabled.",
-              logContent.contains("cancel is disabled") == canDis);
+          verifyTrue("The ok checkbox should " + (if (okEn) "" else " not") + " be enabled.",
+            logContent.contains("ok is enabled") == okEn);
+          verifyTrue("The ok checkbox should " + (if (okDis) "" else " not") + " be disabled.",
+            logContent.contains("ok is disabled") == okDis);
+          verifyTrue("The cancel checkbox should " + (if (canEn) "" else " not") + " be enabled.",
+            logContent.contains("cancel is enabled") == canEn);
+          verifyTrue("The cancel checkbox should " + (if (canDis) "" else " not") + " be disabled.",
+            logContent.contains("cancel is disabled") == canDis);
           if (okEn && okDis)
             verifyTrue("the ok checkbox should enabled after disabled",
-                logContent.lastIndexOf("ok is disabled") < logContent.lastIndexOf("ok is enabled"));
+              logContent.lastIndexOf("ok is disabled") < logContent.lastIndexOf("ok is enabled"));
           if (canEn && canDis)
             verifyTrue("the cancel checkbox should enabled after disabled",
-                logContent.lastIndexOf("cancel is disabled") < logContent.lastIndexOf("cancel is enabled"));
+              logContent.lastIndexOf("cancel is disabled") < logContent.lastIndexOf("cancel is enabled"));
           zklog.eval("value=\"\"");
         }
+
         clickAndVerify(ok.$n("real"), 1500, true, true, false, true);
         clickAndVerify(btnOne, 600, false, false, true, false);
         clickAndVerify(cancel.$n("real"), 1500, false, true, true, true);
         clickAndVerify(btnTwo, 600, true, false, false, false);
-    }
-   );
-   }
+      }
+    );
+  }
 }

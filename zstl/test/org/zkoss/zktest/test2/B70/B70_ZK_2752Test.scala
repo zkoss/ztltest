@@ -9,12 +9,10 @@ class B70_ZK_2752Test extends ZTL4ScalaTestCase {
 
 @Test
 def testClick() = {
-  val zscript = """
-   <include src="/test2/B70-ZK-2752.zul"/>
-  """
-  runZTL(zscript,
-    () => {
+  runZTL(() => {
       verifyFalse(jq("@grid @row:first").isVisible)
+      println(jq("@grid @row:last @label").outerHeight)
+    println(jq("@grid @row:last @textbox").outerHeight)
       verifyTrue(jq("@grid @row:last @label").outerHeight < jq("@grid @row:last @textbox").outerHeight)
     })
   }

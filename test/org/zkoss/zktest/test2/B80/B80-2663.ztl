@@ -1,5 +1,5 @@
 <test tags="B80-ZK-2663.zhtml,Xhtml"
-	action="/test2/B80-ZK-2663.zhtml">
+	action="test2/B80-ZK-2663.zhtml">
 	<case id="Popup">
 		<client><![CDATA[
 			click(jq(".z-button"));

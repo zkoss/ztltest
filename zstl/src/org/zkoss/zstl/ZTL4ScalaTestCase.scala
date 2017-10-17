@@ -1,7 +1,8 @@
 /**
- *
- */
+  *
+  */
 package org.zkoss.zstl
+
 import org.zkoss.ztl._
 import org.zkoss.ztl.util.ConfigHelper
 
@@ -27,15 +28,17 @@ import java.util.concurrent.ExecutionException
 import org.zkoss.ztl.util.AggregateError
 
 /**
- * ZTL for Scala to test
- * @author jumperchen
- */
+  * ZTL for Scala to test
+  *
+  * @author jumperchen
+  */
 class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
   var ch = ConfigHelper.getInstance()
   target = ch.getServer() + ch.getContextPath() + "/" + ch.getAction()
   _timeout = ch.getTimeout().toInt
   caseID = getClass().getSimpleName()
   val _engine = new ThreadLocal[Widget]();
+
   def runZTL(zscript: String, executor: () => Unit) {
     //
     val luuid = new Date().getTime();
@@ -67,81 +70,85 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
             if (!zscript.isEmpty())
               runRawZscript(
                 zscript
-                  toString ());
-              waitResponse();
-	          executor();
-	          println(getTimeUUID() + "-" + luuid + ":log 4-3");
-			} catch {
-				case e : SeleniumException =>
-				  	println(getTimeUUID() + "-" + luuid + "selenium exception...");
-				  	println(e.getMessage());
-				  	e.printStackTrace();
-					ConfigHelper.getInstance().clearCache(zkSelenium);
-					zkSelenium.shutdown();
-					throw e;
-				case e : InterruptedException =>
-				  	println(getTimeUUID() + "-" + luuid +  ":interrupt exception-" + e.getMessage());
-				case other: Throwable =>
-				  	println(getTimeUUID() + "-" + luuid +  ":other exception-" + other.getMessage());
-				  	other.printStackTrace();
-					throw other;
-			} finally {
-				println(getTimeUUID() + "-" + luuid + ":log 4-4");
-				stop();
-				println(getTimeUUID() + "-" + luuid + ":log 4-5");
-				browserSet.remove(zkSelenium.getBrowserName());
-				println(getTimeUUID() + "-" + luuid + ":log 4-6");
-			}
-			println(getTimeUUID() + "-" + luuid + ":log 4-7-" + zkSelenium.getBrowserName());
+                  toString());
+            waitResponse();
+            executor();
+            println(getTimeUUID() + "-" + luuid + ":log 4-3");
+          } catch {
+            case e: SeleniumException =>
+              println(getTimeUUID() + "-" + luuid + "selenium exception...");
+              println(e.getMessage());
+              e.printStackTrace();
+              ConfigHelper.getInstance().clearCache(zkSelenium);
+              zkSelenium.shutdown();
+              throw e;
+            case e: InterruptedException =>
+              println(getTimeUUID() + "-" + luuid + ":interrupt exception-" + e.getMessage());
+            case other: Throwable =>
+              println(getTimeUUID() + "-" + luuid + ":other exception-" + other.getMessage());
+              other.printStackTrace();
+              throw other;
+          } finally {
+            println(getTimeUUID() + "-" + luuid + ":log 4-4");
+            stop();
+            println(getTimeUUID() + "-" + luuid + ":log 4-5");
+            browserSet.remove(zkSelenium.getBrowserName());
+            println(getTimeUUID() + "-" + luuid + ":log 4-6");
+          }
+          println(getTimeUUID() + "-" + luuid + ":log 4-7-" + zkSelenium.getBrowserName());
         }
       }));
     }
-    
+
     executorService.shutdown();
-    
+
     try {
-    	if(!executorService.awaitTermination(_timeout, TimeUnit.MILLISECONDS))
-    	  executorService.shutdownNow();
-    	
-    	detectException(futures);
+      if (!executorService.awaitTermination(_timeout, TimeUnit.MILLISECONDS))
+        executorService.shutdownNow();
+
+      detectException(futures);
     } catch {
       case e: AggregateError =>
         throw e;
-      case e: Throwable => 
+      case e: Throwable =>
         println(getTimeUUID() + "-" + luuid + ":in termination ex..." + e.getMessage());
         e.printStackTrace();
     }
-    
+
     println(getTimeUUID() + "-" + luuid + ":log 5-1");
-    
+
     handleTimeout(browserSet, luuid);
-    
+
     println(getTimeUUID() + "-" + luuid + ":log 6");
-        
+
     waitAndRelease(browserSet);
-    
+
     println(getTimeUUID() + "-" + luuid + ":log 7");
-      
+
   }
-  
+
   def runRawZscript(zscript: String) {
-	runZscript(
-		zscript
-			trim ()
-			replace ("\\", "\\\\")
-			replace ("'", "\\'")
-			replaceAll ("\r", "")
-			replaceAll ("\n", "\\\\n"))
+    runZscript(
+      zscript
+        trim()
+        replace("\\", "\\\\")
+        replace("'", "\\'")
+        replaceAll("\r", "")
+        replaceAll("\n", "\\\\n"))
   }
-  def runZTL(zscript: scala.xml.Elem, executor: () => Unit){
-	runZTL(zscript.toString(),executor);
-  }  
-  def runZTL(executor: () => Unit){
+
+  def runZTL(zscript: scala.xml.Elem, executor: () => Unit) {
+    runZTL(zscript.toString(), executor);
+  }
+
+  def runZTL(executor: () => Unit) {
     val zscript = "<include src=\"/test2/" + this.getClass.getSimpleName.replace("_", "-").replace("Test", ".zul") + "\"/>"
-    runZTL(zscript.toString(),executor);
+    runZTL(zscript.toString(), executor);
   }
 
   def engine(): Widget = _engine.get();
+
   def driver() = getWebDriver()
+
   def getSelenium(): Selenium = selenium.get();
 }

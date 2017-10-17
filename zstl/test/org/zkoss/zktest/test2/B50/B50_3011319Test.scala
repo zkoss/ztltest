@@ -38,43 +38,16 @@ class B50_3011319Test extends ZTL4ScalaTestCase {
 	
   @Test
   def testClick() = {
-    val zscript = """
-			<window>
-				<html><![CDATA[
-				<ol>
-					<li>Dropdown the calendar popup, and click the arrow key.<br/>
-					Result: you shall be able to change month to April (and April 30 is hilighted).</li>
-					<li>Click the reset button</li>
-					<li>Dropdown the calendar popup, click the month at the title,
-					and click Feburary.<br/>
-					Result: Feburary must be shown up</li>
-				</ol>
-				]]></html>
-				<datebox id="db" locale="en_US"/>
-				<zscript><![CDATA[
-				import java.util.Calendar;
-				void set() {
-					final Calendar cal = Calendar.getInstance();
-					cal.set(2010, 4, 31);
-					db.setValue(cal.getTime());
-				}
-				set()
-				]]></zscript>
-				<button id="btn" label="reset" onClick="set()"/>
-			</window>
-
-    """
-    runZTL(zscript,
+    runZTL(
         () => {
         var db: Widget = engine.$f("db");
         var btn: Widget = engine.$f("btn");
-
-        click(db.$n("btn"));
+        click(db.$n("btn"))
+          waitResponse(true)
         click(jq(db.$n("pp")).find(".z-calendar-left").get(0));
         
         // wait animation
         waitResponse(true);
-
         verifyTrue("the title should be April",
             jq(db.$n("pp")).find(".z-calendar-title").find(".z-calendar-text")
             	.get(0).get("innerHTML").contains("Apr"));
@@ -85,6 +58,7 @@ class B50_3011319Test extends ZTL4ScalaTestCase {
         waitResponse();
 
         click(db.$n("btn"));
+          waitResponse()
         click(jq(".z-calendar-text").get(0));
         
         // wait animation

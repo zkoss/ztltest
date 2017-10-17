@@ -87,7 +87,7 @@ Copyright (C) 2012 Potix Corporation. All Rights Reserved.
       () => {
         val verifyHeight = (result: Int) =>
           List(".z-row", ".z-groupfoot") foreach { cls =>
-            verifyTrue("each row should be the same height", jq(cls).outerHeight() == result)
+            verifyEquals("each row should be the same height", jq(cls).outerHeight(), result)
           }
         verifyHeight(jq(".z-group").outerHeight())
         click(jq(".z-button:contains(Autopaging)"))

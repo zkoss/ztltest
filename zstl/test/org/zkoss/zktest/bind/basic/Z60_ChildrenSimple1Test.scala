@@ -14,16 +14,18 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 }}IS_RIGHT
 */
 package org.zkoss.zktest.bind.basic
+
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
 /**
- * @author pao
- */
+  * @author pao
+  */
 @Tags(tags = "zbind")
-class Z60_ChildrenSimple1 extends ZTL4ScalaTestCase {
+class Z60_ChildrenSimple1Test extends ZTL4ScalaTestCase {
   def testArg() = {
-    val zul = """
+    val zul =
+      """
       <include src="/bind/basic/children-simple.zul"/>
     """
 

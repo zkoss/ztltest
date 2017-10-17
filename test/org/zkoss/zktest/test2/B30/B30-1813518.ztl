@@ -1,5 +1,5 @@
 <test tags="B30-1813518.zul,Xhtml,Component,Directive,ie9"
-	action="/test2/B30-1813518.zhtml">
+	action="test2/B30-1813518.zhtml">
 	<case id="Style">
 		<client><![CDATA[
 			String borderCss = jq("@rows:eq(0) td").eval("get(0).style.border");

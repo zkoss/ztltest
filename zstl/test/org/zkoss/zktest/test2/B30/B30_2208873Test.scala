@@ -30,14 +30,9 @@ import org.zkoss.ztl.util.Scripts
 @Tags(tags = "B30-2208873.zul,B,E,Window,Button")
 class B30_2208873Test extends ZTL4ScalaTestCase {
   def testClick() = {
-  	target = ch.getServer() + ch.getContextPath() + "/test2/B30-2208873.zul"
-    val zscript = ""
-    runZTL(zscript, () => {
+    runZTL(() => {
       // Verifying each of the cells
-      verifyTrue("Item one should be visible", jq(".z-listcell:contains(one)").exists());
-      verifyTrue("Item two should be visible", jq(".z-listcell:contains(two)").exists());
-      verifyTrue("Item three should be visible", jq(".z-listcell:contains(three)").exists());
-      verifyTrue("Item foud should be visible", jq(".z-listcell:contains(four)").exists());
+      verifyEquals("Items should be visible", 4, jq(".z-listcell").length());
     })
   }
 }
