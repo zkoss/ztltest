@@ -38,11 +38,10 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				int item = getElementHeight(jq("@listitem")).intValue();
-				int tar = getElementPositionTop(jq("div.z-paging")).intValue();
-				int no = jq("@listitem:visible").length();
-				int body = getElementPositionTop(jq(".z-listbox-body")).intValue();
-				verifyTolerant(body + no * item , tar,2);
+				int body = jq("tbody:eq(0)").outerHeight();
+				int paging = jq("div.z-paging").parent().outerHeight();
+				int listbox = jq("div.z-listbox").outerHeight();
+				verifyTolerant(listbox, body + paging, 2);
 		]]></client>
 	</case>
 </test>
