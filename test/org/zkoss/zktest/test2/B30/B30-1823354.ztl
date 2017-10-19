@@ -34,7 +34,7 @@
 			int winHeight = jq(win).height();
 			dragdropTo(jq(win), "30," + (winHeight - 2), "30," + (winHeight * 1.4));
 			//System.out.println("Current height: " + jq(".z-listcell:eq(0)").height());
-			verifyEquals(originalListCellHeight, jq(".z-listcell:eq(0)").height());
+			verifyTolerant(originalListCellHeight, jq(".z-listcell:eq(0)").height(), 1);
 		]]></client>
 	</case>
 </test>
