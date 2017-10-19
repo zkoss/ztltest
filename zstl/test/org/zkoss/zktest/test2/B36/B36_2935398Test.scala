@@ -57,7 +57,7 @@ class B36_2935398Test extends ZTL4ScalaTestCase {
         verifyTolerant(po,0, 2);
         var l=jq("$tb").offsetLeft()+jq("$tb").outerWidth()
         var l1=error.offsetLeft();
-        verifyEquals(l,l1);
+        verifyTolerant(l, l1, 1);
       });
   }
 }
