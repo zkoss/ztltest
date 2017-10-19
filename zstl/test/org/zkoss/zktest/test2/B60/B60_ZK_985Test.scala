@@ -46,9 +46,11 @@ class B60_ZK_985Test extends ZTL4ScalaTestCase {
         var tbx: Widget = engine.$f("tbx");
 
         sendKeys(tbx, "asdf");
+        waitResponse(true);
         sleep(2000);
-        click(btn);
-        waitResponse();
+        clickAt(btn, "2,2");
+        waitResponse(true);
+        sleep(3000);
         println(lb.$n().get("innerHTML"))
         verifyTrue("Textbox should not be cleared",
           lb.$n().get("innerHTML").trim.contains("asdf"));
