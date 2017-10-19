@@ -39,7 +39,7 @@ def testClick() = {
       	click(btn)
       waitResponse()
       verifyTrue("it will close", !jq(".z-menupopup").isVisible())
-      
+
       contextMenu(btn1)
       waitResponse()
       verifyTrue("open the menupopup", jq(".z-menupopup").exists)
