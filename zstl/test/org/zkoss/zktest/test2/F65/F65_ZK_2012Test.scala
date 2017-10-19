@@ -73,7 +73,8 @@ class F65_ZK_2012Test extends ZTL4ScalaTestCase {
 	        verifyTrue(jq(".z-textbox").eq(2).`val`() == "true")
 	        verifyTrue(jq(".z-textbox").eq(3).`val`() == "ie")
 	        verifyTrue(jq(".z-textbox").eq(4).`val`() == "[11.0, 7.0, 11.0]")
-	        verifyTrue(jq(".z-vlayout:eq(1) .z-label:contains({version=11.0, name=ie})").exists())
+	        verifyTrue(jq(".z-vlayout:eq(1) .z-label:contains({version=11.0, name=ie}), " +
+						".z-vlayout:eq(1) .z-label:contains({name=ie, version=11.0})").exists())
 	        verifyTrue(jq(".z-vlayout:eq(1) .z-label:contains(11)").length() == 2)
         }
       })
