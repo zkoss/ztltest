@@ -46,7 +46,10 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				click(jq("@column:eq(0)"));
+				if(!ZK.is("safari"))
+					click(jq("@column").eq(0));
+				else
+					clickAt(jq("@column").eq(0), "2,2");
 				waitResponse();
 				verifyFalse(jq(".z-error").exists());
 		]]></client>

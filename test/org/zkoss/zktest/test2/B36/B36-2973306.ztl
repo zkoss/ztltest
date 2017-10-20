@@ -126,7 +126,10 @@
 			</zk>
 		 --></server>
 		<client><![CDATA[
-            click(detail.$n("icon"));
+            if(!ZK.is("safari"))
+				click(detail.$n("icon"));
+			else
+				clickAt(detail.$n("icon"), "2,2");
             waitResponse();
 			verifyEquals(2, parseInt(jq(detail.$n("fake")).find(" > td:first").attr("colspan")));			
 		]]></client>

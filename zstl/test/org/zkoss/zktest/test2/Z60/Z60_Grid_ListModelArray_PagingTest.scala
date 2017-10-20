@@ -120,7 +120,11 @@ class Z60_Grid_ListModelArray_PagingTest extends ZTL4ScalaTestCase {
 
         def sort (id: String, cate: String) {
           var grid: Widget = engine.$f(id);
-          click(jq(grid.$n("head")).find(".z-columns").find(".z-column:contains("+cate+")"));
+          var clickTarget = jq(grid.$n("head")).find(".z-columns").find(".z-column:contains("+cate+")");
+          if (!isSafari)
+            click(clickTarget);
+          else
+            clickAt(clickTarget, "2,2")
           waitResponse();
         }
         def isAscending (id: String): Boolean = {

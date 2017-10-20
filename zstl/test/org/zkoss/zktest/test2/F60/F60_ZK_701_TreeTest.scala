@@ -29,15 +29,17 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug ZK-701-Tree
- * @author benbai
- *
- */
+  * A test class for bug ZK-701-Tree
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-701-Tree.zul,F60,A,E,Cloneable,Tree,TreeModel")
 class F60_ZK_701_TreeTest extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<vbox id="vb">
 				1. Please select one item on the tree.
@@ -80,30 +82,36 @@ class F60_ZK_701_TreeTest extends ZTL4ScalaTestCase {
 
     """
 
-   runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var tree: Widget = engine.$f("tree");
         var btn: Widget = engine.$f("btn");
         var clonedTree: Widget = null;
 
-        def clickAndWait (wgt: org.zkoss.ztl.ClientWidget) {
+        def clickAndWait(wgt: org.zkoss.ztl.ClientWidget) {
+          if (!isSafari)
             click(wgt);
-            waitResponse();
+          else
+            clickAt(wgt, "2,2")
+          waitResponse();
         }
+
         def selectItem(wgt: Widget, content: String) {
-            clickAndWait(jq(wgt).find(".z-treerow:contains("+content+")"));
+          clickAndWait(jq(wgt).find(".z-treerow:contains(" + content + ")"));
         }
+
         def isSelected(wgt: Widget, content: String, selected: Boolean) {
-        	if (selected)
-	            verifyTrue("The item contains "+content+" should be selected",
-	                jq(wgt).find(".z-treerow-selected:contains("+content+")").exists());
-        	else
-        		verifyFalse("The item contains "+content+" should not be selected",
-	                jq(wgt).find(".z-treerow-selected:contains("+content+")").exists());
+          if (selected)
+            verifyTrue("The item contains " + content + " should be selected",
+              jq(wgt).find(".z-treerow-selected:contains(" + content + ")").exists());
+          else
+            verifyFalse("The item contains " + content + " should not be selected",
+              jq(wgt).find(".z-treerow-selected:contains(" + content + ")").exists());
         }
-        def verifyOrder (wgt: Widget, content: String, order: Int) {
-            verifyTrue("The "+order+" th element should contains "+content,
-                jq(wgt).find(".z-treerow").get(order).get("innerHTML").contains(content));
+
+        def verifyOrder(wgt: Widget, content: String, order: Int) {
+          verifyTrue("The " + order + " th element should contains " + content,
+            jq(wgt).find(".z-treerow").get(order).get("innerHTML").contains(content));
         }
 
         selectItem(tree, "/src");
@@ -120,7 +128,7 @@ class F60_ZK_701_TreeTest extends ZTL4ScalaTestCase {
         verifyOrder(tree, "/doc", 0);
         verifyOrder(clonedTree, "/doc", 5);
 
-    }
-   );
+      }
+    );
   }
 }

@@ -88,13 +88,29 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		--></server>
 		<client><![CDATA[
 				click(jq("@button:eq(0)"));waitResponse();
-				click(jq("@column"));waitResponse();
-				click(jq("@column"));waitResponse();
+				if(!ZK.is("safari"))
+					click(jq("@column"));
+				else
+					clickAt(jq("@column"), "2,2");
+				waitResponse();
+				if(!ZK.is("safari"))
+					click(jq("@column"));
+				else
+					clickAt(jq("@column"), "2,2");
+				waitResponse();
 				verifyEquals("Katrina",jq(".z-row:eq(0)").text());
 				verifyEquals("Jimmy",jq(".z-row:eq(1)").text());
 				click(jq("@button:eq(1)"));waitResponse();
-				click(jq("@column"));waitResponse();
-				click(jq("@column"));waitResponse();
+				if(!ZK.is("safari"))
+					click(jq("@column"));
+				else
+					clickAt(jq("@column"), "2,2");
+				waitResponse();
+				if(!ZK.is("safari"))
+					click(jq("@column"));
+				else
+					clickAt(jq("@column"), "2,2");
+				waitResponse();
 				verifyFalse(jq(".z-error").exists());
 				verifyEquals("Katrina",jq(".z-row:eq(0)").text());
 				verifyEquals("Jimmy",jq(".z-row:eq(1)").text());

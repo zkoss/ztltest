@@ -1,4 +1,4 @@
-<test tags="B50-3002607.zul,textbox,Unstable">
+.<test tags="B50-3002607.zul,textbox,Unstable">
 	<case id="deleteChar">
 		<server id="zul"><![CDATA[
 			<zk>

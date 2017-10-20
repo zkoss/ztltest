@@ -76,13 +76,25 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """  
   runZTL(zscript,
     () => {
-      click(jq("@treecol").eq(0));
+      var clickTarget = jq("@treecol").eq(0);
+      if (!isSafari)
+        click(clickTarget);
+      else
+        clickAt(clickTarget, "2,2")
+
       waitResponse();
       verifyTrue("we should see the caret-up icon.", jq(".z-icon-caret-up").exists());
-      click(jq("@treecol").eq(0));
+      if (!isSafari)
+        click(clickTarget);
+      else
+        clickAt(clickTarget, "2,2")
       waitResponse();
-      
-      click(jq("@treecol").eq(1));
+
+      clickTarget = jq("@treecol").eq(1);
+      if (!isSafari)
+        click(clickTarget);
+      else
+        clickAt(clickTarget, "2,2")
       waitResponse();
       verifyTrue("we should see the caret-up icon.", jq(".z-icon-caret-up").exists());
     })

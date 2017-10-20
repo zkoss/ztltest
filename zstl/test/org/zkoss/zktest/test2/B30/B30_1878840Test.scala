@@ -17,20 +17,19 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
+import org.zkoss.ztl.{Element, Tags, Widget, ZK}
 import org.junit.Test
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-1878840.zul,B,E,Window,Button")
 class B30_1878840Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
         <n:p>You can scroll down the listbox to end, and then click the listheader to sort the live data.</n:p>
         <n:p>Then you should't see that the content containing some empty content.</n:p>
@@ -70,42 +69,49 @@ class B30_1878840Test extends ZTL4ScalaTestCase {
         </window>
       </zk>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
 
       var $jq = jq(engine.$f("list").$n("body"));
-      
+
       // fix Firefox driver issue
       getEval("doScrollDown()");
-     // $jq.scrollTop($jq.scrollHeight());
+      // $jq.scrollTop($jq.scrollHeight());
       waitResponse();
 
-    /* The costly option: 
-      var i = 0;
-      val count = 100;
+      /* The costly option:
+        var i = 0;
+        val count = 100;
 
-      // Loop 100 times to scroll down in the listbox
-      while (i < count) {
-        // Option 1 (Works on FF and Chrome)
-        // NOTE: Sometimes Chrome gives an error, because it can't to process the response
-        click(jq(".z-listcell:contains(col - " + i + ")").get(0));
+        // Loop 100 times to scroll down in the listbox
+        while (i < count) {
+          // Option 1 (Works on FF and Chrome)
+          // NOTE: Sometimes Chrome gives an error, because it can't to process the response
+          click(jq(".z-listcell:contains(col - " + i + ")").get(0));
 
-        // Option 2 (doesn't work on Chrome because of a ChromeDriver bug:
-        //        http://sqa.stackexchange.com/questions/2023/webdriver-api-failed-to-send-keys-because-cannot-focus-element-better-work
-        // The idea here is to scroll with the cursor by pressing the down key (40)
-        //        keyPress(jq(".z-listcell").toLocator(), "\\40");
-        i += 1;
-      }
-     */
+          // Option 2 (doesn't work on Chrome because of a ChromeDriver bug:
+          //        http://sqa.stackexchange.com/questions/2023/webdriver-api-failed-to-send-keys-because-cannot-focus-element-better-work
+          // The idea here is to scroll with the cursor by pressing the down key (40)
+          //        keyPress(jq(".z-listcell").toLocator(), "\\40");
+          i += 1;
+        }
+       */
 
       // Click on the first header to sort
-      click(jq(".z-listheader").get(0));
-      waitResponse();
+      if (!isSafari)
+        click(jq(".z-listheader").get(0))
+      else
+        clickAt(jq(".z-listheader").get(0), "2,2")
+
+      waitResponse()
 
       // Twice to see the ordering
-      click(jq(".z-listheader").get(0));
-      waitResponse();
+      if (!isSafari)
+        click(jq(".z-listheader").get(0))
+      else
+        clickAt(jq(".z-listheader").get(0), "2,2")
+      waitResponse()
 
-      verifyFalse(jq(".z-listcell:empty").get(0).exists());
+      verifyFalse(jq(".z-listcell:empty").get(0).exists())
     })
   }
 }

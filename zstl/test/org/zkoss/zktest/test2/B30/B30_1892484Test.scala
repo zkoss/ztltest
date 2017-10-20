@@ -45,17 +45,17 @@ class B30_1892484Test extends ZTL4ScalaTestCase {
 
         var j1 = jq(".z-tree:eq(0) .z-treecell:eq(2)")
         var j2 = jq(".z-tree:eq(1) .z-treecell:eq(2)")
-        val txt1 = getText(j1).trim
-        val txt2 = getText(j2).trim
+        val txt1 = getText(j1)
+        val txt2 = getText(j2)
 
         val l2 = "Matter"
         val l1 = "[Clinton, Obama]"
 
         //Tree 1 is modified
-        verifyEquals(l1, txt1)
+        verifyContains(txt1, l1)
 
         //Tree 2 not modified
-        verifyEquals(l2, txt2)
+        verifyContains(txt2, l2)
 
         //Click 'replace 2'
         click(jq("@button:eq(1)"))
@@ -65,12 +65,12 @@ class B30_1892484Test extends ZTL4ScalaTestCase {
         val j22 = jq(".z-tree:eq(1) .z-treecell:eq(2)")
 
         //Tree 1 is not modified
-        val txt21 = getText(j21).trim
-        verifyEquals(txt21, l1)
+        val txt21 = getText(j21)
+        verifyContains(txt21, l1)
 
         //Tree 2 is modified
-        val txt22 = getText(j22).trim
-        verifyEquals(l1, txt22)
+        val txt22 = getText(j22)
+        verifyContains(txt22, l1)
 
 
       }

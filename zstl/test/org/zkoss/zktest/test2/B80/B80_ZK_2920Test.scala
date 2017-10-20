@@ -31,7 +31,10 @@ def testClick() = {
       // make sure one item is selected
       verifyTrue(jq(".z-chosenbox-item").length() == 1)
       // click else where to close the chosenbox
-      click(jq(".z-window-header"))
+      if (!isSafari)
+        click(jq(".z-window-header"));
+      else
+        clickAt(jq(".z-window-header"), "2,2")
       waitResponse(true)
       // open the chosenbox again
       click(button)

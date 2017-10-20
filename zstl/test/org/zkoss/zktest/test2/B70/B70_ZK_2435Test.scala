@@ -59,7 +59,10 @@ def testClick() = {
       click(btn);
       waitResponse();
       var john = jq(".z-listitem").first();
-      click(john);
+      if(!isSafari)
+        click(john);
+      else
+        clickAt(john, "2,2");
       waitResponse();
       var listbox = jq("@listbox").toWidget();
       var a = listbox.$n("a"); //button can be focused and sendKey
@@ -70,7 +73,10 @@ def testClick() = {
       waitResponse();
       click(btn);
       waitResponse();
-      click(john);
+      if(!isSafari)
+        click(john);
+      else
+        clickAt(john, "2,2");
       waitResponse();
       focus(a);
       sendKeys(a, Keys.ESCAPE);

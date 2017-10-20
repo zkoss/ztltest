@@ -31,7 +31,7 @@
 				Scripts.triggerMouseEventAt(getWebDriver(), cell.find(".z-listcell-content"), "contextmenu", "3,3");
 			waitResponse();
 			verifyTrue(jq("@menupopup").exists());
-			if(!ZK.is("opera"))
+			if(!ZK.is("safari"))
 				click(jq("@listcell[label=\"Mary\"]"));
 			else
 				clickAt(jq("@listcell[label=\"Mary\"]"), "2,2");

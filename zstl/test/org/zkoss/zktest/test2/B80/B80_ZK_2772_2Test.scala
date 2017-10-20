@@ -20,7 +20,10 @@ def testClick() = {
         originalWidths :+= jqi.next().width()
       }
       //sort column 6
-      click(jq(".z-column").eq(5))
+      if(!isSafari)
+        click(jq(".z-column").eq(5));
+      else
+        clickAt(jq(".z-column").eq(5), "2,2");
       waitResponse()
       //check the new column width
       jqi = jq(".z-column").iterator()
@@ -28,10 +31,13 @@ def testClick() = {
     	  verifyEquals(width, jqi.next())
       }
       //scroll to right
-      nativeFrozenScroll(jq(".z-grid"), 400)
+      nativeFrozenScroll(jq(".z-grid"), 1000)
       waitResponse()
       //sort the last column
-      click(jq(".z-column").last())
+      if(!isSafari)
+        click(jq(".z-column").last());
+      else
+        clickAt(jq(".z-column").last(), "2,2");
       waitResponse()
       //check the new column width remains the same
       jqi = jq(".z-column").iterator()
@@ -39,7 +45,7 @@ def testClick() = {
     	  verifyEquals(width, jqi.next())
       }
       //scroll to left
-      nativeFrozenScroll(jq(".z-grid"), -400)
+      nativeFrozenScroll(jq(".z-grid"), -1000)
       waitResponse()
       //resize column 7
       val column7 = jq(".z-column").eq(6)
@@ -48,7 +54,7 @@ def testClick() = {
       waitResponse()
       mouseDownAt(column7, column7.outerWidth() + "," + (column7.outerHeight() / 2))
       waitResponse()
-      mouseMoveAt(column7, (column7.outerWidth() - 100) + "," + (column7.outerHeight() / 2))
+      mouseMoveAt(column7, (column7.outerWidth() - 150) + "," + (column7.outerHeight() / 2))
       waitResponse()
       mouseUp(column7)
       waitResponse()
@@ -59,7 +65,10 @@ def testClick() = {
     	  newWidths :+= jqi.next().width()
       }
       //sort column 7
-      click(column7)
+      if(!isSafari)
+        click(column7);
+      else
+        clickAt(column7, "2,2");
       waitResponse()
       //check width should be the same
       jqi = jq(".z-column").iterator()
