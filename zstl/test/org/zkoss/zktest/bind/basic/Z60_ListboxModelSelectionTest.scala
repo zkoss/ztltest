@@ -34,7 +34,7 @@ class Z60_ListboxModelSelectionTest extends ZTL4ScalaTestCase {
       var outeritems = outerbox.firstChild() // include header
       outeritems = outeritems.nextSibling() // don't care header
       var outeritem = outeritems.nextSibling() // select 2nd
-      click(outeritem.firstChild()) // click on listitem is not work if it has listbox inside, (it will click on the inside listbox)
+      clickAt(outeritem.firstChild(), "2,2") // click on listitem is not work if it has listbox inside, (it will click on the inside listbox)
       waitResponse()
       // verifyEquals("1", outerbox.get("selectedIndex"))
       verifyEquals(1, getListboxSelectedIndex(outerbox))

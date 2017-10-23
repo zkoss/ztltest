@@ -26,7 +26,7 @@ class Z60_F2 extends ZTL4ScalaTestCase {
   def testArg() = {
 
     val zul = """
-      <include src="/bind/form/f2.zul"/>
+      <include src="/bind/form/F2.zul"/>
 """
 
     runZTL(zul, () => {
