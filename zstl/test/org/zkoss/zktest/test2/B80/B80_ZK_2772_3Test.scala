@@ -20,7 +20,7 @@ def testClick() = {
         originalWidths :+= jqi.next().width()
       }
       //sort column 6
-      click(jq(".z-column").eq(5))
+      clickAt(jq(".z-column").eq(5), "2,2")
       waitResponse()
       //check the new column width
       jqi = jq(".z-column").iterator()
@@ -32,7 +32,7 @@ def testClick() = {
       nativeFrozenScroll(jq(".z-grid"), 400)
       waitResponse()
       //sort the last column
-      click(jq(".z-column").last())
+      clickAt(jq(".z-column").last(), "2,2")
       waitResponse()
       //check the new column width remains the same
       jqi = jq(".z-column").iterator()
@@ -60,7 +60,7 @@ def testClick() = {
     	  newWidths :+= jqi.next().width()
       }
       //sort column 7
-      click(column7)
+      clickAt(column7, "2,2")
       waitResponse()
       //check width should be the same
       jqi = jq(".z-column").iterator()
