@@ -51,12 +51,16 @@ Please open the bandpopup twice, the width of the popup should be the same.
       val btn = jq(".z-bandbox-button");
       
       click(btn);
+      waitResponse()
       val w1 = jq(".z-bandbox-popup").width();
       click(btn);
+      waitResponse()
       
       click(btn);
+      waitResponse()
       val w2 = jq(".z-bandbox-popup").width();
       click(btn);
+      waitResponse()
             
       verifyTrue("the width of popup in two times should be the same.", w1 == w2);
     })

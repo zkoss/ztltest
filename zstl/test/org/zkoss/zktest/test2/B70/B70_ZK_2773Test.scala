@@ -71,7 +71,6 @@ runZTL(zscript, () => {
 			println("********input info: ", input.offsetLeft(), input.offsetTop(), input.width(), input.height())
 			println("********pp info: ", pp.offsetLeft(), pp.offsetTop(), pp.width(), pp.height())
 			verifyFalse(tl || tr || bl || br)
-
 		})
 	}
 }

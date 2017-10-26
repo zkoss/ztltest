@@ -22,7 +22,7 @@ import org.zkoss.ztl.ZKSeleneseTestCase
  * @author pao
  */
 @Tags(tags = "zbind")
-class Z60_F1 extends ZTL4ScalaTestCase {
+class Z60_F1Test extends ZTL4ScalaTestCase {
   def testArg = {
 
     def zul = """

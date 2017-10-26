@@ -30,15 +30,17 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug ZK-434
- * @author benbai
- *
- */
+  * A test class for bug ZK-434
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-434.zul,A,E,Timebox,Format,Delete")
 class B50_ZK_434Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 
 			<zk>
 			1. Please delete the "AM/PM" and then type 121212, it should appear "AM/PM" 12:12:12
@@ -50,50 +52,63 @@ class B50_ZK_434Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
-        var tb: Widget = engine.$f("tb");
-        var tbInp: Element = tb.$n("real");
+      () => {
+        var tbInp = jq(".z-timebox-input").eq(0)
 
-        def toPos(pos: Int, inp: Element) {
-            click(tbInp);
-	        // move to the lift most side
-        	for (i <- 1 to 10)
-        		sendKeys(inp, Keys.LEFT);
-	        // move to the lift most side
-	        for (i <- 0 until pos)
-	        	sendKeys(inp, Keys.RIGHT);
+        def toPos(pos: Int, inp: JQuery) {
+          click(tbInp);
+          waitResponse()
+          // move to the lift most side
+          for (i <- 1 to 10) {
+            sendKeys(inp, Keys.LEFT);
+            waitResponse()
+          }
+          // move to the lift most side
+          for (i <- 0 until pos) {
+            sendKeys(inp, Keys.RIGHT);
+            waitResponse()
+          }
         }
-        def toPixel(px: String, inp: Element) {
-            click(tbInp);
-            clickAt(inp, px); // left/right arrow keys not work on opera
+
+        def toPixel(px: String, inp: JQuery) {
+          click(tbInp);
+          waitResponse()
+          clickAt(inp, px); // left/right arrow keys not work on opera
+          waitResponse()
         }
-        def delete (inp: Element, delCnt: Int) {
-        	for (i <- 1 to delCnt)
-        	  sendKeys(inp, Keys.DELETE);
+
+        def delete(inp: JQuery, delCnt: Int) {
+          for (i <- 1 to delCnt) {
+            sendKeys(inp, Keys.DELETE);
+            waitResponse()
+          }
         }
-        def inputThenVerify(inp: Element, value: String) {
-        	sendKeys(inp, value);
-        	verifyTrue("it should appear \"AM/PM\" 12:12:12 in timebox",
-        	    inp.get("value").equals("AM 12:12:12") || inp.get("value").equals("PM 12:12:12"));
+
+        def inputThenVerify(inp: JQuery, value: String) {
+          sendKeys(inp, value);
+          waitResponse()
+          verifyTrue("it should appear \"AM/PM\" 12:12:12 in timebox",
+            inp.`val`().equals("AM 12:12:12") || inp.`val`().equals("PM 12:12:12"));
         }
-        if (ZK.is("opera"))
-            toPixel("3,5", tbInp);
+
+        if (ZK.is("safari"))
+          toPixel("3,5", tbInp);
         else
-        	toPos(0, tbInp);
+          toPos(0, tbInp);
         delete(tbInp, 2);
         inputThenVerify(tbInp, "121212");
-        if (ZK.is("opera")) {
-            toPixel("25,5", tbInp);
-            delete(tbInp, 6);
-            toPixel("25,5", tbInp);
+        if (ZK.is("safari")) {
+          toPixel("25,5", tbInp);
+          delete(tbInp, 6);
+          toPixel("25,5", tbInp);
         } else {
-        	toPos(3, tbInp);
-        	delete(tbInp, 6);
-        	toPos(3, tbInp);
+          toPos(3, tbInp);
+          delete(tbInp, 6);
+          toPos(3, tbInp);
         }
         inputThenVerify(tbInp, "121212");
-    }
-   );
+      }
+    );
 
   }
 }

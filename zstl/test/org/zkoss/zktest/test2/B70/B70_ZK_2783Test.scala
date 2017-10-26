@@ -15,7 +15,7 @@ def testClick() = {
       val combobox = jq("@combobox").toWidget
       combobox.eval("open()") // to show popu first so we can find comboitem in zkmax
       waitResponse()
-      verifyEquals(20, jq("@comboitem:first").outerHeight())
+      verifyTolerant(26, jq("@comboitem:first").outerHeight(), 2)
     })
   }
 }

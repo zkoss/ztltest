@@ -67,7 +67,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			sleep(500);
 			}
 			waitResponse();
-			verifyTrue(parseInt(menubar.$n("body").get("scrollLeft")) == 2);
+			verifyEquals(0, parseInt(menubar.$n("body").get("scrollLeft")));
 		]]></client>
 	</case>
 </test>

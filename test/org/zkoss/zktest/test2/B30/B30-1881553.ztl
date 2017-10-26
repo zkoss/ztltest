@@ -21,15 +21,13 @@
 		<client><![CDATA[
 			click(oneHd);
 			waitResponse();
-			verifyEquals(100, jq(t).height());
-			
+			verifyTolerant(100, jq(t).height(), 2);
 			click(twoHd);
-            waitResponse();
-            verifyEquals(200, jq(t).height());
-            
-            click(threeHd);
-            waitResponse();
-            verifyEquals(300, jq(t).height());
+			waitResponse();
+			verifyTolerant(200, jq(t).height(), 2);
+			click(threeHd);
+			waitResponse();
+			verifyTolerant(300, jq(t).height(), 2);
 		]]></client>
 	</case>
 </test>

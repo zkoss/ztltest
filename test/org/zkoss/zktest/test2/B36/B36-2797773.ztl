@@ -8,12 +8,18 @@
 		--></server>
 		<client><![CDATA[	
 			focus(jq("@intbox"));
+			waitResponse();
 			sendKeys(jq("@intbox"), Keys.LEFT_CONTROL + "a");
+			waitResponse();
 			sendKeys(jq("@intbox"), Keys.LEFT_CONTROL + "x");
+			waitResponse();
 			clickAt(blur,"6,6");waitResponse();
+			waitResponse();
 			verifyEquals("", getValue(jq("@intbox")));
 			focus(jq("@intbox"));
+			waitResponse();
 			sendKeys(jq("@intbox"), Keys.LEFT_CONTROL + "v");
+			waitResponse();
 			verifyEquals("1234567", getValue(jq("@intbox")));
 		]]></client>
 	</case>

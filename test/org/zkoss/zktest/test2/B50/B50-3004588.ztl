@@ -15,7 +15,7 @@
 		]]></server>
 		<client><![CDATA[
 			click(panel.$n("max"));
-			verifyEquals(jq(pl).height(), jq(panel).height());
+			verifyTolerant(jq(pl).height(), jq(panel).height(), 5);
 		]]></client>
 	</case>
 </test>
