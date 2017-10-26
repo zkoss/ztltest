@@ -171,6 +171,16 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 							</attribute>
 						</checkbox>
 						<hbox>
+							<button label="open combobutton one">
+								<attribute name="onClick">
+									bd.setOpen(true);
+								</attribute>
+							</button>
+							<button label="open combobutton two">
+								<attribute name="onClick">
+									bd2.setOpen(true);
+								</attribute>
+							</button>
 							<button label="change child" onClick="">
 								<attribute name="onClick">
 									Component a = ppOne;
@@ -194,16 +204,6 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 										bd.setImage(i2);
 										bd2.setImage(i1);
 									}
-								</attribute>
-							</button>
-							<button label="open combobutton one">
-								<attribute name="onClick">
-									bd.setOpen(true);
-								</attribute>
-							</button>
-							<button label="open combobutton two">
-								<attribute name="onClick">
-									bd2.setOpen(true);
 								</attribute>
 							</button>
 						</hbox>

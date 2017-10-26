@@ -42,6 +42,7 @@ class B60_ZK_725Test extends ZTL4ScalaTestCase {
       () => {
         var grid: Widget = engine.$f("grid");
         Scripts.triggerMouseEventAt(getWebDriver, jq("@column:eq(0)"), "click", "2,2")
+        waitResponse(true)
         verifyTrue("should sorted correctly",
           jq("@row").get(0).get("id").equals(jq(".z-row").get(0).get("id")));
         verifyTrue("should sorted correctly",
