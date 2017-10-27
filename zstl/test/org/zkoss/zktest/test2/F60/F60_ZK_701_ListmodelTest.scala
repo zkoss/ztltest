@@ -29,15 +29,17 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug ZK-701-Listmodel
- * @author benbai
- *
- */
+  * A test class for bug ZK-701-Listmodel
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-701-Listmodel.zul,F60,A,E,Cloneable,Listbox,ListModel")
 class F60_ZK_701_ListmodelTest extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<vbox id="vb">
 					1. Please select one item on the list.
@@ -80,30 +82,36 @@ class F60_ZK_701_ListmodelTest extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-   runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var btn: Widget = engine.$f("btn");
         var grid: Widget = engine.$f("grid");
         var clonedGrid: Widget = null;
 
-        def clickAndWait (wgt: org.zkoss.ztl.ClientWidget) {
+        def clickAndWait(wgt: org.zkoss.ztl.ClientWidget) {
+          if (!isSafari)
             click(wgt);
-            waitResponse();
+          else
+            clickAt(wgt, "2,2")
+          waitResponse();
         }
+
         def selectItem(wgt: Widget, content: String) {
-            clickAndWait(jq(wgt).find(".z-listitem:contains("+content+")"));
+          clickAndWait(jq(wgt).find(".z-listitem:contains(" + content + ")"));
         }
+
         def isSelected(wgt: Widget, content: String, selected: Boolean) {
-        	if (selected)
-	            verifyTrue("The item contains "+content+" should be selected",
-	                jq(wgt.$n()).find(".z-listitem-selected:contains("+content+")").exists());
-        	else
-        		verifyFalse("The item contains "+content+" should not be selected",
-	                jq(wgt.$n()).find(".z-listitem-selected:contains("+content+")").exists());
+          if (selected)
+            verifyTrue("The item contains " + content + " should be selected",
+              jq(wgt.$n()).find(".z-listitem-selected:contains(" + content + ")").exists());
+          else
+            verifyFalse("The item contains " + content + " should not be selected",
+              jq(wgt.$n()).find(".z-listitem-selected:contains(" + content + ")").exists());
         }
-        def verifyOrder (wgt: Widget, content: String, order: Int) {
-            verifyTrue("The "+order+" th element should contains "+content,
-                jq(wgt).find(".z-listitem").get(order).get("innerHTML").contains(content));
+
+        def verifyOrder(wgt: Widget, content: String, order: Int) {
+          verifyTrue("The " + order + " th element should contains " + content,
+            jq(wgt).find(".z-listitem").get(order).get("innerHTML").contains(content));
         }
 
         selectItem(grid, "option 3");
@@ -120,8 +128,8 @@ class F60_ZK_701_ListmodelTest extends ZTL4ScalaTestCase {
         isSelected(clonedGrid, "option 0", true);
         verifyOrder(grid, "option 0", 0);
         verifyOrder(clonedGrid, "option 0", 9);
-        
-    }
-   );
+
+      }
+    );
   }
 }

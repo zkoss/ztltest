@@ -8,29 +8,13 @@ import org.zkoss.ztl.ZK
 class B65_ZK_1540Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
-	<label>
-	Should see a blue shadow surrounding the datebox completely.
-	</label><separator />
-	<style>
-		.z-datebox { box-shadow: 0 0 6px #00a5e1; margin: 3px; }
-		.z-datebox-input { border-color: #00a5e1; }
-		.z-datebox .z-datebox-button { border-color: #00a5e1;}
-	</style>
-	<datebox width="200px" />
-</zk>
-    """
-
-    runZTL(zscript,
-      () => {
-        val shadow = jq(".z-datebox").css("box-shadow")
-        val result = if (ZK.is("ie"))
-          "0px 0px 6px #00a5e1"
-        else
-          "rgb(0, 165, 225) 0px 0px 6px 0px"
-
-        verifyEquals("Should see a blue shadow surrounding the datebox completely.", shadow, result)
-      })
+    runZTL(() => {
+      val shadow = jq(".z-datebox").css("box-shadow")
+      var expectResult = "rgb(0, 165, 225) 0px 0px 6px 0px"
+      if (ZK.is("ie") || isEdge)
+        expectResult = "0px 0px 6px #00a5e1"
+      verifyEquals("Should see a blue shadow surrounding the datebox completely.", expectResult, shadow)
+    })
 
   }
 }

@@ -29,15 +29,17 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug Grid-ListModelArray-ROD
- * @author benbai
- *
- */
+  * A test class for bug Grid-ListModelArray-ROD
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "Z60-Grid-ListModelArray-ROD.zul,Z60,A,E,Grid,ListModelArray,ROD")
 class Z60_Grid_ListModelArray_RODTest extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 			    <zscript><![CDATA[
 					import org.zkoss.zktest.test2.select.models.*;
@@ -112,58 +114,65 @@ class Z60_Grid_ListModelArray_RODTest extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var clone: Widget = engine.$f("clone");
         var serialize: Widget = engine.$f("serialize");
 
-        def sort (id: String, cate: String) {
+        def sort(id: String, cate: String) {
           var grid: Widget = engine.$f(id);
-          click(jq(grid.$n("head")).find(".z-columns").find(".z-column:contains("+cate+")"));
+          var clickTarget = jq(grid.$n("head")).find(".z-columns").find(".z-column:contains(" + cate + ")")
+          if (!ZK.is("safari"))
+            click(clickTarget);
+          else
+            clickAt(clickTarget, "2,2")
           waitResponse();
         }
-        def isAscending (id: String): Boolean = {
+
+        def isAscending(id: String): Boolean = {
           var grid: Widget = engine.$f(id);
           return jq(grid.$n("body")).find(".z-rows").find(".z-row-content:contains(data)").find("span").get(0).get("innerHTML").contains("0");
         }
+
         def checkNotSync(idOne: String, idTwo: String) = {
           var old: Boolean = isAscending(idTwo);
           for (i <- 0 to 3) {
             sort(idOne, "Category");
             verifyTrue("The sort status between last three grid should not sync",
-            		isAscending(idTwo) == old);
+              isAscending(idTwo) == old);
           }
         }
+
         sort("gridOne", "Category");
         verifyTrue("Sort order between first two grid should the same",
-            isAscending("gridOne") == isAscending("gridTwo"));
+          isAscending("gridOne") == isAscending("gridTwo"));
         sort("gridOne", "Category");
         verifyTrue("Sort order between first two grid should the same",
-            isAscending("gridOne") == isAscending("gridTwo"));
+          isAscending("gridOne") == isAscending("gridTwo"));
         sort("gridTwo", "Category");
         verifyTrue("Sort order between first two grid should the same",
-            isAscending("gridOne") == isAscending("gridTwo"));
+          isAscending("gridOne") == isAscending("gridTwo"));
         sort("gridTwo", "Category");
         verifyTrue("Sort order between first two grid should the same",
-            isAscending("gridOne") == isAscending("gridTwo"));
+          isAscending("gridOne") == isAscending("gridTwo"));
 
         sort("gridThree", "Category");
         if (isAscending("gridThree")) sort("gridThree", "Category");
-        click (clone);
+        click(clone);
         waitResponse();
-        click (serialize);
+        click(serialize);
         waitResponse();
 
         verifyFalse("Cloned grid should sorted in descending order",
-            isAscending("gridThree_clone0"));
+          isAscending("gridThree_clone0"));
         verifyFalse("Serialized grid should sorted in descending order",
-            isAscending("gridThree_serialize1"));
+          isAscending("gridThree_serialize1"));
 
         checkNotSync("gridThree", "gridThree_clone0");
         checkNotSync("gridThree", "gridThree_serialize1");
         checkNotSync("gridThree_clone0", "gridThree_serialize1");
 
-    }
-   );
+      }
+    );
   }
 }

@@ -20,7 +20,10 @@
 		<client><![CDATA[
 		click(jq("@button"));
 		waitResponse();
-		click(jq("@listcell:contains(option 5)"));
+		if (!isSafari())
+			click(jq("@listcell:contains(option 5)"));
+		else
+			clickAt(jq("@listcell:contains(option 5)"), "2,2");
 		waitResponse();
 		verifyEquals("block", jq("@groupbox").find(".z-groupbox-content").css("display"));
 		]]></client>

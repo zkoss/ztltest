@@ -50,8 +50,6 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				mouseOver(jq(".z-menu > a"));
 				waitResponse();
-				mouseOver(jq(".z-menuitem > a"));
-				waitResponse();
 				verifyTrue(isVisible(jq("@window[title=\"Test\"]")));
 				clickAt(jq(".z-menuitem"),"6,6");
 				waitResponse();

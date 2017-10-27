@@ -26,6 +26,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		</ol>
 	]]></html>
 	<decimalbox id="decimalbox"/>
+	<separator />
 	<button label="Get decimalbox value" onClick="alert(decimalbox.value);"></button>
 </zk>
 
