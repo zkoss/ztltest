@@ -8,7 +8,6 @@ import org.zkoss.ztl.{IgnoreBrowsers, Tags}
   * @author rudyhuang
   */
 @Tags(tags = "F85-ZK-3678.zul")
-@IgnoreBrowsers("ie9,ie10,ie11,edge,ff,chrome,safari")
 class F85_ZK_3678Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit = {
