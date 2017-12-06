@@ -1,4 +1,4 @@
-3<test tags="B50-3000860.zul,tabbox">
+<test tags="B50-3000860.zul,tabbox">
 	<case id="TabHeight">
 		<server><![CDATA[
 <tabbox>
