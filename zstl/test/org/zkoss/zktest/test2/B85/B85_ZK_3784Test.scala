@@ -16,11 +16,11 @@ class B85_ZK_3784Test extends ZTL4ScalaTestCase {
       val paging = jq("@paging:eq(0)")
       click(btns.eq(2))
       waitResponse()
-      verifyEquals("Paging detail should be hidden", false, paging.find(".z-paging-info").isVisible)
+      verifyEquals("Paging detail should be hidden", "hidden", paging.find(".z-paging-info").css("visibility"))
 
       click(btns.eq(4))
       waitResponse()
-      verifyEquals("Paging detail should be visible", true, paging.find(".z-paging-info").isVisible)
+      verifyEquals("Paging detail should be visible", "visible", paging.find(".z-paging-info").css("visibility"))
     })
   }
 }

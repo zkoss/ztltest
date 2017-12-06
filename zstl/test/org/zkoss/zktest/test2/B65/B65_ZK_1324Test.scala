@@ -1,9 +1,8 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Element
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{ClientWidget, Tags}
 
 @Tags(tags = "B65-ZK-1324.zul")
 class B65_ZK_1324Test extends ZTL4ScalaTestCase {
@@ -39,24 +38,26 @@ class B65_ZK_1324Test extends ZTL4ScalaTestCase {
         val btn = bndbx.$n("btn")
         val pp = bndbx.$n("pp")
         val inp = bndbx.$n("real")
-        val hasBoxShadow = (inp: Element) => !"".equals(jq(inp).css("box-shadow"));
+        val hasFocus = (inp: ClientWidget) => jq(inp).is(":focus")
+        val ppBtn1 = jq(".z-button:eq(0)")
         
         click(btn)
         waitResponse()        
-        verifyTrue("Bandbox input field should have focus", hasBoxShadow(inp))
+        verifyTrue("Bandbox input field should have focus", hasFocus(inp))
         
-        click(jq(".z-button:eq(0)"))
+        click(ppBtn1)
         waitResponse()
-        verifyTrue("Bandbox input field should have focus", hasBoxShadow(inp))
+        verifyTrue("Button1 should have focus", hasFocus(ppBtn1))
 
-        click(jq("ol"))
+        click(jq("body"))
         waitResponse()
-        verifyEquals("Click outside the popup to close the bandbox", !jq(pp).isVisible(), true)
+        verifyFalse("Click outside the popup to close the bandbox", jq(pp).isVisible)
 
-        click(jq(btn))
+        click(btn)
         waitResponse()
-        verifyEquals("Click on the bandbox button to open the popup again.", jq(pp).isVisible(), true)
-        verifyTrue("Bandbox input field should have focus", hasBoxShadow(inp))
+        verifyTrue("Click on the bandbox button to open the popup again.", jq(pp).isVisible)
+        verifyTrue("Bandbox input field should have focus", hasFocus(inp))
+        verifyFalse("Button1 should not have focus", hasFocus(ppBtn1))
       })
 
   }
