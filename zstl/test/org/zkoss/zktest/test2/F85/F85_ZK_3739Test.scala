@@ -18,15 +18,17 @@ class F85_ZK_3739Test extends ZTL4ScalaTestCase {
 
       click(jq("@toolbarbutton:eq(0)"))
       waitResponse()
+      click(jq("@toolbarbutton:eq(3)"))
+      waitResponse()
 
       // Check client
-      verifyEquals("==SELECT ======================", textbox.`val`())
+      verifyEquals("==SELECT DISTINCT ======================", textbox.`val`())
 
       click(jq("@button"))
       waitResponse()
 
       // Check server
-      verifyEquals("==SELECT ======================", getZKLog.trim)
+      verifyEquals("==SELECT DISTINCT ======================", getZKLog.trim)
     })
   }
 }
