@@ -1,0 +1,57 @@
+package org.zkoss.zktest.test2.B85
+
+import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
+
+/**
+  * @author rudyhuang
+  */
+@Tags(tags = "B85-ZK-3589.zul")
+class B85_ZK_3589Test extends ZTL4ScalaTestCase {
+  @Test
+  def testScrollOverViewport(): Unit = {
+    runZTL(() => {
+      val lbl = jq("@label")
+      val top = jq("$btnTop")
+      val bottom = jq("$btnBottom")
+      click(lbl)
+      waitResponse()
+
+      // To the bottom and click something
+      zk(bottom).eval("scrollIntoView();'test';")
+      waitResponse()
+      click(bottom)
+      waitResponse()
+
+      // To the top
+      zk(top).eval("scrollIntoView();'test';")
+      waitResponse()
+      verifyFalse("The popup still appears!", jq("@popup").isVisible)
+    })
+  }
+
+  @Test
+  def testScrollABit(): Unit = {
+    runZTL(() => {
+      val lbl = jq("@label")
+      click(lbl)
+      waitResponse()
+
+      executeScript("window.scroll(0, 300)")
+      waitResponse()
+      verifyTrue("The popup should appear!", jq("@popup").isVisible)
+
+      // Click below the red line area
+      val viewportHeight = getEval("document.body.clientHeight").toInt
+      val offsetToRedLine = viewportHeight - lbl.offsetTop()
+      getActions
+        .moveToElement(findElement(lbl))
+        .moveByOffset(10, offsetToRedLine + 10)
+        .click()
+        .perform()
+      waitResponse()
+      verifyFalse("The popup still appears!", jq("@popup").isVisible)
+    })
+  }
+}
