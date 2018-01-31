@@ -32,10 +32,10 @@ class B70_ZK_2941Test extends ZTL4ScalaTestCase {
       sendKeys(cf, Keys.ARROW_DOWN)
       waitResponse()
       var mppsd = jq(".z-menupopup").get(0)
-      verifyEquals("", mppsd)
+      verifyTrue(isVisible(mppsd))
       sendKeys(jq("@combobutton:eq(0)").toWidget, Keys.ESCAPE)
       waitResponse(true)
-      verifyEquals("none", mppsd)
+      verifyFalse(isVisible(mppsd))
     })
   }
 }

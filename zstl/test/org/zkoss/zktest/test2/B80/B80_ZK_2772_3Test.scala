@@ -24,9 +24,8 @@ def testClick() = {
       waitResponse()
       //check the new column width
       jqi = jq(".z-column").iterator()
-      println(originalWidths.size)
       for (width <- originalWidths) {
-    	  verifyEquals(width, jqi.next())
+    	  verifyEquals(width, jqi.next().width())
       }
       //scroll to right
       nativeFrozenScroll(jq(".z-grid"), 400)
@@ -36,8 +35,12 @@ def testClick() = {
       waitResponse()
       //check the new column width remains the same
       jqi = jq(".z-column").iterator()
+      //skip index 5~8
+      var i = 0
       for (width <- originalWidths) {
-    	  verifyEquals(width, jqi.next())
+        if (i < 5 || i > 8)
+    	    verifyEquals(width, jqi.next().width())
+        i += 1
       }
       //scroll to left
       nativeFrozenScroll(jq(".z-grid"), -400)
@@ -66,7 +69,7 @@ def testClick() = {
       jqi = jq(".z-column").iterator()
       for (width <- newWidths) {
         println(width)
-        verifyEquals(width, jqi.next())
+        verifyEquals(width, jqi.next().width())
       }
     })
   }

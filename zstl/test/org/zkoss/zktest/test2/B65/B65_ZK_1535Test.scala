@@ -44,8 +44,9 @@ class B65_ZK_1535Test extends ZTL4ScalaTestCase {
         click(jq(".z-calendar-cell[data-value=2]"))
         waitResponse(true)
         // 9. make sure we're seeing Mar, 2013
-        verifyEquals("should see 2013", "2013", jq(".z-calendar-text").last())
-        verifyEquals("should see Mar", "Mar", jq(".z-calendar-text").last().prev())
+        verifyEquals("should see 2013", "2013", jq(".z-calendar-text").last().text())
+        verifyEquals("should see Mar", "Mar", jq(".z-calendar-text").last().prev().text())
+        sleep(10000)
         // 10. make sure we're seeing 6 weeks shown
         verifyEquals("should see 6 weeks showed.", jq(".z-calendar").last().find("tbody tr").length(), 6)
       })

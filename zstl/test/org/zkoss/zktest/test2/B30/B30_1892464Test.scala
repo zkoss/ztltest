@@ -44,7 +44,7 @@ class B30_1892464Test extends ZTL4ScalaTestCase {
     				gbx3.setParent(mainwin);
     			</zscript>
     		</window>
-    """;
+    """
 
     runZTL(zscript,
         () => {

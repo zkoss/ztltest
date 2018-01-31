@@ -29,71 +29,28 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug ZK-332
- * @author benbai
- *
- */
+  * A test class for bug ZK-332
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-332.zul,A,E,Tree,disabled,open")
 class B50_ZK_332Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
-						<zk>
-			<html><![CDATA[
-			<ul>
-			<li>Click the open icon of the B node, and you shall be able to close and open it freely.</li>
-			</ul>
-			]]></html>
-
-			<tree id="tree">
-				<treechildren>
-					<treeitem label="A">
-					</treeitem>
-					<treeitem disabled="true">
-						<treerow id="tr" label="B"/>
-						<treechildren>
-							<treeitem label="C"/>
-							<treeitem label="D"/>
-						</treechildren>
-					</treeitem>
-				</treechildren>
-			</tree>
-			</zk>
-    """
-def executor = () => {
-    	var tree: Widget = engine.$f("tree");
-    	var tr: Widget = engine.$f("tr");
-    	waitResponse();
-
-    	click(jq(tr.$n("open")));
-    	waitResponse();
-    	verifyTrue("none".equals(jq(tree.$n("rows")).find(".z-treerow").get(2).get("style.display")));
-    	verifyTrue("none".equals(jq(tree.$n("rows")).find(".z-treerow").get(3).get("style.display")));
-    	click(jq(tr.$n("open")));
-    	waitResponse();
-    	verifyTrue("".equals(jq(tree.$n("rows")).find(".z-treerow").get(2).get("style.display")));
-    	verifyTrue("".equals(jq(tree.$n("rows")).find(".z-treerow").get(3).get("style.display")));
-    }
-runZTL(zscript, executor);
-   
-   // Run syntax 2
-   /**
-    runZTL(zscript,
-        () => {
-        var l1: Widget = engine.$f("l1");
-        var l2: Widget = engine.$f("l2");
-        waitResponse();
-        var strClickBefor = getText(l1);
-        click(l1);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l1));
-        strClickBefor = getText(l2);
-        click(l2);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l2));
-    }
-   );
-    */
+    runZTL(() => {
+      var tree: Widget = engine.$f("tree")
+      var tr: Widget = engine.$f("tr")
+      waitResponse()
+      click(jq(tr.$n("open")))
+      waitResponse()
+      verifyEquals("none", jq(tree.$n("rows")).find(".z-treerow").get(2).get("style.display"))
+      verifyEquals("none", jq(tree.$n("rows")).find(".z-treerow").get(3).get("style.display"))
+      click(jq(tr.$n("open")))
+      waitResponse()
+      verifyEquals("" ,jq(tree.$n("rows")).find(".z-treerow").get(2).get("style.display"))
+      verifyEquals("" ,jq(tree.$n("rows")).find(".z-treerow").get(3).get("style.display"))
+    })
   }
 }

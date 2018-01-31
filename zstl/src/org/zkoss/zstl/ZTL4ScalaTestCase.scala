@@ -39,8 +39,26 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
   caseID = getClass().getSimpleName()
   val _engine = new ThreadLocal[Widget]();
 
+  def runZTL(zscript: scala.xml.Elem, executor: () => Unit) {
+    runZTL(zscript.toString(), "", executor);
+  }
+
   def runZTL(zscript: String, executor: () => Unit) {
-    //
+    runZTL(zscript, "", executor);
+  }
+
+  def runZTLinAction(action: String, executor: () => Unit) {
+    runZTL("", action, executor)
+  }
+
+  def runZTL(executor: () => Unit) {
+    var action = "test2/" + this.getClass.getSimpleName.replace("_", "-").replace("Test", ".zul")
+    runZTL("", action, executor)
+  }
+
+  def runZTL(zscript: String, action: String, executor: () => Unit) {
+    if (action != null && !action.isEmpty)
+      target = ch.getServer + ch.getContextPath + "/" + action;
     val luuid = new Date().getTime();
     println(getTimeUUID() + "-" + luuid + ":log 1");
     val executorService = Executors.newCachedThreadPool();
@@ -135,15 +153,6 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
         replace("'", "\\'")
         replaceAll("\r", "")
         replaceAll("\n", "\\\\n"))
-  }
-
-  def runZTL(zscript: scala.xml.Elem, executor: () => Unit) {
-    runZTL(zscript.toString(), executor);
-  }
-
-  def runZTL(executor: () => Unit) {
-    target = ch.getServer + ch.getContextPath + "/test2/" + this.getClass.getSimpleName.replace("_", "-").replace("Test", ".zul")
-    runZTL("", executor)
   }
 
   def engine(): Widget = _engine.get();

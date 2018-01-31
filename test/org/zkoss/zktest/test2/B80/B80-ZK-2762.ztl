@@ -2,7 +2,7 @@
 	action="test2/B80-ZK-2762.zhtml">
 	<case id="title">
 		<client><![CDATA[
-			verifyEquals("someobject", jq("title"));
+			verifyEquals("someobject", jq("title").html());
 		]]></client>
 	</case>
 </test>

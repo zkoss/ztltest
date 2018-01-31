@@ -30,7 +30,7 @@ class B80_ZK_3221Test extends ZTL4ScalaTestCase {
 			val item = jq(".z-listitem")
 			mouseDownAt(item, "5,5")
 			mouseMoveAt(item, "20,20")
-			verifyContains(jq("#zk_ddghost")text, "123456789123456789")
+			verifyContains(jq("#zk_ddghost").text, "123456789123456789")
 		})
 	}
 }
