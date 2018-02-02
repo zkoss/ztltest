@@ -30,7 +30,7 @@ class B80_ZK_3260Test extends ZTL4ScalaTestCase {
 			click(jq(".z-datebox-button"))
 			waitResponse()
 			val cell = jq(".z-calendar-cell:eq(0)")
-			clickAt(cell, cell.innerWidth()/2 + "," + cell.innerHeight()/2)
+			getActions.moveToElement(findElement(cell)).click().perform() // click the center of element
 			waitResponse()
 			verifyNotEquals("", jq(".z-datebox-input").`val`())
 		})

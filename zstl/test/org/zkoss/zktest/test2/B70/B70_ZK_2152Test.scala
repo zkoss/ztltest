@@ -1,11 +1,9 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
 import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2152.zul")
 class B70_ZK_2152Test extends ZTL4ScalaTestCase {
@@ -51,7 +49,7 @@ def testClick() = {
       waitResponse()
       sendKeys(inp, Keys.ENTER)
       waitResponse()
-      verifyEquals(jq("@datebox").eq(2).toWidget().get("text"), "10/10/2014 11:00:00 PM")
+      verifyEquals(jq("@datebox").eq(2).toWidget().get("text"), "10/10/2014 11:00:00 AM")
 
       click(jq(".z-datebox-button").eq(3))
       waitResponse()

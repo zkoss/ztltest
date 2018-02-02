@@ -1,7 +1,7 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1205.zul")
 class B60_ZK_1205Test extends ZTL4ScalaTestCase {
@@ -11,7 +11,7 @@ class B60_ZK_1205Test extends ZTL4ScalaTestCase {
       () => {
         click(jq(".z-button:contains(click me)"))
         waitResponse()
-        verifyTrue("should exist", jq(".z-notification").exists())
+        verifyTrue("should exist", jq(".z-notification").isVisible)
         verifyNotEquals("displays a notification message", jq(".z-notification").css("visibility"), "hidden")
 
         sleep(2000)
@@ -20,7 +20,7 @@ class B60_ZK_1205Test extends ZTL4ScalaTestCase {
         click(jq(".z-panel"))
         waitResponse()
         sleep(2000)
-        verifyTrue("The message should only close upon mouse click.", !jq(".z-notification").exists())
+        verifyFalse("The message should only close upon mouse click.", jq(".z-notification").isVisible)
       })
 
   }
