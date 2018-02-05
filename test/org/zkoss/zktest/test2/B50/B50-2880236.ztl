@@ -107,6 +107,7 @@ ListModel people = new BindingListModelList(peopleList, true);
 			// A, 123
 			sendKeys(jq(newName), "A");
             sendKeys(jq(newBalance), "123");
+            focus(jq(add));
             click(jq(add));
             waitResponse();
             JQuery lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")");
@@ -117,6 +118,7 @@ ListModel people = new BindingListModelList(peopleList, true);
             // B, -123
             sendKeys(jq(newName), "B");
             sendKeys(jq(newBalance), "-123");
+            focus(jq(add));
             click(jq(add));
             waitResponse();
             lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")");
@@ -127,6 +129,7 @@ ListModel people = new BindingListModelList(peopleList, true);
             // C, 1.255
             sendKeys(jq(newName), "C");
             sendKeys(jq(newBalance), "1.255");
+            focus(jq(add));
             click(jq(add));
             waitResponse();
             lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")");
@@ -137,6 +140,7 @@ ListModel people = new BindingListModelList(peopleList, true);
             // D, 1.285
             sendKeys(jq(newName), "D");
             sendKeys(jq(newBalance), "1.285");
+            focus(jq(add));
             click(jq(add));
             waitResponse();
             lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")");
@@ -147,6 +151,7 @@ ListModel people = new BindingListModelList(peopleList, true);
             // E, 12345678901234567890
             sendKeys(jq(newName), "E");
             sendKeys(jq(newBalance), "12345678901234567890");
+            focus(jq(add));
             click(jq(add));
             waitResponse();
             lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")");
