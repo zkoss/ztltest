@@ -63,7 +63,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			verifyEquals(0, jq(".z-row:eq(1) .z-row-inner:eq(1)").outerWidth());
 			click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
 			waitResponse();
-			verifyEquals(1,jq(".z-row").length);
+			verifyEquals(1,jq(".z-row").length());
 			verifyEquals(0, jq(".z-row:eq(0) .z-row-inner:eq(1)").outerWidth());
 			click(jq("[name=" + jq("@paging").attr("id") + "-prev]"));
 			waitResponse();
