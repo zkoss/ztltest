@@ -26,7 +26,7 @@ class B70_ZK_2418Test extends ZTL4ScalaTestCase {
       sendKeys(a, Keys.DOWN);
       waitResponse();
       println(">>>> " + jq(listbox.$n("hor-embed")).css("left"))
-      verifyNotEquals(0, jq(listbox.$n("hor-embed")).positionLeft());
+      verifyNotEquals(0, jq(listbox.$n("hor-embed")).css("left"));
 
     })
 

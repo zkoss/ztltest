@@ -13,7 +13,7 @@ class B70_ZK_2987Test extends ZTL4ScalaTestCase {
       () => {
         var listbox = jq(".z-listbox");
         var listboxBody = listbox.find(".z-listbox-body");
-        verScroll(listboxBody, 1.0);
+        verScroll(listboxBody, 100);
         
         val nextButton = listbox.find(".z-paging-next");
         click(nextButton);

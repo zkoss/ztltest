@@ -66,10 +66,10 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				click(jq(".z-treerow").toWidget().$n("icon"));
 				waitResponse();
-				verifyEquals(3,jq("@treerow"));
+				verifyEquals(3,jq("@treerow").length());
 				click(jq("@button"));
 				waitResponse();
-				verifyEquals(4,jq("@treerow"));
+				verifyEquals(4,jq("@treerow").length());
 				verifyTrue(jq("@treerow:eq(3)").text().contains("Item 1-3"));
 		]]></client>
 	</case>
@@ -128,7 +128,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				waitResponse();
 				click(jq(".z-treerow").toWidget().$n("icon"));
 				waitResponse();
-				verifyEquals(4,jq("@treerow"));
+				verifyEquals(4,jq("@treerow").length());
 				verifyTrue(jq("@treerow:eq(3)").text().contains("Item 1-3"));
 		]]></client>
 	</case>

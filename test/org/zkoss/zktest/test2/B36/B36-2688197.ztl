@@ -56,18 +56,16 @@
 				click(label);
 				waitResponse();
 				JQuery pp = jq(title.$n());
-				verifyEquals("have height", 100, pp.height());
-				verifyEquals("have no width", 0, pp.width());
-				
+				verifyEquals("have height", "100px", pp.toElement().get("style.height"));
+				verifyEquals("have no width", "", pp.toElement().get("style.width"));
 				click(noWidth);
 				waitResponse();
 				click(noHeight);
 				waitResponse();
 				click(label);
 				waitResponse();
-				verifyEquals("have no height", 0, pp.height());
-				verifyEquals("have no width", 0, pp.width());
-
+				verifyEquals("have no height", "", pp.toElement().get("style.height"));
+				verifyEquals("have no width", "", pp.toElement().get("style.width"));
 		]]></client>
 	</case>
 </test>
