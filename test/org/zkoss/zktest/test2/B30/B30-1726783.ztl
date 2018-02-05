@@ -33,16 +33,16 @@
 		</window>
 		 --></server>
 		<client><![CDATA[
-			verifyEquals("true", info1);
-			verifyEquals("false", info2);
+			verifyEquals("true", info1.get("value"));
+			verifyEquals("false", info2.get("value"));
 			click(tab2);
 			waitResponse();
-			verifyEquals("false", info1);
-			verifyEquals("true", info2);
+			verifyEquals("false", info1.get("value"));
+			verifyEquals("true", info2.get("value"));
 			click(tab1);
 			waitResponse();
-			verifyEquals("true", info1);
-			verifyEquals("false", info2);
+			verifyEquals("true", info1.get("value"));
+			verifyEquals("false", info2.get("value"));
 		]]></client>
 	</case>
 </test>

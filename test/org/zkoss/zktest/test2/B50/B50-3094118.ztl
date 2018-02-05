@@ -169,13 +169,13 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				click(jq("@button:contains(insert)"));
 				waitResponse();
 				verifyEquals(2,jq("@treerow").find(".z-tree-close").length());
-				verifyEquals("[]",jq("@treerow:eq(1)"));
+				verifyEquals("[]",jq("@treerow:eq(1) .z-treecell-text").text().replaceAll(" ", ""));
 				verifyTrue(jq("@treerow:eq(1)").find(".z-tree-close").exists());
 				click(jq("@treerow:eq(1)").find(".z-tree-close"));
 				waitResponse();
 				verifyEquals(4,jq("@treerow").length());
-				verifyEquals("[]",jq("@treerow:eq(1)"));
-				verifyEquals("abc",jq("@treerow:eq(2)"));
+				verifyEquals("[]",jq("@treerow:eq(1) .z-treecell-text").text().replaceAll(" ", ""));
+				verifyEquals("aaa",jq("@treerow:eq(2) .z-treecell-text").text().replaceAll(" ", ""));
 		]]></client>
 	</case>
 </test>

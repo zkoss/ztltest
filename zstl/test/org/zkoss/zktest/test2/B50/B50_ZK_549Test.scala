@@ -29,16 +29,18 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug ZK-549
- * @author benbai
- *
- */
+  * A test class for bug ZK-549
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-549.zul,B,E,Groupbox,Caption")
 class B50_ZK_549Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 			<div>The groupboxes below should not overlapped and have the same height.</div>
 				<custom-attributes org.zkoss.zul.image.preload="true"/>
@@ -89,27 +91,27 @@ class B50_ZK_549Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         for (i <- 1 to 12) {
-          var gbx: Widget = engine.$f("gbx"+i);
+          var gbx: Widget = engine.$f("gbx" + i);
           var header: Element = null;
           verifyEquals("Height should be 200px",
-              jq(gbx).height(), 200);
+            jq(gbx).outerHeight(), 200);
 
           header = gbx.$n("title");
           if (!header.exists())
             header = jq(gbx).find(".z-caption").get(0);
           if (header.exists()) {
-	          click(header);
-	          waitResponse();
-	          click(header);
-	          waitResponse();
-	          verifyEquals("Height should be 200px",
-	              jq(gbx).height(), 200);
+            click(header);
+            waitResponse();
+            click(header);
+            waitResponse();
+            verifyEquals("Height should be 200px",
+              jq(gbx).outerHeight(), 200);
           }
         }
-    }
-   );
+      }
+    );
   }
 }
