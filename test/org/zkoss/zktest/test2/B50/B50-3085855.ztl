@@ -48,7 +48,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				verifyFalse(isVisible(jq(".z-treerow:eq(2)")));
+				verifyFalse(jq(".z-treerow:contains(Item 2)").exists());
 				verifyTrue(jq(".z-treerow:visible").text().contains("Item 1"));
 		]]></client>
 	</case>
