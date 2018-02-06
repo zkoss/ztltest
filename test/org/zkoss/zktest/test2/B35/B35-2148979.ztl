@@ -26,7 +26,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 
 		--></server>
 		<client><![CDATA[
-				verifyEquals(3, jq(".z-window-icon").exists());
+				verifyEquals(3, jq(".z-window-icon").length());
 				verifyTrue(jq(jq("@window").toWidget().$n("max")).isVisible());
 				verifyTrue(jq(jq("@window").toWidget().$n("min")).isVisible());
 				verifyTrue(jq(jq("@window").toWidget().$n("close")).isVisible());
