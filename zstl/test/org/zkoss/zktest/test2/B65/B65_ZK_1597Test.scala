@@ -13,18 +13,13 @@ class B65_ZK_1597Test extends ZTL4ScalaTestCase {
         val src = jq(".z-tab:contains(Items)")
         val target = jq(".z-tab:contains(tab 1)")
         mouseMoveAt(src, position)
-        waitResponse
-
+        waitResponse()
         mouseDownAt(src, position)
-        waitResponse
-
+        waitResponse()
         mouseMoveAt(target, position)
-        waitResponse
-        
+        waitResponse()
         mouseUpAt(target, position)
-        waitResponse
-        
-        
+        waitResponse()
         verifyEquals("The tab 'Items' should be selected and the content displays the first tabpanel.", "Items", jq(".z-tab:eq(0)").text())
         verifyTrue("The tab 'Items' should be selected and the content displays the first tabpanel.", jq(".z-tabpanel:eq(0) .z-label:contains(1)").exists())
       })
