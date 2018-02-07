@@ -34,12 +34,12 @@ def testClick() = {
       clickAt(jq(".z-column").last(), "2,2")
       waitResponse()
       //check the new column width remains the same
-      jqi = jq(".z-column").iterator()
       //skip index 5~8
       var i = 0
+      var cols = jq(".z-column")
       for (width <- originalWidths) {
         if (i < 5 || i > 8)
-    	    verifyEquals(width, jqi.next().width())
+          verifyTolerant(width, cols.eq(i).outerWidth(), 1)
         i += 1
       }
       //scroll to left

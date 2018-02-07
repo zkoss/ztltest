@@ -13,12 +13,12 @@ class B80_ZK_3231Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       click(jq(".z-listitem-checkbox").get(0))
       waitResponse(true)
-      verifyEquals(1, jq(".z-intbox").text())
+      verifyEquals(1, jq(".z-intbox").`val`())
       click(jq(".z-icon-angle-right").get(0))
       waitResponse(true)
       click(jq(".z-listitem-checkbox").get(0))
       waitResponse(true)
-      verifyEquals(2, jq(".z-intbox").text())
+      verifyEquals(2, jq(".z-intbox").`val`())
     })
   }
 
