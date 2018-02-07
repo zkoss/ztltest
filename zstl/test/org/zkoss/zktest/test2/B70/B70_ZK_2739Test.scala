@@ -41,11 +41,15 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 
 -->
 <zk>
-        <script>
-          setInterval(function () {
-            zk.log(zk.currentFocus._label);
-          }, 100)
-        </script>
+	<script>
+		<![CDATA[
+		setInterval(function () {
+			if (zk.currentFocus && zk.currentFocus._label) {
+				zk.log(zk.currentFocus._label);
+			}
+		}, 100)
+		]]>
+	</script>
 	<window border="normal" title="Test" height="500px"
 		contentStyle="overflow-y:scroll;" mode="modal">
 		<vlayout spacing="10px">
