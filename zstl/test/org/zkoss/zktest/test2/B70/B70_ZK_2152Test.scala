@@ -45,8 +45,6 @@ def testClick() = {
       waitResponse()
       sendKeys(inp, Keys.ARROW_RIGHT)
       waitResponse()
-      sendKeys(inp, Keys.ARROW_UP)
-      waitResponse()
       sendKeys(inp, Keys.ENTER)
       waitResponse()
       verifyEquals(jq("@datebox").eq(2).toWidget().get("text"), "10/10/2014 11:00:00 AM")
