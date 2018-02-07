@@ -11,8 +11,7 @@ class F60_ZK_1583Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(
       () => {
-        //, "before_center", "before_end", "after_start", "after_center", "after_end", "start_before", "start_center", "start_after", "end_before", "end_center", "end_after"
-        List("before_start") foreach { pos =>
+        List("before_start", "before_center", "before_end", "after_start", "after_center", "after_end", "start_before", "start_center", "start_after", "end_before", "end_center", "end_after") foreach { pos =>
           click(jq(".z-radio input[value=\"" + pos + "\"]"))
           waitResponse(true)
           Map("info" -> "green", "warning" -> "yellow", "error" -> "red") foreach {
@@ -25,7 +24,7 @@ class F60_ZK_1583Test extends ZTL4ScalaTestCase {
               val pointerLeftMid = pointer.offsetLeft() + 0.5 * pointer.width()
               val divTopMid = div.offsetTop() + 0.5 * div.height()
               val pointerTopMid = pointer.offsetTop() + 0.5 * pointer.height()
-              var msg = ">>>" + pos + ":" + notifyType + ", " + ", "
+              var msg = ">>>" + pos + ":" + notifyType + ", "
               if (pos.startsWith("b") || pos.startsWith("a")) {
                 msg = msg + divLeftMid + ", " + pointerLeftMid + ". Should see the ARROW of notification point to center"
                 println(msg)

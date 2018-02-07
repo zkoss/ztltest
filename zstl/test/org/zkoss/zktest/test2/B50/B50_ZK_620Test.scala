@@ -29,57 +29,28 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug ZK-620
- * @author benbai
- *
- */
+  * A test class for bug ZK-620
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-620.zul,A,E,onSize,VisionTest")
 class B50_ZK_620Test extends ZTL4ScalaTestCase {
-	
   @Test
   def testClick() = {
-    val zscript = """
-			<tabbox height="500px" width="500px">
-				<custom-attributes org.zkoss.zul.client.rod="false" />
-				<tabs>
-					<tab label="Definition" />
-					<tab label="Discovery" id="tab" />
-				</tabs>
-				<tabpanels>
-					<tabpanel>
-					<html><![CDATA[
-					<ul>
-						<li>Click the Discovery tab, and then you shall see two windows
-						in the second panel.</li>
-					</ul>
-					]]></html>
-					</tabpanel>
-					<tabpanel>
-						<borderlayout>
-							<north id="north">
-								<window id="window" title="x" vflex="1" border="normal"></window>
-							</north>
-							
-							<center >
-								<window title="x" vflex="1" border="normal"></window>
-							</center>
-							
-						</borderlayout>
-					</tabpanel>
-				</tabpanels>
-			</tabbox>
-
-    """
-runZTL(zscript, () => {
-   			var tab: Widget = engine.$f("tab");
-   			var north: Widget = engine.$f("north");
-   			var window: Widget = engine.$f("window");
-
-   			click(tab);
-   			waitResponse();
-
-   			verifyEquals("north height should equal to window height",
-   			    jq(north.$n("real")).outerHeight(), jq(window.$n()).outerHeight());
-		})
+    runZTL(() => {
+      click(jq("$tab"))
+      waitResponse()
+      var areas = Array(jq("@north"), jq("@center"))
+      var windows = jq("@window")
+      for (i <- 0 to 1) {
+        var areaCave = areas(i).eq(0).toWidget.$n("cave")
+        var areaHeight = jq(areaCave).outerHeight()
+        var areaPaddings = Integer.parseInt(jq(areaCave).css("padding-top").replaceAll("px", "")) + Integer.parseInt(jq(areaCave).css("padding-bottom").replaceAll("px", ""))
+        var wh = jq(windows.eq(i)).outerHeight(true)
+        println("north height minue padding (" + (areaHeight - areaPaddings) + ") should equal to window height (" + wh + ")")
+        verifyTolerant((areaHeight - areaPaddings), wh, 2);
+      }
+    })
   }
 }
