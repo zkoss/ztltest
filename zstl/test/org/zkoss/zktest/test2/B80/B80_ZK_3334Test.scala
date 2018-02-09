@@ -17,7 +17,7 @@ package org.zkoss.zktest.test2.B80
 import org.junit.Test
 import org.openqa.selenium.Dimension
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{JQuery, Tags, ZK};
+import org.zkoss.ztl.{JQuery, Tags};
 
 /**
   *
@@ -57,36 +57,21 @@ class B80_ZK_3334Test extends ZTL4ScalaTestCase {
       val pp = jq(".z-errorbox")
       val window = driver.manage().window()
       val size = window.getSize()
-      if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
-        verifyTolerant(com.offsetLeft() + com.outerWidth(), pp.offsetLeft(), 1)
-      } else {
-        verifyEquals(com.offsetLeft() + com.outerWidth(), pp.offsetLeft())
-      }
+      verifyTolerant(com.offsetLeft() + com.outerWidth(), pp.offsetLeft(), 1)
+
       window.setSize(new Dimension(size.width - 100, size.height))
       waitResponse()
-      if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
-        verifyTolerant(com.offsetLeft() + com.outerWidth(), pp.offsetLeft(), 1)
-      } else {
-        verifyEquals(com.offsetLeft() + com.outerWidth(), pp.offsetLeft())
-      }
+      verifyTolerant(com.offsetLeft() + com.outerWidth(), pp.offsetLeft(), 1)
     })
   }
 
   def verifyPopup(com: JQuery, pp: JQuery) = {
     val window = driver.manage().window()
     val size = window.getSize()
-    if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
-      verifyTolerant(com.offsetLeft(), pp.offsetLeft(), 1)
-    } else {
-      verifyEquals(com.offsetLeft(), pp.offsetLeft())
-    }
+    verifyTolerant(com.offsetLeft(), pp.offsetLeft(), 1)
     window.setSize(new Dimension(size.width - 100, size.height))
     waitResponse()
-    if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
-      verifyTolerant(com.offsetLeft(), pp.offsetLeft(), 1)
-    } else {
-      verifyEquals(com.offsetLeft(), pp.offsetLeft())
-    }
+    verifyTolerant(com.offsetLeft(), pp.offsetLeft(), 1)
     window.setSize(size)
     waitResponse()
   }
