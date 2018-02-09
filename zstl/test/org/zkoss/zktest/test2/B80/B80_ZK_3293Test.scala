@@ -32,7 +32,7 @@ class B80_ZK_3293Test extends ZTL4ScalaTestCase {
 			val tbw = tb.width()
 			dragdropTo(sp, "2,2", "22,2")
 			waitResponse()
-			verifyEquals(tbw - 20, tb.width())
+			verifyTolerant(tbw - 20, tb.width(), 3)
 		})
 	}
 }

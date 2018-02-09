@@ -112,7 +112,12 @@ runZTL(zscript,
 
         def sort (id: String, cate: String) {
           var grid: Widget = engine.$f(id);
-          click(jq(grid.$n("head")).find(".z-columns").find(".z-column:contains("+cate+")"));
+          var col = jq(grid.$n("head")).find(".z-columns").find(".z-column:contains("+cate+")")
+          if (isSafari)
+            clickAt(col, "1,1")
+          else
+            click(col)
+
           waitResponse();
         }
         def isAscending (id: String): Boolean = {

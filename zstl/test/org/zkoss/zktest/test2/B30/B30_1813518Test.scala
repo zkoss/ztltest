@@ -10,7 +10,8 @@ class B30_1813518Test extends ZTL4ScalaTestCase {
       verifyTrue("rgb(51, 51, 51)#333333".contains(jq("@rows:eq(0) td").css("color")))
       verifyTrue("rgb(227, 235, 246)#e3ebf6".contains(jq("@rows:eq(0) td").css("backgroundColor")))
       verifyEquals("", jq("@rows:eq(1) td").eval("get(1).style.border"))
-      verifyTrue("rgba(0, 0, 0, 0.9)#000000".contains(jq("@rows:eq(1) td").css("color")))
+      var color = jq("@rows:eq(1) td").css("color")
+      verifyTrue(color.contains("rgba(0, 0, 0, 0.9") || color.contains("#000000"))
       println(jq("@rows:eq(1) td").css("color"))
       verifyTrue("transparent|rgb(255, 255, 255)|rgba(0, 0, 0, 0)|#ffffff".contains(jq(
         "@rows:eq(1) td").css("backgroundColor")))

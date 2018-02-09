@@ -18,7 +18,11 @@
 	</zk>
 		]]></server>
 		<client><![CDATA[
-		click(jq("@window @listcell[label=\"-\"]:eq(1)"));
+		JQuery cell = jq("@window @listcell[label=\"-\"]:eq(1)");
+		if(!ZK.is("safari"))
+			click(cell);
+		else
+			clickAt(cell, "2,2");
 		click(jq("@button"));
 		waitResponse();
 		click(jq("@button"));

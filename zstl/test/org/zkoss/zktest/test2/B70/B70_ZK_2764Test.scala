@@ -13,64 +13,51 @@ This program is distributed under LGPL Version 3.0 in the hope that
 it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2.B70
-
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
-
 /**
- * 
- * @author chunfu
- */
+  * @author chunfu
+  */
 @Tags(tags = "")
 class B70_ZK_2764Test extends ZTL4ScalaTestCase {
-	def testCase() = {
-		val zscript = 
-"""<?xml version="1.0" encoding="UTF-8"?>
+  def testCase() = {
+    runZTL(() => {
+      click(jq(".z-treerow .z-tree-icon"));
+      waitResponse();
+      click(jq(".z-treerow .z-tree-icon").eq(1));
+      waitResponse()
+      var treeCells = jq(".z-treecell-text")
+      var cellsString = ""
+      for (i <- 0 to treeCells.length() - 1) {
+        var cell = treeCells.eq(i)
+        cellsString += cell.text().trim
+      }
+      verifyEquals(" node 1 (3) node 1.1 (2) node 1.1.1 (0) node 1.1.2 (1) node 2 (5) node 3 (7) node 4 (9) node 5 (11)",
+        cellsString)
 
-			<!--
-B70-ZK-2764.zul
+      click(jq("@button"))
+      waitResponse()
+      cellsString = ""
+      for (i <- 0 to treeCells.length() - 1) {
+        var cell = treeCells.eq(i)
+        cellsString += cell.text().trim
+      }
+      verifyEquals(" node 1 (3). node 1.1 (2). node 1.1.1 (0). node 1.1.2 (1). node 2 (5). node 3 (7). node 4 (9). node 5 (11).",
+        cellsString)
 
-	Purpose:
-
-	Description:
-
-	History:
-		Tue Jun  2 17:06:56 CST 2015, Created by jumperchen
-
-Copyright (C)  Potix Corporation. All Rights Reserved.
-
--->
-				<zk>
-					1. Please open the tree node "node 1" and "node 1.1" to display the node "node 1.1.1"
-					<separator/>
-					2. click the button "update data", the tree structure should be the same as before, only all the content are updated
-					<separator/>
-					3. click the button "rebuild model", the tree structure should be the same as before, only all the content are updated
-
-					<div apply="org.zkoss.zktest.test2.B70_ZK_2764">
-						<tree id="dyntree" width="400px"/>
-						<button id="updateButton" label="update data"/>
-						<button id="rebuildButton" label="rebuild model"/>
-					</div>
-				</zk>
-"""
-runZTL(zscript, () => {
-			click(jq(".z-treerow .z-tree-icon"));
-			waitResponse();
-			click(jq(".z-treerow .z-tree-icon").eq(1));
-			waitResponse()
-			verifyEquals(" node 1 (3) node 1.1 (2) node 1.1.1 (0) node 1.1.2 (1) node 2 (5) node 3 (7) node 4 (9) node 5 (11)",
-				jq(".z-treecell-text").text())
-
-			click(jq("@button"))
-			waitResponse()
-			verifyEquals(" node 1 (3). node 1.1 (2). node 1.1.1 (0). node 1.1.2 (1). node 2 (5). node 3 (7). node 4 (9). node 5 (11).",
-				jq(".z-treecell-text").text())
-
-			click(jq("@button").eq(1))
-			waitResponse()
-			verifyEquals(" node 1 (16) node 1.1 (15) node 1.1.1 (13) node 1.1.2 (14) node 2 (18) node 3 (20) node 4 (22) node 5 (24)",
-				jq(".z-treecell-text").text())
-		})
-	}
+      click(jq("@button").eq(1))
+      waitResponse()
+      click(jq(".z-treerow .z-tree-icon").eq(0));
+      waitResponse();
+      click(jq(".z-treerow .z-tree-icon").eq(1));
+      waitResponse()
+      cellsString = ""
+      for (i <- 0 to treeCells.length() - 1) {
+        var cell = treeCells.eq(i)
+        cellsString += cell.text().trim
+      }
+      verifyEquals(" node 1 (16) node 1.1 (15) node 1.1.1 (13) node 1.1.2 (14) node 2 (18) node 3 (20) node 4 (22) node 5 (24)",
+        cellsString)
+    })
+  }
 }
