@@ -16,6 +16,7 @@ def testClick() = {
       waitResponse(true)
       click(jq(".z-nav-popup .z-nav-content").first())
       waitResponse(true)
+      sleep(2000)
       mouseOut(icon)
       waitResponse(true)
       mouseOver(icon)
