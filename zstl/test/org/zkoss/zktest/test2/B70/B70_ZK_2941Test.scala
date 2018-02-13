@@ -15,8 +15,9 @@ class B70_ZK_2941Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       var cbbid = jq("@combobutton").get(0).get("id")
+      focus(jq("$btn"));
       var cf = jq(":focus").toWidget
-      sendKeys(cf, Keys.TAB)
+        sendKeys(cf, Keys.TAB)
       waitResponse()
       verifyEquals(cbbid, cf.uuid())
       sendKeys(cf, Keys.ENTER)
@@ -35,7 +36,8 @@ class B70_ZK_2941Test extends ZTL4ScalaTestCase {
       verifyTrue(isVisible(mppsd))
       sendKeys(jq("@combobutton:eq(0)").toWidget, Keys.ESCAPE)
       waitResponse(true)
-      verifyFalse(isVisible(mppsd))
+      sleep(100);
+      verifyFalse(jq(".z-menupopup").isVisible)
     })
   }
 }
