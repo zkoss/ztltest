@@ -12,11 +12,17 @@ class B85_ZK_3761Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit = {
     runZTL(() => {
-      click(jq("@button"))
-      waitResponse()
-      waitForPageToLoad("5000")
+      try {
+        click(jq("@button"))
+        waitResponse()
+        waitForPageToLoad("5000")
 
-      verifyEquals("breeze", getEval("zk.themeName"))
+        verifyEquals("breeze", getEval("zk.themeName"))
+      } finally {
+        click(jq("@button").eq(1))
+        waitResponse()
+        waitForPageToLoad("5000")
+      }
     })
   }
 }
