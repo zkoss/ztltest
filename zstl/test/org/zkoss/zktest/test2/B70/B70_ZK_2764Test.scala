@@ -47,10 +47,6 @@ class B70_ZK_2764Test extends ZTL4ScalaTestCase {
 
       click(jq("@button").eq(1))
       waitResponse()
-      click(jq(".z-treerow .z-tree-icon").eq(0));
-      waitResponse();
-      click(jq(".z-treerow .z-tree-icon").eq(1));
-      waitResponse()
       cellsString = ""
       for (i <- 0 to treeCells.length() - 1) {
         var cell = treeCells.eq(i)
