@@ -11,24 +11,18 @@ class F70_ZK_2049Test extends ZTL4ScalaTestCase {
     runZTL(() => {
         val btn = jq(".z-button").eq(0)
         val btn1 = jq(".z-button").eq(1)
-        click(btn)
+        clickAt(btn, "5,5")
         waitResponse()
         verifyTrue("open the menupopup", jq(".z-menupopup").exists)
 
-        if (!isSafari)
-          clickAt(btn, "0,0")
-        else
-          click(btn)
+        clickAt(btn, "1,1")
         waitResponse(true)
         verifyTrue("it will close", !jq(".z-menupopup").isVisible)
 
-        contextMenu(btn1)
+      contextMenuAt(btn1, "5,5")
         waitResponse()
         verifyTrue("open the menupopup", jq(".z-menupopup").exists)
-        if (!isSafari)
-          contextMenuAt(btn1, "0,0")
-        else
-          contextMenu(btn1)
+        contextMenuAt(btn1, "1,1")
         waitResponse(true)
         verifyTrue("it will close", !jq(".z-menupopup").isVisible)
       })
