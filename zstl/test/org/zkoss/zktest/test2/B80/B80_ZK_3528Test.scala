@@ -10,8 +10,8 @@ class B80_ZK_3528Test extends ZTL4ScalaTestCase {
 
   def test () = {
     runZTL(() => {
-      keyPressNative("9")
-      keyPressNative("9")
+      click(jq("@listitem"))
+      waitResponse()
       verifyEquals("z-focus-a", getEval("document.activeElement.className"))
       sendKeys(jq(".z-focus-a"), Keys.ENTER)
       waitResponse(true)
@@ -21,7 +21,7 @@ class B80_ZK_3528Test extends ZTL4ScalaTestCase {
       waitResponse(true)
       verifyTrue(getZKLog().startsWith("[KeyEvent onCancel <Listbox "))
       verifyEquals("z-focus-a", getEval("document.activeElement.className"))
-      jq("#zk_log").eval("val(\"\")")
+      jq("#zk_log").eval("val(\"\");'blah';") // clear zk_log
       verifyEquals("", getZKLog())
       sendKeys(jq(".z-focus-a"), Keys.ENTER)
       waitResponse(true)
