@@ -19,13 +19,13 @@ class B80_ZK_3528Test extends ZTL4ScalaTestCase {
       verifyEquals("z-focus-a", getEval("document.activeElement.className"))
       sendKeys(jq(".z-focus-a"), Keys.ESCAPE)
       waitResponse(true)
-      verifyTrue(getZKLog().startsWith("[KeyEvent onCancel <Listbox "))
+      verifyTrue(getZKLog.startsWith("[KeyEvent onCancel <Listbox "))
       verifyEquals("z-focus-a", getEval("document.activeElement.className"))
-      jq("#zk_log").eval("val(\"\");'blah';") // clear zk_log
-      verifyEquals("", getZKLog())
+      closeZKLog()
+      verifyEquals("", getZKLog)
       sendKeys(jq(".z-focus-a"), Keys.ENTER)
       waitResponse(true)
-      verifyTrue(getZKLog().startsWith("[KeyEvent onOK <Listbox "))
+      verifyTrue(getZKLog.startsWith("[KeyEvent onOK <Listbox "))
     })
   }
 
