@@ -19,8 +19,8 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
       waitResponse()
       sleep(1000)
       // should see tooltip showed at position "before_start"
-      verifyTolerant(pp.offsetTop(), cyan.offsetTop() + 200, 1)
-      verifyTolerant(pp.offsetLeft(), cyan.offsetLeft(), 1)
+      verifyTolerant(cyan.offsetTop() + 200, pp.offsetTop(), 1)
+      verifyTolerant(cyan.offsetLeft(), pp.offsetLeft(), 1)
 
       val pink = jq(".z-div[style*=pink]")
       getActions
@@ -29,8 +29,8 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
         .perform()
       waitResponse()
       // should see tooltip showed on 20px down of mouse pointer
-      verifyTolerant(pp.offsetTop() - 20, pink.offsetTop() + 100, 3)
-      verifyTolerant(pp.offsetLeft(), pink.offsetLeft() + 100, 3)
+      verifyTolerant(pink.offsetTop() + 100, pp.offsetTop() - 20, 3)
+      verifyTolerant(pink.offsetLeft() + 100, pp.offsetLeft(), 3)
 
       val yellow = jq(".z-div[style*=yellow]")
       getActions
@@ -39,8 +39,8 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
         .perform()
       waitResponse()
       // should see tooltip showed on 50px left of mouse pointer
-      verifyTolerant(pp.positionTop(), yellow.offsetTop() + 100, 1)
-      verifyTolerant(pp.positionLeft() + 50, yellow.offsetLeft() + 100, 1)
+      verifyTolerant(yellow.offsetTop() + 100, pp.positionTop(), 1)
+      verifyTolerant(yellow.offsetLeft() + 100, pp.positionLeft() + 50, 1)
 
       click(jq("@button"))
       waitResponse()
@@ -59,8 +59,8 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
       waitResponse()
       sleep(1000)
       // should see tooltip showed at 40px right of the cursor
-      verifyTolerant(pp.offsetTop(), cyan.offsetTop() + 100, 1)
-      verifyTolerant(pp.offsetLeft(), cyan.offsetLeft() + 140, 1)
+      verifyTolerant(cyan.offsetTop() + 100, pp.offsetTop(), 1)
+      verifyTolerant(cyan.offsetLeft() + 140, pp.offsetLeft(), 1)
 
       getActions
         .moveToElement(findElement(pink))
@@ -68,8 +68,8 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
         .perform()
       waitResponse()
       // should see tooltip showed at the "after_center" position
-      verifyTolerant(pp.offsetTop(), pink.offsetTop() + 200, 3)
-      verifyTolerant(pp.offsetLeft() + pp.width() / 2, pink.offsetLeft() + 100, 3)
+      verifyTolerant(pink.offsetTop() + 200, pp.offsetTop(), 3)
+      verifyTolerant(pink.offsetLeft() + 100, pp.offsetLeft() + pp.width() / 2, 3)
     })
   }
 }
