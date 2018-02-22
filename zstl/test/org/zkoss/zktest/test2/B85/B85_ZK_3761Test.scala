@@ -14,13 +14,13 @@ class B85_ZK_3761Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       try {
         click(jq("@button"))
-        waitResponse()
+        sleep(1000)
         waitForPageToLoad("5000")
 
         verifyEquals("breeze", getEval("zk.themeName"))
       } finally {
         click(jq("@button").eq(1))
-        waitResponse()
+        sleep(1000)
         waitForPageToLoad("5000")
       }
     })

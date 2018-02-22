@@ -41,19 +41,17 @@ class B60_ZK_985Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(
       () => {
-        var btn: Widget = engine.$f("btn");
-        var lb: Widget = engine.$f("lb");
-        var tbx: Widget = engine.$f("tbx");
+        var btn: Widget = engine.$f("btn")
+        var lb: Widget = engine.$f("lb")
+        var tbx: Widget = engine.$f("tbx")
 
-        sendKeys(tbx, "asdf");
-        waitResponse(true);
-        sleep(2000);
-        clickAt(btn, "2,2");
-        waitResponse(true);
-        sleep(3000);
-        println(lb.$n().get("innerHTML"))
-        verifyTrue("Textbox should not be cleared",
-          lb.$n().get("innerHTML").trim.contains("asdf"));
+        `type`(tbx, "asdf")
+        waitResponse()
+        click(btn)
+        waitResponse()
+        val result = jq(lb).html.trim
+        println(result)
+        verifyTrue("Textbox should not be cleared", result.contains("asdf"))
       }
     );
   }

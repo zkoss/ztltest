@@ -13,30 +13,30 @@ class B70_ZK_2866Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
     runZTL(() => {
-      var clmn = jq(".z-column")
-      var ahd = jq(".z-auxheader")
+      val clmn = jq(".z-column")
+      val ahd = jq(".z-auxheader")
       for (i <- 1 to 11) {
         frozenScroll(jq("@grid"), i)
         var width = 0
         for (j <- 0 to 2) {
-          width = width + clmn.eq(j).outerWidth()
+          width += clmn.eq(j).outerWidth()
         }
-        verifyEquals("expecting width to be equal", ahd.eq(2).outerWidth(), width)
+        verifyTolerant(ahd.eq(2).outerWidth(), width, 2)
         width = 0
         for (j <- 3 to 5) {
-          width = width + clmn.eq(j).outerWidth()
+          width += clmn.eq(j).outerWidth()
         }
-        verifyEquals("expecting width to be equal", ahd.eq(3).outerWidth(), width)
+        verifyTolerant(ahd.eq(3).outerWidth(), width, 2)
         width = 0
         for (j <- 6 to 8) {
-          width = width + clmn.eq(j).outerWidth()
+          width += clmn.eq(j).outerWidth()
         }
-        verifyEquals("expecting width to be equal", ahd.eq(4).outerWidth(), width)
+        verifyTolerant(ahd.eq(4).outerWidth(), width, 2)
         width = 0
         for (j <- 9 to 11) {
-          width = width + clmn.eq(j).outerWidth()
+          width += clmn.eq(j).outerWidth()
         }
-        verifyEquals("expecting width to be equal", ahd.eq(5).outerWidth(), width)
+        verifyTolerant(ahd.eq(5).outerWidth(), width, 2)
       }
     })
   }

@@ -13,27 +13,28 @@ class B80_ZK_3340Test extends ZTL4ScalaTestCase {
       val bbi = jq(".z-bandbox-input")
       click(bbi)
       waitResponse(true)
-      assertEquals("bandbox focussed:onFocus", getZKLog.trim())
+      verifyEquals("bandbox focussed:onFocus", getZKLog.trim())
       closeZKLog()
 
       sendKeys(bbi, "ABC")
       waitResponse(true)
-      assertEquals("bandbox changing:onChanging", getZKLog.trim())
+      sleep(1000) // IE onChanging is slower
+      verifyEquals("bandbox changing:onChanging", getZKLog.trim())
       closeZKLog()
 
       click(jq(".z-bandbox-button"))
       waitResponse(true)
-      assertEquals("bandbox focussed:onFocus", getZKLog.trim())
+      verifyEquals("bandbox focussed:onFocus", getZKLog.trim())
       closeZKLog()
 
       clickAt(jq(".z-bandpopup"), "180,10")
       waitResponse(true)
-      assertEquals("bandbox focussed:onFocus", getZKLog.trim())
+      verifyEquals("bandbox focussed:onFocus", getZKLog.trim())
       closeZKLog()
 
       clickAt(jq(".z-bandbox"), "300,100")
       waitResponse(true)
-      assertEquals("bandbox changed:onChange\nbandbox blurred:onBlur", getZKLog.trim())
+      verifyEquals("bandbox changed:onChange\nbandbox blurred:onBlur", getZKLog.trim())
     })
   }
 
