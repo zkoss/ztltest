@@ -2,12 +2,13 @@ package org.zkoss.zktest.test2.F85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{JQuery, Tags}
+import org.zkoss.ztl.{IgnoreBrowsers, Tags}
 
 /**
   * @author rudyhuang
   */
 @Tags(tags = "F85-ZK-3336.zul")
+@IgnoreBrowsers("ie9")
 class F85_ZK_3336Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit = {

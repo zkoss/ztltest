@@ -14,18 +14,23 @@ class B70_ZK_2940Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
     runZTL(() => {
-      var btns = jq("@button")
-      var cf = jq(":focus").toWidget
-      var zcf = "zk.currentFocus.uuid"
+      // A workaround for losing focus when page loaded
+      refresh()
+      waitForPageToLoad("5000")
+
+      val btns = jq("@button")
+      val cf = jq(":focus")
+      val zcf = "zk.currentFocus.uuid"
+
       sendKeys(cf, Keys.TAB)
       waitResponse()
       verifyEquals(btns.get(0).get("id"), getEval(zcf))
       waitResponse()
-      sendKeys(cf, Keys.TAB);
+      sendKeys(cf, Keys.TAB)
       waitResponse()
       verifyEquals(btns.get(1).get("id"), getEval(zcf))
       waitResponse()
-      sendKeys(cf, Keys.TAB);
+      sendKeys(cf, Keys.TAB)
       waitResponse()
       verifyEquals(jq("@combobutton").get(0).get("id"), getEval(zcf))
     })
