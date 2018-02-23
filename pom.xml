@@ -8,7 +8,7 @@
     <description>A sets of testing cases for ZK project</description>
     <properties>
         <selenium.version>3.9.1</selenium.version>
-        <scala.version>2.11.7</scala.version>
+        <scala.version>2.12.4</scala.version>
         <report.dir>report/</report.dir>
         <test.dir>target/classes</test.dir>
     </properties>
