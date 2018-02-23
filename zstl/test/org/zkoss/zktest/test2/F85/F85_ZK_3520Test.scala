@@ -11,7 +11,7 @@ import org.zkoss.ztl.util.Scripts
 @Tags(tags = "F85-ZK-3520.zul")
 class F85_ZK_3520Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def testBeforeChange(): Unit = {
     runZTL(() => {
       val cyan = jq(".z-div[style*=cyan]")
       val pp = jq("@popup")
@@ -41,20 +41,17 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
       // should see tooltip showed on 50px left of mouse pointer
       verifyTolerant(yellow.offsetTop() + 100, pp.positionTop(), 1)
       verifyTolerant(yellow.offsetLeft() + 100, pp.positionLeft() + 50, 1)
+    })
+  }
 
+  @Test
+  def testAfterChange(): Unit = {
+    runZTL(() => {
       click(jq("@button"))
       waitResponse()
 
-      getActions
-        .moveToElement(findElement(yellow))
-        .contextClick()
-        .moveByOffset(0, -10)
-        .contextClick()
-        .perform()
-      waitResponse()
-      // should not see tooltip showed
-      verifyFalse("yellowPopup should be hidden", pp.isVisible)
-
+      val cyan = jq(".z-div[style*=cyan]")
+      val pp = jq("@popup")
       Scripts.triggerMouseEventAt(driver(), cyan, "mouseover", "100,100")
       waitResponse()
       sleep(1000)
@@ -62,6 +59,7 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
       verifyTolerant(cyan.offsetTop() + 100, pp.offsetTop(), 1)
       verifyTolerant(cyan.offsetLeft() + 140, pp.offsetLeft(), 1)
 
+      val pink = jq(".z-div[style*=pink]")
       getActions
         .moveToElement(findElement(pink))
         .click()
@@ -70,6 +68,20 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
       // should see tooltip showed at the "after_center" position
       verifyTolerant(pink.offsetTop() + 200, pp.offsetTop(), 3)
       verifyTolerant(pink.offsetLeft() + 100, pp.offsetLeft() + pp.width() / 2, 3)
+
+      val yellow = jq(".z-div[style*=yellow]")
+      getActions
+        .moveToElement(findElement(yellow))
+        .contextClick()
+        .perform()
+      waitResponse()
+      getActions
+        .moveToElement(findElement(yellow), 50, 50)
+        .contextClick()
+        .perform()
+      waitResponse()
+      // should not see tooltip showed
+      verifyFalse("yellowPopup should be hidden", pp.isVisible)
     })
   }
 }
