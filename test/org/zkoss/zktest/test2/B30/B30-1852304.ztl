@@ -44,8 +44,11 @@
 		</server>
 		<client><![CDATA[
 			mouseOver(jq(".z-menu").toWidget().$n("a"));
+			waitResponse(true);
+			sleep(1000);
 			click(jq(".z-menuitem"));
-			waitResponse();
+			waitResponse(true);
+			sleep(1000);
 			verifyTrue(jq(".z-popup .z-listbox").exists());
 		]]></client>
 	</case>
