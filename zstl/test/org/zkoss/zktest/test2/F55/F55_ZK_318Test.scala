@@ -18,7 +18,7 @@ package org.zkoss.zktest.test2.F55
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.{Tags, Widget, ZK}
 
 /**
  * A test class for bug ZK-318
@@ -111,10 +111,6 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         openMenu(Array(".z-menu:contains(About)"));
         clickAndWait(jq(".z-label:contains(message box)"));
 
-        // to avoid click 'Help' menu
-        clickAt(jq(".z-button:contains(change image)"), "2,2")
-        waitResponse()
-
         // step 8
         clickAndCheck(jq(bd2).toWidget().$n("btn"),
             Array("combobutton two opened"),
@@ -122,11 +118,6 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         openMenu(Array(pp2About, pp2Menu, pp2ColorPicker, pp2ColorPicker)); // don't know why we need two pp2ColorPicker but it works
         verifyTrue("Color picker should opened",
             jq(".z-colorpalette-popup").is(":visible"));
-        
-        // to avoid click 'Help' menu, reset
-        clickAndWait(jq(".z-label:contains(message box)"));
-        clickAt(jq(".z-button:contains(image)"), "2,2")
-        waitResponse()
 
         // step 9
         clickAndCheck(jq(bd).toWidget().$n("btn"),
@@ -138,14 +129,44 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         verifyFalse("combobutton one should opened",
             jq(ppOne.$n()).is(":visible"));
 
-//		  selenium problem
-//        clickAndWait(cbx.$n("real"));
-//        
-//        click(jq(bd2).toWidget().$n("btn"))
-//        openMenu(Array(pp2About, pp2Menu, pp2ColorPicker));
-//        verifyTrue("Color picker should opened",
-//            jq(".z-colorpalette-popup").is(":visible"));
+        // step 10
+        // Skip IE, because IEDriver has an issue about mouse hovering
+        if (!ZK.is("ie"))
+          clickAndWait(cbx.$n("real"))
+
+        // step 11
+        clickAndWait(jq(".z-button:contains(change image)"))
+
+        // step 12
+        findElement(messageBox).clear()
+        findElement(messageBoxTwo).clear()
+        click(jq("@button:contains(open combobutton one)"))
+        verifyEquals("", getValue(messageBox))
+        verifyEquals("", getValue(messageBoxTwo))
+        clickAndWait(jq(".z-label:contains(message box)"))
+
+        // step 13
+        findElement(messageBox).clear()
+        findElement(messageBoxTwo).clear()
+        click(jq("@button:contains(open combobutton two)"))
+        verifyEquals("", getValue(messageBox))
+        verifyEquals("", getValue(messageBoxTwo))
+        clickAndWait(jq(".z-label:contains(message box)"))
+
+        // step 14
+        val bgColor = jq("@window .z-window-content").get(0).get("style.backgroundColor")
+        clickAndWait(jq(bd2).toWidget.$n("btn"))
+        openMenu(Array(pp2About, pp2Menu, pp2ColorPicker, pp2ColorPicker))
+        if (ZK.is("ie"))
+          jq(".z-colorpalette-color:eq(22)").get(0).eval("click();'dummy'")
+        else
+          click(jq(".z-colorpalette-color:eq(22)"))
+        waitResponse()
+        verifyNotEquals("The background color didn't change", bgColor, jq("@window .z-window-content").get(0).get("style.backgroundColor"))
+
+        // step 15
+        clickAndWait(jq("@button:contains(change child)"))
     }
-   );
+   )
   }
 }
