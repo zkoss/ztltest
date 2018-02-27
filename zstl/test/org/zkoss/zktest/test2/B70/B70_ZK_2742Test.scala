@@ -17,11 +17,7 @@ class B70_ZK_2742Test extends ZTL4ScalaTestCase {
       waitResponse()
       var cb = jq(".z-combobox")
       var cbpp = jq(".z-combobox-popup:eq(0)")
-      if (isEdge() || ZK.is("ie10_") || ZK.is("ie11_")) {
-        verifyTolerant(cb.offsetTop() + cb.height(), cbpp.offsetTop(), 1)
-      } else {
-        verifyEquals(cb.offsetTop() + cb.height(), cbpp.offsetTop())
-      }
+      verifyTolerant(cb.offsetTop() + cb.height(), cbpp.offsetTop(), 1)
     })
   }
 
