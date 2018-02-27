@@ -157,6 +157,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         val bgColor = jq("@window .z-window-content").get(0).get("style.backgroundColor")
         clickAndWait(jq(bd2).toWidget.$n("btn"))
         openMenu(Array(pp2About, pp2Menu, pp2ColorPicker, pp2ColorPicker))
+        // FIXME: https://github.com/SeleniumHQ/selenium/issues/4292
         if (ZK.is("ie"))
           jq(".z-colorpalette-color:eq(22)").get(0).eval("click();'dummy'")
         else
@@ -166,6 +167,10 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 
         // step 15
         clickAndWait(jq("@button:contains(change child)"))
+        clickAndWait(jq(bd).toWidget.$n("btn"))
+        verifyTrue("combobutton two should opened", jq(ppTwo.$n()).is(":visible"))
+        clickAndWait(jq(bd2).toWidget.$n("btn"))
+        verifyTrue("combobutton one should opened", jq(ppOne.$n()).is(":visible"))
     }
    )
   }
