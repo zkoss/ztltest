@@ -110,20 +110,21 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         clickAndWait(mbHelp);
         openMenu(Array(".z-menu:contains(About)"));
         clickAndWait(jq(".z-label:contains(message box)"));
+
+        // to avoid click 'Help' menu
+        clickAt(jq(".z-button:contains(change image)"), "2,2")
+        waitResponse()
+
         // step 8
         clickAndCheck(jq(bd2).toWidget().$n("btn"),
             Array("combobutton two opened"),
             Array(messageBox));
-        
-        // to avoid click 'Help' menu 
-        clickAt(jq(".z-button:contains(change image)"), "2,2")
-        waitResponse()
-        
-        openMenu(Array(pp2About, pp2Menu, pp2ColorPicker));
+        openMenu(Array(pp2About, pp2Menu, pp2ColorPicker, pp2ColorPicker)); // don't know why we need two pp2ColorPicker but it works
         verifyTrue("Color picker should opened",
             jq(".z-colorpalette-popup").is(":visible"));
         
         // to avoid click 'Help' menu, reset
+        clickAndWait(jq(".z-label:contains(message box)"));
         clickAt(jq(".z-button:contains(image)"), "2,2")
         waitResponse()
 
