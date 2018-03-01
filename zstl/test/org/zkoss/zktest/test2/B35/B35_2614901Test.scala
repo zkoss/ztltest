@@ -26,34 +26,34 @@ import org.openqa.selenium.Keys
  */
 class B35_2614901Test extends ZTL4ScalaTestCase {
   def testClick() = {
-runZTL(() => {
+    runZTL(() => {
       // Click on Project menu
-      click(jq(".z-menu").get(0));
-      waitResponse();
-      // Scroll up and down on the menu
-      sendKeys(jq(".z-menupopup").toWidget().$n("a"), Keys.DOWN);
+      click(jq(".z-menu").get(0))
+      waitResponse()
 
-      waitResponse();
-
+      val focusElement = if (isSafari) jq(".z-menupopup") else jq(".z-menupopup").toWidget.$n("a")
       // Scroll up and down on the menu
-      sendKeys(jq(".z-menupopup").toWidget().$n("a"), Keys.DOWN);
-      waitResponse();
+      sendKeys(focusElement, Keys.DOWN)
+      waitResponse()
 
       // Scroll up and down on the menu
-      sendKeys(jq(".z-menupopup").toWidget().$n("a"), Keys.DOWN);
-      waitResponse();
+      sendKeys(focusElement, Keys.DOWN)
+      waitResponse()
 
       // Scroll up and down on the menu
-      sendKeys(jq(".z-menupopup").toWidget().$n("a"), Keys.UP);
-      waitResponse();
+      sendKeys(focusElement, Keys.DOWN)
+      waitResponse()
 
       // Scroll up and down on the menu
-      sendKeys(jq(".z-menupopup").toWidget().$n("a"), Keys.UP);
-      waitResponse();
+      sendKeys(focusElement, Keys.UP)
+      waitResponse()
+
+      // Scroll up and down on the menu
+      sendKeys(focusElement, Keys.UP)
+      waitResponse()
 
       // Verify the correct selected item
-      verifyTrue("The selected item should be 'New'",(jq(".z-menuitem-hover").text().contains("New")));
-
+      verifyTrue("The selected item should be 'New'", jq(".z-menuitem-hover").text().contains("New"))
     })
   }
 }

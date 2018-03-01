@@ -42,14 +42,8 @@ class B85_ZK_3589Test extends ZTL4ScalaTestCase {
       waitResponse()
       verifyTrue("The popup should appear!", jq("@popup").isVisible)
 
-      // Click below the red line area
-      val viewportHeight = getEval("document.body.clientHeight").toInt
-      val offsetToRedLine = viewportHeight - lbl.offsetTop()
-      getActions
-        .moveToElement(findElement(lbl))
-        .moveByOffset(10, offsetToRedLine + 10)
-        .click()
-        .perform()
+      // Click the button that below the red line area
+      click(jq("$btnFixed"))
       waitResponse()
       verifyFalse("The popup still appears!", jq("@popup").isVisible)
     })

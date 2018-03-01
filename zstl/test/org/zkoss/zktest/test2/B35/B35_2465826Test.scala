@@ -39,7 +39,8 @@ class B35_2465826Test extends ZTL4ScalaTestCase {
 
       verifyFalse("The selection cannot be empty", itemText.isEmpty());
       // Press enter key
-      sendKeys(jq("@listbox").toWidget().$n("a"), Keys.ENTER);
+      val focusElem = if (isSafari) jq("@listbox") else jq("@listbox").toWidget().$n("a")
+      sendKeys(focusElem, Keys.ENTER);
 
       waitResponse(true)
       // Verify that the messagebox is visible

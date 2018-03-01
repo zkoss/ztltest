@@ -1,11 +1,9 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
 import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2590.zul")
 class B70_ZK_2590Test extends ZTL4ScalaTestCase {
@@ -14,11 +12,11 @@ class B70_ZK_2590Test extends ZTL4ScalaTestCase {
 def testClick() = {
   runZTL(
     () => {
-      var input = jq(".z-combobox-input");
-      sendKeys(input, "1");
-      waitResponse();
-      verifyEquals("1A", input.`val`());
+      var input = jq(".z-combobox-input")
+      val oneChar = if (isSafari) Keys.NUMPAD1 else "1"
+      sendKeys(input, oneChar)
+      waitResponse()
+      verifyEquals("1A", input.`val`())
     })
-    
   }
 }
