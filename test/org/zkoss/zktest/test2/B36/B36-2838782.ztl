@@ -24,9 +24,10 @@
 				waitResponse();
 				click(jq("@treerow:eq(0)").toWidget().$n("icon"));
 				waitResponse();
-				sendKeys(tree.$n("a"), Keys.DOWN);
-				sendKeys(tree.$n("a"), Keys.DOWN);
-				sendKeys(tree.$n("a"), Keys.UP);
+				By focusElem = isSafari() ? tree : tree.$n("a");
+				sendKeys(focusElem, Keys.DOWN);
+				sendKeys(focusElem, Keys.DOWN);
+				sendKeys(focusElem, Keys.UP);
 				verifyTrue(jq("@treecell:contains(7)").parent(".z-treerow").hasClass("z-treerow-selected"));
 		]]></client>
 	</case>

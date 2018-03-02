@@ -1,9 +1,9 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
 import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2971.zul")
 class B70_ZK_2971Test extends ZTL4ScalaTestCase {
@@ -18,7 +18,7 @@ class B70_ZK_2971Test extends ZTL4ScalaTestCase {
         start.get(0).eval("scrollIntoView()") // FIXME: Firefox workaround
         click(start)
         waitResponse()
-        var real = listbox2.toWidget().$n("a");
+        var real = if (isSafari) listbox2 else listbox2.toWidget().$n("a")
         for(i <- 6 to 19){
           sendKeys(real, Keys.DOWN);
           waitResponse();
@@ -34,7 +34,7 @@ class B70_ZK_2971Test extends ZTL4ScalaTestCase {
         click(listbox4.find(".z-listitem").eq(6));
         waitResponse();
 
-        real = listbox4.toWidget().$n("a");
+        real = if (isSafari) listbox4 else listbox4.toWidget().$n("a")
         val scrollTop4 = listbox4.find(".z-listbox-body").scrollTop();
         for(i <- 7 to 9){
           sendKeys(real, Keys.SHIFT + "" + Keys.DOWN);

@@ -9,31 +9,7 @@ class B65_ZK_1324Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
-                    <html>
-                      Testing instructions:
-                      <ol>
-                        <li>Click on the bandbox button to open the popup</li>
-                        <li>Click on one of the buttons to give it focus</li>
-                        <li>Click outside the popup to close the bandbox</li>
-                        <li>Click on the bandbox button to open the popup again.</li>
-                      </ol>
-                      Expected result:
-                      <ol>
-                        <li>Bandbox input field should have focus</li>
-                        <li>Buttons inside the bandbox popup should not be rendered as focused.</li>
-                      </ol>
-                    </html>
-                    <bandbox>
-                      <bandpopup width="200px" height="100px">
-                        <button id="btn1" label="Button 1" mold="trendy"></button>
-                        <button id="btn2" label="Button 2" mold="trendy"></button>
-                      </bandpopup>
-                    </bandbox>
-                  </zk>
-"""
-    runZTL(zscript,
-      () => {
+    runZTL(() => {
         val bndbx = jq(".z-bandbox").toWidget()
         val btn = bndbx.$n("btn")
         val pp = bndbx.$n("pp")
@@ -47,7 +23,8 @@ class B65_ZK_1324Test extends ZTL4ScalaTestCase {
         
         click(ppBtn1)
         waitResponse()
-        verifyTrue("Button1 should have focus", hasFocus(ppBtn1))
+        if (!isSafari) // The button in Safari cannot get focus, so skip this check
+          verifyTrue("Button1 should have focus", hasFocus(ppBtn1))
 
         click(jq("body"))
         waitResponse()

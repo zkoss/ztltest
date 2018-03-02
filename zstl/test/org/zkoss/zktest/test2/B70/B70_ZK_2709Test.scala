@@ -34,8 +34,11 @@ class B70_ZK_2709Test extends ZTL4ScalaTestCase {
 			var timebox = jq("@timebox input")
 			focus(timebox)
 			waitResponse()
-			sendKeys(timebox, Keys.HOME, "11")
-      waitResponse()
+			if (isSafari) {
+				(1 to timebox.`val`().length).foreach((_) => { sendKeys(timebox, Keys.ARROW_LEFT) })
+				sendKeys(timebox, Keys.NUMPAD1, Keys.NUMPAD1)
+			}	else
+				sendKeys(timebox, Keys.HOME, "11")
 			sendKeys(timebox, Keys.ENTER)
 			waitResponse()
 			var dateboxInput = jq(".z-datebox-input").`val`()

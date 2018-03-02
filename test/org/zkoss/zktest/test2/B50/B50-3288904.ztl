@@ -33,7 +33,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 		<client><![CDATA[
 				Element inp = jq("@datebox").toWidget().$n("real");
 				focus(inp);
-				sendKeys(inp, Keys.END);
+				sendKeys(inp, isSafari() ? Keys.COMMAND + "" + Keys.ARROW_RIGHT : Keys.END);
 				sendKeys(inp, "000");
 				blur(inp);
 				verifyContains(jq(inp).val(),"200000");

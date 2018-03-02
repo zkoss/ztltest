@@ -48,13 +48,14 @@ If you can use keyboard to up/down each item, that is correct.
 		<client><![CDATA[
 				click(jq(".z-listitem-selected"));
 				verifyEquals(0,jq(".z-listitem-selected").eval("index()"));
-				sendKeys(jq("@listbox").toWidget().$n("a"), Keys.DOWN);
+				By focusElem = isSafari() ? jq("@listbox") : jq("@listbox").toWidget().$n("a");
+				sendKeys(focusElem, Keys.DOWN);
 				waitResponse();
 				verifyEquals(1,jq(".z-listitem-selected").eval("index()"));
-				sendKeys(jq("@listbox").toWidget().$n("a"), Keys.DOWN);
+				sendKeys(focusElem, Keys.DOWN);
 				waitResponse();
 				verifyEquals(2,jq(".z-listitem-selected").eval("index()"));
-				sendKeys(jq("@listbox").toWidget().$n("a"), Keys.UP);
+				sendKeys(focusElem, Keys.UP);
 				waitResponse();
 				verifyEquals(1,jq(".z-listitem-selected").eval("index()"));
 		]]></client>

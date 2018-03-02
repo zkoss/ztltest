@@ -16,14 +16,10 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
-import org.zkoss.ztl.ZK
-import org.zkoss.ztl.util.Scripts
-import org.openqa.selenium.Keys
 import org.junit.Test
+import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Tags, ZK}
 
 /**
  * @author Fernando Selvatici
@@ -33,36 +29,15 @@ import org.junit.Test
 class B35_2349456Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = """
-      <window title="Live Data" border="normal">
-        <zscript><![CDATA[
-String[] data = new String[30];
-for(int j=0; j < data.length; ++j) {
-data[ j ] = "option "+j;
-}
-ListModel strset = new SimpleListModel(data);
-]]></zscript>
-        After this page display, you should be able to navigate the listbox via pressing the DOWN/UP button.
-        <listbox id="list" width="200px" rows="10" model="${strset}">
-          <listhead>
-            <listheader label="Load on Demend" sort="auto"/>
-          </listhead>
-          <zscript>
-            list.setSelectedItem(list.getItemAtIndex(0));
-list.focus();
-          </zscript>
-        </listbox>
-      </window>
-    """
-runZTL(zscript, () => {
+    runZTL(() => {
       var listWidget =
         engine.$f("list");
       var listElement  =
         listWidget.$n("real");
-      val a = listWidget.$n("a")
+      val a = if (isSafari) listWidget else listWidget.$n("a")
 
       // Click on first element of the list to verify later the final selected item
-      click(jq(".z-listcell:contains(option 0)"));
+      click(jq(".z-listitem:contains(option 0)"));
 
       focus(a);
 
