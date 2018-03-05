@@ -29,13 +29,6 @@ import org.zkoss.ztl._
   */
 @Tags(tags = "B50-ZK-430.zul,A,E,Timebox,Format")
 class B50_ZK_430Test extends ZTL4ScalaTestCase {
-  final val KEYMAP = Map(
-    "1" -> Keys.NUMPAD1, "2" -> Keys.NUMPAD2, "3" -> Keys.NUMPAD3,
-    "4" -> Keys.NUMPAD4, "5" -> Keys.NUMPAD5, "6" -> Keys.NUMPAD6,
-    "7" -> Keys.NUMPAD7, "8" -> Keys.NUMPAD8, "9" -> Keys.NUMPAD9,
-    "0" -> Keys.NUMPAD0
-  )
-
   @Test
   def testClick() = {
     runZTL(() => {
@@ -59,10 +52,7 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
         waitResponse()
         ele.eval("select()");
         waitResponse()
-        if (isSafari)
-          value.split("").flatMap(KEYMAP.get).foreach(sendKeys(ele, _))
-        else
-          sendKeys(ele, value)
+        sendKeys(ele, value)
         waitResponse()
       }
 

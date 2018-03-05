@@ -32,14 +32,11 @@ class B70_ZK_2709Test extends ZTL4ScalaTestCase {
 			click(jq(".z-datebox-button"))
 			waitResponse()
 			var timebox = jq("@timebox input")
-			focus(timebox)
+			click(timebox)
 			waitResponse()
-			if (isSafari) {
-				(1 to timebox.`val`().length).foreach((_) => { sendKeys(timebox, Keys.ARROW_LEFT) })
-				sendKeys(timebox, Keys.NUMPAD1, Keys.NUMPAD1)
-			}	else
-				sendKeys(timebox, Keys.HOME, "11")
-			sendKeys(timebox, Keys.ENTER)
+			for (_ <- 1 to 10) sendKeys(timebox, Keys.ARROW_LEFT)
+			waitResponse()
+			sendKeys(timebox, "11" + Keys.ENTER)
 			waitResponse()
 			var dateboxInput = jq(".z-datebox-input").`val`()
 			var today = Calendar.getInstance()

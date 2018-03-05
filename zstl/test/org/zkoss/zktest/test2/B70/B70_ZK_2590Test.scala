@@ -13,8 +13,8 @@ def testClick() = {
   runZTL(
     () => {
       var input = jq(".z-combobox-input")
-      val oneChar = if (isSafari) Keys.NUMPAD1 else "1"
-      sendKeys(input, oneChar)
+      click(input)
+      sendKeys(input, "1")
       waitResponse()
       verifyEquals("1A", input.`val`())
     })
