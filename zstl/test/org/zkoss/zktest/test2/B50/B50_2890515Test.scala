@@ -38,24 +38,24 @@ class B50_2890515Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
     runZTL(() => {
-        var outer: Widget = engine.$f("outer");
-        var dtbx: Widget = engine.$f("dtbx");
+        var outer: Widget = engine.$f("outer")
+        var dtbx: Widget = engine.$f("dtbx")
 
-        click(dtbx.$n("real"));
-        dtbx.$n("real").eval("value='20091102'");
-        click(outer);
-        waitResponse();
+        click(dtbx.$n("real"))
+        dtbx.$n("real").eval("value='20091102'")
+        blur(dtbx.$n("real"))
+        waitResponse()
 
         verifyFalse("should not show error with date before (and include) 2009/11/02",
-            jq(".z-errorbox").exists());
+            jq(".z-errorbox").exists())
 
-        click(dtbx.$n("real"));
-        dtbx.$n("real").eval("value='20091103'");
-        click(outer);
-        waitResponse();
+        click(dtbx.$n("real"))
+        dtbx.$n("real").eval("value='20091103'")
+        blur(dtbx.$n("real"))
+        waitResponse()
 
         verifyTrue("should show error with date after 2009/11/02",
-            jq(".z-errorbox").exists());
+            jq(".z-errorbox").exists())
     }
    );
 

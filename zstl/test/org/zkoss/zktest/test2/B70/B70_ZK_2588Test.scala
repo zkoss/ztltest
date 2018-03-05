@@ -12,86 +12,7 @@ class B70_ZK_2588Test extends ZTL4ScalaTestCase {
 
 @Test
 def testClick() = {
-  val zscript = """
-
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-B70-ZK-2588.zul
-
-	Purpose:
-		
-	Description:
-		
-	History:
-		Mon, Jan 26, 2015  4:01:15 PM, Created by Chunfu
-
-Copyright (C)  Potix Corporation. All Rights Reserved.
-
--->
-<zk>
- <label multiline="true">
-   1. check 1st item
-   2. check last item
-   3. uncheck last item
-   4. shouldn't scroll back to 1st item
-  </label>
-  		<tree height="300px" checkmark="true" multiple="true">
-  			<treechildren>
-	            <treeitem label="John" />
-				<treeitem label="MALE" />
-				<treeitem label="20" />
-				<treeitem label="A college student." />
-				<treeitem label="John" />
-				<treeitem label="MALE" />
-				<treeitem label="20" />
-				<treeitem label="A college student." />
-				<treeitem label="John" />
-				<treeitem label="MALE" />
-				<treeitem label="20" />
-				<treeitem label="A college student." />
-				<treeitem label="Mary" />
-				<treeitem label="FEMALE" />
-				<treeitem label="18" />
-				<treeitem label="A young lady." />
-				<treeitem label="Mary" />
-				<treeitem label="FEMALE" />
-				<treeitem label="18" />
-				<treeitem label="A young lady." />
-	        </treechildren>
-  		</tree>
-  		
-		<listbox height="300px" checkmark="true" multiple="true">
-			<listitem label="John" />
-			<listitem label="MALE" />
-			<listitem label="20" />
-			<listitem label="A college student." />
-			<listitem label="John" />
-			<listitem label="MALE" />
-			<listitem label="20" />
-			<listitem label="A college student." />
-			<listitem label="John" />
-			<listitem label="MALE" />
-			<listitem label="20" />
-			<listitem label="A college student." />
-			<listitem label="Mary" />
-			<listitem label="FEMALE" />
-			<listitem label="18" />
-			<listitem label="A young lady." />
-			<listitem label="Mary" />
-			<listitem label="FEMALE" />
-			<listitem label="18" />
-			<listitem label="A young lady." />
-			<listitem label="Mary" />
-			<listitem label="FEMALE" />
-			<listitem label="18" />
-			<listitem label="A young lady." />
-		</listbox>
-</zk>
-    
-"""  
-  runZTL(zscript,
-    () => {
+  runZTL(() => {
       var treecells = jq(".z-treecell");
       click(treecells.eq(0));
       waitResponse();
@@ -100,7 +21,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       var before = getScrollTop(jq("@tree").toWidget());
       click(treecells.last());
       waitResponse();
-      verifyTrue(getScrollTop(jq("@tree").toWidget()) == before);
+      verifyTolerant(getScrollTop(jq("@tree").toWidget()), before, 1);
       
       var listcells = jq(".z-listcell");
       click(listcells.eq(0));
@@ -110,7 +31,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       before = getScrollTop(jq("@listbox").toWidget());
       click(listcells.last());
       waitResponse();
-      verifyTrue(getScrollTop(jq("@listbox").toWidget()) == before);
+      verifyTolerant(getScrollTop(jq("@listbox").toWidget()), before, 1);
     })
     
   }

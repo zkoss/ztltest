@@ -38,7 +38,7 @@
 				verifyFalse(jq(".z-error").exists());
 				click(jq(t2));
 				waitResponse();
-				verifyEquals("Listbox", getText(jq("@listheader")));
+				verifyEquals("Listbox", getText(jq("@listheader")).trim());
 				verifyEquals("element", getText(jq("@listcell")));
 				click(jq(".z-tabbox-left-scroll").get(0));
 				waitResponse();
@@ -53,7 +53,7 @@
 				waitResponse();
 				click(jq(t3));
 				waitResponse();
-				verifyEquals("Grid", getText(jq("@column")));
+				verifyEquals("Grid", getText(jq("@column")).trim());
 				verifyEquals("element", getText(jq("@label")));
 		]]></client>
 	</case>
