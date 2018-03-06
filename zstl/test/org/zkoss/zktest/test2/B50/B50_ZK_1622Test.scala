@@ -20,8 +20,9 @@ class B50_ZK_1622Test extends ZTL4ScalaTestCase {
         click(jq("[name=" + jq(main).find(".z-paging").attr("id") + "-next]"))
         waitResponse()
         verScroll(main, 1)
-        println(jq(main.$n("body")).scrollTop())
-        verifyTrue("should not see blank area.", jq(main.$n("body")).scrollTop() < 680)
+        println(jq(main.$n("cave")).outerHeight()) // content height
+        println(jq(main.$n("body")).scrollHeight())
+        verifyTolerant(jq(main.$n("cave")).outerHeight(), jq(main.$n("body")).scrollHeight(), 2)
       }
     })
 
