@@ -2,7 +2,7 @@
 	<case id="combobox">
 		<server><!--
 			<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
-				<n:p>Please type the word "s" into the input element, and then press the "Up" button, and the item "Cool!" should be shown.</n:p>
+				<n:p>Please type the word "s" into the input element, and then press the "Down" button, and the item "Cool!" should be shown.</n:p>
 				<combobox id="cb1" constraint="strict">
 					<comboitem label="Simple and Rich" disabled="true"/>
 					<comboitem label="Cool!"/>
@@ -13,7 +13,7 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-				focus(cb1.$n("real"));waitResponse();
+				click(cb1.$n("real"));waitResponse();
 				sendKeys(cb1.$n("real"),Keys.DOWN);waitResponse();
 				verifyEquals("Cool!",jq(jq(".z-combobox").toWidget().$n("real")).val());
 		]]></client>
