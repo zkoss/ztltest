@@ -9,7 +9,7 @@
 
 Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
-package org.zkoss.zktest.test2.F85
+package org.zkoss.zktest.test2.B85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
