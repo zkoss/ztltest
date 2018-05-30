@@ -61,10 +61,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 				verifyTrue(msg.indexOf("d2:onChange:")!=-1 && msg.indexOf("null") == -1);
 				JQuery dateInput = jq(jq(".z-datebox").toWidget().$n("real"));
 				dateInput.toElement().set("value", "");
-				if(!ZK.is("safari"))
 				sendKeys(dateInput, "" + Keys.TAB);
-				else
-				typeKeys(dateInput, "" + Keys.TAB);
 				waitResponse();
 				blur(dateInput);
 				msg = jq("@label:last").text();

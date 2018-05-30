@@ -15,7 +15,8 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       val cyan = jq(".z-div[style*=cyan]")
       val pp = jq("@popup")
-      Scripts.triggerMouseEventAt(driver(), cyan, "mouseover", "100,100")
+      //Scripts.triggerMouseEventAt(driver(), cyan, "mouseover", "100,100")
+      mouseOver(cyan)
       waitResponse()
       sleep(1000)
       // should see tooltip showed at position "before_start"
@@ -23,20 +24,18 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
       verifyTolerant(cyan.offsetLeft(), pp.offsetLeft(), 1)
 
       val pink = jq(".z-div[style*=pink]")
-      getActions
-        .moveToElement(findElement(pink))
-        .click()
-        .perform()
+      click(pink)
       waitResponse()
       // should see tooltip showed on 20px down of mouse pointer
       verifyTolerant(pink.offsetTop() + 100, pp.offsetTop() - 20, 3)
       verifyTolerant(pink.offsetLeft() + 100, pp.offsetLeft(), 3)
 
       val yellow = jq(".z-div[style*=yellow]")
-      getActions
-        .moveToElement(findElement(yellow))
-        .contextClick()
-        .perform()
+//      getActions
+//        .moveToElement(findElement(yellow))
+//        .contextClick()
+//        .perform()
+      contextMenu(yellow)
       waitResponse()
       // should see tooltip showed on 50px left of mouse pointer
       verifyTolerant(yellow.offsetTop() + 100, pp.positionTop(), 1)
@@ -52,7 +51,8 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
 
       val cyan = jq(".z-div[style*=cyan]")
       val pp = jq("@popup")
-      Scripts.triggerMouseEventAt(driver(), cyan, "mouseover", "100,100")
+//      Scripts.triggerMouseEventAt(driver(), cyan, "mouseover", "100,100")
+      mouseOver(cyan)
       waitResponse()
       sleep(1000)
       // should see tooltip showed at 40px right of the cursor
@@ -60,10 +60,11 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
       verifyTolerant(cyan.offsetLeft() + 140, pp.offsetLeft(), 1)
 
       val pink = jq(".z-div[style*=pink]")
-      getActions
-        .moveToElement(findElement(pink))
-        .click()
-        .perform()
+//      getActions
+//        .moveToElement(findElement(pink))
+//        .click()
+//        .perform()
+      click(pink)
       waitResponse()
       // should see tooltip showed at the "after_center" position
       verifyTolerant(pink.offsetTop() + 200, pp.offsetTop(), 3)

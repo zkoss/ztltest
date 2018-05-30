@@ -69,9 +69,7 @@ class B50_ZK_909Test extends ZTL4ScalaTestCase {
         click(jq(".z-errorbox").toWidget().$n("cls"))
         waitResponse()
         sleep(500)
-        if(!ZK.is("ff") && !ZK.is("safari")) // selenium
-        	verifyTrue("should not see errorbox message", !jq(".z-errorbox").exists())
-        
+        verifyTrue("should not see errorbox message", !jq(".z-errorbox").exists())
         
         val textbox = jq(".z-textbox:eq(0)")
         sendKeys(textbox, "1111")

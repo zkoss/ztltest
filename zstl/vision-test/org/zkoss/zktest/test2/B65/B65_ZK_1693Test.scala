@@ -99,7 +99,7 @@ class B65_ZK_1693Test extends ZTL4ScalaTestCase {
             waitResponse()
             sleep(500)
             val pp = jq("#" + cb.attr("id") + "-pp")
-            if(!ZK.is("ie11_"))
+            if(isIE)
             	click(pp.find(".z-colorpalette-color[style*=" + color + "]"))
             else
             	click(pp.find(".z-colorpalette-color[data-color*=" + color + "]"))

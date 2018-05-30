@@ -19,10 +19,7 @@
 			</zk>
 		--></server>
 		<client><![CDATA[
-				if(!ZK.is("safari"))
-					click(jq(".z-listcell"));
-				else
-					clickAt(jq(".z-listcell"),"2,2");
+				click(jq(".z-listcell"));
 				waitResponse();
 				verifyTrue(isVisible(popup));
 				clickAt(lh.$n("cave"),"2,2");

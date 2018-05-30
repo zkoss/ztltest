@@ -55,15 +55,9 @@ class Z60_B00775ListmodelSelectionTest extends ZTL4ScalaTestCase {
       var header = jq("$header")
       var shrink = jq("$shrink")
 
-      if(!ZK.is("ie8_"))
     	click(header)
-      else
-        Scripts.triggerMouseEventAt(getWebDriver(), header, "click", "10,10");
       waitResponse()
-      if (!ZK.is("ie8_"))
-        click(header)
-      else
-        Scripts.triggerMouseEventAt(getWebDriver(), header, "click", "10,10"); // twice
+      click(header)
       waitResponse()
 
       click(listbox.find("@listitem").eq(8).toWidget())

@@ -24,14 +24,15 @@ import org.zkoss.ztl.ZK
 import org.junit.Test
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B36-2799334.zul,B,E,Window,Button")
 class B36_2799334Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <window title="IE only" border="normal" width="500px">
         <toolbarbutton label="step 1-click here to show pop" popup="popme"/>
         <popup id="popme" width="330px">
@@ -40,7 +41,7 @@ class B36_2799334Test extends ZTL4ScalaTestCase {
         </popup>
         <textbox id="tb2" value="step 3-click here, it should select all the words." onFocus="self.select();" width="400px"/>
       </window>"""
-    
+
     runZTL(zscript, () => {
       // Click on toolbarbutton
       click(jq(".z-toolbarbutton-content"));
@@ -51,8 +52,7 @@ class B36_2799334Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       // Verify that the popup textbox has focus
-      if(!ZK.is("ie8"))
-    	  verifyTrue("The second textbox should have focus", "" != jq("$tb1").css("box-shadow"));
+      verifyTrue("The second textbox should have focus", "" != jq("$tb1").css("box-shadow"));
 
       // Click on step 3 textbox
       focus(jq("$tb2"));

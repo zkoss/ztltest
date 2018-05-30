@@ -17,9 +17,6 @@
 			int totalWidth = jq(parent).outerWidth();
 			int spaceWidth = jq(space).outerWidth();
 			int spaceOuterWidth = jq(space).outerWidth(true);
-			if (ZK.is("ff") && spaceWidth != spaceOuterWidth)// FF will add the width of self's body
-					spaceOuterWidth -= spaceWidth;
-				
 			long widthDiff = Math.abs(Math.round(totalWidth * 0.2) - spaceOuterWidth);
 			verifyTrue(widthDiff <= 5L);
 		]]></client>

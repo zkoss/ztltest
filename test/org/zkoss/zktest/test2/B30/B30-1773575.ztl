@@ -29,16 +29,13 @@
 		-->
 		</server>
 		<client><![CDATA[
-			// In safari, it will reload incorrectly. So ignore.
-	        if (!ZK.is("safari")) {
-	            click(btn1);
-	            waitResponse();
-	            verifyTrue(getLocation().indexOf("?") < 0);
-	            click(btn2);
-	            waitResponse();
-	            verifyTrue(getLocation().indexOf("?") < 0);
-	            verifyTrue(getLocation().endsWith("#12345"));
-	        }
+			click(btn1);
+			waitResponse();
+			verifyTrue(getLocation().indexOf("?") < 0);
+			click(btn2);
+			waitResponse();
+			verifyTrue(getLocation().indexOf("?") < 0);
+			verifyTrue(getLocation().endsWith("#12345"));
 		]]></client>
 	</case>
 </test>

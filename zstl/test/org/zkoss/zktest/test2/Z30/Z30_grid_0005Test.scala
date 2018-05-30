@@ -25,16 +25,18 @@ import org.zkoss.ztl.JQuery
 import org.zkoss.ztl.ZK
 
 /**
- * A test class for bug grid-0005
- * @author TonyQ
- *
- */
+  * A test class for bug grid-0005
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z30-grid-0005.zul,Z30,grid,column,auxhead,colspan,sizable,ie9")
 class Z30_grid_0005Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 		<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
 			<n:p>Test the complex grid with Auxhead, you can see the layout shows properly and also shows properly after sizing the header.</n:p>
 			<window title="Test common grid and auxhead.">
@@ -79,44 +81,41 @@ class Z30_grid_0005Test extends ZTL4ScalaTestCase {
     """;
 
     runZTL(zscript,
-        () => {
-		var checkId = jq("$checkbox").toWidget().uuid() + "-real";
-		var $jq = jq("$column");
-		var uuid = jq("$column").toWidget().uuid();
-		var $head = jq("$grid").toWidget().$n("head");
-		var $body = jq("$grid").toWidget().$n("body");
-		// check colSpan
-		var c1 = Integer.parseInt(jq("$head1").toWidget().firstChild().$n().get("colSpan"));
-		var c2 = Integer.parseInt(jq("$head2").toWidget().lastChild().$n().get("colSpan"));
-		verifyEquals(4, c1 + c2);
-		c1 = Integer.parseInt(jq("$head2").toWidget().firstChild().$n().get("colSpan"));
-		c2 = Integer.parseInt(jq("$head2").toWidget().lastChild().$n().get("colSpan"));
-		verifyEquals(3, c1 + c2);
-		c1 = Integer.parseInt(jq("$head3").toWidget().firstChild().$n().get("colSpan"));
-		c2 = Integer.parseInt(jq("$head3").toWidget().firstChild().nextSibling().$n().get("colSpan"));
-		var c3 = Integer.parseInt(jq("$head3").toWidget().lastChild().$n().get("colSpan"));
-		verifyEquals(3, c1 + c2 + c3);
-		c1 = Integer.parseInt(jq("$head4").toWidget().firstChild().$n().get("colSpan"));
-		verifyEquals(3, c1);
-		var w = jq("$grid").innerWidth()
-		verifyEquals(w + "", jq($head).outerWidth());
-		verifyEquals(w + "", jq($body).outerWidth());
-		var h = jq("$grid").height();
-		verifyEquals(h, Integer.parseInt($head.get("offsetHeight")) + Integer.parseInt($body.get("offsetHeight")));
-		if(!ZK.is("ie10")) {
-			// check sizing
-			click(checkId);
-			waitResponse();
-			var width = getElementWidth(uuid);
-			mouseMoveAt($jq.toWidget(), width + ",0");
-		
-			verifyTrue($jq.hasClass("z-column-sizing"));
-			//a workaround to chrome, move 10px per drag
-			dragdropTo(jq("$column").toWidget(), width + ",0", width.intValue() - 10 + ",0");
-			dragdropTo(jq("$column").toWidget(), width.intValue() - 10 + ",0", width.intValue() - 20 + ",0");
-			verifyNotEquals(width.intValue(), getElementWidth(uuid).intValue());
-		}
-    }
-   );
+      () => {
+        var checkId = jq("$checkbox").toWidget().uuid() + "-real";
+        var $jq = jq("$column");
+        var uuid = jq("$column").toWidget().uuid();
+        var $head = jq("$grid").toWidget().$n("head");
+        var $body = jq("$grid").toWidget().$n("body");
+        // check colSpan
+        var c1 = Integer.parseInt(jq("$head1").toWidget().firstChild().$n().get("colSpan"));
+        var c2 = Integer.parseInt(jq("$head2").toWidget().lastChild().$n().get("colSpan"));
+        verifyEquals(4, c1 + c2);
+        c1 = Integer.parseInt(jq("$head2").toWidget().firstChild().$n().get("colSpan"));
+        c2 = Integer.parseInt(jq("$head2").toWidget().lastChild().$n().get("colSpan"));
+        verifyEquals(3, c1 + c2);
+        c1 = Integer.parseInt(jq("$head3").toWidget().firstChild().$n().get("colSpan"));
+        c2 = Integer.parseInt(jq("$head3").toWidget().firstChild().nextSibling().$n().get("colSpan"));
+        var c3 = Integer.parseInt(jq("$head3").toWidget().lastChild().$n().get("colSpan"));
+        verifyEquals(3, c1 + c2 + c3);
+        c1 = Integer.parseInt(jq("$head4").toWidget().firstChild().$n().get("colSpan"));
+        verifyEquals(3, c1);
+        var w = jq("$grid").innerWidth()
+        verifyEquals(w + "", jq($head).outerWidth());
+        verifyEquals(w + "", jq($body).outerWidth());
+        var h = jq("$grid").height();
+        verifyEquals(h, Integer.parseInt($head.get("offsetHeight")) + Integer.parseInt($body.get("offsetHeight")));
+        // check sizing
+        click(checkId);
+        waitResponse();
+        var width = getElementWidth(uuid);
+        mouseMoveAt($jq.toWidget(), width + ",0");
+        verifyTrue($jq.hasClass("z-column-sizing"));
+        //a workaround to chrome, move 10px per drag
+        dragdropTo(jq("$column").toWidget(), width + ",0", width.intValue() - 10 + ",0");
+        dragdropTo(jq("$column").toWidget(), width.intValue() - 10 + ",0", width.intValue() - 20 + ",0");
+        verifyNotEquals(width.intValue(), getElementWidth(uuid).intValue());
+      }
+    );
   }
 }

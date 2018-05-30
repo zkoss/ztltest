@@ -33,10 +33,7 @@
 				click(jq(".z-treerow").toWidget().$n("icon"));
 				waitResponse();
 				verifyEquals(2,jq(".z-treerow").length());
-				if(!ZK.is("opera"))
-					click(jq(".z-treecell"));
-				else
-					clickAt(jq(".z-treecell"), "2,2");
+				click(jq(".z-treecell"));
 				waitResponse();
 				verifyTrue(isVisible(jq(".z-window-highlighted")));
 			]]></client>

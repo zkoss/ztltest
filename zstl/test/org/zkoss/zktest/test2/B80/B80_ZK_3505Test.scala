@@ -32,7 +32,7 @@ class B80_ZK_3505Test extends ZTL4ScalaTestCase {
 
   def pressTab(): Unit = {
     if (isFirefox || isChrome)
-      sendKeys(By.tagName("body"), Keys.TAB)
+      sendKeys(jq("body"), Keys.TAB)
     else
       keyPressNative("9")
   }

@@ -51,9 +51,9 @@ class Z30_grid_0012Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
         () => {
-          verifyEquals(jq("@row").eq(0).outerHeight().toString(), if (ZK is "ie < 8") "60" else "50")
+          verifyEquals(jq("@row").eq(0).outerHeight().toString(), "50")
           verifyNotEquals(jq("@row").eq(0).outerHeight().toString(),"51")
-          verifyEquals(jq("@row").eq(1).outerHeight().toString(), if (ZK is "ie < 8") "110" else "100")
+          verifyEquals(jq("@row").eq(1).outerHeight().toString(), "100")
           verifyNotEquals(jq("@row").eq(1).outerHeight().toString(),"101")
     }
    );

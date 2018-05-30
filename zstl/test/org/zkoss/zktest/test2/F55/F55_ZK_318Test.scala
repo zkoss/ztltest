@@ -131,7 +131,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 
         // step 10
         // Skip IE, because IEDriver has an issue about mouse hovering
-        if (!ZK.is("ie"))
+        if (!isIE)
           clickAndWait(cbx.$n("real"))
 
         // step 11
@@ -158,7 +158,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         clickAndWait(jq(bd2).toWidget.$n("btn"))
         openMenu(Array(pp2About, pp2Menu, pp2ColorPicker, pp2ColorPicker))
         // FIXME: https://github.com/SeleniumHQ/selenium/issues/4292
-        if (ZK.is("ie"))
+        if (isIE)
           jq(".z-colorpalette-color:eq(22)").get(0).eval("click();'dummy'")
         else
           click(jq(".z-colorpalette-color:eq(22)"))

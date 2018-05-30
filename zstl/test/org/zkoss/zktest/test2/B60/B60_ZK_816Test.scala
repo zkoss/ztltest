@@ -48,10 +48,7 @@ class B60_ZK_816Test extends ZTL4ScalaTestCase {
         mouseOver(jq(".z-label:contains(new label):eq(3)"))
         waitResponse()
         sleep(2000)
-        if (ZK.is("ie") && !ZK.is("ie11_"))
-          verifyTrue(jq(".z-popup:contains(this is tool tip):eq(0)").is(":visible"))
-        else
-          verifyTrue(jq(".z-popup:contains(this is tool tip):eq(1)").is(":visible"))
+        verifyTrue(jq(".z-popup:contains(this is tool tip):eq(1)").is(":visible"))
       })
 
   }

@@ -22,10 +22,7 @@ def testClick() = {
       nativeFrozenScroll(jq(".z-grid"), 400)
       waitResponse()
       //sort the last column
-      if (!ZK.is("safari"))
-        click(jq(".z-column").last())
-      else
-        clickAt(jq(".z-column").last(), "2,2")
+      click(jq(".z-column").last())
       waitResponse()
       //check the new column width
       var cols = jq(".z-column")
@@ -58,10 +55,7 @@ def testClick() = {
     	  newWidths :+= jqi.next().width()
       }
       //sort column 7
-      if (!ZK.is("safari"))
-        click(column7);
-      else
-        clickAt(column7, "2,2")
+      click(column7);
       waitResponse()
       //check width should be the same
       jqi = jq(".z-column").iterator()

@@ -29,15 +29,17 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug 3317743
- * @author benbai
- *
- */
+  * A test class for bug 3317743
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3317743.zul,A,E,Listbox,Tree")
 class B50_3317743Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<div>1. Click on item 3.</div>
 				<div>2. Go to next page.</div>
@@ -54,65 +56,26 @@ class B50_3317743Test extends ZTL4ScalaTestCase {
     			<textbox id="tb" />
 			</zk>
     """
-def executor = () => {
-		var listbox: Widget = engine.$f("listbox");
-		var tb: Widget = engine.$f("tb");
-		waitResponse();
 
-		if (ZK.is("ie9"))
-		  clickAt(jq(listbox.$n("rows")).find(".z-listitem").get(3), "200,5");
-		else
-			Scripts.triggerMouseEventAt(getWebDriver(), jq(listbox.$n("rows")).find(".z-listitem").get(3), "click", "200,5");
-		waitResponse();
-		click(jq("[name=" + jq(".z-paging").attr("id") + "-next]"));		
-		waitResponse();
-		if (ZK.is("ie9"))
-		  clickAt(jq(listbox.$n("rows")).find(".z-listitem").get(3), "200,5");
-		else
-			Scripts.triggerMouseEventAt(getWebDriver(), jq(listbox.$n("rows")).find(".z-listitem").get(3), "click", "200,5");
-		waitResponse();
-		println(Integer.parseInt(tb.$n().get("value")));
-		
-		verifyTrue(Integer.parseInt(tb.$n().get("value")) > 200);
+    def executor = () => {
+      var listbox: Widget = engine.$f("listbox");
+      var tb: Widget = engine.$f("tb");
+      waitResponse();
 
-		click(jq("[name=" + jq( jq(".z-paging")).attr("id") + "-prev]"));
-		waitResponse();
-		verifyTrue(jq(".z-listitem:eq(3)").hasClass("z-listitem-selected"));
+      clickAt(jq(listbox.$n("rows")).find(".z-listitem").get(3), "200,5");
+      waitResponse();
+      click(jq("[name=" + jq(".z-paging").attr("id") + "-next]"));
+      waitResponse();
+      clickAt(jq(listbox.$n("rows")).find(".z-listitem").get(3), "200,5");
+      waitResponse();
+      println(Integer.parseInt(tb.$n().get("value")));
+
+      verifyTrue(Integer.parseInt(tb.$n().get("value")) > 200);
+
+      click(jq("[name=" + jq(jq(".z-paging")).attr("id") + "-prev]"));
+      waitResponse();
+      verifyTrue(jq(".z-listitem:eq(3)").hasClass("z-listitem-selected"));
     }
-runZTL(zscript, executor);
-   
-   // Run syntax 2
-   /**
-    runZTL(zscript,
-        () => {
-        var l1: Widget = engine.$f("l1");
-        var l2: Widget = engine.$f("l2");
-        waitResponse();
-        var strClickBefor = getText(l1);
-        click(l1);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l1));
-        strClickBefor = getText(l2);
-        click(l2);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l2));
-    }
-   );
-    */
-    /** create widget example
-		var tree: Widget = engine.$f("tree");
-		var listbox: Widget = engine.$f("listbox");
-		waitResponse();
-	*/
-   /** trigger mouse event example
-    Scripts.triggerMouseEventAt(getWebDriver(), inner1, "click", "5,5");
-    */
-   /** detect whether exception exists example
-   		verifyFalse(jq(".z-window-highlighted").exists());
-   		verifyFalse(jq(".z-window-modal").exists())
-	*/
-	/** detect browser
-		if (ZK.is("ie6_") || ZK.is("ie7_"))
-	*/
+    runZTL(zscript, executor);
   }
 }

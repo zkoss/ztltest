@@ -16,7 +16,7 @@ package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.{Tags, Widget};
 
 /**
  * 
@@ -30,7 +30,7 @@ class B80_ZK_3193Test extends ZTL4ScalaTestCase {
 			val bandbox = jq("@bandbox")
 			click(bandbox.find(".z-bandbox-button"))
 			waitResponse()
-
+      val engine = new Widget(new StringBuffer("zk.Desktop._dt"))
 			val listbox = jq("@listbox")
 			clickAt(listbox, (listbox.width()-5).toString + "," + (listbox.height()-5).toString)
 			waitResponse()

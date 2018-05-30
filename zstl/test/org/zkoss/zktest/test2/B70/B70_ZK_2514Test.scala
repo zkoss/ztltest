@@ -12,36 +12,7 @@ class B70_ZK_2514Test extends ZTL4ScalaTestCase {
 
 @Test
 def testClick() = {
-  val zscript = """
-
-<zk>
-<label multiline="true">
-	1. drag vertical splitter to left most position and drag to right
-	2. you should see the width of Column 1 increase
-	3. drag horizontal splitter to up most position
-	4. you should see the total height of Column 1-1 plus Column 1-2 remains the same 
-</label>
-<panel title="Splitter" border="normal" width="500px">
-    <panelchildren>
-        <hbox spacing="0" width="100%" height="100%">
-            <vbox spacing="0" width="100%"  heights="130px,130px">
-                Column 1-1: The left-top box. To know whether a splitter
-                is collapsed, you can listen to the onOpen event.
-                <splitter id="s1" collapse="before" />
-                Column 1-2: You can enforce to open or collapse programming
-                by calling setOpen method.
-            </vbox>
-            <splitter id="s2" collapse="before"/>
-             Column 2: Whether a splitter allows users to open or collapse
-             depending on the collapse attribute.
-        </hbox>
-    </panelchildren>
-</panel>
-</zk>
-
-"""  
-  runZTL(zscript,
-    () => {
+  runZTL(() => {
       val vsplitter = jq(".z-splitter-horizontal")
       var startL = vsplitter.positionLeft()
       var startT = vsplitter.positionTop()

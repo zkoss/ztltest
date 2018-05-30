@@ -23,9 +23,8 @@
 				click(jq(".z-listitem:eq(0)"));
 				waitResponse();
 				int temp = 0;
-				By focusElem = isSafari() ? listbox : listbox.$n("a");
 				for (int i = 0; i < 15; i++) {
-					sendKeys(focusElem, Keys.DOWN);
+					sendKeys(jq(listbox), Keys.DOWN);
 					sleep(30);
 					temp = i;
 				}
@@ -33,7 +32,7 @@
 				verifyTrue("Times of pressing Down: " + temp + ", scrollTop: " + scrollTop, 150 < scrollTop);
 				temp = 0;
 				for (int i = 0; i < 15; i++) {
-					sendKeys(focusElem, Keys.UP);
+					sendKeys(jq(listbox), Keys.UP);
 					sleep(30);
 					temp = i;
 				}

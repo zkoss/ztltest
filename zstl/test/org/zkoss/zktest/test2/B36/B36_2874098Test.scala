@@ -99,8 +99,6 @@ class B36_2874098Test extends ZTL4ScalaTestCase {
 
         //Click save button
         var save = jq("$buttonSave");
-        if (ZK.is("ie8"))
-          blur(txt2)
         click(save);
         waitResponse();
         //Get errorbox exists

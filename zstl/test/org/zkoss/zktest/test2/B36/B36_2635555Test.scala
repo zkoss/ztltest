@@ -24,15 +24,17 @@ import org.zkoss.ztl.ZK
 import org.zkoss.ztl.util.Scripts
 
 /**
- * A test class for bug 2635555
- * @author ldnigro
- *
- */
+  * A test class for bug 2635555
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B36-2635555.zul,B,E,Textbox,IE")
 class B36_2635555Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -84,18 +86,12 @@ onBlur='self.style="background:white"' />
 
         //Click upload button
         var btn = jq("@button");
-        if (ZK.is("ie == 9"))
-        	Scripts.triggerMouseEventAt(getWebDriver(), btn, "click", "2,2");
-        else
-        	click(btn);
+        click(btn);
 
         waitResponse();
 
         //Click cancel button
         var cancel = jq("@button:last");
-        if (ZK.is("ie == 9"))
-        	Scripts.triggerMouseEventAt(getWebDriver(), cancel, "click", "2,2");
-        else
         click(cancel);
 
         waitResponse();
@@ -106,10 +102,7 @@ onBlur='self.style="background:white"' />
         waitResponse();
         var color = text.css("background-color");
 
-        if (ZK.is("ie < 9")) {
-          verifyTrue(color.equals("red"));
-        } else
-          verifyTrue(color.equals("rgb(255, 0, 0)"));
+        verifyTrue(color.equals("rgb(255, 0, 0)"));
 
       });
   }

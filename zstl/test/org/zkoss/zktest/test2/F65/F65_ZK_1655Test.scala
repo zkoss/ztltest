@@ -12,10 +12,11 @@ class F65_ZK_1655Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       val yellow = jq(".z-div[style*=yellow]")
-      getActions
-        .moveToElement(findElement(yellow))
-        .contextClick()
-        .perform()
+//      getActions
+//        .moveToElement(findElement(yellow))
+//        .contextClick()
+//        .perform()
+      contextMenu(yellow)
       waitResponse()
       val yellowPP = jq("@popup")
       // should see tooltip showed on 50px left of mouse pointer
@@ -23,10 +24,11 @@ class F65_ZK_1655Test extends ZTL4ScalaTestCase {
       verifyTolerant(yellowPP.positionLeft() + 50, yellow.offsetLeft() + 100, 1)
 
       val pink = jq(".z-div[style*=pink]")
-      getActions
-        .moveToElement(findElement(pink))
-        .click()
-        .perform()
+//      getActions
+//        .moveToElement(findElement(pink))
+//        .click()
+//        .perform()
+      click(pink)
       waitResponse()
       val pinkPP = jq("@popup")
 
@@ -35,7 +37,7 @@ class F65_ZK_1655Test extends ZTL4ScalaTestCase {
       verifyTolerant(pinkPP.offsetLeft(), pink.offsetLeft() + 100, 3)
 
       val cyan = jq(".z-div[style*=cyan]")
-      Scripts.triggerMouseEventAt(getWebDriver(), cyan, "mouseover", "100,100")
+      mouseOver(cyan)
       waitResponse()
       sleep(1000)
       val cyanPP = jq("@popup")

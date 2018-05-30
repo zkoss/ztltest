@@ -29,15 +29,17 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug 3142509
- * @author benbai
- *
- */
+  * A test class for bug 3142509
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3142509.zul,A,E,Listbox,Select")
 class B50_3142509Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 
 			<zk>
 				<listbox mold="select" id="list">
@@ -52,54 +54,20 @@ class B50_3142509Test extends ZTL4ScalaTestCase {
 			
 
     """
-def executor = () => {
-    	var (btn: Widget,
-    	    list: Widget) = (
-    	        engine.$f("btn"),
-    	        engine.$f("list")
-    	    );
-		waitResponse();
-		click(btn);
-		waitResponse();
-		if (ZK.is("ie6_") || ZK.is("ie7_") || ZK.is("ie8_"))
-			verifyTrue("item4".equals(jq(list.$n()).find("option").get(Integer.parseInt(list.$n().get("selectedIndex"))).get("text")));
-		else
-		  verifyTrue("item4".equals(list.$n().get("value")));
+
+    def executor = () => {
+      var (btn: Widget,
+      list: Widget) = (
+        engine.$f("btn"),
+        engine.$f("list")
+      );
+      waitResponse();
+      click(btn);
+      waitResponse();
+      verifyTrue("item4".equals(list.$n().get("value")));
     }
-runZTL(zscript, executor);
-   
-   // Run syntax 2
-   /**
-    runZTL(zscript,
-        () => {
-        var l1: Widget = engine.$f("l1");
-        var l2: Widget = engine.$f("l2");
-        waitResponse();
-        var strClickBefor = getText(l1);
-        click(l1);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l1));
-        strClickBefor = getText(l2);
-        click(l2);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l2));
-    }
-   );
-    */
-    /** create widget example
-		var tree: Widget = engine.$f("tree");
-		var listbox: Widget = engine.$f("listbox");
-		waitResponse();
-	*/
-   /** trigger mouse event example
-    Scripts.triggerMouseEventAt(getWebDriver(), inner1, "click", "5,5");
-    */
-   /** detect whether exception exists example
-   		verifyFalse(jq(".z-window-highlighted").exists());
-   		verifyFalse(jq(".z-window-modal").exists())
-	*/
-	/** detect browser
-		if (ZK.is("ie6_") || ZK.is("ie7_"))
-	*/
+
+    runZTL(zscript, executor);
+
   }
 }

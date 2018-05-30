@@ -24,16 +24,18 @@ import org.junit.Test
 import org.zkoss.ztl.ZK
 
 /**
- * A test class for bug 2078184
- * @author ldnigro
- *
- */
+  * A test class for bug 2078184
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2078184.zul,A,E,Spinner")
 class B35_2078184Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <zk>
 <vbox>
 <label value="1.scroll down the scrollbar"/>
@@ -53,58 +55,41 @@ class B35_2078184Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
-        	val fixClick = (e: Element) => {
-        	  if(!ZK.is("opera"))
-        		click(e);
-        	  else
-        		clickAt(e,"2,2");
-        	} 
-        	
-        	//Scroll down
-        	jq("$div1").get(0).eval("scrollTop = 40");
-        	waitResponse();
-        	
-        	//click spinner1 button down
-        	var ds: Widget = engine.$f("sp1");
-        	var dsInp: Element = ds.$n("real");
-
-        	fixClick(ds.$n("btn-down"));
-
-        	waitResponse();
-        	
-        	var v=getValue(dsInp);
-        	verifyEquals(v,"-1");
-        	
-        	//click spinner again
-        	fixClick(ds.$n("btn-down"));
-
-        	
-        	waitResponse();
-        	
-        	v=getValue(dsInp);
-        	verifyEquals(v,"-2");
-        	
-        	
-        	//click spinner2 button down
-        	var ds2: Widget = engine.$f("sp2");
-        	var ds2Inp: Element = ds2.$n("real");
-        	fixClick(ds2.$n("btn-down"));
-        	
-        	waitResponse();
-        	
-        	var v2=getValue(ds2Inp);
-        	verifyEquals(v2,"-1");
-        	
-        	//click spinner again      
-        	fixClick(ds2.$n("btn-down"));
-        	
-        	waitResponse();
-        	
-        	v2=getValue(ds2Inp);
-        	verifyEquals(v2,"-2");
-        	                    
+      () => {
+        val fixClick = (e: Element) => {
+          click(e);
         }
+
+        //Scroll down
+        jq("$div1").get(0).eval("scrollTop = 40");
+        waitResponse();
+
+        //click spinner1 button down
+        var ds: Widget = engine.$f("sp1");
+        var dsInp: Element = ds.$n("real");
+
+        fixClick(ds.$n("btn-down"));
+        waitResponse();
+        var v = getValue(dsInp);
+        verifyEquals(v, "-1");
+        //click spinner again
+        fixClick(ds.$n("btn-down"));
+        waitResponse();
+        v = getValue(dsInp);
+        verifyEquals(v, "-2");
+        //click spinner2 button down
+        var ds2: Widget = engine.$f("sp2");
+        var ds2Inp: Element = ds2.$n("real");
+        fixClick(ds2.$n("btn-down"));
+        waitResponse();
+        var v2 = getValue(ds2Inp);
+        verifyEquals(v2, "-1");
+        //click spinner again
+        fixClick(ds2.$n("btn-down"));
+        waitResponse();
+        v2 = getValue(ds2Inp);
+        verifyEquals(v2, "-2");
+      }
     );
-   }
+  }
 }

@@ -78,19 +78,13 @@ it will be useful, but WITHOUT ANY WARRANTY.
 			verifyTrue(jq(grid.$n("body")).find(".z-rows")
 			.find(".z-row").eq(i).text().endsWith((i)+""));
 			}
-			if(ZK.is("ie8_") || ZK.is("ie9_"))
-				click(esort);
-			else
-				Scripts.triggerMouseEventAt(getWebDriver(), esort, "click", "2,2");
+			click(esort);
 			waitResponse();
 			for (int i = 0;i < 10;i ++) {
 			verifyTrue(jq(grid.$n("body")).find(".z-rows")
 			.find(".z-row").eq(i).text().endsWith((10-i-1)+""));
 			}
-			if(ZK.is("ie9_"))
-				click(esort);
-			else
-				Scripts.triggerMouseEventAt(getWebDriver(), esort, "click", "2,2");
+			click(esort);
 			waitResponse();
 			for (int i = 0;i < 10;i ++) {
 			verifyTrue(jq(grid.$n("body")).find(".z-rows")

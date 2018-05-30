@@ -31,15 +31,9 @@
 			</window>
 		--></server>
 		<client><![CDATA[
-			if (!ZK.is("safari"))
-				click(jq(".z-listheader"));
-			else
-				clickAt(jq(".z-listheader"), "2,2");
+			click(jq(".z-listheader"));
 			waitResponse();
-			if (!ZK.is("safari"))
-				click(jq(".z-listheader"));
-			else
-				clickAt(jq(".z-listheader"), "2,2");
+			click(jq(".z-listheader"));
 		]]></client>
 	</case>
 </test>

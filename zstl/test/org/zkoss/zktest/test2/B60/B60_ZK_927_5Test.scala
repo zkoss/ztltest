@@ -29,15 +29,17 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug ZK-927-5
- * @author benbai
- *
- */
+  * A test class for bug ZK-927-5
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-927-5.zul,")
 class B60_ZK_927_5Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
 			<zk>
 				<window >
@@ -83,7 +85,7 @@ class B60_ZK_927_5Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
+      () => {
         var sel1: Widget = engine.$f("sel1");
         var sel2: Widget = engine.$f("sel2");
         var lbl: Widget = engine.$f("lbl");
@@ -91,34 +93,35 @@ class B60_ZK_927_5Test extends ZTL4ScalaTestCase {
         var set: Widget = engine.$f("set");
         var reload: Widget = engine.$f("reload");
 
-        def select (sbx: Widget, num: Int) {
+        def select(sbx: Widget, num: Int) {
           focus(sbx);
           sbx.$n().eval("selectedIndex = " + num);
-          if (ZK.is("ie6_") || ZK.is("ie7_") || ZK.is("ie8_"))
-        	  click(outArea);
-          else
-            blur(sbx);
+          blur(sbx);
           waitResponse();
         }
-        def check (sbx: Widget, num: Int, checkLbl: Boolean) {
+
+        def check(sbx: Widget, num: Int, checkLbl: Boolean) {
           verifyTrue("",
-              sbx.$n().get("selectedIndex").contains(num+""));
+            sbx.$n().get("selectedIndex").contains(num + ""));
           if (checkLbl)
             verifyTrue("",
-              lbl.$n().get("innerHTML").contains(num+""));
+              lbl.$n().get("innerHTML").contains(num + ""));
         }
+
         select(sel1, 2);
         select(sel2, 2);
         check(sel1, 2, false);
         check(sel2, 2, true);
 
-        click(set); waitResponse();
-        click(reload); waitResponse();
-        verifyTrue("", lbl.$n().get("innerHTML").contains(0+""));
+        click(set);
+        waitResponse();
+        click(reload);
+        waitResponse();
+        verifyTrue("", lbl.$n().get("innerHTML").contains(0 + ""));
 
         check(sel1, 2, false);
         check(sel2, 2, false);
-    }
-   );
+      }
+    );
   }
 }

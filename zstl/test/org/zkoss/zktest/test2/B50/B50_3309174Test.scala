@@ -114,7 +114,7 @@ runZTL(zscript, executor);
    		verifyFalse(jq(".z-window-modal").exists())
 	*/
 	/** detect browser
-		if (ZK.is("ie6_") || ZK.is("ie7_"))
+		if (is("ie6_") || is("ie7_"))
 	*/
   }
 }

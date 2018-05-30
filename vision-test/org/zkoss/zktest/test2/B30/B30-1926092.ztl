@@ -86,12 +86,10 @@
 		clickAt(tc2, "50,5");
 		waitResponse();
 		verifyImage();
-		if (!ZK.is("ie9")) {
-			contextMenu(tc3);
-			waitResponse();
-			verifyImage();
-		}
-			
+		contextMenu(tc3);
+		waitResponse();
+		verifyImage();
+
 		]]></client>
 	</case>
 </test>

@@ -9,10 +9,7 @@
 		<client><![CDATA[
 			click(db.$n("btn"));
 			waitResponse();
-			if (!ZK.is("safari"))
 			click(jq("td.z-calendar-selected"));
-			else
-			clickAt(jq("td.z-calendar-selected"), "2,2");
 			waitResponse();
 			blur(db.$n("real"));
 			waitResponse();

@@ -148,11 +148,8 @@ runZTL(zscript,
           verScroll(lbx, if(num > 2) (num - 3) * 1.0 / 300 else 0.0)
 	      waitResponse();
           
-          if (!isOpera()) // wait ROD if any
-        	  sleep(1000);
+          sleep(1000);
           var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0);
-          if (isOpera()) // opera rod will do after get listitem
-        	  sleep(1000);
           click(listitem);
         }
         // check whether the selection of a listbox contains exactly the content in check list

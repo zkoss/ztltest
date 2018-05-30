@@ -27,24 +27,15 @@
 		--></server>
 		<client><![CDATA[
 			Element inp = jq(".z-datebox:eq(0)").toWidget().$n("real");
-				if (!ZK.is("safari"))
-					sendKeys(inp, "12-13-98" + Keys.TAB);
-				else
-					typeKeys(inp, "12-13-98" + Keys.TAB);
+				sendKeys(inp, "12-13-98" + Keys.TAB);
 				waitResponse(true);
 				verifyTrue(jq(".z-errorbox").exists());
 				click(jq(".z-errorbox").toWidget().$n("cls"));
 				waitResponse();
 				Element inp1 = jq(".z-datebox:eq(1)").toWidget().$n("real");
-				if (!ZK.is("safari"))
-					sendKeys(inp1, "12-13-98" + Keys.TAB);
-				else
-					typeKeys(inp1, "12-13-98" + Keys.TAB);
+				sendKeys(inp1, "12-13-98" + Keys.TAB);
 				Element inp2 = jq(".z-datebox:eq(2)").toWidget().$n("real");
-				if (!ZK.is("safari"))
-					sendKeys(inp2, "12-13-98" + Keys.TAB);
-				else
-					typeKeys(inp2, "12-13-98" + Keys.TAB);
+				sendKeys(inp2, "12-13-98" + Keys.TAB);
 				waitResponse(true);
 				verifyTrue(jq(".z-errorbox").exists());
 		]]></client>

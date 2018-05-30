@@ -61,23 +61,8 @@ runZTL(zscript, () => {
       waitResponse();
 
        val src = jq(jq(".z-north").toWidget().$n("split")).get(0)
-      if (!ZK.is("safari"))
-    	  dragAndDrop(src, "250, 50")
-      else {
-    	  val position = "2,2"
-	      mouseMoveAt(src, position)
-	      waitResponse
-	
-	      mouseDownAt(src, position)
-	      waitResponse
-	
-	      mouseMoveAt(src, position)
-	      waitResponse
-	        
-	      mouseUpAt(src, position)
-	      waitResponse
-      }
-      
+      dragAndDrop(src, "250, 50")
+
       waitResponse();
 
       // Record the height of the north zone after drag

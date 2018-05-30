@@ -72,10 +72,7 @@
 			click(jq(".z-checkbox input[id*=\"real\"]:eq(0)"));
 			waitResponse();
 			verifyTrue(jq(".z-checkbox input[id*=\"real\"]:eq(0)").is(":checked"));
-			if (ZK.is("safari"))
-				clickAt(jq(".z-column:eq(0)"), "1,1");
-			else
-				click(jq(".z-column:eq(0)"));
+			clickAt(jq(".z-column:eq(0)"), "1,1");
 			waitResponse();
 			verifyFalse(jq(".z-checkbox input[id*=\"real\"]:eq(0)").is(":checked"));
 		]]></client>

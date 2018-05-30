@@ -33,7 +33,7 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
   def testClick() = {
 runZTL(() => {
 
-      if(!ZK.is("ie") && !ZK.is("edge")) {
+      if(!isIE && !isEdge) {
 	      click(jq("$anc"));
 	      // Press the TAB key
 	      // Note: Does not work on Chrome due to a ChromeDriver issue: http://code.google.com/p/selenium/issues/detail?id=2328

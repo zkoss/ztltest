@@ -35,10 +35,11 @@ import java.lang._
  */
 @Tags(tags = "B50-3322909.zul,A,E,Listbox,emptyMessage")
 class B50_3322909Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<n:pre xmlns:n="xhtml">
 			
@@ -86,57 +87,26 @@ class B50_3322909Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-def executor = () => {
-    	var test: Widget = engine.$f("test");
-		var btn1: Widget = engine.$f("btn1");
-		var btn2: Widget = engine.$f("btn2");
-		waitResponse();
 
-		click(btn1);
-		waitResponse();
-		click(btn2);
-		waitResponse();
-		verifyTrue(getText(test.$n("empty")).contains("No items match your search"))
-		click(btn1);
-		waitResponse();
-		click(btn2);
-		waitResponse();
-		verifyTrue(getText(test.$n("empty")).contains("No items match your search"))
-	}
-runZTL(zscript, executor);
-   
-   // Run syntax 2
-   /**
-    runZTL(zscript,
-        () => {
-        var l1: Widget = engine.$f("l1");
-        var l2: Widget = engine.$f("l2");
-        waitResponse();
-        var strClickBefor = getText(l1);
-        click(l1);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l1));
-        strClickBefor = getText(l2);
-        click(l2);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l2));
+    def executor = () => {
+      var test: Widget = engine.$f("test");
+      var btn1: Widget = engine.$f("btn1");
+      var btn2: Widget = engine.$f("btn2");
+      waitResponse();
+
+      click(btn1);
+      waitResponse();
+      click(btn2);
+      waitResponse();
+      verifyTrue(getText(test.$n("empty")).contains("No items match your search"))
+      click(btn1);
+      waitResponse();
+      click(btn2);
+      waitResponse();
+      verifyTrue(getText(test.$n("empty")).contains("No items match your search"))
     }
-   );
-    */
-    /** create widget example
-		var tree: Widget = engine.$f("tree");
-		var listbox: Widget = engine.$f("listbox");
-		waitResponse();
-	*/
-   /** trigger mouse event example
-    Scripts.triggerMouseEventAt(getWebDriver(), inner1, "click", "5,5");
-    */
-   /** detect whether exception exists example
-   		verifyFalse(jq(".z-window-highlighted").exists());
-   		verifyFalse(jq(".z-window-modal").exists())
-	*/
-	/** detect browser
-		if (ZK.is("ie6_") || ZK.is("ie7_"))
-	*/
+
+    runZTL(zscript, executor);
+
   }
 }

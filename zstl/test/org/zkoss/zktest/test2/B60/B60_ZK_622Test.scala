@@ -29,15 +29,17 @@ import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
 /**
- * A test class for bug ZK-622
- * @author benbai
- *
- */
+  * A test class for bug ZK-622
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-622.zul,B,E,Radio,JQuery,Selector")
 class B60_ZK_622Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<window id="w" mode="modal" xmlns:n="http://www.zkoss.org/2005/zk/native" width="500px">
 				<n:p>Please click the "female" radio, and then click the "show" button, and then you should see that only "female" is checked and the label "undefined" is shown</n:p>
 				<radiogroup id="radiochoice">
@@ -49,23 +51,22 @@ class B60_ZK_622Test extends ZTL4ScalaTestCase {
 			</window>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var male1: Widget = engine.$f("male1");
         var female: Widget = engine.$f("female");
         var btn: Widget = engine.$f("btn");
         var log: Widget = engine.$f("log");
 
         // skip ie6/7, browser issue
-        if (!ZK.is("ie6_") && !ZK.is("ie7_")) {
-	        click(female.$n("real"));
-	        click(btn); waitResponse();
-	        verifyTrue("mail should not be checked",
-	            male1.$n("real").get("checked").equals("false"));
-	        verifyTrue("label 'undefined' is shown",
-	            log.$n().get("innerHTML").contains("undefined"));
-        }
-    }
-   );
+        click(female.$n("real"));
+        click(btn);
+        waitResponse();
+        verifyTrue("mail should not be checked",
+          male1.$n("real").get("checked").equals("false"));
+        verifyTrue("label 'undefined' is shown",
+          log.$n().get("innerHTML").contains("undefined"));
+      }
+    );
   }
 }

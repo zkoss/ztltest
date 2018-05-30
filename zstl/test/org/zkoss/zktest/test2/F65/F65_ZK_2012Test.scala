@@ -1,16 +1,17 @@
 package org.zkoss.zktest.test2.F65
 
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.{IgnoreBrowsers, Tags, ZK}
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import org.zkoss.ztl.ZK
 
 @Tags(tags = "F65-ZK-2012.zul")
+@IgnoreBrowsers("chrome,ff,safari,edge,ie10,ie9")
 class F65_ZK_2012Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 	<window apply="org.zkoss.zktest.test2.F65_ZK_2012_Composer">
 		<div>1. should see 'zk.ie: 11, zk.ff: false' in zk.log</div>
 		<div width="400px">
@@ -61,23 +62,20 @@ class F65_ZK_2012Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        if (ZK.is("ie11_")) {
-	        val log = jq("#zk_log").`val`()
-	        verifyTrue("should see 'zk.ie: 11, zk.ff: false' in zk.log", log.contains("zk.ie: 11")
-	          && log.contains("zk.ff: false"))
-	        click(jq(".z-button"))
-	        waitResponse()
-	        
-	        verifyTrue(jq(".z-textbox").eq(0).`val`() == "true")
-	        verifyTrue(jq(".z-textbox").eq(1).`val`() == "false")
-	        verifyTrue(jq(".z-textbox").eq(2).`val`() == "true")
-	        verifyTrue(jq(".z-textbox").eq(3).`val`() == "ie")
-	        verifyTrue(jq(".z-textbox").eq(4).`val`() == "[11.0, 7.0, 11.0]")
-	        verifyTrue(jq(".z-vlayout:eq(1) .z-label:contains({version=11.0, name=ie}), " +
-						".z-vlayout:eq(1) .z-label:contains({name=ie, version=11.0})").exists())
-	        verifyTrue(jq(".z-vlayout:eq(1) .z-label:contains(11)").length() == 2)
-        }
-      })
+        val log = jq("#zk_log").`val`()
+        verifyTrue("should see 'zk.ie: 11, zk.ff: false' in zk.log", log.contains("zk.ie: 11")
+          && log.contains("zk.ff: false"))
+        click(jq(".z-button"))
+        waitResponse()
 
+        verifyTrue(jq(".z-textbox").eq(0).`val`() == "true")
+        verifyTrue(jq(".z-textbox").eq(1).`val`() == "false")
+        verifyTrue(jq(".z-textbox").eq(2).`val`() == "true")
+        verifyTrue(jq(".z-textbox").eq(3).`val`() == "ie")
+        verifyTrue(jq(".z-textbox").eq(4).`val`() == "[11.0, 7.0, 11.0]")
+        verifyTrue(jq(".z-vlayout:eq(1) .z-label:contains({version=11.0, name=ie}), " +
+          ".z-vlayout:eq(1) .z-label:contains({name=ie, version=11.0})").exists())
+        verifyTrue(jq(".z-vlayout:eq(1) .z-label:contains(11)").length() == 2)
+      })
   }
 }
