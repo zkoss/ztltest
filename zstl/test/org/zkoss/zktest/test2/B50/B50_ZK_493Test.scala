@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug ZK-493
- * @author benbai
- *
- */
+  * A test class for bug ZK-493
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-493.zul,A,M,BI")
 class B50_ZK_493Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<script>
 					zk.afterLoad(function () {
@@ -73,24 +67,24 @@ class B50_ZK_493Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
+      () => {
         sleep(400); // wait for zk.log to show up
         var str: java.lang.String = jq("textarea").get(0).get("value");
         var index: Int = 0;
 
         verifyTrue("You should see 'aabb, ccdd'",
-            str.indexOf("aabb, ccdd") >= 0);
+          str.indexOf("aabb, ccdd") >= 0);
         index = str.indexOf("aabb, ccdd") + 1;
 
         verifyTrue("And it is exactly twice",
-            str.indexOf("aabb, ccdd", index) >= 0);
+          str.indexOf("aabb, ccdd", index) >= 0);
         index = str.indexOf("aabb, ccdd", index) + 1;
 
         verifyFalse("No more",
-            str.indexOf("aabb, ccdd", index) >= 0);
+          str.indexOf("aabb, ccdd", index) >= 0);
         verifyFalse("Should no js error",
-            jq(".z-error").exists());
-    }
-   );
+          jq(".z-error").exists());
+      }
+    );
   }
 }

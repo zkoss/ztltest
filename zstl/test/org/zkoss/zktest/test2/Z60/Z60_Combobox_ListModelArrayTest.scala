@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z60
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ClientWidget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl._
+
 /**
- * A test class for bug Combobox-ListModelArray
- * @author benbai
- *
- */
+  * A test class for bug Combobox-ListModelArray
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "Z60-Combobox-ListModelArray.zul,Z60,A,E,Combobox,ListModelArray")
 class Z60_Combobox_ListModelArrayTest extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<zscript><![CDATA[
 					import org.zkoss.zktest.test2.select.models.*;
@@ -84,8 +78,8 @@ class Z60_Combobox_ListModelArrayTest extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var clone: Widget = engine.$f("clone");
         var serialize: Widget = engine.$f("serialize");
         var itemClass: String = ".z-comboitem";
@@ -96,42 +90,47 @@ runZTL(zscript,
           var $pp: JQuery = jq(pp);
           open(id, true);
           if (inum > 5) {
-            var offset: Int = Integer.parseInt($pp.find(itemClass).get(inum-2).get("offsetTop"));
-            pp.eval("scrollTop = "+offset);
+            var offset: Int = Integer.parseInt($pp.find(itemClass).get(inum - 2).get("offsetTop"));
+            pp.eval("scrollTop = " + offset);
           } else
             pp.eval("scrollTop = 0");
           click($pp.find(itemClass).get(inum));
           waitResponse();
         }
-        def open (id: String, open: Boolean) = {
+
+        def open(id: String, open: Boolean) = {
           var cbx: Widget = engine.$f(id);
           if (open != isOpen(id)) {
             click(cbx.$n("btn"));
-          	waitResponse();
+            waitResponse();
           }
         }
+
         def isOpen(id: String): Boolean = {
           var cbx: Widget = engine.$f(id);
           return !cbx.$n("pp").get("style.display").equals("none");
         }
+
         def isEqual(idOne: String, idTwo: String): Boolean = {
           var cbxOne: Widget = engine.$f(idOne);
           var cbxTwo: Widget = engine.$f(idTwo);
           return cbxOne.$n("real").get("value").equals(cbxTwo.$n("real").get("value"));
         }
-        def clickAndWait (wgt: ClientWidget, ms: Int) {
+
+        def clickAndWait(wgt: ClientWidget, ms: Int) {
           click(wgt);
           if (ms > 0)
             sleep(ms);
           else
             waitResponse();
         }
+
         selectItem("cbxOne", 200);
         verifyTrue("The select between first two combobox should sync",
-            isEqual("cbxOne", "cbxTwo"));
+          isEqual("cbxOne", "cbxTwo"));
         selectItem("cbxTwo", 0);
         verifyTrue("The select between first two combobox should sync",
-            isEqual("cbxOne", "cbxTwo"));
+          isEqual("cbxOne", "cbxTwo"));
 
         selectItem("cbxThree", 10);
 
@@ -139,36 +138,36 @@ runZTL(zscript,
         clickAndWait(serialize, 0);
 
         verifyTrue("The select of third and cloned combobox should the same",
-            isEqual("cbxThree", "cbxThree_clone0"));
+          isEqual("cbxThree", "cbxThree_clone0"));
         verifyTrue("The select of third and serialized combobox should the same",
-            isEqual("cbxThree", "cbxThree_serialize1"));
+          isEqual("cbxThree", "cbxThree_serialize1"));
 
         selectItem("cbxThree", 11);
         verifyFalse("The select of third and cloned combobox should not sync after cloned",
-            isEqual("cbxThree", "cbxThree_clone0"));
+          isEqual("cbxThree", "cbxThree_clone0"));
         verifyFalse("The select of third and serialized combobox should not sync after serialized",
-            isEqual("cbxThree", "cbxThree_serialize1"));
+          isEqual("cbxThree", "cbxThree_serialize1"));
 
         selectItem("cbxThree_clone0", 12);
         verifyFalse("The select of third and cloned combobox should not sync after cloned",
-            isEqual("cbxThree", "cbxThree_clone0"));
+          isEqual("cbxThree", "cbxThree_clone0"));
         verifyFalse("The select of cloned and serialized combobox should not sync",
-            isEqual("cbxThree_clone0", "cbxThree_serialize1"));
+          isEqual("cbxThree_clone0", "cbxThree_serialize1"));
 
         selectItem("cbxThree_serialize1", 13);
         verifyFalse("The select of third and serialized combobox should not sync after serialized",
-            isEqual("cbxThree", "cbxThree_serialize1"));
+          isEqual("cbxThree", "cbxThree_serialize1"));
         verifyFalse("The select of cloned and serialized combobox should not sync",
-            isEqual("cbxThree_clone0", "cbxThree_serialize1"));
+          isEqual("cbxThree_clone0", "cbxThree_serialize1"));
 
         clickAndWait(clone, 0);
         clickAndWait(serialize, 0);
 
         verifyTrue("The select of third and cloned combobox should the same",
-            isEqual("cbxThree", "cbxThree_clone2"));
+          isEqual("cbxThree", "cbxThree_clone2"));
         verifyTrue("The select of third and serialized combobox should the same",
-            isEqual("cbxThree", "cbxThree_serialize3"));
-    }
-   );
+          isEqual("cbxThree", "cbxThree_serialize3"));
+      }
+    );
   }
 }

@@ -18,19 +18,16 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
-import org.zkoss.ztl.ZK
-import org.zkoss.ztl.util.Scripts
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-2165067.zul,B,E,Window,Button")
 class B30_2165067Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <zk>
         <html><![CDATA[
 		<ol>
@@ -55,16 +52,16 @@ class B30_2165067Test extends ZTL4ScalaTestCase {
         </button>
       </zk>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       // Verify the existence of the labels
-      verifyTrue("The tree labels should does not exists", jq(".z-label:contains(test)").length()==3);
+      verifyTrue("The tree labels should does not exists", jq(".z-label:contains(test)").length() == 3);
 
       // Click on the button
       click(jq("@button").get(1));
       waitResponse();
 
       // Verify the inexistence of the labels
-      verifyFalse("The tree labels should does not exists", jq(".z-label:contains(test)").length()==3);
+      verifyFalse("The tree labels should does not exists", jq(".z-label:contains(test)").length() == 3);
 
       // Verify the existence of the "Button 2"
       verifyTrue("The button 'Button 2' should does exists", jq("@button:contains(Button 2)").exists());

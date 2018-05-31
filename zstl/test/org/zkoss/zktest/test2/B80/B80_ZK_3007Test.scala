@@ -17,7 +17,7 @@ class B80_ZK_3007Test extends ZTL4ScalaTestCase {
           val rc1 = jq("@row").eq(0).children().eq(i)
           verifyEquals(c1.outerWidth(), rc1.outerWidth())
         }
-    })
+      })
   }
 }
 

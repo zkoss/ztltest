@@ -1,18 +1,17 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
 import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2548.zul")
 class B70_ZK_2548Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <zk>
 	<label multiline="true">
@@ -61,24 +60,24 @@ def testClick() = {
         constraint="no empty"/>
 </zk>
     
-"""  
-  runZTL(zscript,
-    () => {
-      var input = jq(".z-combobox-input").eq(0);
-      var input2 = jq(".z-combobox-input").eq(1);
-      focus(input);
-      waitResponse();
-      sendKeys(input, Keys.DOWN);
-      waitResponse();
-      verifyTrue(input.eval("val()").equals("d1"));
-      sendKeys(input, Keys.TAB);
-      waitResponse();
-      focus(input2);
-      waitResponse();
-      sendKeys(input2, Keys.DOWN);
-      verifyTrue(input2.eval("val()").equals("d1s1"));
-      
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        var input = jq(".z-combobox-input").eq(0);
+        var input2 = jq(".z-combobox-input").eq(1);
+        focus(input);
+        waitResponse();
+        sendKeys(input, Keys.DOWN);
+        waitResponse();
+        verifyTrue(input.eval("val()").equals("d1"));
+        sendKeys(input, Keys.TAB);
+        waitResponse();
+        focus(input2);
+        waitResponse();
+        sendKeys(input2, Keys.DOWN);
+        verifyTrue(input2.eval("val()").equals("d1s1"));
+
+      })
+
   }
 }

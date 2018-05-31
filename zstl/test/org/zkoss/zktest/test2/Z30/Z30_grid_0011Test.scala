@@ -16,21 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z30
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug grid-0011
- * @author TonyQ
- *
- */
+  * A test class for bug grid-0011
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z30-grid-0011.zul,Z30,B,E,Grid,Paging")
 class Z30_grid_0011Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<window title="Test the paging mold" width="500px">
 				<grid mold="paging" onCreate="self.pageSize=3">
 					<columns>
@@ -114,55 +116,55 @@ class Z30_grid_0011Test extends ZTL4ScalaTestCase {
 				</grid>
 			</window>"""
     runZTL(zscript,
-        () => {
-        def verifyRowContent(iterator:Iterator[String]) ={
-	        val verify = iterator;
-	        val list =  jq("@row").iterator();
-	        while(list.hasNext()){
-	          val row = list.next();
-			  verifyEquals(row.find(".z-label:first").text().replaceAll("[\t \n]+",""),verify.next());
-			  
-			}          
-        }          
-         
-        verifyEquals(String.valueOf(jq("@row").length),"3");
-        verifyNotEquals(String.valueOf(jq("@row").length),"8");
-        
-        verifyRowContent(Iterator("1","2","3"));
-        
-		click(jq("@checkbox:first input"));
-		verifyFalse(jq("@checkbox:first input").get(0).is("checked"));
-        
-        
-		click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
-        waitResponse
-        
-        verifyRowContent(Iterator("4","5","6"));
-		click(jq("@checkbox:first input"));
-		verifyFalse(jq("@checkbox:first input").get(0).is("checked"));
+      () => {
+        def verifyRowContent(iterator: Iterator[String]) = {
+          val verify = iterator;
+          val list = jq("@row").iterator();
+          while (list.hasNext()) {
+            val row = list.next();
+            verifyEquals(row.find(".z-label:first").text().replaceAll("[\t \n]+", ""), verify.next());
 
-		
-		click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
-        waitResponse
-		
-        
-        verifyRowContent(Iterator("7","8"));
-		click(jq("@checkbox:first input"));
-		verifyFalse(jq("@checkbox:first input").get(0).is("checked"));
-        
-        
-		click(jq("[name=" + jq(".z-paging").attr("id") + "-prev]"));
-        waitResponse
-		verifyRowContent(Iterator("4","5","6"));
-		verifyFalse(jq("@checkbox:first input").get(0).is("checked"));		
+          }
+        }
 
-		
-		click(jq("[name=" + jq(".z-paging").attr("id") + "-prev]"));
+        verifyEquals(String.valueOf(jq("@row").length), "3");
+        verifyNotEquals(String.valueOf(jq("@row").length), "8");
+
+        verifyRowContent(Iterator("1", "2", "3"));
+
+        click(jq("@checkbox:first input"));
+        verifyFalse(jq("@checkbox:first input").get(0).is("checked"));
+
+
+        click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
         waitResponse
-		verifyRowContent(Iterator("1","2","3"));
-		verifyFalse(jq("@checkbox:first input").get(0).is("checked"));
-		
-    }
-   );
+
+        verifyRowContent(Iterator("4", "5", "6"));
+        click(jq("@checkbox:first input"));
+        verifyFalse(jq("@checkbox:first input").get(0).is("checked"));
+
+
+        click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
+        waitResponse
+
+
+        verifyRowContent(Iterator("7", "8"));
+        click(jq("@checkbox:first input"));
+        verifyFalse(jq("@checkbox:first input").get(0).is("checked"));
+
+
+        click(jq("[name=" + jq(".z-paging").attr("id") + "-prev]"));
+        waitResponse
+        verifyRowContent(Iterator("4", "5", "6"));
+        verifyFalse(jq("@checkbox:first input").get(0).is("checked"));
+
+
+        click(jq("[name=" + jq(".z-paging").attr("id") + "-prev]"));
+        waitResponse
+        verifyRowContent(Iterator("1", "2", "3"));
+        verifyFalse(jq("@checkbox:first input").get(0).is("checked"));
+
+      }
+    );
   }
 }

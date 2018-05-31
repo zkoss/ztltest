@@ -16,17 +16,14 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B30
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
-import org.zkoss.ztl.ZK
-import org.junit.Test
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-1908188.zul,B,E,Window,Button")
 class B30_1908188Test extends ZTL4ScalaTestCase {
   @Test
@@ -40,12 +37,12 @@ class B30_1908188Test extends ZTL4ScalaTestCase {
       click(jq("$testMenu"));
 
       waitResponse();
-      
+
       // Click of first menu item
       click(jq(".z-menuitem").get(0));
 
       waitResponse();
-       
+
       // Record Popup position
       var x: Int = getElementPositionLeft(jq(".z-popup")).intValue();
       var y: Int = getElementPositionTop(jq(".z-popup")).intValue();
@@ -57,7 +54,7 @@ class B30_1908188Test extends ZTL4ScalaTestCase {
       click(jq("$testMenu"));
 
       waitResponse();
-      
+
       // Click of second menu item
       click(jq(".z-menuitem").get(1));
 

@@ -14,19 +14,20 @@ it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2.B30
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
- *
- * @author jumperchen
- */
+  *
+  * @author jumperchen
+  */
 @Tags(tags = "B30-1919180.zul,B,E,Grid")
 class B30_1919180Test extends ZTL4ScalaTestCase {
-	@Test
-	def testCase() = {
-		val zscript = """
+  @Test
+  def testCase() = {
+    val zscript =
+      """
 			<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
 				<n:ol>
 					<n:li>Click add row(end)</n:li>
@@ -65,40 +66,40 @@ class B30_1919180Test extends ZTL4ScalaTestCase {
 			</zk>
 
 		"""
-runZTL(zscript, () => {
-			val g1 = engine $f "g1"
-			
-			val $col1 = jq("$col1")
-			val $col2 = jq("$col2")
-			val $col3 = jq("$col3")
+    runZTL(zscript, () => {
+      val g1 = engine $f "g1"
 
-			verifyEquals(50, $col1.outerWidth())
+      val $col1 = jq("$col1")
+      val $col2 = jq("$col2")
+      val $col3 = jq("$col3")
 
-			var halfWidth = (jq(g1).innerWidth() - 50) / 2
-			verifyEquals(halfWidth, $col2.outerWidth())
-			verifyEquals(halfWidth, $col3.outerWidth())
+      verifyEquals(50, $col1.outerWidth())
 
-			// add row
-			click(jq("@button:eq(0)"))
-			val btn1 = jq("@button:eq(1)")
-			val btn2 = jq("@button:eq(2)")
-			val btn3 = jq("@button:eq(3)")
+      var halfWidth = (jq(g1).innerWidth() - 50) / 2
+      verifyEquals(halfWidth, $col2.outerWidth())
+      verifyEquals(halfWidth, $col3.outerWidth())
 
-			for ((btn, size) <- List((btn2, 150), (btn3, 300), (btn1, 50))) {
-				click(btn)
-				waitResponse(true)
-				val $row1 = jq(jq(".z-row:eq(0)").children().get(0))
-				val $row2 = jq(jq(".z-row:eq(0)").children().get(1))
-				val $row3 = jq(jq(".z-row:eq(0)").children().get(2))
-				verifyEquals(size, $col1.outerWidth())
-				verifyEquals(size, $row1.outerWidth())
+      // add row
+      click(jq("@button:eq(0)"))
+      val btn1 = jq("@button:eq(1)")
+      val btn2 = jq("@button:eq(2)")
+      val btn3 = jq("@button:eq(3)")
 
-				halfWidth = (jq(g1).innerWidth() - size) / 2
-				verifyEquals(halfWidth, $col2.outerWidth())
-				verifyEquals(halfWidth, $row2.outerWidth())
-				verifyEquals(halfWidth, $col3.outerWidth())
-				verifyEquals(halfWidth, $row3.outerWidth())
-			}
-		})
-	}
+      for ((btn, size) <- List((btn2, 150), (btn3, 300), (btn1, 50))) {
+        click(btn)
+        waitResponse(true)
+        val $row1 = jq(jq(".z-row:eq(0)").children().get(0))
+        val $row2 = jq(jq(".z-row:eq(0)").children().get(1))
+        val $row3 = jq(jq(".z-row:eq(0)").children().get(2))
+        verifyEquals(size, $col1.outerWidth())
+        verifyEquals(size, $row1.outerWidth())
+
+        halfWidth = (jq(g1).innerWidth() - size) / 2
+        verifyEquals(halfWidth, $col2.outerWidth())
+        verifyEquals(halfWidth, $row2.outerWidth())
+        verifyEquals(halfWidth, $col3.outerWidth())
+        verifyEquals(halfWidth, $row3.outerWidth())
+      }
+    })
+  }
 }

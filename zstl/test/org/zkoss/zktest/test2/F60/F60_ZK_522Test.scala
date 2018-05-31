@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.F60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug ZK-522
- * @author benbai
- *
- */
+  * A test class for bug ZK-522
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-522.zul,F60,B,E,Tablelayout")
 class F60_ZK_522Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<div>This page should displaied without any problem.</div>
 				<tablelayout columns="3">
@@ -68,11 +61,11 @@ class F60_ZK_522Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         verifyTrue("The listbox in tablechildren is displayed well",
-            jq(".z-listheader:contains(test listbox)").exists());
-    }
-   );
+          jq(".z-listheader:contains(test listbox)").exists());
+      }
+    );
   }
 }

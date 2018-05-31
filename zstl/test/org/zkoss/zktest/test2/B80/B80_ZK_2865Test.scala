@@ -3,14 +3,14 @@ package org.zkoss.zktest.test2.B80
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.util.ConfigHelper
 
 @Tags(tags = "B80-ZK-2865.zul")
 class B80_ZK_2865Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -156,45 +156,45 @@ Copyright (C) 2015 Potix Corporation. All Rights Reserved.
 	</div>
 </zk>
 
-""" 
-  runZTL(zscript,
-    () => {
-      sleep(5000)
-      //expand the 1st treerow in the 1st tree
-      click(jq(".z-treechildren:eq(0) .z-tree-icon:eq(0)"))
-      waitResponse()
-      //check that the expanded treerow does not have any nested tr
-      verifyFalse(jq(".z-treechildren:eq(0) .z-treerow:eq(0) tr").exists())
-      
-      //expand the 1st treerow in the 2nd tree
-      click(jq(".z-treechildren:eq(1) .z-tree-icon:eq(0)"))
-      waitResponse()
-      //check that the expanded treerow does not have any nested tr
-      verifyFalse(jq(".z-treechildren:eq(1) .z-treerow:eq(0) tr").exists())
-      
-      //expand the 1st treerow in the 3rd tree
-      click(jq(".z-treechildren:eq(2) .z-tree-icon:eq(0)"))
-      waitResponse()
-      //check that the expanded treerow does not have any nested tr
-      verifyFalse(jq(".z-treechildren:eq(2) .z-treerow:eq(0) tr").exists())
-      
-      //expand the 1st treerow in the 4th tree
-      click(jq(".z-treechildren:eq(3) .z-tree-icon:eq(0)"))
-      waitResponse()
-      //check that the expanded treerow does not have any nested tr
-      verifyFalse(jq(".z-treechildren:eq(3) .z-treerow:eq(0) tr").exists())
-      
-      //expand the 1st treerow in the 5th tree
-      click(jq(".z-treechildren:eq(4) .z-tree-icon:eq(0)"))
-      waitResponse()
-      //check that the expanded treerow does not have any nested tr
-      verifyFalse(jq(".z-treechildren:eq(4) .z-treerow:eq(0) tr").exists())
-      
-      //expand the 1st treerow in the 6th tree
-      click(jq(".z-treechildren:eq(5) .z-tree-icon:eq(0)"))
-      waitResponse()
-      //check that the expanded treerow does not have any nested tr
-      verifyFalse(jq(".z-treechildren:eq(5) .z-treerow:eq(0) tr").exists())
-    })
+"""
+    runZTL(zscript,
+      () => {
+        sleep(5000)
+        //expand the 1st treerow in the 1st tree
+        click(jq(".z-treechildren:eq(0) .z-tree-icon:eq(0)"))
+        waitResponse()
+        //check that the expanded treerow does not have any nested tr
+        verifyFalse(jq(".z-treechildren:eq(0) .z-treerow:eq(0) tr").exists())
+
+        //expand the 1st treerow in the 2nd tree
+        click(jq(".z-treechildren:eq(1) .z-tree-icon:eq(0)"))
+        waitResponse()
+        //check that the expanded treerow does not have any nested tr
+        verifyFalse(jq(".z-treechildren:eq(1) .z-treerow:eq(0) tr").exists())
+
+        //expand the 1st treerow in the 3rd tree
+        click(jq(".z-treechildren:eq(2) .z-tree-icon:eq(0)"))
+        waitResponse()
+        //check that the expanded treerow does not have any nested tr
+        verifyFalse(jq(".z-treechildren:eq(2) .z-treerow:eq(0) tr").exists())
+
+        //expand the 1st treerow in the 4th tree
+        click(jq(".z-treechildren:eq(3) .z-tree-icon:eq(0)"))
+        waitResponse()
+        //check that the expanded treerow does not have any nested tr
+        verifyFalse(jq(".z-treechildren:eq(3) .z-treerow:eq(0) tr").exists())
+
+        //expand the 1st treerow in the 5th tree
+        click(jq(".z-treechildren:eq(4) .z-tree-icon:eq(0)"))
+        waitResponse()
+        //check that the expanded treerow does not have any nested tr
+        verifyFalse(jq(".z-treechildren:eq(4) .z-treerow:eq(0) tr").exists())
+
+        //expand the 1st treerow in the 6th tree
+        click(jq(".z-treechildren:eq(5) .z-tree-icon:eq(0)"))
+        waitResponse()
+        //check that the expanded treerow does not have any nested tr
+        verifyFalse(jq(".z-treechildren:eq(5) .z-treerow:eq(0) tr").exists())
+      })
   }
 }

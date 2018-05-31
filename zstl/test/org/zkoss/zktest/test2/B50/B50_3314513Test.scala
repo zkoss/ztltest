@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug 3314513
- * @author benbai
- *
- */
+  * A test class for bug 3314513
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3314513.zul,A,E,Datebox")
 class B50_3314513Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 
 			<zk>
 				<html><![CDATA[
@@ -62,37 +55,41 @@ class B50_3314513Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var outer: Widget = engine.$f("outer");
         var (lb1: Widget,
-             dbx1: Widget,
-    	     dbx2: Widget,
-    	     dbx3: Widget,
-    	     dbx4: Widget) = (
-    	        engine.$f("lb1"),
-    	        engine.$f("dbx1"),
-    	        engine.$f("dbx2"),
-    	        engine.$f("dbx3"),
-    	        engine.$f("dbx4")
-    	    );
+        dbx1: Widget,
+        dbx2: Widget,
+        dbx3: Widget,
+        dbx4: Widget) = (
+          engine.$f("lb1"),
+          engine.$f("dbx1"),
+          engine.$f("dbx2"),
+          engine.$f("dbx3"),
+          engine.$f("dbx4")
+        );
         click(dbx1.$n("real"));
         dbx1.$n("real").eval("value = 'abc'");
-        click(outer); waitResponse();
+        click(outer);
+        waitResponse();
         click(dbx2.$n("real"));
         dbx2.$n("real").eval("value = 'abc'");
-        click(outer); waitResponse();
+        click(outer);
+        waitResponse();
         click(dbx3.$n("real"));
         dbx3.$n("real").eval("value = 'abc'");
-        click(outer); waitResponse();
+        click(outer);
+        waitResponse();
         click(dbx4.$n("real"));
         dbx4.$n("real").eval("value = 'abc'");
-        click(outer); waitResponse();
+        click(outer);
+        waitResponse();
 
         waitResponse();
         verifyTrue("all four datebox should show error",
-            jq(".z-errorbox").length() == 4);
-    }
-   );
+          jq(".z-errorbox").length() == 4);
+      }
+    );
 
   }
 }

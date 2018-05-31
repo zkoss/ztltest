@@ -16,29 +16,25 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z60
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Element, Tags, Widget}
+
 /**
- * A test class for bug Listbox-ListModelList-Multiple-ROD
- * @author benbai
- *
- */
+  * A test class for bug Listbox-ListModelList-Multiple-ROD
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "Z60-Listbox-ListModelList-Multiple-ROD.zul,Z60,A,E,Listbox,ListModelList,ROD")
 class Z60_Listbox_ListModelList_Multiple_RODTest extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<zscript>
 					<![CDATA[
@@ -140,8 +136,8 @@ class Z60_Listbox_ListModelList_Multiple_RODTest extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var outer: Widget = engine.$f("outer");
         var lbxOne: Widget = engine.$f("lbxOne");
         var lbxTwo: Widget = engine.$f("lbxTwo");
@@ -160,14 +156,15 @@ runZTL(zscript,
 
         def selectItem = (id: String, num: Int) => {
           var lbx: Widget = engine.$f(id);
-          
-          verScroll(lbx, if(num > 2) (num - 3) / 300.0 else 0.0)
-	      waitResponse();
-          
+
+          verScroll(lbx, if (num > 2) (num - 3) / 300.0 else 0.0)
+          waitResponse();
+
           sleep(1000);
-          var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0);
+          var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data " + num + "\")").get(0);
           click(listitem);
         }
+
         // check whether the selection of a listbox contains exactly the content in check list
         def checkSelection = (toCheck: java.util.List[Int], id: String) => {
           input(tbOne.$n(), id);
@@ -175,62 +172,73 @@ runZTL(zscript,
           waitResponse();
           var selection: String = msg.$n().get("innerHTML");
           var item: String = "";
-          for (i <- 0 to toCheck.size()-1) {
-            item = "data "+toCheck.get(i);
-            verifyTrue("the selection of "+id+"should contains "+item,
-                selection.contains(item));
+          for (i <- 0 to toCheck.size() - 1) {
+            item = "data " + toCheck.get(i);
+            verifyTrue("the selection of " + id + "should contains " + item,
+              selection.contains(item));
             selection = selection.replace(item, "");
           }
           verifyTrue("the selection should exactly contains the check list data, no more",
-              selection.length() == 0);
+            selection.length() == 0);
         }
+
         def checkEqualSelection = (idOne: String, idTwo: String, assertValue: Boolean) => {
           input(tbOne.$n(), idOne);
           input(tbTwo.$n(), idTwo);
           click(btnOne);
           waitResponse();
           if (assertValue)
-            verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should the same",
-                msg.$n().get("innerHTML").equals("true"));
+            verifyTrue("The selection of these two listbox (" + idOne + ", " + idTwo + ") should the same",
+              msg.$n().get("innerHTML").equals("true"));
           else
-            verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should different",
-                msg.$n().get("innerHTML").equals("false"));
+            verifyTrue("The selection of these two listbox (" + idOne + ", " + idTwo + ") should different",
+              msg.$n().get("innerHTML").equals("false"));
         }
+
         def input = (tb: Element, value: String) => {
           findElement(tb.toBy()).clear()
           `type`(tb, value)
           waitResponse();
         }
+
         def checkInsertRemove = () => {
           var selsOne: String = getSelection("lbxOne");
           var selsTwo: String = getSelection("lbxTwo");
           var selsThree: String = getSelection("lbxThree");
-          click(btnSix); waitResponse();
-          click(btnSix); waitResponse();
-          click(btnSix); waitResponse();
+          click(btnSix);
+          waitResponse();
+          click(btnSix);
+          waitResponse();
+          click(btnSix);
+          waitResponse();
           verifyTrue("The selection should not change after insert items",
-              getSelection("lbxOne").equals(selsOne));
+            getSelection("lbxOne").equals(selsOne));
           verifyTrue("The selection should not change after insert items",
-              getSelection("lbxTwo").equals(selsTwo));
+            getSelection("lbxTwo").equals(selsTwo));
           verifyTrue("The selection should not change after insert items",
-              getSelection("lbxThree").equals(selsThree));
-          click(btnSeven); waitResponse();
-          click(btnSeven); waitResponse();
-          click(btnSeven); waitResponse();
+            getSelection("lbxThree").equals(selsThree));
+          click(btnSeven);
+          waitResponse();
+          click(btnSeven);
+          waitResponse();
+          click(btnSeven);
+          waitResponse();
           verifyTrue("The selection should not change after insert items",
-              getSelection("lbxOne").equals(selsOne));
+            getSelection("lbxOne").equals(selsOne));
           verifyTrue("The selection should not change after insert items",
-              getSelection("lbxTwo").equals(selsTwo));
+            getSelection("lbxTwo").equals(selsTwo));
           verifyTrue("The selection should not change after insert items",
-              getSelection("lbxThree").equals(selsThree));
+            getSelection("lbxThree").equals(selsThree));
         }
-        def getSelection (id: String): String = {
+
+        def getSelection(id: String): String = {
           input(tbOne.$n(), id);
           click(btnFour);
           waitResponse();
           var sels: String = msg.$n().get("innerHTML");
           return sels;
         }
+
         selectItem("lbxOne", 2);
         checkEqualSelection("lbxOne", "lbxTwo", true);
         selectItem("lbxTwo", 200);
@@ -271,7 +279,7 @@ runZTL(zscript,
         checkEqualSelection("lbxThree", "lbxThree_clone2", true);
         checkEqualSelection("lbxThree", "lbxThree_serialize3", true);
         checkInsertRemove();
-    }
-   );
+      }
+    );
   }
 }

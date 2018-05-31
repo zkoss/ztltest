@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1955.zul")
 class B65_ZK_1955Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B65-ZK-1955.zul
@@ -61,30 +62,30 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
 		</bandbox>
 	</window>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      val bb = jq(".z-bandbox").toWidget()
-      val log = jq("#zk_log")
-      focus(bb.$n("real"))
-      waitResponse()
-      sleep(300)
-      verifyTrue(log.`val`().contains("focus is in bandbox"))
-      
-      log.toElement().set("value", "")
-      click(bb.$n("btn"))
-      waitResponse()
-      click(jq(bb.$n("pp")).find(".z-listitem"))
-      waitResponse()
-      sleep(300)
-      verifyTrue(log.`val`().contains("focus is in bandbox"))
-      
-      log.toElement().set("value", "")
-      click(jq(".z-window-content"))
-      waitResponse()
-      sleep(300)
-      verifyTrue(log.`val`().contains("I do not know where is focus"))
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        val bb = jq(".z-bandbox").toWidget()
+        val log = jq("#zk_log")
+        focus(bb.$n("real"))
+        waitResponse()
+        sleep(300)
+        verifyTrue(log.`val`().contains("focus is in bandbox"))
+
+        log.toElement().set("value", "")
+        click(bb.$n("btn"))
+        waitResponse()
+        click(jq(bb.$n("pp")).find(".z-listitem"))
+        waitResponse()
+        sleep(300)
+        verifyTrue(log.`val`().contains("focus is in bandbox"))
+
+        log.toElement().set("value", "")
+        click(jq(".z-window-content"))
+        waitResponse()
+        sleep(300)
+        verifyTrue(log.`val`().contains("I do not know where is focus"))
+      })
+
   }
 }

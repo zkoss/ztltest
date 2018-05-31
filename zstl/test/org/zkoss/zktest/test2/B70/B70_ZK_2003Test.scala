@@ -1,7 +1,7 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B70_ZK_2003Test extends ZTL4ScalaTestCase {
   @Test

@@ -18,16 +18,16 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B35-2094363.zul,B,E,Window,Button")
 class B35_2094363Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <zk>
         <html>
           <![CDATA[  
@@ -54,14 +54,14 @@ is wrong.
         </window>
       </zk>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       // Click on menu button
       click(jq(".z-menu"));
       waitResponse();
 
       // Record menu popup size
       val popupSizeBefore = jq(".z-menupopup").width();
-      
+
       // Click again on menu button to close it
       click(jq(".z-menu"));
       waitResponse();
@@ -72,10 +72,10 @@ runZTL(zscript, () => {
 
       // Record menu popup size
       val popupSizeAfter = jq(".z-menupopup").width();
-      
+
       // Verify that the size is equal than before
-      verifyTrue("The size should be equal than before", popupSizeBefore==popupSizeAfter);
-      
+      verifyTrue("The size should be equal than before", popupSizeBefore == popupSizeAfter);
+
     })
   }
 }

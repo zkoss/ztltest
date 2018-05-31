@@ -18,17 +18,17 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author chunfu
- */
+  *
+  * @author chunfu
+  */
 @Tags(tags = "")
 class B70_ZK_2747Test extends ZTL4ScalaTestCase {
-	def testCase() = {
-		runZTL(() => {
-			verifyTrue(jq("#zk_showBusy").exists())
-			sleep(3000)
-			verifyTrue(!jq("#zk_showBusy").exists())
-		
-		})
-	}
+  def testCase() = {
+    runZTL(() => {
+      verifyTrue(jq("#zk_showBusy").exists())
+      sleep(3000)
+      verifyTrue(!jq("#zk_showBusy").exists())
+
+    })
+  }
 }

@@ -1,16 +1,17 @@
 
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1441.zul")
 class B65_ZK_1441Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript =""" <zk>
+    val zscript =
+      """ <zk>
                     <label multiline="true">
                       1. Click "Tab 8" to open it.
 	2. Click "Tab 7"~"Tab 2" very quickly(miss click one or more Tab is ok.) then Click "Tab 1" (still quickly).
@@ -187,7 +188,7 @@ class B65_ZK_1441Test extends ZTL4ScalaTestCase {
       () => {
         waitResponse()
         val tab8 = jq("@tab:contains(Tab 8)")
-        click(tab8)        
+        click(tab8)
         waitResponse()
         val height8 = tab8.height()
 

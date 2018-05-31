@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2217.zul")
 class B70_ZK_2217Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:n="native">
 	<div vflex="true" width="100%" apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm') @init('org.zkoss.zktest.test2.B70_ZK_2217_ViewModel')">
@@ -65,16 +66,16 @@ def testClick() = {
 			</center>
 		</borderlayout>
 	</div>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      
-      click(jq(".z-button"))
-      waitResponse()
-      
-      val lb = jq(".z-listbox").toWidget()
-      verifyTrue("the footer and paging should not hide", jq(lb.$n("foot")).isVisible() && jq(lb.$n("pgib")).isVisible())
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+
+        click(jq(".z-button"))
+        waitResponse()
+
+        val lb = jq(".z-listbox").toWidget()
+        verifyTrue("the footer and paging should not hide", jq(lb.$n("foot")).isVisible() && jq(lb.$n("pgib")).isVisible())
+      })
+
   }
 }

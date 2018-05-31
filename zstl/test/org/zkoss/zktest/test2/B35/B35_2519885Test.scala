@@ -16,20 +16,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
-import org.junit.Test
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B35-2519885.zul,B,E,Window,Button")
 class B35_2519885Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <zk>
         1. Check two or three rows on first page.
         <separator/>
@@ -55,7 +55,7 @@ class B35_2519885Test extends ZTL4ScalaTestCase {
         </tree>
       </zk>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       // Verify that there isn't a selected node
       verifyTrue("It should not be a selected nodes", jq(".z-treerow-selected").length() == 0);
 
@@ -86,11 +86,11 @@ runZTL(zscript, () => {
       // Click on next page button
       click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
       waitResponse();
-      
+
       // Verify again that there is on selected node
       verifyTrue("It should be one selected node on this page", jq(".z-treerow-selected").length() == 1);
 
-      
+
     })
   }
 }

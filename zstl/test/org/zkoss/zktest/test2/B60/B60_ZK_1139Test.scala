@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1139.zul")
 class B60_ZK_1139Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk xmlns:n="native">
+    val zscript =
+      """<zk xmlns:n="native">
                     <n:h5>Testing step:</n:h5>
                     <n:ol>
                       <n:li> make the checkbox in caption become unchecked </n:li>

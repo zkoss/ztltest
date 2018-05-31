@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-559
- * @author benbai
- *
- */
+  * A test class for bug ZK-559
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-559.zul,A,E,Hbox,Vbox,flex")
 class B50_ZK_559Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<div>
 					Chrome/Safari only. There should be no vertical gap between listbox and tabbox. 
@@ -68,15 +61,15 @@ class B50_ZK_559Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript, () => {
-   			var listbox: Widget = engine.$f("listbox");
-   			var tabbox: Widget = engine.$f("tabbox");
+    runZTL(zscript, () => {
+      var listbox: Widget = engine.$f("listbox");
+      var tabbox: Widget = engine.$f("tabbox");
 
-   			var gap: Integer = Math.abs(jq(tabbox.$n()).positionTop() - jq(listbox.$n()).height() - jq(listbox.$n()).positionTop());
+      var gap: Integer = Math.abs(jq(tabbox.$n()).positionTop() - jq(listbox.$n()).height() - jq(listbox.$n()).positionTop());
 
-   			verifyTrue("the gap between listbox and tabbox should not too large",
-   			    gap < 15);
-		})
+      verifyTrue("the gap between listbox and tabbox should not too large",
+        gap < 15);
+    })
   }
 
 }

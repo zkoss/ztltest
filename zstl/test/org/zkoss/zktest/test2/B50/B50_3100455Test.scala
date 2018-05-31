@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug 3100455
- * @author benbai
- *
- */
+  * A test class for bug 3100455
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3100455.zul,A,E,Frozen,Grid")
 class B50_3100455Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<html><![CDATA[
 					<ul>
@@ -167,24 +161,24 @@ class B50_3100455Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var (grid: Widget,
-            grid2: Widget,
-    	    listbox: Widget,
-    	    listbox2: Widget,
-    	    btn1: Widget,
-    	    btn2: Widget,
-    	    btn3: Widget,
-    	    btn4: Widget) = (
-    	        engine.$f("grid"),
-    	        engine.$f("grid2"),
-    	        engine.$f("listbox"),
-    	        engine.$f("listbox2"),
-    	        engine.$f("btn1"),
-    	        engine.$f("btn2"),
-    	        engine.$f("btn3"),
-    	        engine.$f("btn4")
-    	    );
+        grid2: Widget,
+        listbox: Widget,
+        listbox2: Widget,
+        btn1: Widget,
+        btn2: Widget,
+        btn3: Widget,
+        btn4: Widget) = (
+          engine.$f("grid"),
+          engine.$f("grid2"),
+          engine.$f("listbox"),
+          engine.$f("listbox2"),
+          engine.$f("btn1"),
+          engine.$f("btn2"),
+          engine.$f("btn3"),
+          engine.$f("btn4")
+        );
         var bodyWidth1: Int = jq(grid.$n("body")).outerWidth();
         var bodyWidth2: Int = jq(grid2.$n("body")).outerWidth();
         var bodyWidth3: Int = jq(listbox.$n("body")).outerWidth();
@@ -199,14 +193,14 @@ class B50_3100455Test extends ZTL4ScalaTestCase {
         var left1 = jq(".z-listbox:eq(0) .z-listheader:contains(C)").offsetLeft()
         var left2 = jq(".z-grid:eq(1) .z-column:contains(C)").offsetLeft()
         var left3 = jq(".z-listbox:eq(1) .z-listheader:contains(C)").offsetLeft()
-        
+
         val checkAllVisible = () => {
           verifyEquals(left0, jq(".z-grid:eq(0) .z-column:contains(C)").offsetLeft())
-          verifyEquals(left1, jq(".z-listbox:eq(0) .z-listheader:contains(C)").offsetLeft())          
+          verifyEquals(left1, jq(".z-listbox:eq(0) .z-listheader:contains(C)").offsetLeft())
           verifyEquals(left2, jq(".z-grid:eq(1) .z-column:contains(C)").offsetLeft())
           verifyEquals(left3, jq(".z-listbox:eq(0) .z-listheader:contains(C)").offsetLeft())
         }
-        
+
         checkAllVisible();
 
         click(btn1);
@@ -224,8 +218,8 @@ class B50_3100455Test extends ZTL4ScalaTestCase {
         click(btn4);
         waitResponse();
         checkAllVisible();
-    }
-   );
+      }
+    );
 
   }
 }

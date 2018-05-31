@@ -1,16 +1,17 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
 import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1377.zul")
 class B60_ZK_1377Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 	<label multiline="true">
 	1. in Chrome, edit textbox1 and tab, it should focus on textbox2 and select all of textbox2 and the window title should change to the value you edited.
 	2. in IE, edit textbox1 and tab, it should focus on textbox2 and select all of textbox2 and the window title should change to the value you edited.

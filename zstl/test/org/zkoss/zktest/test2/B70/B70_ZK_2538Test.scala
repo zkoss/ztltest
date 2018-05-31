@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2538.zul")
 class B70_ZK_2538Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -65,17 +63,17 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 </zk>
 
     
-"""  
-  runZTL(zscript,
-    () => {
-      var last_btn = jq(".z-paging-button.z-paging-last");
-      click(last_btn);
-      waitResponse();
-      var row1 = jq(".z-button").eq(0);
-      click(row1);
-      var errbox = jq(".z-error");
-      verifyTrue(!errbox.isVisible());      
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        var last_btn = jq(".z-paging-button.z-paging-last");
+        click(last_btn);
+        waitResponse();
+        var row1 = jq(".z-button").eq(0);
+        click(row1);
+        var errbox = jq(".z-error");
+        verifyTrue(!errbox.isVisible());
+      })
+
   }
 }

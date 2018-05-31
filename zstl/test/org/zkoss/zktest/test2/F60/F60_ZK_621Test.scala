@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.F60
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-621
- * @author benbai
- *
- */
+  * A test class for bug ZK-621
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-621.zul,F60,A,E,Combobox,Bandbox")
 class F60_ZK_621Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<div height="15px" />
 				<div height="25px">Open combobox (the left one).</div>
@@ -75,8 +69,8 @@ class F60_ZK_621Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var cbx: Widget = engine.$f("cbx");
         var bd: Widget = engine.$f("bd");
         var lb: Widget = engine.$f("lb");
@@ -84,21 +78,21 @@ runZTL(zscript,
         click(cbx.$n("btn"));
         waitResponse();
         verifyTrue("You should see the message become 'message: combobox is open? true'.",
-            lb.$n().get("innerHTML").contains("message: combobox is open? true"));
+          lb.$n().get("innerHTML").contains("message: combobox is open? true"));
         click(cbx.$n("btn"));
         waitResponse();
         verifyTrue("You should see the message become 'message: combobox is open? false'.",
-            lb.$n().get("innerHTML").contains("message: combobox is open? false"));
+          lb.$n().get("innerHTML").contains("message: combobox is open? false"));
 
         click(bd.$n("btn"));
         waitResponse();
         verifyTrue("You should see the message become 'message: bandbox is open? true'.",
-            lb.$n().get("innerHTML").contains("message: bandbox is open? true"));
+          lb.$n().get("innerHTML").contains("message: bandbox is open? true"));
         click(bd.$n("btn"));
         waitResponse();
         verifyTrue("You should see the message become 'message: bandbox is open? false'.",
-            lb.$n().get("innerHTML").contains("message: bandbox is open? false"));
-    }
-   );
+          lb.$n().get("innerHTML").contains("message: bandbox is open? false"));
+      }
+    );
   }
 }

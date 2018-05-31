@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1650.zul")
 class B65_ZK_1650Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 	<label multiline="true">
 	1. Should see no extra space above green Textbox.
 	2. Click 'show/hide' button, should see space between two Textboxes.

@@ -19,18 +19,18 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "")
 class B80_ZK_3040Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			val icon = jq("div.z-icon-code").eq(0)
-			verifyTrue(icon.exists())
-			mouseDown(icon)
-			verifyTrue(icon.hasClass("z-icon-code"))
-		})
-	}
+  @Test
+  def test() = {
+    runZTL(() => {
+      val icon = jq("div.z-icon-code").eq(0)
+      verifyTrue(icon.exists())
+      mouseDown(icon)
+      verifyTrue(icon.hasClass("z-icon-code"))
+    })
+  }
 }

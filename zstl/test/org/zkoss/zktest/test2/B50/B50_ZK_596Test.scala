@@ -16,29 +16,25 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{JQuery, Tags, Widget}
+
 /**
- * A test class for bug ZK-596
- * @author benbai
- *
- */
+  * A test class for bug ZK-596
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-596.zul,B,E,Tabbox,Toolbar")
 class B50_ZK_596Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 		<zk>
 		<div height="25px">1. Click the buttons below from left to right. </div>
 		<div height="25px">2. The header of tabbox should shrink or expand while</div>
@@ -121,57 +117,58 @@ class B50_ZK_596Test extends ZTL4ScalaTestCase {
     """
 
 
-   runZTL(zscript, () => {
-	   		var (tb: Widget,
-	   		    tbs: Widget,
-	   		    tbar: Widget,
-	   		    btn1: Widget,
-	   		    btn2: Widget,
-	   		    btn3: Widget,
-	   		    btn4: Widget,
-	   		    btn5: Widget,
-	   		    btn6: Widget) = (
-	    	        engine.$f("tb"),
-	    	        engine.$f("tbs"),
-	    	        engine.$f("tbar"),
-	    	        engine.$f("btn1"),
-	    	        engine.$f("btn2"),
-	    	        engine.$f("btn3"),
-	    	        engine.$f("btn4"),
-	    	        engine.$f("btn5"),
-	    	        engine.$f("btn6")
-    	    );
-	   		def clickAndWait = (target: org.zkoss.ztl.ClientWidget, delay: Long) => {
-				click(target)
-				if (delay == null)
-					waitResponse()
-				else
-				  sleep(delay)
-			}
-	   		// add image and wait to load them all
-	   		clickAndWait(btn3, 2000)
-	   		clickAndWait(btn4, null)
+    runZTL(zscript, () => {
+      var (tb: Widget,
+      tbs: Widget,
+      tbar: Widget,
+      btn1: Widget,
+      btn2: Widget,
+      btn3: Widget,
+      btn4: Widget,
+      btn5: Widget,
+      btn6: Widget) = (
+        engine.$f("tb"),
+        engine.$f("tbs"),
+        engine.$f("tbar"),
+        engine.$f("btn1"),
+        engine.$f("btn2"),
+        engine.$f("btn3"),
+        engine.$f("btn4"),
+        engine.$f("btn5"),
+        engine.$f("btn6")
+      );
+      def clickAndWait = (target: org.zkoss.ztl.ClientWidget, delay: Long) => {
+        click(target)
+        if (delay == null)
+          waitResponse()
+        else
+          sleep(delay)
+      }
+      // add image and wait to load them all
+      clickAndWait(btn3, 2000)
+      clickAndWait(btn4, null)
 
-	   		var $tb: JQuery = jq(tb.$n())
-	   		var $tbs: JQuery = jq(tbs.$n())
-	   		var $tbar: JQuery = jq(tbar.$n())
+      var $tb: JQuery = jq(tb.$n())
+      var $tbs: JQuery = jq(tbs.$n())
+      var $tbar: JQuery = jq(tbar.$n())
 
-	   		def checkWidth = () => {
-					verifyTrue("the sum of tabs header width and toobar width should smaller or equal to tabs width",
-							$tbs.outerWidth(true) + $tbar.outerWidth(true) <= $tb.outerWidth())
-	   		}
-	   		clickAndWait(btn1, null)
-	   		checkWidth()
-	   		clickAndWait(btn2, null)
-	   		checkWidth()
-	   		clickAndWait(btn3, null)
-	   		checkWidth()
-	   		clickAndWait(btn4, null)
-	   		checkWidth()
-	   		clickAndWait(btn5, null)
-	   		checkWidth()
-	   		clickAndWait(btn6, null)
-	   		checkWidth()
-		})
+      def checkWidth = () => {
+        verifyTrue("the sum of tabs header width and toobar width should smaller or equal to tabs width",
+          $tbs.outerWidth(true) + $tbar.outerWidth(true) <= $tb.outerWidth())
+      }
+
+      clickAndWait(btn1, null)
+      checkWidth()
+      clickAndWait(btn2, null)
+      checkWidth()
+      clickAndWait(btn3, null)
+      checkWidth()
+      clickAndWait(btn4, null)
+      checkWidth()
+      clickAndWait(btn5, null)
+      checkWidth()
+      clickAndWait(btn6, null)
+      checkWidth()
+    })
   }
 }

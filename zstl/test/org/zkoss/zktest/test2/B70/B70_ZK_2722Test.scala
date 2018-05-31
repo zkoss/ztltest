@@ -18,13 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author chunfu
- */
+  *
+  * @author chunfu
+  */
 @Tags(tags = "")
 class B70_ZK_2722Test extends ZTL4ScalaTestCase {
-	def testCase() = {
-		val zscript = """
+  def testCase() = {
+    val zscript =
+      """
 		<?xml version="1.0" encoding="UTF-8"?>
 
 		<!--
@@ -66,14 +67,14 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 				<button onClick="clear()">clear</button>
 			</zk>
 """
-		runZTL(zscript, () => {
-			var btn = jq("@button");
-			click(btn);
-			waitResponse();
-			verifyEquals(1, jq("@label").length());
-			verifyNotEquals("a", jq("@label").text());
-			verifyEquals(0, jq(".z-messagebox-error").length());
+    runZTL(zscript, () => {
+      var btn = jq("@button");
+      click(btn);
+      waitResponse();
+      verifyEquals(1, jq("@label").length());
+      verifyNotEquals("a", jq("@label").text());
+      verifyEquals(0, jq(".z-messagebox-error").length());
 
-		})
-	}
+    })
+  }
 }

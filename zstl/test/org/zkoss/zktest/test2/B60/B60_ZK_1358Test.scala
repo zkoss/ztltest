@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1358.zul")
 class B60_ZK_1358Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk xmlns:h="native">
+    val zscript =
+      """<zk xmlns:h="native">
                     <label multiline="true" style="font-size: 14px">
                       1. If not see Modal Window, it is a bug.
 	2. Click 'popup' button, should see Popup.

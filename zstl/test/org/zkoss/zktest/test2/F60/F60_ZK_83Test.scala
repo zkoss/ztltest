@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.F60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{JQuery, Tags, Widget}
 
 /**
- * A test class for bug ZK-83
- * @author benbai
- *
- */
+  * A test class for bug ZK-83
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-83.zul,F60,A,E,Messagebox")
 class F60_ZK_83Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<zscript>
 				import org.zkoss.zktest.test2.ZK83Utils;
@@ -66,35 +59,36 @@ class F60_ZK_83Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
+      () => {
         var btnOne: Widget = engine.$f("btnOne");
         var btnTwo: Widget = engine.$f("btnTwo");
         var btnThree: Widget = engine.$f("btnThree");
         var btnFour: Widget = engine.$f("btnFour");
 
-        def clickAndCheck (wgt: Widget, toCheck: Array[String], toClick: Array[String]) {
+        def clickAndCheck(wgt: Widget, toCheck: Array[String], toClick: Array[String]) {
           var offsetLeft: Int = 0;
           var messagebox: JQuery = null;
           click(wgt);
           waitResponse();
           messagebox = jq(".z-messagebox-window");
           for (i <- 0 until toCheck.length) {
-            verifyTrue("Button "+toCheck(i)+" exists",
-                messagebox.find(".z-button:contains("+toCheck(i)+")").exists());
+            verifyTrue("Button " + toCheck(i) + " exists",
+              messagebox.find(".z-button:contains(" + toCheck(i) + ")").exists());
             verifyTrue("Button should in correct order",
-                messagebox.find(".z-button:contains("+toCheck(i)+")").offsetLeft() > offsetLeft);
-            offsetLeft = messagebox.find(".z-button:contains("+toCheck(i)+")").offsetLeft();
+              messagebox.find(".z-button:contains(" + toCheck(i) + ")").offsetLeft() > offsetLeft);
+            offsetLeft = messagebox.find(".z-button:contains(" + toCheck(i) + ")").offsetLeft();
           }
           for (j <- 0 until toClick.length) {
-            click(messagebox.find(".z-button:contains("+toClick(j)+")"));
+            click(messagebox.find(".z-button:contains(" + toClick(j) + ")"));
             waitResponse();
           }
         }
+
         clickAndCheck(btnOne, Array("Yes"), Array("Yes"));
         clickAndCheck(btnTwo, Array("OK"), Array("OK", "OK"));
         clickAndCheck(btnThree, Array("Cancel", "OK"), Array("OK", "OK"));
         clickAndCheck(btnFour, Array("Cancel", "OK", "No"), Array("OK", "OK"));
-    }
-   );
-   }
+      }
+    );
+  }
 }

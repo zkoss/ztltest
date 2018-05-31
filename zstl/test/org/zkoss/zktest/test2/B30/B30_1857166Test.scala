@@ -17,27 +17,20 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug 1857166
- * @author ldnigro
- *
- */
+  * A test class for bug 1857166
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B30-1857166.zul,A,E,Listbox")
 class B30_1857166Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
         <window title="Listbox Bug"> 
             <toolbarbutton id="With Bug" label="Click Me! And no error msg!" onClick="openNewTab()"/>
     
@@ -90,37 +83,37 @@ class B30_1857166Test extends ZTL4ScalaTestCase {
             ]]></zscript>
         </window>
     """
-runZTL(zscript,
-        () => {
-        
-            //Click button
-        	click(jq("@toolbarbutton"));
-            waitResponse();
-            
-            //Verify no error
-            verifyFalse(jq(".z-msgbox-error").exists());
-            verifyFalse(jq(".z-error").exists());
-            
-            //Tab2 must be added
-            verifyTrue(jq("@tab:eq(1)").exists());
-            
-            //Verify Listbox is added
-            verifyTrue(jq("@tabpanel:eq(1) @listbox").isVisible());
-            
-            click(jq("@toolbarbutton"));
-            waitResponse();
-            
-            //Verify no error
-            verifyFalse(jq(".z-msgbox-error").exists());
-            verifyFalse(jq(".z-error").exists());
-            
-            //Tab3 must be added
-            verifyTrue(jq("@tab:eq(2)").exists());
-            
-            //Verify Listbox is added
-            verifyTrue(jq("@tabpanel:eq(2) @listbox").isVisible());
-            
-        }
+    runZTL(zscript,
+      () => {
+
+        //Click button
+        click(jq("@toolbarbutton"));
+        waitResponse();
+
+        //Verify no error
+        verifyFalse(jq(".z-msgbox-error").exists());
+        verifyFalse(jq(".z-error").exists());
+
+        //Tab2 must be added
+        verifyTrue(jq("@tab:eq(1)").exists());
+
+        //Verify Listbox is added
+        verifyTrue(jq("@tabpanel:eq(1) @listbox").isVisible());
+
+        click(jq("@toolbarbutton"));
+        waitResponse();
+
+        //Verify no error
+        verifyFalse(jq(".z-msgbox-error").exists());
+        verifyFalse(jq(".z-error").exists());
+
+        //Tab3 must be added
+        verifyTrue(jq("@tab:eq(2)").exists());
+
+        //Verify Listbox is added
+        verifyTrue(jq("@tabpanel:eq(2) @listbox").isVisible());
+
+      }
     );
-   }
+  }
 }

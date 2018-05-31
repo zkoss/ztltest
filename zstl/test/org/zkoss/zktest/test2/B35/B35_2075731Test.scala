@@ -18,18 +18,19 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.remote.server.handler.interactions.touch.Scroll
 
 /**
- * A test class for bug 2075731
- * @author ldnigro
- *
- */
+  * A test class for bug 2075731
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2075731.zul,A,E,Tablelayout")
 class B35_2075731Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
     		<?xml version="1.0" encoding="UTF-8"?>
 <zk>
 If you can't the loading progress bar to keep alive, the bug is fixed.
@@ -51,15 +52,15 @@ Panel
     """
 
     runZTL(zscript,
-        () => {
-        	
-            waitResponse();
-          
-        	//Check loading
-        	val c1=jq(".z-loading-icon");
-        	verifyFalse(c1.exists());
-        	
-        }
+      () => {
+
+        waitResponse();
+
+        //Check loading
+        val c1 = jq(".z-loading-icon");
+        verifyFalse(c1.exists());
+
+      }
     );
-   }
+  }
 }

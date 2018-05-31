@@ -1,14 +1,15 @@
 
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1438.zul")
 class B65_ZK_1438Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <label multiline="true">
                       1.when clicking send event, you should see only one message shows in listbox
 	2.then use reload1 or reload 2 to reload the window, then clicking send event, you should see only one message shows in listbox1 and one in listbox2

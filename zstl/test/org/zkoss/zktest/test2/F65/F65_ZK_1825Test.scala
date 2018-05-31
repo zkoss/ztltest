@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.F65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "F65-ZK-1825.zul")
 class F65_ZK_1825Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 F70-ZK-1825.zul
@@ -41,7 +42,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         val tb = jq(".z-timebox").toWidget()
         click(db.$n("btn"))
         waitResponse()
-        
+
         val calendar0 = jq(".z-calendar:eq(0)")
         click(calendar0.find(".z-calendar-title .z-calendar-text:eq(1)"))
         waitResponse(true)
@@ -54,8 +55,8 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         click(jq(".z-button"))
         waitResponse(true)
 
-        verifyTrue("It shouldn't be reset to today", 
-            jq(".z-messagebox-window .z-label:contains(Sun Oct 20)").exists)
+        verifyTrue("It shouldn't be reset to today",
+          jq(".z-messagebox-window .z-label:contains(Sun Oct 20)").exists)
       })
 
   }

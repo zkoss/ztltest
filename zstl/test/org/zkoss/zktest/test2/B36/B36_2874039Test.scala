@@ -16,21 +16,21 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B36
 
-import java.util.Calendar
-
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug 2874039
- * @author ldnigro
- *
- */
+  * A test class for bug 2874039
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B36-2874039.zul,A,E,Listbox,Borderlayout,BI")
 class B36_2874039Test extends ZTL4ScalaTestCase {
 
-  def testClick() = { 
-    val zscript = """
+  def testClick() = {
+    val zscript =
+      """
 <?page id="indexPage" title="B36-2874039" ?>
 <?meta content="text/html; charset=UTF-8" pageEncoding="UTF-8"?>
 <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
@@ -105,28 +105,28 @@ class B36_2874039Test extends ZTL4ScalaTestCase {
 
         waitResponse();
 
-        
+
         //Click change button
         var btn = jq("$change");
         click(btn);
         waitResponse();
-        
+
         //Check change No Bug to Bug
-        var nobug=jq(".z-center-header");
-        var bug=getText(nobug);
-        
-        verifyEquals(bug,"Bug");
-        
+        var nobug = jq(".z-center-header");
+        var bug = getText(nobug);
+
+        verifyEquals(bug, "Bug");
+
         //Verify Scrollbar
-        var lb=zk("$listbox");
-    	var h=lb.eval("hasHScroll()");
-    	waitResponse();
-    	verifyEquals(h,"0");
-    	
-    	var h1=zk(jq("$listbox").toWidget().$n("body")).eval("hasHScroll()");
-    	verifyEquals(h1,"0");
-    	
+        var lb = zk("$listbox");
+        var h = lb.eval("hasHScroll()");
+        waitResponse();
+        verifyEquals(h, "0");
+
+        var h1 = zk(jq("$listbox").toWidget().$n("body")).eval("hasHScroll()");
+        verifyEquals(h1, "0");
+
       });
   }
-     
+
 }

@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug 3306149
- * @author benbai
- *
- */
+  * A test class for bug 3306149
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3306149.zul,A,E,Grid,Listbox,Model,ROD")
 class B50_3306149Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<html><![CDATA[
 					<ol>
@@ -73,23 +67,25 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-def executor = () => {
-    	var grid: Widget = engine.$f("grid")
-		waitResponse()
-		verScroll(grid, 1)
-		waitResponse()
-		var beforeRemove: Int = jq(grid.$n("body")).scrollTop()
-		var btns = jq(grid.$n("body")).find("@button")
-		var lastBtn = btns.last()
-		waitResponse()
-		click(lastBtn)
-		waitResponse()
-		var afterRemove: Int = jq(grid.$n("body")).scrollTop()
-		verifyTrue(beforeRemove > afterRemove)
-		btns = jq(grid.$n("body")).find("@button")
-		lastBtn = btns.last()
-		verifyTrue(getText(lastBtn).contains("remove 198"))
+
+    def executor = () => {
+      var grid: Widget = engine.$f("grid")
+      waitResponse()
+      verScroll(grid, 1)
+      waitResponse()
+      var beforeRemove: Int = jq(grid.$n("body")).scrollTop()
+      var btns = jq(grid.$n("body")).find("@button")
+      var lastBtn = btns.last()
+      waitResponse()
+      click(lastBtn)
+      waitResponse()
+      var afterRemove: Int = jq(grid.$n("body")).scrollTop()
+      verifyTrue(beforeRemove > afterRemove)
+      btns = jq(grid.$n("body")).find("@button")
+      lastBtn = btns.last()
+      verifyTrue(getText(lastBtn).contains("remove 198"))
     }
-runZTL(zscript, executor);
+
+    runZTL(zscript, executor);
   }
 }

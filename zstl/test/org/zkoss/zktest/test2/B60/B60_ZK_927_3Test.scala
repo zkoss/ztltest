@@ -16,28 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Element, JQuery, Tags, Widget}
+
 /**
- * A test class for bug ZK-927-3
- * @author benbai
- *
- */
+  * A test class for bug ZK-927-3
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-927-3.zul,")
 class B60_ZK_927_3Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
 			<zk>
 				<window >
@@ -101,39 +96,41 @@ class B60_ZK_927_3Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
+      () => {
         var listbox1: Widget = engine.$f("listbox1");
         var listbox2: Widget = engine.$f("listbox2");
         var lbl1: Widget = engine.$f("lbl1");
         var lbl2: Widget = engine.$f("lbl2");
         var clear: Widget = engine.$f("clear");
         var reload: Widget = engine.$f("reload");
-        
+
         def select(lb: Widget, lbl: Widget, items: Array[Int]) {
           for (i <- 0 until items.length) {
-        	click(jq(lb).find(".z-listitem").get(items(i)));
-        	waitResponse();
+            click(jq(lb).find(".z-listitem").get(items(i)));
+            waitResponse();
           }
         }
+
         def check(lb: Widget, lbl: Widget, items: Array[Int]) {
           var listitems: JQuery = jq(lb).find(".z-listitem");
           var item: Element = null;
           var cnt: String = null;
           var selected: Boolean = null;
           for (i <- 0 until listitems.length()) {
-        	  selected = items.contains(i);
-        	  item = jq(lb).find(".z-listitem").get(i);
+            selected = items.contains(i);
+            item = jq(lb).find(".z-listitem").get(i);
 
-        	  cnt = jq(item).find(".z-listcell").eq(0).text();
-              cnt = cnt.substring(cnt.length()-5, cnt.length());
-                
-              verifyTrue("Item "+i+" should "
-                  +(if(selected) "" else "not ")+"be selected",
-	              jq(item) .hasClass("z-listitem-selected") == selected
-	              && (lbl == null || lbl.$n().get("innerHTML").contains(cnt) == selected));
-              
+            cnt = jq(item).find(".z-listcell").eq(0).text();
+            cnt = cnt.substring(cnt.length() - 5, cnt.length());
+
+            verifyTrue("Item " + i + " should "
+              + (if (selected) "" else "not ") + "be selected",
+              jq(item).hasClass("z-listitem-selected") == selected
+                && (lbl == null || lbl.$n().get("innerHTML").contains(cnt) == selected));
+
           }
         }
+
         check(listbox1, lbl1, Array(2));
         check(listbox2, lbl2, Array(2));
 
@@ -142,14 +139,16 @@ class B60_ZK_927_3Test extends ZTL4ScalaTestCase {
         check(listbox1, lbl1, Array(2, 3, 5));
         check(listbox2, lbl2, Array(5));
 
-        click(clear); waitResponse();
+        click(clear);
+        waitResponse();
         check(listbox1, null, Array());
         check(listbox2, null, Array());
 
-        click(reload); waitResponse();
+        click(reload);
+        waitResponse();
         check(listbox1, lbl1, Array());
         check(listbox2, lbl2, Array());
-    }
-   );
+      }
+    );
   }
 }

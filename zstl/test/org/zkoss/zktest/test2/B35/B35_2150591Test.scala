@@ -21,15 +21,17 @@ import org.zkoss.ztl.Tags
 
 
 /**
- * A test class for bug 2150591
- * @author ldnigro
- *
- */
+  * A test class for bug 2150591
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2150591.zul,A,E,Group,Listgroup,Grid,Listbox")
 class B35_2150591Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -75,41 +77,41 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
       """
 
     runZTL(zscript,
-        () => {
-        	
-            waitResponse();
-            
-            //1 - Listgroupfoot replaced
-        	click(jq("$but1"));
-        	waitResponse();
-        	
-        	
-        	var id=jq("$lb").toWidget().lastChild().id();
-        	verifyEquals(id,"lgf");
-        	
-        	//2 - Listgroup & Listfoot removed
-        	click(jq("$but2"));
-        	waitResponse();
-        	
-        	verifyFalse(jq(".z-listgroup").exists());
-        	verifyFalse(jq(".z-listgroupfoot").exists());
-        	
-        	//3 - Groupfoot replaced
-        	click(jq("$but3"));
-        	waitResponse();
-        	
-        	var id1=jq("$rs").toWidget().lastChild().id();
-        	verifyEquals(id1,"gf");
-        	
-        	//4 - Group & groupfoot replaced
-        	click(jq("$but4"));
-        	waitResponse();
-        	
-        	verifyFalse(jq(".z-group").exists());
-        	verifyFalse(jq(".z-groupfoot").exists());
+      () => {
 
-                   
-        }
+        waitResponse();
+
+        //1 - Listgroupfoot replaced
+        click(jq("$but1"));
+        waitResponse();
+
+
+        var id = jq("$lb").toWidget().lastChild().id();
+        verifyEquals(id, "lgf");
+
+        //2 - Listgroup & Listfoot removed
+        click(jq("$but2"));
+        waitResponse();
+
+        verifyFalse(jq(".z-listgroup").exists());
+        verifyFalse(jq(".z-listgroupfoot").exists());
+
+        //3 - Groupfoot replaced
+        click(jq("$but3"));
+        waitResponse();
+
+        var id1 = jq("$rs").toWidget().lastChild().id();
+        verifyEquals(id1, "gf");
+
+        //4 - Group & groupfoot replaced
+        click(jq("$but4"));
+        waitResponse();
+
+        verifyFalse(jq(".z-group").exists());
+        verifyFalse(jq(".z-groupfoot").exists());
+
+
+      }
     );
-   }
+  }
 }

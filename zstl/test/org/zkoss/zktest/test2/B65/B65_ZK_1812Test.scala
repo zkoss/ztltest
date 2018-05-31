@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1812.zul")
 class B65_ZK_1812Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk xmlns:w="client">
+    val zscript =
+      """<zk xmlns:w="client">
 
 	<vlayout>
 		currently only buttons 1-5 should work as expected (and return the expected data). before the fix 4 and 5 ignore all or parts of event data

@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.F60
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-536
- * @author benbai
- *
- */
+  * A test class for bug ZK-536
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-536.zul,F60,B,E,Groupbox,title")
 class F60_ZK_536Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 			<html><![CDATA[
 			<ol>
@@ -53,7 +47,7 @@ class F60_ZK_536Test extends ZTL4ScalaTestCase {
     		"""
 
     runZTL(zscript,
-        () => {
+      () => {
         var gbxOne: Widget = engine.$f("gbxOne")
         var gbxTwo: Widget = engine.$f("gbxTwo")
         /*
@@ -65,7 +59,7 @@ class F60_ZK_536Test extends ZTL4ScalaTestCase {
 
         verifyTrue("groupbox two should have title",
             "groupbox two".equals(gbxTwoText));*/
-    }
-   );
+      }
+    );
   }
 }

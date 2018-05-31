@@ -1,16 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.util.Scripts
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1213.zul")
 class B65_ZK_1213Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 				    <button label="change to US">
 				  		<attribute name="onClick"><![CDATA[
 				    		Locale locale = new Locale("en", "US");
@@ -31,9 +31,9 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
         waitResponse()
 
         /**
-         * 1. Select Dec 16 2012 and click right arrow, should see Jan 16 2013
-         * Note: dont simplify it cuz opera will throw exception
-         */
+          * 1. Select Dec 16 2012 and click right arrow, should see Jan 16 2013
+          * Note: dont simplify it cuz opera will throw exception
+          */
         val (year, month, day) = ("2012", "Dec", "16")
         val (yearMonth, dayOfNextMonth) = ("Jan 2013", "16")
 
@@ -58,7 +58,7 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
 
         sleep(500)
         verifyEquals(jq(".z-calendar-title").text(), yearMonth)
-        
+
         verifyEquals(jq(".z-calendar-weekday.z-calendar-selected").text(), dayOfNextMonth)
 
         // 2. Select Jan 31 2012 and click right arrow, should see Feb 29 2012

@@ -17,27 +17,20 @@ Copyright (C) 2007 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug 1852313
- * @author ldnigro
- *
- */
+  * A test class for bug 1852313
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B30-1852313.zul,A,M,Tree")
 class B30_1852313Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk
                 xmlns="http://www.zkoss.org/2005/zul"
                 xmlns:h="http://www.w3.org/1999/xhtml"
@@ -153,34 +146,34 @@ class B30_1852313Test extends ZTL4ScalaTestCase {
                </window>
             </zk>
     """
-runZTL(zscript,
-        () => {
-                
-        		val row = jq("@treerow:eq(0)")
-            	val n1=row.toWidget().$n("icon");
-            	val n2=row.find("@treerow").toWidget().$n("icon");
-            	 
-            	//Test item 1
-                click(n1);
-                waitResponse();
-                verifyFalse(jq(".z-error").exists());
-                
-                //Test subitem 1.4
-                click(n2);
-                waitResponse();
-                verifyFalse(jq(".z-error").exists());
-                
-                //Test item 2
-                click(n1);
-                waitResponse();
-                verifyFalse(jq(".z-error").exists());
-                
-                //Test item 3
-                click(n1);
-                waitResponse();
-                verifyFalse(jq(".z-error").exists());
-                            
-        }
+    runZTL(zscript,
+      () => {
+
+        val row = jq("@treerow:eq(0)")
+        val n1 = row.toWidget().$n("icon");
+        val n2 = row.find("@treerow").toWidget().$n("icon");
+
+        //Test item 1
+        click(n1);
+        waitResponse();
+        verifyFalse(jq(".z-error").exists());
+
+        //Test subitem 1.4
+        click(n2);
+        waitResponse();
+        verifyFalse(jq(".z-error").exists());
+
+        //Test item 2
+        click(n1);
+        waitResponse();
+        verifyFalse(jq(".z-error").exists());
+
+        //Test item 3
+        click(n1);
+        waitResponse();
+        verifyFalse(jq(".z-error").exists());
+
+      }
     );
-   }
+  }
 }

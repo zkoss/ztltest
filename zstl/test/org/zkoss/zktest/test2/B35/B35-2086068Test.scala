@@ -18,19 +18,19 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
 
 /**
- * A test class for bug 2086068
- * @author ldnigro
- *
- */
+  * A test class for bug 2086068
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2086068.zul,A,E,Panel")
 class B35_2086068Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -113,26 +113,26 @@ alert("Only one top toolbar is allowed");
     """
 
     runZTL(zscript,
-        () => {
-        	
-        	//click change button twice
-        	click(jq("$change"));
-        	waitResponse();
-        	
-        	verifyFalse(jq("$p1").isVisible());
-        	
-        	click(jq("$change"));
-        	waitResponse();
-        	
-        	verifyTrue(jq("$p1").isVisible());
-        	
-        	//click add button
-        	click(jq("$add"));
-        	waitResponse();
-        	
-        	verifyTrue(jq("$p1").isVisible());
-        	        	                    
-        }
+      () => {
+
+        //click change button twice
+        click(jq("$change"));
+        waitResponse();
+
+        verifyFalse(jq("$p1").isVisible());
+
+        click(jq("$change"));
+        waitResponse();
+
+        verifyTrue(jq("$p1").isVisible());
+
+        //click add button
+        click(jq("$add"));
+        waitResponse();
+
+        verifyTrue(jq("$p1").isVisible());
+
+      }
     );
-   }
+  }
 }

@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-602.zul")
 class B60_ZK_602Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk><vlayout id="vb">
+    val zscript =
+      """<zk><vlayout id="vb">
                         <html><![CDATA[
 <ol>
 	<li>Click the "Clone by Serialization" button and then another window is created and append.</li>
@@ -58,15 +59,15 @@ class B60_ZK_602Test extends ZTL4ScalaTestCase {
         val clone0Btn = jq(".z-window-embedded:contains(Test of Forward Conditions):eq(1)").find("@button:contains(OK):eq(1)")
         click(clone0Btn)
         waitResponse()
-        
+
         val msgWindow = jq(".z-messagebox-window")
         val msg = msgWindow.find(".z-label").text()
         verifyEquals("a message saying 'dst1: onOK' will be shown.", msg, "dst1: onOK")
-        
+
         val msgBtn = msgWindow.find(".z-button")
         click(msgBtn)
         waitResponse()
-        
+
         click(jq("@button:contains(Clone)"))
         waitResponse()
 
@@ -74,7 +75,7 @@ class B60_ZK_602Test extends ZTL4ScalaTestCase {
 
         click(clone1Btn)
         verifyEquals("a message saying 'dst1: onOK' will be shown.", msg, "dst1: onOK")
-        
+
       })
 
   }

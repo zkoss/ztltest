@@ -14,20 +14,21 @@ it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2.B50
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
- *
- * @author jumperchen
- */
+  *
+  * @author jumperchen
+  */
 @Tags(tags = "B50-ZK-528.zul,A,E,Grid,Listbox,EmptyMessage")
 class B50_ZK_528Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testGridCase() = {
-		val zscript = """
+    val zscript =
+      """
 			<div>
 				Grid
 				<grid emptyMessage="Empty Message">
@@ -52,41 +53,42 @@ class B50_ZK_528Test extends ZTL4ScalaTestCase {
 				<button label="clean columns" onClick="cols.getChildren().clear()"/>
 			</div>
 		"""
-runZTL(zscript, () => {
-		  
-			val emp = jq("@grid").toWidget().$n("empty")
-			val hiddenCol = jq("@grid").find("col[id*=hdfaker][style*=hidden]")
-			val column = jq("@grid").find(".z-column")
-			verifyEquals(column.length() - hiddenCol.length(), 1);
-			verifyTrue(!hiddenCol.attr("id").contains(jq(".z-column").attr("id")));
-			verifyTrue(jq(emp).isVisible());
-			verifyEquals("Empty Message", jq(jq("@grid").toWidget().$n("empty")).text());
+    runZTL(zscript, () => {
 
-			click(jq("@button:eq(0)"));
-			waitResponse();
-			verifyFalse(jq(emp).isVisible());
+      val emp = jq("@grid").toWidget().$n("empty")
+      val hiddenCol = jq("@grid").find("col[id*=hdfaker][style*=hidden]")
+      val column = jq("@grid").find(".z-column")
+      verifyEquals(column.length() - hiddenCol.length(), 1);
+      verifyTrue(!hiddenCol.attr("id").contains(jq(".z-column").attr("id")));
+      verifyTrue(jq(emp).isVisible());
+      verifyEquals("Empty Message", jq(jq("@grid").toWidget().$n("empty")).text());
 
-			click(jq("@button:eq(1)"));
-			waitResponse();
-			verifyTrue(jq(emp).isVisible());
+      click(jq("@button:eq(0)"));
+      waitResponse();
+      verifyFalse(jq(emp).isVisible());
 
-			click(jq("@button:eq(2)"));
-			waitResponse();
-			click(jq("@button:eq(2)"));
-			waitResponse();
-			verifyEquals(column.length() - hiddenCol.length(), 3);
-			verifyTrue(jq(emp).isVisible());
+      click(jq("@button:eq(1)"));
+      waitResponse();
+      verifyTrue(jq(emp).isVisible());
 
-			click(jq("@button:eq(3)"));
-			waitResponse();
-			verifyTrue((column.length() - hiddenCol.length()) == 0);
-			verifyTrue(jq(emp).isVisible());
-		})
-	}
+      click(jq("@button:eq(2)"));
+      waitResponse();
+      click(jq("@button:eq(2)"));
+      waitResponse();
+      verifyEquals(column.length() - hiddenCol.length(), 3);
+      verifyTrue(jq(emp).isVisible());
 
-  	@Test
-	def testListboxCase() = {
-		val zscript = """
+      click(jq("@button:eq(3)"));
+      waitResponse();
+      verifyTrue((column.length() - hiddenCol.length()) == 0);
+      verifyTrue(jq(emp).isVisible());
+    })
+  }
+
+  @Test
+  def testListboxCase() = {
+    val zscript =
+      """
 			<div>
 				Listbox
 				<listbox id="list" emptyMessage="Empty Message">
@@ -109,34 +111,34 @@ runZTL(zscript, () => {
 				<button label="clean columns" onClick="lh.getChildren().clear()"/>
 			</div>
 		"""
-runZTL(zscript, () => {
-		  
-		    val emp = jq(".z-listbox").toWidget().$n("empty")
-		    val hiddenCol = jq("@listbox").find("col[id*=hdfaker][style*=hidden]")
-			val column = jq("@listbox").find(".z-listheader")
-			verifyEquals(column.length() - hiddenCol.length(), 1);
-			verifyTrue(!hiddenCol.attr("id").contains(jq(".z-listheader").attr("id")));
-			verifyTrue(jq(emp).isVisible());
-			verifyEquals("Empty Message", jq(emp).text());
+    runZTL(zscript, () => {
 
-			click(jq("@button:eq(0)"));
-			waitResponse();
-			verifyFalse(jq(emp).isVisible());
+      val emp = jq(".z-listbox").toWidget().$n("empty")
+      val hiddenCol = jq("@listbox").find("col[id*=hdfaker][style*=hidden]")
+      val column = jq("@listbox").find(".z-listheader")
+      verifyEquals(column.length() - hiddenCol.length(), 1);
+      verifyTrue(!hiddenCol.attr("id").contains(jq(".z-listheader").attr("id")));
+      verifyTrue(jq(emp).isVisible());
+      verifyEquals("Empty Message", jq(emp).text());
 
-			click(jq("@button:eq(1)"));
-			waitResponse();
-			verifyTrue(jq(emp).isVisible());
+      click(jq("@button:eq(0)"));
+      waitResponse();
+      verifyFalse(jq(emp).isVisible());
 
-			click(jq("@button:eq(2)"));
-			click(jq("@button:eq(2)"));
-			waitResponse();
-			verifyEquals(column.length() - hiddenCol.length(), 3);
-			verifyTrue(jq(emp).isVisible());
+      click(jq("@button:eq(1)"));
+      waitResponse();
+      verifyTrue(jq(emp).isVisible());
 
-			click(jq("@button:eq(3)"));
-			waitResponse();
-			verifyTrue((column.length() - hiddenCol.length()) == 0);
-			verifyTrue(jq(emp).isVisible());
-		})
-	} 
+      click(jq("@button:eq(2)"));
+      click(jq("@button:eq(2)"));
+      waitResponse();
+      verifyEquals(column.length() - hiddenCol.length(), 3);
+      verifyTrue(jq(emp).isVisible());
+
+      click(jq("@button:eq(3)"));
+      waitResponse();
+      verifyTrue((column.length() - hiddenCol.length()) == 0);
+      verifyTrue(jq(emp).isVisible());
+    })
+  }
 }

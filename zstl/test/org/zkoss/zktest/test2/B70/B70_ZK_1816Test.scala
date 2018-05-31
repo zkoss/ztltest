@@ -14,19 +14,20 @@ it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2.B70
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.junit.Test
 
 /**
- * 
- * @author chunfu
- */
+  *
+  * @author chunfu
+  */
 @Tags(tags = "")
 class B70_ZK_1816Test extends ZTL4ScalaTestCase {
   @Test
-	def testCase() = {
-		val zscript ="""
+  def testCase() = {
+    val zscript =
+      """
 			<?xml version="1.0" encoding="UTF-8"?>
 
 		<!--
@@ -100,18 +101,18 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 				</listbox>
 			</zk>
 """
-		runZTL(zscript, () => {
-			var listheader = jq(".z-listheader");
-			var listheadBtn = jq(".z-listheader-button");
-			mouseOver(listheader.eq(0));
-			click(listheadBtn)
-			waitResponse()
-			click(jq(".z-menuitem-content").eq(4))
-			waitResponse()
-			mouseOver(listheader.eq(1));
-			click(listheader.eq(1));
-			waitResponse()
-			verifyEquals("hidden", jq("@listheader").css("visibility"))
-		})
-	}
+    runZTL(zscript, () => {
+      var listheader = jq(".z-listheader");
+      var listheadBtn = jq(".z-listheader-button");
+      mouseOver(listheader.eq(0));
+      click(listheadBtn)
+      waitResponse()
+      click(jq(".z-menuitem-content").eq(4))
+      waitResponse()
+      mouseOver(listheader.eq(1));
+      click(listheader.eq(1));
+      waitResponse()
+      verifyEquals("hidden", jq("@listheader").css("visibility"))
+    })
+  }
 }

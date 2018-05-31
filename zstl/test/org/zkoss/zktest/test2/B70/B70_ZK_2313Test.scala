@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.openqa.selenium.Dimension
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2313.zul")
 class B70_ZK_2313Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2313.zul
@@ -147,43 +145,43 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """
     runZTL(zscript,
       () => {
-        
+
         val b1 = jq("$b1");
         val b2 = jq("$b2");
         val b3 = jq("$b3");
         val lists = jq("@listbox");
         var scrollFail = false;
-        
+
         click(b1);
         waitResponse();
         var iter = lists.iterator();
-        while(iter.hasNext()) {
+        while (iter.hasNext()) {
           val list = iter.next();
           println(getScrollTop(list.toWidget()));
-          if(getScrollTop(list.toWidget()) == 0)
+          if (getScrollTop(list.toWidget()) == 0)
             scrollFail = true;
         }
-        
+
         click(b2);
         waitResponse();
         iter = lists.iterator();
-        while(iter.hasNext()) {
+        while (iter.hasNext()) {
           val list = iter.next();
           println(getScrollTop(list.toWidget()));
-          if(getScrollTop(list.toWidget()) > 0)
+          if (getScrollTop(list.toWidget()) > 0)
             scrollFail = true;
         }
-        
+
         click(b3);
         waitResponse();
         iter = lists.iterator();
-        while(iter.hasNext()) {
+        while (iter.hasNext()) {
           val list = iter.next();
           println(getScrollTop(list.toWidget()));
-          if(getScrollTop(list.toWidget()) == 0)
+          if (getScrollTop(list.toWidget()) == 0)
             scrollFail = true;
         }
-        
+
         verifyFalse("scrolling should be changed after button click.", scrollFail);
       })
 

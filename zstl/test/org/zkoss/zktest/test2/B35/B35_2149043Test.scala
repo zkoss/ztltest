@@ -16,11 +16,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
-import org.junit.Test
-import org.zkoss.ztl.ZK
 
 /**
   * @author Fernando Selvatici

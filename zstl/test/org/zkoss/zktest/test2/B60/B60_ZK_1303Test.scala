@@ -1,16 +1,16 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.ZK
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1303.zul")
 class B60_ZK_1303Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <div>
                       Ste 1: Click "update"<separator/>
                       Step 2: Select first item in the lsitbox "test1"<separator/>
@@ -52,7 +52,7 @@ class B60_ZK_1303Test extends ZTL4ScalaTestCase {
         waitResponse()
         click(jq("@button:contains(test)"))
         waitResponse()
-        
+
         verifyEquals(jq(".z-messagebox-window .z-label").text(), "test1")
       })
 

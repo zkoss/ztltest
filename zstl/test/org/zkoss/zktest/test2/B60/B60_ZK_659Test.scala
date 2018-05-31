@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-659.zul")
 class B60_ZK_659Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+    val zscript =
+      """<?page title="new page title" contentType="text/html;charset=UTF-8"?>
                   <zk>
                     <zscript><![CDATA[ 
 import org.zkoss.zul.*;
@@ -70,9 +71,9 @@ import org.zkoss.zul.*;
 
         val tab1label = jq(".z-vlayout-inner:contains(selectd Tab 1)")
         verifyTrue("shall display another message, 'selectd Tab 1', at the end", tab1label.exists())
-        
+
         verifyEquals("shall display another message, 'selectd Tab 1', at the end", tab2label.next().html(), tab1label.html())
-        
+
       })
 
   }

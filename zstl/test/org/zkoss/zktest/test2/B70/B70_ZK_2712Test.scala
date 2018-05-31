@@ -18,13 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author chunfu
- */
+  *
+  * @author chunfu
+  */
 @Tags(tags = "B70-ZK-2712.zul")
 class B70_ZK_2712Test extends ZTL4ScalaTestCase {
-	def testCase() = {
-		val zscript = """
+  def testCase() = {
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -72,16 +73,16 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 
 
 		"""
-runZTL(zscript, () => {
-			var tree = jq("@tree")
-			verScroll(tree, 1)
-			waitResponse()
-			click(jq("@treerow").last())
-			waitResponse()
-			click(jq("@button"))
-			waitResponse()
-			verifyEquals(1, jq("@treerow").length())
-			verifyTrue(jq(".z-treecell-content").text().contains("New item"))
-		})
-	}
+    runZTL(zscript, () => {
+      var tree = jq("@tree")
+      verScroll(tree, 1)
+      waitResponse()
+      click(jq("@treerow").last())
+      waitResponse()
+      click(jq("@button"))
+      waitResponse()
+      verifyEquals(1, jq("@treerow").length())
+      verifyTrue(jq(".z-treecell-content").text().contains("New item"))
+    })
+  }
 }

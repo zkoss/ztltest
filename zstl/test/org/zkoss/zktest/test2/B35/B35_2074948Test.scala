@@ -18,16 +18,16 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B35-2074948.zul,B,E,Window,Button")
 class B35_2074948Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <window title="Menu Demo" border="normal">
         <label value="Vertical Menu Popup position shall be correct"/>
         <window>
@@ -59,7 +59,7 @@ class B35_2074948Test extends ZTL4ScalaTestCase {
         </window>
       </window>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       var item = engine.$f("menu")
       var popup = jq(".z-menupopup");
 
@@ -74,11 +74,10 @@ runZTL(zscript, () => {
       // Record Menu Popup position
       var xPopup: Int = getElementPositionLeft(popup).intValue();
       var yPopup: Int = getElementPositionTop(popup).intValue();
-      
+
       // The popup must be at the right of the menu item
       verifyTrue("The popup must be at right and below of the menu item", xPopup > xMenu && Math.abs(yPopup - yMenu) <= 1);
 
-      
 
     })
   }

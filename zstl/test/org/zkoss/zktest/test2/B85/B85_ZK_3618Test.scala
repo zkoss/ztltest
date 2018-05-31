@@ -15,15 +15,15 @@ import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B85_ZK_3618Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			val img = jq(".z-image")
+  @Test
+  def test() = {
+    runZTL(() => {
+      val img = jq(".z-image")
 
-			click(img)
-			waitResponse(true)
+      click(img)
+      waitResponse(true)
 
-			verifyFalse(img.exists())
-		})
-	}
+      verifyFalse(img.exists())
+    })
+  }
 }

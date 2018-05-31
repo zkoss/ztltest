@@ -16,16 +16,16 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B85_ZK_3708Test extends ZTL4ScalaTestCase {
 
-	@Test
-	def test() = {
-		runZTL(() => {
-			val splitlayouts = jq(".z-splitlayout")
+  @Test
+  def test() = {
+    runZTL(() => {
+      val splitlayouts = jq(".z-splitlayout")
 
-			val firstSplitlayout = splitlayouts.eq(0)
-			verifyEquals(firstSplitlayout.width(), firstSplitlayout.children().eq(1).width())
+      val firstSplitlayout = splitlayouts.eq(0)
+      verifyEquals(firstSplitlayout.width(), firstSplitlayout.children().eq(1).width())
 
-			val secondSplitlayout = splitlayouts.eq(1)
-			verifyEquals(secondSplitlayout.height(), secondSplitlayout.children().eq(1).height())
-		})
-	}
+      val secondSplitlayout = splitlayouts.eq(1)
+      verifyEquals(secondSplitlayout.height(), secondSplitlayout.children().eq(1).height())
+    })
+  }
 }

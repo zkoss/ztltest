@@ -20,15 +20,17 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * A test class for bug listbox-0003
- * @author TonyQ
- *
- */
+  * A test class for bug listbox-0003
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z30-listbox-0003.zul,Z30,A,E,Listbox")
 class Z30_listbox_0003Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<window>
 			Test dynamically select the second listitem.
 			<listbox rows="3" width="400px">
@@ -66,17 +68,17 @@ class Z30_listbox_0003Test extends ZTL4ScalaTestCase {
 			<button id="btn1" label="Select 2nd" onClick="li1.selected = true"/>
 			</window>
 	""";
-   
+
     runZTL(zscript,
-        () => {
-    
-        verifyEquals(jq(".z-listitem-selected .z-listcell:first").text(),"C. High School"); 
-          
-	    click(jq("$btn1"));
-	    waitResponse();
-	    
-	    verifyEquals(jq(".z-listitem-selected .z-listcell:first").text(),"B. College");          
-    }
-   );
+      () => {
+
+        verifyEquals(jq(".z-listitem-selected .z-listcell:first").text(), "C. High School");
+
+        click(jq("$btn1"));
+        waitResponse();
+
+        verifyEquals(jq(".z-listitem-selected .z-listcell:first").text(), "B. College");
+      }
+    );
   }
 }

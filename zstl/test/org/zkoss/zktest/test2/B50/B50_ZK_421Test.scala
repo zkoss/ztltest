@@ -18,20 +18,21 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-421
- * @author benbai
- *
- */
+  * A test class for bug ZK-421
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-421.zul,A,E,Listbox,Tree,Paging")
 class B50_ZK_421Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
     		<zk>
     			<div>1. Select an item, go to page 2.</div>
     			<div>2. Select another item and go back to page 1. In the first Listbox you 
@@ -47,48 +48,50 @@ class B50_ZK_421Test extends ZTL4ScalaTestCase {
     			</listbox>
     		</zk>
     """
-def executor = () => {
-    	var lb1: Widget = engine.$f("lb1");
-    	var lb2: Widget = engine.$f("lb2");
-    	waitResponse();
-    	testSelect(lb1, false);
-    	testSelect(lb2, true);
+
+    def executor = () => {
+      var lb1: Widget = engine.$f("lb1");
+      var lb2: Widget = engine.$f("lb2");
+      waitResponse();
+      testSelect(lb1, false);
+      testSelect(lb2, true);
     }
 
     def testSelect(lb: Widget, keep: java.lang.Boolean) {
-    	click(jq(lb.$n("rows")).find(".z-listitem").get(2));
-    	waitResponse();
-    	click(jq("[name=" + jq(lb).find(".z-paging").attr("id") + "-next]"));
-    	waitResponse();
-    	click(jq(lb.$n("rows")).find(".z-listitem").get(2));
-    	waitResponse();
-    	verifyTrue(jq(lb).find(".z-listitem:eq(2)").hasClass("z-listitem-selected"));
-    	click(jq("[name=" + jq(lb).find(".z-paging").attr("id") + "-prev]"));
-    	waitResponse();
-    	if (keep)
-    		verifyTrue(jq(lb).find(".z-listitem:eq(2)").hasClass("z-listitem-selected"));
-    	else
-    		verifyFalse(jq(lb).find(".z-listitem:eq(2)").hasClass("z-listitem-selected"));
+      click(jq(lb.$n("rows")).find(".z-listitem").get(2));
+      waitResponse();
+      click(jq("[name=" + jq(lb).find(".z-paging").attr("id") + "-next]"));
+      waitResponse();
+      click(jq(lb.$n("rows")).find(".z-listitem").get(2));
+      waitResponse();
+      verifyTrue(jq(lb).find(".z-listitem:eq(2)").hasClass("z-listitem-selected"));
+      click(jq("[name=" + jq(lb).find(".z-paging").attr("id") + "-prev]"));
+      waitResponse();
+      if (keep)
+        verifyTrue(jq(lb).find(".z-listitem:eq(2)").hasClass("z-listitem-selected"));
+      else
+        verifyFalse(jq(lb).find(".z-listitem:eq(2)").hasClass("z-listitem-selected"));
     }
-runZTL(zscript, executor);
-   
-   // Run syntax 2
-   /**
-    runZTL(zscript,
-        () => {
-        var l1: Widget = engine.$f("l1");
-        var l2: Widget = engine.$f("l2");
-        waitResponse();
-        var strClickBefor = getText(l1);
-        click(l1);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l1));
-        strClickBefor = getText(l2);
-        click(l2);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l2));
-    }
-   );
-    */
+
+    runZTL(zscript, executor);
+
+    // Run syntax 2
+    /**
+      * runZTL(zscript,
+      * () => {
+      * var l1: Widget = engine.$f("l1");
+      * var l2: Widget = engine.$f("l2");
+      * waitResponse();
+      * var strClickBefor = getText(l1);
+      * click(l1);
+      * waitResponse();
+      * verifyNotEquals(strClickBefor, getText(l1));
+      * strClickBefor = getText(l2);
+      * click(l2);
+      * waitResponse();
+      * verifyNotEquals(strClickBefor, getText(l2));
+      * }
+      * );
+      */
   }
 }

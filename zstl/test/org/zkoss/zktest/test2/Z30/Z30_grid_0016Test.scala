@@ -16,22 +16,24 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z30
 
-import scala.collection.mutable.ListBuffer
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.util.Scripts
-import org.zkoss.ztl.Tags
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
+
+import scala.collection.mutable.ListBuffer
 
 /**
- * A test class for bug grid-0016
- * @author TonyQ
- *
- */
+  * A test class for bug grid-0016
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z30-grid-0016.zul,Z30,A,E,Grid,Row")
 class Z30_grid_0016Test extends ZTL4ScalaTestCase {
-	@Test
+  @Test
   def testClick() = {
-    val zscript ="""
+    val zscript =
+      """
 			<window>
 			<vbox>
 				Empty grid:
@@ -57,65 +59,66 @@ class Z30_grid_0016Test extends ZTL4ScalaTestCase {
 			</window>
 
 	""";
-      
+
     runZTL(zscript,
-        () => {
-	        def clickThenValidate(selector:String,validator:()=>Unit ){
-	        	click(jq(selector))
-	          	//Scripts.triggerMouseEventAt(getWebDriver(), jq(selector), "click", "2,2")        
-	        	waitResponse()
-	        	validator()
-	        }          
-	        def verifyRowContent(iterator:Iterator[String]) ={
-		        val verify = iterator;
-		        val list =  jq("@row").iterator();
-		        while(list.hasNext()){
-		          val row = list.next() ;
-		          var text = verify.next();
-				  verifyEquals(row.find(".z-label:first").text(),text);
-				}          
-	        }          
-        verifyEquals(jq("@rows").length.toString(),"0");
-        verifyEquals(jq("@row").length.toString(),"0");
-        
-        clickThenValidate("$btnAddRows",()=>{
-        	verifyEquals(jq("@rows").length.toString(),"1");
-        	verifyEquals(jq("@row").length.toString(),"0");
+      () => {
+        def clickThenValidate(selector: String, validator: () => Unit) {
+          click(jq(selector))
+          //Scripts.triggerMouseEventAt(getWebDriver(), jq(selector), "click", "2,2")
+          waitResponse()
+          validator()
+        }
+
+        def verifyRowContent(iterator: Iterator[String]) = {
+          val verify = iterator;
+          val list = jq("@row").iterator();
+          while (list.hasNext()) {
+            val row = list.next();
+            var text = verify.next();
+            verifyEquals(row.find(".z-label:first").text(), text);
+          }
+        }
+
+        verifyEquals(jq("@rows").length.toString(), "0");
+        verifyEquals(jq("@row").length.toString(), "0");
+
+        clickThenValidate("$btnAddRows", () => {
+          verifyEquals(jq("@rows").length.toString(), "1");
+          verifyEquals(jq("@row").length.toString(), "0");
         });
 
-        	
-		val list = new ListBuffer[String]
-        for (i <- 1 until 21) {
-          	list += "Item "+i+"-L"
-          	
-	        clickThenValidate("$btnAddRow",()=>{
-	        	verifyEquals(jq("@rows").length.toString(),"1");
-	        	verifyEquals(jq("@row").length.toString(),""+i);
-	        	verifyRowContent(list.iterator)
-	        });
-        }
-        
-        clickThenValidate("$btnAddRow",()=>{
-        	verifyEquals(jq("@rows").length.toString(),"1");
-        	verifyEquals(jq("@row").length.toString(),"20"); //paging
-        	verifyRowContent(list.iterator)
-        });        
 
-        clickThenValidate("$btnAddRow",()=>{
-        	verifyEquals(jq("@rows").length.toString(),"1");
-        	verifyEquals(jq("@row").length.toString(),"20"); //paging
-        	verifyRowContent(list.iterator)
-        });                
-        
-        clickThenValidate("[name=" + jq(".z-paging").attr("id") + "-next]",()=>{
-        	verifyEquals(jq("@rows").length.toString(),"1");
-        	verifyEquals(jq("@row").length.toString(),"2"); //paging
-        	verifyRowContent(Iterator("Item 21-L","Item 22-L"));
-        });          
-        
-        
-        
-    }
-   );
+        val list = new ListBuffer[String]
+        for (i <- 1 until 21) {
+          list += "Item " + i + "-L"
+
+          clickThenValidate("$btnAddRow", () => {
+            verifyEquals(jq("@rows").length.toString(), "1");
+            verifyEquals(jq("@row").length.toString(), "" + i);
+            verifyRowContent(list.iterator)
+          });
+        }
+
+        clickThenValidate("$btnAddRow", () => {
+          verifyEquals(jq("@rows").length.toString(), "1");
+          verifyEquals(jq("@row").length.toString(), "20"); //paging
+          verifyRowContent(list.iterator)
+        });
+
+        clickThenValidate("$btnAddRow", () => {
+          verifyEquals(jq("@rows").length.toString(), "1");
+          verifyEquals(jq("@row").length.toString(), "20"); //paging
+          verifyRowContent(list.iterator)
+        });
+
+        clickThenValidate("[name=" + jq(".z-paging").attr("id") + "-next]", () => {
+          verifyEquals(jq("@rows").length.toString(), "1");
+          verifyEquals(jq("@row").length.toString(), "2"); //paging
+          verifyRowContent(Iterator("Item 21-L", "Item 22-L"));
+        });
+
+
+      }
+    );
   }
 }

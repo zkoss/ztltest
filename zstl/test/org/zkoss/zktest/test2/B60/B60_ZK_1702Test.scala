@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1702.zul")
 class B60_ZK_1702Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 	<label multiline="true">
 	Select any item in the combobox, should not see any java error.
 	</label>

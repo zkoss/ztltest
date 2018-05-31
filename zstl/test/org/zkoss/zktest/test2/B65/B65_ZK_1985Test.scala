@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1985.zul")
 class B65_ZK_1985Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?page title="new page title" contentType="text/html;charset=UTF-8"?>
 <zk>
 <div>
 	should see a parsed date and 25 'undefined's in zk.log
@@ -71,17 +72,17 @@ def testClick() = {
 		zk.log(d23 ? d23 : 'undefined');
 		zk.log(d24 ? d24 : 'undefined'); })
 	</script>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      sleep(500)
-      val txt = jq("#zk_log").`val`()
-      val txts = txt.split("\n")
-      
-      val hasParsedDate = !txts(0).contains("undefined")
-      val count = txt.split("\n").count(_ == "undefined")
-      verifyTrue("should see a parsed date and 25 'undefined's in zk.log", hasParsedDate && count == 25)
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+        sleep(500)
+        val txt = jq("#zk_log").`val`()
+        val txts = txt.split("\n")
+
+        val hasParsedDate = !txts(0).contains("undefined")
+        val count = txt.split("\n").count(_ == "undefined")
+        verifyTrue("should see a parsed date and 25 'undefined's in zk.log", hasParsedDate && count == 25)
+      })
+
   }
 }

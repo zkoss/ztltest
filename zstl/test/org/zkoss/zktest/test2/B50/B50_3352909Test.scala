@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug 3352909
- * @author benbai
- *
- */
+  * A test class for bug 3352909
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3352909.zul,A,E,Grid,Listbox,ROD,Scrollbar")
 class B50_3352909Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 			1. Plese scroll to item99(or more than it), it shouldn't jump to item 41.
 			<zscript>
@@ -57,52 +51,54 @@ class B50_3352909Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-def executor = ()=>{
-    	var lb: Widget = engine.$f("lb")
-		var grid: Widget = engine.$f("grid")
-		waitResponse()
 
-		verScroll(lb, 0.5)
-		waitResponse()
-		verifyTrue(jq(lb.$n("body")).scrollTop() > 2000)
+    def executor = () => {
+      var lb: Widget = engine.$f("lb")
+      var grid: Widget = engine.$f("grid")
+      waitResponse()
 
-		verScroll(grid, 0.5)
-		waitResponse()
-		sleep(500)
-		verifyTrue(jq(grid.$n("body")).scrollTop() > 2000)
+      verScroll(lb, 0.5)
+      waitResponse()
+      verifyTrue(jq(lb.$n("body")).scrollTop() > 2000)
+
+      verScroll(grid, 0.5)
+      waitResponse()
+      sleep(500)
+      verifyTrue(jq(grid.$n("body")).scrollTop() > 2000)
     }
-runZTL(zscript, executor);
-   
-   // Run syntax 2
-   /**
-    runZTL(zscript,
-        () => {
-        var l1: Widget = engine.$f("l1");
-        var l2: Widget = engine.$f("l2");
-        waitResponse();
-        var strClickBefor = getText(l1);
-        click(l1);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l1));
-        strClickBefor = getText(l2);
-        click(l2);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l2));
-    }
-   );
-    */
+
+    runZTL(zscript, executor);
+
+    // Run syntax 2
+    /**
+      * runZTL(zscript,
+      * () => {
+      * var l1: Widget = engine.$f("l1");
+      * var l2: Widget = engine.$f("l2");
+      * waitResponse();
+      * var strClickBefor = getText(l1);
+      * click(l1);
+      * waitResponse();
+      * verifyNotEquals(strClickBefor, getText(l1));
+      * strClickBefor = getText(l2);
+      * click(l2);
+      * waitResponse();
+      * verifyNotEquals(strClickBefor, getText(l2));
+      * }
+      * );
+      */
     /** create widget example
-		var tree: Widget = engine.$f("tree");
-		var listbox: Widget = engine.$f("listbox");
-		waitResponse();
-	*/
-   /** trigger mouse event example
-    Scripts.triggerMouseEventAt(getWebDriver(), inner1, "click", "5,5");
-    */
-   /** detect whether exception exists example
-   		verifyFalse(jq(".z-window-highlighted").exists());
-   		verifyFalse(jq(".z-window-modal").exists())
-	*/
-	
+      * var tree: Widget = engine.$f("tree");
+      * var listbox: Widget = engine.$f("listbox");
+      * waitResponse();
+      */
+    /** trigger mouse event example
+      *Scripts.triggerMouseEventAt(getWebDriver(), inner1, "click", "5,5");
+      */
+    /** detect whether exception exists example
+      * verifyFalse(jq(".z-window-highlighted").exists());
+      * verifyFalse(jq(".z-window-modal").exists())
+      */
+
   }
 }

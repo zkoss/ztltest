@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-702
- * @author benbai
- *
- */
+  * A test class for bug ZK-702
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-702.zul,B,E,Combobutton")
 class B60_ZK_702Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<div>Click on button of combobutton, you should see a message box.</div>
 				<combobutton id="cb" label="popup" onClick='alert(self.label)'>
@@ -45,14 +38,14 @@ class B60_ZK_702Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var cb: Widget = engine.$f("cb");
         click(cb);
         waitResponse();
         verifyTrue("Should show a message box",
-            jq(".z-window-highlighted:contains(popup)").exists());
-    }
-   );
+          jq(".z-window-highlighted:contains(popup)").exists());
+      }
+    );
   }
 }

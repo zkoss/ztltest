@@ -16,21 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.junit.Test
 
 /**
- * A test class for bug 2073420
- * @author ldnigro
- *
- */
+  * A test class for bug 2073420
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2073420.zul,A,E,Grid,Group,Groupfoot")
 class B35_2073420Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
     		<zk>
 <vbox>
 1.click "updateGroup1", the label changed to a Icon<separator/>
@@ -167,43 +169,43 @@ src="/test2/img/mail_read.png"/><label value="${each[0]}"/></div>
     """
 
     runZTL(zscript,
-        () => {
-        
-        	waitResponse();
-                  
-        	//Group1 Label
-        	val lbl1=jq("$lbl1");
-        	verifyTrue(lbl1.exists());
-        	
-        	//1. Update Group 1
-        	val b1=jq("$upd1");
-        	click(b1);
-        	
-        	waitResponse();
-        	
-        	//Group1 label change to Image 
-        	val lbl2=jq("$lbl1");
-        	verifyFalse(lbl1.exists());
-        	
-        	val img1=jq("$img1");
-        	val ex=img1.exists();
-        	verifyTrue(ex);
-        	val img1c=jq("$g1").find("$img1");
-        	val ex1=img1c.exists();
-        	//Image parent is group1
-        	verifyTrue(ex1);
-        	        	
-        	//2. Update Group 1 again
-        	val b2=jq("$upd1");
-        	click(b2);
-        	
-        	waitResponse();
-        	
-        	//Group arrow exists
-        	val cl=jq("$g1").find("span");
-        	verifyTrue(cl.exists());
-        	        	        	
-        }
+      () => {
+
+        waitResponse();
+
+        //Group1 Label
+        val lbl1 = jq("$lbl1");
+        verifyTrue(lbl1.exists());
+
+        //1. Update Group 1
+        val b1 = jq("$upd1");
+        click(b1);
+
+        waitResponse();
+
+        //Group1 label change to Image
+        val lbl2 = jq("$lbl1");
+        verifyFalse(lbl1.exists());
+
+        val img1 = jq("$img1");
+        val ex = img1.exists();
+        verifyTrue(ex);
+        val img1c = jq("$g1").find("$img1");
+        val ex1 = img1c.exists();
+        //Image parent is group1
+        verifyTrue(ex1);
+
+        //2. Update Group 1 again
+        val b2 = jq("$upd1");
+        click(b2);
+
+        waitResponse();
+
+        //Group arrow exists
+        val cl = jq("$g1").find("span");
+        verifyTrue(cl.exists());
+
+      }
     );
-   }
+  }
 }

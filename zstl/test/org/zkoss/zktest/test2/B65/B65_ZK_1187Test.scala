@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1187.zul")
 class B65_ZK_1187Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 1. Please click the button, and then the style of the tab is the same as selected.
 <button  label="Click Me" onClick='tab.sclass="def"'/>
 	<tabbox width="250px">

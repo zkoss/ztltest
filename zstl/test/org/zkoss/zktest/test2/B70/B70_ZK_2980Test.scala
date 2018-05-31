@@ -1,8 +1,8 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2980.zul")
 class B70_ZK_2980Test extends ZTL4ScalaTestCase {
@@ -13,9 +13,9 @@ class B70_ZK_2980Test extends ZTL4ScalaTestCase {
       () => {
         val saveButton = jq("button:contains(save)");
         click(saveButton);
-        
+
         waitResponse(true);
-        
+
         val editButton = jq("button:contains(edit)");
         verifyTrue(editButton.eq(0).is(":focus"));
       })

@@ -16,21 +16,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B30
 
-import org.openqa.selenium.Keys
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Element
-import org.junit.Test
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-1991550.zul,B,E,Window,Button")
 class B30_1991550Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <groupbox id="gb" mold="3d" width="300px">
         <caption image="/test2/img/inet.png" label="fruits">
           <toolbarbutton label="action" image="/test2/img/inet.png">

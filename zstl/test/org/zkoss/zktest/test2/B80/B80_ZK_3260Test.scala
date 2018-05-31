@@ -19,23 +19,23 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "")
 class B80_ZK_3260Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			click(jq(".z-datebox-button"))
-			waitResponse()
-			val cell = jq(".z-calendar-cell:eq(0)")
+  @Test
+  def test() = {
+    runZTL(() => {
+      click(jq(".z-datebox-button"))
+      waitResponse()
+      val cell = jq(".z-calendar-cell:eq(0)")
       if (isSafari)
         clickAt(cell, "1,1")
       else
         click(cell)
-			waitResponse()
-			verifyNotEquals("", jq(".z-datebox-input").`val`())
-		})
-	}
+      waitResponse()
+      verifyNotEquals("", jq(".z-datebox-input").`val`())
+    })
+  }
 }

@@ -17,27 +17,22 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.Z30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
+
 import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
 
 /**
- * A test class for bug composer
- * @author TonyQ
- *
- */
+  * A test class for bug composer
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z30-composer.zul,A,E,Composer,apply,BI")
 class Z30_composerTest extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <window id="winO" title="Original" apply="org.zkoss.zktest.test2.MyComposer">
 	You shall see the title starting with "Composer: ", and with a border.
 	<window id="win1" title="You shall not see this" apply="org.zkoss.zktest.test2.VoidComposer">
@@ -52,12 +47,12 @@ class Z30_composerTest extends ZTL4ScalaTestCase {
 </window>
 
     """
-runZTL(zscript,
-        () => {
-        verifyEquals(jq("$win1").size,0)
-        verifyEquals(jq("$win2").size,0)
-        verifyEquals(widget(jq("$winO")).get("title"),"Composer: Original");
-    }
-   );
+    runZTL(zscript,
+      () => {
+        verifyEquals(jq("$win1").size, 0)
+        verifyEquals(jq("$win2").size, 0)
+        verifyEquals(widget(jq("$winO")).get("title"), "Composer: Original");
+      }
+    );
   }
 }

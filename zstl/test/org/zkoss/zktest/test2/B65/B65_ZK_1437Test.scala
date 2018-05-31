@@ -1,20 +1,19 @@
 
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import java.util.Calendar
 import java.text.SimpleDateFormat
 import java.util.Locale
-import java.util.Date
-import java.text.DateFormat
+
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1437.zul")
 class B65_ZK_1437Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
     // for test, add 'test2' path into the src of include tag
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <label multiline="true">
                       Click on "reload" button, you will see window3's title was changed to current time without error.
                     </label>
@@ -29,12 +28,12 @@ class B65_ZK_1437Test extends ZTL4ScalaTestCase {
         val fmt = new SimpleDateFormat("'Hello World!!' EEE MMM dd HH:mm:ss z yyyy", Locale.US)
         val header = jq(jq(".z-window-embedded:eq(2)").toWidget().$n("cap"))
         val past = fmt.parse(header.text())
-        
+
         // it verify sec is diff
         sleep(1000)
         click(jq(".z-button:contains(reload)"))
         waitResponse()
-        
+
         val current = fmt.parse(header.text())
 
         verifyTrue("window3's title was changed to current time", current.after(past))

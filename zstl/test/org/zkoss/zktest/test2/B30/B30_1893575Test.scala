@@ -16,21 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B30
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.junit.Test
 
 /**
- * A test class for bug 1893575
- * @author ldnigro
- *
- */
+  * A test class for bug 1893575
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B30-1893575.zul,A,E,Radiogroup,Window")
 class B30_1893575Test extends ZTL4ScalaTestCase {
-  
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
     		<window id="w" mode="modal" xmlns:n="http://www.zkoss.org/2005/zk/native" width="500px">
     			<n:p>Please click the "female" radio, and then click the "show" button, and then you should see that only "female" is checked. (Only IE)</n:p>
     			<radiogroup id="radiochoice">
@@ -44,31 +46,31 @@ class B30_1893575Test extends ZTL4ScalaTestCase {
     			</button>
     		</window>
    """
-runZTL(zscript,
-        () => {
-        
-        	//Click 'female' radio
-        	click(jq("$female").toWidget().$n("real"));
-            waitResponse();
-            
-            //Verify male not checked and female checked
-            val f=jq("$female").toWidget().$n("real");
-            val m=jq("$male1").toWidget().$n("real");
-            val bf="true".equals(f.toElement().get("checked"));
-            val bm="true".equals(m.toElement().get("checked"));
-            verifyTrue(bf);
-            verifyFalse(bm);
-            
-            //Click 'show' button
-            click(jq("@button:eq(0)"));
-            waitResponse();
-            
-            //Verify male not checked and female checked
-            verifyTrue("true".equals(f.toElement().get("checked")));
-            verifyFalse("true".equals(m.toElement().get("checked")));
-                        
-            
-        }
+    runZTL(zscript,
+      () => {
+
+        //Click 'female' radio
+        click(jq("$female").toWidget().$n("real"));
+        waitResponse();
+
+        //Verify male not checked and female checked
+        val f = jq("$female").toWidget().$n("real");
+        val m = jq("$male1").toWidget().$n("real");
+        val bf = "true".equals(f.toElement().get("checked"));
+        val bm = "true".equals(m.toElement().get("checked"));
+        verifyTrue(bf);
+        verifyFalse(bm);
+
+        //Click 'show' button
+        click(jq("@button:eq(0)"));
+        waitResponse();
+
+        //Verify male not checked and female checked
+        verifyTrue("true".equals(f.toElement().get("checked")));
+        verifyFalse("true".equals(m.toElement().get("checked")));
+
+
+      }
     );
-   }
+  }
 }

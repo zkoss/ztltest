@@ -17,27 +17,22 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Element, JQuery, Tags, Widget}
+
 import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
 
 /**
- * A test class for bug 3189758
- * @author benbai
- *
- */
+  * A test class for bug 3189758
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3189758.zul,A,E,Datebox,Constraint")
 class B50_3189758Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 
     		<zk>
 				<zscript><![CDATA[
@@ -228,7 +223,7 @@ class B50_3189758Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var btn: Widget = engine.$f("btn");
         var grid: Widget = engine.$f("grid");
 
@@ -238,33 +233,33 @@ class B50_3189758Test extends ZTL4ScalaTestCase {
         var rows: Array[JQuery] = jq(grid.$n("body")).find(".z-rows").find(".z-row").toArray[JQuery];
 
         for (i <- 0 until rows.length) {
-        	var beg1: Element = rows(i).find(".z-row-inner").get(1);
-        	var beg2: Element = rows(i).find(".z-row-inner").get(3);
-        	var end1: Element = rows(i).find(".z-row-inner").get(2);
-        	var end2: Element = rows(i).find(".z-row-inner").get(4);
+          var beg1: Element = rows(i).find(".z-row-inner").get(1);
+          var beg2: Element = rows(i).find(".z-row-inner").get(3);
+          var end1: Element = rows(i).find(".z-row-inner").get(2);
+          var end2: Element = rows(i).find(".z-row-inner").get(4);
 
-        	checkEqual(beg1, beg2);
-        	checkEqual(end1, end2);
+          checkEqual(beg1, beg2);
+          checkEqual(end1, end2);
         }
-        
-        def checkEqual (cel1: Element, cel2: Element) {
-        	var lbCnt1: Int = jq(cel1).find(".z-label").length;
-        	var lbCnt2: Int = jq(cel2).find(".z-label").length;
-        	
-        	verifyTrue("the amount of label in both column should be equal",
-        	    lbCnt1 == lbCnt2);
-        	for (i <- 0 until lbCnt1) {
-        		var lb1: Element = jq(cel1).find(".z-label").get(i);
-        		var lb2: Element = jq(cel2).find(".z-label").get(i);
 
-        		verifyTrue("the class name of both label should be equal",
-        		    lb1.get("className").equals(lb2.get("className")));
-        		verifyTrue("the innerHTML of both label should be equal",
-        		    lb1.get("innerHTML").equals(lb2.get("innerHTML")));
-        	}
+        def checkEqual(cel1: Element, cel2: Element) {
+          var lbCnt1: Int = jq(cel1).find(".z-label").length;
+          var lbCnt2: Int = jq(cel2).find(".z-label").length;
+
+          verifyTrue("the amount of label in both column should be equal",
+            lbCnt1 == lbCnt2);
+          for (i <- 0 until lbCnt1) {
+            var lb1: Element = jq(cel1).find(".z-label").get(i);
+            var lb2: Element = jq(cel2).find(".z-label").get(i);
+
+            verifyTrue("the class name of both label should be equal",
+              lb1.get("className").equals(lb2.get("className")));
+            verifyTrue("the innerHTML of both label should be equal",
+              lb1.get("innerHTML").equals(lb2.get("innerHTML")));
+          }
         }
-    }
-   );
+      }
+    );
 
   }
 }

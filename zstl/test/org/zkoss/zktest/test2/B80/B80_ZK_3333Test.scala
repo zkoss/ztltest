@@ -19,21 +19,21 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "")
 class B80_ZK_3333Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			val tb = jq(".z-tbeditor-editor")
-			click(tb)
-			`type`(tb, "ss")
-			click(jq("@button"))
-			waitResponse()
-			verifyTrue(jq("@label:eq(1)").text().trim().endsWith("PROXY MSG : original messagess"))
-			verifyEquals("original messagess", jq("@label:eq(2)").text())
-		})
-	}
+  @Test
+  def test() = {
+    runZTL(() => {
+      val tb = jq(".z-tbeditor-editor")
+      click(tb)
+      `type`(tb, "ss")
+      click(jq("@button"))
+      waitResponse()
+      verifyTrue(jq("@label:eq(1)").text().trim().endsWith("PROXY MSG : original messagess"))
+      verifyEquals("original messagess", jq("@label:eq(2)").text())
+    })
+  }
 }

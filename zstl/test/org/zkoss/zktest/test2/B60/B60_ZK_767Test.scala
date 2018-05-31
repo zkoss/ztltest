@@ -17,28 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.ClientWidget;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-767
- * @author benbai
- *
- */
+  * A test class for bug ZK-767
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-767.zul,A,E,Tree,Template,TreeModel,TreeSelectableModel,TreeOpenableModel")
 class B60_ZK_767Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<zscript><![CDATA[//@DECLARATION
 			       	class MyTreeNode extends org.zkoss.zul.DefaultTreeNode {
@@ -108,8 +100,8 @@ class B60_ZK_767Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var treeOne: Widget = engine.$f("treeOne");
         var treeTwo: Widget = engine.$f("treeTwo");
         var btnOne: Widget = engine.$f("btnOne");
@@ -120,22 +112,28 @@ runZTL(zscript,
         var treeTwoIcoA = jq(treeTwo.$n()).find(".z-treerow:contains(A0)").toWidget().$n("icon");
         var treeTwoIcoB = jq(treeTwo.$n()).find(".z-treerow:contains(B1)").toWidget().$n("icon");
 
-        click(treeOneIcoA); waitResponse();
+        click(treeOneIcoA);
+        waitResponse();
         verifyTrue("A0-1 of Tree 1 should already opened",
-            jq(jq(treeOne).find(".z-treerow:contains(A0-1)").toWidget().$n("icon")).hasClass("z-tree-open"));
-        click(treeOneIcoB); waitResponse();
+          jq(jq(treeOne).find(".z-treerow:contains(A0-1)").toWidget().$n("icon")).hasClass("z-tree-open"));
+        click(treeOneIcoB);
+        waitResponse();
         verifyTrue("B1-1 of Tree 1 should already selected",
-            jq(treeOne.$n()).find(".z-treerow.z-treerow-selected:contains(B1-1)").get(0).exists());
+          jq(treeOne.$n()).find(".z-treerow.z-treerow-selected:contains(B1-1)").get(0).exists());
 
-        click(btnOne); waitResponse();
-        click(treeTwoIcoA); waitResponse();
+        click(btnOne);
+        waitResponse();
+        click(treeTwoIcoA);
+        waitResponse();
         verifyTrue("A0-1 of Tree 2 should already opened",
-            jq(jq(treeTwo.$n()).find(".z-treerow:contains(A0-1)").toWidget().$n("icon")).hasClass("z-tree-open"));
-        click(btnTwo); waitResponse();
-        click(treeTwoIcoB); waitResponse();
+          jq(jq(treeTwo.$n()).find(".z-treerow:contains(A0-1)").toWidget().$n("icon")).hasClass("z-tree-open"));
+        click(btnTwo);
+        waitResponse();
+        click(treeTwoIcoB);
+        waitResponse();
         verifyTrue("B1-1 of Tree 2 should already selected",
-            jq(treeTwo.$n()).find(".z-treerow.z-treerow-selected:contains(B1-1)").get(0).exists());
-    }
-   );
+          jq(treeTwo.$n()).find(".z-treerow.z-treerow-selected:contains(B1-1)").get(0).exists());
+      }
+    );
   }
 }

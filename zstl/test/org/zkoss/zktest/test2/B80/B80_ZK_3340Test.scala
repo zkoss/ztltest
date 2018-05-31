@@ -1,6 +1,5 @@
 package org.zkoss.zktest.test2.B80
 
-import org.junit.Assert._
 import org.zkoss.zstl.ZTL4ScalaTestCase
 
 /**

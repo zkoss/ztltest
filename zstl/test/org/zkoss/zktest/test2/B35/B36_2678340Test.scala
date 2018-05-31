@@ -16,24 +16,24 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.Widget
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import org.junit.Test
+import java.text.{DateFormat, SimpleDateFormat}
 import java.util.Calendar
 
+import org.junit.Test
+import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
+
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B36-2678340.zul,B,E,Window,Button")
 class B36_2678340Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 	  <zk>
     		<button id="change" label="change to US">
     			<attribute name="onClick"><![CDATA[
@@ -60,15 +60,15 @@ class B36_2678340Test extends ZTL4ScalaTestCase {
         </window>
       </zk>
     """
-runZTL(zscript, () => {
-		click(jq("$change"))
-		waitResponse()
+    runZTL(zscript, () => {
+      click(jq("$change"))
+      waitResponse()
       // Click upper button twice
       click(jq(".z-timebox").toWidget().$n("btn-down"))
       waitResponse()
       click(jq(".z-timebox").toWidget().$n("btn-down"))
-       waitResponse()
-       sleep(500)
+      waitResponse()
+      sleep(500)
 
       // Click on show value button
       click(jq("$show"));
@@ -92,7 +92,7 @@ runZTL(zscript, () => {
       val df1: DateFormat = new SimpleDateFormat("hh:mm:ss");
       var calendar = Calendar.getInstance();
       calendar.setTime(df1.parse(value1));
-      
+
       var hh1 = calendar.get(Calendar.HOUR_OF_DAY);
       var mm1 = calendar.get(Calendar.MINUTE);
       var ss1 = calendar.get(Calendar.SECOND);
@@ -114,7 +114,7 @@ runZTL(zscript, () => {
       waitResponse();
 
       calendar.setTime(df1.parse(value1));
-      
+
       hh1 = calendar.get(Calendar.HOUR_OF_DAY);
       mm1 = calendar.get(Calendar.MINUTE);
       ss1 = calendar.get(Calendar.SECOND);

@@ -19,20 +19,20 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "")
 class B80_ZK_3120Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			val textbox = jq("@textbox")
-			blur(textbox)
-			sleep(1000)
+  @Test
+  def test() = {
+    runZTL(() => {
+      val textbox = jq("@textbox")
+      blur(textbox)
+      sleep(1000)
 
-			//original widget will lost after switched to compatible mode in ie8
-			verifyTrue(textbox.exists())
-		})
-	}
+      //original widget will lost after switched to compatible mode in ie8
+      verifyTrue(textbox.exists())
+    })
+  }
 }

@@ -22,15 +22,17 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug 2844707
- * @author ldnigro
- *
- */
+  * A test class for bug 2844707
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B36-2844707.zul,A,E,Datebox,Calendar")
 class B36_2844707Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -67,11 +69,11 @@ Please select a date, and then select another month, and then it should be chang
         var day = jq(".z-calendar-weekday:eq(10)");
         click(day);
         waitResponse();
-        
+
         //Get date value
-        var db=jq(jq(".z-datebox").toWidget().$n("real"));
-        var w1=getValue(db);
-                
+        var db = jq(jq(".z-datebox").toWidget().$n("real"));
+        var w1 = getValue(db);
+
         //Next month (open calendar)
         var btn1 = jq(jq(".z-datebox").toWidget().$n("btn"));
         click(btn1);
@@ -79,25 +81,24 @@ Please select a date, and then select another month, and then it should be chang
         var next = jq(".z-calendar-right");
         click(next);
         waitResponse();
-        
+
         //Next date value
-        var w2=getValue(db);
-        
+        var w2 = getValue(db);
+
         //Get dates in Date format
         val format = new java.text.SimpleDateFormat("d-MMM-yyyy")
-        var date2=format.parseObject(w2);
-        var date1=format.parseObject(w1);
-        
+        var date2 = format.parseObject(w2);
+        var date1 = format.parseObject(w1);
+
         // (date22 = date1 + 1 Month) must be equals to date2 
         val cal = Calendar.getInstance
         cal.setTime(date1.asInstanceOf[java.util.Date]);
-        cal.add(Calendar.MONTH,1)
-        val date22=cal.getTime();
-        verifyEquals(date22,date2);
-        
-        
+        cal.add(Calendar.MONTH, 1)
+        val date22 = cal.getTime();
+        verifyEquals(date22, date2);
+
 
       });
   }
-     
+
 }

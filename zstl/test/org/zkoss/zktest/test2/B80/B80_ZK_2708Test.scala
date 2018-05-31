@@ -1,17 +1,17 @@
 package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
+import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.util.ConfigHelper
-import org.openqa.selenium.Keys
 
 @Tags(tags = "B80-ZK-2708.zul")
 class B80_ZK_2708Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <!--
 F80-ZK-2708.zul
@@ -138,67 +138,68 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
   </script>
 </zk>
 
-""" 
-  def abs(x: Int) = if (x >=0) x else -x;
-  runZTL(zscript,
-    () => {
-      var rowlayout = jq(".z-rowlayout").eq(0);
-      var totalWidth = rowlayout.outerWidth();
-      var childrenWidth = 0;
-      for (i <- 0 to rowlayout.children().length()-1) {
-        var rowchildren = rowlayout.children().eq(i);
-        if (i > 0) {
-          var rowchildrenpre = rowlayout.children().eq(i - 1);
-          verifyTrue(abs(rowchildren.width() - rowchildrenpre.width()) < 2);
-        }
-        childrenWidth += rowchildren.outerWidth(true);
-      }
-      verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
+"""
 
-      rowlayout = jq(".z-rowlayout").eq(6);
-      totalWidth = rowlayout.outerWidth();
-      childrenWidth = 0;
-      for (i <- 0 to rowlayout.children().length()-1) {
-        var rowchildren = rowlayout.children().eq(i);
-        if (i > 0) {
-          var rowchildrenpre = rowlayout.children().eq(i - 1);
-          verifyTrue(abs(rowchildren.width() - rowchildrenpre.width()) < 2);
-          //test offset
-          verifyTrue(rowchildren.outerWidth(true) < rowchildrenpre.outerWidth(true));
+    def abs(x: Int) = if (x >= 0) x else -x;
+    runZTL(zscript,
+      () => {
+        var rowlayout = jq(".z-rowlayout").eq(0);
+        var totalWidth = rowlayout.outerWidth();
+        var childrenWidth = 0;
+        for (i <- 0 to rowlayout.children().length() - 1) {
+          var rowchildren = rowlayout.children().eq(i);
+          if (i > 0) {
+            var rowchildrenpre = rowlayout.children().eq(i - 1);
+            verifyTrue(abs(rowchildren.width() - rowchildrenpre.width()) < 2);
+          }
+          childrenWidth += rowchildren.outerWidth(true);
         }
-        childrenWidth += rowchildren.outerWidth(true);
-      }
-      verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
+        verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
 
-      rowlayout = jq(".z-rowlayout").eq(9);
-      totalWidth = rowlayout.outerWidth();
-      childrenWidth = 0;
-      for (i <- 0 to rowlayout.children().length()-1) {
-        var rowchildren = rowlayout.children().eq(i);
-        if (i > 0) {
-          var rowchildrenpre = rowlayout.children().eq(i - 1);
-          verifyTrue(abs(rowchildren.width() - rowchildrenpre.width()) < 2);
+        rowlayout = jq(".z-rowlayout").eq(6);
+        totalWidth = rowlayout.outerWidth();
+        childrenWidth = 0;
+        for (i <- 0 to rowlayout.children().length() - 1) {
+          var rowchildren = rowlayout.children().eq(i);
+          if (i > 0) {
+            var rowchildrenpre = rowlayout.children().eq(i - 1);
+            verifyTrue(abs(rowchildren.width() - rowchildrenpre.width()) < 2);
+            //test offset
+            verifyTrue(rowchildren.outerWidth(true) < rowchildrenpre.outerWidth(true));
+          }
+          childrenWidth += rowchildren.outerWidth(true);
         }
-        childrenWidth += rowchildren.outerWidth(true);
-      }
-      verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
+        verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
 
-      var spinner = jq(".z-spinner-input");
-      sendKeys(spinner, Keys.ARROW_DOWN);
-      waitResponse();
-      totalWidth = rowlayout.outerWidth();
-      childrenWidth = 0;
-      verifyTrue(rowlayout.children().length() == 11);
-      for (i <- 0 to rowlayout.children().length()-1) {
-        var rowchildren = rowlayout.children().eq(i);
-        if (i > 0) {
-          var rowchildrenpre = rowlayout.children().eq(i - 1);
-          verifyTrue(abs(rowchildren.width() - rowchildrenpre.width()) < 2);
+        rowlayout = jq(".z-rowlayout").eq(9);
+        totalWidth = rowlayout.outerWidth();
+        childrenWidth = 0;
+        for (i <- 0 to rowlayout.children().length() - 1) {
+          var rowchildren = rowlayout.children().eq(i);
+          if (i > 0) {
+            var rowchildrenpre = rowlayout.children().eq(i - 1);
+            verifyTrue(abs(rowchildren.width() - rowchildrenpre.width()) < 2);
+          }
+          childrenWidth += rowchildren.outerWidth(true);
         }
-        childrenWidth += rowchildren.outerWidth(true);
-      }
-      verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
-    })
-    
+        verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
+
+        var spinner = jq(".z-spinner-input");
+        sendKeys(spinner, Keys.ARROW_DOWN);
+        waitResponse();
+        totalWidth = rowlayout.outerWidth();
+        childrenWidth = 0;
+        verifyTrue(rowlayout.children().length() == 11);
+        for (i <- 0 to rowlayout.children().length() - 1) {
+          var rowchildren = rowlayout.children().eq(i);
+          if (i > 0) {
+            var rowchildrenpre = rowlayout.children().eq(i - 1);
+            verifyTrue(abs(rowchildren.width() - rowchildrenpre.width()) < 2);
+          }
+          childrenWidth += rowchildren.outerWidth(true);
+        }
+        verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
+      })
+
   }
 }

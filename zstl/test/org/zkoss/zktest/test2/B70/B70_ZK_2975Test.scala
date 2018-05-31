@@ -1,8 +1,8 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2975.zul")
 class B70_ZK_2975Test extends ZTL4ScalaTestCase {
@@ -15,9 +15,9 @@ class B70_ZK_2975Test extends ZTL4ScalaTestCase {
         `type`(dateboxInput, "mars 2015");
 
         waitResponse(true);
-        
+
         val errorbox = jq(".z-errorbox");
-        
+
         verifyFalse(errorbox.is(":visible"));
       })
 

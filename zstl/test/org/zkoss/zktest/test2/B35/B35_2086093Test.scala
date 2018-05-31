@@ -18,19 +18,19 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
 
 /**
- * A test class for bug 2086093
- * @author ldnigro
- *
- */
+  * A test class for bug 2086093
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2086093.zul,B,E,Button,Listbox")
 class B35_2086093Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <!--
 Z30-listbox-0008.zul
 
@@ -76,35 +76,35 @@ no metter click on checkbox, button or textbox. it should not show "selected" me
     """
 
     runZTL(zscript,
-        () => {
-        	
-        	//click text1
-        	click(jq("$t1"));
-        	waitResponse();
-        	
-        	verifyFalse(jq("@label[value=\"selected\"]").isVisible());
-        	
-        	//click text2
-        	click(jq("$t2"));
-        	waitResponse();
+      () => {
 
-        	verifyFalse(jq("@label[value=\"selected\"]").isVisible());
-        	
-        	//click check
-        	val ck1 = engine.$f("ch1");
-        	click(ck1.$n("real"));
-        	
-        	waitResponse();
-        	
-        	verifyFalse(jq("@label[value=\"selected\"]").isVisible());
-        	
-        	//click button
-        	click(jq("$b1"));
-        	waitResponse();
-        	
-        	verifyFalse(jq("@label[value=\"selected\"]").isVisible());
-        	        	                    
-        }
+        //click text1
+        click(jq("$t1"));
+        waitResponse();
+
+        verifyFalse(jq("@label[value=\"selected\"]").isVisible());
+
+        //click text2
+        click(jq("$t2"));
+        waitResponse();
+
+        verifyFalse(jq("@label[value=\"selected\"]").isVisible());
+
+        //click check
+        val ck1 = engine.$f("ch1");
+        click(ck1.$n("real"));
+
+        waitResponse();
+
+        verifyFalse(jq("@label[value=\"selected\"]").isVisible());
+
+        //click button
+        click(jq("$b1"));
+        waitResponse();
+
+        verifyFalse(jq("@label[value=\"selected\"]").isVisible());
+
+      }
     );
-   }
+  }
 }

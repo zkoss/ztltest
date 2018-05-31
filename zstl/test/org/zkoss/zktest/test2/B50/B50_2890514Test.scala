@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug 2890514
- * @author benbai
- *
- */
+  * A test class for bug 2890514
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-2890514.zul,B,E,Grid,Row,Align")
 class B50_2890514Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 			The "File:" label should align to right.
 			<grid>
@@ -70,9 +63,9 @@ class B50_2890514Test extends ZTL4ScalaTestCase {
 
     """
 
-   // Run syntax 2
+    // Run syntax 2
     runZTL(zscript,
-        () => {
+      () => {
         var row1: Widget = engine.$f("row1");
         var fl: Widget = engine.$f("fl");
 
@@ -80,11 +73,11 @@ class B50_2890514Test extends ZTL4ScalaTestCase {
         var offsetLeft: Int = Integer.parseInt(fl.$n().get("offsetLeft"));
         waitResponse();
 
-        verifyTrue("the offsetLeft of File label ("+offsetLeft+
-            ") should close to the right side of row1 (width = "+width+")",
-            offsetLeft > (width-30));
-    }
-   );
+        verifyTrue("the offsetLeft of File label (" + offsetLeft +
+          ") should close to the right side of row1 (width = " + width + ")",
+          offsetLeft > (width - 30));
+      }
+    );
 
   }
 }

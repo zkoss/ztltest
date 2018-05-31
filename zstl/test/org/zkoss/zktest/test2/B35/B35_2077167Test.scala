@@ -18,18 +18,19 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.remote.server.handler.interactions.touch.Scroll
 
 /**
- * A test class for bug 2077167
- * @author ldnigro
- *
- */
+  * A test class for bug 2077167
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2077167.zul,A,E,Window")
 class B35_2077167Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
     		<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -62,25 +63,25 @@ minimizable="true" border="normal">
     """
 
     runZTL(zscript,
-        () => {
-        	
-        	//click minimize button
-            click(jq("$minmaxWin").toWidget().$n("min"));
-            
-        	waitResponse();
-          
-        	//Window is minimized
-        	verifyFalse(jq("$minmaxWin").isVisible());
-        	
-            //click visible button
-            click(jq("$btn"));
-            
-            waitResponse();
-            
-            //Window is visible
-        	verifyTrue(jq("$minmaxWin").isVisible());
-            
-        }
+      () => {
+
+        //click minimize button
+        click(jq("$minmaxWin").toWidget().$n("min"));
+
+        waitResponse();
+
+        //Window is minimized
+        verifyFalse(jq("$minmaxWin").isVisible());
+
+        //click visible button
+        click(jq("$btn"));
+
+        waitResponse();
+
+        //Window is visible
+        verifyTrue(jq("$minmaxWin").isVisible());
+
+      }
     );
-   }
+  }
 }

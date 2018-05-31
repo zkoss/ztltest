@@ -18,20 +18,21 @@ package org.zkoss.zktest.test2.F55
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget, ZK}
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-318
- * @author benbai
- *
- */
+  * A test class for bug ZK-318
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F55-ZK-318.zul,F60,B,E,combobutton")
 class F55_ZK_318Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
     runZTL(
-        () => {
+      () => {
         var messageBox: Widget = engine.$f("messageBox");
         var messageBoxTwo: Widget = engine.$f("messageBoxTwo");
         var li: Widget = engine.$f("li");
@@ -50,15 +51,17 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
           click(wgt);
           waitResponse();
         }
-        def clickAndCheck (wgt: org.zkoss.ztl.ClientWidget, cnt: Array[String], box: Array[Widget]) {
+
+        def clickAndCheck(wgt: org.zkoss.ztl.ClientWidget, cnt: Array[String], box: Array[Widget]) {
           clickAndWait(wgt);
 
           for (i <- 0 until cnt.length) {
-            verifyTrue("Should has this message: "+cnt(i),
-                box(i).$n().get("value").contains(cnt(i)));
+            verifyTrue("Should has this message: " + cnt(i),
+              box(i).$n().get("value").contains(cnt(i)));
           }
         }
-        def openMenu (wgts: Array[String]) {
+
+        def openMenu(wgts: Array[String]) {
           for (i <- 0 until wgts.length) {
             mouseOver(jq(wgts(i)).toWidget().$n("a"));
             waitResponse();
@@ -67,45 +70,45 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 
         // step 1
         clickAndCheck(jq(bd).toWidget().$n("real"),
-            Array("combobutton one clicked"), Array(messageBox));
+          Array("combobutton one clicked"), Array(messageBox));
         // step 2
         clickAndCheck(jq(bd).toWidget().$n("btn"),
-            Array("combobutton one opened", "popup opened"),
-            Array(messageBox, messageBoxTwo));
+          Array("combobutton one opened", "popup opened"),
+          Array(messageBox, messageBoxTwo));
         verifyTrue("combobutton one should opened",
-            jq(ppOne.$n()).is(":visible"));
+          jq(ppOne.$n()).is(":visible"));
 
         // step 3
         clickAndCheck(jq(bd).toWidget().$n("btn"),
-            Array("combobutton one closed"),
-            Array(messageBox));
+          Array("combobutton one closed"),
+          Array(messageBox));
         verifyFalse("combobutton one should closed",
-            jq(ppOne.$n()).is(":visible"));
+          jq(ppOne.$n()).is(":visible"));
 
         // step 4
         clickAndCheck(jq(bd2).toWidget().$n("real"),
-            Array("combobutton two clicked"), Array(messageBox));
+          Array("combobutton two clicked"), Array(messageBox));
         clickAndCheck(jq(bd2).toWidget().$n("btn"),
-            Array("combobutton two opened", "popup opened"),
-            Array(messageBox, messageBoxTwo));
+          Array("combobutton two opened", "popup opened"),
+          Array(messageBox, messageBoxTwo));
         verifyTrue("combobutton two should opened",
-            jq(ppTwo.$n()).is(":visible"));
+          jq(ppTwo.$n()).is(":visible"));
 
         clickAndCheck(jq(bd2).toWidget().$n("btn"),
-            Array("combobutton two closed"),
-            Array(messageBox));
+          Array("combobutton two closed"),
+          Array(messageBox));
         verifyFalse("combobutton two should closed",
-            jq(ppTwo.$n()).is(":visible"));
+          jq(ppTwo.$n()).is(":visible"));
 
         // step 5
         clickAndCheck(jq(bd2).toWidget().$n("btn"),
-            Array("combobutton two opened"),
-            Array(messageBox));
+          Array("combobutton two opened"),
+          Array(messageBox));
 
         // step 6
         openMenu(Array(pp2About, pp2Menu, pp2ColorPicker));
         verifyTrue("Color picker should opened",
-            jq(".z-colorpalette-popup").is(":visible"));
+          jq(".z-colorpalette-popup").is(":visible"));
         // step 7
         clickAndWait(mbHelp);
         openMenu(Array(".z-menu:contains(About)"));
@@ -113,21 +116,21 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 
         // step 8
         clickAndCheck(jq(bd2).toWidget().$n("btn"),
-            Array("combobutton two opened"),
-            Array(messageBox));
+          Array("combobutton two opened"),
+          Array(messageBox));
         openMenu(Array(pp2About, pp2Menu, pp2ColorPicker, pp2ColorPicker)); // don't know why we need two pp2ColorPicker but it works
         verifyTrue("Color picker should opened",
-            jq(".z-colorpalette-popup").is(":visible"));
+          jq(".z-colorpalette-popup").is(":visible"));
 
         // step 9
         clickAndCheck(jq(bd).toWidget().$n("btn"),
-            Array("combobutton one opened"),
-            Array(messageBox));
+          Array("combobutton one opened"),
+          Array(messageBox));
         verifyTrue("combobutton one should opened",
-            jq(ppOne.$n()).is(":visible"));
+          jq(ppOne.$n()).is(":visible"));
         clickAndWait(li);
         verifyFalse("combobutton one should opened",
-            jq(ppOne.$n()).is(":visible"));
+          jq(ppOne.$n()).is(":visible"));
 
         // step 10
         // Skip IE, because IEDriver has an issue about mouse hovering
@@ -171,7 +174,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         verifyTrue("combobutton two should opened", jq(ppTwo.$n()).is(":visible"))
         clickAndWait(jq(bd2).toWidget.$n("btn"))
         verifyTrue("combobutton one should opened", jq(ppOne.$n()).is(":visible"))
-    }
-   )
+      }
+    )
   }
 }

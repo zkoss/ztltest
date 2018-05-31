@@ -1,18 +1,17 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
 import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2413.zul")
 class B70_ZK_2413Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2413.zul
@@ -141,119 +140,119 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-      val inps = jq(".z-paging-input");
-      
-      // first input
-      var inp = inps.eq(0);
-      focus(inp);
-      waitResponse();
-      var target = jq("@listcell").eq(0).find("div");
-      var value = target.html();
-      
-      sendKeys(inp, Keys.ARROW_UP);
-      waitResponse();
-      sendKeys(inp, Keys.ENTER);
-      waitResponse();
-      verifyTrue(inp.attr("value").equals("2"));
-      verifyFalse(value.equals(target.html()));
-      value = target.html();
-      
-      sendKeys(inp, Keys.PAGE_UP);
-      waitResponse();
-      verifyTrue(inp.attr("value").equals("1"));
-      verifyFalse(value.equals(target.html()));
-      value = target.html();
-      
-      sendKeys(inp, Keys.PAGE_DOWN);
-      waitResponse();
-      verifyTrue(inp.attr("value").equals("2"));
-      verifyFalse(value.equals(target.html()));
-      value = target.html();
-      
-      // second input
-      inp = inps.eq(1);
-      focus(inp);
-      waitResponse();
-      target = jq("@listcell").eq(0).find("div");
-      value = target.html();
-      
-      sendKeys(inp, Keys.ARROW_DOWN);
-      waitResponse();
-      sendKeys(inp, Keys.ENTER);
-      waitResponse();
-      verifyTrue(inp.attr("value").equals("1"));
-      verifyFalse(value.equals(target.html()));
-      value = target.html();
-      
-      sendKeys(inp, Keys.PAGE_DOWN);
-      waitResponse();
-      verifyTrue(inp.attr("value").equals("2"));
-      verifyFalse(value.equals(target.html()));
-      value = target.html();
-      
-      sendKeys(inp, Keys.PAGE_UP);
-      waitResponse();
-      verifyTrue(inp.attr("value").equals("1"));
-      verifyFalse(value.equals(target.html()));
-      value = target.html();
-      
-      // third input
-      inp = inps.eq(2);
-      focus(inp);
-      waitResponse();
-      target = jq("@row .z-label").first();
-      value = target.html();
-      
-      sendKeys(inp, Keys.ARROW_UP);
-      waitResponse();
-      sendKeys(inp, Keys.ENTER);
-      waitResponse();
-      verifyTrue(inp.attr("value").equals("2"));
-      verifyFalse(value.equals(target.html()));
-      value = target.html();
-      
-      sendKeys(inp, Keys.PAGE_UP);
-      waitResponse();
-      verifyTrue(inp.attr("value").equals("1"));
-      verifyFalse(value.equals(target.html()));
-      value = target.html();
-      
-      sendKeys(inp, Keys.PAGE_DOWN);
-      waitResponse();
-      verifyTrue(inp.attr("value").equals("2"));
-      verifyFalse(value.equals(target.html()));
-      value = target.html();
-      
-      // fourth input
-      inp = inps.eq(3);
-      focus(inp);
-      waitResponse();
-      target = jq(".z-treecell-text").first()
-      value = target.html();
-      
-      sendKeys(inp, Keys.ARROW_UP);
-      waitResponse();
-      sendKeys(inp, Keys.ENTER);
-      waitResponse();
-      verifyTrue(inp.attr("value").equals("2"));
-      verifyFalse(value.equals(target.html()));
-      value = target.html();
-      
-      sendKeys(inp, Keys.PAGE_UP);
-      waitResponse();
-      verifyTrue(inp.attr("value").equals("1"));
-      verifyFalse(value.equals(target.html()));
-      value = target.html();
-      
-      sendKeys(inp, Keys.PAGE_DOWN);
-      waitResponse();
-      verifyTrue(inp.attr("value").equals("2"));
-      verifyFalse(value.equals(target.html()));
-      value = target.html();
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        val inps = jq(".z-paging-input");
+
+        // first input
+        var inp = inps.eq(0);
+        focus(inp);
+        waitResponse();
+        var target = jq("@listcell").eq(0).find("div");
+        var value = target.html();
+
+        sendKeys(inp, Keys.ARROW_UP);
+        waitResponse();
+        sendKeys(inp, Keys.ENTER);
+        waitResponse();
+        verifyTrue(inp.attr("value").equals("2"));
+        verifyFalse(value.equals(target.html()));
+        value = target.html();
+
+        sendKeys(inp, Keys.PAGE_UP);
+        waitResponse();
+        verifyTrue(inp.attr("value").equals("1"));
+        verifyFalse(value.equals(target.html()));
+        value = target.html();
+
+        sendKeys(inp, Keys.PAGE_DOWN);
+        waitResponse();
+        verifyTrue(inp.attr("value").equals("2"));
+        verifyFalse(value.equals(target.html()));
+        value = target.html();
+
+        // second input
+        inp = inps.eq(1);
+        focus(inp);
+        waitResponse();
+        target = jq("@listcell").eq(0).find("div");
+        value = target.html();
+
+        sendKeys(inp, Keys.ARROW_DOWN);
+        waitResponse();
+        sendKeys(inp, Keys.ENTER);
+        waitResponse();
+        verifyTrue(inp.attr("value").equals("1"));
+        verifyFalse(value.equals(target.html()));
+        value = target.html();
+
+        sendKeys(inp, Keys.PAGE_DOWN);
+        waitResponse();
+        verifyTrue(inp.attr("value").equals("2"));
+        verifyFalse(value.equals(target.html()));
+        value = target.html();
+
+        sendKeys(inp, Keys.PAGE_UP);
+        waitResponse();
+        verifyTrue(inp.attr("value").equals("1"));
+        verifyFalse(value.equals(target.html()));
+        value = target.html();
+
+        // third input
+        inp = inps.eq(2);
+        focus(inp);
+        waitResponse();
+        target = jq("@row .z-label").first();
+        value = target.html();
+
+        sendKeys(inp, Keys.ARROW_UP);
+        waitResponse();
+        sendKeys(inp, Keys.ENTER);
+        waitResponse();
+        verifyTrue(inp.attr("value").equals("2"));
+        verifyFalse(value.equals(target.html()));
+        value = target.html();
+
+        sendKeys(inp, Keys.PAGE_UP);
+        waitResponse();
+        verifyTrue(inp.attr("value").equals("1"));
+        verifyFalse(value.equals(target.html()));
+        value = target.html();
+
+        sendKeys(inp, Keys.PAGE_DOWN);
+        waitResponse();
+        verifyTrue(inp.attr("value").equals("2"));
+        verifyFalse(value.equals(target.html()));
+        value = target.html();
+
+        // fourth input
+        inp = inps.eq(3);
+        focus(inp);
+        waitResponse();
+        target = jq(".z-treecell-text").first()
+        value = target.html();
+
+        sendKeys(inp, Keys.ARROW_UP);
+        waitResponse();
+        sendKeys(inp, Keys.ENTER);
+        waitResponse();
+        verifyTrue(inp.attr("value").equals("2"));
+        verifyFalse(value.equals(target.html()));
+        value = target.html();
+
+        sendKeys(inp, Keys.PAGE_UP);
+        waitResponse();
+        verifyTrue(inp.attr("value").equals("1"));
+        verifyFalse(value.equals(target.html()));
+        value = target.html();
+
+        sendKeys(inp, Keys.PAGE_DOWN);
+        waitResponse();
+        verifyTrue(inp.attr("value").equals("2"));
+        verifyFalse(value.equals(target.html()));
+        value = target.html();
+      })
+
   }
 }

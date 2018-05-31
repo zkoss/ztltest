@@ -16,29 +16,25 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.F60
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Tags, Widget}
+
 /**
- * A test class for bug ZK-470
- * @author benbai
- *
- */
+  * A test class for bug ZK-470
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-470.zul,F60,A,E,Anchorlayout")
 class F60_ZK_470Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 			    <window id="parent" title="anchorlayout Demo" border="normal" width="100%" height="100%">
 			    		You should see the following layout display as its description that is according to its parent size.
@@ -78,8 +74,8 @@ class F60_ZK_470Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var al: Widget = engine.$f("al");
         var win1: Widget = engine.$f("win1");
         var win2: Widget = engine.$f("win2");
@@ -91,17 +87,18 @@ runZTL(zscript,
         var parentW: Double = jq(al.$n()).width();
         var parentH: Double = jq(al.$n()).height();
 
-        def checkSize (win: Widget, winW: Double, winH: Double) {
-          verifyTrue("Ths window size should be "+winW+", "+winH,
-              math.abs(jq(win).outerWidth() - winW) < 2 && math.abs(jq(win).outerHeight() - winH) < 2);
+        def checkSize(win: Widget, winW: Double, winH: Double) {
+          verifyTrue("Ths window size should be " + winW + ", " + winH,
+            math.abs(jq(win).outerWidth() - winW) < 2 && math.abs(jq(win).outerHeight() - winH) < 2);
         }
+
         checkSize(win1, parentW - 100, 200);
-        checkSize(win2, parentW*0.5, parentH - 200);
-        checkSize(win3, parentW*0.25, parentH*0.2);
-        checkSize(win4, parentW*0.25, parentH*0.2);
-        checkSize(win5, parentW*0.25, parentH*0.2);
-        checkSize(win6, parentW*0.25, parentH*0.2);
-    }
-   );
+        checkSize(win2, parentW * 0.5, parentH - 200);
+        checkSize(win3, parentW * 0.25, parentH * 0.2);
+        checkSize(win4, parentW * 0.25, parentH * 0.2);
+        checkSize(win5, parentW * 0.25, parentH * 0.2);
+        checkSize(win6, parentW * 0.25, parentH * 0.2);
+      }
+    );
   }
 }

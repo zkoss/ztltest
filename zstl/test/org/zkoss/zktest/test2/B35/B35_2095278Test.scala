@@ -18,20 +18,20 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
 
 
 /**
- * A test class for bug 2095278
- * @author ldnigro
- *
- */
+  * A test class for bug 2095278
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2095278.zul,A,E,Button")
 class B35_2095278Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -64,20 +64,20 @@ button.
     """
 
     runZTL(zscript,
-        () => {
-        	
-            waitResponse();
-            var b1=jq("$bt")
-            verifyFalse(b1.isVisible());
-            
-            //click open button
-        	click(jq("$tv"));
-        	waitResponse();
-        	
-        	//b1 shown up
-        	verifyTrue(b1.isVisible());
-        	        	
-        }
+      () => {
+
+        waitResponse();
+        var b1 = jq("$bt")
+        verifyFalse(b1.isVisible());
+
+        //click open button
+        click(jq("$tv"));
+        waitResponse();
+
+        //b1 shown up
+        verifyTrue(b1.isVisible());
+
+      }
     );
-   }
+  }
 }

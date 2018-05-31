@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B60
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{JQuery, Tags, Widget}
 
 /**
- * A test class for bug ZK-1010
- * @author benbai
- *
- */
+  * A test class for bug ZK-1010
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-1010.zul,B,E,Datebox,Calendar")
 class B60_ZK_1010Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
     		<zscript>
     			import java.util.Calendar;
@@ -69,8 +63,8 @@ class B60_ZK_1010Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var outer: Widget = engine.$f("outer");
         var dbx1: Widget = engine.$f("dbx1");
         var dbx2: Widget = engine.$f("dbx2");
@@ -81,9 +75,9 @@ runZTL(zscript,
         var val1: String = dbx1.$n("real").get("value");
         var val2: String = dbx2.$n("real").get("value");
         var val3: String = dbx3.$n("real").get("value");
-        var oldy1: String = val1.substring(val1.length()-5, val1.length()).trim();
-        var oldy2: String = val2.substring(val2.length()-5, val2.length()).trim();
-        var oldy3: String = val3.substring(val3.length()-5, val3.length()).trim();
+        var oldy1: String = val1.substring(val1.length() - 5, val1.length()).trim();
+        var oldy2: String = val2.substring(val2.length() - 5, val2.length()).trim();
+        var oldy3: String = val3.substring(val3.length() - 5, val3.length()).trim();
         var oldd1: String = val1.substring(0, 3).trim();
         var oldd2: String = val2.substring(0, 3).trim();
         var oldd3: String = val3.substring(0, 3).trim();
@@ -91,18 +85,21 @@ runZTL(zscript,
         var oldm2: String = val2.replace(oldy2, "").replace(oldd2, "").trim();
         var oldm3: String = val3.replace(oldy3, "").replace(oldd3, "").trim();
 
-        def selectDate (dbx: Widget) {
+        def selectDate(dbx: Widget) {
           var dayRow: JQuery = null;
-          click(dbx.$n("btn")); waitResponse();
+          click(dbx.$n("btn"));
+          waitResponse();
           click(jq(dbx.$n("pp")).find(".z-calendar-cell:contains(29)"));
           waitResponse();
         }
-        def openAndCheck (dbx: Widget, year: String, mon: String) {
-          click(dbx.$n("btn")); waitResponse();
 
-          verifyTrue("the date in the calendar should be the same as your chosen: "+year+"_"+mon+"_29",
-//              jq(dbx.$n("pp")).find(".z-calendar:contains("+mon+")").exists()
-              jq(dbx.$n("pp")).find(".z-calendar-title:contains("+year+")").exists()
+        def openAndCheck(dbx: Widget, year: String, mon: String) {
+          click(dbx.$n("btn"));
+          waitResponse();
+
+          verifyTrue("the date in the calendar should be the same as your chosen: " + year + "_" + mon + "_29",
+            //              jq(dbx.$n("pp")).find(".z-calendar:contains("+mon+")").exists()
+            jq(dbx.$n("pp")).find(".z-calendar-title:contains(" + year + ")").exists()
               && jq(dbx.$n("pp")).find(".z-calendar-cell:contains(29)").exists());
           click(outer);
         }
@@ -116,10 +113,10 @@ runZTL(zscript,
         openAndCheck(dbx3, oldy3, oldm3);
 
         verifyTrue("Three values are the same",
-            v1.$n().get("innerHTML").equals(v2.$n().get("innerHTML"))
+          v1.$n().get("innerHTML").equals(v2.$n().get("innerHTML"))
             && v2.$n().get("innerHTML").equals(v3.$n().get("innerHTML")));
-        
-    }
-   );
+
+      }
+    );
   }
 }

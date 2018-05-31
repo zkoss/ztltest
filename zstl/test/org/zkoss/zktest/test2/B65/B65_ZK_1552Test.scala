@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1552.zul")
 class B65_ZK_1552Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<window height="100%" border="normal">
+    val zscript =
+      """<window height="100%" border="normal">
 	<div>
 		<div>1. click the btn of combobox</div>
 		<div>2. scroll to bottom, then scroll back to top</div>

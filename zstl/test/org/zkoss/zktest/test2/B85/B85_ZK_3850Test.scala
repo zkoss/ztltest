@@ -16,16 +16,16 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B85_ZK_3850Test extends ZTL4ScalaTestCase {
 
-	@Test
-	def test() = {
-		runZTL(() => {
-			val tr3 = jq("@row").eq(2)
-			val height = tr3.height
+  @Test
+  def test() = {
+    runZTL(() => {
+      val tr3 = jq("@row").eq(2)
+      val height = tr3.height
 
-			click(jq("@button"))
-			waitResponse(true)
+      click(jq("@button"))
+      waitResponse(true)
 
-			verifyEquals(height, tr3.height())
-		})
-	}
+      verifyEquals(height, tr3.height())
+    })
+  }
 }

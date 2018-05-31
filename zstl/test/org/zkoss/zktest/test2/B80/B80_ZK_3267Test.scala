@@ -19,19 +19,19 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "")
 class B80_ZK_3267Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			click(jq("@combobox"))
-			waitResponse()
-			`type`(jq(".z-combobox-input"), "a")
-			waitResponse()
-			verifyFalse(jq(".z-combobox-popup").exists())
-		})
-	}
+  @Test
+  def test() = {
+    runZTL(() => {
+      click(jq("@combobox"))
+      waitResponse()
+      `type`(jq(".z-combobox-input"), "a")
+      waitResponse()
+      verifyFalse(jq(".z-combobox-popup").exists())
+    })
+  }
 }

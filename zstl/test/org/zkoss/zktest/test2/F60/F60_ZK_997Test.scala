@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.F60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-997
- * @author benbai
- *
- */
+  * A test class for bug ZK-997
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-997.zul,F60,SelectorComposer,EventQueue")
 class F60_ZK_997Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<div>
 					1. Click on each of the 'Publish' button. You should see two messages regarding to event receiving for each click.
@@ -64,29 +57,33 @@ class F60_ZK_997Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var dBtn: Widget = engine.$f("dBtn");
         var gBtn: Widget = engine.$f("gBtn");
         var sBtn: Widget = engine.$f("sBtn");
         var aBtn: Widget = engine.$f("aBtn");
 
-        click(dBtn); sleep(1000);
+        click(dBtn);
+        sleep(1000);
         verifyTrue("Has 2 mesasges",
-            jq(".z-label:contains(Event received through )").length() == 2);
+          jq(".z-label:contains(Event received through )").length() == 2);
 
-        click(gBtn); sleep(1000);
+        click(gBtn);
+        sleep(1000);
         verifyTrue("Has 4 mesasges",
-            jq(".z-label:contains(Event received through )").length() == 4);
+          jq(".z-label:contains(Event received through )").length() == 4);
 
-        click(sBtn); sleep(1000);
+        click(sBtn);
+        sleep(1000);
         verifyTrue("Has 6 mesasges",
-            jq(".z-label:contains(Event received through )").length() == 6);
+          jq(".z-label:contains(Event received through )").length() == 6);
 
-        click(aBtn); sleep(1000);
+        click(aBtn);
+        sleep(1000);
         verifyTrue("Has 8 mesasges",
-            jq(".z-label:contains(Event received through )").length() == 8);
-    }
-   );
+          jq(".z-label:contains(Event received through )").length() == 8);
+      }
+    );
   }
 }

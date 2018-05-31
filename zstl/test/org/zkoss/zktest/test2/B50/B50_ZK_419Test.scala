@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-419
- * @author benbai
- *
- */
+  * A test class for bug ZK-419
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-419.zul,A,E,Tabbox,Accordiion")
 class B50_ZK_419Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 
 			<zk>
 				<window title="new page title" border="normal">
@@ -65,23 +59,23 @@ class B50_ZK_419Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var btn1: Widget = engine.$f("btn1");
         var btn2: Widget = engine.$f("btn2");
         var max: Int = 5;
 
         for (i <- 1 to max) {
-            click(btn1);
-            waitResponse();
-            verifyTrue("new tab should added one by one while click add button",
-                jq(".z-tabpanel").length() == i);
+          click(btn1);
+          waitResponse();
+          verifyTrue("new tab should added one by one while click add button",
+            jq(".z-tabpanel").length() == i);
         }
         click(btn2);
         waitResponse();
         verifyTrue("should keep the same after click invalidate button",
-                jq(".z-tabpanel").length() == max);
-    }
-   );
+          jq(".z-tabpanel").length() == max);
+      }
+    );
 
   }
 }

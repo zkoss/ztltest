@@ -24,7 +24,7 @@ class B80_ZK_3536Test extends ZTL4ScalaTestCase {
       System.out.println(jq(".z-menu:eq(11)").offsetLeft())
       System.out.println(jq(".z-menu:eq(11)").outerWidth(true))
       System.out.println(jq(".z-menubar-right").offsetLeft())
-      verifyTrue(jq(".z-menu:eq(11)").offsetLeft() + jq(".z-menu:eq(11)").outerWidth(true) < jq(".z-menubar-right").offsetLeft() )
+      verifyTrue(jq(".z-menu:eq(11)").offsetLeft() + jq(".z-menu:eq(11)").outerWidth(true) < jq(".z-menubar-right").offsetLeft())
     })
   }
 

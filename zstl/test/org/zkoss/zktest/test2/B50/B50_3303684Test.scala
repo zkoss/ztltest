@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Element, Tags, Widget}
 
 /**
- * A test class for bug 3303684
- * @author benbai
- *
- */
+  * A test class for bug 3303684
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3303684.zul,A,E,Panel,DragDrop")
 class B50_3303684Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<panel id="pa" sizable="true" width="500px" height="500px"
 					movable="true" border="rounded+" floatable="true">
@@ -54,24 +48,25 @@ class B50_3303684Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var pa: Widget = engine.$f("pa");
 
         def dragDrop(from: Element, fromPos: String, to: Element, toPos: String) {
-        	mouseDownAt(from, fromPos);
-			mouseMoveAt(to, toPos);
-			mouseUpAt(to, toPos);
-			waitResponse();
+          mouseDownAt(from, fromPos);
+          mouseMoveAt(to, toPos);
+          mouseUpAt(to, toPos);
+          waitResponse();
         }
+
         var h1: Int = jq(pa.$n()).outerHeight();
         dragDrop(jq(".z-panel").get(0), "250,0", jq(".z-panelchildren").get(0), "250,380");
         waitResponse();
         var h2: Int = jq(pa.$n()).outerHeight();
-        verifyTrue("the old height is ("+h1
-            +"), the new height should smaller then ("+(h1-100)+")",
-            (h1-h2) > 100);
-    }
-   );
+        verifyTrue("the old height is (" + h1
+          + "), the new height should smaller then (" + (h1 - 100) + ")",
+          (h1 - h2) > 100);
+      }
+    );
 
   }
 }

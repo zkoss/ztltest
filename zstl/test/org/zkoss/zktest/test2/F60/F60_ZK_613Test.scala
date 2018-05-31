@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.F60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-613
- * @author benbai
- *
- */
+  * A test class for bug ZK-613
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-613.zul,F60,A,E,IdSpace,virtual")
 class F60_ZK_613Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<html><![CDATA[
 				Clicks the following buttons one-by-one. They shall all generate "OK" at
@@ -91,20 +84,20 @@ class F60_ZK_613Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var btnOne: Widget = engine.$f("btnOne");
         var btnTwo: Widget = engine.$f("btnTwo");
 
         click(btnOne);
         waitResponse();
         verifyTrue("Should generate an OK",
-            jq(".z-label:contains(OK)").length() == 1);
+          jq(".z-label:contains(OK)").length() == 1);
         click(btnTwo);
         waitResponse();
         verifyTrue("Should generate another OK",
-            jq(".z-label:contains(OK)").length() == 2);
-    }
-   );
+          jq(".z-label:contains(OK)").length() == 2);
+      }
+    );
   }
 }

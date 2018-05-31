@@ -1,23 +1,16 @@
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B50-2998196.zul,A,E,Frozen,Grid")
 class B50_2998196Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 <?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./window"?>
 <zk>
 <html>

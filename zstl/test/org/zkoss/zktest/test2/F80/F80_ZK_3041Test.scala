@@ -125,7 +125,7 @@ class F80_ZK_3041Test extends ZTL4ScalaTestCase {
         click(jq(".z-chosenbox-option:visible").eq(0))
         waitResponse(true)
         verifyEquals("tag 1", chosenBox.find(".z-chosenbox-item-content").text)
-    })
+      })
   }
 }
 

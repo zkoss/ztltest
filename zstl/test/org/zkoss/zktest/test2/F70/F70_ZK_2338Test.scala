@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.F70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "F70-ZK-2338.zul")
 class F70_ZK_2338Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
 <!--
 F70-ZK-2338.zul
@@ -41,15 +42,15 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	<label value="${c:cat4('Hello', d, 3, 4)}"/><separator/>
 	<label value="${c:cat5('Hello', d, 3, 4, 5)}"/><separator/>
 </window>
-"""  
-  runZTL(zscript,
-    () => {
-      val ls = jq("@label");
-      verifyTrue(ls.eq(1).html().equals("HelloWorld"));
-      verifyTrue(ls.eq(2).html().equals("HelloWorld3"));
-      verifyTrue(ls.eq(3).html().equals("HelloWorld34"));
-      verifyTrue(ls.eq(4).html().equals("HelloWorld345"));
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        val ls = jq("@label");
+        verifyTrue(ls.eq(1).html().equals("HelloWorld"));
+        verifyTrue(ls.eq(2).html().equals("HelloWorld3"));
+        verifyTrue(ls.eq(3).html().equals("HelloWorld34"));
+        verifyTrue(ls.eq(4).html().equals("HelloWorld345"));
+      })
+
   }
 }

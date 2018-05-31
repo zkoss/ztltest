@@ -1,14 +1,15 @@
 package org.zkoss.zktest.test2.B50
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B50-ZK-822.zul")
 class B50_ZK_822Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <zscript>
                       EventQueue que = EventQueues.lookup("iframe", "group", true);
 	void publish(){

@@ -1,16 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.util.Scripts
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1315.zul")
 class B65_ZK_1315Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <div>
                       1. Hide 'Title' column by menupopup.<separator/>
                       2. Click 'Publisher' column to sort.<separator/>
@@ -70,11 +70,11 @@ class B65_ZK_1315Test extends ZTL4ScalaTestCase {
       () => {
         mouseOver(jq(".z-column"))
         waitResponse()
-        
-        val menupopupLink = jq(".z-column").toWidget().$n("btn")        
+
+        val menupopupLink = jq(".z-column").toWidget().$n("btn")
         click(menupopupLink)
         waitResponse()
-        
+
         val titleDisplay = jq(".z-menuitem:contains(Title):eq(0)")
         if (!isSafari)
           click(titleDisplay);

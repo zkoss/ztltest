@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2375.zul")
 class B70_ZK_2375Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <zk>
     <label multiline="true">
@@ -38,34 +36,34 @@ def testClick() = {
     </window>
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-      val icons = jq(".z-tree-icon");
-      click(icons.eq(0));
-      waitResponse();
-      click(icons.eq(1));
-      waitResponse();
-      click(icons.eq(2));
-      waitResponse();
-      click(icons.eq(3));
-      waitResponse();
-      click(icons.eq(4));
-      waitResponse();
-      click(icons.eq(5));
-      waitResponse();
-      click(icons.eq(6));
-      waitResponse();
-      click(icons.eq(7));
-      waitResponse();
-      click(jq(".z-paging-next"));
-      waitResponse();
-      click(jq(".z-paging-previous"));
-      waitResponse();
-      click(icons.eq(7));
-      waitResponse();
-      verifyTrue("node t8 should exist.", jq("span.z-treecell-text:contains(t8)").exists());
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        val icons = jq(".z-tree-icon");
+        click(icons.eq(0));
+        waitResponse();
+        click(icons.eq(1));
+        waitResponse();
+        click(icons.eq(2));
+        waitResponse();
+        click(icons.eq(3));
+        waitResponse();
+        click(icons.eq(4));
+        waitResponse();
+        click(icons.eq(5));
+        waitResponse();
+        click(icons.eq(6));
+        waitResponse();
+        click(icons.eq(7));
+        waitResponse();
+        click(jq(".z-paging-next"));
+        waitResponse();
+        click(jq(".z-paging-previous"));
+        waitResponse();
+        click(icons.eq(7));
+        waitResponse();
+        verifyTrue("node t8 should exist.", jq("span.z-treecell-text:contains(t8)").exists());
+      })
+
   }
 }

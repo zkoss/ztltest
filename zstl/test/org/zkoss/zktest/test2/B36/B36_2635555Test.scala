@@ -18,10 +18,6 @@ package org.zkoss.zktest.test2.B36
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.ZK
-import org.zkoss.ztl.util.Scripts
 
 /**
   * A test class for bug 2635555

@@ -1,16 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.io.Source
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1600.zul")
 class B65_ZK_1600Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
     			   <zk>
                     <div>
                       type '123' in datebox, then click outside, you should see the err msg 'Vous devez spécifier une date. Format:'
@@ -37,7 +37,7 @@ class B65_ZK_1600Test extends ZTL4ScalaTestCase {
         waitResponse()
         blur(datebox)
         waitResponse()
-        
+
         verifyTrue("should see error message 'Vous devez spécifier une date.' .", jq(".z-errorbox-content").text().contains("cifier une date."))
       })
 

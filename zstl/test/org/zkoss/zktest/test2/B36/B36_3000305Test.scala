@@ -16,21 +16,22 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B36
 
-import java.util.Calendar
+import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
 
 /**
- * A test class for bug 3000305
- * @author ldnigro
- *
- */
+  * A test class for bug 3000305
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B36-3000305.zul,A,E,Databind,Constraint")
 class B36_3000305Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
 <window>
 	<zscript><![CDATA[
@@ -62,33 +63,33 @@ class B36_3000305Test extends ZTL4ScalaTestCase {
         var txt = jq("$txt");
         focus(txt);
         waitResponse();
-        
+
         //Type X
-        sendKeys(txt,"X");
-        
+        sendKeys(txt, "X");
+
         waitResponse();
-        
+
         //Press Tab and Shift-TAB
-        sendKeys(txt,Keys.SHIFT + "" + Keys.TAB);
-        
+        sendKeys(txt, Keys.SHIFT + "" + Keys.TAB);
+
         waitResponse();
-        
+
         //Delete X
         focus(txt);
         waitResponse();
-        sendKeys(txt,Keys.BACK_SPACE);
+        sendKeys(txt, Keys.BACK_SPACE);
         waitResponse();
-        
+
         //Click button
         var btn = jq("$btn");
         click(btn);
         waitResponse();
-        
+
         //Check error visible 
         var err = jq(".zk-errbox");
         verifyFalse(err.isVisible());
-        
+
       });
   }
-     
+
 }

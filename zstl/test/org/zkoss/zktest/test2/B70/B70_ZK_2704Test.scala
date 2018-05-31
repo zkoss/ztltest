@@ -18,13 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author chunfu
- */
+  *
+  * @author chunfu
+  */
 @Tags(tags = "B70-ZK-2704.zul")
 class B70_ZK_2704Test extends ZTL4ScalaTestCase {
-	def testCase() = {
-		val zscript = """
+  def testCase() = {
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -63,12 +64,12 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 
 
 		"""
-runZTL(zscript, () => {
-			click(jq(".z-combobox-button"))
-			waitResponse()
-			sleep(500)
-			var pp = jq(".z-combobox-popup")
-			verifyTrue(pp.exists() && pp.height() > 10)
-		})
-	}
+    runZTL(zscript, () => {
+      click(jq(".z-combobox-button"))
+      waitResponse()
+      sleep(500)
+      var pp = jq(".z-combobox-popup")
+      verifyTrue(pp.exists() && pp.height() > 10)
+    })
+  }
 }

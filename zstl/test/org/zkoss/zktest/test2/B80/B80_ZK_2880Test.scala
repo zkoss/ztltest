@@ -3,14 +3,14 @@ package org.zkoss.zktest.test2.B80
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.util.ConfigHelper
 
 @Tags(tags = "B80-ZK-2880.zul")
 class B80_ZK_2880Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -42,15 +42,15 @@ Copyright (C) 2015 Potix Corporation. All Rights Reserved.
     </window>
 </zk>
 
-""" 
-  runZTL(zscript,
-    () => {
-      //click the button
-      click(jq("button"))
-      waitResponse()
-      //check there are no comboitems outside combobox
-      //selector: select all comboitems that are NOT direct child of z-combobox-content (the combobox popup)
-      verifyFalse(jq(".z-comboitem:not(.z-combobox-content > .z-comboitem)").exists())
-    })
+"""
+    runZTL(zscript,
+      () => {
+        //click the button
+        click(jq("button"))
+        waitResponse()
+        //check there are no comboitems outside combobox
+        //selector: select all comboitems that are NOT direct child of z-combobox-content (the combobox popup)
+        verifyFalse(jq(".z-comboitem:not(.z-combobox-content > .z-comboitem)").exists())
+      })
   }
 }

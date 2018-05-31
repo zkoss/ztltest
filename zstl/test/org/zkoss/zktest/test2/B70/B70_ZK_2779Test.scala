@@ -7,9 +7,10 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B70-ZK-2779.zul")
 class B70_ZK_2779Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -48,26 +49,26 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         </tree>
     </window>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      val log = jq("#zk_log")
-      val msg_1 = "selection count after unchecked is 22"
-      val msg_2 = msg_1 + "\nselection count after unchecked is 11"
-      val msg_3 = msg_2 + "\nselection count after unchecked is 0"
-      val msg_4 = msg_3 + "\nselection count after unchecked is 11"
-      click(jq(".z-treerow-checkbox:eq(0)"))
-      waitResponse()
-      verifyEquals(msg_1, log.eval("val()").trim)
-      click(jq(".z-treerow-checkbox:eq(1)"))
-      waitResponse()
-      verifyEquals(msg_2, log.eval("val()").trim)
-      click(jq(".z-treerow-checkbox:eq(2)"))
-      waitResponse()
-      verifyEquals(msg_3, log.eval("val()").trim)
-      click(jq(".z-treerow-checkbox:eq(2)"))
-      waitResponse()
-      verifyEquals(msg_4, log.eval("val()").trim)
-    })
+"""
+    runZTL(zscript,
+      () => {
+        val log = jq("#zk_log")
+        val msg_1 = "selection count after unchecked is 22"
+        val msg_2 = msg_1 + "\nselection count after unchecked is 11"
+        val msg_3 = msg_2 + "\nselection count after unchecked is 0"
+        val msg_4 = msg_3 + "\nselection count after unchecked is 11"
+        click(jq(".z-treerow-checkbox:eq(0)"))
+        waitResponse()
+        verifyEquals(msg_1, log.eval("val()").trim)
+        click(jq(".z-treerow-checkbox:eq(1)"))
+        waitResponse()
+        verifyEquals(msg_2, log.eval("val()").trim)
+        click(jq(".z-treerow-checkbox:eq(2)"))
+        waitResponse()
+        verifyEquals(msg_3, log.eval("val()").trim)
+        click(jq(".z-treerow-checkbox:eq(2)"))
+        waitResponse()
+        verifyEquals(msg_4, log.eval("val()").trim)
+      })
   }
 }

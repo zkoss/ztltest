@@ -16,23 +16,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B30
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
-import org.zkoss.ztl.ZK
-import org.zkoss.ztl.util.Scripts
-import org.junit.Test
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-2003798.zul,B,E,Window,Button")
 class B30_2003798Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <window title="tree and listbox bug" border="normal">
         1. When you mouse over the "foo" word, the entire row should be highlight.
         <separator/>
@@ -73,7 +70,7 @@ class B30_2003798Test extends ZTL4ScalaTestCase {
         </listbox>
       </window>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       // Mouse over the "foo" word
       // Option 2: mouseOver(jq(".z-label:contains(foo)"));
       val img = engine.$f("img");

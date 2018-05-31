@@ -7,9 +7,10 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B80-ZK-2882.zul")
 class B80_ZK_2882Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -110,105 +111,105 @@ Copyright (C) 2015 Potix Corporation. All Rights Reserved.
 </zk>
 
   """
-  runZTL(zscript,
-    () => {
-      //click the 1st combobox button in the 1st grid
-      click(jq(".z-grid:eq(0) .z-combobox-button").eq(0))
-      waitResponse()
-      //select the 2nd item
-      click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
-      waitResponse()
-      //click the 2nd combobox button in the 1st grid
-      click(jq(".z-grid:eq(0) .z-combobox-button").eq(1))
-      waitResponse()
-      //select the 2nd item
-      click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
-      waitResponse()
-      //click the 3rd combobox button in the 1st grid
-      click(jq(".z-grid:eq(0) .z-combobox-button").eq(2))
-      waitResponse()
-      //select the 2nd item
-      click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
-      waitResponse()
-      //check the all input should be 222
-      var iter = jq("input").iterator()
-      while (iter.hasNext()) {
-    	  verifyEquals("222", iter.next().`val`())
-      }
-      
-      //click the 1st combobox button in the 2nd grid
-      click(jq(".z-grid:eq(1) .z-combobox-button").eq(0))
-      waitResponse()
-      //select the 1st item
-      click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(0))
-      waitResponse()
-      //click the 2nd combobox button in the 1st grid
-      click(jq(".z-grid:eq(1) .z-combobox-button").eq(1))
-      waitResponse()
-      //select the 1st item
-      click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(0))
-      waitResponse()
-      //click the 3rd combobox button in the 1st grid
-      click(jq(".z-grid:eq(1) .z-combobox-button").eq(2))
-      waitResponse()
-      //select the 1st item
-      click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(0))
-      waitResponse()
-      //check the all input should be 111
-      iter = jq("input").iterator()
-      while (iter.hasNext()) {
-    	  verifyEquals("111", iter.next().`val`())
-      }
-      
-      //click the 1st combobox button in the 3rd grid
-      click(jq(".z-grid:eq(2) .z-combobox-button").eq(0))
-      waitResponse()
-      //select the 2nd item
-      click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
-      waitResponse()
-      //click the 2nd combobox button in the 3rd grid
-      click(jq(".z-grid:eq(2) .z-combobox-button").eq(1))
-      waitResponse()
-      //select the 2nd item
-      click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
-      waitResponse()
-      //click the 3rd combobox button in the 3rd grid
-      click(jq(".z-grid:eq(2) .z-combobox-button").eq(2))
-      waitResponse()
-      //select the 2nd item
-      click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
-      waitResponse()
-      //check the all input should be 222
-      iter = jq("input").iterator()
-      while (iter.hasNext()) {
-    	  verifyEquals("222", iter.next().`val`())
-      }
-      
-      //click the 1st combobox button in the 4th grid
-      click(jq(".z-grid:eq(3) .z-combobox-button").eq(0))
-      waitResponse()
-      //select the 2nd item
-      click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(2))
-      waitResponse()
-      //click the 2nd combobox button in the 4th grid
-      click(jq(".z-grid:eq(3) .z-combobox-button").eq(1))
-      waitResponse()
-      //select the 2nd item
-      click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(2))
-      waitResponse()
-      //click the 3rd combobox button in the 4th grid
-      click(jq(".z-grid:eq(3) .z-combobox-button").eq(2))
-      waitResponse()
-      //select the 2nd item
-      click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(2))
-      waitResponse()
-      //check the all input should be 333
-      iter = jq("input").iterator()
-      while (iter.hasNext()) {
-    	  verifyEquals("333", iter.next().`val`())
-      }
-      //check there are no errors
-      verifyFalse(hasError())
-    })
+    runZTL(zscript,
+      () => {
+        //click the 1st combobox button in the 1st grid
+        click(jq(".z-grid:eq(0) .z-combobox-button").eq(0))
+        waitResponse()
+        //select the 2nd item
+        click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
+        waitResponse()
+        //click the 2nd combobox button in the 1st grid
+        click(jq(".z-grid:eq(0) .z-combobox-button").eq(1))
+        waitResponse()
+        //select the 2nd item
+        click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
+        waitResponse()
+        //click the 3rd combobox button in the 1st grid
+        click(jq(".z-grid:eq(0) .z-combobox-button").eq(2))
+        waitResponse()
+        //select the 2nd item
+        click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
+        waitResponse()
+        //check the all input should be 222
+        var iter = jq("input").iterator()
+        while (iter.hasNext()) {
+          verifyEquals("222", iter.next().`val`())
+        }
+
+        //click the 1st combobox button in the 2nd grid
+        click(jq(".z-grid:eq(1) .z-combobox-button").eq(0))
+        waitResponse()
+        //select the 1st item
+        click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(0))
+        waitResponse()
+        //click the 2nd combobox button in the 1st grid
+        click(jq(".z-grid:eq(1) .z-combobox-button").eq(1))
+        waitResponse()
+        //select the 1st item
+        click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(0))
+        waitResponse()
+        //click the 3rd combobox button in the 1st grid
+        click(jq(".z-grid:eq(1) .z-combobox-button").eq(2))
+        waitResponse()
+        //select the 1st item
+        click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(0))
+        waitResponse()
+        //check the all input should be 111
+        iter = jq("input").iterator()
+        while (iter.hasNext()) {
+          verifyEquals("111", iter.next().`val`())
+        }
+
+        //click the 1st combobox button in the 3rd grid
+        click(jq(".z-grid:eq(2) .z-combobox-button").eq(0))
+        waitResponse()
+        //select the 2nd item
+        click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
+        waitResponse()
+        //click the 2nd combobox button in the 3rd grid
+        click(jq(".z-grid:eq(2) .z-combobox-button").eq(1))
+        waitResponse()
+        //select the 2nd item
+        click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
+        waitResponse()
+        //click the 3rd combobox button in the 3rd grid
+        click(jq(".z-grid:eq(2) .z-combobox-button").eq(2))
+        waitResponse()
+        //select the 2nd item
+        click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
+        waitResponse()
+        //check the all input should be 222
+        iter = jq("input").iterator()
+        while (iter.hasNext()) {
+          verifyEquals("222", iter.next().`val`())
+        }
+
+        //click the 1st combobox button in the 4th grid
+        click(jq(".z-grid:eq(3) .z-combobox-button").eq(0))
+        waitResponse()
+        //select the 2nd item
+        click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(2))
+        waitResponse()
+        //click the 2nd combobox button in the 4th grid
+        click(jq(".z-grid:eq(3) .z-combobox-button").eq(1))
+        waitResponse()
+        //select the 2nd item
+        click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(2))
+        waitResponse()
+        //click the 3rd combobox button in the 4th grid
+        click(jq(".z-grid:eq(3) .z-combobox-button").eq(2))
+        waitResponse()
+        //select the 2nd item
+        click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(2))
+        waitResponse()
+        //check the all input should be 333
+        iter = jq("input").iterator()
+        while (iter.hasNext()) {
+          verifyEquals("333", iter.next().`val`())
+        }
+        //check there are no errors
+        verifyFalse(hasError())
+      })
   }
 }

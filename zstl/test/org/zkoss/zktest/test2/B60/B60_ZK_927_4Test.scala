@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Element, Tags, Widget}
 
 /**
- * A test class for bug ZK-927-4
- * @author benbai
- *
- */
+  * A test class for bug ZK-927-4
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-927-4.zul,")
 class B60_ZK_927_4Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
 			<zk>
 				<window >
@@ -80,7 +73,7 @@ class B60_ZK_927_4Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
+      () => {
         var combo1: Widget = engine.$f("combo1");
         var combo2: Widget = engine.$f("combo2");
         var lbl: Widget = engine.$f("lbl");
@@ -91,39 +84,45 @@ class B60_ZK_927_4Test extends ZTL4ScalaTestCase {
           click(combo.$n("btn"));
           waitResponse();
         }
-        def select (combo: Widget, item: Int) {
+
+        def select(combo: Widget, item: Int) {
           open(combo);
           click(jq(combo.$n("pp")).find(".z-comboitem").get(item));
           waitResponse();
         }
-        def check (combo: Widget, item: Int) {
+
+        def check(combo: Widget, item: Int) {
           var cnt: String = lbl.$n().get("innerHTML");
           var ci: Element = jq(combo.$n("pp")).find(".z-comboitem").get(item);
-          
+
           var itemCnt: String = jq(ci).find(":contains(item)").get(0).get("innerHTML");
-          verifyTrue("Item "+item+" should be selected",
-              itemCnt.contains(cnt.split(" ")(0))
+          verifyTrue("Item " + item + " should be selected",
+            itemCnt.contains(cnt.split(" ")(0))
               && itemCnt.contains(cnt.split(" ")(1)));
         }
-        def checkByString (combo: Widget, item: Int, cnt: String) {
+
+        def checkByString(combo: Widget, item: Int, cnt: String) {
           var ci: Element = jq(combo.$n("pp")).find(".z-comboitem").get(item);
-          
+
           var itemCnt: String = jq(ci).find(":contains(item)").get(0).get("innerHTML");
-          verifyTrue("Item "+item+" should be selected",
-              itemCnt.contains(cnt.split(" ")(0))
+          verifyTrue("Item " + item + " should be selected",
+            itemCnt.contains(cnt.split(" ")(0))
               && itemCnt.contains(cnt.split(" ")(1)));
         }
+
         select(combo1, 2);
         select(combo2, 2);
         check(combo2, 2);
 
-        click(set); waitResponse();
-        click(reload); waitResponse();
+        click(set);
+        waitResponse();
+        click(reload);
+        waitResponse();
 
         check(combo2, 0);
         checkByString(combo1, 2, "item 2");
-    }
-   );
+      }
+    );
 
   }
 }

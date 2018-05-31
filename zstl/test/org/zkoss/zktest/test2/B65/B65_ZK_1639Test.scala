@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1639.zul")
 class B65_ZK_1639Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 	<zscript><![CDATA[
 	
 	DefaultTreeNode r = new DefaultTreeNode("root",new ArrayList());
@@ -104,7 +105,7 @@ class B65_ZK_1639Test extends ZTL4ScalaTestCase {
 
         click(jq(".z-button:contains(Move Node 3 to Node X):eq(1)"))
         waitResponse()
-        
+
         val case21node3 = jq(".z-treerow:eq(5):contains(Node 3)")
         verifyTrue("the node 3 should move to node X", case21node3.exists())
         verifyTrue("both node2 and nodeX has correct label change", jq(".z-treerow:eq(1):contains(Node (1))").exists())

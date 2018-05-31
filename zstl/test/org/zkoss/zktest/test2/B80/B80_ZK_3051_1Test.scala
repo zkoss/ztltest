@@ -9,7 +9,8 @@ class B80_ZK_3051_1Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {
     // have to use zscript to solve the src path issue
-    val zscript = """
+    val zscript =
+      """
       <?xml version="1.0" encoding="UTF-8"?>
 <!--
 B80-ZK-3051-1.zul
@@ -44,6 +45,6 @@ if the top space is not enouth either, the popup will force show on the bottom o
         val outerHeight = getEval("""jq("iframe").contents().find(".z-combobox").outerHeight()""")
         val positionTop = getEval("""jq("iframe").contents().find(".z-combobox-popup").position().top""")
         verifyEquals(outerHeight, positionTop)
-    })
+      })
   }
 }

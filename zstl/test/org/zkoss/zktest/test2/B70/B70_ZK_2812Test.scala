@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2812.zul")
 class B70_ZK_2812Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -48,31 +49,31 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	</window>
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-      //make sure no notification is present at init
-      verifyFalse(jq(".z-notification").exists());
-      //click to open group 1
-      click(jq(".z-group-icon").eq(0))
-      waitResponse()
-      //check notification appears
-      verifyTrue(jq(".z-notification").exists());
-      //click to close group 1
-      click(jq(".z-group-icon").eq(0))
-      waitResponse()
-      //check notification appears
-      verifyTrue(jq(".z-notification").exists());
-      //click to open group 2
-      click(jq(".z-group-icon").eq(1))
-      waitResponse()
-      //check notification appears
-      verifyTrue(jq(".z-notification").exists());
-      //click to close group 2
-      click(jq(".z-group-icon").eq(1))
-      waitResponse()
-      //check notification appears
-      verifyTrue(jq(".z-notification").exists());
-    })
+"""
+    runZTL(zscript,
+      () => {
+        //make sure no notification is present at init
+        verifyFalse(jq(".z-notification").exists());
+        //click to open group 1
+        click(jq(".z-group-icon").eq(0))
+        waitResponse()
+        //check notification appears
+        verifyTrue(jq(".z-notification").exists());
+        //click to close group 1
+        click(jq(".z-group-icon").eq(0))
+        waitResponse()
+        //check notification appears
+        verifyTrue(jq(".z-notification").exists());
+        //click to open group 2
+        click(jq(".z-group-icon").eq(1))
+        waitResponse()
+        //check notification appears
+        verifyTrue(jq(".z-notification").exists());
+        //click to close group 2
+        click(jq(".z-group-icon").eq(1))
+        waitResponse()
+        //check notification appears
+        verifyTrue(jq(".z-notification").exists());
+      })
   }
 }

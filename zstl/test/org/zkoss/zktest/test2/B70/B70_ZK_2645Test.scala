@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2645.zul")
 class B70_ZK_2645Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <zk>
     <zscript><![CDATA[
@@ -44,18 +42,18 @@ def testClick() = {
     </window>
 </zk>
     
-"""  
-  runZTL(zscript,
-    () => {
-      var listbox = jq("@listbox");
-      
-      verScroll(listbox, 1);
-      waitResponse();
-      click(jq("@button"));
-      waitResponse();
-      var body = jq(".z-listbox-body");
-      verifyEquals(body.children().first().css("display"), "none");
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        var listbox = jq("@listbox");
+
+        verScroll(listbox, 1);
+        waitResponse();
+        click(jq("@button"));
+        waitResponse();
+        var body = jq(".z-listbox-body");
+        verifyEquals(body.children().first().css("display"), "none");
+      })
+
   }
 }

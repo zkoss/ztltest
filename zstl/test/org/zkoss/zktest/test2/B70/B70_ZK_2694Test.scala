@@ -18,13 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author chunfu
- */
+  *
+  * @author chunfu
+  */
 @Tags(tags = "B70-ZK-2694.zul")
 class B70_ZK_2694Test extends ZTL4ScalaTestCase {
-	def testCase() = {
-		val zscript = """
+  def testCase() = {
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -83,22 +84,22 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 
 
 		"""
-runZTL(zscript, () => {
-			click(jq("@div"))
-			waitResponse()
-			click(jq(".z-treecell :contains(\"1\")").find(".z-tree-icon"))
-			waitResponse()
-			click(jq(".z-treecell :contains(\"1.1\")").find(".z-tree-icon"))
-			waitResponse()
-			click(jq(".z-treecell :contains(\"2\")").find(".z-tree-icon").last())
-			waitResponse()
-			click(jq(".z-treecell :contains(\"1\")").find(".z-tree-icon"))
-			waitResponse()
-			click(jq(".z-treecell :contains(\"2.1\")").find(".z-tree-icon"))
-			waitResponse()
-			click(jq(".z-treecell :contains(\"1\")").find(".z-tree-icon"))
-			waitResponse()
-			verifyTrue(hasVScrollbar(jq("@center")))
-		})
-	}
+    runZTL(zscript, () => {
+      click(jq("@div"))
+      waitResponse()
+      click(jq(".z-treecell :contains(\"1\")").find(".z-tree-icon"))
+      waitResponse()
+      click(jq(".z-treecell :contains(\"1.1\")").find(".z-tree-icon"))
+      waitResponse()
+      click(jq(".z-treecell :contains(\"2\")").find(".z-tree-icon").last())
+      waitResponse()
+      click(jq(".z-treecell :contains(\"1\")").find(".z-tree-icon"))
+      waitResponse()
+      click(jq(".z-treecell :contains(\"2.1\")").find(".z-tree-icon"))
+      waitResponse()
+      click(jq(".z-treecell :contains(\"1\")").find(".z-tree-icon"))
+      waitResponse()
+      verifyTrue(hasVScrollbar(jq("@center")))
+    })
+  }
 }

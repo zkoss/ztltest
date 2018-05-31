@@ -1,14 +1,15 @@
 
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1433.zul")
 class B65_ZK_1433Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<?component name="testwindow" macroURI="B65-ZK-1433-1.zul" ?>
+    val zscript =
+      """<?component name="testwindow" macroURI="B65-ZK-1433-1.zul" ?>
                   <zk>
                     <window title="Test Case" width="100%" height="100%" mode="embedded" closable="false" onCreate="test(60,180)">
                       <label multiline="true">

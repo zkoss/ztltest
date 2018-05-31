@@ -18,13 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author chunfu
- */
+  *
+  * @author chunfu
+  */
 @Tags(tags = "B70-ZK-2739.zul")
 class B70_ZK_2739Test extends ZTL4ScalaTestCase {
-	def testCase() = {
-		val zscript = """
+  def testCase() = {
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -75,17 +76,17 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 
 
 		"""
-runZTL(zscript, () => {
-			var buttons = jq("@button")
-			for (i <- 0 to buttons.length() - 1) {
-				click(buttons.eq(i))
-				waitResponse()
-				click(jq("@window").last().find("@button"))
-				waitResponse()
-				sleep(200)
-				var log: Array[String] = jq("#zk_log").`val`().split('\n');
-				verifyEquals(buttons.eq(i).text(), log(log.length -1).trim)
-			}
-		})
-	}
+    runZTL(zscript, () => {
+      var buttons = jq("@button")
+      for (i <- 0 to buttons.length() - 1) {
+        click(buttons.eq(i))
+        waitResponse()
+        click(jq("@window").last().find("@button"))
+        waitResponse()
+        sleep(200)
+        var log: Array[String] = jq("#zk_log").`val`().split('\n');
+        verifyEquals(buttons.eq(i).text(), log(log.length - 1).trim)
+      }
+    })
+  }
 }

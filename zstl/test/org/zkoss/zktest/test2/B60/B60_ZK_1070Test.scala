@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1070.zul")
 class B60_ZK_1070Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk xmlns:w="client">
+    val zscript =
+      """<zk xmlns:w="client">
                     <div>
                       <zscript>
                         org.zkoss.zul.ListModelList list = new org.zkoss.zul.ListModelList();

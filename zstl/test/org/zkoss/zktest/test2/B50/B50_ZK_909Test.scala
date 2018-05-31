@@ -1,20 +1,16 @@
 package org.zkoss.zktest.test2.B50
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.openqa.selenium.By
-import org.openqa.selenium.internal.Locatable
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.util.Scripts
 import org.junit.Test
-import org.zkoss.ztl.ZK
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B50-ZK-909.zul")
 class B50_ZK_909Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<?xml version="1.0" encoding="UTF-8" ?>
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8" ?>
                   <zk>
                     <div>step 1: click on save button without entering any data (you should see errorbox message)</div>
                     <div>step 2: close errorbox1 and then errorbox2 (if you reverse the closing sequence then it will not cause this issue)</div>
@@ -70,13 +66,13 @@ class B50_ZK_909Test extends ZTL4ScalaTestCase {
         waitResponse()
         sleep(500)
         verifyTrue("should not see errorbox message", !jq(".z-errorbox").exists())
-        
+
         val textbox = jq(".z-textbox:eq(0)")
         sendKeys(textbox, "1111")
         waitResponse()
         blur(textbox)
         waitResponse()
-        
+
         click(savebtn)
         waitResponse()
         verifyTrue("the value of first textbox should not be cleared.", textbox.`val`().length() != 0)

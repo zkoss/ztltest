@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2192.zul")
 class B70_ZK_2192Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<zk xmlns:w='client'>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<zk xmlns:w='client'>
 	<label multiline="true">
 		1. Click the "Slide" button.
 		2. When the window is sliding, click the combobutton.
@@ -22,15 +23,15 @@ def testClick() = {
     ]]></zscript>
 	<combobox model="${lm}"/>
 	<window id="t" title="This is a Window" border="normal" height="400px" />
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      val cb = jq(".z-combobox").toWidget()
-      click(jq(".z-button"))
-      click(cb.$n("btn"))
-      waitResponse()
-      verifyTrue("The popup should show up", cb.$n("pp").exists)
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+        val cb = jq(".z-combobox").toWidget()
+        click(jq(".z-button"))
+        click(cb.$n("btn"))
+        waitResponse()
+        verifyTrue("The popup should show up", cb.$n("pp").exists)
+      })
+
   }
 }

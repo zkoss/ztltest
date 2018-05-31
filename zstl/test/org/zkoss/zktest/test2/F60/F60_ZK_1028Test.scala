@@ -16,29 +16,25 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.F60
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Element, JQuery, Tags, Widget}
+
 /**
- * A test class for bug ZK-1028
- * @author benbai
- *
- */
+  * A test class for bug ZK-1028
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-1028.zul,F60,A,E,Chosenbox")
 class F60_ZK_1028Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<zscript>
 					<![CDATA[
@@ -143,7 +139,7 @@ class F60_ZK_1028Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
+      () => {
         var outer: Widget = engine.$f("outer");
         var lbxOne: Widget = engine.$f("lbxOne");
         var lbxTwo: Widget = engine.$f("lbxTwo");
@@ -159,16 +155,18 @@ class F60_ZK_1028Test extends ZTL4ScalaTestCase {
         var btnSeven: Widget = engine.$f("btnSeven");
         var checkList: java.util.List[Int] = new java.util.ArrayList[Int]();
 
-        def selectItem (wgt: Widget, item: String) {
-          var $item: JQuery = jq(wgt.$n("sel")).find("div:contains("+item+")");
+        def selectItem(wgt: Widget, item: String) {
+          var $item: JQuery = jq(wgt.$n("sel")).find("div:contains(" + item + ")");
           var dropDown: JQuery = jq(wgt.$n("pp"));
           var ofs: Int = $item.offsetTop() - dropDown.offsetTop();
           click(wgt.$n("inp"))
           waitResponse()
           var height = dropDown.innerHeight()
           dropDown.get(0).eval("scrollTop = " + ofs);
-          click($item); waitResponse();
+          click($item);
+          waitResponse();
         }
+
         // check whether the selection of a chosenbox contains exactly the content in check list
         def checkSelection = (toCheck: java.util.List[Int], id: String) => {
           input(tbOne.$n(), id);
@@ -176,57 +174,67 @@ class F60_ZK_1028Test extends ZTL4ScalaTestCase {
           waitResponse();
           var selection: String = msg.$n().get("innerHTML");
           var item: String = "";
-          for (i <- 0 to toCheck.size()-1) {
-            item = "data "+toCheck.get(i);
-            verifyTrue("the selection of "+id+"should contains "+item,
-                selection.contains(item));
+          for (i <- 0 to toCheck.size() - 1) {
+            item = "data " + toCheck.get(i);
+            verifyTrue("the selection of " + id + "should contains " + item,
+              selection.contains(item));
             selection = selection.replace(item, "");
           }
           verifyTrue("the selection should exactly contains the check list data, no more",
-              selection.length() == 0);
+            selection.length() == 0);
         }
+
         def checkEqualSelection = (idOne: String, idTwo: String, assertValue: Boolean) => {
           input(tbOne.$n(), idOne);
           input(tbTwo.$n(), idTwo);
           click(btnOne);
           waitResponse();
           if (assertValue)
-            verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should the same",
-                msg.$n().get("innerHTML").equals("true"));
+            verifyTrue("The selection of these two listbox (" + idOne + ", " + idTwo + ") should the same",
+              msg.$n().get("innerHTML").equals("true"));
           else
-            verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should different",
-                msg.$n().get("innerHTML").equals("false"));
+            verifyTrue("The selection of these two listbox (" + idOne + ", " + idTwo + ") should different",
+              msg.$n().get("innerHTML").equals("false"));
         }
+
         def input = (tb: Element, value: String) => {
           click(tb);
-          tb.eval("value = \"" + value+"\"");
+          tb.eval("value = \"" + value + "\"");
           click(outer);
           waitResponse();
         }
+
         def checkInsertRemove = () => {
           var selsOne: String = getSelection("lbxOne");
           var selsTwo: String = getSelection("lbxTwo");
           var selsThree: String = getSelection("lbxThree");
-          click(btnSix); waitResponse();
-          click(btnSix); waitResponse();
-          click(btnSix); waitResponse();
+          click(btnSix);
+          waitResponse();
+          click(btnSix);
+          waitResponse();
+          click(btnSix);
+          waitResponse();
           verifyTrue("The selection should not change after insert items",
-              getSelection("lbxOne").equals(selsOne));
+            getSelection("lbxOne").equals(selsOne));
           verifyTrue("The selection should not change after insert items",
-              getSelection("lbxTwo").equals(selsTwo));
+            getSelection("lbxTwo").equals(selsTwo));
           verifyTrue("The selection should not change after insert items",
-              getSelection("lbxThree").equals(selsThree));
-          click(btnSeven); waitResponse();
-          click(btnSeven); waitResponse();
-          click(btnSeven); waitResponse();
+            getSelection("lbxThree").equals(selsThree));
+          click(btnSeven);
+          waitResponse();
+          click(btnSeven);
+          waitResponse();
+          click(btnSeven);
+          waitResponse();
           verifyTrue("The selection should not change after insert items",
-              getSelection("lbxOne").equals(selsOne));
+            getSelection("lbxOne").equals(selsOne));
           verifyTrue("The selection should not change after insert items",
-              getSelection("lbxTwo").equals(selsTwo));
+            getSelection("lbxTwo").equals(selsTwo));
           verifyTrue("The selection should not change after insert items",
-              getSelection("lbxThree").equals(selsThree));
+            getSelection("lbxThree").equals(selsThree));
         }
-        def getSelection (id: String): String = {
+
+        def getSelection(id: String): String = {
           input(tbOne.$n(), id);
           click(btnFour);
           waitResponse();
@@ -275,7 +283,7 @@ class F60_ZK_1028Test extends ZTL4ScalaTestCase {
         checkEqualSelection("lbxThree", "lbxThree_serialize3", true);
         checkInsertRemove();
 
-    }
-   );
+      }
+    );
   }
 }

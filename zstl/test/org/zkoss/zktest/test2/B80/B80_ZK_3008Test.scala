@@ -3,7 +3,7 @@ package org.zkoss.zktest.test2.B80
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKTestCase}
+import org.zkoss.ztl.ZKTestCase
 
 class B80_ZK_3008Test extends ZTL4ScalaTestCase {
   @Test
@@ -22,7 +22,7 @@ class B80_ZK_3008Test extends ZTL4ScalaTestCase {
         sendKeys(inp, Keys.BACK_SPACE)
         waitResponse()
         verifyTolerant(cb.offsetTop(), pp.outerHeight() + pp.offsetTop(), 3)
-    })
+      })
   }
 }
 

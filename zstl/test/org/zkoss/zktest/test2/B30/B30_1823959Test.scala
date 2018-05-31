@@ -18,16 +18,16 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-1823959.zul,B,E,Window,Button")
 class B30_1823959Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <zk xmlns:h="http://www.w3.org/1999/xhtml">
         <h:h3> [ 1823959 ] Grid failed to re-sync model (Opera/IE/IE7)</h:h3>
         <h:pre>
@@ -47,10 +47,10 @@ class B30_1823959Test extends ZTL4ScalaTestCase {
         </vbox>
       </zk>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       // Click the button
       click(jq("@button"));
-      
+
       // Verify there is no javascript error
       verifyFalse(jq(".z-error").exists());
     })

@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug 3283943
- * @author benbai
- *
- */
+  * A test class for bug 3283943
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3283943.zul,A,E,Grid,Listbox")
 class B50_3283943Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk xmlns:w="client">
 				<html><![CDATA[
 					<ol>
@@ -110,62 +103,65 @@ class B50_3283943Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-def executor = () => {
-    	var (group1, group2, group3,
-    	    li1, li2, li3,
-    	    lb1s, lb1c, lb2s, lb2c) = 
-    	  (engine.$f("group1"), engine.$f("group2"), engine.$f("group3"),
-    	      engine.$f("li1"), engine.$f("li2"), engine.$f("li3"),
-    	      engine.$f("lb1s"), engine.$f("lb1c"), engine.$f("lb2s"), engine.$f("lb2c"));
 
-		waitResponse();
+    def executor = () => {
+      var (group1, group2, group3,
+      li1, li2, li3,
+      lb1s, lb1c, lb2s, lb2c) =
+        (engine.$f("group1"), engine.$f("group2"), engine.$f("group3"),
+          engine.$f("li1"), engine.$f("li2"), engine.$f("li3"),
+          engine.$f("lb1s"), engine.$f("lb1c"), engine.$f("lb2s"), engine.$f("lb2c"));
 
-		checkGridUuid(group1, lb1s, lb1c);
-		checkGridUuid(group2, lb1s, lb1c);
-		checkGridUuid(group3, lb1s, lb1c);
-		checkGridUuid(li1, lb2s, lb2c);
-		checkGridUuid(li2, lb2s, lb2c);
-		checkGridUuid(li3, lb2s, lb2c);
+      waitResponse();
+
+      checkGridUuid(group1, lb1s, lb1c);
+      checkGridUuid(group2, lb1s, lb1c);
+      checkGridUuid(group3, lb1s, lb1c);
+      checkGridUuid(li1, lb2s, lb2c);
+      checkGridUuid(li2, lb2s, lb2c);
+      checkGridUuid(li3, lb2s, lb2c);
     }
+
     def checkGridUuid(wgt: Widget, lbs: Widget, lbc: Widget) {
-    	clickAt(wgt.$n(), "10,3");
-		waitResponse();
-		verifyTrue(lbs.$n().get("innerHTML").equals(lbc.$n().get("innerHTML")));
+      clickAt(wgt.$n(), "10,3");
+      waitResponse();
+      verifyTrue(lbs.$n().get("innerHTML").equals(lbc.$n().get("innerHTML")));
     }
-runZTL(zscript, executor);
-   
-   // Run syntax 2
-   /**
-    runZTL(zscript,
-        () => {
-        var l1: Widget = engine.$f("l1");
-        var l2: Widget = engine.$f("l2");
-        waitResponse();
-        var strClickBefor = getText(l1);
-        click(l1);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l1));
-        strClickBefor = getText(l2);
-        click(l2);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l2));
-    }
-   );
-    */
+
+    runZTL(zscript, executor);
+
+    // Run syntax 2
+    /**
+      * runZTL(zscript,
+      * () => {
+      * var l1: Widget = engine.$f("l1");
+      * var l2: Widget = engine.$f("l2");
+      * waitResponse();
+      * var strClickBefor = getText(l1);
+      * click(l1);
+      * waitResponse();
+      * verifyNotEquals(strClickBefor, getText(l1));
+      * strClickBefor = getText(l2);
+      * click(l2);
+      * waitResponse();
+      * verifyNotEquals(strClickBefor, getText(l2));
+      * }
+      * );
+      */
     /** create widget example
-		var tree: Widget = engine.$f("tree");
-		var listbox: Widget = engine.$f("listbox");
-		waitResponse();
-	*/
-   /** trigger mouse event example
-    Scripts.triggerMouseEventAt(getWebDriver(), inner1, "click", "5,5");
-    */
-   /** detect whether exception exists example
-   		verifyFalse(jq(".z-window-highlighted").exists());
-   		verifyFalse(jq(".z-window-modal").exists())
-	*/
-	/** detect browser
-		if (ZK.is("ie6_") || ZK.is("ie7_"))
-	*/
+      * var tree: Widget = engine.$f("tree");
+      * var listbox: Widget = engine.$f("listbox");
+      * waitResponse();
+      */
+    /** trigger mouse event example
+      *Scripts.triggerMouseEventAt(getWebDriver(), inner1, "click", "5,5");
+      */
+    /** detect whether exception exists example
+      * verifyFalse(jq(".z-window-highlighted").exists());
+      * verifyFalse(jq(".z-window-modal").exists())
+      */
+    /** detect browser
+      * if (ZK.is("ie6_") || ZK.is("ie7_"))
+      */
   }
 }

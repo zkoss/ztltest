@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.F70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "F70-ZK-1974.zul")
 class F70_ZK_1974Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 	<div>
 		1. for each rod or in accordion mold tabbox, all heights of
 		tabpanels should be same
@@ -134,7 +135,7 @@ class F70_ZK_1974Test extends ZTL4ScalaTestCase {
             if (tabIndex == 0)
               h = tph
             else {
-            	verifyTrue("all heights of tabpanels should be same", h == tph)
+              verifyTrue("all heights of tabpanels should be same", h == tph)
             }
           }
           h = 0
@@ -147,7 +148,7 @@ class F70_ZK_1974Test extends ZTL4ScalaTestCase {
 
         click(tb.find(".z-tab:eq(3)"))
         waitResponse()
-        
+
         verifyTrue("the height of 4th tabpanel should not be same as other's height", h != tb.find(".z-tabpanel").eq(3).height())
 
       })

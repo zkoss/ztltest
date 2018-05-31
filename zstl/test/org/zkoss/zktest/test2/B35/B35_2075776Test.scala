@@ -16,21 +16,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.util.Scripts
-import org.openqa.selenium.Keys
-import org.junit.Test
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B35-2075776.zul,B,E,Window,Button")
 class B35_2075776Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <window title="Column's Menu Demo" border="normal" width="500px">
         1. Please click the "remove column1" or "remove column2" button.
         <separator/>

@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z60
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ClientWidget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{ClientWidget, Tags, Widget}
+
 /**
- * A test class for bug Selectbox-ListModelArray
- * @author benbai
- *
- */
+  * A test class for bug Selectbox-ListModelArray
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "Z60-Selectbox-ListModelArray.zul,Z60,A,E,Selectbox,ListModelArray")
 class Z60_Selectbox_ListModelArrayTest extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<zscript><![CDATA[
 					import org.zkoss.zktest.test2.select.models.*;
@@ -85,76 +79,80 @@ class Z60_Selectbox_ListModelArrayTest extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var outer: Widget = engine.$f("outer");
         var clone: Widget = engine.$f("clone");
         var serialize: Widget = engine.$f("serialize");
-        def select (id: String, num: Int) {
+        def select(id: String, num: Int) {
           var sbx: Widget = engine.$f(id);
           this.select(sbx, num);
           click(outer);
           waitResponse();
         }
-        def equal (idOne: String, idTwo: String): Boolean = {
+
+        def equal(idOne: String, idTwo: String): Boolean = {
           return getSelectedItem(idOne).equals(getSelectedItem(idTwo));
         }
+
         def getSelectedItem(id: String): String = {
-          return getSelenium().getEval("jq('$"+id+"')[0].options[jq('$"+id+"')[0].selectedIndex].innerHTML");
+          return getSelenium().getEval("jq('$" + id + "')[0].options[jq('$" + id + "')[0].selectedIndex].innerHTML");
         }
-        def clickAndWait (target: ClientWidget, delay: Int) = {
+
+        def clickAndWait(target: ClientWidget, delay: Int) = {
           click(target);
           if (delay > 0)
             sleep(delay);
           else
             waitResponse();
         }
-        def getItemAt (id: String, num: Int): String = {
-          return getSelenium().getEval("jq('$"+id+"')[0].options["+num+"].innerHTML");
+
+        def getItemAt(id: String, num: Int): String = {
+          return getSelenium().getEval("jq('$" + id + "')[0].options[" + num + "].innerHTML");
         }
 
         select("sbxOne", 3);
         verifyTrue("The select of first two selectbox should sync",
-            equal("sbxOne", "sbxTwo"));
+          equal("sbxOne", "sbxTwo"));
         select("sbxTwo", 0);
         verifyTrue("The select of first two selectbox should sync",
-            equal("sbxOne", "sbxTwo"));
+          equal("sbxOne", "sbxTwo"));
 
         select("sbxThree", 10);
         clickAndWait(clone, 0);
         clickAndWait(serialize, 0);
         verifyTrue("Third selectbox should not changed after clone/serialize",
-            getItemAt("sbxThree", 10).equals(getSelectedItem("sbxThree")));
+          getItemAt("sbxThree", 10).equals(getSelectedItem("sbxThree")));
         verifyTrue("Cloned selectbox should select the same item",
-            equal("sbxThree", "sbxThree_clone0"));
+          equal("sbxThree", "sbxThree_clone0"));
         verifyTrue("Serialized selectbox should select the same item",
-            equal("sbxThree", "sbxThree_serialize1"));
+          equal("sbxThree", "sbxThree_serialize1"));
 
         select("sbxThree", 11);
         verifyFalse("Cloned selectbox should not sync with third selectbox",
-            equal("sbxThree", "sbxThree_clone0"));
+          equal("sbxThree", "sbxThree_clone0"));
         verifyFalse("Serialized selectbox should not sync with third selectbox",
-            equal("sbxThree", "sbxThree_serialize1"));
+          equal("sbxThree", "sbxThree_serialize1"));
         select("sbxThree_clone0", 12);
         verifyFalse("Cloned selectbox should not sync with third selectbox",
-            equal("sbxThree", "sbxThree_clone0"));
+          equal("sbxThree", "sbxThree_clone0"));
         verifyFalse("Cloned selectbox should not sync with serialized selectbox",
-            equal("sbxThree_clone0", "sbxThree_serialize1"));
+          equal("sbxThree_clone0", "sbxThree_serialize1"));
         select("sbxThree_serialize1", 13);
         verifyFalse("Serialized selectbox should not sync with third selectbox",
-            equal("sbxThree", "sbxThree_serialize1"));
+          equal("sbxThree", "sbxThree_serialize1"));
         verifyFalse("Serializedselectbox should not sync with cloned selectbox",
-            equal("sbxThree_clone0", "sbxThree_serialize1"));
+          equal("sbxThree_clone0", "sbxThree_serialize1"));
 
         clickAndWait(clone, 0);
         clickAndWait(serialize, 0);
         verifyTrue("Third selectbox should not changed after clone/serialize",
-            getItemAt("sbxThree", 11).equals(getSelectedItem("sbxThree")));
+          getItemAt("sbxThree", 11).equals(getSelectedItem("sbxThree")));
         verifyTrue("Cloned selectbox should select the same item",
-            equal("sbxThree", "sbxThree_clone2"));
+          equal("sbxThree", "sbxThree_clone2"));
         verifyTrue("Serialized selectbox should select the same item",
-            equal("sbxThree", "sbxThree_serialize3"));
-    }
-   );
+          equal("sbxThree", "sbxThree_serialize3"));
+      }
+    );
   }
 }

@@ -17,39 +17,33 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Element, Tags, Widget}
 
 /**
- * A test class for bug ZK-629
- * @author benbai
- *
- */
+  * A test class for bug ZK-629
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-629.zul,A,E,Doublebox,Decimalbox,Doublespinner,Locale")
 class B50_ZK_629Test extends ZTL4ScalaTestCase {
 
   def resetLocale(theme: String) {
-		runZTL({
-			"""<zk>
+    runZTL({
+      """<zk>
 				<zscript><![CDATA[
 					Sessions.getCurrent().removeAttribute("px_preferred_locale");
 				]]></zscript>
 			</zk>"""
-		},
-			() => {
-				refresh();
-			})
-	}
+    },
+      () => {
+        refresh();
+      })
+  }
+
   def testNumberLocale() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
     			<zscript><![CDATA[
     			Sessions.getCurrent().setAttribute("px_preferred_locale", new Locale("de","DE"));
@@ -79,39 +73,40 @@ class B50_ZK_629Test extends ZTL4ScalaTestCase {
 
     """
 
-   try {
-			runZTL(zscript, () => {
+    try {
+      runZTL(zscript, () => {
 
-			  refresh();
-			  waitForPageToLoad("10000")
-			  waitResponse();
+        refresh();
+        waitForPageToLoad("10000")
+        waitResponse();
 
-			  runRawZscript(zscript.toString());
-			  waitResponse();
-	   			var (db1: Widget,
-	    	     db2: Widget,
-	    	     db3: Widget,
-	    	     db4: Widget,
-	    	     db5: Widget) = (
-	    	        engine.$f("db1"),
-	    	        engine.$f("db2"),
-	    	        engine.$f("db3"),
-	    	        engine.$f("db4"),
-	    	        engine.$f("db5")
-	    	    );
+        runRawZscript(zscript.toString());
+        waitResponse();
+        var (db1: Widget,
+        db2: Widget,
+        db3: Widget,
+        db4: Widget,
+        db5: Widget) = (
+          engine.$f("db1"),
+          engine.$f("db2"),
+          engine.$f("db3"),
+          engine.$f("db4"),
+          engine.$f("db5")
+        );
 
-			  def checkValue(ele: Element) {
-			    verifyTrue("You should see the values in each input element \"0,5\" or \"0,00...5\", not \"5\".",
-			        ele.get("value").contains("0,"));
-			  }
-			  checkValue(db1.$n());
-			  checkValue(db2.$n("real"));
-			  checkValue(db3.$n());
-			  checkValue(db4.$n());
-			  checkValue(db5.$n());
-			});
-		} finally {
-			resetLocale("breeze")
-		}
+        def checkValue(ele: Element) {
+          verifyTrue("You should see the values in each input element \"0,5\" or \"0,00...5\", not \"5\".",
+            ele.get("value").contains("0,"));
+        }
+
+        checkValue(db1.$n());
+        checkValue(db2.$n("real"));
+        checkValue(db3.$n());
+        checkValue(db4.$n());
+        checkValue(db5.$n());
+      });
+    } finally {
+      resetLocale("breeze")
+    }
   }
 }

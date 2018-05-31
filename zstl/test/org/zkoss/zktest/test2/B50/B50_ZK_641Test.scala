@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-641
- * @author benbai
- *
- */
+  * A test class for bug ZK-641
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-641.zul,B,M,Borderlayout,IE")
 class B50_ZK_641Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<borderlayout>
 					<west>
@@ -58,14 +52,14 @@ class B50_ZK_641Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript, () => {
-   			var lbOne: Widget = engine.$f("lbOne");
-   			var lbTwo: Widget = engine.$f("lbTwo");
-   			var lbThree: Widget = engine.$f("lbThree");
+    runZTL(zscript, () => {
+      var lbOne: Widget = engine.$f("lbOne");
+      var lbTwo: Widget = engine.$f("lbTwo");
+      var lbThree: Widget = engine.$f("lbThree");
 
-   			verifyTrue("The three labels should be single line",
-   			    jq(lbOne.$n()).height() == jq(lbTwo.$n()).height()
-   			    	&& jq(lbThree.$n()).height() == jq(lbTwo.$n()).height());
-		})
+      verifyTrue("The three labels should be single line",
+        jq(lbOne.$n()).height() == jq(lbTwo.$n()).height()
+          && jq(lbThree.$n()).height() == jq(lbTwo.$n()).height());
+    })
   }
 }

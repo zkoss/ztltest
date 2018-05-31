@@ -18,16 +18,16 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-2337652.zul,B,E,Window,Button")
 class B30_2337652Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <window>
         It is correct if you see nothing but this line.
         <zscript>
@@ -43,14 +43,14 @@ class B30_2337652Test extends ZTL4ScalaTestCase {
         </zscript>
       </window>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       // Verify that the grid doesn't exists
       verifyFalse("The grid should doesn't exists", jq("$grid1").exists());
-      
-	  //Verify no error
+
+      //Verify no error
       verifyFalse(jq(".z-msgbox-error").exists());
       verifyFalse(jq(".z-error").exists());
-      
+
     })
   }
 }

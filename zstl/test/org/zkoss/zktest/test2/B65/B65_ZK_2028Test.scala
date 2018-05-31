@@ -1,16 +1,17 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
 import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-2028.zul")
 class B65_ZK_2028Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<window title="Chosenbox Deletion with ListSubModel" border="normal" width="500px" height="200px">
+    val zscript =
+      """<window title="Chosenbox Deletion with ListSubModel" border="normal" width="500px" height="200px">
 	<zscript><![CDATA[
 		import java.util.ArrayList;
 		import org.zkoss.zul.*;

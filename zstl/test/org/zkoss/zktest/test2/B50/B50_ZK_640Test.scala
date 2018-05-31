@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-640
- * @author benbai
- *
- */
+  * A test class for bug ZK-640
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-640.zul,B,E,Toolbarbutton")
 class B50_ZK_640Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
     	<zk>
 			<html><![CDATA[
 			There should no extra "&amp;nbsp;" (see the dom element) after the image of toolbarbutton if no label.
@@ -63,14 +56,14 @@ class B50_ZK_640Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript, () => {
-   			var tbbOne: Widget = engine.$f("tbbOne");
-   			var tbbTwo: Widget = engine.$f("tbbTwo");
+    runZTL(zscript, () => {
+      var tbbOne: Widget = engine.$f("tbbOne");
+      var tbbTwo: Widget = engine.$f("tbbTwo");
 
-   			verifyFalse("no extra space if image only",
-   			    tbbOne.$n().get("innerHTML").contains("&nbsp;"));
-   			verifyTrue("space exists between label and image",
-   			    tbbTwo.$n().get("innerHTML").contains("&nbsp;"));
-		})
+      verifyFalse("no extra space if image only",
+        tbbOne.$n().get("innerHTML").contains("&nbsp;"));
+      verifyTrue("space exists between label and image",
+        tbbTwo.$n().get("innerHTML").contains("&nbsp;"));
+    })
   }
 }

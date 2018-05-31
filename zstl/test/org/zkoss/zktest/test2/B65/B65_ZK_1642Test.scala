@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1642.zul")
 class B65_ZK_1642Test extends ZTL4ScalaTestCase {
 
-def testClick() = {
-  val zscript = """<zk>
+  def testClick() = {
+    val zscript =
+      """<zk>
 	<label multiline="true">
 	IE only
 	Should see header width of "col2" and "col3" are equal to its content width 
@@ -65,16 +66,16 @@ def testClick() = {
 			<treeitem label="Item 3" />
 		</treechildren>
 	</tree>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      val col1 = jq(".z-treecol:eq(0)")
-      val col2 = jq(".z-treecol:eq(1)")
-      val col3 = jq(".z-treecol:eq(2)")
-      verifyTrue("Should see header width of 'col2' and 'col3' are equal to its content width", (col1.width() - col2.width()).abs <= 3)
-      verifyTrue("Should see header width of 'col2' and 'col3' are equal to its content width", (col1.width() - col3.width()).abs <= 3)
-      verifyTrue("Should see header width of 'col2' and 'col3' are equal to its content width", (col2.width() - col3.width()).abs <= 3)
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+        val col1 = jq(".z-treecol:eq(0)")
+        val col2 = jq(".z-treecol:eq(1)")
+        val col3 = jq(".z-treecol:eq(2)")
+        verifyTrue("Should see header width of 'col2' and 'col3' are equal to its content width", (col1.width() - col2.width()).abs <= 3)
+        verifyTrue("Should see header width of 'col2' and 'col3' are equal to its content width", (col1.width() - col3.width()).abs <= 3)
+        verifyTrue("Should see header width of 'col2' and 'col3' are equal to its content width", (col2.width() - col3.width()).abs <= 3)
+      })
+
   }
 }

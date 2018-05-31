@@ -7,9 +7,10 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B70-ZK-2775.zul")
 class B70_ZK_2775Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -38,11 +39,11 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
   </popup>
  </div>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      verifyFalse(jq(".z-apply-mask").exists())
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        verifyFalse(jq(".z-apply-mask").exists())
+      })
+
   }
 }

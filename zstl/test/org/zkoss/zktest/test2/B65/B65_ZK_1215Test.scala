@@ -1,14 +1,15 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1215.zul")
 class B65_ZK_1215Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 	<label multiline="true">
 	1. Click a date (suppose 10/20), and keep cursor on it.
 	2. Use arrow keys to change the selected date, the selected css of "10/20" must be removed.
@@ -29,10 +30,10 @@ class B65_ZK_1215Test extends ZTL4ScalaTestCase {
         val day = jq(".z-calendar tbody td:contains(20)")
         click(day)
         waitResponse(true) //wait animation
-        
+
         sendKeys(day, Keys.RIGHT)
         waitResponse()
-        
+
         verifyTrue("the selected css of '10/20' must be removed.", !day.hasClass("z-calendar-selected"))
       })
 

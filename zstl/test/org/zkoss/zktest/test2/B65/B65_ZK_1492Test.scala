@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1492.zul")
 class B65_ZK_1492Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <label multiline="true">
                       1.select on comobobx1 by mouse, the onSelect and onChange should has same selection on model and selected item
 		2.select on combobox2 by mouse, the onSelect and onChange should has same model selection
@@ -92,25 +93,25 @@ class B65_ZK_1492Test extends ZTL4ScalaTestCase {
         waitResponse()
         click(jq(".z-comboitem:contains(2)"))
         waitResponse()
-        
+
         // the text should be "model selection : option 2, combox value : option 2, selected item : option 2:Wed Dec 19 14:59:55 CST 2012"
         val combo1text1 = jq("$lb1").text().substring(0, 77)
         // the text should be "model selection : option 2, combox value : option 2, selected item : option 2:Wed Dec 19 14:59:55 CST 2012"
         val combo1text2 = jq("$lb2").text().substring(0, 77)
-        
+
         verifyEquals(combo1text1.count(_ == '2'), 3)
         verifyEquals(combo1text2.count(_ == '2'), 3)
-        
+
         click(jq(".z-combobox:eq(1)").toWidget().$n("btn"))
         waitResponse()
         click(jq(".z-comboitem:contains(1):eq(1)"))
         waitResponse()
-        
+
         // the text should be "model selection : option 1, combox value : option 1:Wed Dec 19 15:00:36 CST 2012"
         val combo2text1 = jq("$lb1").text().substring(0, 51)
         // the text should be "model selection : option 1, combox value : option 1:Wed Dec 19 15:00:36 CST 2012"
         val combo2text2 = jq("$lb2").text().substring(0, 51)
-        
+
         verifyEquals(combo2text1.count(_ == '1'), 2)
         verifyEquals(combo2text2.count(_ == '1'), 2)
       })

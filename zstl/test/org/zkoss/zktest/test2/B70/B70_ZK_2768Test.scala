@@ -18,13 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author chunfu
- */
+  *
+  * @author chunfu
+  */
 @Tags(tags = "B70-ZK-2768.zul")
 class B70_ZK_2768Test extends ZTL4ScalaTestCase {
-	def testCase() = {
-		val zscript = """
+  def testCase() = {
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -67,14 +68,14 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 
 
 		"""
-runZTL(zscript, () => {
-			var toolbarBtns = jq(".z-toolbarbutton");
-			for (i <- 0 to toolbarBtns.length() - 1) {
-				click(toolbarBtns.eq(i))
-				waitResponse()
-				verifyFalse(hasError);
-			}
+    runZTL(zscript, () => {
+      var toolbarBtns = jq(".z-toolbarbutton");
+      for (i <- 0 to toolbarBtns.length() - 1) {
+        click(toolbarBtns.eq(i))
+        waitResponse()
+        verifyFalse(hasError);
+      }
 
-		})
-	}
+    })
+  }
 }

@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-1007
- * @author benbai
- *
- */
+  * A test class for bug ZK-1007
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-1007.zul,B,H,onInitModel,Tree")
 class B60_ZK_1007Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
 			<zk>
 			<h:pre xmlns:h="html">
@@ -60,12 +53,12 @@ class B60_ZK_1007Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
+      () => {
         var lbl: Widget = engine.$f("lbl");
 
         verifyTrue("Render items should be 2",
-            lbl.$n().get("innerHTML").contains("2"));
-    }
-   );
+          lbl.$n().get("innerHTML").contains("2"));
+      }
+    );
   }
 }

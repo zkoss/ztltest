@@ -1,16 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import org.zkoss.ztl.Element
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Element, Tags}
 
 @Tags(tags = "B65-ZK-1877.zul")
 class B65_ZK_1877Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B65-ZK-1877.zul
@@ -50,7 +50,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         val slider = jq(".z-slider-horizontal").toWidget()
         val btn = slider.$n("btn")
         val rail = slider.$n("inner")
-        
+
         val dragdrop = (src: Element, target: Element, from: String, to: String) => {
           mouseMoveAt(src, from)
           waitResponse
@@ -64,12 +64,12 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
           mouseUpAt(target, to)
           waitResponse
         }
-        
+
         dragdrop(btn, rail, "2,2", "220,2")
         dragdrop(btn, rail, "2,2", "0,2")
 
-        verifyTrue("You should see the curpos stays in 0", 
-            jq(".z-label:contains(curpos:) + .z-label").text().contains("0"))
+        verifyTrue("You should see the curpos stays in 0",
+          jq(".z-label:contains(curpos:) + .z-label").text().contains("0"))
       })
 
   }

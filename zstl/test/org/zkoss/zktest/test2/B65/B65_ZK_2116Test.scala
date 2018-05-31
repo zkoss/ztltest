@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-2116.zul")
 class B65_ZK_2116Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B65-ZK-2116.zul
@@ -39,13 +40,13 @@ If you can see this page without any JS error, that's correct.
 </listitem>
 </listbox>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-button"))
-      waitResponse()
-      verifyFalse("should see no javascript error", jq(".z-error").exists())
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-button"))
+        waitResponse()
+        verifyFalse("should see no javascript error", jq(".z-error").exists())
+      })
+
   }
 }

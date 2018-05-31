@@ -14,19 +14,20 @@ it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2.B30
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
- *
- * @author jumperchen
- */
+  *
+  * @author jumperchen
+  */
 @Tags(tags = "B30-1920706.zul,B,E,Grid,Opera")
 class B30_1920706Test extends ZTL4ScalaTestCase {
-	@Test
-	def testCase() = {
-		val zscript = """
+  @Test
+  def testCase() = {
+    val zscript =
+      """
 			<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
 				<n:p>[Set width of grid column doesn't work correctly (Opera only)]</n:p>
 				<zscript><![CDATA[
@@ -60,31 +61,31 @@ new Datebox().setParent(row);
 				</vbox>
 			</zk>
 		""";
-		runZTL(zscript, () => {
-			val g1 = engine $f "g1"
-			val $col1 = jq("$col1")
-			val $col2 = jq("$col2")
-			val $col3 = jq("$col3")
+    runZTL(zscript, () => {
+      val g1 = engine $f "g1"
+      val $col1 = jq("$col1")
+      val $col2 = jq("$col2")
+      val $col3 = jq("$col3")
 
-			verifyEquals(50, $col1.outerWidth())
+      verifyEquals(50, $col1.outerWidth())
 
-			var halfWidth = (jq(g1).innerWidth() - 50) / 2
-			verifyEquals(halfWidth, $col2.outerWidth())
-			verifyEquals(halfWidth, $col3.outerWidth())
+      var halfWidth = (jq(g1).innerWidth() - 50) / 2
+      verifyEquals(halfWidth, $col2.outerWidth())
+      verifyEquals(halfWidth, $col3.outerWidth())
 
-			val btn1 = jq("@button:eq(0)")
-			val btn2 = jq("@button:eq(1)")
-			val btn3 = jq("@button:eq(2)")
+      val btn1 = jq("@button:eq(0)")
+      val btn2 = jq("@button:eq(1)")
+      val btn3 = jq("@button:eq(2)")
 
-			for ((btn, size) <- List((btn1, 20), (btn2, 100), (btn3, 200))) {
-				click(btn)
-				waitResponse
-				verifyEquals(size, $col1.outerWidth())
+      for ((btn, size) <- List((btn1, 20), (btn2, 100), (btn3, 200))) {
+        click(btn)
+        waitResponse
+        verifyEquals(size, $col1.outerWidth())
 
-				halfWidth = (jq(g1).innerWidth() - size) / 2
-				verifyEquals(halfWidth, $col2.outerWidth())
-				verifyEquals(halfWidth, $col3.outerWidth())
-			}
-		})
-	}
+        halfWidth = (jq(g1).innerWidth() - size) / 2
+        verifyEquals(halfWidth, $col2.outerWidth())
+        verifyEquals(halfWidth, $col3.outerWidth())
+      }
+    })
+  }
 }

@@ -14,31 +14,31 @@ it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2.B80
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
- * 
- * @author chunfu
- */
+  *
+  * @author chunfu
+  */
 @Tags(tags = "B80-ZK-2461.zul")
 class B80_ZK_2461Test extends ZTL4ScalaTestCase {
   @Test
-	def testCase() = {
-		runZTL(() => {
-			var initWidth = 0.0
-			for (w <- getZKLog.split('\n')) initWidth += w.toDouble
-			click(jq("@button"))
-			waitResponse()
-			click(jq("@button").eq(1))
-			waitResponse()
-			var afterWidth = 0.0
-			for (w <- getZKLog.split('\n')) afterWidth += w.toDouble
-			println("************", initWidth, afterWidth)
-			verifyTolerant(ceilInt(initWidth), ceilInt(afterWidth - initWidth), 2)
-		})
-	}
+  def testCase() = {
+    runZTL(() => {
+      var initWidth = 0.0
+      for (w <- getZKLog.split('\n')) initWidth += w.toDouble
+      click(jq("@button"))
+      waitResponse()
+      click(jq("@button").eq(1))
+      waitResponse()
+      var afterWidth = 0.0
+      for (w <- getZKLog.split('\n')) afterWidth += w.toDouble
+      println("************", initWidth, afterWidth)
+      verifyTolerant(ceilInt(initWidth), ceilInt(afterWidth - initWidth), 2)
+    })
+  }
 
-	def ceilInt(x: Double) = Math.ceil(x).toInt
+  def ceilInt(x: Double) = Math.ceil(x).toInt
 }

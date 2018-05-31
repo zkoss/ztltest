@@ -16,17 +16,16 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
-import org.junit.Test
 
 /**
- * A test class for bug 2100338
- * @author ldnigro
- *
- */
+  * A test class for bug 2100338
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2100338.zul")
 class B35_2100338Test extends ZTL4ScalaTestCase {
   @Test

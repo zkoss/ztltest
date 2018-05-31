@@ -18,16 +18,16 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B35-2355376.zul,B,E,Window,Button")
 class B35_2355376Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <zk>
         After this page display, if there is not Javascript error, that is correct.(IE only)
         <window title="IE Bug" border="normal" width="500px">
@@ -75,7 +75,7 @@ class B35_2355376Test extends ZTL4ScalaTestCase {
         </window>
       </zk>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
 
       // Verify there is no javascript error
       verifyFalse(jq(".z-error").exists());

@@ -16,28 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Element, Tags, Widget}
+
 /**
- * A test class for bug 3142583
- * @author benbai
- *
- */
+  * A test class for bug 3142583
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3142583.zul,A,E,Include")
 class B50_3142583Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 
 			<zk>
 			<label multiline="true">
@@ -61,29 +56,30 @@ class B50_3142583Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var mainWin: Widget = engine.$f("mainWin");
 
         verifyTrue("should have two window in this page",
-            jq(".z-window-embedded").length() == 2);
+          jq(".z-window-embedded").length() == 2);
 
         var includedWin: Element = jq(".z-window-embedded").get(1);
-        def checkParentWindow(ele: Element): Boolean =  {
-        	if (ele.get("id").equals(mainWin.$n().get("id")))
-        		return true;
-        	else if (ele.parentNode().exists())
-        	    return checkParentWindow(ele.parentNode());
-        	else
-        	    return false;
+        def checkParentWindow(ele: Element): Boolean = {
+          if (ele.get("id").equals(mainWin.$n().get("id")))
+            return true;
+          else if (ele.parentNode().exists())
+            return checkParentWindow(ele.parentNode());
+          else
+            return false;
         }
+
         verifyTrue("includedWin should be the child of mainWin",
-            checkParentWindow(includedWin));
+          checkParentWindow(includedWin));
         verifyTrue("indludedWin should have title 'Included win",
-            jq(includedWin).text().contains("Included win"));
+          jq(includedWin).text().contains("Included win"));
         waitResponse();
 
-    }
-   );
+      }
+    );
 
   }
 }

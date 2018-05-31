@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug 3314143
- * @author benbai
- *
- */
+  * A test class for bug 3314143
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3314143.zul,A,M,Tree")
 class B50_3314143Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				Open the Treeitem. The dotted line should rendered correctly (NOT T shape).
 				<tree id="tree" zclass="z-dottree">
@@ -54,13 +48,13 @@ class B50_3314143Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var tree: Widget = engine.$f("tree");
 
         click(jq(".z-treerow").toWidget().$n("open"));
         verifyTrue(jq(".z-treerow:contains(Child)").exists());
-    }
-   );
+      }
+    );
 
   }
 }

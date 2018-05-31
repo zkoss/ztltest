@@ -1,16 +1,17 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.openqa.selenium.Keys
 import org.junit.Test
+import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1632.zul")
 class B65_ZK_1632Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul"
@@ -285,7 +286,7 @@ class B65_ZK_1632Test extends ZTL4ScalaTestCase {
         waitResponse()
         jq(".z-center").toElement.set("style.top", 3000)
         sleep(3000)
-        jq(".z-center").toWidget().$n("cave").firstChild().set("style.top", 0) 
+        jq(".z-center").toWidget().$n("cave").firstChild().set("style.top", 0)
         verifyTrue("errorbox should disappear. ", jq(".z-errorbox:contains(Textbox 1)").css("display") == "none")
       })
 

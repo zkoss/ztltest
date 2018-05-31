@@ -18,22 +18,22 @@ import org.zkoss.ztl.JQuery
 class B85_ZK_3641Test extends ZTL4ScalaTestCase {
 
 
-	@Test
-	def test(): Unit = {
-		runZTL(() => {
-			testIframeVisible(jq(".z-datebox-button"))
-			testIframeVisible(jq(".z-chosenbox"))
-			testIframeVisible(jq(".z-colorbox"))
-		})
-	}
+  @Test
+  def test(): Unit = {
+    runZTL(() => {
+      testIframeVisible(jq(".z-datebox-button"))
+      testIframeVisible(jq(".z-chosenbox"))
+      testIframeVisible(jq(".z-colorbox"))
+    })
+  }
 
-	def testIframeVisible(wgt: JQuery): Unit = {
-		click(wgt)
-		waitResponse(true)
+  def testIframeVisible(wgt: JQuery): Unit = {
+    click(wgt)
+    waitResponse(true)
 
-		verifyEquals(jq(".z-iframe").css("visibility"), "hidden")
+    verifyEquals(jq(".z-iframe").css("visibility"), "hidden")
 
-		click(jq(".z-label"))
-		waitResponse(true)
-	}
+    click(jq(".z-label"))
+    waitResponse(true)
+  }
 }

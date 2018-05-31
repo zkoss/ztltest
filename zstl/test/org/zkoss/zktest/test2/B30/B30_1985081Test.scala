@@ -18,19 +18,16 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
-import org.zkoss.ztl.ZK
-import org.zkoss.ztl.util.Scripts
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-1985081.zul,B,E,Window,Button")
 class B30_1985081Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <window title="select bug" border="normal">
         Press the button, then the "Select Me!!!" label will be selected.
         <vbox>
@@ -54,7 +51,7 @@ public void onClick(){
         </zscript>
       </window>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
 
       // Verify that the label is visible
       verifyTrue("The label Select Me!!! must be visible", jq(engine.$f("lb")).isVisible());

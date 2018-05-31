@@ -18,19 +18,16 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
-import org.zkoss.ztl.ZK
-import org.zkoss.ztl.util.Scripts
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-2227929.zul,B,E,Window,Button")
 class B30_2227929Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <window border="normal">
         Click
         <button label="Create">
@@ -43,7 +40,7 @@ class B30_2227929Test extends ZTL4ScalaTestCase {
         and you shall see a group of components are appended
       </window>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       // Click on first button
       click(jq("@button").get(0));
       waitResponse();
@@ -53,11 +50,11 @@ runZTL(zscript, () => {
 
       // Verify that the textbox value isn't as expected later
       verifyFalse("", jq("@textbox").attr("value").equals("2227929"));
-      
+
       // Click on "Attach" button
       click(jq("@button").get(1));
       waitResponse();
-    
+
       // Verify that the components are visible
       verifyTrue("The window with header \"Created Dynamically\" should be visible", jq(jq(".z-window-embedded").toWidget().$n("cave")).find(":contains(Created Dynamically)").exists());
 

@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1136.zul")
 class B60_ZK_1136Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<zk>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<zk>
 	<vlayout>
 		<label>1. Click "show notification" button</label>
 		<label>2. Click "close me" button</label>
@@ -29,16 +30,16 @@ def testClick() = {
 			]]></attribute>
 		</button>
 	</window>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-button:contains(show)"))
-      waitResponse()
-      click(jq(".z-button:contains(Close)"))
-      waitResponse()
-      verifyTrue("You should see two notification messages showed.", 
+</zk>"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-button:contains(show)"))
+        waitResponse()
+        click(jq(".z-button:contains(Close)"))
+        waitResponse()
+        verifyTrue("You should see two notification messages showed.",
           jq(".z-notification").length() == 2)
-    })
-    
+      })
+
   }
 }

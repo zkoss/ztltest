@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2310.zul")
 class B70_ZK_2310Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2310.zul
@@ -58,43 +56,43 @@ p.setParent(pc);
 	</portalchildren>
 </portallayout>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      val btn = jq("$addPanel");
-      
-      val p1 = jq("$p1");
-      val p2 = jq("$p2");
-      val p3 = jq("$p3");
-      
-      val p1Full = p1.find(".z-panel-maximize");
-      val p2Full = p2.find(".z-panel-maximize");
-      val p3Full = p3.find(".z-panel-maximize");
-      
-      click(p1Full);
-      waitResponse();
-      click(btn);
-      waitResponse();
-      verifyFalse(jq(".z-error").exists());
-      val p1Small = p1.find(".z-panel-maximized");
-      click(p1Small);
-      waitResponse();
-      
-      click(p2Full);
-      waitResponse();
-      click(btn);
-      waitResponse();
-      verifyFalse(jq(".z-error").exists());
-      val p2Small = p2.find(".z-panel-maximized");
-      click(p2Small);
-      waitResponse();
-      
-      click(p3Full);
-      waitResponse();
-      click(btn);
-      waitResponse();
-      verifyFalse(jq(".z-error").exists());
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        val btn = jq("$addPanel");
+
+        val p1 = jq("$p1");
+        val p2 = jq("$p2");
+        val p3 = jq("$p3");
+
+        val p1Full = p1.find(".z-panel-maximize");
+        val p2Full = p2.find(".z-panel-maximize");
+        val p3Full = p3.find(".z-panel-maximize");
+
+        click(p1Full);
+        waitResponse();
+        click(btn);
+        waitResponse();
+        verifyFalse(jq(".z-error").exists());
+        val p1Small = p1.find(".z-panel-maximized");
+        click(p1Small);
+        waitResponse();
+
+        click(p2Full);
+        waitResponse();
+        click(btn);
+        waitResponse();
+        verifyFalse(jq(".z-error").exists());
+        val p2Small = p2.find(".z-panel-maximized");
+        click(p2Small);
+        waitResponse();
+
+        click(p3Full);
+        waitResponse();
+        click(btn);
+        waitResponse();
+        verifyFalse(jq(".z-error").exists());
+      })
+
   }
 }

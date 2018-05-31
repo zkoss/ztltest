@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B60
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug ZK-761
- * @author benbai
- *
- */
+  * A test class for bug ZK-761
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-761.zul,A,E,ListModelList,Grid")
 class B60_ZK_761Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<window>
 			You should not see any exception after this page loaded.
 			 <zscript>
@@ -58,14 +52,14 @@ class B60_ZK_761Test extends ZTL4ScalaTestCase {
 			</window>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         waitResponse();
         verifyTrue("The grid should rendered (not exception page)",
-            jq(".z-row:contains(D)").exists());
+          jq(".z-row:contains(D)").exists());
         verifyFalse("Should no exception alert window",
-            jq(".z-window-modal").exists());
-    }
-   );
+          jq(".z-window-modal").exists());
+      }
+    );
   }
 }

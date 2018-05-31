@@ -1,17 +1,18 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import collection.JavaConversions._
-import org.zkoss.zktest.test2._
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
+
+import scala.collection.JavaConversions._
 
 @Tags(tags = "B60-ZK-1512.zul")
 class B60_ZK_1512Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <label multiline="true">
                       1. Click "Set Data" (setModel).
 2. Click Listbox "Select All" Checkbox. No Scroll.
@@ -69,12 +70,12 @@ class B60_ZK_1512Test extends ZTL4ScalaTestCase {
 
         val listitem = jq("tbody[id*=rows]").find(".z-listitem-selected")
 
-        verifyFalse("if the 51 - 100 data has checkbox selected, it is a bug.", 
-            listitem.length() >= 50)
+        verifyFalse("if the 51 - 100 data has checkbox selected, it is a bug.",
+          listitem.length() >= 50)
 
         click(jq(".z-button:contains(popup)"))
         waitResponse()
-        
+
         val setBtnInWindow = jq(".z-window-modal").find(".z-button:contains(Set Data)")
         val seldAllChkInWindow = jq(".z-window-modal").find(".z-listheader").find(".z-listheader-checkable")
 

@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B50
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B50-ZK-975.zul")
 class B50_ZK_975Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <div>
                       The three textboxes should have almost the same width.
                     </div>

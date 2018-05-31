@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.F60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-503
- * @author benbai
- *
- */
+  * A test class for bug ZK-503
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-503.zul,F60,B,E,Idspace")
 class F60_ZK_503Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 			<div>Click the test button, you shoould see two window without any problem.</div>
 				<button id="btn" label="test">
@@ -63,14 +56,14 @@ class F60_ZK_503Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var btn: Widget = engine.$f("btn");
         click(btn);
         waitResponse();
         verifyFalse("Should no Exception",
-            jq(".z-window-modal").exists());
-    }
-   );
+          jq(".z-window-modal").exists());
+      }
+    );
   }
 }

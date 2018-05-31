@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1852.zul")
 class B65_ZK_1852Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<window>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<window>
 	Click the button, should show "".
 	<separator/>
 	<button label="Click">
@@ -22,15 +23,15 @@ def testClick() = {
 	<script><![CDATA[
 		zk.log(jq(".z-temp .z-loading-indicator").text());
 	]]></script>
-</window>"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-button"))
-      waitResponse
-      sleep(2000)
-      
-      verifyTrue("should show ''.", jq("#zk_log").`val`().contains(""))
-    })
-    
+</window>"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-button"))
+        waitResponse
+        sleep(2000)
+
+        verifyTrue("should show ''.", jq("#zk_log").`val`().contains(""))
+      })
+
   }
 }

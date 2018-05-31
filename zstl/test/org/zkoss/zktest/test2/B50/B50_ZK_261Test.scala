@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug ZK-261
- * @author benbai
- *
- */
+  * A test class for bug ZK-261
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-261.zul,A,M,Panel,Cluster,BI")
 class B50_ZK_261Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 
 			<zk>
 				<zscript><![CDATA[
@@ -73,16 +66,16 @@ class B50_ZK_261Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         click(jq(".z-button").get(0));
         waitResponse();
         click(jq(".z-button").get(2));
         waitResponse();
         verifyTrue("The answer should be true",
-            jq(".z-messagebox").find(".z-label").get(0)
-            	.get("innerHTML").contains("true"));
-    }
-   );
+          jq(".z-messagebox").find(".z-label").get(0)
+            .get("innerHTML").contains("true"));
+      }
+    );
 
   }
 }

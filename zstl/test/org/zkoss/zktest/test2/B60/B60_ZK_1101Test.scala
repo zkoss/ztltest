@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1101.zul")
 class B60_ZK_1101Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     Please click the addChild 2~3 times, you should see 2,1,0 in order, not 0, 1, 2.
                     <zscript>
                       Panel newPanel(){
@@ -32,7 +33,7 @@ class B60_ZK_1101Test extends ZTL4ScalaTestCase {
           click(jq(".z-button:contains(addChild)"))
           waitResponse()
         }
-        
+
         verifyEquals("should see 2,1,0 in order, not 0, 1, 2.", jq(".z-panel .z-label").text(), "210")
       })
 

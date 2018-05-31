@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Element, Tags, Widget}
 
 /**
- * A test class for bug 3285714
- * @author benbai
- *
- */
+  * A test class for bug 3285714
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3285714.zul,A,E,Grid,ROD")
 class B50_3285714Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<html><![CDATA[
 					<ol>
@@ -61,7 +55,7 @@ class B50_3285714Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var grid: Widget = engine.$f("grid");
         var rows: Widget = engine.$f("rows");
 
@@ -72,21 +66,22 @@ class B50_3285714Test extends ZTL4ScalaTestCase {
 
         var rowCnt: Int = jq(rows.$n()).find(".z-row").length();
         val top = getScrollTop(grid) - jq(grid.$n("tpad")).outerHeight();
-        def findTopRow (i: Int, max: Int): Element = {
-        	var row: Element = jq(rows.$n()).find(".z-row").get(i);
-        	if (Integer.parseInt(row.get("offsetTop")) >= top
-        	    || (i+1) >= max)
-        		return row;
-        	else
-        	  return findTopRow(i+1, max);
+        def findTopRow(i: Int, max: Int): Element = {
+          var row: Element = jq(rows.$n()).find(".z-row").get(i);
+          if (Integer.parseInt(row.get("offsetTop")) >= top
+            || (i + 1) >= max)
+            return row;
+          else
+            return findTopRow(i + 1, max);
         }
+
         var topRow: Element = findTopRow(0, rowCnt);
         var content: String = getText(topRow);
 
-        var itemCnt: Integer = Integer.parseInt(content.substring(content.length()-4, content.length()));
-        verifyTrue(Math.abs(5000-itemCnt) <= 50);
-    }
-   );
+        var itemCnt: Integer = Integer.parseInt(content.substring(content.length() - 4, content.length()));
+        verifyTrue(Math.abs(5000 - itemCnt) <= 50);
+      }
+    );
 
   }
 }

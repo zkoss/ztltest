@@ -2,11 +2,11 @@ package org.zkoss.zktest.test2.B70
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZK}
+import org.zkoss.ztl.Tags
 
 /**
- * Created by wenning on 1/20/16.
- */
+  * Created by wenning on 1/20/16.
+  */
 @Tags(tags = "B70-ZK-2742.zul")
 class B70_ZK_2742Test extends ZTL4ScalaTestCase {
 

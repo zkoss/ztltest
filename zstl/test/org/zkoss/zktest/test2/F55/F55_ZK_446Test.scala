@@ -16,29 +16,25 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.F55
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Tags, Widget}
+
 /**
- * A test class for bug ZK-446
- * @author benbai
- *
- */
+  * A test class for bug ZK-446
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F55-ZK-446.zul,F60,A,E,InputElement")
 class F55_ZK_446Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<div><![CDATA[
 					Test code: 
@@ -75,30 +71,31 @@ class F55_ZK_446Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var tbx: Widget = engine.$f("tbx");
         var ib: Widget = engine.$f("ib");
         var lb: Widget = engine.$f("lb");
         var lb2: Widget = engine.$f("lb2");
 
-        def inputAndCheck (value: String, fired: String, shouldError: Boolean) {
+        def inputAndCheck(value: String, fired: String, shouldError: Boolean) {
           sendKeys(tbx, value);
-	        sleep(500);
-	        verifyTrue("value should be identical",
-	            lb.$n().get("innerHTML").equals(lb2.$n().get("innerHTML")));
-	        verifyTrue("event should be fired if no error",
-	            ib.$n().get("value").equals(fired));
-            verifyTrue("should "+(if (shouldError) "" else "not ")+"has error box",
-	              jq(".z-errorbox").exists() == shouldError);
+          sleep(500);
+          verifyTrue("value should be identical",
+            lb.$n().get("innerHTML").equals(lb2.$n().get("innerHTML")));
+          verifyTrue("event should be fired if no error",
+            ib.$n().get("value").equals(fired));
+          verifyTrue("should " + (if (shouldError) "" else "not ") + "has error box",
+            jq(".z-errorbox").exists() == shouldError);
         }
+
         inputAndCheck("ab", "1", false);
         inputAndCheck("cde", "2", false);
         inputAndCheck("A", "2", true);
         tbx.$n().eval("value = \"\"");
         inputAndCheck("bc", "3", false);
         inputAndCheck("123", "3", true);
-    }
-   );
+      }
+    );
   }
 }

@@ -20,15 +20,17 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * A test class for bug grid-0010
- * @author TonyQ
- *
- */
+  * A test class for bug grid-0010
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z30-grid-0010.zul,Z30,A,E,Grid")
 class Z30_grid_0010Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<window title="Column should not show up here">
 				<grid>
 					<columns>
@@ -42,12 +44,12 @@ class Z30_grid_0010Test extends ZTL4ScalaTestCase {
 				</grid>
 			</window>
     """
-runZTL(zscript,
-        () => {
-		verifyEquals(String.valueOf(jq("@column:visible").length),"0");
-		verifyEquals(String.valueOf(jq("@column").length),"3");
-		verifyNotEquals(String.valueOf(jq("@column").length),"4");
-    }
-   );
+    runZTL(zscript,
+      () => {
+        verifyEquals(String.valueOf(jq("@column:visible").length), "0");
+        verifyEquals(String.valueOf(jq("@column").length), "3");
+        verifyNotEquals(String.valueOf(jq("@column").length), "4");
+      }
+    );
   }
 }

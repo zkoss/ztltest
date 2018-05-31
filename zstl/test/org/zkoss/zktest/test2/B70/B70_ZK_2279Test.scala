@@ -1,17 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2279.zul")
 class B70_ZK_2279Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2279.zul
@@ -70,15 +69,15 @@ public class IndexVm {
               </hbox>
   </window>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      click(jq("@datebox").eq(0).find(".z-datebox-button"));
-      waitResponse();
-      mouseDown(jq(".z-datebox-open .z-calendar-right"));
-      waitResponse();
-      verifyImage();
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        click(jq("@datebox").eq(0).find(".z-datebox-button"));
+        waitResponse();
+        mouseDown(jq(".z-datebox-open .z-calendar-right"));
+        waitResponse();
+        verifyImage();
+      })
+
   }
 }

@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1918.zul")
 class B65_ZK_1918Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B65-ZK-1918.zul
@@ -72,11 +73,11 @@ If you cannot see any Java Exception, that bug has fixed.
 			}
 			]]></script>
 	</window>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      verifyFalse("no exception", jq(".z-window-modal").exists());
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+        verifyFalse("no exception", jq(".z-window-modal").exists());
+      })
+
   }
 }

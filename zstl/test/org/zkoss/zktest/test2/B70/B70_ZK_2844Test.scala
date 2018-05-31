@@ -1,18 +1,15 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2844.zul")
 class B70_ZK_2844Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  runZTL(() => {
+  @Test
+  def testClick() = {
+    runZTL(() => {
       println(getWebDriver.getWindowHandle)
       //click the left button
       click(jq("button").eq(0))

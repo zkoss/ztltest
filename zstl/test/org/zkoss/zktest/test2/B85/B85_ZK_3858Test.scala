@@ -15,12 +15,12 @@ import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B85_ZK_3858Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			click(jq(".z-button"))
-			waitResponse(true)
-			verifyEquals(jq(".z-north-body > div").width(), jq(".z-center-body > div").width())
-		})
-	}
+  @Test
+  def test() = {
+    runZTL(() => {
+      click(jq(".z-button"))
+      waitResponse(true)
+      verifyEquals(jq(".z-north-body > div").width(), jq(".z-center-body > div").width())
+    })
+  }
 }

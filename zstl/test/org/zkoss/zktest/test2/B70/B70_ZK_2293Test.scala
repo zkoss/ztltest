@@ -1,17 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2293.zul")
 class B70_ZK_2293Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2293.zul
@@ -45,25 +44,25 @@ Please open the bandpopup twice, the width of the popup should be the same.
 </bandbox>
 </vlayout>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      val btn = jq(".z-bandbox-button");
-      
-      click(btn);
-      waitResponse()
-      val w1 = jq(".z-bandbox-popup").width();
-      click(btn);
-      waitResponse()
-      
-      click(btn);
-      waitResponse()
-      val w2 = jq(".z-bandbox-popup").width();
-      click(btn);
-      waitResponse()
-            
-      verifyTrue("the width of popup in two times should be the same.", w1 == w2);
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        val btn = jq(".z-bandbox-button");
+
+        click(btn);
+        waitResponse()
+        val w1 = jq(".z-bandbox-popup").width();
+        click(btn);
+        waitResponse()
+
+        click(btn);
+        waitResponse()
+        val w2 = jq(".z-bandbox-popup").width();
+        click(btn);
+        waitResponse()
+
+        verifyTrue("the width of popup in two times should be the same.", w1 == w2);
+      })
+
   }
 }

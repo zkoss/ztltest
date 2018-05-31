@@ -1,9 +1,9 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.openqa.selenium.Keys
 import org.junit.Test
+import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-815.zul")
 class B60_ZK_815Test extends ZTL4ScalaTestCase {

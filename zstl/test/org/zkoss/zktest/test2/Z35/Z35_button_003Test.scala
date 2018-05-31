@@ -16,21 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z35
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug button-003
- * @author TonyQ
- *
- */
+  * A test class for bug button-003
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z35-button-003.zul,Z35,A,E,Button")
 class Z35_button_003Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<?page id="testZul" title=" New ZUL Title" cacheable="false" 
 				language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
 			<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
@@ -70,36 +72,36 @@ class Z35_button_003Test extends ZTL4ScalaTestCase {
     """;
 
     runZTL(zscript,
-        () => {
-        
+      () => {
+
         click(jq("$btn1"))
         waitResponse
-        verifyEquals(widget("$btn1").get("label"),"OnClick OK");
-        
+        verifyEquals(widget("$btn1").get("label"), "OnClick OK");
+
         click(jq("$btn2"))
         waitResponse
         verifyTrue(widget("$btn2").is("disabled"));
-        
+
         contextMenu(jq("$btn3"));
         waitResponse
-        verifyEquals(widget("$btn3").get("label"),"RightClick OK");
-        
+        verifyEquals(widget("$btn3").get("label"), "RightClick OK");
+
         doubleClick(jq("$btn4"))
         waitResponse
-        verifyEquals(widget("$btn4").get("label"),"DoubleClick OK");
-        
+        verifyEquals(widget("$btn4").get("label"), "DoubleClick OK");
+
         focus(jq("$btn5"))
         waitResponse
-        verifyEquals(widget("$btn5").get("label"),"Focused OK");
-        
+        verifyEquals(widget("$btn5").get("label"), "Focused OK");
+
         click(jq("$btn6"))
         waitResponse
-        verifyEquals(widget("$btn6").get("label"),"BlurMe");
+        verifyEquals(widget("$btn6").get("label"), "BlurMe");
         blur(jq("$btn6"))
         waitResponse
-        verifyEquals(widget("$btn6").get("label"),"Blurred OK");
-        
-    }
-   );
+        verifyEquals(widget("$btn6").get("label"), "Blurred OK");
+
+      }
+    );
   }
 }

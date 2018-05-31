@@ -1,21 +1,19 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.{IgnoreBrowsers, Tags, ZKSeleneseTestBase}
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-
-import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{IgnoreBrowsers, Tags}
 
 @Tags(tags = "B70-ZK-2825.zul")
 @IgnoreBrowsers("ie8")
 class B70_ZK_2825Test extends ZTL4ScalaTestCase {
-/*
- * Note: IE 8 will fail this test
- */
-@Test
-def testClick() = {
-  val zscript = """
+  /*
+   * Note: IE 8 will fail this test
+   */
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -46,10 +44,10 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	<label id="lbl" multiline="true"></label>
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-    	verifyEquals("0\n1\n2\n", jq("$lbl").text())
-    })
+"""
+    runZTL(zscript,
+      () => {
+        verifyEquals("0\n1\n2\n", jq("$lbl").text())
+      })
   }
 }

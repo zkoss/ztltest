@@ -16,28 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Tags, Widget}
+
 /**
- * A test class for bug ZK-428
- * @author benbai
- *
- */
+  * A test class for bug ZK-428
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-428.zul,A,E,Hlayout,Vlayout")
 class B50_ZK_428Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<zscript><![CDATA[
 					import java.util.ArrayList;
@@ -95,20 +90,20 @@ class B50_ZK_428Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var button: Widget = engine.$f("button");
         var cnt: Int = 5;
 
         var t1: Long = System.currentTimeMillis();
         click(button);
         while (cnt != 50) {
-            cnt = jq(".z-row").length();
+          cnt = jq(".z-row").length();
         }
         var t2: Long = System.currentTimeMillis();
         verifyTrue("it should not take more than 20 seconds to run on the client side for change the size of ListModelList",
-            (t2-t1) < 20000);
-    }
-   );
+          (t2 - t1) < 20000);
+      }
+    );
 
- }
+  }
 }

@@ -17,28 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug 3299404
- * @author benbai
- *
- */
+  * A test class for bug 3299404
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3299404.zul,A,E,Grid,Model,IE8")
 class B50_3299404Test extends ZTL4ScalaTestCase {
-	
-  def testClick() = {
-    val zscript = """
 
+  def testClick() = {
+    val zscript =
+      """
 			<zk>
 			<window width="600px">
 				<zscript><![CDATA[
@@ -94,14 +86,14 @@ class B50_3299404Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var btn: Widget = engine.$f("btn");
-		waitResponse();
+        waitResponse();
 
-		click(btn);
-		waitResponse();
-		verifyFalse(jq(".z-error").exists());
-    }
-   );
+        click(btn);
+        waitResponse();
+        verifyFalse(jq(".z-error").exists());
+      }
+    )
   }
 }

@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2148.zul")
 class B70_ZK_2148Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 	<label multiline="true">
 		1. Select "option 1" in the selectbox. 
 		2. Click "clear" button.
@@ -42,11 +43,11 @@ class B70_ZK_2148Test extends ZTL4ScalaTestCase {
         waitResponse()
         click(jq(".z-button"))
         waitResponse()
-        
+
         click(sel)
         waitResponse()
         verifyFalse("should not see NullPotinerException showed.", jq(".z-window-modal").exists());
-        
+
         click(sel)
         waitResponse()
         verifyFalse("should not see NullPotinerException showed.", jq(".z-window-modal").exists());

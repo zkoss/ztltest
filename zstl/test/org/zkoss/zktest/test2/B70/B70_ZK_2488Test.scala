@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2488.zul")
 class B70_ZK_2488Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <zk>
 	<label multiline="true">
@@ -53,18 +51,18 @@ def testClick() = {
 	</window>
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-      var c = jq(".z-caption-content").iterator();
-      var l = jq(".z-caption-content>.z-label").iterator();
-      while(c.hasNext() && l.hasNext()) {
-        var caption = c.next();
-        var label = l.next();
-        verifyTrue(caption.positionLeft() < label.positionLeft());
-      }
-      
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        var c = jq(".z-caption-content").iterator();
+        var l = jq(".z-caption-content>.z-label").iterator();
+        while (c.hasNext() && l.hasNext()) {
+          var caption = c.next();
+          var label = l.next();
+          verifyTrue(caption.positionLeft() < label.positionLeft());
+        }
+
+      })
+
   }
 }

@@ -19,7 +19,7 @@ class B70_ZK_2971Test extends ZTL4ScalaTestCase {
         click(start)
         waitResponse()
         var real = if (isSafari) listbox2 else listbox2.toWidget().$n("a")
-        for(i <- 6 to 19){
+        for (i <- 6 to 19) {
           sendKeys(real, Keys.DOWN);
           waitResponse();
         }
@@ -36,7 +36,7 @@ class B70_ZK_2971Test extends ZTL4ScalaTestCase {
 
         real = if (isSafari) listbox4 else listbox4.toWidget().$n("a")
         val scrollTop4 = listbox4.find(".z-listbox-body").scrollTop();
-        for(i <- 7 to 9){
+        for (i <- 7 to 9) {
           sendKeys(real, Keys.SHIFT + "" + Keys.DOWN);
           waitResponse();
         }

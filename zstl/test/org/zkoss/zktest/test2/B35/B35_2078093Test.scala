@@ -20,15 +20,17 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug 2078093
- * @author ldnigro
- *
- */
+  * A test class for bug 2078093
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2078093.zul,A,E,Window")
 class B35_2078093Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -79,26 +81,26 @@ minimizable="true" maximizable="true" border="normal">
     """
 
     runZTL(zscript,
-        () => {
-        	
-        	//click first button
-            click(jq("$bt1"));
-           
-        	waitResponse();
-        	
-        	//Window is invisible
-        	verifyFalse(jq("$win").isVisible());
-        	
-        	//click second button
-            click(jq("$bt2"));
-        	
-            waitResponse();
-            
-            //Window is visible & embedded
-        	verifyTrue(jq("$win").isVisible());
-        	verifyTrue(jq(".z-window-embedded").isVisible());
-                    
-        }
+      () => {
+
+        //click first button
+        click(jq("$bt1"));
+
+        waitResponse();
+
+        //Window is invisible
+        verifyFalse(jq("$win").isVisible());
+
+        //click second button
+        click(jq("$bt2"));
+
+        waitResponse();
+
+        //Window is visible & embedded
+        verifyTrue(jq("$win").isVisible());
+        verifyTrue(jq(".z-window-embedded").isVisible());
+
+      }
     );
-   }
+  }
 }

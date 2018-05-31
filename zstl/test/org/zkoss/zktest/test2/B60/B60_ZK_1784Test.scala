@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1784.zul")
 class B60_ZK_1784Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?page title="new page title" contentType="text/html;charset=UTF-8"?>
 <zk xmlns:n="native">
 	Click the button, no JS should appear: tabbox will be invalidated, the component nested in native element in Tab1 should not cause a problem
 	<tabbox id="tabbox" apply="org.zkoss.zktest.test2.B60_ZK_1784_Composer">
@@ -32,19 +33,19 @@ def testClick() = {
 		</tabpanels>
 	</tabbox>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-button"))
-      waitResponse()
-      
-      verifyFalse("should see no javascript error", jq(".z-error").exists())
-      
-      click(jq(".z-tab:contains(1)"))
-      waitResponse()
-      
-      verifyFalse("should see no javascript error", jq(".z-error").exists())
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-button"))
+        waitResponse()
+
+        verifyFalse("should see no javascript error", jq(".z-error").exists())
+
+        click(jq(".z-tab:contains(1)"))
+        waitResponse()
+
+        verifyFalse("should see no javascript error", jq(".z-error").exists())
+      })
+
   }
 }

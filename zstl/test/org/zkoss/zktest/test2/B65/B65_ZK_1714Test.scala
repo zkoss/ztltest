@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1714.zul")
 class B65_ZK_1714Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
 <zk>
 	<label multiline="true">
 		1. Click "set selected item" button.
@@ -61,17 +62,17 @@ def testClick() = {
 		</button>
 		<label id="lbl" />
 	</window>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-button:contains(set selected)"))
-      waitResponse()
-      
-      click(jq(".z-button:contains(clear selected)"))
-      waitResponse()
-      
-      verifyTrue("Should see 'null' label showed.", jq(".z-label:contains(null)").exists)
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-button:contains(set selected)"))
+        waitResponse()
+
+        click(jq(".z-button:contains(clear selected)"))
+        waitResponse()
+
+        verifyTrue("Should see 'null' label showed.", jq(".z-label:contains(null)").exists)
+      })
+
   }
 }

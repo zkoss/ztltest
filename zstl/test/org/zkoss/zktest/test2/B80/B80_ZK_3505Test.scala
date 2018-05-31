@@ -1,6 +1,6 @@
 package org.zkoss.zktest.test2.B80
 
-import org.openqa.selenium.{By, Keys}
+import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 
 /**

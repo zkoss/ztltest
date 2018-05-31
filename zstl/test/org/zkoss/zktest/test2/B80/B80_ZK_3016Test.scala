@@ -10,14 +10,17 @@ class B80_ZK_3016Test extends ZTL4ScalaTestCase {
   def testBtn1() = {
     testResult(1)
   }
+
   @Test
   def testBtn2() = {
     testResult(2)
   }
+
   @Test
   def testBtn3() = {
     testResult(3)
   }
+
   def testResult(num: Integer) = {
     runZTL(
       () => {
@@ -32,7 +35,7 @@ class B80_ZK_3016Test extends ZTL4ScalaTestCase {
         verifyEquals($tab1.offsetTop, $tab2.offsetTop)
         verifyEquals($tab2.offsetTop, $tab3.offsetTop)
         verifyEquals($tab3.offsetTop, $tab4.offsetTop)
-    })
+      })
   }
 }
 

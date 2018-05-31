@@ -16,21 +16,19 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B30
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.JQuery
-import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
 import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Element, JQuery, Tags, Widget}
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-1984643.zul,B,E,Window,Button")
 class B30_1984643Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <window xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zkoss.org/2005/zul" xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd" mode="modal" onCancel="self.detach()" onOK="self.detach()" title="listbox" border="normal" width="400px">
         Please select the select-list, and press the "Enter" or "Esc" button, the window should be closed.
         <label value="listbox : "/>
@@ -40,14 +38,14 @@ class B30_1984643Test extends ZTL4ScalaTestCase {
         </listbox>
       </window>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       var sb: Widget = engine.$f("sb");
-      def selectItem (item: String) {
-          var doms: JQuery = jq(":contains("+item+")");
-          var dom: Element = doms.get(doms.length()-1);
-          click(sb.$n());
-          click(dom);
-          waitResponse();
+      def selectItem(item: String) {
+        var doms: JQuery = jq(":contains(" + item + ")");
+        var dom: Element = doms.get(doms.length() - 1);
+        click(sb.$n());
+        click(dom);
+        waitResponse();
       }
       // Click on the listbox
       selectItem("item 1");

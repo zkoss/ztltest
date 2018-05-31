@@ -20,15 +20,17 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug 1999145
- * @author ldnigro
- *
- */
+  * A test class for bug 1999145
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B30-1999145.zul,B,E,Combobox")
 class B30_1999145Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
     		<zk>
     			You should see the width of combobox is stretch to 100% with its button. 
     			<window border="normal">
@@ -42,26 +44,26 @@ class B30_1999145Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
-        
-        	waitResponse();
-                  	
-        	//Combo box
-        	val cb=jq("@combobox:eq(0)");
-        	
-        	//Combo width
-        	val cw=cb.width();
-        	
-        	//Combo parent
-        	var parent=cb.parent();
-        	
-        	//Parent width
-        	var pw=parent.width();
-        	
-        	//Parent and Combo width are same size, so combo = 100% of parent
-        	verifyEquals(cw,pw);
-        	
-        }
+      () => {
+
+        waitResponse();
+
+        //Combo box
+        val cb = jq("@combobox:eq(0)");
+
+        //Combo width
+        val cw = cb.width();
+
+        //Combo parent
+        var parent = cb.parent();
+
+        //Parent width
+        var pw = parent.width();
+
+        //Parent and Combo width are same size, so combo = 100% of parent
+        verifyEquals(cw, pw);
+
+      }
     );
-   }
+  }
 }

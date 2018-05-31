@@ -16,21 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z30
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug grid-0015
- * @author TonyQ
- *
- */
+  * A test class for bug grid-0015
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z30-grid-0015.zul,Z30,A,E,Grid,Paging")
 class Z30_grid_0015Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<window>
 				Use external paging component in two grids , when you click next page ,both the two grid should change to next page .
 			<vbox>
@@ -127,66 +129,68 @@ class Z30_grid_0015Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
-	        def clickThenValidate(selector:String,validator:()=>Unit ){
-	            click(jq(selector));
-	        	waitResponse()
-	        	validator()
-	        }          
-	        def verifyRowContent(gridSelector:String,iterator:Iterator[String]) ={
-		        val verify = iterator;
-		        val list =  jq(gridSelector).find(".z-row").iterator();
-		        while(list.hasNext()){
-		          val row = list.next() ;
-		          var text = verify.next();
-//		          println(row.find(".z-label:first").text(),text)
-				  verifyEquals(row.find(".z-label:first").text(),text);
-				}          
-	        }
-	        verifyRowContent("$grid1",Iterator(
-	        	"Item 1.1",
-	        	"Item 2.1",
-	        	"Item 3.1",
-	        	"Item 4.1"
-	        ));
-	        
-	        verifyRowContent("$grid2",Iterator(
-	        	"Item A.1",
-	        	"Item B.1",
-	        	"Item C.1",
-	        	"Item D.1"
-	        ));	        
-	        
-	        clickThenValidate("[name=" + jq(".z-paging").attr("id") + "-next]",()=>{
-		        verifyRowContent("$grid1",Iterator(
-		        	"Item 5.1",
-		        	"Item 6.1",
-		        	"Item 7.1"
-		        ));
-		        
-		        verifyRowContent("$grid2",Iterator(
-		        	"Item E.1",
-		        	"Item F.1"
-		        ));	          
-	        });
+      () => {
+        def clickThenValidate(selector: String, validator: () => Unit) {
+          click(jq(selector));
+          waitResponse()
+          validator()
+        }
 
-	        clickThenValidate("[name=" + jq(".z-paging").attr("id") + "-prev]",()=>{
-		        verifyRowContent("$grid1",Iterator(
-		        	"Item 1.1",
-		        	"Item 2.1",
-		        	"Item 3.1",
-		        	"Item 4.1"
-		        ));
-		        
-		        verifyRowContent("$grid2",Iterator(
-		        	"Item A.1",
-		        	"Item B.1",
-		        	"Item C.1",
-		        	"Item D.1"
-		        ));	        
-	          
-	        });	        
-    }
-   );
+        def verifyRowContent(gridSelector: String, iterator: Iterator[String]) = {
+          val verify = iterator;
+          val list = jq(gridSelector).find(".z-row").iterator();
+          while (list.hasNext()) {
+            val row = list.next();
+            var text = verify.next();
+            //		          println(row.find(".z-label:first").text(),text)
+            verifyEquals(row.find(".z-label:first").text(), text);
+          }
+        }
+
+        verifyRowContent("$grid1", Iterator(
+          "Item 1.1",
+          "Item 2.1",
+          "Item 3.1",
+          "Item 4.1"
+        ));
+
+        verifyRowContent("$grid2", Iterator(
+          "Item A.1",
+          "Item B.1",
+          "Item C.1",
+          "Item D.1"
+        ));
+
+        clickThenValidate("[name=" + jq(".z-paging").attr("id") + "-next]", () => {
+          verifyRowContent("$grid1", Iterator(
+            "Item 5.1",
+            "Item 6.1",
+            "Item 7.1"
+          ));
+
+          verifyRowContent("$grid2", Iterator(
+            "Item E.1",
+            "Item F.1"
+          ));
+        });
+
+        clickThenValidate("[name=" + jq(".z-paging").attr("id") + "-prev]", () => {
+          verifyRowContent("$grid1", Iterator(
+            "Item 1.1",
+            "Item 2.1",
+            "Item 3.1",
+            "Item 4.1"
+          ));
+
+          verifyRowContent("$grid2", Iterator(
+            "Item A.1",
+            "Item B.1",
+            "Item C.1",
+            "Item D.1"
+          ));
+
+        });
+      }
+    );
   }
 }

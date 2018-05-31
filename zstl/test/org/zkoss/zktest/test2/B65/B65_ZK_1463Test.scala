@@ -1,14 +1,15 @@
 
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1463.zul")
 class B65_ZK_1463Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<window>
+    val zscript =
+      """<window>
                     <label multiline="true">
                       1.click open editor 1, the button Save should be enabled and click-able.
                       <!-- Bug's description (however it is disabled but click-able if the bug is not fixed)  -->
@@ -44,13 +45,13 @@ class B65_ZK_1463Test extends ZTL4ScalaTestCase {
       () => {
         click(jq("@button:contains(1)"))
         waitResponse()
-        
+
         val btn = jq("@button:contains(Save)")
         val enabled = btn.toWidget().get("disabled") == "false"
         click(btn)
         waitResponse
         val clickWork = jq("@window").toWidget().is("visible")
-        
+
         verifyTrue("should be enabled and click-able", enabled && clickWork)
       })
 

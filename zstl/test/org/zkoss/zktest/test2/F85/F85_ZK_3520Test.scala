@@ -3,7 +3,6 @@ package org.zkoss.zktest.test2.F85
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.util.Scripts
 
 /**
   * @author rudyhuang
@@ -31,10 +30,10 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
       verifyTolerant(pink.offsetLeft() + 100, pp.offsetLeft(), 3)
 
       val yellow = jq(".z-div[style*=yellow]")
-//      getActions
-//        .moveToElement(findElement(yellow))
-//        .contextClick()
-//        .perform()
+      //      getActions
+      //        .moveToElement(findElement(yellow))
+      //        .contextClick()
+      //        .perform()
       contextMenu(yellow)
       waitResponse()
       // should see tooltip showed on 50px left of mouse pointer
@@ -51,7 +50,7 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
 
       val cyan = jq(".z-div[style*=cyan]")
       val pp = jq("@popup")
-//      Scripts.triggerMouseEventAt(driver(), cyan, "mouseover", "100,100")
+      //      Scripts.triggerMouseEventAt(driver(), cyan, "mouseover", "100,100")
       mouseOver(cyan)
       waitResponse()
       sleep(1000)
@@ -60,10 +59,10 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
       verifyTolerant(cyan.offsetLeft() + 140, pp.offsetLeft(), 1)
 
       val pink = jq(".z-div[style*=pink]")
-//      getActions
-//        .moveToElement(findElement(pink))
-//        .click()
-//        .perform()
+      //      getActions
+      //        .moveToElement(findElement(pink))
+      //        .click()
+      //        .perform()
       click(pink)
       waitResponse()
       // should see tooltip showed at the "after_center" position

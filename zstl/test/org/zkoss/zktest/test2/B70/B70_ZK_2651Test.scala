@@ -1,18 +1,17 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
 import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2651.zul")
 class B70_ZK_2651Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <zk>
 	<style if="${execution.userAgent.indexOf('Mac') > 0}"> <!-- only mac os need this style --> 
@@ -80,17 +79,17 @@ def testClick() = {
     </vlayout>
 </zk>
     
-"""  
-  runZTL(zscript,
-    () => {
-      var grid = jq("@grid");
-      frozenScroll(grid, 200);
-      waitResponse();
-      var textbox = jq("@textbox");
-      sendKeys(textbox, Keys.ENTER);
-      waitResponse();
-      verifyFalse(jq("#zk_err").exists());
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        var grid = jq("@grid");
+        frozenScroll(grid, 200);
+        waitResponse();
+        var textbox = jq("@textbox");
+        sendKeys(textbox, Keys.ENTER);
+        waitResponse();
+        verifyFalse(jq("#zk_err").exists());
+      })
+
   }
 }

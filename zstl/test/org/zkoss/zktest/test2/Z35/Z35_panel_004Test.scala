@@ -20,15 +20,17 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * A test class for bug panel-004
- * @author TonyQ
- *
- */
+  * A test class for bug panel-004
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z35-panel-004.zul,Z35,C,E,Panel")
 class Z35_panel_004Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<window>
 			<panel id="p1" title="Panel Component" border="normal" width="500px" maximizable="true" minimizable="true">
 				<panelchildren>
@@ -77,37 +79,37 @@ class Z35_panel_004Test extends ZTL4ScalaTestCase {
     """;
 
     runZTL(zscript,
-        () => {
-          val width = jq("$p1").outerWidth();
-          click(jq("$btn1"));
-          waitResponse()
-          sleep(1000);
-		  verifyNotEquals(width.toString(),jq("$p1").outerWidth().toString());
-          verifyTrue(jq(".z-panel-body").isVisible());
-          
+      () => {
+        val width = jq("$p1").outerWidth();
+        click(jq("$btn1"));
+        waitResponse()
+        sleep(1000);
+        verifyNotEquals(width.toString(), jq("$p1").outerWidth().toString());
+        verifyTrue(jq(".z-panel-body").isVisible());
 
-          click(jq("$btn2"));
-          waitResponse();
-          sleep(800);
-          verifyFalse(jq(".z-panel-body").isVisible());
 
-          
-          click(jq("$btn2"));
-          waitResponse();
-          sleep(800);
-          verifyTrue(jq(".z-panel-body").isVisible());
+        click(jq("$btn2"));
+        waitResponse();
+        sleep(800);
+        verifyFalse(jq(".z-panel-body").isVisible());
 
-          
-          click(jq("$btn3"));
-          waitResponse();
-          verifyFalse(jq(".z-panel").isVisible());
 
-          
-          click(jq("$btn3"));
-          waitResponse();
-          verifyTrue(jq(".z-panel").isVisible());
-          
-    }
-   );
+        click(jq("$btn2"));
+        waitResponse();
+        sleep(800);
+        verifyTrue(jq(".z-panel-body").isVisible());
+
+
+        click(jq("$btn3"));
+        waitResponse();
+        verifyFalse(jq(".z-panel").isVisible());
+
+
+        click(jq("$btn3"));
+        waitResponse();
+        verifyTrue(jq(".z-panel").isVisible());
+
+      }
+    );
   }
 }

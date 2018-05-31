@@ -16,21 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.junit.Test
 
 /**
- * A test class for bug 2073413
- * @author ldnigro
- *
- */
+  * A test class for bug 2073413
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2073413.zul,A,E,Grid,Detail")
 class B35_2073413Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
     		<window title="Grid with Group feature" border="normal">
 <groupbox open="false"><caption label="instructions(click to open)"/><html><![CDATA[  
 	1.Open any group, then open any detail .<br/>
@@ -133,106 +135,106 @@ new String[]{"15","[zk1 - Help] RE: SelectedItemConverter Question","2008/4/28 1
     """
 
     runZTL(zscript,
-        () => {
-        
-        	waitResponse();
-                  
-        	//Group1 Open
-        	var t=jq("$today").find("span");
-        	click(t);
-        	        	
-        	waitResponse();
-        	
-        	//Group2 Open
-        	var y=jq("$yesterday").find("span");
-        	//click(y);
-        	
-        	waitResponse();
+      () => {
 
-        	//Check if rows are visible
-        	for(i <- 1 to 15) {
-        		var row=jq("$row" + i);
-        		var vis=row.isVisible();
-        		verifyTrue(vis);
+        waitResponse();
 
-        		//Open any detail
-        		var det= widget(jq("$row" + i).find(" @detail")).$n("icon");
-        		click(det);
-        		waitResponse();
-        		
-        		//Verify detail is visible
-        		var detail=jq("$gp" + i);
-        		var detv=detail.isVisible();
-        		verifyTrue(detv);
-        		
-        	}
-        	
-        	//Group1 Close
-        	t=jq("$today").find("span");
-        	click(t);
-        	waitResponse();
-        	
-        	//Group2 Close
-        	y=jq("$yesterday").find("span");
-        	click(y);
-        	waitResponse();
-        	
-        	//Check if rows are invisible
-        	for(i <- 1 to 15) {
-        		var row=jq("$row" + i);
-        		var vis=row.isVisible();
-        		verifyFalse(vis);
-        		
-        		//Verify detail is invisible
-        		var detail=jq("$gp" + i);
-        		var detv=detail.isVisible();
-        		verifyFalse(detv);
-        	}
-        	
-        	//Group1 Open
-        	t=jq("$today").find("span");
-        	click(t);
-        	waitResponse();
-        	
-        	//Group2 Open
-        	y=jq("$yesterday").find("span");
-        	click(y);
-        	waitResponse();
-        	
-        	//Check if rows & details are visible
-        	for(i <- 1 to 15) {
-        		var row=jq("$row" + i);
-        		var vis=row.isVisible();
-        		verifyTrue(vis);
-        		
-        		//Verify detail is visible
-        		var detail=jq("$gp" + i);
-        		var detv=detail.isVisible();
-        		verifyTrue(detv);
-        	}
-        	
-        	
-        	//Close detail to check unopen never showup
-        	var det= widget(jq("$row14").find("@detail")).$n("icon");
-        	click(det);
-        	waitResponse();
-        	
-        	//Group2 close
-        	y=jq("$yesterday").find("span");
-        	click(y);
-        	waitResponse();
-        	
-        	//Group2 Open
-        	y=jq("$yesterday").find("span");
-        	click(y);
-        	waitResponse();
-        	
-        	//Check if detail still unopen
-        	val dt=jq("$gp14");
-        	val dv=dt.isVisible();
-        	verifyFalse(dv);
-        	
+        //Group1 Open
+        var t = jq("$today").find("span");
+        click(t);
+
+        waitResponse();
+
+        //Group2 Open
+        var y = jq("$yesterday").find("span");
+        //click(y);
+
+        waitResponse();
+
+        //Check if rows are visible
+        for (i <- 1 to 15) {
+          var row = jq("$row" + i);
+          var vis = row.isVisible();
+          verifyTrue(vis);
+
+          //Open any detail
+          var det = widget(jq("$row" + i).find(" @detail")).$n("icon");
+          click(det);
+          waitResponse();
+
+          //Verify detail is visible
+          var detail = jq("$gp" + i);
+          var detv = detail.isVisible();
+          verifyTrue(detv);
+
         }
+
+        //Group1 Close
+        t = jq("$today").find("span");
+        click(t);
+        waitResponse();
+
+        //Group2 Close
+        y = jq("$yesterday").find("span");
+        click(y);
+        waitResponse();
+
+        //Check if rows are invisible
+        for (i <- 1 to 15) {
+          var row = jq("$row" + i);
+          var vis = row.isVisible();
+          verifyFalse(vis);
+
+          //Verify detail is invisible
+          var detail = jq("$gp" + i);
+          var detv = detail.isVisible();
+          verifyFalse(detv);
+        }
+
+        //Group1 Open
+        t = jq("$today").find("span");
+        click(t);
+        waitResponse();
+
+        //Group2 Open
+        y = jq("$yesterday").find("span");
+        click(y);
+        waitResponse();
+
+        //Check if rows & details are visible
+        for (i <- 1 to 15) {
+          var row = jq("$row" + i);
+          var vis = row.isVisible();
+          verifyTrue(vis);
+
+          //Verify detail is visible
+          var detail = jq("$gp" + i);
+          var detv = detail.isVisible();
+          verifyTrue(detv);
+        }
+
+
+        //Close detail to check unopen never showup
+        var det = widget(jq("$row14").find("@detail")).$n("icon");
+        click(det);
+        waitResponse();
+
+        //Group2 close
+        y = jq("$yesterday").find("span");
+        click(y);
+        waitResponse();
+
+        //Group2 Open
+        y = jq("$yesterday").find("span");
+        click(y);
+        waitResponse();
+
+        //Check if detail still unopen
+        val dt = jq("$gp14");
+        val dv = dt.isVisible();
+        verifyFalse(dv);
+
+      }
     );
-   }
+  }
 }

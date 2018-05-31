@@ -16,29 +16,25 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z60
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Element, Tags, Widget}
+
 /**
- * A test class for bug Listbox-ListModelArray-noROD
- * @author benbai
- *
- */
+  * A test class for bug Listbox-ListModelArray-noROD
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "Z60-Listbox-ListModelArray-noROD.zul,Z60,A,E,Listbox,ListModelArray")
 class Z60_Listbox_ListModelArray_noRODTest extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<zscript>
 					<![CDATA[
@@ -116,8 +112,8 @@ class Z60_Listbox_ListModelArray_noRODTest extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var outer: Widget = engine.$f("outer");
         var lbxOne: Widget = engine.$f("lbxOne");
         var lbxTwo: Widget = engine.$f("lbxTwo");
@@ -132,32 +128,35 @@ runZTL(zscript,
 
         def selectItem = (id: String, num: Int) => {
           var lbx: Widget = engine.$f(id);
-          
-          verScroll(lbx, if(num > 2) (num - 3) / 300.0 else 0.0)
-	      waitResponse();
-          
+
+          verScroll(lbx, if (num > 2) (num - 3) / 300.0 else 0.0)
+          waitResponse();
+
           sleep(600);
-          var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0);
+          var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data " + num + "\")").get(0);
 
           click(listitem);
         }
+
         def checkEqualSelection = (idOne: String, idTwo: String, assertValue: Boolean) => {
           input(tbOne.$n(), idOne);
           input(tbTwo.$n(), idTwo);
           click(btnOne);
           waitResponse();
           if (assertValue)
-            verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should the same",
-                msg.$n().get("innerHTML").equals("true"));
+            verifyTrue("The selection of these two listbox (" + idOne + ", " + idTwo + ") should the same",
+              msg.$n().get("innerHTML").equals("true"));
           else
-            verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should different",
-                msg.$n().get("innerHTML").equals("false"));
+            verifyTrue("The selection of these two listbox (" + idOne + ", " + idTwo + ") should different",
+              msg.$n().get("innerHTML").equals("false"));
         }
+
         def input = (tb: Element, value: String) => {
           findElement(tb.toBy()).clear()
           `type`(tb, value)
           waitResponse();
         }
+
         selectItem("lbxOne", 2);
         checkEqualSelection("lbxOne", "lbxTwo", true);
         selectItem("lbxTwo", 200);
@@ -176,7 +175,7 @@ runZTL(zscript,
         checkEqualSelection("lbxThree", "lbxThree_clone0", false);
         checkEqualSelection("lbxThree", "lbxThree_serialize1", false);
         checkEqualSelection("lbxThree_clone0", "lbxThree_serialize1", false);
-    }
-   );
+      }
+    );
   }
 }

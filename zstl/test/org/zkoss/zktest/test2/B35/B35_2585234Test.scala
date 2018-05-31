@@ -20,15 +20,17 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug 2585234
- * @author ldnigro
- *
- */
+  * A test class for bug 2585234
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2585234.zul,A,E,Paging,Group,Grid")
 class B35_2585234Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -140,7 +142,7 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
           var b = yrows.eq(i).isVisible();
           verifyTrue(b);
         }
-                
+
       });
   }
 }

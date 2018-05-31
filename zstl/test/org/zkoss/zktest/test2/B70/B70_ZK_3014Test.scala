@@ -1,8 +1,8 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-3014.zul")
 class B70_ZK_3014Test extends ZTL4ScalaTestCase {
@@ -21,7 +21,7 @@ class B70_ZK_3014Test extends ZTL4ScalaTestCase {
 
         click(bandboxButton);
         waitResponse(true);
-        
+
         val listbox = jq(".z-listbox");
         verifyTrue(listbox.width() > 2);
       })

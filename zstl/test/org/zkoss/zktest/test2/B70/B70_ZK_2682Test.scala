@@ -7,9 +7,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B70-ZK-2682.zul")
 class B70_ZK_2682Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  runZTL(() => {
+  @Test
+  def testClick() = {
+    runZTL(() => {
       //open to check items number
       val combobox = jq("@combobox").toWidget
       combobox.eval("open()") // to show popu first so we can find comboitem in zkmax

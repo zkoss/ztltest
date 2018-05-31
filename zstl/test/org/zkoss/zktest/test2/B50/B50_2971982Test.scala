@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug 2971982
- * @author benbai
- *
- */
+  * A test class for bug 2971982
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-2971982.zul,A,E,Treefooter,Listfooter")
 class B50_2971982Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 
 			<zk>
 				Check "Second footer" is in third column
@@ -85,16 +79,16 @@ class B50_2971982Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
 
         val listfootleft = jq(".z-listfooter:contains(Second)").offsetLeft()
         val listcellleft = jq(".z-listcell:contains(test3)").offsetLeft()
         val treefootleft = jq(".z-treefooter:contains(Second)").offsetLeft()
         val treecellleft = jq(".z-treecell:contains(test3)").offsetLeft()
         verifyTrue("Check 'Second footer' is in third column",
-            (listfootleft == listcellleft) && (treefootleft == treecellleft))
-    }
-   );
+          (listfootleft == listcellleft) && (treefootleft == treecellleft))
+      }
+    );
 
   }
 }

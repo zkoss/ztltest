@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1124.zul")
 class B60_ZK_1124Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <window border="normal" title="hello">
                       <div>
                         1. Click the button below to open the menu.<separator spacing="0px"/>
@@ -42,9 +43,9 @@ class B60_ZK_1124Test extends ZTL4ScalaTestCase {
         waitResponse()
         click(jq(".z-window-embedded"))
         waitResponse()
-        
+
         verifyEquals("should see a message box showed.", jq(".z-messagebox-window .z-label").text(), "Menu Closed...")
-        
+
       })
 
   }

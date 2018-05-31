@@ -16,29 +16,27 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
+import org.junit.Test
+import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
-import org.openqa.selenium.By
-import org.junit.Test
-import org.zkoss.ztl.ZK
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B35-2073451.zul,B,E,Window,Button")
 class B35_2073451Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-runZTL(() => {
+    runZTL(() => {
 
-      if(!isIE && !isEdge) {
-	      click(jq("$anc"));
-	      // Press the TAB key
-	      // Note: Does not work on Chrome due to a ChromeDriver issue: http://code.google.com/p/selenium/issues/detail?id=2328
-	      sendKeys(jq("$anc"), Keys.TAB);
-	      waitResponse();      
+      if (!isIE && !isEdge) {
+        click(jq("$anc"));
+        // Press the TAB key
+        // Note: Does not work on Chrome due to a ChromeDriver issue: http://code.google.com/p/selenium/issues/detail?id=2328
+        sendKeys(jq("$anc"), Keys.TAB);
+        waitResponse();
       } else { // ie cant focus correct
         click(jq("$FocusOnMe"));
         waitResponse();
@@ -70,6 +68,6 @@ runZTL(() => {
       verifyTrue("The visible page should be www.google.com", getEval("location.href").contains("google"));
 
 
-})
+    })
   }
 }

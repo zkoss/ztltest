@@ -16,16 +16,16 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B36
 
-import java.util.Calendar
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.junit.Test
 
 /**
- * A test class for bug 2851102
- * @author ldnigro
- *
- */
+  * A test class for bug 2851102
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B36-2851102.zul,A,E,Window,Popup,Errorbox")
 class B36_2851102Test extends ZTL4ScalaTestCase {
   @Test
@@ -41,18 +41,18 @@ class B36_2851102Test extends ZTL4ScalaTestCase {
         val txt = jq("@textbox")
         click(txt)
         waitResponse()
-        
+
         //Click other place
         blur(txt)
         waitResponse()
-        
+
         //Click close
         click(jq(".z-errorbox").toWidget.$n("cls"))
         waitResponse()
-        
+
         //Window not closed
         verifyTrue(jq("$win1").isVisible)
       });
   }
-     
+
 }

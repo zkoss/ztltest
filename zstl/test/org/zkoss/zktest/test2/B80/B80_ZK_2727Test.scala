@@ -3,14 +3,14 @@ package org.zkoss.zktest.test2.B80
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.util.ConfigHelper
 
 @Tags(tags = "B80-ZK-2727.zul")
 class B80_ZK_2727Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -86,19 +86,19 @@ public String toggleOrient(Scrollview sv) {
 
 </zk>
 
-""" 
-  runZTL(zscript,
-    () => {
-      var sv = jq("@scrollview");
-      var count = jq("@window").length();
-      horScrollNoBody(sv, 1);
-      verifyTrue(jq("@window").length() > count);
-      
-      count = jq("@window").length();
-      click(jq(".z-button"));
-      verScrollNoBody(sv, 1);
-      verifyTrue(jq("@window").length() > count);
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        var sv = jq("@scrollview");
+        var count = jq("@window").length();
+        horScrollNoBody(sv, 1);
+        verifyTrue(jq("@window").length() > count);
+
+        count = jq("@window").length();
+        click(jq(".z-button"));
+        verScrollNoBody(sv, 1);
+        verifyTrue(jq("@window").length() > count);
+      })
+
   }
 }

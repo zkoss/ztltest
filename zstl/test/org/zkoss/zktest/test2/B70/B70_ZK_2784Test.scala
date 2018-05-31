@@ -7,9 +7,10 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B70-ZK-2784.zul")
 class B70_ZK_2784Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -58,19 +59,19 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     </east>
   </borderlayout>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      windowResizeTo(1024,768)
-      waitResponse()
-      click(jq("$click1"))
-      waitResponse()
-      click(jq("$click2"))
-      waitResponse()
-      windowResizeTo(1024,760)
-      waitResponse()
-      verifyTrue(jq(".z-scrollbar-vertical-embed:eq(0)").exists())
-      verifyFalse(jq(".z-scrollbar-vertical-embed:eq(1)").exists())
-    })
+"""
+    runZTL(zscript,
+      () => {
+        windowResizeTo(1024, 768)
+        waitResponse()
+        click(jq("$click1"))
+        waitResponse()
+        click(jq("$click2"))
+        waitResponse()
+        windowResizeTo(1024, 760)
+        waitResponse()
+        verifyTrue(jq(".z-scrollbar-vertical-embed:eq(0)").exists())
+        verifyFalse(jq(".z-scrollbar-vertical-embed:eq(1)").exists())
+      })
   }
 }

@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2050.zul")
 class B70_ZK_2050Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<window sclass="ie8" title="IE8 Only" border="normal">
+  @Test
+  def testClick() = {
+    val zscript =
+      """<window sclass="ie8" title="IE8 Only" border="normal">
 	<label multiline="true">
 		1. Select the checkmark in the listhead.
 		2. All the listitem should be selected.
@@ -270,23 +271,23 @@ def testClick() = {
 			<listcell label="askdjfhk"></listcell>
 		</listitem>
 	</listbox>
-</window>"""  
-  runZTL(zscript,
-    () => {
-			//spec changes, no "check all" checkbox anymore since zk8
-			verifyTrue(true)
-/*      click(jq(".z-listheader-checkable"))
-      waitResponse()
-      
-      val iter = jq(".z-listitem").iterator()
-      var hasSelected = true
-      while (iter.hasNext() && hasSelected) {
-        val jq = iter.next()
-        hasSelected = jq.hasClass("z-listitem-selected")
-      }
-        
-      verifyTrue("All the listitem should be selected.", hasSelected)*/
-    })
-    
+</window>"""
+    runZTL(zscript,
+      () => {
+        //spec changes, no "check all" checkbox anymore since zk8
+        verifyTrue(true)
+        /*      click(jq(".z-listheader-checkable"))
+              waitResponse()
+
+              val iter = jq(".z-listitem").iterator()
+              var hasSelected = true
+              while (iter.hasNext() && hasSelected) {
+                val jq = iter.next()
+                hasSelected = jq.hasClass("z-listitem-selected")
+              }
+
+              verifyTrue("All the listitem should be selected.", hasSelected)*/
+      })
+
   }
 }

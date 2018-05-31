@@ -16,22 +16,22 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B85_ZK_3583Test extends ZTL4ScalaTestCase {
 
-	@Test
-	def test() = {
-		runZTL(() => {
-			val popup = jq(".z-popup")
+  @Test
+  def test() = {
+    runZTL(() => {
+      val popup = jq(".z-popup")
 
-			verifyFalse(popup.exists())
+      verifyFalse(popup.exists())
 
-			mouseOver(jq(".z-div").eq(1))
-			waitResponse(true)
+      mouseOver(jq(".z-div").eq(1))
+      waitResponse(true)
 
-			verifyTrue(popup.exists())
+      verifyTrue(popup.exists())
 
-			mouseOver(jq(".z-button"))
-			waitResponse(true)
+      mouseOver(jq(".z-button"))
+      waitResponse(true)
 
-			verifyTrue(popup.css("display").equals("block"))
-		})
-	}
+      verifyTrue(popup.css("display").equals("block"))
+    })
+  }
 }

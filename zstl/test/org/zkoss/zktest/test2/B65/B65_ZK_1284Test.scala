@@ -1,16 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1284.zul")
 class B65_ZK_1284Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 	<html>
 		Testing instructions:
 		<ol>
@@ -63,10 +63,10 @@ class B65_ZK_1284Test extends ZTL4ScalaTestCase {
         waitResponse()
         focus(jq(".z-textbox:eq(0)"))
         waitResponse()
-        
+
         val bodyLeft = jq(grid.$n("body")).scrollLeft();
         val headLeft = jq(grid.$n("head")).scrollLeft();
-        
+
         verifyTrue("Column headings should match the row content.", bodyLeft == headLeft)
       })
 

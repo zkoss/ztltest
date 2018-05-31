@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2356.zul")
 class B70_ZK_2356Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2356.zul
@@ -60,27 +58,27 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 </zk>
 
 
-"""  
-  runZTL(zscript,
-    () => {
-      val menus = jq("@menu");
-      var top = -1;
-      clickAt(menus.first(), "1,1");
-      waitResponse();
-      top = jq("@menupopup").first().scrollTop();
-      clickAt(menus.first(), "1,1");
-      waitResponse();
-      
-      clickAt(menus.eq(1), "1,1");
-      waitResponse();
-      verifyTrue("menupopups should have same height of top.", jq("@menupopup").eq(1).scrollTop() == top);
-      clickAt(menus.eq(1), "1,1");
-      waitResponse();
-      
-      clickAt(menus.eq(2), "1,1");
-      waitResponse();
-      verifyTrue("menupopups should have same height of top.", jq("@menupopup").eq(2).scrollTop() == top);
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        val menus = jq("@menu");
+        var top = -1;
+        clickAt(menus.first(), "1,1");
+        waitResponse();
+        top = jq("@menupopup").first().scrollTop();
+        clickAt(menus.first(), "1,1");
+        waitResponse();
+
+        clickAt(menus.eq(1), "1,1");
+        waitResponse();
+        verifyTrue("menupopups should have same height of top.", jq("@menupopup").eq(1).scrollTop() == top);
+        clickAt(menus.eq(1), "1,1");
+        waitResponse();
+
+        clickAt(menus.eq(2), "1,1");
+        waitResponse();
+        verifyTrue("menupopups should have same height of top.", jq("@menupopup").eq(2).scrollTop() == top);
+      })
+
   }
 }

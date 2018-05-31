@@ -16,17 +16,16 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B36
 
-import java.util.Calendar
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
-import org.junit.Test
 
 /**
- * A test class for bug 3049167
- * @author ldnigro
- *
- */
+  * A test class for bug 3049167
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B36-3049167.zul,A,E,Listbox,Grid,DragDrop")
 class B36_3049167Test extends ZTL4ScalaTestCase {
 
@@ -34,51 +33,51 @@ class B36_3049167Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
 
-        //Listbox
-        waitResponse();
+      //Listbox
+      waitResponse();
 
-        //Get element ZK Forge
-        //Get element ZK GWT
-        var item0 = jq(".z-listbox-body .z-listcell:eq(0)");
-        var item2 = jq(".z-listbox-body .z-listcell:eq(2)");
-        
-        waitResponse();
-        
-        var pos=item2.positionLeft()+","+item2.positionTop();
-        
-        dragAndDrop(item0,pos);
-                
-        waitResponse();
-        
-        var info=jq(".z-listbox .z-paging-info");
-        var infotxt=getText(info);
-        var original="[ 1 - 5 / 8 ]";
-        
-        //Verify qty
-        verifyEquals(infotxt,original);
-        
-        //Grid
-        waitResponse();
+      //Get element ZK Forge
+      //Get element ZK GWT
+      var item0 = jq(".z-listbox-body .z-listcell:eq(0)");
+      var item2 = jq(".z-listbox-body .z-listcell:eq(2)");
 
-        //Get element ZK Forge
-        //Get element ZK GWT
-        var item01 = jq(".z-grid .z-label:eq(0)");
-        var item12 = jq(".z-grid .z-label:eq(2)");
-        
-        waitResponse();
-        
-        dragAndDrop(item01,pos);
-                
-        waitResponse();
-        
-        var info1=jq(".z-grid .z-paging-info");
-        var infotxt1=getText(info1);
-        var original1="[ 1 - 5 / 8 ]";
-        
-        //Verify qty
-        verifyEquals(infotxt1,original1);
-                
-      });
+      waitResponse();
+
+      var pos = item2.positionLeft() + "," + item2.positionTop();
+
+      dragAndDrop(item0, pos);
+
+      waitResponse();
+
+      var info = jq(".z-listbox .z-paging-info");
+      var infotxt = getText(info);
+      var original = "[ 1 - 5 / 8 ]";
+
+      //Verify qty
+      verifyEquals(infotxt, original);
+
+      //Grid
+      waitResponse();
+
+      //Get element ZK Forge
+      //Get element ZK GWT
+      var item01 = jq(".z-grid .z-label:eq(0)");
+      var item12 = jq(".z-grid .z-label:eq(2)");
+
+      waitResponse();
+
+      dragAndDrop(item01, pos);
+
+      waitResponse();
+
+      var info1 = jq(".z-grid .z-paging-info");
+      var infotxt1 = getText(info1);
+      var original1 = "[ 1 - 5 / 8 ]";
+
+      //Verify qty
+      verifyEquals(infotxt1, original1);
+
+    });
   }
-     
+
 }

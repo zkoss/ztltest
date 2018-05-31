@@ -24,7 +24,7 @@ class B80_ZK_3013Test extends ZTL4ScalaTestCase {
         click(jq(".z-comboitem").eq(1))
         waitResponse(true)
         verifyEquals(0, jq("#zk_log").length)
-    })
+      })
   }
 }
 

@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug ZK-504
- * @author benbai
- *
- */
+  * A test class for bug ZK-504
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-504.zul,")
 class B50_ZK_504Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 			<html><![CDATA[
 			<ul><li>You shall see "onCreated received" inside the following window.</li></ul>
@@ -59,11 +52,11 @@ class B50_ZK_504Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         verifyTrue("event fired",
-            jq(".z-label:contains(onCreated received)").exists());
-    }
-   );
+          jq(".z-label:contains(onCreated received)").exists());
+      }
+    );
   }
 }

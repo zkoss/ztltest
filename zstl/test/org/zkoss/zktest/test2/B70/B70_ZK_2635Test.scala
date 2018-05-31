@@ -7,9 +7,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B70-ZK-2635.zul")
 class B70_ZK_2635Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  runZTL(() => {
+  @Test
+  def testClick() = {
+    runZTL(() => {
       mouseOver(jq(".z-nav a"))
       waitResponse()
       val left = jq(".z-nav-popup").css("left")

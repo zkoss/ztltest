@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2070.zul")
 class B70_ZK_2070Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<?page title="Grid onScroll" contentType="text/html;charset=UTF-8"?>
+    val zscript =
+      """<?page title="Grid onScroll" contentType="text/html;charset=UTF-8"?>
 <zk>
 	<window title="Grid onScroll" border="normal">
 		<zscript>Object[] o = new Object[50];</zscript>

@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug 3357641
- * @author benbai
- *
- */
+  * A test class for bug 3357641
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3357641.zul,A,E,ROD,Listbox,Model")
 class B50_3357641Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk xmlns:w="http://www.zkoss.org/2005/zk/client">
 			Please scroll to the middle of the list, and click the buttom "Run Bug (make a..."
 			<separator/>
@@ -139,40 +133,42 @@ class B50_3357641Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-def executor() = ()=> {
-    	var testListbox: Widget = engine.$f("testListbox");
-    	var btnNewModel: Widget = engine.$f("btnNewModel");
-    	waitResponse();
 
-    	verScroll(testListbox, 0.5)
-    	waitResponse();
-    	click(btnNewModel)
-    	waitResponse();
+    def executor() = () => {
+      var testListbox: Widget = engine.$f("testListbox");
+      var btnNewModel: Widget = engine.$f("btnNewModel");
+      waitResponse();
 
-    	for (i <- 0 until 5) {
-    	  verifyTrue(jq(testListbox.$n("rows")).find(".z-listcell").eq(i).text().contains("items"+i));
-    	}
-    	verifyFalse(jq(testListbox.$n("rows")).find(".z-listcell").get(5).exists());
+      verScroll(testListbox, 0.5)
+      waitResponse();
+      click(btnNewModel)
+      waitResponse();
+
+      for (i <- 0 until 5) {
+        verifyTrue(jq(testListbox.$n("rows")).find(".z-listcell").eq(i).text().contains("items" + i));
+      }
+      verifyFalse(jq(testListbox.$n("rows")).find(".z-listcell").get(5).exists());
     }
-runZTL(zscript, executor);
-   
-   // Run syntax 2
-   /**
-    runZTL(zscript,
-        () => {
-        var l1: Widget = engine.$f("l1");
-        var l2: Widget = engine.$f("l2");
-        waitResponse();
-        var strClickBefor = getText(l1);
-        click(l1);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l1));
-        strClickBefor = getText(l2);
-        click(l2);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l2));
-    }
-   );
-    */
+
+    runZTL(zscript, executor);
+
+    // Run syntax 2
+    /**
+      * runZTL(zscript,
+      * () => {
+      * var l1: Widget = engine.$f("l1");
+      * var l2: Widget = engine.$f("l2");
+      * waitResponse();
+      * var strClickBefor = getText(l1);
+      * click(l1);
+      * waitResponse();
+      * verifyNotEquals(strClickBefor, getText(l1));
+      * strClickBefor = getText(l2);
+      * click(l2);
+      * waitResponse();
+      * verifyNotEquals(strClickBefor, getText(l2));
+      * }
+      * );
+      */
   }
 }

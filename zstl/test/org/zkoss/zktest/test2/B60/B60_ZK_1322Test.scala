@@ -1,16 +1,17 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.openqa.selenium.Keys
 import org.junit.Test
+import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1322.zul")
 class B60_ZK_1322Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <zscript>
                       Date d = new Date();
 		public void setValueForDatebox(){
@@ -32,7 +33,7 @@ class B60_ZK_1322Test extends ZTL4ScalaTestCase {
         waitResponse()
         val timebox = jq(".z-timebox").toWidget().$n("real")
         val time = timebox.get("value")
-        
+
         if (time.matches(""".*[1-5][0-9]""")) {
           sendKeys(timebox, Keys.END + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "00")
         } else {

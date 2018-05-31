@@ -8,21 +8,21 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B70-ZK-2435.zul")
 class B70_ZK_2435Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  runZTL(() => {
+  @Test
+  def testClick() = {
+    runZTL(() => {
       var btn = jq(".z-bandbox-button");
       var input = jq("input");
       click(btn);
       waitResponse();
       var john = jq(".z-listitem").first();
-      if(!isSafari)
+      if (!isSafari)
         click(john);
       else
         clickAt(john, "2,2");
       waitResponse();
       var listbox = jq("@listbox").toWidget();
-      val a = if (isSafari) listbox else  listbox.$n("a") //button can be focused and sendKey
+      val a = if (isSafari) listbox else listbox.$n("a") //button can be focused and sendKey
       focus(a);
       sendKeys(a, Keys.ENTER);
       waitResponse();
@@ -30,7 +30,7 @@ def testClick() = {
       waitResponse();
       click(btn);
       waitResponse();
-      if(!isSafari)
+      if (!isSafari)
         click(john);
       else
         clickAt(john, "2,2");
@@ -39,8 +39,8 @@ def testClick() = {
       sendKeys(a, Keys.ESCAPE);
       waitResponse();
       verifyTrue(input.eval("val()").equals(""));
-      
+
     })
-    
+
   }
 }

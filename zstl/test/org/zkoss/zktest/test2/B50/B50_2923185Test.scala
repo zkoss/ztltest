@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug 2923185
- * @author benbai
- *
- */
+  * A test class for bug 2923185
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-2923185.zul,A,E,Datebox")
 class B50_2923185Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<?page title="new page title" contentType="text/html;charset=UTF-8"?>
 			<zk>
 			1. Click the datebox button to open the Calendar
@@ -49,9 +42,9 @@ class B50_2923185Test extends ZTL4ScalaTestCase {
 
     """
 
-   // Run syntax 2
+    // Run syntax 2
     runZTL(zscript,
-        () => {
+      () => {
         var db: Widget = engine.$f("db");
 
         click(db.$n("btn"));
@@ -59,9 +52,9 @@ class B50_2923185Test extends ZTL4ScalaTestCase {
         var t2: String = jq(db.$n("pp")).find(".z-timebox").toWidget().$n("real").get("value");
 
         verifyTrue("the time in datebox should equalt to the time in child timebox",
-            t1.equals(t2));
-    }
-   );
+          t1.equals(t2));
+      }
+    );
 
   }
 }

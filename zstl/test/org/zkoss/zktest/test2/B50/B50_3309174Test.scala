@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug 3309174
- * @author benbai
- *
- */
+  * A test class for bug 3309174
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3309174.zul,A,E,Grid,Model")
 class B50_3309174Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 
 			<zk>
 				<html><![CDATA[
@@ -69,52 +62,54 @@ class B50_3309174Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-def executor = () => {
-    	var (btn: Widget,
-    	    grid: Widget) = (
-    	        engine.$f("btn"),
-    	        engine.$f("grid")
-    	    );
-		waitResponse();
 
-		click(btn);
-		waitResponse();
-		verifyTrue(jq(grid.$n("body")).find(".z-row").eq(0).text().contains("20"));
+    def executor = () => {
+      var (btn: Widget,
+      grid: Widget) = (
+        engine.$f("btn"),
+        engine.$f("grid")
+      );
+      waitResponse();
+
+      click(btn);
+      waitResponse();
+      verifyTrue(jq(grid.$n("body")).find(".z-row").eq(0).text().contains("20"));
     }
-runZTL(zscript, executor);
-   
-   // Run syntax 2
-   /**
-    runZTL(zscript,
-        () => {
-        var l1: Widget = engine.$f("l1");
-        var l2: Widget = engine.$f("l2");
-        waitResponse();
-        var strClickBefor = getText(l1);
-        click(l1);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l1));
-        strClickBefor = getText(l2);
-        click(l2);
-        waitResponse();
-        verifyNotEquals(strClickBefor, getText(l2));
-    }
-   );
-    */
+
+    runZTL(zscript, executor);
+
+    // Run syntax 2
+    /**
+      * runZTL(zscript,
+      * () => {
+      * var l1: Widget = engine.$f("l1");
+      * var l2: Widget = engine.$f("l2");
+      * waitResponse();
+      * var strClickBefor = getText(l1);
+      * click(l1);
+      * waitResponse();
+      * verifyNotEquals(strClickBefor, getText(l1));
+      * strClickBefor = getText(l2);
+      * click(l2);
+      * waitResponse();
+      * verifyNotEquals(strClickBefor, getText(l2));
+      * }
+      * );
+      */
     /** create widget example
-		var tree: Widget = engine.$f("tree");
-		var listbox: Widget = engine.$f("listbox");
-		waitResponse();
-	*/
-   /** trigger mouse event example
-    Scripts.triggerMouseEventAt(getWebDriver(), inner1, "click", "5,5");
-    */
-   /** detect whether exception exists example
-   		verifyFalse(jq(".z-window-highlighted").exists());
-   		verifyFalse(jq(".z-window-modal").exists())
-	*/
-	/** detect browser
-		if (is("ie6_") || is("ie7_"))
-	*/
+      * var tree: Widget = engine.$f("tree");
+      * var listbox: Widget = engine.$f("listbox");
+      * waitResponse();
+      */
+    /** trigger mouse event example
+      *Scripts.triggerMouseEventAt(getWebDriver(), inner1, "click", "5,5");
+      */
+    /** detect whether exception exists example
+      * verifyFalse(jq(".z-window-highlighted").exists());
+      * verifyFalse(jq(".z-window-modal").exists())
+      */
+    /** detect browser
+      * if (is("ie6_") || is("ie7_"))
+      */
   }
 }

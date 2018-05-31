@@ -19,21 +19,21 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "")
 class B80_ZK_2496Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			val pn = jq("@panel")
-			val wnx = pn.positionLeft()
-			val wny = pn.positionTop()
-			dragdropTo(pn, (pn.outerWidth() - 2) + "," + (pn.outerHeight() - 2), (pn.outerWidth() + 20) + "," + (pn.outerHeight() + 20))
-			waitResponse()
-			verifyEquals(wnx, pn.positionLeft())
-			verifyEquals(wny, pn.positionTop())
-		})
-	}
+  @Test
+  def test() = {
+    runZTL(() => {
+      val pn = jq("@panel")
+      val wnx = pn.positionLeft()
+      val wny = pn.positionTop()
+      dragdropTo(pn, (pn.outerWidth() - 2) + "," + (pn.outerHeight() - 2), (pn.outerWidth() + 20) + "," + (pn.outerHeight() + 20))
+      waitResponse()
+      verifyEquals(wnx, pn.positionLeft())
+      verifyEquals(wny, pn.positionTop())
+    })
+  }
 }

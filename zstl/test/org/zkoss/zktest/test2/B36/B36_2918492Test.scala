@@ -16,22 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B36
 
-import java.util.Calendar
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.junit.Test
 
 /**
- * A test class for bug 2918492
- * @author ldnigro
- *
- */
+  * A test class for bug 2918492
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B36-2918492.zul,A,E,Portallayout,Maximize")
 class B36_2918492Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -103,17 +104,17 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         //Check visible 
         var lab1 = jq("$labpixies");
         verifyFalse(lab1.isVisible());
-        
+
         //Close panel
         var close = jq("$googletools").toWidget().$n("close");
         click(close);
         waitResponse();
-        
+
         //Check visible 
         var lab = jq("$labpixies");
         verifyTrue(lab.isVisible());
-        
+
       });
   }
-     
+
 }

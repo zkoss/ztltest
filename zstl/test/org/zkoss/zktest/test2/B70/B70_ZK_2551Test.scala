@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2551.zul")
 class B70_ZK_2551Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -67,17 +65,17 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
   </window>
 </zk>
     
-"""  
-  runZTL(zscript,
-    () => {
-      var listbox = jq("@listbox");
-      
-      horScroll(listbox, 100);
-      waitResponse();
-      click(jq("@button"));
-      waitResponse();
-      verifyTrue(getScrollLeft(listbox.toWidget()) != 0);
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        var listbox = jq("@listbox");
+
+        horScroll(listbox, 100);
+        waitResponse();
+        click(jq("@button"));
+        waitResponse();
+        verifyTrue(getScrollLeft(listbox.toWidget()) != 0);
+      })
+
   }
 }

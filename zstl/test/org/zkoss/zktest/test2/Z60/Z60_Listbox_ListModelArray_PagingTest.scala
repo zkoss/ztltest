@@ -16,28 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z60
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Element, Tags, Widget}
+
 /**
- * A test class for bug Listbox-ListModelArray-Paging
- * @author benbai
- *
- */
+  * A test class for bug Listbox-ListModelArray-Paging
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "Z60-Listbox-ListModelArray-Paging.zul,Z60,A,E,Listbox,Paging,ListModelArray")
 class Z60_Listbox_ListModelArray_PagingTest extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<zscript>
 					<![CDATA[
@@ -132,8 +127,8 @@ class Z60_Listbox_ListModelArray_PagingTest extends ZTL4ScalaTestCase {
 
     """
 
-   runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var outer: Widget = engine.$f("outer");
         var lbxOne: Widget = engine.$f("lbxOne");
         var lbxTwo: Widget = engine.$f("lbxTwo");
@@ -152,12 +147,13 @@ class Z60_Listbox_ListModelArray_PagingTest extends ZTL4ScalaTestCase {
         def selectItem = (id: String, num: Int) => {
           var lbx: Widget = engine.$f(id);
           input(tbOne.$n(), id);
-          input(tbTwo.$n(), num+"");
+          input(tbTwo.$n(), num + "");
           click(pagingBtn);
           sleep(600);
-          var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data "+num+"\")").get(0);
+          var listitem: Element = jq(lbx.$n("body")).find(".z-listitem:contains(\"data " + num + "\")").get(0);
           click(listitem);
         }
+
         // check whether the selection of a listbox contains exactly the content in check list
         def checkSelection = (toCheck: java.util.List[Int], id: String) => {
           input(tbOne.$n(), id);
@@ -165,32 +161,35 @@ class Z60_Listbox_ListModelArray_PagingTest extends ZTL4ScalaTestCase {
           waitResponse();
           var selection: String = msg.$n().get("innerHTML");
           var item: String = "";
-          for (i <- 0 to toCheck.size()-1) {
-            item = "data "+toCheck.get(i);
-            verifyTrue("the selection of "+id+"should contains "+item,
-                selection.contains(item));
+          for (i <- 0 to toCheck.size() - 1) {
+            item = "data " + toCheck.get(i);
+            verifyTrue("the selection of " + id + "should contains " + item,
+              selection.contains(item));
             selection = selection.replace(item, "");
           }
           verifyTrue("the selection should exactly contains the check list data, no more",
-              selection.length() == 0);
+            selection.length() == 0);
         }
+
         def checkEqualSelection = (idOne: String, idTwo: String, assertValue: Boolean) => {
           input(tbOne.$n(), idOne);
           input(tbTwo.$n(), idTwo);
           click(btnOne);
           waitResponse();
           if (assertValue)
-            verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should the same",
-                msg.$n().get("innerHTML").equals("true"));
+            verifyTrue("The selection of these two listbox (" + idOne + ", " + idTwo + ") should the same",
+              msg.$n().get("innerHTML").equals("true"));
           else
-            verifyTrue("The selection of these two listbox ("+idOne+", "+idTwo+") should different",
-                msg.$n().get("innerHTML").equals("false"));
+            verifyTrue("The selection of these two listbox (" + idOne + ", " + idTwo + ") should different",
+              msg.$n().get("innerHTML").equals("false"));
         }
+
         def input = (tb: Element, value: String) => {
           findElement(tb.toBy()).clear()
           `type`(tb, value)
           waitResponse();
         }
+
         selectItem("lbxOne", 2);
         checkEqualSelection("lbxOne", "lbxTwo", true);
         selectItem("lbxTwo", 200);
@@ -226,7 +225,7 @@ class Z60_Listbox_ListModelArray_PagingTest extends ZTL4ScalaTestCase {
 
         checkEqualSelection("lbxThree", "lbxThree_clone2", true);
         checkEqualSelection("lbxThree", "lbxThree_serialize3", true);
-    }
-   );
+      }
+    );
   }
 }

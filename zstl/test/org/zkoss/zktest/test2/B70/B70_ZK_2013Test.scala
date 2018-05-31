@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2013.zul")
 class B70_ZK_2013Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2013.zul
@@ -52,28 +53,28 @@ model.add("C");
 <button label="Add" onClick='model.add("Y")'></button>
 <button label="Remove" onClick='model.remove("C")'></button>
 </vbox>
-"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-tab:contains(B)"))
-      waitResponse()
-      val time = jq(".z-tabpanel").find(".z-label:contains(create)").text()
-      click(jq(".z-button:contains(Add)"))
-      waitResponse()
-      verifyTrue("you should see the 'Y' tab is added at the end of the tabs.", jq(".z-tab:contains(Y)").exists)
-      verifyTrue("The create time of the 'B' tab shoud not be changed.", time == jq(".z-tabpanel").find(".z-label:contains(create)").text())
-      click(jq(".z-tab:contains(Y)"))
-      waitResponse()
-      val ytime = jq(".z-tabpanel").find(".z-label:contains(create)").text()
-      println(ytime + "/" + time)
-      verifyNotEquals("its 'create time' is the latest one which is different from 'B' tab.", time, ytime)
-      click(jq(".z-button:contains(Remove)"))
-      waitResponse()
-      click(jq(".z-tab:contains(Y)"))
-      waitResponse()
-      verifyTrue("the 'C' tab will be remove", !jq(".z-tab:contains(C)").exists)
-      verifyTrue("the 'create time' of the 'Y' tab is the same as before.", ytime == jq(".z-tabpanel").find(".z-label:contains(create)").text())
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-tab:contains(B)"))
+        waitResponse()
+        val time = jq(".z-tabpanel").find(".z-label:contains(create)").text()
+        click(jq(".z-button:contains(Add)"))
+        waitResponse()
+        verifyTrue("you should see the 'Y' tab is added at the end of the tabs.", jq(".z-tab:contains(Y)").exists)
+        verifyTrue("The create time of the 'B' tab shoud not be changed.", time == jq(".z-tabpanel").find(".z-label:contains(create)").text())
+        click(jq(".z-tab:contains(Y)"))
+        waitResponse()
+        val ytime = jq(".z-tabpanel").find(".z-label:contains(create)").text()
+        println(ytime + "/" + time)
+        verifyNotEquals("its 'create time' is the latest one which is different from 'B' tab.", time, ytime)
+        click(jq(".z-button:contains(Remove)"))
+        waitResponse()
+        click(jq(".z-tab:contains(Y)"))
+        waitResponse()
+        verifyTrue("the 'C' tab will be remove", !jq(".z-tab:contains(C)").exists)
+        verifyTrue("the 'create time' of the 'Y' tab is the same as before.", ytime == jq(".z-tabpanel").find(".z-label:contains(create)").text())
+      })
+
   }
 }

@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2068.zul")
 class B70_ZK_2068Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?page title="Portallayout" contentType="text/html;charset=UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?page title="Portallayout" contentType="text/html;charset=UTF-8"?>
 <zk>
 	<window border="normal" title="Portallayout">
 		<label multiline="true">
@@ -29,17 +30,17 @@ def testClick() = {
 		</zscript>
 	</window>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      
-      val pc = jq(".z-portalchildren")
-      val w = pc.width()
-      click(jq(".z-button"))
-      waitResponse()
-      
-      verifyTrue("the yellow area will change width", pc.width() != w)
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+
+        val pc = jq(".z-portalchildren")
+        val w = pc.width()
+        click(jq(".z-button"))
+        waitResponse()
+
+        verifyTrue("the yellow area will change width", pc.width() != w)
+      })
+
   }
 }

@@ -19,25 +19,25 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "")
 class B80_ZK_3217Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			val db = jq("@datebox")
-			val window = driver.manage().window()
-			val clientHeight = getEval("document.documentElement.clientHeight").toInt
-			val offset = db.offsetTop() + db.outerHeight() - clientHeight
-			val button = jq(".z-datebox-button")
-			runScript("window.scrollTo(0," + offset + ")")
-			click(button)
-			val popup = jq(".z-datebox-popup")
-			val orgHeight = popup.positionTop()
-			sleep(300)
-			verifyEquals(orgHeight, popup.positionTop())
-		})
-	}
+  @Test
+  def test() = {
+    runZTL(() => {
+      val db = jq("@datebox")
+      val window = driver.manage().window()
+      val clientHeight = getEval("document.documentElement.clientHeight").toInt
+      val offset = db.offsetTop() + db.outerHeight() - clientHeight
+      val button = jq(".z-datebox-button")
+      runScript("window.scrollTo(0," + offset + ")")
+      click(button)
+      val popup = jq(".z-datebox-popup")
+      val orgHeight = popup.positionTop()
+      sleep(300)
+      verifyEquals(orgHeight, popup.positionTop())
+    })
+  }
 }

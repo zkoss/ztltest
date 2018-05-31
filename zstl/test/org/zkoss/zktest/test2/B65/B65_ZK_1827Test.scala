@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1827.zul")
 class B65_ZK_1827Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?page title="new page title" contentType="text/html;charset=UTF-8"?>
 <zk xmlns:n="native">
 	Click "test" button, should not see JS Error showed.
 	<tabbox id="tabbox">
@@ -46,13 +47,13 @@ def testClick() = {
 			<tabpanel>test</tabpanel>
 		</tabpanels>
 	</tabbox>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-button:contains(test)"))
-      waitResponse()
-      verifyFalse("should see no javascript error", jq(".z-error").exists())
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-button:contains(test)"))
+        waitResponse()
+        verifyFalse("should see no javascript error", jq(".z-error").exists())
+      })
+
   }
 }

@@ -20,15 +20,17 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug 2884058
- * @author ldnigro
- *
- */
+  * A test class for bug 2884058
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B36-2884058.zul,A,E,Datebox,Calendar")
 class B36_2884058Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -67,19 +69,19 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         var btn = jq(jq(".z-datebox").toWidget().$n("btn"));
         click(btn);
         waitResponse();
-        
+
         //Get Calendars 
-        var c0=jq(".z-calendar:eq(0)");
-        var c1=jq(".z-calendar:eq(1)");
-        
+        var c0 = jq(".z-calendar:eq(0)");
+        var c1 = jq(".z-calendar:eq(1)");
+
         //Get Calendars HTML
-        var html0=c0.text();
-        var html1=c1.text();
-        
+        var html0 = c0.text();
+        var html1 = c1.text();
+
         //Verify equals
-        verifyEquals(html0,html1);
-        
+        verifyEquals(html0, html1);
+
       });
   }
-     
+
 }

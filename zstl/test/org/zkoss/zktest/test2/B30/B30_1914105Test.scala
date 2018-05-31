@@ -16,17 +16,16 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.ZK
-import org.openqa.selenium.Keys
 
 /**
- *
- * @author jumperchen
- */
+  *
+  * @author jumperchen
+  */
 @Tags(tags = "B30-1914105.zul,B,E,Timebox")
 class B30_1914105Test extends ZTL4ScalaTestCase {
   def testCase() = {
-    val zscript = """
+    val zscript =
+      """
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
         1.click readonly,
     	2.click timebox
@@ -41,7 +40,7 @@ class B30_1914105Test extends ZTL4ScalaTestCase {
         <checkbox id="ck2" label="disabled" checked="tb.disabled" onCheck="tb.disabled = self.checked"/>
       </zk>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       val tb = engine.$f("tb")
       val ck1 = engine.$f("ck1")
       val ck2 = engine.$f("ck2")

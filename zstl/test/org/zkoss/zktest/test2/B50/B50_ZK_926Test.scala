@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B50
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B50-ZK-926.zul")
 class B50_ZK_926Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <listbox height="500px">
                       <custom-attributes org.zkoss.zul.listbox.rod="false"/>
                       <zscript>
@@ -29,8 +30,8 @@ class B50_ZK_926Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        jq(".z-listbox-body").toElement().set("scrollTop", 100)        
-        waitResponse()        
+        jq(".z-listbox-body").toElement().set("scrollTop", 100)
+        waitResponse()
         verifyEquals("should see 'scroll, 100'", jq("#zk_log").`val`().replace("\n", ""), "scroll, 100")
       })
 

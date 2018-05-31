@@ -5,8 +5,8 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
 /**
- * Created by wenning on 1/19/16.
- */
+  * Created by wenning on 1/19/16.
+  */
 @Tags(tags = "B80-ZK-2938.zul")
 class B80_ZK_2938Test extends ZTL4ScalaTestCase {
 

@@ -17,18 +17,17 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.Element
+import org.zkoss.ztl.{Element, Tags}
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-2125788.zul,B,E,Window,Button")
 class B30_2125788Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <window>
         <window id="win" title="My First Window" border="normal" width="200px" closable="true">
           Hello, World!
@@ -37,7 +36,7 @@ class B30_2125788Test extends ZTL4ScalaTestCase {
         <button label="1. Click ME First!" onClick="win.doHighlighted()"/>
       </window>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       def dragDrop(from: Element, fromPos: String, to: Element, toPos: String) {
         mouseDownAt(from, fromPos);
         mouseMoveAt(to, toPos);

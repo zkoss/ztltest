@@ -16,21 +16,21 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B36
 
-import java.util.Calendar
-
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug 2936019
- * @author ldnigro
- *
- */
+  * A test class for bug 2936019
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B36-2936019.zul,A,E,Listbox,Listgroup,Listgroupfoot")
 class B36_2936019Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <zk>
 <html><![CDATA[
 <ol>
@@ -73,13 +73,13 @@ class B36_2936019Test extends ZTL4ScalaTestCase {
 
         //Verify group
         var group = jq(".z-listgroup");
-        verifyTrue(group.isVisible());        
-        
+        verifyTrue(group.isVisible());
+
         //Check  groupfooter 
         var foot = jq(".z-listgroupfoot");
         verifyTrue(foot.isVisible());
-        
+
       });
   }
-     
+
 }

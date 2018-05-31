@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.F51
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Element, JQuery, Tags, Widget}
 
 /**
- * A test class for bug ZK-216-grid
- * @author benbai
- *
- */
+  * A test class for bug ZK-216-grid
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F51-ZK-216-grid.zul,F60,A,E,template,grid")
 class F51_ZK_216_gridTest extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<window>
 				<html><![CDATA[
 				<ul><li>You shall see three items and each has two colums</li></ul>
@@ -99,8 +93,8 @@ class F51_ZK_216_gridTest extends ZTL4ScalaTestCase {
 
     """
 
-   runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var gbOne: Widget = engine.$f("gbOne");
         var gbTwo: Widget = engine.$f("gbTwo");
 
@@ -108,25 +102,25 @@ class F51_ZK_216_gridTest extends ZTL4ScalaTestCase {
         var scrollHeight: Int = Integer.parseInt(bodyTwo.get("scrollHeight"));
 
         // verify listitem contents
-        def verifyItem (leftContent: String, rightContent: String, grid: Widget) {
-          var lCell: JQuery = jq(grid.$n("body")).find(".z-row:contains("+leftContent+")");
-          var rCell: JQuery = jq(grid.$n("body")).find(".z-row:contains("+rightContent+")");
+        def verifyItem(leftContent: String, rightContent: String, grid: Widget) {
+          var lCell: JQuery = jq(grid.$n("body")).find(".z-row:contains(" + leftContent + ")");
+          var rCell: JQuery = jq(grid.$n("body")).find(".z-row:contains(" + rightContent + ")");
           verifyTrue("item exist", lCell.exists() && rCell.exists());
         }
 
-        verifyItem ("Apple", "10kg", gbOne);
-        verifyItem ("Orange", "20kg", gbOne);
-        verifyItem ("Mango", "12kg", gbOne);
+        verifyItem("Apple", "10kg", gbOne);
+        verifyItem("Orange", "20kg", gbOne);
+        verifyItem("Mango", "12kg", gbOne);
 
-        verifyItem ("#0", ":Option 0", gbTwo);
-        
+        verifyItem("#0", ":Option 0", gbTwo);
+
         verScroll(bodyTwo, .5)
         sleep(500);
-        verifyItem ("#10000", ":Option 10000", gbTwo);
+        verifyItem("#10000", ":Option 10000", gbTwo);
         verScroll(bodyTwo, 1)
         sleep(500);
-        verifyItem ("#19999", ":Option 19999", gbTwo);
-    }
-   );
+        verifyItem("#19999", ":Option 19999", gbTwo);
+      }
+    );
   }
 }

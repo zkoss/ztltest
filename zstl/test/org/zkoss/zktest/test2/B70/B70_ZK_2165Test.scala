@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2165.zul")
 class B70_ZK_2165Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 	<div>
 		should see all tree item is loaded
 	</div>
@@ -54,7 +55,7 @@ class B70_ZK_2165Test extends ZTL4ScalaTestCase {
         val tree0 = jq(".z-tree")
         verScroll(tree0.toWidget(), 1.0)
         verifyTrue("should see all tree item is loaded", tree0.find(".z-treerow:contains(Node 149)").exists())
-        
+
         val tree1 = jq(".z-tree").eq(1)
         verScroll(tree1.toWidget(), 1.0)
         verifyTrue("should see all tree item is loaded", tree1.find(".z-treerow:contains(Node 299)").exists())

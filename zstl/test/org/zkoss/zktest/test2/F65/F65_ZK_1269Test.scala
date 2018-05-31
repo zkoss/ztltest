@@ -1,8 +1,8 @@
 package org.zkoss.zktest.test2.F65
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.openqa.selenium.Keys
 import org.junit.Test
+import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class F65_ZK_1269Test extends ZTL4ScalaTestCase {
 
@@ -37,7 +37,7 @@ class F65_ZK_1269Test extends ZTL4ScalaTestCase {
           waitResponse(true)
           blur(removeInp)
           waitResponse(true)
-          
+
           click(remove)
           waitResponse(true)
           sleep(1000)
@@ -65,7 +65,7 @@ class F65_ZK_1269Test extends ZTL4ScalaTestCase {
           waitResponse(true)
           blur(selectedInp)
           waitResponse(true)
-          
+
           click(go)
           waitResponse(true)
           sleep(1000)

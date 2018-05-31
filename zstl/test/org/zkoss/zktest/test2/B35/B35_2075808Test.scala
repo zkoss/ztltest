@@ -16,20 +16,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
-import org.junit.Test
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B35-2075808.zul,B,E,Window,Button")
 class B35_2075808Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
         <vbox>
           <label value="Orginally, three columns are 50%,20%,30% in width;"/>
@@ -177,7 +177,7 @@ import org.zkoss.zkmax.zul.Columnchildren;
         </columnlayout>
       </zk>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       val totLay = jq("$cLay").width();
       val cLef = jq("$cLef").width();
       val cMid = jq("$cMid").width();

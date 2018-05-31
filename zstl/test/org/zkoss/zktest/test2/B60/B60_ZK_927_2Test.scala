@@ -16,28 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{JQuery, Tags, Widget}
+
 /**
- * A test class for bug ZK-927-2
- * @author benbai
- *
- */
+  * A test class for bug ZK-927-2
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-927-2.zul,")
 class B60_ZK_927_2Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
 			<zk>
 				<window >
@@ -79,39 +74,42 @@ class B60_ZK_927_2Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
+      () => {
         var lbx: Widget = engine.$f("listbox1");
         var lb: Widget = engine.$f("lb");
         var set: Widget = engine.$f("set");
         var reload: Widget = engine.$f("reload");
 
         def select(item: Int) {
-          click(jq(lbx).find(".z-listitem:contains(item "+item+")"));
+          click(jq(lbx).find(".z-listitem:contains(item " + item + ")"));
           waitResponse();
           check(item);
         }
+
         def check(item: Int) {
           var listitems: JQuery = jq(lbx).find(".z-listitem");
           var selected: Boolean = null;
           for (i <- 0 until listitems.length()) {
-        	  selected = (item == i);
-              verifyTrue("Item "+i+" should "
-                  +(if(selected) "" else "not ")+"be selected",
-	              jq(lbx).find(".z-listitem-selected:contains(item "+i+")")
-	                 .exists() == selected);
+            selected = (item == i);
+            verifyTrue("Item " + i + " should "
+              + (if (selected) "" else "not ") + "be selected",
+              jq(lbx).find(".z-listitem-selected:contains(item " + i + ")")
+                .exists() == selected);
           }
-          verifyTrue("item "+item+" should be selected",
-              lb.$n().get("innerHTML").contains("item "+item));
+          verifyTrue("item " + item + " should be selected",
+            lb.$n().get("innerHTML").contains("item " + item));
         }
 
         check(0);
         select(2);
 
-        click(set); waitResponse();
-        click(reload); waitResponse();
+        click(set);
+        waitResponse();
+        click(reload);
+        waitResponse();
 
         check(0);
-    }
-   );
+      }
+    );
   }
 }

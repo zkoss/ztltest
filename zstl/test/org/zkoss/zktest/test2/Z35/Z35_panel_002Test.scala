@@ -16,22 +16,24 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z35
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.util.Scripts
-import org.junit.Test
 
 /**
- * A test class for bug panel-002
- * @author TonyQ
- *
- */
+  * A test class for bug panel-002
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z35-panel-002.zul,Z35,A,E,Panel")
 class Z35_panel_002Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<window>
 			<panel id="p1" title="Panel Component" border="normal" width="500px" height="150px">
 				<panelchildren>
@@ -77,73 +79,73 @@ class Z35_panel_002Test extends ZTL4ScalaTestCase {
     """;
 
     runZTL(zscript,
-        () => {
-        def clickThenValidate(selector:String,validator:()=>Unit ){
-            Scripts.triggerMouseEventAt(getWebDriver(), jq(selector), "click", "2,2");        
-        	waitResponse(true);
-        	validator();
+      () => {
+        def clickThenValidate(selector: String, validator: () => Unit) {
+          Scripts.triggerMouseEventAt(getWebDriver(), jq(selector), "click", "2,2");
+          waitResponse(true);
+          validator();
         }
-        
-        clickThenValidate("$btn1",()=>{
-          	jq(jq("@panel").toWidget().$n("exp")).isVisible();
+
+        clickThenValidate("$btn1", () => {
+          jq(jq("@panel").toWidget().$n("exp")).isVisible();
         });
-        clickThenValidate("$btn2",()=>{
+        clickThenValidate("$btn2", () => {
           jq(jq("@panel").toWidget().$n("exp")).isVisible();
           jq(jq("@panel").toWidget().$n("min")).isVisible();
         });
-        clickThenValidate("$btn3",()=>{
+        clickThenValidate("$btn3", () => {
           jq(jq("@panel").toWidget().$n("exp")).isVisible();
           jq(jq("@panel").toWidget().$n("min")).isVisible();
           jq(jq("@panel").toWidget().$n("max")).isVisible();
         });
-        clickThenValidate("$btn4",()=>{
+        clickThenValidate("$btn4", () => {
           jq(jq("@panel").toWidget().$n("exp")).isVisible();
           jq(jq("@panel").toWidget().$n("min")).isVisible();
           jq(jq("@panel").toWidget().$n("max")).isVisible();
           jq(jq("@panel").toWidget().$n("close")).isVisible();
         });
 
-        clickThenValidate("$btn3",()=>{
+        clickThenValidate("$btn3", () => {
           jq(jq("@panel").toWidget().$n("exp")).isVisible();
           jq(jq("@panel").toWidget().$n("min")).isVisible();
           jq(jq("@panel").toWidget().$n("close")).isVisible();
-        });        
-        clickThenValidate("$btn3",()=>{
+        });
+        clickThenValidate("$btn3", () => {
           jq(jq("@panel").toWidget().$n("exp")).isVisible();
           jq(jq("@panel").toWidget().$n("min")).isVisible();
           jq(jq("@panel").toWidget().$n("max")).isVisible();
           jq(jq("@panel").toWidget().$n("close")).isVisible();
-        });                
-        
-        clickThenValidate("$btnFloat",()=>{
-          verifyEquals(jq(".z-panel").css("position"),"absolute" );
         });
-        
-        verifyTrue(jq(".z-panel-header-move").length() == 0 );
 
-        
-        clickThenValidate("$btnMove",()=>{
-          verifyTrue(jq(".z-panel-header-move").length() ==1 );
-        });        
-        
-        clickThenValidate("$btnFloat",()=>{
-          verifyNotEquals(jq(".z-panel").css("position"),"absolute" );
+        clickThenValidate("$btnFloat", () => {
+          verifyEquals(jq(".z-panel").css("position"), "absolute");
+        });
+
+        verifyTrue(jq(".z-panel-header-move").length() == 0);
+
+
+        clickThenValidate("$btnMove", () => {
+          verifyTrue(jq(".z-panel-header-move").length() == 1);
+        });
+
+        clickThenValidate("$btnFloat", () => {
+          verifyNotEquals(jq(".z-panel").css("position"), "absolute");
           //We can't move it when it's not in floatable mode.
-          verifyTrue(jq(".z-panel-header-move").length() == 0 );
+          verifyTrue(jq(".z-panel-header-move").length() == 0);
         });
 
-        
-        Scripts.triggerMouseEventAt(getWebDriver(), jq(jq("@panel").toWidget().$n("exp")), "click", "2,2");        
+
+        Scripts.triggerMouseEventAt(getWebDriver(), jq(jq("@panel").toWidget().$n("exp")), "click", "2,2");
         waitResponse(true);
         sleep(200);
         verifyFalse(jq(".z-panel-body").isVisible());
-        
-        Scripts.triggerMouseEventAt(getWebDriver(), jq(jq("@panel").toWidget().$n("exp")), "click", "2,2");        
+
+        Scripts.triggerMouseEventAt(getWebDriver(), jq(jq("@panel").toWidget().$n("exp")), "click", "2,2");
         waitResponse(true);
         sleep(200);
         verifyTrue(jq(".z-panel-body").isVisible());
-        
-    }
-   );
+
+      }
+    );
   }
 }

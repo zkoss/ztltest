@@ -18,13 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- *
- * @author jumperchen
- */
+  *
+  * @author jumperchen
+  */
 @Tags(tags = "")
 class B30_1914109Test extends ZTL4ScalaTestCase {
   def testCase() = {
-    val zscript = """
+    val zscript =
+      """
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
         <n:ol>
           <n:li>
@@ -60,15 +61,15 @@ is shorter and has a scroll bar
         </window>
       </zk>
     """
-runZTL(zscript, () => {
-    	val list = engine $f "list"
-    	val height = jq(list).outerHeight
-    	val scrollHeight = jq(list) scrollHeight()
-    	click(jq("@button"))
-    	waitResponse
-    	verifyTrue(height > jq(list).outerHeight)
-    	verifyTrue(200 > jq(list).outerHeight)
-    	verifyTrue(scrollHeight > jq(list).scrollHeight)
+    runZTL(zscript, () => {
+      val list = engine $f "list"
+      val height = jq(list).outerHeight
+      val scrollHeight = jq(list) scrollHeight()
+      click(jq("@button"))
+      waitResponse
+      verifyTrue(height > jq(list).outerHeight)
+      verifyTrue(200 > jq(list).outerHeight)
+      verifyTrue(scrollHeight > jq(list).scrollHeight)
     })
   }
 }

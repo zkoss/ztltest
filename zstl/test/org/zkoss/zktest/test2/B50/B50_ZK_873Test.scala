@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B50
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B50-ZK-873.zul")
 class B50_ZK_873Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <div height="20px"/>
                     <div>You should not see any selectall box in the list header</div>
                     <div height="20px"/>

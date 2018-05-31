@@ -19,7 +19,6 @@ package org.zkoss.zktest.test2.B30
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Element
 
 /**
   * @author Fernando Selvatici

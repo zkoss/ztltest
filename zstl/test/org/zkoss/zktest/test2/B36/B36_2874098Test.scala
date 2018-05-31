@@ -16,23 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B36
 
-import java.util.Calendar
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.junit.Test
-import org.zkoss.ztl.ZK
 
 /**
- * A test class for bug 2874098
- * @author ldnigro
- *
- */
+  * A test class for bug 2874098
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B36-2874098.zul,B,E,Databind,BI")
 class B36_2874098Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 <?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="windowEdit" ?>
 <window id="windowEdit">

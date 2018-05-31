@@ -1,16 +1,17 @@
 package org.zkoss.zktest.test2.B50
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.openqa.selenium.Keys
 import org.junit.Test
+import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B50-ZK-941.zul")
 class B50_ZK_941Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk xmlns:h="xhtml">
+    val zscript =
+      """<zk xmlns:h="xhtml">
                     <h:pre>
                       1. Enter 1.239 and blur, the error message will be shown at its right side
 	2. Enter 1.0  and blur, it should clear the error message

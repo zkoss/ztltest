@@ -18,17 +18,16 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-1829397.zul,B,E,Window,Button")
 class B30_1857731Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <window title="Listbox Bug">
         <toolbarbutton id="With Bug" label="Click Me! And no error msg!" onClick="openNewTab()"/>
         <tabbox>
@@ -79,14 +78,14 @@ class B30_1857731Test extends ZTL4ScalaTestCase {
 	]]></zscript>
       </window>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       // Click on the toolbarbutton
       click(jq(".z-toolbarbutton"));
       waitResponse();
 
       // Verify there is no javascript error
       verifyFalse(jq(".z-error").exists());
-      
+
       // Verify that the label in the tab exists
       verifyTrue(jq(".z-label:contains(Test)").get(0).exists());
 

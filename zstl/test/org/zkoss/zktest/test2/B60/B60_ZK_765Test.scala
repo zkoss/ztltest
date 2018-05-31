@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-765
- * @author benbai
- *
- */
+  * A test class for bug ZK-765
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-765.zul,A,E,Listbox,ROD")
 class B60_ZK_765Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<window xmlns:w="http://www.zkoss.org/2005/zk/client">
 				<label multiline="true">
 				1.click show index, the message shows "selected index is undefined, no selection" (currently if selected index is -1 is better, however 'undefined/null' is acceptable.
@@ -102,8 +95,8 @@ class B60_ZK_765Test extends ZTL4ScalaTestCase {
 			</window>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var listbox: Widget = engine.$f("listbox");
         var msg: Widget = engine.$f("msg");
         var btnOne: Widget = engine.$f("btnOne");
@@ -111,21 +104,22 @@ runZTL(zscript,
         var btnThree: Widget = engine.$f("btnThree");
 
         def clickAndWait(wgt: org.zkoss.ztl.ClientWidget) {
-            click(wgt);
-            waitResponse();
+          click(wgt);
+          waitResponse();
         }
+
         clickAndWait(btnTwo);
         verifyTrue("message should be 'selected index is undefined, no selection or ... index is -1 ...'",
-            	jq("$msg:contains(selected index is undefined, no selection)").exists()
-            	|| jq("$msg:contains(selected index is -1)").exists());
+          jq("$msg:contains(selected index is undefined, no selection)").exists()
+            || jq("$msg:contains(selected index is -1)").exists());
         clickAndWait(jq(".z-listitem:contains(Item 1)"));
         clickAndWait(btnTwo);
         verifyTrue("message should be 'selected index is 1, widget selected is true'",
-            	jq("$msg:contains(selected index is 1, widget selected is true)").exists());
+          jq("$msg:contains(selected index is 1, widget selected is true)").exists());
         clickAndWait(btnOne);
         clickAndWait(btnTwo);
         verifyTrue("message should be 'selected index is 1, widget selected is true'",
-            	jq("$msg:contains(selected index is 1, widget selected is true)").exists());
+          jq("$msg:contains(selected index is 1, widget selected is true)").exists());
 
         refresh();
         waitForPageToLoad("10000");
@@ -135,17 +129,17 @@ runZTL(zscript,
 
         clickAndWait(btnThree);
         verifyTrue("message should be 'selected no selection'",
-            	jq("$msg:contains(selected no selection)").exists());
+          jq("$msg:contains(selected no selection)").exists());
         clickAndWait(jq(".z-listitem:contains(Item 1)"));
         clickAndWait(btnThree);
         verifyTrue("message should be 'selected index is 1'",
-            	jq("$msg:contains(selected index is 1)").exists());
+          jq("$msg:contains(selected index is 1)").exists());
         clickAndWait(btnOne);
         clickAndWait(btnThree);
         verifyTrue("message should be 'selected index is 1'",
-            	jq("$msg:contains(selected index is 1)").exists());
-    }
-        
-   );
+          jq("$msg:contains(selected index is 1)").exists());
+      }
+
+    );
   }
 }

@@ -1,23 +1,22 @@
 
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.util.control.Breaks._
-import org.zkoss.ztl.JQuery
-import org.zkoss.ztl.ZK
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
+
 /**
- * there is some diff with origin zul: add width for panel, 
- * or ie will click in wrong position cuz width is not enough 
- * 
- */
+  * there is some diff with origin zul: add width for panel,
+  * or ie will click in wrong position cuz width is not enough
+  *
+  */
 @Tags(tags = "B65-ZK-1462.zul")
 class B65_ZK_1462Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <label>
                       Wait around 1 seconds, should see two panels showed and they are draggable and droppable.
                     </label>

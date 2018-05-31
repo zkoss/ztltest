@@ -16,21 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z30
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug grid-0026
- * @author TonyQ
- *
- */
+  * A test class for bug grid-0026
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z30-grid-0026.zul,Z30,B,E,Grid,IE")
 class Z30_grid_0026Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 			The update of list cell freeze IE.<separator/>
 			
@@ -149,40 +151,40 @@ class Z30_grid_0026Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
-        verifyEquals(jq("@row").length.toString(),"32");
-        
-        verifyEquals(jq("@row:eq(0) @label:eq(0)").text(),"0");
-        
-        
+    runZTL(zscript,
+      () => {
+        verifyEquals(jq("@row").length.toString(), "32");
+
+        verifyEquals(jq("@row:eq(0) @label:eq(0)").text(), "0");
+
+
         click(widget("$add").$n("real"));
         verifyTrue(widget("$add").is("checked"));
         click(jq("$btnStart"));
-        
+
         sleep(3200);
-        
+
         val amount = jq("@row").length;
         click(widget("$add").$n("real"));
         click(widget("$remove").$n("real"));
-        
+
         verifyFalse(widget("$add").$n("real").is("checked"));
         verifyTrue(widget("$remove").$n("real").is("checked"));
-        
-        verifyNotEquals(jq("@row:eq(0) @label:eq(0)").text(),"0");
-        
+
+        verifyNotEquals(jq("@row:eq(0) @label:eq(0)").text(), "0");
+
         sleep(3200);
-        
-        
+
+
         click(jq("$btnStop"));
         waitResponse;
         val newamount = jq("@row").length;
         verifyTrue(newamount < amount);
         sleep(1700);
-        
-        verifyTrue( newamount == jq("@row").length );
-        
-    }
-   );
+
+        verifyTrue(newamount == jq("@row").length);
+
+      }
+    );
   }
 }

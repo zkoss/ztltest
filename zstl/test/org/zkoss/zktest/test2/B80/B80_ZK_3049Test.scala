@@ -24,7 +24,7 @@ class B80_ZK_3049Test extends ZTL4ScalaTestCase {
         click(cb_btn)
         waitResponse(true)
         verifyNotEquals("none", jq(".z-combobox-popup").css("display"))
-    })
+      })
   }
 }
 

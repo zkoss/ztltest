@@ -1,17 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2257.zul")
 class B70_ZK_2257Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2257.zul
@@ -93,26 +92,26 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 
 		</window>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      val button = jq("$target");
-      val popup = jq("@popup");
-      
-      click(button);
-      waitResponse();
-      
-      val bBottom = button.offsetTop() + button.height();
-      val totalHeight = bBottom + popup.height();
-      val windowHeight = Integer.parseInt(getEval("window.innerHeight | Math.max(document.body.clientHeight, document.documentElement.clientHeight)"));
-      
-      println(bBottom + "," + totalHeight + "," + windowHeight);
-      
-      val answer = bBottom < popup.offsetTop() || 
-    		  totalHeight > windowHeight; // height of window is smaller
-      
-      verifyTrue("Popup should be shown start from the bottom of button.", answer)
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        val button = jq("$target");
+        val popup = jq("@popup");
+
+        click(button);
+        waitResponse();
+
+        val bBottom = button.offsetTop() + button.height();
+        val totalHeight = bBottom + popup.height();
+        val windowHeight = Integer.parseInt(getEval("window.innerHeight | Math.max(document.body.clientHeight, document.documentElement.clientHeight)"));
+
+        println(bBottom + "," + totalHeight + "," + windowHeight);
+
+        val answer = bBottom < popup.offsetTop() ||
+          totalHeight > windowHeight; // height of window is smaller
+
+        verifyTrue("Popup should be shown start from the bottom of button.", answer)
+      })
+
   }
 }

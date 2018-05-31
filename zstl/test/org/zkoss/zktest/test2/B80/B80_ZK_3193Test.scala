@@ -19,24 +19,24 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.{Tags, Widget};
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "")
 class B80_ZK_3193Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			val bandbox = jq("@bandbox")
-			click(bandbox.find(".z-bandbox-button"))
-			waitResponse()
+  @Test
+  def test() = {
+    runZTL(() => {
+      val bandbox = jq("@bandbox")
+      click(bandbox.find(".z-bandbox-button"))
+      waitResponse()
       val engine = new Widget(new StringBuffer("zk.Desktop._dt"))
-			val listbox = jq("@listbox")
-			clickAt(listbox, (listbox.width()-5).toString + "," + (listbox.height()-5).toString)
-			waitResponse()
-			click(jq("body"))
-			waitResponse()
-			verifyEquals("", getZKLog)
-		})
-	}
+      val listbox = jq("@listbox")
+      clickAt(listbox, (listbox.width() - 5).toString + "," + (listbox.height() - 5).toString)
+      waitResponse()
+      click(jq("body"))
+      waitResponse()
+      verifyEquals("", getZKLog)
+    })
+  }
 }

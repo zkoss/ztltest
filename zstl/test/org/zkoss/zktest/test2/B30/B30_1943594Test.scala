@@ -14,20 +14,21 @@ it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2.B30
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.util.Scripts
-import org.junit.Test
 
 /**
- *
- * @author jumperchen
- */
+  *
+  * @author jumperchen
+  */
 @Tags(tags = "B30-1943594.zul,A,E,Combobox,Datebox,Calendar")
 class B30_1943594Test extends ZTL4ScalaTestCase {
   @Test
-	def testCase() = {
-		val zscript = """
+  def testCase() = {
+    val zscript =
+      """
 			<window border="none" width="100%" xmlns="http://www.zkoss.org/2005/zul">
 				<html><![CDATA[
 				<ul>
@@ -73,27 +74,27 @@ class B30_1943594Test extends ZTL4ScalaTestCase {
 				<datebox use="MyDate"/>
 			</window>
 		"""
-runZTL(zscript, () => {
-			// test combobox
-			click(jq(jq(".z-combobox").toWidget.$n("btn")))
-			waitResponse()
-			click(jq("@comboitem:eq(0)"))
-			click(jq("$a"))
-			waitResponse()
-			verifyTrue(jq(".z-messagebox").exists())
-			Scripts.triggerMouseEventAt(getWebDriver, jq("@button"), "click", "2,2")
-			waitResponse()
-			verifyFalse(jq(".z-messagebox").exists())
-			
-			// test datebox
-			click(jq(jq(".z-datebox").toWidget.$n("btn")))
-			waitResponse()
-			click(jq("$a"))
-			waitResponse()
-			verifyTrue(jq(".z-messagebox").exists())
-			click(jq("@button"))
-			waitResponse()
-			verifyFalse(jq(".z-messagebox").exists())
-		})
-	}
+    runZTL(zscript, () => {
+      // test combobox
+      click(jq(jq(".z-combobox").toWidget.$n("btn")))
+      waitResponse()
+      click(jq("@comboitem:eq(0)"))
+      click(jq("$a"))
+      waitResponse()
+      verifyTrue(jq(".z-messagebox").exists())
+      Scripts.triggerMouseEventAt(getWebDriver, jq("@button"), "click", "2,2")
+      waitResponse()
+      verifyFalse(jq(".z-messagebox").exists())
+
+      // test datebox
+      click(jq(jq(".z-datebox").toWidget.$n("btn")))
+      waitResponse()
+      click(jq("$a"))
+      waitResponse()
+      verifyTrue(jq(".z-messagebox").exists())
+      click(jq("@button"))
+      waitResponse()
+      verifyFalse(jq(".z-messagebox").exists())
+    })
+  }
 }

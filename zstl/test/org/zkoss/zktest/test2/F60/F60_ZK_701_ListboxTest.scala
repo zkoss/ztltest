@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.F60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-701-Listbox
- * @author benbai
- *
- */
+  * A test class for bug ZK-701-Listbox
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-701-Listbox.zul,F60,A,E,Cloneable,Listbox,Listgroup,GroupModel")
 class F60_ZK_701_ListboxTest extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<vbox id="vb">
 				1. Please close the node of "Seafood".
@@ -100,8 +93,8 @@ class F60_ZK_701_ListboxTest extends ZTL4ScalaTestCase {
 
     """
 
-   runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var btn: Widget = engine.$f("btn");
         var grid: Widget = engine.$f("grid");
         var clonedGrid: Widget = engine.$f("clonedGrid");
@@ -114,8 +107,8 @@ class F60_ZK_701_ListboxTest extends ZTL4ScalaTestCase {
         click(jq(clonedGrid).find(".z-listgroup:contains(Seafood)").toWidget().$n("img"));
         waitResponse();
         verifyTrue("Seafood group of cloned grid should be opened",
-            jq(clonedGrid).find(".z-listgroup:contains(Seafood)").toWidget().$n("img").exists());
-    }
-   );
+          jq(clonedGrid).find(".z-listgroup:contains(Seafood)").toWidget().$n("img").exists());
+      }
+    );
   }
 }

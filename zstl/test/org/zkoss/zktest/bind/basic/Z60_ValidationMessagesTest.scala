@@ -15,12 +15,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 }}IS_RIGHT
 */
 package org.zkoss.zktest.bind.basic
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.ZKSeleneseTestCase
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.Tags
-import org.zkoss.ztl.ClientWidget
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{ClientWidget, Tags}
 
 /**
  * @author pao

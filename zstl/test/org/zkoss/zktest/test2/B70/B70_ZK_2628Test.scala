@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2628.zul")
 class B70_ZK_2628Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -68,46 +66,46 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
   </window>
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-      //open the 1st combobox
-    	click(jq(".z-combobox-button").eq(0))
-    	waitResponse()
-    	//check the combobox popup menu have only text
-    	verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text().length() > 0)
-    	verifyFalse(jq(".z-combobox-popup.z-combobox-open .z-comboitem-image").eq(0).children().exists())
-    	//close the 1st combobox
-    	click(jq(".z-combobox-button").eq(0))
-    	waitResponse()
-    	//open the 2nd combobox
-    	click(jq(".z-combobox-button").eq(1))
-    	waitResponse()
-    	//check the combobox popup menu have text and icon
-    	verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text().length() > 0)
-    	verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-icon").eq(0).children().exists())
-    	//close the 2nd combobox
-    	click(jq(".z-combobox-button").eq(1))
-    	waitResponse()
-    	//open the 3rd combobox
-    	click(jq(".z-combobox-button").eq(2))
-    	waitResponse()
-    	//check the combobox popup menu have text and icon
-    	verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text().length() > 0)
-    	verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-icon").eq(0).children().exists())
-    	//close the 3rd combobox
-    	click(jq(".z-combobox-button").eq(2))
-    	waitResponse()
-    	//open the 4th combobox
-    	click(jq(".z-combobox-button").eq(3))
-    	waitResponse()
-    	//check the combobox popup menu have text, icon, and image
-    	verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text().length() > 0)
-    	verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-icon").eq(0).children().exists())
-    	verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-image").eq(0).children().exists())
-    	//close the 4th combobox
-    	click(jq(".z-combobox-button").eq(3))
-    	waitResponse()
-    })
+"""
+    runZTL(zscript,
+      () => {
+        //open the 1st combobox
+        click(jq(".z-combobox-button").eq(0))
+        waitResponse()
+        //check the combobox popup menu have only text
+        verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text().length() > 0)
+        verifyFalse(jq(".z-combobox-popup.z-combobox-open .z-comboitem-image").eq(0).children().exists())
+        //close the 1st combobox
+        click(jq(".z-combobox-button").eq(0))
+        waitResponse()
+        //open the 2nd combobox
+        click(jq(".z-combobox-button").eq(1))
+        waitResponse()
+        //check the combobox popup menu have text and icon
+        verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text().length() > 0)
+        verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-icon").eq(0).children().exists())
+        //close the 2nd combobox
+        click(jq(".z-combobox-button").eq(1))
+        waitResponse()
+        //open the 3rd combobox
+        click(jq(".z-combobox-button").eq(2))
+        waitResponse()
+        //check the combobox popup menu have text and icon
+        verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text().length() > 0)
+        verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-icon").eq(0).children().exists())
+        //close the 3rd combobox
+        click(jq(".z-combobox-button").eq(2))
+        waitResponse()
+        //open the 4th combobox
+        click(jq(".z-combobox-button").eq(3))
+        waitResponse()
+        //check the combobox popup menu have text, icon, and image
+        verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text().length() > 0)
+        verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-icon").eq(0).children().exists())
+        verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-image").eq(0).children().exists())
+        //close the 4th combobox
+        click(jq(".z-combobox-button").eq(3))
+        waitResponse()
+      })
   }
 }

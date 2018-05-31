@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2810.zul")
 class B70_ZK_2810Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -54,30 +52,30 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     </tabbox>
 </div>
 
-"""  
-  runZTL(zscript,
-    () => {
-    	//init state, check 1st tabpanel have the same height as its content
-      verifyEquals(jq(".z-tabpanel").eq(0).height(), jq(".z-tabpanel > .z-div").eq(0).height());
-      println(jq(".z-tabpanel").eq(0).height());
-      //switch to 2nd tab
-      click(jq(".z-tab").eq(1))
-      waitResponse()
-      //check 2nd tabpanel have the same height as its content
-      verifyEquals(jq(".z-tabpanel").eq(1).height(), jq(".z-tabpanel > .z-div").eq(1).height());
-      println(jq(".z-tabpanel").eq(1).height());
-      //switch to 3rd tab
-      click(jq(".z-tab").eq(2))
-      waitResponse()
-      //check 3rd tabpanel have the same height as its content
-      verifyEquals(jq(".z-tabpanel").eq(2).height(), jq(".z-tabpanel > .z-div").eq(2).height());
-      println(jq(".z-tabpanel").eq(2).height());
-      //switch back to 1st tab
-      click(jq(".z-tab").eq(0))
-      waitResponse()
-      //check 1st tabpanel have the same height as its content
-      verifyEquals(jq(".z-tabpanel").eq(0).height(), jq(".z-tabpanel > .z-div").eq(0).height());
-      println(jq(".z-tabpanel").eq(0).height());
-    })
+"""
+    runZTL(zscript,
+      () => {
+        //init state, check 1st tabpanel have the same height as its content
+        verifyEquals(jq(".z-tabpanel").eq(0).height(), jq(".z-tabpanel > .z-div").eq(0).height());
+        println(jq(".z-tabpanel").eq(0).height());
+        //switch to 2nd tab
+        click(jq(".z-tab").eq(1))
+        waitResponse()
+        //check 2nd tabpanel have the same height as its content
+        verifyEquals(jq(".z-tabpanel").eq(1).height(), jq(".z-tabpanel > .z-div").eq(1).height());
+        println(jq(".z-tabpanel").eq(1).height());
+        //switch to 3rd tab
+        click(jq(".z-tab").eq(2))
+        waitResponse()
+        //check 3rd tabpanel have the same height as its content
+        verifyEquals(jq(".z-tabpanel").eq(2).height(), jq(".z-tabpanel > .z-div").eq(2).height());
+        println(jq(".z-tabpanel").eq(2).height());
+        //switch back to 1st tab
+        click(jq(".z-tab").eq(0))
+        waitResponse()
+        //check 1st tabpanel have the same height as its content
+        verifyEquals(jq(".z-tabpanel").eq(0).height(), jq(".z-tabpanel > .z-div").eq(0).height());
+        println(jq(".z-tabpanel").eq(0).height());
+      })
   }
 }

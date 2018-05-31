@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1905.zul")
 class B65_ZK_1905Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B65-ZK-1905.zul
@@ -36,24 +37,24 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
 		4. Remove that item you selected by clicking the close icon, and the "-------" text should not appear there (when focused)
 		</label>
 		<chosenbox id="cbx" width="500px" model="${model}" emptyMessage="------------------"/>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      val inp = jq(".z-chosenbox").toWidget().$n("inp")
-      click(inp)
-      waitResponse()
-      verifyTrue("the '--------' text should be removed", !inp.get("value").contains("-"))
-      blur(inp)
-      waitResponse()
-      verifyTrue("the '--------' text should appear again", inp.get("value").contains("-"))
-      click(inp)
-      waitResponse()
-      click(jq(".z-chosenbox-option:eq(0)"))
-      waitResponse()
-      click(jq(".z-chosenbox-delete"))
-      waitResponse()
-      verifyTrue("the '--------' text should not appear", !inp.get("value").contains("-"))
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+        val inp = jq(".z-chosenbox").toWidget().$n("inp")
+        click(inp)
+        waitResponse()
+        verifyTrue("the '--------' text should be removed", !inp.get("value").contains("-"))
+        blur(inp)
+        waitResponse()
+        verifyTrue("the '--------' text should appear again", inp.get("value").contains("-"))
+        click(inp)
+        waitResponse()
+        click(jq(".z-chosenbox-option:eq(0)"))
+        waitResponse()
+        click(jq(".z-chosenbox-delete"))
+        waitResponse()
+        verifyTrue("the '--------' text should not appear", !inp.get("value").contains("-"))
+      })
+
   }
 }

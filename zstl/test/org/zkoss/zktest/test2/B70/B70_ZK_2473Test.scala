@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2473.zul")
 class B70_ZK_2473Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <zk>
 	<label multiline="true">
@@ -23,13 +21,13 @@ def testClick() = {
 </zk>
 
 """
-  runZTL(zscript,
-    () => {
-      var label = jq("label > span").first();
+    runZTL(zscript,
+      () => {
+        var label = jq("label > span").first();
 
-      verifyTrue(label.length() > 0 && label.text().contains("Included content"));
-      
-    })
-    
+        verifyTrue(label.length() > 0 && label.text().contains("Included content"));
+
+      })
+
   }
 }

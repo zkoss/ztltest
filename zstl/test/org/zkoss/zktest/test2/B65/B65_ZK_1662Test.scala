@@ -1,17 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.JQuery
-import org.zkoss.ztl.Element
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1662.zul")
 class B65_ZK_1662Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 	<label multiline="true">
 	1. Move Window C to center.
 	2. Overlap Window B on Window C partially.
@@ -35,7 +34,7 @@ class B65_ZK_1662Test extends ZTL4ScalaTestCase {
 
         dragdropTo(winC, "10,10", "200,200")
         dragdropTo(winB, "10,10", "200,200")
-        
+
         val b_Zinx = jq(".z-window-overlapped:contains(B)").css("z-index")
         val c_Zinx = jq(".z-window-overlapped:contains(C)").css("z-index")
 

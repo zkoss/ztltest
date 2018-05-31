@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-543
- * @author benbai
- *
- */
+  * A test class for bug ZK-543
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-543.zul,B,E,Listbox,sizedByContent,VisionTest")
 class B50_ZK_543Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 			<div>There should no extra space below the last row of the listbox.</div>
 				<listbox id="listbox" width="400px" sizedByContent="true"
@@ -86,12 +80,12 @@ class B50_ZK_543Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript, () => {
-			var listbox: Widget = engine.$f("listbox");
+    runZTL(zscript, () => {
+      var listbox: Widget = engine.$f("listbox");
 
-			// IE may have few pixel below
-			verifyTrue("the body height should equal to cave height",
-			    Math.abs(jq(listbox.$n("body")).outerHeight() - jq(listbox.$n("cave")).outerHeight()) < 3);
-		})
+      // IE may have few pixel below
+      verifyTrue("the body height should equal to cave height",
+        Math.abs(jq(listbox.$n("body")).outerHeight() - jq(listbox.$n("cave")).outerHeight()) < 3);
+    })
   }
 }

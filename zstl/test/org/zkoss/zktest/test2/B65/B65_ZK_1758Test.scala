@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1758.zul")
 class B65_ZK_1758Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B65-ZK-1758.zul
@@ -60,12 +61,12 @@ You should see '#lb listitem 2' and '#lb > listitem 2' below, not '#lb > listite
 	]]></zscript>
 
 </window>
-"""  
-  runZTL(zscript,
-    () => {
-      verifyTrue("You should see '#lb listitem 2' and '#lb > listitem 2' below, not '#lb > listitem 5'", 
+"""
+    runZTL(zscript,
+      () => {
+        verifyTrue("You should see '#lb listitem 2' and '#lb > listitem 2' below, not '#lb > listitem 5'",
           jq(".z-hbox .z-label:contains(2)").length() == 2)
-    })
-    
+      })
+
   }
 }

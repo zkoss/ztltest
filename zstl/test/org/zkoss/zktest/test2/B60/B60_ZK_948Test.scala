@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-948
- * @author benbai
- *
- */
+  * A test class for bug ZK-948
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-948.zul,B,E,Selectbox")
 class B60_ZK_948Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<div>1. Click on the 'Do modal' button.</div>
 				<div>2. Check selectbox has data. Select some value. Close the window.</div>
@@ -121,7 +114,7 @@ class B60_ZK_948Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
+      () => {
         var sbx: Widget = engine.$f("sbx");
         var lb1: Widget = engine.$f("lb1");
         var lb2: Widget = engine.$f("lb2");
@@ -130,31 +123,40 @@ class B60_ZK_948Test extends ZTL4ScalaTestCase {
         var btn3: Widget = engine.$f("btn3");
         var btn4: Widget = engine.$f("btn4");
         var btn5: Widget = engine.$f("btn5");
-        
-        def selectItem (sbx: Widget, lb: Widget, idx: Int) {
-        	select(sbx, "Tony")
+
+        def selectItem(sbx: Widget, lb: Widget, idx: Int) {
+          select(sbx, "Tony")
         }
-        def checkSelbox () {
+
+        def checkSelbox() {
           verifyTrue("Select box has items",
-              jq(sbx).find("option").length() == 5);
+            jq(sbx).find("option").length() == 5);
         }
-        click(btn1); waitResponse();
-        selectItem (sbx, lb2, 0);
-        checkSelbox();
-        click(jq(".z-window-modal").toWidget().$n("close")); waitResponse();
 
-        click(btn1); waitResponse();
+        click(btn1);
+        waitResponse();
+        selectItem(sbx, lb2, 0);
         checkSelbox();
-        click(jq(".z-window-modal").toWidget().$n("close")); waitResponse();
+        click(jq(".z-window-modal").toWidget().$n("close"));
+        waitResponse();
 
-        click(btn3); waitResponse();
+        click(btn1);
+        waitResponse();
         checkSelbox();
-        click(btn4); waitResponse();
+        click(jq(".z-window-modal").toWidget().$n("close"));
+        waitResponse();
+
+        click(btn3);
+        waitResponse();
         checkSelbox();
-        click(btn5); waitResponse();
+        click(btn4);
+        waitResponse();
+        checkSelbox();
+        click(btn5);
+        waitResponse();
         checkSelbox();
 
-    }
-   );
+      }
+    );
   }
 }

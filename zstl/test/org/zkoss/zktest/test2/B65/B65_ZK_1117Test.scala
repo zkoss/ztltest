@@ -1,13 +1,9 @@
 package org.zkoss.zktest.test2.B65
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.openqa.selenium.By
-import org.openqa.selenium.internal.Locatable
-import org.openqa.selenium.interactions.HasTouchScreen
-import org.zkoss.ztl.util.Scripts
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZK
+
 import org.junit.Test
+import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1117.zul")
 class B65_ZK_1117Test extends ZTL4ScalaTestCase {

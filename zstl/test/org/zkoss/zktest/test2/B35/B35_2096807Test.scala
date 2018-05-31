@@ -18,20 +18,20 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
 
 
 /**
- * A test class for bug 2096807
- * @author ldnigro
- *
- */
+  * A test class for bug 2096807
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2096807.zul,A,E,Borderlayout,Paging")
 class B35_2096807Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -72,71 +72,71 @@ List items = new org.zkoss.zktest.test2.BigList(100); //a big list ofInteger
     """
 
     runZTL(zscript,
-        () => {
-        	
-            waitResponse();
-            var nextd=jq("[name=" + jq("@paging").attr("id") + "-next][disabled=disabled]")
-            var next=jq("[name=" + jq("@paging").attr("id") + "-next]")
-            
-            //Previous disabled in first page
-            var firstd=jq("[name=" + jq("@paging").attr("id") + "-first][disabled=disabled]")
-            var first=jq("[name=" + jq("@paging").attr("id") + "-first]")
-            
-            var lastd=jq("[name=" + jq("@paging").attr("id") + "-last][disabled=disabled]")
-            var last=jq("[name=" + jq("@paging").attr("id") + "-last]")
-            
-            var prevd=jq("[name=" + jq("@paging").attr("id") + "-prev][disabled=disabled]")
-            var prev=jq("[name=" + jq("@paging").attr("id") + "-prev]")
-            
-            //Verify disabled and enabled pagging buttons
-            var nd=nextd.exists();
-            var n=next.exists();
-            verifyFalse(nd);
-            verifyTrue(n);
-            
-            var ld=lastd.exists();
-            var l=last.exists();
-            verifyFalse(ld);
-            verifyTrue(l);
-           
-            //first & prev are disabled 
-            var fd=firstd.exists();
-            verifyTrue(fd);
-            
-            var pd=prevd.exists();
-            verifyTrue(pd);
-            
-            //click next button
-        	click(next);
-        	waitResponse();
-        	
-        	//Verify all pagging enabled
-            verifyFalse(nextd.exists());
-            verifyTrue(next.exists());
-            
-            verifyFalse(lastd.exists());
-            verifyTrue(last.exists());
-            
-            verifyFalse(firstd.exists());
-            verifyTrue(first.exists());
-            
-            verifyFalse(prevd.exists());
-            verifyTrue(prev.exists());
-        	        	
-            click(last);
-        	waitResponse();
-        	
-        	//Verify last & next disabled
-            verifyTrue(nextd.exists());
-            verifyTrue(lastd.exists());
-            
-            verifyFalse(firstd.exists());
-            verifyTrue(first.exists());
-            
-            verifyFalse(prevd.exists());
-            verifyTrue(prev.exists());
-                   
-        }
+      () => {
+
+        waitResponse();
+        var nextd = jq("[name=" + jq("@paging").attr("id") + "-next][disabled=disabled]")
+        var next = jq("[name=" + jq("@paging").attr("id") + "-next]")
+
+        //Previous disabled in first page
+        var firstd = jq("[name=" + jq("@paging").attr("id") + "-first][disabled=disabled]")
+        var first = jq("[name=" + jq("@paging").attr("id") + "-first]")
+
+        var lastd = jq("[name=" + jq("@paging").attr("id") + "-last][disabled=disabled]")
+        var last = jq("[name=" + jq("@paging").attr("id") + "-last]")
+
+        var prevd = jq("[name=" + jq("@paging").attr("id") + "-prev][disabled=disabled]")
+        var prev = jq("[name=" + jq("@paging").attr("id") + "-prev]")
+
+        //Verify disabled and enabled pagging buttons
+        var nd = nextd.exists();
+        var n = next.exists();
+        verifyFalse(nd);
+        verifyTrue(n);
+
+        var ld = lastd.exists();
+        var l = last.exists();
+        verifyFalse(ld);
+        verifyTrue(l);
+
+        //first & prev are disabled
+        var fd = firstd.exists();
+        verifyTrue(fd);
+
+        var pd = prevd.exists();
+        verifyTrue(pd);
+
+        //click next button
+        click(next);
+        waitResponse();
+
+        //Verify all pagging enabled
+        verifyFalse(nextd.exists());
+        verifyTrue(next.exists());
+
+        verifyFalse(lastd.exists());
+        verifyTrue(last.exists());
+
+        verifyFalse(firstd.exists());
+        verifyTrue(first.exists());
+
+        verifyFalse(prevd.exists());
+        verifyTrue(prev.exists());
+
+        click(last);
+        waitResponse();
+
+        //Verify last & next disabled
+        verifyTrue(nextd.exists());
+        verifyTrue(lastd.exists());
+
+        verifyFalse(firstd.exists());
+        verifyTrue(first.exists());
+
+        verifyFalse(prevd.exists());
+        verifyTrue(prev.exists());
+
+      }
     );
-   }
+  }
 }

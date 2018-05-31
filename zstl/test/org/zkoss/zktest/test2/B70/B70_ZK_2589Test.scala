@@ -1,21 +1,18 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2589.zul")
 class B70_ZK_2589Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  runZTL(() => {
+  @Test
+  def testClick() = {
+    runZTL(() => {
       var tree = jq("@tree");
       verScroll(tree, 10);
-      
+
       click(jq(".z-treerow .z-tree-icon").eq(7));
       waitResponse();
       click(jq(".z-treerow .z-tree-icon").eq(7));
@@ -29,6 +26,6 @@ def testClick() = {
       verifyTrue(jq(".z-treerow").last().isVisible());
       verifyTrue(jq(".z-treerow").last().find(".z-label").eq(0).text() == "test-60");
     })
-    
+
   }
 }

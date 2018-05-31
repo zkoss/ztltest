@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Element, Tags, Widget}
 
 /**
- * A test class for bug 3330762
- * @author benbai
- *
- */
+  * A test class for bug 3330762
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3330762.zul,A,E,Doublespinner")
 class B50_3330762Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 
 			<zk>
 				<label id="outer" value="outer" />
@@ -59,7 +53,7 @@ class B50_3330762Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var outer: Widget = engine.$f("outer");
         var ds: Widget = engine.$f("ds");
         var btn: Widget = engine.$f("btn");
@@ -68,7 +62,8 @@ class B50_3330762Test extends ZTL4ScalaTestCase {
 
         click(dsInp);
         dsInp.eval("value=1");
-        click(outer); waitResponse();
+        click(outer);
+        waitResponse();
         clickThenCheck("1.0");
 
         click(ds.$n("btn-up"));
@@ -76,18 +71,18 @@ class B50_3330762Test extends ZTL4ScalaTestCase {
         clickThenCheck("1.1");
 
         def clickThenCheck(value: String) {
-        	click(btn);
-        	waitResponse();
+          click(btn);
+          waitResponse();
 
-        	verifyTrue("the value of label should equal to the value of doublespinner",
-        	    value.equals(getText(lb)));
-        	verifyFalse("should not have Exception",
-        	    jq(".z-window-highlighted").exists());
-        	verifyFalse("should not have Exception",
-        	    jq(".z-window-modal").exists())
+          verifyTrue("the value of label should equal to the value of doublespinner",
+            value.equals(getText(lb)));
+          verifyFalse("should not have Exception",
+            jq(".z-window-highlighted").exists());
+          verifyFalse("should not have Exception",
+            jq(".z-window-modal").exists())
         }
-    }
-   );
+      }
+    );
 
   }
 }

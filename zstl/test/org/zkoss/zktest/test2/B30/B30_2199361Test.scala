@@ -18,19 +18,15 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
-import org.zkoss.ztl.ZK
-import org.zkoss.ztl.util.Scripts
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-2199361.zul,B,E,Window,Button")
 class B30_2199361Test extends ZTL4ScalaTestCase {
   def testClick() = {
-  	target = ch.getServer() + ch.getContextPath() + "/test2/B30-2199361.zul"
+    target = ch.getServer() + ch.getContextPath() + "/test2/B30-2199361.zul"
     val zscript = ""
     runZTL(zscript, () => {
       // Verify the existence of the "Hello, Initiator" label. Should be a count of 2 because of the explanation label

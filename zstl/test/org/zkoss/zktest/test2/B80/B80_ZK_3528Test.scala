@@ -8,7 +8,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
   */
 class B80_ZK_3528Test extends ZTL4ScalaTestCase {
 
-  def test () = {
+  def test() = {
     runZTL(() => {
       click(jq("@listitem"))
       waitResponse()

@@ -18,13 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author chunfu
- */
+  *
+  * @author chunfu
+  */
 @Tags(tags = "")
 class B70_ZK_2764_1Test extends ZTL4ScalaTestCase {
-	def testCase() = {
-		val zscript = """
+  def testCase() = {
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -55,25 +56,25 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 </zk>
 
 """
-runZTL(zscript, () => {
-			click(jq(".z-treerow .z-tree-icon"));
-			waitResponse();
-			click(jq(".z-treerow .z-tree-icon").eq(1));
-			waitResponse()
-			click(jq(".z-treerow .z-tree-icon").eq(4));
-			waitResponse()
-			verifyEquals(" node 1 (3) node 1.1 (2) node 1.1.1 (0) node 1.1.2 (1) node 2 (5) node 2.1 (4) node 3 (7) node 4 (9) node 5 (11)",
-				jq(".z-treecell-text").text())
+    runZTL(zscript, () => {
+      click(jq(".z-treerow .z-tree-icon"));
+      waitResponse();
+      click(jq(".z-treerow .z-tree-icon").eq(1));
+      waitResponse()
+      click(jq(".z-treerow .z-tree-icon").eq(4));
+      waitResponse()
+      verifyEquals(" node 1 (3) node 1.1 (2) node 1.1.1 (0) node 1.1.2 (1) node 2 (5) node 2.1 (4) node 3 (7) node 4 (9) node 5 (11)",
+        jq(".z-treecell-text").text())
 
-			click(jq("@button"))
-			waitResponse()
-			verifyEquals(" node 1 (3). node 1.1 (2). node 1.1.1 (0). node 1.1.2 (1). node 2 (5) node 2.1 (4) node 3 (7) node 4 (9) node 5 (11)",
-				jq(".z-treecell-text").text())
+      click(jq("@button"))
+      waitResponse()
+      verifyEquals(" node 1 (3). node 1.1 (2). node 1.1.1 (0). node 1.1.2 (1). node 2 (5) node 2.1 (4) node 3 (7) node 4 (9) node 5 (11)",
+        jq(".z-treecell-text").text())
 
-			click(jq("@button").eq(1))
-			waitResponse()
-			verifyEquals(" node 1 (16) node 1.1 (15) node 1.1.1 (13) node 1.1.2 (14) node 2 (18) node 2.1 (17) node 3 (20) node 4 (22) node 5 (24)",
-				jq(".z-treecell-text").text())
-		})
-	}
+      click(jq("@button").eq(1))
+      waitResponse()
+      verifyEquals(" node 1 (16) node 1.1 (15) node 1.1.1 (13) node 1.1.2 (14) node 2 (18) node 2.1 (17) node 3 (20) node 4 (22) node 5 (24)",
+        jq(".z-treecell-text").text())
+    })
+  }
 }

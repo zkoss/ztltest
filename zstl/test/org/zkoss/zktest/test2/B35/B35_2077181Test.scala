@@ -16,22 +16,24 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.util.Scripts
-import org.junit.Test
 
 /**
- * A test class for bug 2077181
- * @author ldnigro
- *
- */
+  * A test class for bug 2077181
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2077181.zul,B,E,Window,Tabbox")
 class B35_2077181Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 <?page id="testZul" title=" New ZUL Title" cacheable="false" 
 	language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
@@ -227,42 +229,42 @@ Today's ceremony was also repeatedly interrupted as another guest SA Labor MP Ni
     """
 
     runZTL(zscript,
-        () => {
-        	
-        	var lb=jq("$popup").offsetLeft();
-        	var tb=jq("$popup").offsetTop();
-          
-            //click popup button
-            click(jq("$popup"));
-            
-            var st=System.currentTimeMillis();
-        	waitResponse();
-        	var end=System.currentTimeMillis()-st;
-        	
-        	var la=jq("$popup").offsetLeft();
-        	var ta=jq("$popup").offsetTop();
-        	verifyEquals(lb,la);
-        	verifyEquals(tb,ta);
-        	
-        	//Window is popup, response time < 3 seconds
-        	verifyTrue(jq(".z-window-popup").isVisible());
-        	verifyTrue(end<3000);
-        	
-        	//click Embedded button
-        	// cannot use click() in this case
-        	Scripts.triggerMouseEventAt(driver, jq("$embed"), "click", "2,2");
-        	
-            waitResponse();
-            
-            //Window is popup, response time < 3 seconds
-        	verifyTrue(jq(".z-window-embedded").isVisible());
-            
-        	var la1=jq("$popup").offsetLeft();
-        	var ta1=jq("$popup").offsetTop();
-        	verifyEquals(lb,la1);
-        	verifyEquals(tb,ta1);
-        	
-        }
+      () => {
+
+        var lb = jq("$popup").offsetLeft();
+        var tb = jq("$popup").offsetTop();
+
+        //click popup button
+        click(jq("$popup"));
+
+        var st = System.currentTimeMillis();
+        waitResponse();
+        var end = System.currentTimeMillis() - st;
+
+        var la = jq("$popup").offsetLeft();
+        var ta = jq("$popup").offsetTop();
+        verifyEquals(lb, la);
+        verifyEquals(tb, ta);
+
+        //Window is popup, response time < 3 seconds
+        verifyTrue(jq(".z-window-popup").isVisible());
+        verifyTrue(end < 3000);
+
+        //click Embedded button
+        // cannot use click() in this case
+        Scripts.triggerMouseEventAt(driver, jq("$embed"), "click", "2,2");
+
+        waitResponse();
+
+        //Window is popup, response time < 3 seconds
+        verifyTrue(jq(".z-window-embedded").isVisible());
+
+        var la1 = jq("$popup").offsetLeft();
+        var ta1 = jq("$popup").offsetTop();
+        verifyEquals(lb, la1);
+        verifyEquals(tb, ta1);
+
+      }
     );
-   }
+  }
 }

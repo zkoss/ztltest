@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-726.zul")
 class B60_ZK_726Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk xmlns:w="client">
+    val zscript =
+      """<zk xmlns:w="client">
                     <div>
                       You should see the busy loading sign on the dummy div.
                     </div>

@@ -19,13 +19,13 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
     runZTL(() => {
       click(jq(".z-datebox-button:eq(0)"))
       waitResponse()
-      verifyEquals(jq(".z-calendar-selected:eq(0)").text(),"1")
+      verifyEquals(jq(".z-calendar-selected:eq(0)").text(), "1")
       waitResponse()
       click(jq("body"))
       waitResponse()
       click(jq(".z-datebox-button:eq(1)"))
       waitResponse()
-      verifyEquals(jq(".z-calendar-selected:eq(0)").text(),"1")
+      verifyEquals(jq(".z-calendar-selected:eq(0)").text(), "1")
       waitResponse()
     })
   }

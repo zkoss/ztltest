@@ -16,31 +16,26 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
-import java.util.Calendar;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.{ArrayList, Calendar, List}
+
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{JQuery, Tags, Widget}
+
+import scala.collection.JavaConversions._;
 
 /**
- * A test class for bug 3053313
- * @author benbai
- *
- */
+  * A test class for bug 3053313
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3053313.zul,A,E,Calendar,Datebox,Constraint")
 class B50_3053313Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 
 			<zk>
 			<hbox>No Past:
@@ -59,7 +54,7 @@ class B50_3053313Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var dtbx1: Widget = engine.$f("dtbx1");
         var dtbx2: Widget = engine.$f("dtbx2");
         var dtbx3: Widget = engine.$f("dtbx3");
@@ -71,43 +66,43 @@ class B50_3053313Test extends ZTL4ScalaTestCase {
         waitResponse();
         var calRows: Array[JQuery] = jq(dtbx3.$n("pp")).find("tbody tr").toArray[JQuery];
         var today: Int = jq(".z-calendar-selected").last().text().toInt;
-        
-        var l: List[JQuery]  = new ArrayList();
+
+        var l: List[JQuery] = new ArrayList();
         for (i <- 0 until calRows.length) {
-        	l.addAll(calRows(i).find("td").toList);
+          l.addAll(calRows(i).find("td").toList);
         }
         var foundToday: Boolean = false;
         for (j <- 0 until l.size()) {
-            var td = l.get(j).get(0);
-            var clsnm: String = td.get("className")
-	          if (jq(td).isVisible()) {
-	            dt1 = Integer.parseInt(td.get("innerHTML"));
-	            if (!foundToday) {
-	              verifyFalse("for third datebox, today and all pass day should be selectable",
-	                clsnm.contains("z-calendar-disabled"));
-	              foundToday = (dt1 == today) && (!clsnm.contains("z-calendar-outside"));
-	            } else {
-	              verifyTrue("for third datebox, all future day should be unselectable",
-	                clsnm.contains("z-calendar-disabled"));
-	            }
-	          }
+          var td = l.get(j).get(0);
+          var clsnm: String = td.get("className")
+          if (jq(td).isVisible()) {
+            dt1 = Integer.parseInt(td.get("innerHTML"));
+            if (!foundToday) {
+              verifyFalse("for third datebox, today and all pass day should be selectable",
+                clsnm.contains("z-calendar-disabled"));
+              foundToday = (dt1 == today) && (!clsnm.contains("z-calendar-outside"));
+            } else {
+              verifyTrue("for third datebox, all future day should be unselectable",
+                clsnm.contains("z-calendar-disabled"));
+            }
+          }
         }
 
         click(dtbx2.$n("btn"));
         waitResponse();
         dt1 = Integer.parseInt(jq(dtbx2.$n("pp"))
-        		.find(".z-calendar-disabled").get(0).get("innerHTML"));
+          .find(".z-calendar-disabled").get(0).get("innerHTML"));
         verifyTrue("for second datebox, the only unselectable date should be today",
-            (dt1 == today) && (jq(dtbx2.$n("pp")).find(".z-calendar-disabled").length() == 1));
+          (dt1 == today) && (jq(dtbx2.$n("pp")).find(".z-calendar-disabled").length() == 1));
 
         click(dtbx1.$n("btn"));
         waitResponse();
         dt1 = Integer.parseInt(jq(dtbx1.$n("pp"))
-        		.find(".z-calendar-disabled").last().get(0).get("innerHTML"));
+          .find(".z-calendar-disabled").last().get(0).get("innerHTML"));
         verifyTrue("for first datebox, the last unselectable date should be yesterday",
-            (today - dt1 == 1) || ( (today == 1) && (31 - dt1 <= 3) ));
-    }
-   );
+          (today - dt1 == 1) || ((today == 1) && (31 - dt1 <= 3)));
+      }
+    );
 
   }
 }

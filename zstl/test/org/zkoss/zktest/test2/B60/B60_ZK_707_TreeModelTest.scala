@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-707-TreeModel
- * @author benbai
- *
- */
+  * A test class for bug ZK-707-TreeModel
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-707-TreeModel.zul,A,E,TreeModel,TreeSelectableModel,TreeOpenableModel,Tree,ROD")
 class B60_ZK_707_TreeModelTest extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<window title="Test share TreeModel" border="normal">
 			<zscript><![CDATA[
 			ListModelList lm = new ListModelList(Arrays.asList(new String[]{"David", "Thomas","Steven"}));
@@ -76,25 +69,25 @@ class B60_ZK_707_TreeModelTest extends ZTL4ScalaTestCase {
 
     """
 
-   runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var treeOne: Widget = engine.$f("treeOne");
         var treeTwo: Widget = engine.$f("treeTwo");
 
         click(jq(treeOne).find(".z-treerow").toWidget().$n("icon"));
         waitResponse();
         verifyTrue("First tree should opened",
-            jq(treeOne).find(".z-treerow").toWidget().$n("icon").exists());
+          jq(treeOne).find(".z-treerow").toWidget().$n("icon").exists());
         verifyTrue("Second Tree should opened as first tree",
-            jq(treeTwo).find(".z-treerow").toWidget().$n("icon").exists());
+          jq(treeTwo).find(".z-treerow").toWidget().$n("icon").exists());
 
         click(jq(treeTwo).find(".z-treerow").toWidget().$n("icon"));
         waitResponse();
         verifyTrue("Second tree should closed",
-            jq(treeTwo).find(".z-treerow").toWidget().$n("icon").exists());
+          jq(treeTwo).find(".z-treerow").toWidget().$n("icon").exists());
         verifyTrue("First Tree should closed as second tree",
-            jq(treeOne).find(".z-treerow").toWidget().$n("icon").exists());
-    }
-   );
+          jq(treeOne).find(".z-treerow").toWidget().$n("icon").exists());
+      }
+    );
   }
 }

@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1071.zul")
 class B60_ZK_1071Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B60-ZK-1071.zul
@@ -59,22 +60,22 @@ Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 	</vbox>
 </window>
 
-"""  
-  runZTL(zscript,
-    () => {
-      val bb = jq(".z-bandbox")
-      click(bb)
-      waitResponse()
-      click(jq(".z-listitem:contains(B)"))
-      waitResponse()
-      verifyTrue("the bandbox value should become 'B'", 
+"""
+    runZTL(zscript,
+      () => {
+        val bb = jq(".z-bandbox")
+        click(bb)
+        waitResponse()
+        click(jq(".z-listitem:contains(B)"))
+        waitResponse()
+        verifyTrue("the bandbox value should become 'B'",
           bb.toWidget().$n("real").get("value") == "B")
-      click(jq(".z-button:eq(0)"))
-      waitResponse()
-      verifyTrue("it should pop up a 'value:B' messagebox", 
+        click(jq(".z-button:eq(0)"))
+        waitResponse()
+        verifyTrue("it should pop up a 'value:B' messagebox",
           jq(".z-messagebox-window .z-label").text().contains("value:B"))
-      
-    })
-    
+
+      })
+
   }
 }

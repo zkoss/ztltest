@@ -16,25 +16,25 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B85_ZK_3635Test extends ZTL4ScalaTestCase {
 
-	@Test
-	def test(): Unit = {
-		runZTL(() => {
-			click(jq(".z-bandbox-button"))
-			waitResponse(true)
+  @Test
+  def test(): Unit = {
+    runZTL(() => {
+      click(jq(".z-bandbox-button"))
+      waitResponse(true)
 
-			click(jq(".z-textbox").eq(0))
-			waitResponse(true)
+      click(jq(".z-textbox").eq(0))
+      waitResponse(true)
 
-			pressTab()
-			pressTab()
+      pressTab()
+      pressTab()
 
-			verifyTrue(jq(".z-bandpopup").exists())
-			verifyTrue(jq(".z-textbox").eq(1).is(":focus"))
-		})
-	}
+      verifyTrue(jq(".z-bandpopup").exists())
+      verifyTrue(jq(".z-textbox").eq(1).is(":focus"))
+    })
+  }
 
-	def pressTab(): Unit = {
-		keyPressNative("9")
-		waitResponse(true)
-	}
+  def pressTab(): Unit = {
+    keyPressNative("9")
+    waitResponse(true)
+  }
 }

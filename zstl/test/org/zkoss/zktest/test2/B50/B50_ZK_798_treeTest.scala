@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B50
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B50-ZK-798-tree.zul")
 class B50_ZK_798_treeTest extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <h:pre xmlns:h="xhtml">
                       1.Select latest treeitem 
 		2.Click the button in the page bottom
@@ -70,7 +71,7 @@ class B50_ZK_798_treeTest extends ZTL4ScalaTestCase {
         click(jq(".z-button:contains(invalidate)"))
         sleep(200)
         waitResponse()
-        
+
         verifyNotEquals("The scrollTop shouldn't move to first listitem after click the button.", jq("body").css("scrollTop"), 0)
       })
 

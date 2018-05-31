@@ -7,18 +7,19 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B70-ZK-2746.zul")
 class B70_ZK_2746Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
     <include src="/test2/B70-ZK-2746.zul"/>
   """
-  runZTL(zscript,
-    () => {
-      click(jq("@button:first"))
-      waitResponse()
-      click(jq("@button:last"))
-      waitResponse()
-      verifyEquals(2, jq(".z-errorbox").length())
-    })
+    runZTL(zscript,
+      () => {
+        click(jq("@button:first"))
+        waitResponse()
+        click(jq("@button:last"))
+        waitResponse()
+        verifyEquals(2, jq(".z-errorbox").length())
+      })
   }
 }

@@ -13,8 +13,10 @@ This program is distributed under LGPL Version 3.0 in the hope that
 it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2.B70
+
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
+
 /**
   * @author chunfu
   */

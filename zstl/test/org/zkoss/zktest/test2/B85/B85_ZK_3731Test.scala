@@ -16,7 +16,7 @@ import org.zkoss.ztl.Tags
 Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
 @Tags(tags = "")
-class B85_ZK_3731Test extends ZTL4ScalaTestCase  {
+class B85_ZK_3731Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit = {
     runZTL(executor = () => {
@@ -25,7 +25,7 @@ class B85_ZK_3731Test extends ZTL4ScalaTestCase  {
         waitResponse();
       }
       var number = driver.getWindowHandles.size();
-      verifyEquals(number,10);
+      verifyEquals(number, 10);
     })
   }
 }

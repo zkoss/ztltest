@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.F65
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "F65-ZK-1351.zul")
 class F65_ZK_1351Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 F65-ZK-1351.zul

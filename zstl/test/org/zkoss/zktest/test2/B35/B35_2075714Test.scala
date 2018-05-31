@@ -16,21 +16,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.JQuery
-import org.junit.Test
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B35-2075714.zul,B,E,Window,Button")
 class B35_2075714Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd">
         Tabbox accordion-lite Test
         <groupbox>
@@ -171,7 +170,7 @@ The second panel
         </window>
       </zk>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       // Verify that there is not an error message
       verifyFalse(jq(".z-error").exists());
 

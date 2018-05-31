@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2509.zul")
 class B70_ZK_2509Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <zk>
     <custom-attributes org.zkoss.zul.nativebar="true"/>
@@ -37,17 +35,17 @@ def testClick() = {
     </grid>
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-      val grid = jq(".z-grid")
-      var width = jq(jq(".z-column").get(2)).width();
-      nativeFrozenScroll(grid, 2860);
-      waitResponse();
-      nativeFrozenScroll(grid, -2860);
-      verifyTrue(jq(jq(".z-column").get(2)).width() == width);
-      
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        val grid = jq(".z-grid")
+        var width = jq(jq(".z-column").get(2)).width();
+        nativeFrozenScroll(grid, 2860);
+        waitResponse();
+        nativeFrozenScroll(grid, -2860);
+        verifyTrue(jq(jq(".z-column").get(2)).width() == width);
+
+      })
+
   }
 }

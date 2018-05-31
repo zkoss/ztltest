@@ -18,20 +18,20 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author chunfu
- */
+  *
+  * @author chunfu
+  */
 @Tags(tags = "B70-ZK-2690.zul")
 class B70_ZK_2690Test extends ZTL4ScalaTestCase {
-	def testCase() = {
-runZTL(() => {
-			var grid = jq("@grid");
-			nativeFrozenScroll(grid, 300);
-			waitResponse()
-			verifyTrue(jq(".z-auxheader").eq(1).width() < 1)
-			nativeFrozenScroll(grid, -300);
-			waitResponse()
-			verifyTrue(jq(".z-auxheader").eq(1).width() > 1)
-		})
-	}
+  def testCase() = {
+    runZTL(() => {
+      var grid = jq("@grid");
+      nativeFrozenScroll(grid, 300);
+      waitResponse()
+      verifyTrue(jq(".z-auxheader").eq(1).width() < 1)
+      nativeFrozenScroll(grid, -300);
+      waitResponse()
+      verifyTrue(jq(".z-auxheader").eq(1).width() > 1)
+    })
+  }
 }

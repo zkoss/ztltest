@@ -18,7 +18,6 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
-  *
   * @author chunfu
   */
 @Tags(tags = "B70-ZK-2616.zul")
@@ -31,7 +30,7 @@ class B70_ZK_2616Test extends ZTL4ScalaTestCase {
           click(jq("@button").eq(1))
         }
       } catch {
-        case throwable =>
+        case throwable: Throwable =>
       }
       sleep(2000)
       waitResponse()

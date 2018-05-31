@@ -16,21 +16,21 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B36
 
+import org.junit.Test
+import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.Widget
-import org.junit.Test
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B36-2841185.zul,B,E,Window,Button")
 class B36_2841185Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <window height="400px">
         <zscript>
           String[] data = new String[100];
@@ -60,7 +60,7 @@ ListModel model = new ListModelList(data);
         </borderlayout>
       </window>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       // Click paging field
       click(jq(".z-paging-input"));
       waitResponse();

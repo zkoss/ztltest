@@ -15,20 +15,20 @@ it will be useful, but WITHOUT ANY WARRANTY.
 package org.zkoss.zktest.test2.F80
 
 import org.junit.Test
+import org.openqa.selenium.Dimension
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Dimension
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "F80-ZK-3133.zul")
 class F80_ZK_3133Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		val zscript =
-			"""<zk>
+  @Test
+  def test() = {
+    val zscript =
+      """<zk>
 					<label multiline="true">
 						1. should see "there are more then one MatchMedia method "all and (min-width: 501px)" in class org.zkoss.zktest.test2.F80_ZK_3133_1_VM" error below two window
 						1. should see "onCreate" in zklog
@@ -59,40 +59,40 @@ class F80_ZK_3133Test extends ZTL4ScalaTestCase {
 					<iframe src="test2/F80-ZK-3133-1.zul" width="100%" vflex="1"/>
 				</zk>"""
 
-		runZTL(zscript, () => {
+    runZTL(zscript, () => {
 
-			verifyTrue(jq("#zk_log").`val`().trim() == "onCreate")
+      verifyTrue(jq("#zk_log").`val`().trim() == "onCreate")
 
-			val window = driver.manage().window()
-			val size = window.getSize()
+      val window = driver.manage().window()
+      val size = window.getSize()
 
-			var zwin = jq(".z-window-content")
-			val zwin1orgw = zwin.eq(0).text.trim.split(" > ")(1).replace("px", "").toInt
-			val zwin2orgw = zwin.eq(1).text.trim.split(" > ")(1).replace("px", "").toInt
-			window.setSize(new Dimension(450, size.height))
-			waitResponse()
+      var zwin = jq(".z-window-content")
+      val zwin1orgw = zwin.eq(0).text.trim.split(" > ")(1).replace("px", "").toInt
+      val zwin2orgw = zwin.eq(1).text.trim.split(" > ")(1).replace("px", "").toInt
+      window.setSize(new Dimension(450, size.height))
+      waitResponse()
 
-			val zwin1w = zwin.eq(0).text.trim.split(" = ")(1).replace("px", "").toInt
-			val zwin2w = zwin.eq(1).text.trim.split(" = ")(1).replace("px", "").toInt
-			verifyTrue(zwin1w < zwin1orgw)
-			verifyTrue(zwin2w < zwin2orgw)
+      val zwin1w = zwin.eq(0).text.trim.split(" = ")(1).replace("px", "").toInt
+      val zwin2w = zwin.eq(1).text.trim.split(" = ")(1).replace("px", "").toInt
+      verifyTrue(zwin1w < zwin1orgw)
+      verifyTrue(zwin2w < zwin2orgw)
 
       refresh();
       waitForPageToLoad("10000");
-			runRawZscript(zscript)
-			waitResponse()
+      runRawZscript(zscript)
+      waitResponse()
 
 
-			zwin = jq(".z-window-content")
-			verifyEquals(zwin1w, zwin.eq(0).text.trim.split(" = ")(1).replace("px", "").toInt)
-			verifyEquals(zwin2w, zwin.eq(1).text.trim.split(" = ")(1).replace("px", "").toInt)
+      zwin = jq(".z-window-content")
+      verifyEquals(zwin1w, zwin.eq(0).text.trim.split(" = ")(1).replace("px", "").toInt)
+      verifyEquals(zwin2w, zwin.eq(1).text.trim.split(" = ")(1).replace("px", "").toInt)
 
-			window.setSize(new Dimension(550, size.height))
-			waitResponse()
+      window.setSize(new Dimension(550, size.height))
+      waitResponse()
 
-			verifyEquals(zwin.eq(0).text.trim, "browser width > 500px")
-			verifyEquals(zwin.eq(1).text.trim, "browser width > 500px")
+      verifyEquals(zwin.eq(0).text.trim, "browser width > 500px")
+      verifyEquals(zwin.eq(1).text.trim, "browser width > 500px")
 
-		})
-	}
+    })
+  }
 }

@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1847.zul")
 class B65_ZK_1847Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<zk xmlns:w="client">
+  @Test
+  def testClick() = {
+    val zscript =
+      """<zk xmlns:w="client">
 	<vlayout>
 		click the buttons, it should work as expected (and return the expected data). 
 		<div>
@@ -24,14 +25,14 @@ def testClick() = {
 	</vlayout>
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-button"))
-      waitResponse()
-      verifyTrue("it should work as expected", 
+"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-button"))
+        waitResponse()
+        verifyTrue("it should work as expected",
           jq(".z-hlayout .z-label").text().contains("null"))
-    })
-    
+      })
+
   }
 }

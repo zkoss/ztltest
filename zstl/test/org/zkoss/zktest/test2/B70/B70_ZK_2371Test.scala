@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2371.zul")
 class B70_ZK_2371Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <window mode="modal" closable="true">
 	<grid>
@@ -35,16 +33,16 @@ def testClick() = {
 	</grid>
 </window>
 
-"""  
-  runZTL(zscript,
-    () => {
-      val btn = jq("@button");
-      zk(btn).eval("scrollIntoView();'test';");
-      waitResponse();
-      click(btn);
-      waitResponse();
-      verifyTrue("it should show error box.", jq("@errorbox").isVisible());
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        val btn = jq("@button");
+        zk(btn).eval("scrollIntoView();'test';");
+        waitResponse();
+        click(btn);
+        waitResponse();
+        verifyTrue("it should show error box.", jq("@errorbox").isVisible());
+      })
+
   }
 }

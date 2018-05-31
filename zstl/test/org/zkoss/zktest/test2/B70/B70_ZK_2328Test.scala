@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2328.zul")
 class B70_ZK_2328Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2328.zul
@@ -51,11 +49,11 @@ You should not see the browser scroll to the end of the browser. (if yes, that's
 	</vlayout>
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-      verifyTrue("scrolling shouldn't to be changed.", jq("body").scrollTop() == 0);
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        verifyTrue("scrolling shouldn't to be changed.", jq("body").scrollTop() == 0);
+      })
+
   }
 }

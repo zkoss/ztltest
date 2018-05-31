@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2419.zul")
 class B70_ZK_2419Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -51,17 +49,17 @@ public class SliderDoubleVM {
 </zk>
 
 
-"""  
-  runZTL(zscript,
-    () => {
-      val sliderBtn = jq(".z-slider-button");
-      
-      mouseOver(sliderBtn);
-      waitResponse();
-      dragdropTo(sliderBtn, "0,0", "55,0");
-      waitResponse();
-      verifyTrue(jq(".z-label").last().text().equals("3.5") && sliderBtn.attr("title").equals("3.5"));
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        val sliderBtn = jq(".z-slider-button");
+
+        mouseOver(sliderBtn);
+        waitResponse();
+        dragdropTo(sliderBtn, "0,0", "55,0");
+        waitResponse();
+        verifyTrue(jq(".z-label").last().text().equals("3.5") && sliderBtn.attr("title").equals("3.5"));
+      })
+
   }
 }

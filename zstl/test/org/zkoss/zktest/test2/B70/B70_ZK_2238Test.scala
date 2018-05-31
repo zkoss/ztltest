@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2238.zul")
 class B70_ZK_2238Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<zk>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<zk>
 	<div>1. scroll to the bottom of tree</div>
 	<div>2. open last tree node</div>
 	<div>3. the tree should not out of view</div>
@@ -42,15 +43,15 @@ def testClick() = {
 			</treechildren>
 		</tree>
 	</div>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      val tree = jq(".z-tree")
-      verScroll(tree, 1.0)
-      click(jq(".z-treerow:contains(99)").toWidget().$n("open"))
-      waitResponse()
-      verifyTrue("the tree should not out of view", tree.isVisible())
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+        val tree = jq(".z-tree")
+        verScroll(tree, 1.0)
+        click(jq(".z-treerow:contains(99)").toWidget().$n("open"))
+        waitResponse()
+        verifyTrue("the tree should not out of view", tree.isVisible())
+      })
+
   }
 }

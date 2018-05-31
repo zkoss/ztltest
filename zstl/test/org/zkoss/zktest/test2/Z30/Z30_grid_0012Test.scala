@@ -16,21 +16,22 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z30
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.ZK
-import org.junit.Test
 
 /**
- * A test class for bug grid-0012
- * @author TonyQ
- *
- */
+  * A test class for bug grid-0012
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z30-grid-0012.zul,Z30,C,E,Grid,Row,Style")
 class Z30_grid_0012Test extends ZTL4ScalaTestCase {
-	@Test
+  @Test
   def testClick() = {
-    val zscript =""" 
+    val zscript =
+      """
 			<window title="test row height">
 				<grid width="400px">
 					<rows>
@@ -50,12 +51,12 @@ class Z30_grid_0012Test extends ZTL4ScalaTestCase {
     """;
 
     runZTL(zscript,
-        () => {
-          verifyEquals(jq("@row").eq(0).outerHeight().toString(), "50")
-          verifyNotEquals(jq("@row").eq(0).outerHeight().toString(),"51")
-          verifyEquals(jq("@row").eq(1).outerHeight().toString(), "100")
-          verifyNotEquals(jq("@row").eq(1).outerHeight().toString(),"101")
-    }
-   );
+      () => {
+        verifyEquals(jq("@row").eq(0).outerHeight().toString(), "50")
+        verifyNotEquals(jq("@row").eq(0).outerHeight().toString(), "51")
+        verifyEquals(jq("@row").eq(1).outerHeight().toString(), "100")
+        verifyNotEquals(jq("@row").eq(1).outerHeight().toString(), "101")
+      }
+    );
   }
 }

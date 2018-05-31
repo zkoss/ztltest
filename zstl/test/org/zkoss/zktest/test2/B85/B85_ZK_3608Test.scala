@@ -15,27 +15,27 @@ import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B85_ZK_3608Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			click(jq(".z-nav-content"))
-			waitResponse(true)
+  @Test
+  def test() = {
+    runZTL(() => {
+      click(jq(".z-nav-content"))
+      waitResponse(true)
 
-			jq(".z-west-body").scrollTop(1914)
-			waitResponse(true)
+      jq(".z-west-body").scrollTop(1914)
+      waitResponse(true)
 
-			val lastItem = jq(".z-navitem:last-of-type")
+      val lastItem = jq(".z-navitem:last-of-type")
 
-			click(lastItem)
-			waitResponse(true)
+      click(lastItem)
+      waitResponse(true)
 
-			verifyEquals("z-navitem z-navitem-selected", lastItem.attr("class"))
+      verifyEquals("z-navitem z-navitem-selected", lastItem.attr("class"))
 
-			click(jq(".z-hlayout-inner > button"))
-			waitResponse(true)
+      click(jq(".z-hlayout-inner > button"))
+      waitResponse(true)
 
-			click(jq(".z-menu").eq(0))
-			waitResponse(true)
-		})
-	}
+      click(jq(".z-menu").eq(0))
+      waitResponse(true)
+    })
+  }
 }

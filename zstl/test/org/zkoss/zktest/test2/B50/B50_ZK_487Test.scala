@@ -16,12 +16,13 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.junit.Test;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.Widget;
+import org.zkoss.ztl.{Tags, Widget};
+
 /**
   * A test class for bug ZK-487
+  *
   * @author benbai
   *
   */
@@ -30,15 +31,15 @@ class B50_ZK_487Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
     runZTL(() => {
-        var gb1: Widget = engine.$f("gb1");
-        var gb2: Widget = engine.$f("gb2");
-        click(jq(gb1).find(".z-caption"));
-        waitResponse(true);
-        click(jq(gb2).find(".z-caption"));
-        waitResponse(true);
-        verifyEquals("Height should be 200", jq(gb1).outerHeight(), 200)
-        verifyEquals("Height should be 200", jq(gb2).outerHeight(), 200);
-      }
+      var gb1: Widget = engine.$f("gb1");
+      var gb2: Widget = engine.$f("gb2");
+      click(jq(gb1).find(".z-caption"));
+      waitResponse(true);
+      click(jq(gb2).find(".z-caption"));
+      waitResponse(true);
+      verifyEquals("Height should be 200", jq(gb1).outerHeight(), 200)
+      verifyEquals("Height should be 200", jq(gb2).outerHeight(), 200);
+    }
     );
   }
 }

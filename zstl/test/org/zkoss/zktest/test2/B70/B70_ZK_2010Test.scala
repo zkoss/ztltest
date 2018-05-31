@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2010.zul")
 class B70_ZK_2010Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2010.zul
@@ -61,18 +62,18 @@ model.addToSelection("A");
 </tabbox>
 
 </vbox>
-"""  
-  runZTL(zscript,
-    () => {
-      var tb = jq(".z-tabbox:eq(1)")
-      click(tb.find(".z-tab:eq(1)"))
-      waitResponse()
-      click(tb.find(".z-tab:eq(2)"))
-      waitResponse()
-      click(jq(".z-button:contains(me C)"))
-      waitResponse()
-      verifyTrue("you will see the tabbox kept its selection. (not back to the first tab)", tb.find(".z-tab:eq(2)").hasClass("z-tab-selected"))
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        var tb = jq(".z-tabbox:eq(1)")
+        click(tb.find(".z-tab:eq(1)"))
+        waitResponse()
+        click(tb.find(".z-tab:eq(2)"))
+        waitResponse()
+        click(jq(".z-button:contains(me C)"))
+        waitResponse()
+        verifyTrue("you will see the tabbox kept its selection. (not back to the first tab)", tb.find(".z-tab:eq(2)").hasClass("z-tab-selected"))
+      })
+
   }
 }

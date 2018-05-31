@@ -18,13 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- *
- * @author jumperchen
- */
+  *
+  * @author jumperchen
+  */
 @Tags(tags = "B50-ZK-692.zul,B,M,RemoveDesktop")
 class B50_ZK_692Test extends ZTL4ScalaTestCase {
-	def testCase() = {
-		val zscript = """
+  def testCase() = {
+    val zscript =
+      """
 			<window>
 				<zscript>
 					if (null == Sessions.getCurrent().getAttribute("MyDesktopCleanup"))
@@ -35,14 +36,14 @@ class B50_ZK_692Test extends ZTL4ScalaTestCase {
 				Counts:<label id="msg" value="${sessionScope.MyDesktopCleanup}"/>
 			</window>
 		"""
-runZTL(zscript, () => {
-			for(i <- 0 to 5)
-				refresh();
-			
-			runRawZscript(zscript.toString())
-			
-			waitResponse
-			verifyTrue("The rmDesktop count should be greater than 1", 1 < Integer.parseInt(jq("$msg").text()));
-		})
-	}
+    runZTL(zscript, () => {
+      for (i <- 0 to 5)
+        refresh();
+
+      runRawZscript(zscript.toString())
+
+      waitResponse
+      verifyTrue("The rmDesktop count should be greater than 1", 1 < Integer.parseInt(jq("$msg").text()));
+    })
+  }
 }

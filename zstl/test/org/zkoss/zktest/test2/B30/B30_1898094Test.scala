@@ -16,21 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B30
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.junit.Test
 
 /**
- * A test class for bug 1898094
- * @author ldnigro
- *
- */
+  * A test class for bug 1898094
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B30-1898094.zul,B,E,Window,Textbox")
 class B30_1898094Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
     		<zk>        
     			If you see the focus be at the textbox (rather than button), It is fixed.
     			<window title="Test Popup Focus" mode="popup" width="300px" >
@@ -39,29 +41,29 @@ class B30_1898094Test extends ZTL4ScalaTestCase {
     			</window>
     		</zk>
    """
-runZTL(zscript,
-        () => {
-        
-        	waitResponse();
-            
-        	//Look for a textbox focused
-        	val b=jq("@textbox:focus");
-        	            
-        	//Look for a button focused
-            val r=jq("@button:focus");
-            
-            //Textbox focused Exists?
-            val bb=b.exists();
-            
-            //Button focused Exists?
-            val br=r.exists();
-            
-            //Assert
-            verifyTrue(bb);
-            verifyFalse(br);
-                             
-            
-        }
+    runZTL(zscript,
+      () => {
+
+        waitResponse();
+
+        //Look for a textbox focused
+        val b = jq("@textbox:focus");
+
+        //Look for a button focused
+        val r = jq("@button:focus");
+
+        //Textbox focused Exists?
+        val bb = b.exists();
+
+        //Button focused Exists?
+        val br = r.exists();
+
+        //Assert
+        verifyTrue(bb);
+        verifyFalse(br);
+
+
+      }
     );
-   }
+  }
 }

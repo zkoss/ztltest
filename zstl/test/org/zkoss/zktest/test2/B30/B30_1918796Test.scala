@@ -18,13 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- *
- * @author jumperchen
- */
+  *
+  * @author jumperchen
+  */
 @Tags(tags = "B30-1918796.zul,A,E,Grid,Groupbox")
 class B30_1918796Test extends ZTL4ScalaTestCase {
   def testCase() = {
-    val zscript = """
+    val zscript =
+      """
       <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
         <n:p>Grid header should disappear in this case.</n:p>
         <window width="250px">
@@ -43,11 +44,11 @@ class B30_1918796Test extends ZTL4ScalaTestCase {
         </window>
       </zk>
     """
-runZTL(zscript, () => {
-    	verifyFalse("grid should not be visible", jq("@grid").isVisible)
-    	click(jq("@button"))
-    	waitResponse
-    	verifyTrue("grid should be visible", jq("@grid").isVisible)
+    runZTL(zscript, () => {
+      verifyFalse("grid should not be visible", jq("@grid").isVisible)
+      click(jq("@button"))
+      waitResponse
+      verifyTrue("grid should be visible", jq("@grid").isVisible)
     })
   }
 }

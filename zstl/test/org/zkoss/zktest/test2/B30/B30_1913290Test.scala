@@ -16,19 +16,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B30
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
- * @author jumperchen
- *
- */
+  * @author jumperchen
+  *
+  */
 @Tags(tags = "B30-1913290.zul,B,E,Chart,BI")
 class B30_1913290Test extends ZTL4ScalaTestCase {
   @Test
   def testError() = {
-    val zscript = """
+    val zscript =
+      """
       <zk>
         <label value="If you cannot see any error, that is correct!"/>
         <chart id="mychart" type="time_series" width="400" height="200" threeD="false" fgAlpha="128"/>
@@ -39,10 +40,10 @@ class B30_1913290Test extends ZTL4ScalaTestCase {
     ]]></zscript>
       </zk>
     """;
-    
+
     runZTL(zscript, () => {
       verifyTrue(jq(jq(".z-chart").toWidget().$n("real")).isVisible());
-      verifyFalse(jq(".z-error").exists());	
+      verifyFalse(jq(".z-error").exists());
     })
   }
 }

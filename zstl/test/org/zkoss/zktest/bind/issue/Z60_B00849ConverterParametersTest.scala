@@ -14,10 +14,10 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 }}IS_RIGHT
 */
 package org.zkoss.zktest.bind.issue
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
 import org.junit.Test
 import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
  * @author pao

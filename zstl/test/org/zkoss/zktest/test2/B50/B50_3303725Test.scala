@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Element, Tags, Widget}
 
 /**
- * A test class for bug 3303725
- * @author benbai
- *
- */
+  * A test class for bug 3303725
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3303725.zul,A,E,Panel,Portallayout")
 class B50_3303725Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<html><![CDATA[
 					<ol>
@@ -70,34 +64,35 @@ class B50_3303725Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var (ptl: Widget,
-             p1: Widget,
-             p2: Widget,
-             p3: Widget) = (
-                 engine.$f("ptl"),
-                 engine.$f("p1"),
-                 engine.$f("p2"),
-                 engine.$f("p3"));
+        p1: Widget,
+        p2: Widget,
+        p3: Widget) = (
+          engine.$f("ptl"),
+          engine.$f("p1"),
+          engine.$f("p2"),
+          engine.$f("p3"));
         def dragDrop(from: Element, fromPos: String, to: Element, toPos: String) {
-        	mouseDownAt(from, fromPos);
-			mouseMoveAt(to, toPos);
-			mouseUpAt(to, toPos);
-			waitResponse();
+          mouseDownAt(from, fromPos);
+          mouseMoveAt(to, toPos);
+          mouseUpAt(to, toPos);
+          waitResponse();
         }
+
         dragDrop(p2.$n("cap"), "100,10", jq(p1.$n()).find(".z-panelchildren").get(0), "100,180");
 
         var h1: Int = jq(jq(".z-portalchildren").toWidget().$n("cave")).height();
         var h2: Int = jq(p1.$n()).outerHeight() +
-        			  jq(p2.$n()).outerHeight() +
-        			  jq(p3.$n()).outerHeight();
-        verifyTrue("the sum of the height of the three panel ("+h2
-            +") should close to the height of the Portallayout ("+h1
-            +")",
-            Math.abs(h1-h2)<10);
+          jq(p2.$n()).outerHeight() +
+          jq(p3.$n()).outerHeight();
+        verifyTrue("the sum of the height of the three panel (" + h2
+          + ") should close to the height of the Portallayout (" + h1
+          + ")",
+          Math.abs(h1 - h2) < 10);
         verifyEquals(jq(ptl.$n()).find(".z-panel").get(1).get("id"), p2.$n().get("id"));
-    }
-   );
+      }
+    );
 
   }
 }

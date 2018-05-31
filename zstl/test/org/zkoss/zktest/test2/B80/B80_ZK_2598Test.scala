@@ -3,14 +3,13 @@ package org.zkoss.zktest.test2.B80
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.util.ConfigHelper
 
 @Tags(tags = "B80-ZK-2598.zul")
 class B80_ZK_2598Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  runZTL(() => {
+  @Test
+  def testClick() = {
+    runZTL(() => {
       var btns = jq(".z-button").iterator();
       click(jq(".z-button").eq(0));
       waitResponse();
@@ -27,6 +26,6 @@ def testClick() = {
         waitResponse();
       }
     })
-    
+
   }
 }

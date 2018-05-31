@@ -15,6 +15,6 @@ class B80_ZK_3237Test extends ZTL4ScalaTestCase {
         waitResponse()
 
         verifyEquals("aa", jq(".z-textbox").`val`())
-    })
+      })
   }
 }

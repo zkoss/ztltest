@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-983
- * @author benbai
- *
- */
+  * A test class for bug ZK-983
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-983.zul,B,E,Combobutton")
 class B60_ZK_983Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<div>Click the 'detach' button, you should not see any error.</div>
 				<combobutton id="cb" label="Combobutton" />
@@ -45,17 +38,18 @@ class B60_ZK_983Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var cb: Widget = engine.$f("cb");
         var btn: Widget = engine.$f("btn");
 
-        click(btn); waitResponse();
+        click(btn);
+        waitResponse();
         verifyFalse("Should no js error",
-            jq(".z-error").exists() || jq("#zk_err").exists());
+          jq(".z-error").exists() || jq("#zk_err").exists());
         verifyFalse("Combobutton should be detached.",
-            jq(cb).exists());
-    }
-   );
+          jq(cb).exists());
+      }
+    );
   }
 }

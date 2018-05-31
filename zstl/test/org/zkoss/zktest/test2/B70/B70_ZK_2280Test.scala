@@ -1,17 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2280.zul")
 class B70_ZK_2280Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2280.zul
@@ -32,21 +31,21 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	<button id="plus" onClick="pag.setTotalSize(pag.getTotalSize() + 1);" label="+"/>
 	<button id="minus" onClick="pag.setTotalSize(pag.getTotalSize() - 1);" label="-"/>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      val plus = jq("$plus");
-      val minus = jq("$minus");
-      
-      click(plus);
-      waitResponse();
-      click(minus);
-      waitResponse();
-      click(minus);
-      waitResponse();
+"""
+    runZTL(zscript,
+      () => {
+        val plus = jq("$plus");
+        val minus = jq("$minus");
 
-      verifyTrue("the detail text of the paging bar should be updated", jq("@paging").toWidget().get("TotalSize") == "11");
-    })
-    
+        click(plus);
+        waitResponse();
+        click(minus);
+        waitResponse();
+        click(minus);
+        waitResponse();
+
+        verifyTrue("the detail text of the paging bar should be updated", jq("@paging").toWidget().get("TotalSize") == "11");
+      })
+
   }
 }

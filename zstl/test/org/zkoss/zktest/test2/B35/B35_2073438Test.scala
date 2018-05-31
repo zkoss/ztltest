@@ -18,18 +18,19 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.remote.server.handler.interactions.touch.Scroll
 
 /**
- * A test class for bug 2073438
- * @author ldnigro
- *
- */
+  * A test class for bug 2073438
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2073438.zul,A,E,Menu,Menupopup")
 class B35_2073438Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
     		<?xml version="1.0" encoding="UTF-8"?>
 <?page title="Welcome to ZK Demo"?>
 	<!--
@@ -52,27 +53,27 @@ class B35_2073438Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
-        	//Dynamic menu
-        	val menu=jq("$dynamic");
-          
-        	waitResponse();
-        	
-        	//Scroll down
-        	focus(menu);
-        	
-        	val top = jq("document.body.parentNode").scrollTop();
-        	waitResponse();
-                  
-        	//Dynamic menu click
-        	click(menu);
-        	
-        	waitResponse();
-        	
-        	//Verify if scroll if down
-        	verifyTrue(top == jq("document.body.parentNode").scrollTop())
-        	        	        	        	
-        }
+      () => {
+        //Dynamic menu
+        val menu = jq("$dynamic");
+
+        waitResponse();
+
+        //Scroll down
+        focus(menu);
+
+        val top = jq("document.body.parentNode").scrollTop();
+        waitResponse();
+
+        //Dynamic menu click
+        click(menu);
+
+        waitResponse();
+
+        //Verify if scroll if down
+        verifyTrue(top == jq("document.body.parentNode").scrollTop())
+
+      }
     );
-   }
+  }
 }

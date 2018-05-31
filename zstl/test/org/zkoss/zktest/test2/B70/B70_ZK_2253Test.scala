@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2253.zul")
 class B70_ZK_2253Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2253.zul
@@ -62,13 +63,13 @@ SimpleDesktopCache sdc = new SimpleDesktopCache(config);
 		}
 </attribute>
 </button>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-button"))
-      waitResponse()
-      verifyFalse("no exception", jq(".z-window-modal").exists());
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-button"))
+        waitResponse()
+        verifyFalse("no exception", jq(".z-window-modal").exists());
+      })
+
   }
 }

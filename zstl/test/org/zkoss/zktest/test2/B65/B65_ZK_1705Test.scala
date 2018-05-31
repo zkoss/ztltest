@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1705.zul")
 class B65_ZK_1705Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<vbox>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<vbox>
 	<zscript><![CDATA[
 	    String[] data = new String[3];
 	    data[0] = "c3";
@@ -32,17 +33,17 @@ def testClick() = {
 			</listitem>
 		</template>
 	</listbox>
-</vbox>"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-button:contains(asc)"))
-      waitResponse()
-      verifyFalse("no exception", jq(".z-window-modal").exists());
-      
-      click(jq(".z-button:contains(desc)"))
-      waitResponse()
-      verifyFalse("no exception", jq(".z-window-modal").exists());
-    })
-    
+</vbox>"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-button:contains(asc)"))
+        waitResponse()
+        verifyFalse("no exception", jq(".z-window-modal").exists());
+
+        click(jq(".z-button:contains(desc)"))
+        waitResponse()
+        verifyFalse("no exception", jq(".z-window-modal").exists());
+      })
+
   }
 }

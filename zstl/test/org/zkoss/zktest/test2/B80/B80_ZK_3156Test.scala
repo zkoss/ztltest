@@ -19,18 +19,18 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "")
 class B80_ZK_3156Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			val lb = jq(".z-label:eq(1)").text();
-			if (isEdge()) {
-				verifyTrue(lb.length > 6)
-			}
-		})
-	}
+  @Test
+  def test() = {
+    runZTL(() => {
+      val lb = jq(".z-label:eq(1)").text();
+      if (isEdge()) {
+        verifyTrue(lb.length > 6)
+      }
+    })
+  }
 }

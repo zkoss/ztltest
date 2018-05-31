@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1612.zul")
 class B65_ZK_1612Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <zk>
 
 <zscript><![CDATA[
@@ -53,17 +54,17 @@ void changeTitle(org.zkoss.zul.Panel thePanel)
     runZTL(zscript,
       () => {
         val img = jq("img[src*=button]")
-       
+
         click(img)
         waitResponse()
         verifyTrue("You should see a dialog", jq(".z-messagebox-window").exists())
-        
+
         click(jq(".z-button"))
         waitResponse()
-        
+
         val header = jq(".z-panel-header:eq(1)")
         val headerText = header.text()
-        
+
         val position = "2,2"
         val target = jq(".z-panel-body:eq(1)")
         mouseMoveAt(img, position)
@@ -74,10 +75,10 @@ void changeTitle(org.zkoss.zul.Panel thePanel)
 
         mouseMoveAt(target, position)
         waitResponse
-        
+
         mouseUpAt(target, position)
         waitResponse
-        
+
         verifyTrue("You should see the title of the right side panel is changed.", header.text() != headerText)
       })
 

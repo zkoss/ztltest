@@ -3,14 +3,14 @@ package org.zkoss.zktest.test2.B80
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.util.ConfigHelper
 
 @Tags(tags = "B80-ZK-2716.zul")
 class B80_ZK_2716Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -44,23 +44,23 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         xdiv.setStyle("color: blue");'/>
 </zk>
 
-""" 
-  runZTL(zscript,
-    () => {
-      var div = jq("#xdiv");
-      verifyEquals("red", div.text());
-      verifyTrue(div.attr("style").contains("red") || div.attr("style").contains("RED"));
+"""
+    runZTL(zscript,
+      () => {
+        var div = jq("#xdiv");
+        verifyEquals("red", div.text());
+        verifyTrue(div.attr("style").contains("red") || div.attr("style").contains("RED"));
 
-      click(jq(".z-button").first());
-      waitResponse();
-      verifyEquals("green", div.text());
-      verifyTrue(div.attr("style").contains("green") || div.attr("style").contains("GREEN"));
+        click(jq(".z-button").first());
+        waitResponse();
+        verifyEquals("green", div.text());
+        verifyTrue(div.attr("style").contains("green") || div.attr("style").contains("GREEN"));
 
-      click(jq(".z-button").last());
-      waitResponse();
-      verifyEquals("blue", div.text());
-      verifyTrue(div.attr("style").contains("blue") || div.attr("style").contains("BLUE"));
-    })
-    
+        click(jq(".z-button").last());
+        waitResponse();
+        verifyEquals("blue", div.text());
+        verifyTrue(div.attr("style").contains("blue") || div.attr("style").contains("BLUE"));
+      })
+
   }
 }

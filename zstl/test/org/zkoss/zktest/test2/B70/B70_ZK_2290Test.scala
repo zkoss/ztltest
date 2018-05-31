@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2290.zul")
 class B70_ZK_2290Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2290.zul
@@ -59,25 +57,25 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     </listbox>
   </window>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      // can't work correctly in ie9, ie10
-      // ignore both of them instead.
-      val headers = jq(".z-listheader");
-      val h1 = headers.eq(1);
-      val h6 = headers.eq(6);
-      mouseMoveAt(h1, h1.width() + ",10");
-      waitResponse();
-      mouseDownAt(h1, h1.width() + ",10");
-      waitResponse();
-      mouseMoveAt(h6, h6.width() + ",10");
-      waitResponse();
-      mouseUpAt(h6, h6.width() + ",10");
-      waitResponse();
-      
-      verifyTrue("browser should show scrollbar.", hasHScrollbar(jq(".z-listbox-body")));
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        // can't work correctly in ie9, ie10
+        // ignore both of them instead.
+        val headers = jq(".z-listheader");
+        val h1 = headers.eq(1);
+        val h6 = headers.eq(6);
+        mouseMoveAt(h1, h1.width() + ",10");
+        waitResponse();
+        mouseDownAt(h1, h1.width() + ",10");
+        waitResponse();
+        mouseMoveAt(h6, h6.width() + ",10");
+        waitResponse();
+        mouseUpAt(h6, h6.width() + ",10");
+        waitResponse();
+
+        verifyTrue("browser should show scrollbar.", hasHScrollbar(jq(".z-listbox-body")));
+      })
+
   }
 }

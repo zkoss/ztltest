@@ -14,6 +14,6 @@ class B50_ZK_426Test extends ZTL4ScalaTestCase {
         waitResponse()
 
         verifyEquals("123", jq(".z-intbox").eq(1).`val`())
-    })
+      })
   }
 }

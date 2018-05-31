@@ -16,21 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z35
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug button-001
- * @author TonyQ
- *
- */
+  * A test class for bug button-001
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z35-button-001.zul,Z35,C,E,Button")
 class Z35_button_001Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<?page id="testZul" title=" New ZUL Title" cacheable="false" 
 				language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
 			<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
@@ -55,29 +57,29 @@ class Z35_button_001Test extends ZTL4ScalaTestCase {
     """;
 
     runZTL(zscript,
-        () => {
-        def clickAlert ={
+      () => {
+        def clickAlert = {
           click(jq(".z-messagebox-window .z-button"));
         };
-          
+
         click(jq("@button").eq(0));
         waitResponse
-        verifyEquals("If you see this message, test is completed ok.",jq(".z-messagebox-window .z-label").text());
+        verifyEquals("If you see this message, test is completed ok.", jq(".z-messagebox-window .z-label").text());
         clickAlert
         waitResponse
-        
+
         click(jq("@button").eq(1));
         waitResponse
-        verifyEquals("If you see this message, test is completed ok.",jq(".z-messagebox-window .z-label").text());
+        verifyEquals("If you see this message, test is completed ok.", jq(".z-messagebox-window .z-label").text());
         clickAlert
         waitResponse
-        
+
         click(jq("@button").eq(2));
         waitResponse
-        verifyEquals("If you see this message, test is completed ok.",jq(".z-messagebox-window .z-label").text());
+        verifyEquals("If you see this message, test is completed ok.", jq(".z-messagebox-window .z-label").text());
         clickAlert
-        
-    }
-   );
+
+      }
+    );
   }
 }

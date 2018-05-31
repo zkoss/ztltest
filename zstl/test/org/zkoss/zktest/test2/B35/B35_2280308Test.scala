@@ -18,16 +18,16 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B35-2280308.zul,B,E,Window,Button")
 class B35_2280308Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <zk>
         <window title="Test Wrong Value Exception" border="normal" width="1200px" height="600px">
           <zscript>
@@ -61,11 +61,11 @@ uiDecimalbox.getValue();
         </window>
       </zk>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       var pc = engine.$f("pc").$n();
 
       // Scroll the panelchildren
-      pc.eval("scrollTop = " + jq(pc).scrollHeight()); 
+      pc.eval("scrollTop = " + jq(pc).scrollHeight());
       waitResponse();
 
       // Click on submit button

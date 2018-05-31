@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.F51
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{JQuery, Tags, Widget}
 
 /**
- * A test class for bug ZK-264
- * @author benbai
- *
- */
+  * A test class for bug ZK-264
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F51-ZK-264.zul,F60,A,E,event,listener")
 class F51_ZK_264Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<vlayout>
 			Click the following button, then check if six lines of Priorities will be shown as the following sequence:
 			"Highest", "ZUML", "High", "Normal", "Normal", "Low"
@@ -72,22 +65,23 @@ class F51_ZK_264Test extends ZTL4ScalaTestCase {
 
     """
 
-   runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var btn: Widget = engine.$f("b");
 
-        def checkSeq (before: String, after: String) {
-          var lbOne: JQuery = jq(".z-label:contains("+before+")");
-          var lbTwo: JQuery = jq(".z-label:contains("+after+")");
+        def checkSeq(before: String, after: String) {
+          var lbOne: JQuery = jq(".z-label:contains(" + before + ")");
+          var lbTwo: JQuery = jq(".z-label:contains(" + after + ")");
           if (before.equals(after))
-            lbTwo = jq(jq(".z-label:contains("+after+")").get(1));
+            lbTwo = jq(jq(".z-label:contains(" + after + ")").get(1));
 
           verifyTrue("The labels should exist.",
-              lbOne.exists() && lbTwo.exists());
+            lbOne.exists() && lbTwo.exists());
 
           verifyTrue(before + " should before " + after,
-              lbOne.offsetTop() < lbTwo.offsetTop());
+            lbOne.offsetTop() < lbTwo.offsetTop());
         }
+
         click(btn);
         waitResponse();
         checkSeq("Highest Priority", "ZUML Priority");
@@ -95,7 +89,7 @@ class F51_ZK_264Test extends ZTL4ScalaTestCase {
         checkSeq("High Priority", "Normal Priority");
         checkSeq("Normal Priority", "Normal Priority");
         checkSeq("Normal Priority", "Low Priority");
-    }
-   );
+      }
+    );
   }
 }

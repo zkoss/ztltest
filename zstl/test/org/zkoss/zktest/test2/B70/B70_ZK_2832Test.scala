@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2832.zul")
 class B70_ZK_2832Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -48,22 +46,22 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 </navbar>
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-      //expand the navbar
-      click(jq(".z-nav-content"))
-      waitResponse()
-      //click the 1st item
-      click(jq(".z-navitem-content").eq(0))
-      waitResponse()
-      //check 1st item is selected
-      verifyTrue(jq(".z-navitem").eq(0).hasClass("z-navitem-selected"))
-      //click the 2nd item
-      click(jq(".z-navitem-content").eq(1))
-      waitResponse()
-      //check 2nd item is selected
-      verifyTrue(jq(".z-navitem").eq(1).hasClass("z-navitem-selected"))
-    })
+"""
+    runZTL(zscript,
+      () => {
+        //expand the navbar
+        click(jq(".z-nav-content"))
+        waitResponse()
+        //click the 1st item
+        click(jq(".z-navitem-content").eq(0))
+        waitResponse()
+        //check 1st item is selected
+        verifyTrue(jq(".z-navitem").eq(0).hasClass("z-navitem-selected"))
+        //click the 2nd item
+        click(jq(".z-navitem-content").eq(1))
+        waitResponse()
+        //check 2nd item is selected
+        verifyTrue(jq(".z-navitem").eq(1).hasClass("z-navitem-selected"))
+      })
   }
 }

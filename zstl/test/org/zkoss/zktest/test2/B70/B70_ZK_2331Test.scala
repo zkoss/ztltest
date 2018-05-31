@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2331.zul")
 class B70_ZK_2331Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2331.zul
@@ -48,14 +46,14 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	</groupbox>
 </vbox>
 
-"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-combobox-button"));
-      waitResponse();
-      val popup = jq(".z-combobox-popup");
-      verifyTrue("popup shouldn't overlap the input.", popup.offsetTop() + popup.height() < jq("@combobox").offsetTop());
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-combobox-button"));
+        waitResponse();
+        val popup = jq(".z-combobox-popup");
+        verifyTrue("popup shouldn't overlap the input.", popup.offsetTop() + popup.height() < jq("@combobox").offsetTop());
+      })
+
   }
 }

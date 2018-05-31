@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2031.zul")
 class B70_ZK_2031Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<window border="normal" title="Button's image" width="300px">
+  @Test
+  def testClick() = {
+    val zscript =
+      """<window border="normal" title="Button's image" width="300px">
 	<label multiline="true">
 		1. click the checkbox.
 		2. The button's image should show up.
@@ -27,14 +28,14 @@ def testClick() = {
 			}
 		}
 	]]></zscript>
-</window>"""  
-  runZTL(zscript,
-    () => {
-      check(jq(".z-checkbox input"))
-      waitResponse()
-      
-      verifyTrue("The button's image should show up.", jq(".z-button-image").exists)
-    })
-    
+</window>"""
+    runZTL(zscript,
+      () => {
+        check(jq(".z-checkbox input"))
+        waitResponse()
+
+        verifyTrue("The button's image should show up.", jq(".z-button-image").exists)
+      })
+
   }
 }

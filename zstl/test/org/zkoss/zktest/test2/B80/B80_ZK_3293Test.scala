@@ -19,20 +19,20 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "")
 class B80_ZK_3293Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			val sp = jq("@splitter")
-			val tb = jq("@tabbox")
-			val tbw = tb.width()
-			dragdropTo(sp, "2,2", "22,2")
-			waitResponse()
-			verifyTolerant(tbw - 20, tb.width(), 3)
-		})
-	}
+  @Test
+  def test() = {
+    runZTL(() => {
+      val sp = jq("@splitter")
+      val tb = jq("@tabbox")
+      val tbw = tb.width()
+      dragdropTo(sp, "2,2", "22,2")
+      waitResponse()
+      verifyTolerant(tbw - 20, tb.width(), 3)
+    })
+  }
 }

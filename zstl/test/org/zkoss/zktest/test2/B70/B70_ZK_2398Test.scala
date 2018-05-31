@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2398.zul")
 class B70_ZK_2398Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2398.zul
@@ -73,31 +71,31 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	</tree>
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-      var clickTarget = jq("@treecol").eq(0);
-      if (!isSafari)
-        click(clickTarget);
-      else
-        clickAt(clickTarget, "2,2")
+"""
+    runZTL(zscript,
+      () => {
+        var clickTarget = jq("@treecol").eq(0);
+        if (!isSafari)
+          click(clickTarget);
+        else
+          clickAt(clickTarget, "2,2")
 
-      waitResponse();
-      verifyTrue("we should see the caret-up icon.", jq(".z-icon-caret-up").exists());
-      if (!isSafari)
-        click(clickTarget);
-      else
-        clickAt(clickTarget, "2,2")
-      waitResponse();
+        waitResponse();
+        verifyTrue("we should see the caret-up icon.", jq(".z-icon-caret-up").exists());
+        if (!isSafari)
+          click(clickTarget);
+        else
+          clickAt(clickTarget, "2,2")
+        waitResponse();
 
-      clickTarget = jq("@treecol").eq(1);
-      if (!isSafari)
-        click(clickTarget);
-      else
-        clickAt(clickTarget, "2,2")
-      waitResponse();
-      verifyTrue("we should see the caret-up icon.", jq(".z-icon-caret-up").exists());
-    })
-    
+        clickTarget = jq("@treecol").eq(1);
+        if (!isSafari)
+          click(clickTarget);
+        else
+          clickAt(clickTarget, "2,2")
+        waitResponse();
+        verifyTrue("we should see the caret-up icon.", jq(".z-icon-caret-up").exists());
+      })
+
   }
 }

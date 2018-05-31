@@ -18,17 +18,16 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-1990036.zul,B,E,Window,Button")
 class B30_1990036Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <zk>
         <window id="w1" left="200px" top="0px" border="normal" width="550px" height="300px" sizable="true" mode="overlapped" title="Window One">
           Please Click "Window Three", then the "Window Three" window should be in front of the "Window One"
@@ -40,7 +39,7 @@ class B30_1990036Test extends ZTL4ScalaTestCase {
         </window>
       </zk>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       // 
       val w1 = jq("$w1");
       val w3 = jq("$w3");

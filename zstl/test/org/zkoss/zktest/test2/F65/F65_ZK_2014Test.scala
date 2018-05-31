@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.F65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "F65-ZK-2014.zul")
 class F65_ZK_2014Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<zk>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<zk>
 	<label multiline="true">
 	1. Click checkbox on Listheader.
 	2. Should see button label changed accordingly.
@@ -34,14 +35,14 @@ def testClick() = {
 	</listbox>
 	<button id="btn" label="button" />
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-listheader").toWidget().$n("cm"))
-      waitResponse()
-      
-      verifyTrue("Should see button label changed accordingly.", jq(".z-button").text() == "Select All Checked")
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-listheader").toWidget().$n("cm"))
+        waitResponse()
+
+        verifyTrue("Should see button label changed accordingly.", jq(".z-button").text() == "Select All Checked")
+      })
+
   }
 }

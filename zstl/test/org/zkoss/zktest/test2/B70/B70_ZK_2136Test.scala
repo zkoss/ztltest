@@ -1,17 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2136.zul")
 class B70_ZK_2136Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <zk>
 	Dragging the cell label to hover the drop area should work fine
@@ -51,7 +50,7 @@ class B70_ZK_2136Test extends ZTL4ScalaTestCase {
         mouseMoveAt(jq("$target"), "10,10");
         waitResponse(true);
         sleep(500);
-        
+
         verifyTrue("the detail text of the paging bar should be updated", jq(".z-drop-ghost").eval("attr('class')").contains("z-drop-allow"));
       })
 

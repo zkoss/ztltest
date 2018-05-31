@@ -1,19 +1,18 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
+
 import scala.util.control.Breaks._
 
 @Tags(tags = "B70-ZK-2337.zul")
 class B70_ZK_2337Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2337.zul
@@ -179,10 +178,10 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	</hlayout>
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-    	sleep(2000);
+"""
+    runZTL(zscript,
+      () => {
+        sleep(2000);
         var iter = jq("@listbox").iterator();
         while (iter.hasNext()) {
           val itemIter = iter.next().find("@listitem").iterator();
@@ -213,7 +212,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
           verifyTrue("threre are no odd color style in grid", odd);
 
         }
-    })
-    
+      })
+
   }
 }

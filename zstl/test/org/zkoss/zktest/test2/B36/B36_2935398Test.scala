@@ -16,16 +16,16 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B36
 
-import java.util.Calendar
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.junit.Test
 
 /**
- * A test class for bug 2935398
- * @author ldnigro
- *
- */
+  * A test class for bug 2935398
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B36-2935398.zul,A,E,scrollIntoView,Textbox,Constraint")
 class B36_2935398Test extends ZTL4ScalaTestCase {
 
@@ -34,29 +34,29 @@ class B36_2935398Test extends ZTL4ScalaTestCase {
     runZTL(
       () => {
         waitResponse();
-        var b=jq("$div").height().toInt+jq("$tb").height().toInt;
+        var b = jq("$div").height().toInt + jq("$tb").height().toInt;
         //Scroll down
-        getEval("window.scrollTo(0, "+ b +" )");
+        getEval("window.scrollTo(0, " + b + " )");
         waitResponse();
 
         //Click button
         var btn = jq("$btn");
         click(btn);
         waitResponse();
-        
+
         //Check error visible 
         var error = jq(".z-errorbox");
-        var eb=error.exists();
-        var ev=error.isVisible();
+        var eb = error.exists();
+        var ev = error.isVisible();
         verifyTrue(eb);
         verifyTrue(ev);
-        
+
         //Verify err-box position
-        var po=error.positionTop();
-        var p1=jq("$tb").positionTop();
-        verifyTolerant(po,0, 2);
-        var l=jq("$tb").offsetLeft()+jq("$tb").outerWidth()
-        var l1=error.offsetLeft();
+        var po = error.positionTop();
+        var p1 = jq("$tb").positionTop();
+        verifyTolerant(po, 0, 2);
+        var l = jq("$tb").offsetLeft() + jq("$tb").outerWidth()
+        var l1 = error.offsetLeft();
         verifyTolerant(l, l1, 1);
       });
   }

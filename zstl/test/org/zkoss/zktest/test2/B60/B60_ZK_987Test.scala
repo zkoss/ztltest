@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-987.zul")
 class B60_ZK_987Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <div>
                       The two Groupboxes should look identical (the one on the right should have no top border on cave DIV).
                     </div>
@@ -24,7 +25,7 @@ class B60_ZK_987Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyEquals("The two Groupboxes should look identical (the one on the right should have no top border on cave DIV).",  jq(jq(".z-groupbox:eq(0)").toWidget().$n("header")).height(), jq(jq(".z-groupbox:eq(1)").toWidget().$n("header")).height())
+        verifyEquals("The two Groupboxes should look identical (the one on the right should have no top border on cave DIV).", jq(jq(".z-groupbox:eq(0)").toWidget().$n("header")).height(), jq(jq(".z-groupbox:eq(1)").toWidget().$n("header")).height())
       })
   }
 }

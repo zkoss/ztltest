@@ -19,27 +19,27 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "")
 class B80_ZK_2890Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			val treerow = jq(".z-treerow").eq(0)
-			mouseDownAt(treerow, "10,10")
-			waitResponse()
-			mouseMoveAt(treerow, "100,10")
-			waitResponse()
+  @Test
+  def test() = {
+    runZTL(() => {
+      val treerow = jq(".z-treerow").eq(0)
+      mouseDownAt(treerow, "10,10")
+      waitResponse()
+      mouseMoveAt(treerow, "100,10")
+      waitResponse()
 
-			val ghost = jq("#zk_ddghost")
-			verifyTrue(ghost.exists())
-			val content = ghost.find(".z-drop-content")
-			verifyEquals(content.length(), 3)
-			verifyTrue(content.eq(0).text().endsWith("1"))
-			verifyTrue(content.eq(1).text().endsWith("2"))
-			verifyTrue(content.eq(2).text().endsWith("2.1"))
-		})
-	}
+      val ghost = jq("#zk_ddghost")
+      verifyTrue(ghost.exists())
+      val content = ghost.find(".z-drop-content")
+      verifyEquals(content.length(), 3)
+      verifyTrue(content.eq(0).text().endsWith("1"))
+      verifyTrue(content.eq(1).text().endsWith("2"))
+      verifyTrue(content.eq(2).text().endsWith("2.1"))
+    })
+  }
 }

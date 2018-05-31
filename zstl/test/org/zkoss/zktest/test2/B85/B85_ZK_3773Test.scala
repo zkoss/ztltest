@@ -32,7 +32,7 @@ class B85_ZK_3773Test extends ZTL4ScalaTestCase {
     val msgboxbtns = jq(".z-messagebox-button")
     val leftBtnOffsetRight = msgboxbtns.eq(0).offsetLeft() + msgboxbtns.eq(0).outerWidth(false)
     val rightBtnOffsetLeft = msgboxbtns.eq(1).offsetLeft()
-    verifyTrue("The buttons must have some spaces",  (rightBtnOffsetLeft - leftBtnOffsetRight) >= 3)
+    verifyTrue("The buttons must have some spaces", (rightBtnOffsetLeft - leftBtnOffsetRight) >= 3)
     verifyEquals("The buttons should be centered", "center", jq(".z-messagebox-buttons").css("text-align"))
 
     click(msgboxbtns.eq(0))

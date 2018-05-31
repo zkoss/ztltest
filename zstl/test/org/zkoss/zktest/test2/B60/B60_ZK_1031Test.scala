@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-1031
- * @author benbai
- *
- */
+  * A test class for bug ZK-1031
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-1031.zul,B,E,ListModel")
 class B60_ZK_1031Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 			    <zscript>
 			        <![CDATA[
@@ -109,24 +102,27 @@ class B60_ZK_1031Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
+      () => {
         var outer: Widget = engine.$f("outer");
         var sbx: Widget = engine.$f("sbx");
         var btn: Widget = engine.$f("btn");
 
-        def select (num: Int) {
+        def select(num: Int) {
           this.select(sbx, num);
-          click(outer); waitResponse();
+          click(outer);
+          waitResponse();
         }
+
         select(1);
         verifyFalse("No exception",
-            jq(".z-window-modal").exists());
-        click(btn); waitResponse();
+          jq(".z-window-modal").exists());
+        click(btn);
+        waitResponse();
         for (i <- 1 to 5) {
           verifyTrue("Select index in label " + i + " should be 1",
-              engine.$f("lb"+i).$n().get("innerHTML").contains("1"));
+            engine.$f("lb" + i).$n().get("innerHTML").contains("1"));
         }
-    }
-   );
+      }
+    );
   }
 }

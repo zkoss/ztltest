@@ -18,13 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author chunfu
- */
+  *
+  * @author chunfu
+  */
 @Tags(tags = "B70-ZK-2773.zul")
 class B70_ZK_2773Test extends ZTL4ScalaTestCase {
-	def testCase() = {
-		val zscript = """
+  def testCase() = {
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -51,26 +52,26 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 
 
 		"""
-runZTL(zscript, () => {
-			click(jq(".z-datebox-button"))
-			waitResponse()
-			var pp = jq(".z-datebox-popup")
-			var input = jq("@datebox")
-			//compare top left corner
-			var tl = input.offsetLeft() > pp.offsetLeft() && input.offsetLeft() < pp.offsetLeft() + pp.width() &&
-				input.offsetTop() > pp.offsetTop() && input.offsetTop() < pp.offsetTop() + pp.height()
-			//compare top right corner
-			var tr = input.offsetLeft() + input.width() > pp.offsetLeft() && input.offsetLeft() + input.width() < pp.offsetLeft() + pp.width() &&
-				input.offsetTop() > pp.offsetTop() && input.offsetTop() < pp.offsetTop() + pp.height()
-			//compare bottom left corner
-			var bl = input.offsetLeft() > pp.offsetLeft() && input.offsetLeft() < pp.offsetLeft() + pp.width() &&
-				input.offsetTop() + input.height() > pp.offsetTop() && input.offsetTop() + input.height() < pp.offsetTop() + pp.height()
-			//compare bottom right corner
-			var br = input.offsetLeft() + input.width() > pp.offsetLeft() && input.offsetLeft() + input.width() < pp.offsetLeft() + pp.width() &&
-				input.offsetTop() + input.height() > pp.offsetTop() && input.offsetTop() + input.height() < pp.offsetTop() + pp.height()
-			println("********input info: ", input.offsetLeft(), input.offsetTop(), input.width(), input.height())
-			println("********pp info: ", pp.offsetLeft(), pp.offsetTop(), pp.width(), pp.height())
-			verifyFalse(tl || tr || bl || br)
-		})
-	}
+    runZTL(zscript, () => {
+      click(jq(".z-datebox-button"))
+      waitResponse()
+      var pp = jq(".z-datebox-popup")
+      var input = jq("@datebox")
+      //compare top left corner
+      var tl = input.offsetLeft() > pp.offsetLeft() && input.offsetLeft() < pp.offsetLeft() + pp.width() &&
+        input.offsetTop() > pp.offsetTop() && input.offsetTop() < pp.offsetTop() + pp.height()
+      //compare top right corner
+      var tr = input.offsetLeft() + input.width() > pp.offsetLeft() && input.offsetLeft() + input.width() < pp.offsetLeft() + pp.width() &&
+        input.offsetTop() > pp.offsetTop() && input.offsetTop() < pp.offsetTop() + pp.height()
+      //compare bottom left corner
+      var bl = input.offsetLeft() > pp.offsetLeft() && input.offsetLeft() < pp.offsetLeft() + pp.width() &&
+        input.offsetTop() + input.height() > pp.offsetTop() && input.offsetTop() + input.height() < pp.offsetTop() + pp.height()
+      //compare bottom right corner
+      var br = input.offsetLeft() + input.width() > pp.offsetLeft() && input.offsetLeft() + input.width() < pp.offsetLeft() + pp.width() &&
+        input.offsetTop() + input.height() > pp.offsetTop() && input.offsetTop() + input.height() < pp.offsetTop() + pp.height()
+      println("********input info: ", input.offsetLeft(), input.offsetTop(), input.width(), input.height())
+      println("********pp info: ", pp.offsetLeft(), pp.offsetTop(), pp.width(), pp.height())
+      verifyFalse(tl || tr || bl || br)
+    })
+  }
 }

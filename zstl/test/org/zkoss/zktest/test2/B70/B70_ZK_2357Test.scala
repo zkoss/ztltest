@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2357.zul")
 class B70_ZK_2357Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2357.zul
@@ -55,25 +53,25 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	</div>
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-      val tbox = jq("$tbox");
-      contextMenu(jq("@button").eq(0));
-      waitResponse();
-      verifyTrue("button should be triggered.", tbox.toWidget().get("value").equals("1"));
-      click(jq("@menu"));
-      waitResponse();
-      contextMenu(jq("@menuitem").eq(0));
-      waitResponse();
-      verifyTrue("button should be triggered.", tbox.toWidget().get("value").equals("2"));
-      contextMenu(jq("@menuitem").eq(1));
-      waitResponse();
-      verifyTrue("button should be triggered.", tbox.toWidget().get("value").equals("3"));
-      contextMenu(jq("@toolbarbutton"));
-      waitResponse();
-      verifyTrue("button should be triggered.", tbox.toWidget().get("value").equals("4"));
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        val tbox = jq("$tbox");
+        contextMenu(jq("@button").eq(0));
+        waitResponse();
+        verifyTrue("button should be triggered.", tbox.toWidget().get("value").equals("1"));
+        click(jq("@menu"));
+        waitResponse();
+        contextMenu(jq("@menuitem").eq(0));
+        waitResponse();
+        verifyTrue("button should be triggered.", tbox.toWidget().get("value").equals("2"));
+        contextMenu(jq("@menuitem").eq(1));
+        waitResponse();
+        verifyTrue("button should be triggered.", tbox.toWidget().get("value").equals("3"));
+        contextMenu(jq("@toolbarbutton"));
+        waitResponse();
+        verifyTrue("button should be triggered.", tbox.toWidget().get("value").equals("4"));
+      })
+
   }
 }

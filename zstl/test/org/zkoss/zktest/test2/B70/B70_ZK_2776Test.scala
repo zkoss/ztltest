@@ -7,9 +7,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "B70-ZK-2775.zul")
 class B70_ZK_2776Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  runZTL(() => {
+  @Test
+  def testClick() = {
+    runZTL(() => {
       val grid = jq("@grid")
       val firstColumn = grid.find(".z-column").first
       mouseOver(firstColumn)

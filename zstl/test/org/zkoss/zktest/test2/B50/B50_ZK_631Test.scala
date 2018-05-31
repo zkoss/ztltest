@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-631
- * @author benbai
- *
- */
+  * A test class for bug ZK-631
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-631.zul,B,E,Datebox,Constraint")
 class B50_ZK_631Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<div>Type "abc" in datebox then press tab, you shoud see the message like</div>
 				<div>You must specify a date, rather than abc. Format: yyyy/MM/dd.</div>
@@ -102,15 +95,15 @@ class B50_ZK_631Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript, () => {
-    		var dob: Widget = engine.$f("dob");
-    		var doberr: Widget = engine.$f("doberr");
-    		sendKeys(jq(dob.$n()).find("input"), "abc");
-    		click(doberr);
-    		waitResponse();
-    		var errMsg: String = doberr.$n().get("innerHTML");
-    		verifyTrue("should display custom error about date format",
-    		    errMsg.contains("abc") && errMsg.contains("yyyy/MM/dd"));
-		})
+    runZTL(zscript, () => {
+      var dob: Widget = engine.$f("dob");
+      var doberr: Widget = engine.$f("doberr");
+      sendKeys(jq(dob.$n()).find("input"), "abc");
+      click(doberr);
+      waitResponse();
+      var errMsg: String = doberr.$n().get("innerHTML");
+      verifyTrue("should display custom error about date format",
+        errMsg.contains("abc") && errMsg.contains("yyyy/MM/dd"));
+    })
   }
 }

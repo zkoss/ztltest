@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Element, Tags, Widget}
 
 /**
- * A test class for bug 3325041
- * @author benbai
- *
- */
+  * A test class for bug 3325041
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3325041.zul,A,E,Doublespinner,Doublebox,Decimalbox")
 class B50_3325041Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 
 			<zk>
 				try to type floating number like "1.23" in the double spinner.
@@ -61,43 +54,43 @@ class B50_3325041Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var (ds: Widget,
-    	     db: Widget,
-    	     doub: Widget,
-    	     btn1: Widget,
-    	     btn2: Widget,
-    	     btn3: Widget) = (
-    	        engine.$f("ds"),
-    	        engine.$f("db"),
-    	        engine.$f("doub"),
-    	        engine.$f("btn1"),
-    	        engine.$f("btn2"),
-    	        engine.$f("btn3")
-    	    );
+        db: Widget,
+        doub: Widget,
+        btn1: Widget,
+        btn2: Widget,
+        btn3: Widget) = (
+          engine.$f("ds"),
+          engine.$f("db"),
+          engine.$f("doub"),
+          engine.$f("btn1"),
+          engine.$f("btn2"),
+          engine.$f("btn3")
+        );
 
         inputClickCheck(ds.$n("real"), "1.23", btn1);
         inputClickCheck(db.$n(), "1.23", btn2);
         inputClickCheck(doub.$n(), "1.23", btn3);
         def inputClickCheck(inp: Element, value: String, btn: Widget) {
-        	click(inp);
-        	inp.eval("value="+value);
-        	blur(inp);
+          click(inp);
+          inp.eval("value=" + value);
+          blur(inp);
 
-        	var vinp: String = inp.get("value");
-        	verifyTrue("the value should be inputed correctly",
-        	    vinp.equals(value));
-        	click(btn);
-        	waitResponse();
+          var vinp: String = inp.get("value");
+          verifyTrue("the value should be inputed correctly",
+            vinp.equals(value));
+          click(btn);
+          waitResponse();
 
-        	var vmsg: String = jq(".z-messagebox-window").find(".z-label").get(0).get("innerHTML");
-        	verifyTrue("the value in messagebox should equal to inputed value",
-        	    vmsg.equals(value));
-        	click(jq(".z-messagebox-window").find(".z-button").get(0));
-        	waitResponse();
+          var vmsg: String = jq(".z-messagebox-window").find(".z-label").get(0).get("innerHTML");
+          verifyTrue("the value in messagebox should equal to inputed value",
+            vmsg.equals(value));
+          click(jq(".z-messagebox-window").find(".z-button").get(0));
+          waitResponse();
         }
-    }
-   );
+      }
+    );
 
   }
 }

@@ -18,17 +18,16 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B35-2075768.zul,B,E,Window,Button")
 class B30_2075768Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <zk>
         <borderlayout id="b" height="300px">
           <west maxsize="600" size="30%" flex="true" border="0" id="west">
@@ -49,7 +48,7 @@ class B30_2075768Test extends ZTL4ScalaTestCase {
         Please click the button to see that the result is expectable.
       </zk>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       // Verify that the west zone has no border
       verifyTrue("The west zone should not have a border", jq(".z-west-noborder").exists());
 

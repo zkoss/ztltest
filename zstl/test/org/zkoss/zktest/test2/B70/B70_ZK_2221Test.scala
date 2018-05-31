@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2221.zul")
 class B70_ZK_2221Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2221.zul
@@ -33,11 +34,11 @@ If you don't see the loading process icon running infinite loop, that's correct.
 		FakerMatrixModel BigData = new FakerMatrixModel(0, 0);
 	]]></zscript>
 	<biglistbox id="biglist"  hflex="1" vflex="1" colWidth="130px" model="${BigData}"/>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      verifyFalse("should see no javascript error", jq(".z-error").exists())
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+        verifyFalse("should see no javascript error", jq(".z-error").exists())
+      })
+
   }
 }

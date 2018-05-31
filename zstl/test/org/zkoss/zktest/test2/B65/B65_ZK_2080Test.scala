@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-2080.zul")
 class B65_ZK_2080Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<zk>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<zk>
 	<zscript><![CDATA[
 		public class Item {
 			private String name;
@@ -66,16 +67,16 @@ def testClick() = {
 			<label value="${each.name}"/>
 		</template>
 	</chosenbox>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      val inp = jq(".z-chosenbox").toWidget().$n("inp")
-      sendKeys(inp, "A")
-      waitResponse(true)
-      if (isIE())
-    	  sleep(200)
-      verifyTrue("should see popup with 'AA' option showed.", jq(".z-chosenbox-option:contains(AA)").exists)
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+        val inp = jq(".z-chosenbox").toWidget().$n("inp")
+        sendKeys(inp, "A")
+        waitResponse(true)
+        if (isIE())
+          sleep(200)
+        verifyTrue("should see popup with 'AA' option showed.", jq(".z-chosenbox-option:contains(AA)").exists)
+      })
+
   }
 }

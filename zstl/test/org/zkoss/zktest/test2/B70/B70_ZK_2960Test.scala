@@ -1,9 +1,9 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
 import org.openqa.selenium.Dimension
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2960.zul")
 class B70_ZK_2960Test extends ZTL4ScalaTestCase {
@@ -20,10 +20,10 @@ class B70_ZK_2960Test extends ZTL4ScalaTestCase {
         val comboboxButton = combobox.find(".z-combobox-button");
         click(comboboxButton);
         waitResponse(true);
-        
+
         val comboboxPopup = jq(".z-combobox-popup");
         val comboboxInput = combobox.find(".z-combobox-input");
-        
+
         verifyTrue(comboboxPopup.offsetTop() < comboboxInput.offsetTop());
       })
 

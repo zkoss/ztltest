@@ -16,13 +16,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z30
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.util.Scripts
-import org.zkoss.ztl.Tags
 import org.junit.Test
-import org.zkoss.ztl.Element
-import org.zkoss.ztl.JQuery
-import org.zkoss.ztl.ZK
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
   * A test class for bug grid-0005

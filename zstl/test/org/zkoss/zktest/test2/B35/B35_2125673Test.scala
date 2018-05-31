@@ -16,24 +16,24 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Widget
-import org.zkoss.ztl.Element
-import org.junit.Test
 
 
 /**
- * A test class for bug 2125673
- * @author ldnigro
- *
- */
+  * A test class for bug 2125673
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2125673.zul,B,E,Groupbox")
 class B35_2125673Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -69,23 +69,23 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
     """;
 
     runZTL(zscript,
-        () => {
-        	
-            waitResponse();
-            
-            var title=jq("@caption");
-            var group=jq("@groupbox").toWidget().$n("cave");
-            
-            //1 - click title
-        	click(title);
-        	waitResponse();
-        	
-        	//2 - Verify groupbox not closed
-            verifyTrue(jq(group).exists());
-            verifyTrue(jq(group).isVisible());
-            
-                   
-        }
+      () => {
+
+        waitResponse();
+
+        var title = jq("@caption");
+        var group = jq("@groupbox").toWidget().$n("cave");
+
+        //1 - click title
+        click(title);
+        waitResponse();
+
+        //2 - Verify groupbox not closed
+        verifyTrue(jq(group).exists());
+        verifyTrue(jq(group).isVisible());
+
+
+      }
     );
-   }
+  }
 }

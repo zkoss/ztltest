@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-919.zul")
 class B60_ZK_919Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
     				<window width="400px" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('org.zkoss.zktest.test2.B60_ZK_919_ViewModel')">
                     <label pre="true">
                       1. You shall see 4 type of dates whose time part are the same. 
@@ -45,7 +46,7 @@ class B60_ZK_919Test extends ZTL4ScalaTestCase {
           case Pattern2(h, mm, ss) => h.replace(" ", "0").concat(":").concat(mm).concat(":").concat(ss)
           case _ => "00:00:00"
         }
-        
+
         val date0 = long2short(datelongfmt0)
         val date1 = long2short(datelongfmt1)
         val date2 = long2short(datelongfmt2)

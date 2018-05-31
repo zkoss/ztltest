@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Element, Tags}
 
 /**
- * A test class for bug ZK-835
- * @author benbai
- *
- */
+  * A test class for bug ZK-835
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-835.zul,")
 class B50_ZK_835Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk xmlns:w="client">
 				<h:pre xmlns:h="xhtml">
 					(All browsers EXCEPT IE8)
@@ -210,14 +203,14 @@ class B50_ZK_835Test extends ZTL4ScalaTestCase {
 
     """
 
-   runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var log: Element = jq("textarea").get(0);
         // wait the zk.log
         sleep(500);
         verifyTrue("Should only three log message",
-            log.get("value").length() < 37);
-    }
-   );
+          log.get("value").length() < 37);
+      }
+    );
   }
 }

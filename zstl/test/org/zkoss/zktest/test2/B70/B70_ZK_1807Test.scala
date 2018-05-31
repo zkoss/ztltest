@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-1807.zul")
 class B70_ZK_1807Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<?page title="Bandbox Style Change" contentType="text/html;charset=UTF-8"?>
+    val zscript =
+      """<?page title="Bandbox Style Change" contentType="text/html;charset=UTF-8"?>
 <zk>
 	<window title="Bandbox Style Change" border="normal">
 		<label>
@@ -45,8 +46,8 @@ class B70_ZK_1807Test extends ZTL4ScalaTestCase {
         click(jq(".z-button"))
         waitResponse()
 
-        verifyTrue("each component width won't change.", jq(".z-bandbox").width() == w1 && jq(".z-datebox").width() == w2 
-            && jq(".z-spinner").width() == w3 && jq(".z-combobox").width() == w4)
+        verifyTrue("each component width won't change.", jq(".z-bandbox").width() == w1 && jq(".z-datebox").width() == w2
+          && jq(".z-spinner").width() == w3 && jq(".z-combobox").width() == w4)
       })
 
   }

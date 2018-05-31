@@ -19,32 +19,32 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "")
 class B80_ZK_3266Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
-			var gd = jq("@grid")
-			var lt = jq("@listbox")
-			val gdw = gd.width()
-			val gdh = gd.height()
-			val ltw = lt.width()
-			val lth = lt.height()
-			verifyEquals(gdw+2, gd.parent().width())
-			verifyEquals(gdh+2, gd.parent().height())
-			verifyEquals(ltw+2, lt.parent().width())
-			verifyEquals(lth+2, lt.parent().height())
-			click(jq("@button"))
-			waitResponse()
-			gd = jq("@grid")
-			lt = jq("@listbox")
-			verifyEquals(gdw, gd.width())
-			verifyEquals(gdh, gd.height())
-			verifyEquals(ltw, lt.width())
-			verifyEquals(lth, lt.height())
-		})
-	}
+  @Test
+  def test() = {
+    runZTL(() => {
+      var gd = jq("@grid")
+      var lt = jq("@listbox")
+      val gdw = gd.width()
+      val gdh = gd.height()
+      val ltw = lt.width()
+      val lth = lt.height()
+      verifyEquals(gdw + 2, gd.parent().width())
+      verifyEquals(gdh + 2, gd.parent().height())
+      verifyEquals(ltw + 2, lt.parent().width())
+      verifyEquals(lth + 2, lt.parent().height())
+      click(jq("@button"))
+      waitResponse()
+      gd = jq("@grid")
+      lt = jq("@listbox")
+      verifyEquals(gdw, gd.width())
+      verifyEquals(gdh, gd.height())
+      verifyEquals(ltw, lt.width())
+      verifyEquals(lth, lt.height())
+    })
+  }
 }

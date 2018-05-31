@@ -16,29 +16,25 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.F60
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Tags, Widget}
+
 /**
- * A test class for bug ZK-720
- * @author benbai
- *
- */
+  * A test class for bug ZK-720
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-720.zul,")
 class F60_ZK_720Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk xmlns:h="xhtml">
 				<h:pre>
 					1.Click all the (left/Right) toolbarbutton and see if the toggle effect working.
@@ -81,32 +77,36 @@ class F60_ZK_720Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
 
-          var lbl: Widget = engine.$f("lbl");
+        var lbl: Widget = engine.$f("lbl");
 
-        def checkAct (tbn: Widget) {
+        def checkAct(tbn: Widget) {
           var toggled: Boolean = jq(tbn.$n()).hasClass("z-toolbarbutton-checked");
           click(tbn);
-          mouseOut(tbn); waitResponse();
-          verifyTrue("Should"+(if (toggled) " not" else "")+" be toggled",
-                jq(tbn.$n()).hasClass("z-toolbarbutton-checked") != toggled);
+          mouseOut(tbn);
+          waitResponse();
+          verifyTrue("Should" + (if (toggled) " not" else "") + " be toggled",
+            jq(tbn.$n()).hasClass("z-toolbarbutton-checked") != toggled);
         }
+
         engine.$f("tbn1");
         for (i <- 1 to 8) {
-          checkAct(engine.$f("tbn"+i));
-          checkAct(engine.$f("tbn"+i));
+          checkAct(engine.$f("tbn" + i));
+          checkAct(engine.$f("tbn" + i));
         }
         click(engine.$f("tbn9"));
-        mouseOut(engine.$f("tbn9")); waitResponse();
+        mouseOut(engine.$f("tbn9"));
+        waitResponse();
         verifyTrue("should be toggled",
-            lbl.$n().get("innerHTML").contains("true"));
+          lbl.$n().get("innerHTML").contains("true"));
         click(engine.$f("tbn9"));
-        mouseOut(engine.$f("tbn9")); waitResponse();
+        mouseOut(engine.$f("tbn9"));
+        waitResponse();
         verifyTrue("should not be toggled",
-            lbl.$n().get("innerHTML").contains("false"));
-    }
-   );
+          lbl.$n().get("innerHTML").contains("false"));
+      }
+    );
   }
 }

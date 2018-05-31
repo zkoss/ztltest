@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B60
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-827
- * @author benbai
- *
- */
+  * A test class for bug ZK-827
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-827.zul,A,E,Listbox,ListModel,Selection,Checkmark")
 class B60_ZK_827Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<window>
 					<label multiline="true">
@@ -103,8 +97,8 @@ class B60_ZK_827Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-   runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var msg: Widget = engine.$f("msg");
         var btnOne: Widget = engine.$f("btnOne");
         var btnTwo: Widget = engine.$f("btnTwo");
@@ -115,6 +109,7 @@ class B60_ZK_827Test extends ZTL4ScalaTestCase {
           click(wgt);
           waitResponse();
         }
+
         clickAndWait(btnOne);
         clickAndWait(btnTwo);
         clickAndWait(btnThree);
@@ -123,14 +118,14 @@ class B60_ZK_827Test extends ZTL4ScalaTestCase {
 
         var index: Int = Integer.parseInt(msg.$n().get("innerHTML").trim().replace("[", "").replace("]", ""));
         verifyTrue("select should sync between client and server",
-            jq(".z-listitem-selected:contains("+index+")").exists());
+          jq(".z-listitem-selected:contains(" + index + ")").exists());
         clickAndWait(jq(".z-listitem").get(6));
         clickAndWait(btnFive);
         index = Integer.parseInt(msg.$n().get("innerHTML").trim().replace("[", "").replace("]", ""));
         verifyTrue("select should sync between client and server",
-            jq(".z-listitem-selected:contains("+index+")").exists());
-        
-    }
-   );
+          jq(".z-listitem-selected:contains(" + index + ")").exists());
+
+      }
+    );
   }
 }

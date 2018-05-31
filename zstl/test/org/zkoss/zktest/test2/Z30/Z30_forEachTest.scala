@@ -20,16 +20,17 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags;
 
 /**
- * A test class for bug forEach
- * @author TonyQ
- *
- */
+  * A test class for bug forEach
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z30-forEach.zul,Z30,B,E,forEach,forEachBegin,BI")
 class Z30_forEachTest extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = 
-			"""
+    val zscript =
+      """
 			<window>
 				<zscript>
 			List items = new java.util.AbstractList() {
@@ -57,17 +58,17 @@ class Z30_forEachTest extends ZTL4ScalaTestCase {
     """;
 
     runZTL(zscript,
-        () => {
+      () => {
         var iter = jq("@row").iterator();
-        
-        var i:Int = 5; 
-        while(iter.hasNext()){
+
+        var i: Int = 5;
+        while (iter.hasNext()) {
           var row = iter.next();
-          verifyEquals(row.find("@label:first").text(),""+i);
-          i = i + 1 ;
+          verifyEquals(row.find("@label:first").text(), "" + i);
+          i = i + 1;
         }
-        verifyEquals(jq(".z-listitem-selected").find(".z-listcell:first").text(),"10");
-    }
-   );
+        verifyEquals(jq(".z-listitem-selected").find(".z-listcell:first").text(), "10");
+      }
+    );
   }
 }

@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2370.zul")
 class B70_ZK_2370Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <panel title="Caption property ordering issue" border="normal"
 	width="300px">
@@ -46,21 +44,21 @@ def testClick() = {
 	</panelchildren>
 </panel>
 
-"""  
-  runZTL(zscript,
-    () => {
-      
-      var img = jq(".z-caption-image");
-      var badL = jq(".z-button:contains(Bad Left)");
-      click(badL);
-      waitResponse();
-      verifyTrue(img.attr("src").indexOf("ArrowLeft") > 0);
-      var badR = jq(".z-button:contains(Bad Right)");
-      click(badR);
-      waitResponse();
-      verifyTrue(img.attr("src").indexOf("ArrowRight") > 0);
-        
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+
+        var img = jq(".z-caption-image");
+        var badL = jq(".z-button:contains(Bad Left)");
+        click(badL);
+        waitResponse();
+        verifyTrue(img.attr("src").indexOf("ArrowLeft") > 0);
+        var badR = jq(".z-button:contains(Bad Right)");
+        click(badR);
+        waitResponse();
+        verifyTrue(img.attr("src").indexOf("ArrowRight") > 0);
+
+      })
+
   }
 }

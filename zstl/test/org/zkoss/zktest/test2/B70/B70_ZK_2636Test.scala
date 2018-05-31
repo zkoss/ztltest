@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2636.zul")
 class B70_ZK_2636Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -45,21 +43,21 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	<button onClick="@command('save')">Save</button>
 </div>
     
-"""  
-  runZTL(zscript,
-    () => {
-      var show = jq("@button").eq(0);
-      var save = jq("@button").eq(1);
-      click(jq(".z-combobox-button"));
-      waitResponse();
-      click(jq(".z-combobox-popup ul li"));
-      waitResponse();
-      click(show);
-      waitResponse();
-      click(save);
-      sleep(1000);
-      verifyEquals("a\nValidate value: a", jq("#zk_log").eval("val()").trim());
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        var show = jq("@button").eq(0);
+        var save = jq("@button").eq(1);
+        click(jq(".z-combobox-button"));
+        waitResponse();
+        click(jq(".z-combobox-popup ul li"));
+        waitResponse();
+        click(show);
+        waitResponse();
+        click(save);
+        sleep(1000);
+        verifyEquals("a\nValidate value: a", jq("#zk_log").eval("val()").trim());
+      })
+
   }
 }

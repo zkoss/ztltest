@@ -16,24 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.util.ColorVerifingHelper
-import org.junit.Test
-import org.zkoss.ztl.ZK
-import org.zkoss.ztl.util.Scripts
 
 /**
- * A test class for bug 2073428
- * @author ldnigro
- *
- */
+  * A test class for bug 2073428
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2073428.zul,A,E,Menu")
 class B35_2073428Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
     		<?xml version="1.0" encoding="UTF-8"?>
 <?page title="Welcome to ZK Demo"?>
 	<!--
@@ -50,36 +49,36 @@ class B35_2073428Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
-        	/* cant get hover style
-        	waitResponse();
-                  
-        	//Stone Menu
-        	val menu=engine.$f("stone").$n("a");
-        	click(menu);
-        	
-        	waitResponse();
-        	
-        	if(!ZK.is("ie9_"))
-        		mouseOver(menu);
-        	else
-        		Scripts.triggerMouseEventAt(getWebDriver(), menu, "mouseover", "5,5");
-        	
-        	waitResponse();
-        	
-        	//Verify Over Style
-        	val mo = jq("$stone").css("border-color");
-        	verifyTrue(if("".equals(mo)) false else ColorVerifingHelper.isEqualColor("#8fb9d0", mo))
-        	
-        	//Move the mouse out of the menu
-        	mouseOut(menu);
-        	waitResponse();
-        	
-        	//Verify Over style isn't present
-        	val mo1 = jq("$stone").css("border-color");
-        	verifyFalse(if("".equals(mo)) false else ColorVerifingHelper.isEqualColor("#8fb9d0", mo))
-        	*/        	        	        	
-        }
+      () => {
+        /* cant get hover style
+        waitResponse();
+
+        //Stone Menu
+        val menu=engine.$f("stone").$n("a");
+        click(menu);
+
+        waitResponse();
+
+        if(!ZK.is("ie9_"))
+          mouseOver(menu);
+        else
+          Scripts.triggerMouseEventAt(getWebDriver(), menu, "mouseover", "5,5");
+
+        waitResponse();
+
+        //Verify Over Style
+        val mo = jq("$stone").css("border-color");
+        verifyTrue(if("".equals(mo)) false else ColorVerifingHelper.isEqualColor("#8fb9d0", mo))
+
+        //Move the mouse out of the menu
+        mouseOut(menu);
+        waitResponse();
+
+        //Verify Over style isn't present
+        val mo1 = jq("$stone").css("border-color");
+        verifyFalse(if("".equals(mo)) false else ColorVerifingHelper.isEqualColor("#8fb9d0", mo))
+        */
+      }
     );
-   }
+  }
 }

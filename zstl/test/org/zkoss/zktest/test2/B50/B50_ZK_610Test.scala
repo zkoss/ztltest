@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Element, Tags, Widget}
 
 /**
- * A test class for bug ZK-610
- * @author benbai
- *
- */
+  * A test class for bug ZK-610
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-ZK-610.zul,B,E,Grid,Listbox,Tree,sort")
 class B50_ZK_610Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<zscript>
 					import org.zkoss.zktest.util.Person;
@@ -65,29 +58,30 @@ class B50_ZK_610Test extends ZTL4ScalaTestCase {
     """
 
 
-   runZTL(zscript, () => {
-			var grid: Widget = engine.$f("grid");
-			var columns: Widget = engine.$f("columns");
+    runZTL(zscript, () => {
+      var grid: Widget = engine.$f("grid");
+      var columns: Widget = engine.$f("columns");
 
-			var cell: Element = jq(grid.$n()).find(".z-row:contains((null))").get(0);
+      var cell: Element = jq(grid.$n()).find(".z-row:contains((null))").get(0);
 
-			clickAt(columns, "5,5");
-			waitResponse();
-			var offset: Integer = jq(cell).positionTop();
+      clickAt(columns, "5,5");
+      waitResponse();
+      var offset: Integer = jq(cell).positionTop();
 
-			def sortThenVerify = () => {
-				clickAt(columns.firstChild(), "5,5");
-				waitResponse();
-				
-				verifyTrue("the position should changed after sort",
-				    offset != jq(cell).positionTop());
-				offset = jq(cell).positionTop()
-			}
-			sortThenVerify();
-			sortThenVerify();
-			sortThenVerify();
-			sortThenVerify();
-		})
+      def sortThenVerify = () => {
+        clickAt(columns.firstChild(), "5,5");
+        waitResponse();
+
+        verifyTrue("the position should changed after sort",
+          offset != jq(cell).positionTop());
+        offset = jq(cell).positionTop()
+      }
+
+      sortThenVerify();
+      sortThenVerify();
+      sortThenVerify();
+      sortThenVerify();
+    })
   }
 
 }

@@ -16,24 +16,24 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B35
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.junit.Test
-import org.apache.xalan.Version
-import org.zkoss.ztl.Widget
 
 
 /**
- * A test class for bug 2149511
- * @author ldnigro
- *
- */
+  * A test class for bug 2149511
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B35-2149511.zul,B,E,Tree")
 class B35_2149511Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -164,28 +164,28 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
     """
 
     runZTL(zscript,
-        () => {
-        	
-            //1 - click item 1.a
-        	click(jq("$i1a").toWidget().$n("open"));
-        	waitResponse();
-        	
-        	//2 - click item 2.a
-        	click(jq("$i2a").toWidget().$n("open"));
-        	waitResponse();
-        	
-        	//3 - click item 3.a
-        	click(jq("$i3a").toWidget().$n("open"));
-        	waitResponse();
-        	
-        	verScroll(jq("$tree").toWidget(), 1)
-        	//4 - scroll to 23.A and open it
-        	click(jq(".z-treerow:contains(23.A)").toWidget().$n("open"));
-        	waitResponse();
-        	
-        	verifyTrue(jq(jq("$tree").toWidget().$n("body")).scrollTop() > 40);
-        	     
-        }
+      () => {
+
+        //1 - click item 1.a
+        click(jq("$i1a").toWidget().$n("open"));
+        waitResponse();
+
+        //2 - click item 2.a
+        click(jq("$i2a").toWidget().$n("open"));
+        waitResponse();
+
+        //3 - click item 3.a
+        click(jq("$i3a").toWidget().$n("open"));
+        waitResponse();
+
+        verScroll(jq("$tree").toWidget(), 1)
+        //4 - scroll to 23.A and open it
+        click(jq(".z-treerow:contains(23.A)").toWidget().$n("open"));
+        waitResponse();
+
+        verifyTrue(jq(jq("$tree").toWidget().$n("body")).scrollTop() > 40);
+
+      }
     );
-   }
+  }
 }

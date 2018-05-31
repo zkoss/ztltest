@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1664.zul")
 class B65_ZK_1664Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
 <zscript><![CDATA[
 import java.util.ArrayList;
 import org.zkoss.zul.*;
@@ -34,21 +35,21 @@ ListSubModel model = ListModels.toListSubModel(new ListModelList(list));
     runZTL(zscript,
       () => {
         val chosenbox = jq(".z-chosenbox-input")
-        
+
         click(chosenbox)
         waitResponse()
-        
+
         sendKeys(chosenbox, "r")
         waitResponse()
-        
+
         sleep(2000)
 
         click(jq(".z-chosenbox-option:contains(row 4)"))
         waitResponse()
-        
+
         sendKeys(chosenbox, "r")
         waitResponse()
-        
+
         sleep(2000)
 
         verifyTrue("you should see the drop down list", jq(".z-chosenbox-option:contains(row 6)").exists())

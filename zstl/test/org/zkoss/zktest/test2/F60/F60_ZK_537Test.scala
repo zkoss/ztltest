@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.F60
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{JQuery, Tags, Widget}
 
 /**
- * A test class for bug ZK-537
- * @author benbai
- *
- */
+  * A test class for bug ZK-537
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-537.zul,F60,B,E,Hlayout")
 class F60_ZK_537Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 			<div>The buttons should aligned correctly.</div>
 				<checkbox id="cbOne" label="hlayout one" checked="true" />
@@ -82,7 +76,7 @@ class F60_ZK_537Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
+      () => {
         var rTop: Widget = engine.$f("rTop");
         var rMiddle: Widget = engine.$f("rMiddle");
         var rBottom: Widget = engine.$f("rBottom");
@@ -93,7 +87,7 @@ class F60_ZK_537Test extends ZTL4ScalaTestCase {
         var win2: Widget = engine.$f("win2");
         var win3: Widget = engine.$f("win3");
 
-        def clickAndCheck (wgt: Widget, align: String) {
+        def clickAndCheck(wgt: Widget, align: String) {
           click(wgt.$n("real"));
           waitResponse();
 
@@ -101,19 +95,21 @@ class F60_ZK_537Test extends ZTL4ScalaTestCase {
           checkAlign(lbTwo, win2, align);
           checkAlign(lbThree, win3, align);
         }
-        def checkAlign (w1: Widget, w2: Widget, align: String) {
+
+        def checkAlign(w1: Widget, w2: Widget, align: String) {
           var $w1: JQuery = jq(w1);
           var $w2: JQuery = jq(w2);
           if ("top".equals(align))
             verifyTrue("Should align top",
-                ($w1.offsetTop() - $w2.offsetTop()) < 2);
+              ($w1.offsetTop() - $w2.offsetTop()) < 2);
           else if ("middle".equals(align))
             verifyTrue("Should align middle",
-                (($w1.offsetTop()+$w1.outerHeight()/2) - ($w2.offsetTop()+$w2.outerHeight()/2)) < 2);
+              (($w1.offsetTop() + $w1.outerHeight() / 2) - ($w2.offsetTop() + $w2.outerHeight() / 2)) < 2);
           else if ("bottom".equals(align))
             verifyTrue("Should align bottom",
-                (($w1.offsetTop()+$w1.outerHeight()) - ($w2.offsetTop()+$w2.outerHeight())) < 2);
+              (($w1.offsetTop() + $w1.outerHeight()) - ($w2.offsetTop() + $w2.outerHeight())) < 2);
         }
+
         checkAlign(lbOne, win1, "top");
         checkAlign(lbTwo, win2, "middle");
         checkAlign(lbThree, win3, "bottom");
@@ -121,7 +117,7 @@ class F60_ZK_537Test extends ZTL4ScalaTestCase {
         clickAndCheck(rTop, "top");
         clickAndCheck(rMiddle, "middle");
         clickAndCheck(rBottom, "bottom");
-    }
-   );
+      }
+    );
   }
 }

@@ -16,28 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.F51
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{JQuery, Tags, Widget}
+
 /**
- * A test class for bug ZK-139
- * @author benbai
- *
- */
+  * A test class for bug ZK-139
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F51-ZK-139.zul,A,E,template")
 class F51_ZK_139Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<vlayout>
 				<html><![CDATA[
 				<ol>
@@ -91,28 +86,29 @@ class F51_ZK_139Test extends ZTL4ScalaTestCase {
 
     """
 
-   runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var btnOne: Widget = engine.$f("btnOne");
         var btnTwo: Widget = engine.$f("btnTwo");
-        
-        def verifyInsert (msg: String, wgt: Widget, before: Boolean, target: Widget) {
+
+        def verifyInsert(msg: String, wgt: Widget, before: Boolean, target: Widget) {
           click(wgt);
           waitResponse();
-          var inserted: JQuery = jq(".z-label:contains("+msg+")");
+          var inserted: JQuery = jq(".z-label:contains(" + msg + ")");
           if (before) {
             verifyTrue("Template should inserted before",
-                inserted.offsetTop() < jq(target).offsetTop());
+              inserted.offsetTop() < jq(target).offsetTop());
           } else {
-        	verifyTrue("Template should inserted after",
-        		inserted.offsetTop() > jq(target).offsetTop());
+            verifyTrue("Template should inserted after",
+              inserted.offsetTop() > jq(target).offsetTop());
           }
         }
+
         verifyInsert("1: This is date:", btnOne, false, btnTwo);
         verifyInsert("2: This is date:", btnOne, false, btnTwo);
         verifyInsert("3: This is date:", btnTwo, true, btnTwo);
         verifyInsert("4: This is date:", btnTwo, true, btnTwo);
-    }
-   );
+      }
+    );
   }
 }

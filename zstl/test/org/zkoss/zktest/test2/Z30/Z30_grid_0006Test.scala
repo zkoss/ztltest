@@ -16,22 +16,24 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z30
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.util.Scripts
-import org.zkoss.ztl.Tags
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.util.Scripts
 
 /**
- * A test class for bug grid-0006
- * @author TonyQ
- *
- */
+  * A test class for bug grid-0006
+  *
+  * @author TonyQ
+  *
+  */
 @Tags(tags = "Z30-grid-0006.zul,Z30,B,E,Grid,Sorting")
 class Z30_grid_0006Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<window title="the odd row's color shall be yellow (controlled by the style component).	test sorting">
 				<style><![CDATA[
 				tr.z-grid-odd td.z-row-inner, tr.z-grid-odd {
@@ -123,47 +125,47 @@ class Z30_grid_0006Test extends ZTL4ScalaTestCase {
     """;
 
     runZTL(zscript,
-        () => {
-        verifyTolerant(jq("$col").outerWidth(),125, if(!hasNativeScroll(jq("$grid"))) 2 else 5);
-        
+      () => {
+        verifyTolerant(jq("$col").outerWidth(), 125, if (!hasNativeScroll(jq("$grid"))) 2 else 5);
+
         click(jq("$btnWid"))
         waitResponse
-        verifyNotEquals(String.valueOf(jq("$col").outerWidth()),"125");
-        verifyEquals(String.valueOf(jq("$col").outerWidth()),"200");
-        
+        verifyNotEquals(String.valueOf(jq("$col").outerWidth()), "125");
+        verifyEquals(String.valueOf(jq("$col").outerWidth()), "200");
 
-		Scripts.triggerMouseEventAt(getWebDriver(), jq("$col"), "click", "2,2")        
+
+        Scripts.triggerMouseEventAt(getWebDriver(), jq("$col"), "click", "2,2")
         waitResponse
 
 
-        def verifyRowContent(iterator:Iterator[String]) ={
-	        val verify = iterator;
-	        val list =  jq("@row").iterator();
-	        while(list.hasNext()){
-	          val row = list.next();
-			  verifyEquals(row.find(".z-label:first").text(),verify.next());
-			}          
+        def verifyRowContent(iterator: Iterator[String]) = {
+          val verify = iterator;
+          val list = jq("@row").iterator();
+          while (list.hasNext()) {
+            val row = list.next();
+            verifyEquals(row.find(".z-label:first").text(), verify.next());
+          }
         }
 
-        verifyRowContent(Iterator("A31","Apple","Lemon","Orange","Tomato"));
-        
+        verifyRowContent(Iterator("A31", "Apple", "Lemon", "Orange", "Tomato"));
+
         click(jq("$addRow"))
         waitResponse
-        verifyRowContent(Iterator("A31","Apple","Lemon","Orange","Tomato","A31"));
+        verifyRowContent(Iterator("A31", "Apple", "Lemon", "Orange", "Tomato", "A31"));
 
         click(jq("$insRow"))
         waitResponse
-        verifyRowContent(Iterator("Ins1","A31","Apple","Lemon","Orange","Tomato","A31"));
-        
+        verifyRowContent(Iterator("Ins1", "A31", "Apple", "Lemon", "Orange", "Tomato", "A31"));
+
         Scripts.triggerMouseEventAt(getWebDriver(), jq("$col"), "click", "2,2")
         waitResponse
-        verifyRowContent(Iterator("Tomato","Orange","Lemon","Ins1","Apple","A31","A31"));
-        
-		Scripts.triggerMouseEventAt(getWebDriver(), jq("$col"), "click", "2,2")        
-        
+        verifyRowContent(Iterator("Tomato", "Orange", "Lemon", "Ins1", "Apple", "A31", "A31"));
+
+        Scripts.triggerMouseEventAt(getWebDriver(), jq("$col"), "click", "2,2")
+
         waitResponse
-        verifyRowContent(Iterator("A31","A31","Apple","Ins1","Lemon","Orange","Tomato"));
-    }
-   );
+        verifyRowContent(Iterator("A31", "A31", "Apple", "Ins1", "Lemon", "Orange", "Tomato"));
+      }
+    );
   }
 }

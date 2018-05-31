@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.F70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "F70-ZK-1729.zul")
 class F70_ZK_1729Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<window apply="org.zkoss.zktest.test2.F70_ZK_1729">
+  @Test
+  def testClick() = {
+    val zscript =
+      """<window apply="org.zkoss.zktest.test2.F70_ZK_1729">
 	<div>
 	click the 'click me' button and should not throw an exception 
 	</div>
@@ -56,15 +57,15 @@ def testClick() = {
 			<listcell label="21" />
 		</listitem>
 	</listbox>
-</window>"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-button"))
-      waitResponse()
-      verifyFalse("no exception", jq(".z-window-modal").exists());
-      
-      verifyTrue("the label will be 'Name Gender Age'", jq(".z-label:contains(Name Gender Age)").exists)
-    })
-    
+</window>"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-button"))
+        waitResponse()
+        verifyFalse("no exception", jq(".z-window-modal").exists());
+
+        verifyTrue("the label will be 'Name Gender Age'", jq(".z-label:contains(Name Gender Age)").exists)
+      })
+
   }
 }

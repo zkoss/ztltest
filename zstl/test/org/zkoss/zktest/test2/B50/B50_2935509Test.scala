@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug 2935509
- * @author benbai
- *
- */
+  * A test class for bug 2935509
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-2935509.zul,A,E,Grid")
 class B50_2935509Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<window title="Test" width="610px">
 			Click the button and the headers shall change (from 1 to 11, 2 to 22, and 3 to 33)
 			<button id="btn" label="new columns">
@@ -68,22 +61,23 @@ class B50_2935509Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         var btn: Widget = engine.$f("btn");
         var gg: Widget = engine.$f("gg");
 
         click(btn);
         waitResponse();
 
-        def checkHeader (i: Int, content: String) {
-        	verifyTrue("header "+(i+1)+" should contains "+content,
-        			jq(gg.$n("head")).find(".z-columns").find(".z-column").eq(i).text().contains(content));
+        def checkHeader(i: Int, content: String) {
+          verifyTrue("header " + (i + 1) + " should contains " + content,
+            jq(gg.$n("head")).find(".z-columns").find(".z-column").eq(i).text().contains(content));
         }
+
         checkHeader(0, "11");
         checkHeader(1, "22");
         checkHeader(2, "33");
-    }
-   );
+      }
+    );
 
   }
 }

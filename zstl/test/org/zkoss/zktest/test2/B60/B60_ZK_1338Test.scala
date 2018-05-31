@@ -17,28 +17,20 @@ Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug ZK-1338
- * @author jumperchen
- *
- */
+  * A test class for bug ZK-1338
+  *
+  * @author jumperchen
+  *
+  */
 @Tags(tags = "B60-ZK-1338.zul,A,E,ClientEngine,Javascript")
 class B60_ZK_1338Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = 
-"""	<?page title="If nothing in the page, that is a bug"?>
+    val zscript =
+      """	<?page title="If nothing in the page, that is a bug"?>
 <?script content="zk.log('if nothing in the page, that is a bug')"?>
 <zk xmlns:w="http://www.zkoss.org/2005/zk/client">
 <zscript><![CDATA[
@@ -98,16 +90,17 @@ public class MyComposer extends GenericForwardComposer {
 </zk>
     	
 """
-runZTL(zscript,
-        () => {
-        	try {
-		       sleep(5000);
-		       waitResponse();
-		       
-	        verifyTrue("Window should be there!",
-	            engine.$f("mainWin").exists());
-        	} finally {
-        		var resetScript = """
+    runZTL(zscript,
+      () => {
+        try {
+          sleep(5000);
+          waitResponse();
+
+          verifyTrue("Window should be there!",
+            engine.$f("mainWin").exists());
+        } finally {
+          var resetScript =
+            """
         			<zscript><![CDATA[
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -124,10 +117,10 @@ import java.io.IOException;
 		cwr.addExtendlet("wpd", new org.zkoss.zk.ui.http.WpdExtendlet());
         			]]></zscript>
         			""";
-        		runRawZscript(resetScript);
-        		waitResponse();
-        	}
-    }
-   );
+          runRawZscript(resetScript);
+          waitResponse();
+        }
+      }
+    );
   }
 }

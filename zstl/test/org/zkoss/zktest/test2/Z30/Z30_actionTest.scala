@@ -14,19 +14,20 @@ it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2.Z30
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 /**
- *
- * @author jumperchen
- */
+  *
+  * @author jumperchen
+  */
 @Tags(tags = "Z30-action.zul,B,E,Html,UI")
 class Z30_actionTest extends ZTL4ScalaTestCase {
   @Test
-	def testCase() = {
-		val zscript = """
+  def testCase() = {
+    val zscript =
+      """
 <window title="Test of JavaScript Utilities">
 <script><![CDATA[
 var comm = {
@@ -61,22 +62,22 @@ You can click each link, then you should see that the label is the same as that 
 	</vbox>
 </window>
 		"""
-runZTL(zscript, () => {
-		  	click(jq("#a1"));
-  		  	waitResponse
-  		  	verifyEquals(widget(jq("$l")).get("value"),"onUser null");
-  		  	
-  		  	click(jq("#a2"));
-  		  	waitResponse
-  		  	verifyEquals(widget(jq("$l")).get("value"),"onUser [One]");
-  		  	
-  		  	click(jq("#a3"));
-  		  	waitResponse
-			verifyEquals(widget(jq("$l")).get("value"),"onUser [One, Two]");
-  		  	
-  		  	click(jq("#a4"));
-  		  	waitResponse
-  		  	verifyEquals(widget(jq("$l")).get("value"),"onUser [1, 2]");
-		})
-	}
+    runZTL(zscript, () => {
+      click(jq("#a1"));
+      waitResponse
+      verifyEquals(widget(jq("$l")).get("value"), "onUser null");
+
+      click(jq("#a2"));
+      waitResponse
+      verifyEquals(widget(jq("$l")).get("value"), "onUser [One]");
+
+      click(jq("#a3"));
+      waitResponse
+      verifyEquals(widget(jq("$l")).get("value"), "onUser [One, Two]");
+
+      click(jq("#a4"));
+      waitResponse
+      verifyEquals(widget(jq("$l")).get("value"), "onUser [1, 2]");
+    })
+  }
 }

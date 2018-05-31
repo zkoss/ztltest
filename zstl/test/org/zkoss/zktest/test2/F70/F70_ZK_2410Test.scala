@@ -8,9 +8,9 @@ import org.zkoss.ztl.Tags
 @Tags(tags = "F70-ZK-2410.zul")
 class F70_ZK_2410Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  runZTL(() => {
+  @Test
+  def testClick() = {
+    runZTL(() => {
       val input = jq(".z-paging-input")
       click(input)
       waitResponse()

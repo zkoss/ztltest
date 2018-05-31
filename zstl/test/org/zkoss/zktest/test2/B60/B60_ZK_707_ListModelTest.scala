@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-707-ListModel
- * @author benbai
- *
- */
+  * A test class for bug ZK-707-ListModel
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B60-ZK-707-ListModel.zul,A,E,ListModel,Selectable,Listbox,ROD")
 class B60_ZK_707_ListModelTest extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 			    <zscript><![CDATA[
 			String[] data = new String[10];
@@ -73,30 +66,34 @@ class B60_ZK_707_ListModelTest extends ZTL4ScalaTestCase {
 
     """
 
-   runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var cbx: Widget = engine.$f("cbx");
         var gridOne: Widget = engine.$f("gridOne");
         var gridTwo: Widget = engine.$f("gridTwo");
 
-        def selectItem(wgt: Widget,content: String) {
-        	click(jq(gridOne.$n()).find(".z-listitem:contains("+content+")"));
-	        waitResponse();
+        def selectItem(wgt: Widget, content: String) {
+          click(jq(gridOne.$n()).find(".z-listitem:contains(" + content + ")"));
+          waitResponse();
         }
+
         def verifySelected(content: String) {
-            verifyTrue("Both first grid and second grid select the "+content,
-            		jq(gridOne.$n()).find(".z-listitem-selected:contains("+content+")").exists()
-            		&& jq(gridTwo.$n()).find(".z-listitem-selected:contains("+content+")").exists());
+          verifyTrue("Both first grid and second grid select the " + content,
+            jq(gridOne.$n()).find(".z-listitem-selected:contains(" + content + ")").exists()
+              && jq(gridTwo.$n()).find(".z-listitem-selected:contains(" + content + ")").exists());
         }
-        def sort (wgt: Widget) {
-            click(jq(wgt.$n()).find(".z-listheader:contains(column)"));
-            waitResponse();
+
+        def sort(wgt: Widget) {
+          click(jq(wgt.$n()).find(".z-listheader:contains(column)"));
+          waitResponse();
         }
+
         def checkOrder(content: String, order: Int) {
-        	verifyTrue("The item "+order+" of first/second grid should contains"+content,
-        	    jq(gridOne.$n()).find(".z-listitem").get(order).get("innerHTML").contains(content)
-        	    && jq(gridTwo.$n()).find(".z-listitem").get(order).get("innerHTML").contains(content));
+          verifyTrue("The item " + order + " of first/second grid should contains" + content,
+            jq(gridOne.$n()).find(".z-listitem").get(order).get("innerHTML").contains(content)
+              && jq(gridTwo.$n()).find(".z-listitem").get(order).get("innerHTML").contains(content));
         }
+
         selectItem(gridOne, "option_1");
         verifySelected("option_1");
 
@@ -126,7 +123,7 @@ class B60_ZK_707_ListModelTest extends ZTL4ScalaTestCase {
         checkOrder("option_0", 0);
         checkOrder("option_1", 1);
         checkOrder("option_2", 2);
-     }
-   );
+      }
+    );
   }
 }

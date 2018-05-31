@@ -17,27 +17,20 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.F60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-469
- * @author benbai
- *
- */
+  * A test class for bug ZK-469
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-469.zul,F60,A,E,Absolutelayout")
 class F60_ZK_469Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<?component name="window" extends="window" border="normal" width="300px" height="300px"?>
 			<zk>
 				<zscript>
@@ -82,7 +75,7 @@ class F60_ZK_469Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
+      () => {
         var parent: Widget = engine.$f("parent");
 
         var btnOne: Widget = engine.$f("btnOne");
@@ -104,24 +97,28 @@ class F60_ZK_469Test extends ZTL4ScalaTestCase {
         var parentLeft: Int = jq(parent).offsetLeft();
         var parentTop: Int = jq(parent).offsetTop();
 
-        def clickAndVerify (btn: Widget, addX: Int, addY: Int) {
+        def clickAndVerify(btn: Widget, addX: Int, addY: Int) {
           click(btn);
           waitResponse();
-          w1x += addX; w1y += addY;
-          w2x += addX; w2y += addY;
-          w3x += addX; w3y += addY;
+          w1x += addX;
+          w1y += addY;
+          w2x += addX;
+          w2y += addY;
+          w3x += addX;
+          w3y += addY;
 
           verifyTrue("The position should be changed correctly",
-              math.abs((jq(w1).offsetLeft() - parentLeft - w1x)) < 2  && math.abs(jq(w1).offsetTop() - parentTop - w1y) < 2
-              && math.abs((jq(w2).offsetLeft() - parentLeft - w2x)) < 2  && math.abs(jq(w2).offsetTop() - parentTop - w2y) < 2
-              && math.abs((jq(w3).offsetLeft() - parentLeft - w3x)) < 2  && math.abs(jq(w3).offsetTop() - parentTop - w3y) < 2);
+            math.abs((jq(w1).offsetLeft() - parentLeft - w1x)) < 2 && math.abs(jq(w1).offsetTop() - parentTop - w1y) < 2
+              && math.abs((jq(w2).offsetLeft() - parentLeft - w2x)) < 2 && math.abs(jq(w2).offsetTop() - parentTop - w2y) < 2
+              && math.abs((jq(w3).offsetLeft() - parentLeft - w3x)) < 2 && math.abs(jq(w3).offsetTop() - parentTop - w3y) < 2);
         }
+
         clickAndVerify(btnOne, 100, 0);
         clickAndVerify(btnThree, 0, 100);
         clickAndVerify(btnTwo, -100, 0);
         clickAndVerify(btnFour, 0, -100);
-    }
-   );
+      }
+    );
 
   }
 }

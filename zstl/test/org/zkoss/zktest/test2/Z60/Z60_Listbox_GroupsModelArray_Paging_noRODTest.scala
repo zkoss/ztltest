@@ -16,28 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.Z60
 
-import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
 import java.lang._
 
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.{Element, Tags, Widget}
+
 /**
- * A test class for bug Listbox-GroupsModelArray-Paging-noROD
- * @author benbai
- *
- */
+  * A test class for bug Listbox-GroupsModelArray-Paging-noROD
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "Z60-Listbox-GroupsModelArray-Paging-noROD.zul,Z60,A,E,Listbox,GroupsModelArray,Paging")
 class Z60_Listbox_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<zscript>
 					<![CDATA[
@@ -183,8 +178,8 @@ class Z60_Listbox_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
 
     """
 
-   runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var outer: Widget = engine.$f("outer");
         var tbOne: Widget = engine.$f("tbOne");
         var tbTwo: Widget = engine.$f("tbTwo");
@@ -195,25 +190,28 @@ class Z60_Listbox_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
         var checkClose: Widget = engine.$f("checkClose");
         var msg: Widget = engine.$f("msg");
 
-        def closeGroup (id: String, gnum: String, close: Boolean) {
+        def closeGroup(id: String, gnum: String, close: Boolean) {
           var lbx: Widget = engine.$f(id);
           var gstr: String = getGstr(gnum);
           changePage(id, gnum);
           if (close != isClose(id, gnum)) {
-            click(jq(lbx.$n("rows")).find(".z-listgroup:contains(Itemset "+gstr+")").toWidget().$n("img"));
+            click(jq(lbx.$n("rows")).find(".z-listgroup:contains(Itemset " + gstr + ")").toWidget().$n("img"));
             waitResponse();
           }
-          
+
         }
-        def sortAndCheck (idOne: String, idTwo: String, cate: String, gnum: String) {
-        	sort(idOne, cate);
-	        checkEqual(idOne, idTwo, gnum);
+
+        def sortAndCheck(idOne: String, idTwo: String, cate: String, gnum: String) {
+          sort(idOne, cate);
+          checkEqual(idOne, idTwo, gnum);
         }
-        def sort (id: String, cate: String) {
+
+        def sort(id: String, cate: String) {
           var lbx: Widget = engine.$f(id);
-          click(jq(lbx.$n("head")).find(".z-listheader:contains("+cate+")"));
+          click(jq(lbx.$n("head")).find(".z-listheader:contains(" + cate + ")"));
           waitResponse();
         }
+
         def checkEqual(idOne: String, idTwo: String, gnum: String) {
           var lbxOne: Widget = engine.$f(idOne);
           var lbxTwo: Widget = engine.$f(idTwo);
@@ -221,69 +219,74 @@ class Z60_Listbox_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
           changePage(idTwo, gnum);
 
           for (i <- 0 to 2) {
-            verifyTrue("The content sequence should equal between two listbox "+idOne+" and "+idTwo,
-                jq(lbxOne.$n("rows")).find(".z-listcell-content:contains(Value)").get(i).get("innerHTML")
+            verifyTrue("The content sequence should equal between two listbox " + idOne + " and " + idTwo,
+              jq(lbxOne.$n("rows")).find(".z-listcell-content:contains(Value)").get(i).get("innerHTML")
                 .equals(jq(lbxTwo.$n("rows")).find(".z-listcell-content:contains(Value)").get(i).get("innerHTML")));
           }
         }
-        def isClose(id: String, gnum: String): Boolean =  {
+
+        def isClose(id: String, gnum: String): Boolean = {
           var lbx: Widget = engine.$f(id);
           var gstr: String = getGstr(gnum);
-          if (!jq(lbx.$n("rows")).find(".z-listgroup:contains(Itemset "+gstr+")").exists())
+          if (!jq(lbx.$n("rows")).find(".z-listgroup:contains(Itemset " + gstr + ")").exists())
             changePage(id, gnum);
-          return jq(lbx.$n("rows")).find(".z-listgroup:contains(Itemset "+gstr+")").find(".z-listgroup-icon-close").get(0).exists();
+          return jq(lbx.$n("rows")).find(".z-listgroup:contains(Itemset " + gstr + ")").find(".z-listgroup-icon-close").get(0).exists();
         }
-        def changePage (id: String, gnum: String) {
+
+        def changePage(id: String, gnum: String) {
           input(tbOne.$n(), id);
           input(tbTwo.$n(), gnum);
           click(btnOne);
           waitResponse();
         }
+
         def input = (tb: Element, value: String) => {
           click(tb);
-          tb.eval("value = \"" + value+"\"");
+          tb.eval("value = \"" + value + "\"");
           click(outer);
           waitResponse();
         }
-        def getGstr (gnum: String): String = {
+
+        def getGstr(gnum: String): String = {
           var gstr: String = gnum;
           if (gstr.length() == 1)
-            return "00"+gstr;
+            return "00" + gstr;
           else if (gstr.length() == 2)
-            return "0"+gstr;
+            return "0" + gstr;
           return gstr;
         }
+
         closeGroup("lbxOne", "5", true);
         verifyTrue("The open/close status should sync between first two grid",
-            isClose("lbxTwo", "5"));
+          isClose("lbxTwo", "5"));
         closeGroup("lbxOne", "197", true);
         verifyTrue("The open/close status should sync between first two grid",
-            isClose("lbxTwo", "197"));
+          isClose("lbxTwo", "197"));
         closeGroup("lbxTwo", "5", false);
         verifyFalse("The open/close status should sync between first two grid",
-            isClose("lbxOne", "5"));
+          isClose("lbxOne", "5"));
         sortAndCheck("lbxOne", "lbxTwo", "Name", "50");
         sortAndCheck("lbxOne", "lbxTwo", "Name", "50");
         sortAndCheck("lbxOne", "lbxTwo", "Name", "50");
 
         closeGroup("lbxThree", "199", true);
         verifyTrue("The last group should closed without any problem",
-            isClose("lbxThree", "199"));
+          isClose("lbxThree", "199"));
 
         click(btnThree);
         waitResponse();
         click(btnFour);
         waitResponse();
         verifyTrue("The last group should closed without any problem",
-            isClose("lbxThree_clone0", "199"));
+          isClose("lbxThree_clone0", "199"));
         verifyTrue("The last group should closed without any problem",
-            isClose("lbxThree_serialize1", "199"));
+          isClose("lbxThree_serialize1", "199"));
 
         closeGroup("lbxThree", "199", false);
         verifyTrue("The last group should closed without any problem",
-            isClose("lbxThree_clone0", "199"));
+          isClose("lbxThree_clone0", "199"));
         verifyTrue("The last group should closed without any problem",
-            isClose("lbxThree_serialize1", "199"));
+          isClose("lbxThree_serialize1", "199"));
 
         closeGroup("lbxThree", "0", true);
         closeGroup("lbxThree", "1", true);
@@ -295,14 +298,14 @@ class Z60_Listbox_GroupsModelArray_Paging_noRODTest extends ZTL4ScalaTestCase {
         closeGroup("lbxThree_clone2", "1", false);
         closeGroup("lbxThree_serialize3", "1", false);
         verifyTrue("The last group should closed without any problem",
-            isClose("lbxThree_clone2", "0"));
+          isClose("lbxThree_clone2", "0"));
         verifyTrue("The last group should closed without any problem",
-            isClose("lbxThree_serialize3", "0"));
+          isClose("lbxThree_serialize3", "0"));
         verifyFalse("The last group should closed without any problem",
-            isClose("lbxThree_clone2", "1"));
+          isClose("lbxThree_clone2", "1"));
         verifyFalse("The last group should closed without any problem",
-            isClose("lbxThree_serialize3", "1"));
-    }
-   );
+          isClose("lbxThree_serialize3", "1"));
+      }
+    );
   }
 }

@@ -1,14 +1,15 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1256.zul")
 class B60_ZK_1256Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <window width="100%">
                       1. clear the combobox value by pressing "backspace", then click outside combobox.<separator/>
                       2. should see red "onSelect event triggered" message showed.<separator/>

@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-1683.zul")
 class B70_ZK_1683Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-1683.zul
@@ -47,14 +48,14 @@ ListModelList model = new ListModelList(list);
 </template>
 </grid>
 </zk>
-"""  
-  runZTL(zscript,
-    () => {
-      verifyTrue("You should not see an endless loop for the alert message.", jq(".z-window-modal").length() == 1)
-      click(jq(".z-window-close"))
-      waitResponse()
-      verifyTrue("You should not see an endless loop for the alert message.", jq(".z-window-modal").length() == 1)
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        verifyTrue("You should not see an endless loop for the alert message.", jq(".z-window-modal").length() == 1)
+        click(jq(".z-window-close"))
+        waitResponse()
+        verifyTrue("You should not see an endless loop for the alert message.", jq(".z-window-modal").length() == 1)
+      })
+
   }
 }

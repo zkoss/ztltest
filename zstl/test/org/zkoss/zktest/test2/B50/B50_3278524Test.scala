@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug 3278524
- * @author benbai
- *
- */
+  * A test class for bug 3278524
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "B50-3278524.zul,B,E,Include")
 class B50_3278524Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<tabbox>
 				<tabs>
 				<tab label="Hi"/>
@@ -53,12 +47,12 @@ class B50_3278524Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript,
-        () => {
+      () => {
         waitResponse();
         verifyTrue("Should appear a log message 'false'",
-            jq("#zk_log").get(0).get("value").contains("false"));
-    }
-   );
+          jq("#zk_log").get(0).get("value").contains("false"));
+      }
+    );
 
   }
 }

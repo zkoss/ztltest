@@ -1,14 +1,14 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.util.Scripts
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1305.zul")
 class B60_ZK_1305Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<zk>
+    val zscript =
+      """<zk>
                     <div>
                       1. Click on the first listitem, should see "select index: 0" message showed.<separator/>
                       2. Should be able to drag test0 item.
@@ -47,7 +47,7 @@ class B60_ZK_1305Test extends ZTL4ScalaTestCase {
 
         val position = "2,2"
         val test = jq(".z-listitem:contains(test):eq(1)")
-        
+
         mouseMoveAt(test0, position)
         waitResponse
 

@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2359.zul")
 class B70_ZK_2359Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+  @Test
+  def testClick() = {
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B70-ZK-2359.zul
@@ -232,44 +230,44 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	]]></zscript>
 </zk>
 
-"""  
-  runZTL(zscript,
-    () => {
-      var check = (input: org.zkoss.ztl.JQuery) => {
-        val value = input.attr("value");
-        for(_ <- 1 to 5) {
-          sleep(300);
-          verifyTrue("value should be the same. it means no flickering.", input.attr("value").equals(value));
-        }
-      };
-      
-      var btn = jq("@listbox").find(".z-paging-button").eq(2);
-      clickAt(btn, "1,1");
-      waitResponse();
-      clickAt(btn, "1,1");
-      waitResponse();
-      clickAt(btn, "1,1");
-      waitResponse();
-      check(jq("@listbox").find(".z-paging-input"));
-      
-      btn = jq("@grid").find(".z-paging-button").eq(2);
-      clickAt(btn, "1,1");
-      waitResponse();
-      clickAt(btn, "1,1");
-      waitResponse();
-      clickAt(btn, "1,1");
-      waitResponse();
-      check(jq("@grid").find(".z-paging-input"));
-      
-      btn = jq("@tree").find(".z-paging-button").eq(2);
-      clickAt(btn, "1,1");
-      waitResponse();
-      clickAt(btn, "1,1");
-      waitResponse();
-      clickAt(btn, "1,1");
-      waitResponse();
-      check(jq("@tree").find(".z-paging-input"));
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        var check = (input: org.zkoss.ztl.JQuery) => {
+          val value = input.attr("value");
+          for (_ <- 1 to 5) {
+            sleep(300);
+            verifyTrue("value should be the same. it means no flickering.", input.attr("value").equals(value));
+          }
+        };
+
+        var btn = jq("@listbox").find(".z-paging-button").eq(2);
+        clickAt(btn, "1,1");
+        waitResponse();
+        clickAt(btn, "1,1");
+        waitResponse();
+        clickAt(btn, "1,1");
+        waitResponse();
+        check(jq("@listbox").find(".z-paging-input"));
+
+        btn = jq("@grid").find(".z-paging-button").eq(2);
+        clickAt(btn, "1,1");
+        waitResponse();
+        clickAt(btn, "1,1");
+        waitResponse();
+        clickAt(btn, "1,1");
+        waitResponse();
+        check(jq("@grid").find(".z-paging-input"));
+
+        btn = jq("@tree").find(".z-paging-button").eq(2);
+        clickAt(btn, "1,1");
+        waitResponse();
+        clickAt(btn, "1,1");
+        waitResponse();
+        clickAt(btn, "1,1");
+        waitResponse();
+        check(jq("@tree").find(".z-paging-input"));
+      })
+
   }
 }

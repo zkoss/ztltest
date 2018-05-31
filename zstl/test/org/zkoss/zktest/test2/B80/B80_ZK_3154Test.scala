@@ -10,7 +10,7 @@ class B80_ZK_3154Test extends ZTL4ScalaTestCase {
       () => {
         waitResponse()
         verifyFalse(jq(".z-tree-paging-bottom .z-paging").isVisible)
-    })
+      })
   }
 }
 

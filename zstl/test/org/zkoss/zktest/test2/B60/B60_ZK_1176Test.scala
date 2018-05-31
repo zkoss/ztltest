@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1176.zul")
 class B60_ZK_1176Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<?page title="B60-ZK-1176" contentType="text/html;charset=UTF-8"?>
+    val zscript =
+      """<?page title="B60-ZK-1176" contentType="text/html;charset=UTF-8"?>
                   <zk>
                     <window title="B60-ZK-1176" border="normal" width="500px" apply="org.zkoss.zktest.test2.B60_ZK_1176_TestComposer">
                       <panel title="Instruction" border="normal">
@@ -52,24 +53,24 @@ class B60_ZK_1176Test extends ZTL4ScalaTestCase {
       () => {
         val btn1 = jq(".z-button:contains(Button #1)")
         val btn2 = jq(".z-button:contains(Button #2)")
-        
+
         verifyEquals("should see 2 buttons", jq(".z-button").length(), 2)
         verifyEquals("should see 2 toolbarbuttons", jq(".z-toolbarbutton").length(), 2)
         click(btn1)
         waitResponse()
         verifyTrue(btn1.is("[disabled]"))
-        
+
         click(btn2)
         waitResponse()
         verifyTrue(!btn2.is("[disabled]"))
 
         val toolbarbtn1 = jq(".z-toolbarbutton:contains(Toolbarbutton #1)")
         val toolbarbtn2 = jq(".z-toolbarbutton:contains(Toolbarbutton #2)")
-        
+
         click(toolbarbtn1)
         waitResponse()
         verifyTrue(toolbarbtn1.is("[disabled=disabled]"))
-        
+
         click(toolbarbtn2)
         waitResponse()
         verifyTrue(!toolbarbtn2.is("[disabled=disabled]"))

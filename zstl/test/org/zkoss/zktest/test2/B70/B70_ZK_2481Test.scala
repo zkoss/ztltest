@@ -1,18 +1,16 @@
 package org.zkoss.zktest.test2.B70
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
-import java.awt.event.KeyEvent
-import org.openqa.selenium.Keys
-import org.zkoss.ztl.ZKSeleneseTestBase
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B70-ZK-2481.zul")
 class B70_ZK_2481Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <window width="100%" height="100%" title="Testing with ZK ${desktop.webApp.version}" border="normal">
     <navbar orient="horizontal" collapsed="false">
@@ -60,15 +58,15 @@ def testClick() = {
     </div>
 </window>
 """
-  runZTL(zscript,
-    () => {
-      var navbar = jq(".z-navbar:last a");
-      click(navbar);
-      waitResponse();
-      var navitem = jq(".z-navbar:last>ul>li>ul");
-      verifyTrue(navitem.positionLeft() != 0);
-      
-    })
-    
+    runZTL(zscript,
+      () => {
+        var navbar = jq(".z-navbar:last a");
+        click(navbar);
+        waitResponse();
+        var navitem = jq(".z-navbar:last>ul>li>ul");
+        verifyTrue(navitem.positionLeft() != 0);
+
+      })
+
   }
 }

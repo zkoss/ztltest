@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1596.zul")
 class B60_ZK_1596Test extends ZTL4ScalaTestCase {
 
-def testClick() = {
-  val zscript = """<zk xmlns:n="native">
+  def testClick() = {
+    val zscript =
+      """<zk xmlns:n="native">
 	<label multiline="true">
 		1. Click "Invalidate" button.
 		2. If you see JS error showed, it is a bug.
@@ -22,13 +23,13 @@ def testClick() = {
 			</window>
 		</n:div>
 	</div>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      click(jq(".z-button:contains(Invalidate)"))
-      waitResponse()
-      verifyFalse("should see no javascript error", jq(".z-error").exists())
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+        click(jq(".z-button:contains(Invalidate)"))
+        waitResponse()
+        verifyFalse("should see no javascript error", jq(".z-error").exists())
+      })
+
   }
 }

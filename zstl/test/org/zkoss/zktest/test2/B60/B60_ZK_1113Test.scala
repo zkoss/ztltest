@@ -1,16 +1,17 @@
 package org.zkoss.zktest.test2.B60
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
 import org.openqa.selenium.Keys
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B60-ZK-1113.zul")
 class B60_ZK_1113Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """<!--
+  @Test
+  def testClick() = {
+    val zscript =
+      """<!--
 B60-ZK-1113.zul
 
 	Purpose:
@@ -31,16 +32,16 @@ Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 		</div>
 		<chosenbox id="cbx" width="500px" model="${win$composer.getModel()}" emptyMessage="------------------"/>
 	</window>
-</zk>"""  
-  runZTL(zscript,
-    () => {
-      val cb = jq(".z-chosenbox")
-      click(cb)
-      waitResponse()
-      sendKeys(cb.toWidget().$n("inp"), Keys.ESCAPE)
-      waitResponse()
-      verifyTrue("you should see nothing", !cb.exists)
-    })
-    
+</zk>"""
+    runZTL(zscript,
+      () => {
+        val cb = jq(".z-chosenbox")
+        click(cb)
+        waitResponse()
+        sendKeys(cb.toWidget().$n("inp"), Keys.ESCAPE)
+        waitResponse()
+        verifyTrue("you should see nothing", !cb.exists)
+      })
+
   }
 }

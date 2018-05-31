@@ -54,7 +54,7 @@ class Z_Userguide_FormTest extends ZTL4ScalaTestCase {
       //				if(!ZK.is("chrome") && !ZK.is("opera")) {
       //				click(jq("$db").toWidget.$n("btn"));
       //				click(jq("@calendar").find("td:eq(23)"));
-      //				Element dbinp = jq("$db").toWidget.$n("real");
+      //				vardbinp = jq("$db").toWidget.$n("real");
       //				dbinp.toElement.set("value", "");
       //				sendKeys(dbinp, "Jun 10, 2010");
       //				waitResponse();

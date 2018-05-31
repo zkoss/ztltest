@@ -1,13 +1,14 @@
 package org.zkoss.zktest.test2.B50
 
-import org.zkoss.ztl.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B50-ZK-929.zul")
 class B50_ZK_929Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript = """<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+    val zscript =
+      """<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
                   <zk>
                     <label value='${c:replace("ZK-123-ZK-456-ZK", "ZK", "Hello ZK!")}'/>
                     <separator/>

@@ -16,29 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.F60
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.util.Scripts;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
-import java.lang._
+import org.zkoss.ztl.{Tags, Widget}
 
 /**
- * A test class for bug ZK-719
- * @author benbai
- *
- */
+  * A test class for bug ZK-719
+  *
+  * @author benbai
+  *
+  */
 @Tags(tags = "F60-ZK-719.zul,F60,A,E,Combobutton,Toolbar")
 class F60_ZK_719Test extends ZTL4ScalaTestCase {
-	
+
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 			<zk>
 				<div>
 					<div>1. You can see a combobutton in each toolbar, their size should similar to toolbarbutton.</div>
@@ -143,36 +137,37 @@ class F60_ZK_719Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-runZTL(zscript,
-        () => {
+    runZTL(zscript,
+      () => {
         var lb: Widget = engine.$f("lb");
         var tbbtnOne: Widget = engine.$f("tbbtnOne");
         var cbbtnOne: Widget = engine.$f("cbbtnOne");
         var tbbtnTwo: Widget = engine.$f("tbbtnTwo");
         var cbbtnTwo: Widget = engine.$f("cbbtnTwo");
 
-        def clickThenVerify (wgt: org.zkoss.ztl.ClientWidget, content: String) {
-            clickAndWait(wgt);
-            verifyTrue("The value of message label should become "+content,
-                jq(".z-label:contains("+content+")").exists());
+        def clickThenVerify(wgt: org.zkoss.ztl.ClientWidget, content: String) {
+          clickAndWait(wgt);
+          verifyTrue("The value of message label should become " + content,
+            jq(".z-label:contains(" + content + ")").exists());
         }
+
         def clickAndWait(wgt: org.zkoss.ztl.ClientWidget) {
-            click (wgt);
-            waitResponse();
+          click(wgt);
+          waitResponse();
         }
-        
+
         verifyTrue("The size of combobutton (tbbtn mold) should similar to toolbarbutton",
-            (jq(tbbtnOne).outerHeight(true) - jq(cbbtnOne).outerHeight(true)) <= 2
+          (jq(tbbtnOne).outerHeight(true) - jq(cbbtnOne).outerHeight(true)) <= 2
             && (jq(tbbtnTwo).outerHeight(true) - jq(cbbtnTwo).outerHeight(true)) <= 2);
 
-        clickThenVerify (jq(cbbtnOne).toWidget().$n("real"), "combobutton clicked");
-        clickThenVerify (jq(cbbtnOne).toWidget().$n("btn"), "combobutton popup opened");
-        clickThenVerify (jq(cbbtnOne).toWidget().$n("btn"), "combobutton popup closed");
+        clickThenVerify(jq(cbbtnOne).toWidget().$n("real"), "combobutton clicked");
+        clickThenVerify(jq(cbbtnOne).toWidget().$n("btn"), "combobutton popup opened");
+        clickThenVerify(jq(cbbtnOne).toWidget().$n("btn"), "combobutton popup closed");
 
-        clickThenVerify (jq(cbbtnTwo).toWidget().$n("real"), "combobutton two clicked");
-        clickThenVerify (jq(cbbtnTwo).toWidget().$n("btn"), "combobutton two popup opened");
-        clickThenVerify (jq(cbbtnTwo).toWidget().$n("btn"), "combobutton two popup closed");
-    }
-   );
+        clickThenVerify(jq(cbbtnTwo).toWidget().$n("real"), "combobutton two clicked");
+        clickThenVerify(jq(cbbtnTwo).toWidget().$n("btn"), "combobutton two popup opened");
+        clickThenVerify(jq(cbbtnTwo).toWidget().$n("btn"), "combobutton two popup closed");
+      }
+    );
   }
 }

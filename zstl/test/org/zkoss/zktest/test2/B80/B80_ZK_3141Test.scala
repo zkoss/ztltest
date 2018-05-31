@@ -16,53 +16,54 @@ package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZK};
+import org.zkoss.ztl.Tags;
 
 /**
- * 
- * @author Sefi
- */
+  *
+  * @author Sefi
+  */
 @Tags(tags = "")
 class B80_ZK_3141Test extends ZTL4ScalaTestCase {
-	@Test
-	def test() = {
-		runZTL(() => {
+  @Test
+  def test() = {
+    runZTL(() => {
       val t = jq("@textbox")
-			focus(t)
-			blur(t)
-			waitResponse()
-			verifyTrue(jq(".z-errorbox:visible").length() > 0)
-			chkpos
+      focus(t)
+      blur(t)
+      waitResponse()
+      verifyTrue(jq(".z-errorbox:visible").length() > 0)
+      chkpos
 
-			click(jq("@button:eq(0)"))
-			waitResponse()
-			chkpos
+      click(jq("@button:eq(0)"))
+      waitResponse()
+      chkpos
 
-			click(jq("@button:eq(1)"))
-			waitResponse()
-			chkpos
+      click(jq("@button:eq(1)"))
+      waitResponse()
+      chkpos
 
-			click(jq("@button:eq(2)"))
-			waitResponse()
-			chkpos
+      click(jq("@button:eq(2)"))
+      waitResponse()
+      chkpos
 
-			click(jq("@button:eq(0)"))
-			waitResponse()
+      click(jq("@button:eq(0)"))
+      waitResponse()
 
-			val hd = jq(".z-window-header")
-			mouseDownAt(hd, "10,10")
-			mouseMoveAt(hd, "30,30")
-			mouseUp(hd)
-			waitResponse()
-			chkpos
-		})
-	}
-	def chkpos() = {
-		val t = jq("@textbox")
-		val tt = t.offsetTop()
-		val tr = t.offsetLeft() + t.outerWidth()
-		val er = jq(".z-errorbox:visible")
-		verifyTolerant(tt, er.offsetTop(), 1)
-		verifyTolerant(tr, er.offsetLeft(), 1)
-	}
+      val hd = jq(".z-window-header")
+      mouseDownAt(hd, "10,10")
+      mouseMoveAt(hd, "30,30")
+      mouseUp(hd)
+      waitResponse()
+      chkpos
+    })
+  }
+
+  def chkpos() = {
+    val t = jq("@textbox")
+    val tt = t.offsetTop()
+    val tr = t.offsetLeft() + t.outerWidth()
+    val er = jq(".z-errorbox:visible")
+    verifyTolerant(tt, er.offsetTop(), 1)
+    verifyTolerant(tr, er.offsetLeft(), 1)
+  }
 }

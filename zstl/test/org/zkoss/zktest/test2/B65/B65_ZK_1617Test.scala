@@ -1,15 +1,16 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
-import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.junit.Test
+import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.Tags
 
 @Tags(tags = "B65-ZK-1617.zul")
 class B65_ZK_1617Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """<?xml version="1.0" encoding="UTF-8"?>
+    val zscript =
+      """<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 B65-ZK-1617.zul
@@ -50,12 +51,12 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         val btn = jq(".z-button:contains(Rename)")
         click(btn)
         waitResponse()
-        
+
         val position = "2,2"
         val src = jq(".z-panel-header")
-        
+
         val top = src.offsetTop()
-        
+
         mouseMoveAt(src, position)
         waitResponse
 
@@ -64,13 +65,13 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
 
         mouseMoveAt(btn, position)
         waitResponse
-        
+
         verifyTrue("it should be able to drag and drop.", top != src.offsetTop())
-        
+
         mouseUpAt(btn, position)
         waitResponse
-        
-        
+
+
       })
 
   }

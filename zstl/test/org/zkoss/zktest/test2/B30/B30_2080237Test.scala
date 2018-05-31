@@ -18,17 +18,16 @@ package org.zkoss.zktest.test2.B30
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
-import org.openqa.selenium.By
 
 /**
- * @author Fernando Selvatici
- *
- */
+  * @author Fernando Selvatici
+  *
+  */
 @Tags(tags = "B30-2080237.zul,B,E,Window,Button")
 class B30_2080237Test extends ZTL4ScalaTestCase {
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
       <zk>
         Please click the menuitem, and then nothing happens.(That is correct.)
         <menubar autodrop="true">
@@ -36,9 +35,9 @@ class B30_2080237Test extends ZTL4ScalaTestCase {
         </menubar>
       </zk>
     """
-runZTL(zscript, () => {
+    runZTL(zscript, () => {
       // Click the button
-      click(jq("@menuitem")); 
+      click(jq("@menuitem"));
       waitForPageToLoad("5000")
       // Verify that the zkoss page is opened by verifying the existence of the "Demo" button
       verifyNotEquals("The page www.zkoss.org should not be visible", getLocation(), "http://www.zkoss.org");

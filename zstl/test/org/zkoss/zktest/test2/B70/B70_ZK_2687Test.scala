@@ -3,12 +3,14 @@ package org.zkoss.zktest.test2.B70
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+
 @Tags(tags = "B70-ZK-2687.zul")
 class B70_ZK_2687Test extends ZTL4ScalaTestCase {
 
-@Test
-def testClick() = {
-  val zscript = """
+  @Test
+  def testClick() = {
+    val zscript =
+      """
 
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -45,19 +47,19 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
    </div>
 </zk>
     
-"""  
-  runZTL(zscript,
-    () => {
-      val btns = jq("@button")
-      click(btns.get(0))
-      waitResponse()
-      var content = jq(".z-notification-content").last().text()
-      verifyEquals("txt", content)
-      click(btns.get(1))
-      waitResponse()
-      content = jq(".z-notification-content").last().text()
-      verifyEquals("chk", content)
-    })
-    
+"""
+    runZTL(zscript,
+      () => {
+        val btns = jq("@button")
+        click(btns.get(0))
+        waitResponse()
+        var content = jq(".z-notification-content").last().text()
+        verifyEquals("txt", content)
+        click(btns.get(1))
+        waitResponse()
+        content = jq(".z-notification-content").last().text()
+        verifyEquals("chk", content)
+      })
+
   }
 }

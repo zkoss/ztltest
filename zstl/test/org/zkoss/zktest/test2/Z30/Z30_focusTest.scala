@@ -14,20 +14,21 @@ it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2.Z30
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 import org.zkoss.ztl.util.Scripts
-import org.junit.Test
 
 /**
- *
- * @author jumperchen
- */
+  *
+  * @author jumperchen
+  */
 @Tags(tags = "Z30-focus.zul,C,E,Window,Textbox")
 class Z30_focusTest extends ZTL4ScalaTestCase {
   @Test
-	def testCase() = {
-		val zscript = """
+  def testCase() = {
+    val zscript =
+      """
 		  <window title="Test of focus">
 <html><![CDATA[
 <ol>
@@ -46,13 +47,13 @@ and the focus remains on the first textbox</li>
 	</window>
 </window>
 		"""
-runZTL(zscript, () => {
-			click(jq("$tb1"))
-			waitResponse
-			verifyEquals(this.getEval("zk.currentFocus.id"),"t1");
-			Scripts.triggerMouseEventAt(getWebDriver(), jq("$tb2"), "click", "2,2")        
-			waitResponse()
-			verifyEquals(this.getEval("zk.currentFocus.id"),"t2");
-		})
-	}
+    runZTL(zscript, () => {
+      click(jq("$tb1"))
+      waitResponse
+      verifyEquals(this.getEval("zk.currentFocus.id"), "t1");
+      Scripts.triggerMouseEventAt(getWebDriver(), jq("$tb2"), "click", "2,2")
+      waitResponse()
+      verifyEquals(this.getEval("zk.currentFocus.id"), "t2");
+    })
+  }
 }

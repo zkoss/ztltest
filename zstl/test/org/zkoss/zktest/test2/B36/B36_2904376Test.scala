@@ -16,23 +16,23 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B36
 
-import java.util.Calendar
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.openqa.selenium.Keys
-import org.junit.Test
 
 /**
- * A test class for bug 2904376
- * @author ldnigro
- *
- */
+  * A test class for bug 2904376
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B36-2904376.zul,A,E,Window,Sizable")
 class B36_2904376Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
@@ -84,41 +84,41 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         var bt = jq("@button");
         click(bt);
         waitResponse();
-        
-        
-        
+
+
+
         //Get Window
-        var win2=jq("$win2");
-        var w=win2.outerWidth();
-        var h=win2.outerHeight();
-        var dim = w/2 + ","  + h; 
-        var dim2 = w/2 + ","  + (h*2);
-        var dim3 = w + "," + (h/2);
-        var dim4 = (w*2) + "," + (h/2);
-                
+        var win2 = jq("$win2");
+        var w = win2.outerWidth();
+        var h = win2.outerHeight();
+        var dim = w / 2 + "," + h;
+        var dim2 = w / 2 + "," + (h * 2);
+        var dim3 = w + "," + (h / 2);
+        var dim4 = (w * 2) + "," + (h / 2);
+
         //Vertical resize
-        mouseDownAt(win2.toWidget(),dim);
-        mouseMoveAt(win2.toWidget(),dim2);
-        mouseUpAt(win2.toWidget(),dim2);
+        mouseDownAt(win2.toWidget(), dim);
+        mouseMoveAt(win2.toWidget(), dim2);
+        mouseUpAt(win2.toWidget(), dim2);
         waitResponse();
-        
-        var h1=win2.height();
+
+        var h1 = win2.height();
         verifyTrue(h1 != h);
-        
+
         waitResponse();
-        
+
         //Horizontal resize
-        mouseDownAt(win2.toWidget(),dim3);
-        mouseMoveAt(win2.toWidget(),dim4);
-        mouseUpAt(win2.toWidget(),dim4); 
+        mouseDownAt(win2.toWidget(), dim3);
+        mouseMoveAt(win2.toWidget(), dim4);
+        mouseUpAt(win2.toWidget(), dim4);
         waitResponse();
-        
-        var w1=win2.width();
-        
+
+        var w1 = win2.width();
+
         verifyTrue(w1 != w);
-        
-        
+
+
       });
   }
-     
+
 }

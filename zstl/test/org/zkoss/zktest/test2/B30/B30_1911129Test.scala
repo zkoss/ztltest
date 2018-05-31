@@ -20,15 +20,17 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
 
 /**
- * A test class for bug 1911129
- * @author ldnigro
- *
- */
+  * A test class for bug 1911129
+  *
+  * @author ldnigro
+  *
+  */
 @Tags(tags = "B30-1911129.zul,C,E,Menuseparator,Menupopup")
 class B30_1911129Test extends ZTL4ScalaTestCase {
-	
+
   def testClick() = {
-    val zscript = """
+    val zscript =
+      """
     		<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
 	<n:p>Menuseparator's background should be shown.</n:p>
 	<window title="Menu Demo" border="normal">
@@ -60,27 +62,27 @@ class B30_1911129Test extends ZTL4ScalaTestCase {
     """
 
     runZTL(zscript,
-        () => {
-        
-        	waitResponse();
-                  	
-        	//File Menu
-        	val file=jq("$fm");
-        	click(file);
-        	
-        	waitResponse();
-        	
-        	//Menu separator
-        	val ms=jq("$ms");
-        	
-        	val ow=ms.width();
-        	val oh=ms.height();
-        	
-        	//Width and Height of menuseparator>0
-        	verifyTrue(ow>0);
-        	verifyTrue(oh>0);
-        	
-        }
+      () => {
+
+        waitResponse();
+
+        //File Menu
+        val file = jq("$fm");
+        click(file);
+
+        waitResponse();
+
+        //Menu separator
+        val ms = jq("$ms");
+
+        val ow = ms.width();
+        val oh = ms.height();
+
+        //Width and Height of menuseparator>0
+        verifyTrue(ow > 0);
+        verifyTrue(oh > 0);
+
+      }
     );
-   }
+  }
 }
