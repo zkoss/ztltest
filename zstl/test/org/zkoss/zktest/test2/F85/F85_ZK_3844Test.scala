@@ -7,7 +7,7 @@ import org.zkoss.ztl.Tags
 /**
   * @author rudyhuang
   */
-@Tags(tags = "B85-ZK-3844.zul")
+@Tags(tags = "F85-ZK-3844.zul")
 class F85_ZK_3844Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit = {
