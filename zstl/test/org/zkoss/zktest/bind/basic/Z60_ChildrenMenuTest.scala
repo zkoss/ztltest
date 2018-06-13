@@ -17,7 +17,8 @@ package org.zkoss.zktest.bind.basic
 import java.util.ArrayList
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.unit.Widget
+import org.zkoss.ztl._
 
 /**
  * @author pao
@@ -74,4 +75,17 @@ class Z60_ChildrenMenuTest extends ZTL4ScalaTestCase {
       }
       return n
     }
+
+  class Node(n: String) {
+    var name = n
+    var children = new ArrayList[Node]()
+
+    def addChild(node: Node) {
+      children.add(node)
+    }
+
+    def getChildren() = children
+
+    def getName() = name
+  }
 }

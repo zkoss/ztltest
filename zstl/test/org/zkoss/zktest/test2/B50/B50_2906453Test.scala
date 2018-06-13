@@ -16,7 +16,7 @@ import java.util.{ArrayList, HashMap, List, Map}
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{ClientWidget, Widget}
+import org.zkoss.ztl.unit.{ClientWidget, Widget}
 
 import scala.collection.JavaConversions._
 

@@ -19,7 +19,8 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author Hawk
@@ -43,15 +44,15 @@ class Z60_ConverterTest extends ZTL4ScalaTestCase {
       c.setTime(sdf.parse("1985/02/13"));
       var age3 = "" + (Calendar.getInstance().get(Calendar.YEAR) - c.get(Calendar.YEAR));
 
-      val t1 = engine $f "t1"
-      val l1 = engine $f "l1"
-      val t2 = engine $f "t2"
-      val l2 = engine $f "l2"
+      val t1 = engine.$f("t1")
+      val l1 = engine.$f("l1")
+      val t2 = engine.$f("t2")
+      val l2 = engine.$f("l2")
 
-      ZKSeleneseTestCase.assertEquals("1975/02/13", getValue(t1));
-      ZKSeleneseTestCase.assertEquals(age1, getText(l1));
-      ZKSeleneseTestCase.assertEquals("1975/02/13", getValue(t2));
-      ZKSeleneseTestCase.assertEquals(age1, getText(l2));
+      verifyEquals("1975/02/13", getValue(t1));
+      verifyEquals(age1, getText(l1));
+      verifyEquals("1975/02/13", getValue(t2));
+      verifyEquals(age1, getText(l2));
       //      Assert.assertEquals("1975/02/13",findWidget("$t1").getAttribute("value"));
       //      Assert.assertEquals("36",findWidget("$l1").getAttribute("value"));
       //      Assert.assertEquals("1975/02/13",findWidget("$t2").getAttribute("value"));
@@ -59,10 +60,10 @@ class Z60_ConverterTest extends ZTL4ScalaTestCase {
 
       `type`(t1, "1980/02/AA")
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("", getValue(t1));
-      ZKSeleneseTestCase.assertEquals("0", getText(l1));
-      ZKSeleneseTestCase.assertEquals("1975/02/13", getValue(t2));
-      ZKSeleneseTestCase.assertEquals(age1, getText(l2));
+      verifyEquals("", getValue(t1));
+      verifyEquals("0", getText(l1));
+      verifyEquals("1975/02/13", getValue(t2));
+      verifyEquals(age1, getText(l2));
       //      findWidget("$t1").clear().keys("1980/02/AA");
       //      findWidget("$saveForm").focus();
       //      Assert.assertEquals("",findWidget("$t1").getAttribute("value"));
@@ -72,10 +73,10 @@ class Z60_ConverterTest extends ZTL4ScalaTestCase {
 
       `type`(t1, "1980/02/13")
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("1980/02/13", getValue(t1));
-      ZKSeleneseTestCase.assertEquals(age2, getText(l1));
-      ZKSeleneseTestCase.assertEquals("1975/02/13", getValue(t2));
-      ZKSeleneseTestCase.assertEquals(age1, getText(l2));
+      verifyEquals("1980/02/13", getValue(t1));
+      verifyEquals(age2, getText(l1));
+      verifyEquals("1975/02/13", getValue(t2));
+      verifyEquals(age1, getText(l2));
       //      findWidget("$t1").clear().keys("1980/02/13");
       //      findWidget("$saveForm").focus();
       //      Assert.assertEquals("1980/02/13",findWidget("$t1").getAttribute("value"));
@@ -85,10 +86,10 @@ class Z60_ConverterTest extends ZTL4ScalaTestCase {
 
       `type`(t2, "1985/02/13")
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("1980/02/13", getValue(t1));
-      ZKSeleneseTestCase.assertEquals(age2, getText(l1));
-      ZKSeleneseTestCase.assertEquals("1985/02/13", getValue(t2));
-      ZKSeleneseTestCase.assertEquals(age1, getText(l2));
+      verifyEquals("1980/02/13", getValue(t1));
+      verifyEquals(age2, getText(l1));
+      verifyEquals("1985/02/13", getValue(t2));
+      verifyEquals(age1, getText(l2));
       //      findWidget("$t2").clear().keys("1985/02/13");
       //      findWidget("$saveForm").focus();
       //      Assert.assertEquals("1980/02/13",findWidget("$t1").getAttribute("value"));
@@ -96,12 +97,12 @@ class Z60_ConverterTest extends ZTL4ScalaTestCase {
       //      Assert.assertEquals("1985/02/13",findWidget("$t2").getAttribute("value"));
       //      Assert.assertEquals("36",findWidget("$l2").getAttribute("value"));
 
-      click(engine $f "saveForm")
+      click(engine.$f("saveForm"))
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("1985/02/13", getValue(t1));
-      ZKSeleneseTestCase.assertEquals(age3, getText(l1));
-      ZKSeleneseTestCase.assertEquals("1985/02/13", getValue(t2));
-      ZKSeleneseTestCase.assertEquals(age3, getText(l2));
+      verifyEquals("1985/02/13", getValue(t1));
+      verifyEquals(age3, getText(l1));
+      verifyEquals("1985/02/13", getValue(t2));
+      verifyEquals(age3, getText(l2));
       //      findWidget("$saveForm").click();
       //      Assert.assertEquals("1985/02/13",findWidget("$t1").getAttribute("value"));
       //      Assert.assertEquals("26",findWidget("$l1").getAttribute("value"));

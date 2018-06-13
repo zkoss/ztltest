@@ -19,7 +19,9 @@ package org.zkoss.zktest.test2.F55
 import java.lang._
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Element, Tags, Widget}
+import org.zkoss.ztl.unit.{ClientWidget, Element, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-12
@@ -38,7 +40,7 @@ class F55_ZK_12Test extends ZTL4ScalaTestCase {
         var btnOne: Widget = engine.$f("btnOne");
         var btnTwo: Widget = engine.$f("btnTwo");
 
-        def clickAndVerify(wgt: org.zkoss.ztl.ClientWidget, delay: Int,
+        def clickAndVerify(wgt: ClientWidget, delay: Int,
                            okEn: Boolean, okDis: Boolean, canEn: Boolean, canDis: Boolean) {
           var zklog: Element = null;
           var logContent: String = null;

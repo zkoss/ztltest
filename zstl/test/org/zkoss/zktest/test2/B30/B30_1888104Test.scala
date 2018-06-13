@@ -15,7 +15,7 @@ package org.zkoss.zktest.test2.B30
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 
 
 class B30_1888104Test extends ZTL4ScalaTestCase {
@@ -55,8 +55,8 @@ class B30_1888104Test extends ZTL4ScalaTestCase {
       sleep(300)
       var errbox = jq(".z-errorbox")
       verifyTrue(errbox.exists())
-      var errboxZIdx = Integer.parseInt(errbox.css("z-index"))
-      var popupZIdx = Integer.parseInt(jq(mypopup).css("z-index"))
+      var errboxZIdx = parseInt(errbox.css("z-index"))
+      var popupZIdx = parseInt(jq(mypopup).css("z-index"))
       verifyTrue(errboxZIdx > popupZIdx)
     })
   }

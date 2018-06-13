@@ -45,7 +45,7 @@ def testClick() = {
   runZTL(zscript,
     () => {
       click(jq(".z-listitem:eq(9)"))
-      waitResponse
+      waitResponse()
       verifyImage()
     })
     

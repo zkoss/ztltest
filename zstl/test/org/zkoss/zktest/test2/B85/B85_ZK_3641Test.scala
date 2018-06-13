@@ -13,7 +13,7 @@ package org.zkoss.zktest.test2.B85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.JQuery
+import org.zkoss.ztl.unit.JQuery
 
 class B85_ZK_3641Test extends ZTL4ScalaTestCase {
 

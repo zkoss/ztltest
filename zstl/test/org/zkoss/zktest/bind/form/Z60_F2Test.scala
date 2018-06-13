@@ -15,7 +15,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.bind.form
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author pao
@@ -30,32 +31,32 @@ class Z60_F2Test extends ZTL4ScalaTestCase {
 
     runZTL(zul, () => {
 
-      val quantityABox = engine $f "quantityABox"
-      val quantityBBox = engine $f "quantityBBox"
-      val computeButton = engine $f "computeButton"
-      val subtotalA = engine $f "subtotalA"
-      val subtotalB = engine $f "subtotalB"
-      val total = engine $f "total"
-      val offBox = engine $f "offBox"
+      val quantityABox = engine.$f("quantityABox")
+      val quantityBBox = engine.$f("quantityBBox")
+      val computeButton = engine.$f("computeButton")
+      val subtotalA = engine.$f("subtotalA")
+      val subtotalB = engine.$f("subtotalB")
+      val total = engine.$f("total")
+      val offBox = engine.$f("offBox")
 
       `type`(quantityABox, "5");
       `type`(quantityBBox, "5");
       click(computeButton);
       waitResponse();
-      ZKSeleneseTestCase.assertEquals("50", getText(subtotalA));
-      ZKSeleneseTestCase.assertEquals("100", getText(subtotalB));
-      ZKSeleneseTestCase.assertEquals("150", getText(total));
+      verifyEquals("50", getText(subtotalA));
+      verifyEquals("100", getText(subtotalB));
+      verifyEquals("150", getText(total));
 
       `type`(quantityABox, "11");
       click(computeButton);
       waitResponse();
-      ZKSeleneseTestCase.assertEquals("150", getText(total));
+      verifyEquals("150", getText(total));
 
       `type`(quantityABox, "5");
       `type`(offBox.$n("real"), "50");
       click(computeButton);
       waitResponse();
-      ZKSeleneseTestCase.assertEquals("75", getText(total));
+      verifyEquals("75", getText(total));
     })
 
   }

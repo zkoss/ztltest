@@ -177,7 +177,7 @@ class Z30_grid_0026Test extends ZTL4ScalaTestCase {
 
 
         click(jq("$btnStop"));
-        waitResponse;
+        waitResponse()
         val newamount = jq("@row").length;
         verifyTrue(newamount < amount);
         sleep(1700);

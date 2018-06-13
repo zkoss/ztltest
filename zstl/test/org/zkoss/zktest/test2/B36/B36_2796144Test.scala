@@ -10,8 +10,8 @@ class B36_2796144Test extends ZTL4ScalaTestCase {
   @Test
   def testTime1(): Unit = {
     runZTL(() => {
-      val returnDate = engine().$f("returnDate")
-      val dateValue2 = engine().$f("dateValue2")
+      val returnDate = engine.$f("returnDate")
+      val dateValue2 = engine.$f("dateValue2")
       val inp = returnDate.$n("real")
       focus(inp)
       click(returnDate.$n("btn"))
@@ -28,8 +28,8 @@ class B36_2796144Test extends ZTL4ScalaTestCase {
   @Test
   def testTime2(): Unit = {
     runZTL(() => {
-      val returnDate = engine().$f("returnDate")
-      val dateValue2 = engine().$f("dateValue2")
+      val returnDate = engine.$f("returnDate")
+      val dateValue2 = engine.$f("dateValue2")
       val inp = returnDate.$n("real")
       val timeInp = jq("@timebox").find("input")
       focus(inp)

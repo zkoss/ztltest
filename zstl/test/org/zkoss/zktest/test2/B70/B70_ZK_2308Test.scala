@@ -3,7 +3,8 @@ package org.zkoss.zktest.test2.B70
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{IgnoreBrowsers, Tags}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 @Tags(tags = "B70-ZK-2308.zul")
 @IgnoreBrowsers("ie9,ie10,ie11")

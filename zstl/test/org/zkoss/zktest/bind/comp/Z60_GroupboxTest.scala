@@ -16,7 +16,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.comp
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author Hawk
@@ -30,11 +31,11 @@ class Z60_GroupboxTest extends ZTL4ScalaTestCase {
     runZTL(zul, () => {
     
       //button
-      val openStatus = engine $f "openStatus"
-      ZKSeleneseTestCase.assertEquals("false", getText(openStatus));
+      val openStatus = engine.$f("openStatus")
+      verifyEquals("false", getText(openStatus));
       click(jq("@groupbox"))
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("true", getText(openStatus));
+      verifyEquals("true", getText(openStatus));
     })
   }
 }

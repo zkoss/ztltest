@@ -60,10 +60,10 @@ class B50_ZK_539Test extends ZTL4ScalaTestCase {
 						})
 						refresh()
 						waitForPageToLoad("10000")
-						waitResponse
+						waitResponse()
 
 						runRawZscript(zscript.toString())
-						waitResponse
+						waitResponse()
 						verifyImage()
 					}
 				});

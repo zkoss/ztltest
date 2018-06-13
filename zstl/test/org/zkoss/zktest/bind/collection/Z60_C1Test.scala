@@ -17,7 +17,8 @@ package org.zkoss.zktest.bind.collection
 
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author pao
@@ -31,18 +32,18 @@ class Z60_C1 extends ZTL4ScalaTestCase {
     
     runZTL(zul, () => {
 
-      val singleBox = engine $f "singleBox"
-      val contentListbox = engine $f "contentListbox"
+      val singleBox = engine.$f("singleBox")
+      val contentListbox = engine.$f("contentListbox")
 
       `type`(singleBox.$n("real"), "Car Mark");
       sendKeys(singleBox.$n("real"), Keys.TAB);
       waitResponse();
-      ZKSeleneseTestCase.assertEquals("TOYOTA", contentListbox.firstChild().get("label"));
+      verifyEquals("TOYOTA", contentListbox.firstChild().get("label"));
 
       `type`(singleBox.$n("real"), "Fruit");
       sendKeys(singleBox.$n("real"), Keys.TAB);
       waitResponse();
-      ZKSeleneseTestCase.assertEquals("Apple", contentListbox.firstChild().get("label"));
+      verifyEquals("Apple", contentListbox.firstChild().get("label"));
 
     })
   }

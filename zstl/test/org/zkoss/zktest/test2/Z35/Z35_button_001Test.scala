@@ -63,19 +63,19 @@ class Z35_button_001Test extends ZTL4ScalaTestCase {
         };
 
         click(jq("@button").eq(0));
-        waitResponse
+        waitResponse()
         verifyEquals("If you see this message, test is completed ok.", jq(".z-messagebox-window .z-label").text());
         clickAlert
-        waitResponse
+        waitResponse()
 
         click(jq("@button").eq(1));
-        waitResponse
+        waitResponse()
         verifyEquals("If you see this message, test is completed ok.", jq(".z-messagebox-window .z-label").text());
         clickAlert
-        waitResponse
+        waitResponse()
 
         click(jq("@button").eq(2));
-        waitResponse
+        waitResponse()
         verifyEquals("If you see this message, test is completed ok.", jq(".z-messagebox-window .z-label").text());
         clickAlert
 

@@ -47,7 +47,7 @@ class B30_1918796Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       verifyFalse("grid should not be visible", jq("@grid").isVisible)
       click(jq("@button"))
-      waitResponse
+      waitResponse()
       verifyTrue("grid should be visible", jq("@grid").isVisible)
     })
   }

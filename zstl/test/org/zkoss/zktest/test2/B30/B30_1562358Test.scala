@@ -15,7 +15,7 @@ package org.zkoss.zktest.test2.B30
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 
 
 class B30_1562358Test extends ZTL4ScalaTestCase {
@@ -43,8 +43,8 @@ class B30_1562358Test extends ZTL4ScalaTestCase {
       // if (true) return
       //			verifyTrue(getElementHeight(row.firstChild()).intValue() < 35)
       //			varbody = grid.$n("body")
-      //			var ch = Integer.parseInt(body.get("clientHeight"))
-      //			var oh = Integer.parseInt(body.get("offsetHeight"))
+      //			var ch = parseInt(body.get("clientHeight"))
+      //			var oh = parseInt(body.get("offsetHeight"))
       //			verifyEquals(oh - ch, JQuery.scrollbarWidth())
     })
   }

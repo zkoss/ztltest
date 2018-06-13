@@ -16,7 +16,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.basic
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author Hawk
@@ -30,17 +31,17 @@ class Z60_LoadIndirect2Test extends ZTL4ScalaTestCase {
 """
 
     runZTL(zul, () => {
-      val t1 = engine $f "l1"
-      val l2 = engine $f "l2"
-      val l3 = engine $f "l3"
-      val l4 = engine $f "l4"
-      val selectBox = (engine $f "select")
+      val t1 = engine.$f("l1")
+      val l2 = engine.$f("l2")
+      val l3 = engine.$f("l3")
+      val l4 = engine.$f("l4")
+      val selectBox = (engine.$f("select"))
 
-      ZKSeleneseTestCase.assertEquals("First1", getValue(t1));
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
-      ZKSeleneseTestCase.assertEquals("First1 Last1", getText(l3));
-      ZKSeleneseTestCase.assertEquals("First1", getText(l4));
-      ZKSeleneseTestCase.assertEquals("0", getSelectedIndex(selectBox));
+      verifyEquals("First1", getValue(t1));
+      verifyEquals("Last1", getText(l2));
+      verifyEquals("First1 Last1", getText(l3));
+      verifyEquals("First1", getText(l4));
+      verifyEquals("0", getSelectedIndex(selectBox));
       //		Assert.assertEquals("First1",findWidget("$l1").getAttribute("value"));
       //		Assert.assertEquals("Last1",findWidget("$l2").getAttribute("value"));
       //		Assert.assertEquals("First1 Last1",findWidget("$l3").getAttribute("value"));
@@ -48,11 +49,11 @@ class Z60_LoadIndirect2Test extends ZTL4ScalaTestCase {
       //		Assert.assertEquals(0L,findWidget("$select").getAttribute("selectedIndex"));
 
       `type`(t1, "AAA")
-      click(engine $f "btn1")
+      click(engine.$f("btn1"))
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
-      ZKSeleneseTestCase.assertEquals("AAA Last1", getText(l3));
-      ZKSeleneseTestCase.assertEquals("AAA", getText(l4));
+      verifyEquals("Last1", getText(l2));
+      verifyEquals("AAA Last1", getText(l3));
+      verifyEquals("AAA", getText(l4));
       //		findWidget("$l1").clear().keys("AAA");
       //		findWidget("$btn1").focus();
       //		Assert.assertEquals("Last1",findWidget("$l2").getAttribute("value"));
@@ -61,11 +62,11 @@ class Z60_LoadIndirect2Test extends ZTL4ScalaTestCase {
 
       select(selectBox, "lastName")
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("AAA", getValue(t1));
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
-      ZKSeleneseTestCase.assertEquals("AAA Last1", getText(l3));
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l4));
-      ZKSeleneseTestCase.assertEquals("1", getSelectedIndex(selectBox));
+      verifyEquals("AAA", getValue(t1));
+      verifyEquals("Last1", getText(l2));
+      verifyEquals("AAA Last1", getText(l3));
+      verifyEquals("Last1", getText(l4));
+      verifyEquals("1", getSelectedIndex(selectBox));
       //		((SelectWidget)findWidget("$select")).select(1);
       //		Assert.assertEquals("AAA",findWidget("$l1").getAttribute("value"));
       //		Assert.assertEquals("Last1",findWidget("$l2").getAttribute("value"));
@@ -75,9 +76,9 @@ class Z60_LoadIndirect2Test extends ZTL4ScalaTestCase {
 
       `type`(t1, "BBB")
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
-      ZKSeleneseTestCase.assertEquals("BBB Last1", getText(l3));
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l4));
+      verifyEquals("Last1", getText(l2));
+      verifyEquals("BBB Last1", getText(l3));
+      verifyEquals("Last1", getText(l4));
       //		findWidget("$l1").clear().keys("BBB");
       //		findWidget("$btn1").focus();
       //		Assert.assertEquals("Last1",findWidget("$l2").getAttribute("value"));
@@ -86,11 +87,11 @@ class Z60_LoadIndirect2Test extends ZTL4ScalaTestCase {
 
       select(selectBox, "fullName")
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("BBB", getValue(t1));
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
-      ZKSeleneseTestCase.assertEquals("BBB Last1", getText(l3));
-      ZKSeleneseTestCase.assertEquals("BBB Last1", getText(l4));
-      ZKSeleneseTestCase.assertEquals("2", getSelectedIndex(selectBox));
+      verifyEquals("BBB", getValue(t1));
+      verifyEquals("Last1", getText(l2));
+      verifyEquals("BBB Last1", getText(l3));
+      verifyEquals("BBB Last1", getText(l4));
+      verifyEquals("2", getSelectedIndex(selectBox));
       //		((SelectWidget)findWidget("$select")).select(2);
       //		Assert.assertEquals("BBB",findWidget("$l1").getAttribute("value"));
       //		Assert.assertEquals("Last1",findWidget("$l2").getAttribute("value"));
@@ -100,11 +101,11 @@ class Z60_LoadIndirect2Test extends ZTL4ScalaTestCase {
 
       select(selectBox, "firstName")
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("BBB", getValue(t1));
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
-      ZKSeleneseTestCase.assertEquals("BBB Last1", getText(l3));
-      ZKSeleneseTestCase.assertEquals("BBB", getText(l4));
-      ZKSeleneseTestCase.assertEquals("0", getSelectedIndex(selectBox));
+      verifyEquals("BBB", getValue(t1));
+      verifyEquals("Last1", getText(l2));
+      verifyEquals("BBB Last1", getText(l3));
+      verifyEquals("BBB", getText(l4));
+      verifyEquals("0", getSelectedIndex(selectBox));
       //		((SelectWidget)findWidget("$select")).select(0);
       //		Assert.assertEquals("BBB",findWidget("$l1").getAttribute("value"));
       //		Assert.assertEquals("Last1",findWidget("$l2").getAttribute("value"));

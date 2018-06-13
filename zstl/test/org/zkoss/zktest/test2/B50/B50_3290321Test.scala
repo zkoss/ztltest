@@ -15,7 +15,7 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 import org.zkoss.ztl.util._
 
 
@@ -88,7 +88,7 @@ class B50_3290321Test extends ZTL4ScalaTestCase {
       lb.$n("body").eval("scrollLeft = 3000")
       sleep(1000)
       var hsl = lb.$n("head").get("scrollTop").toInt
-      Scripts.triggerMouseEventAt(getWebDriver(), sh, "click", hsl + ",20")
+      clickAt(sh, hsl + ",20")
       waitResponse()
       var newHsl = lb.$n("head").get("scrollTop").toInt
       verifyTrue(hsl == newHsl)

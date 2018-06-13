@@ -16,7 +16,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.basic
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author Hawk
@@ -30,23 +31,23 @@ class Z60_LoadFormIndirectTest extends ZTL4ScalaTestCase {
 """
     
     runZTL(zul, () => {
-      val t1 = engine $f "l1"
-      val l2 = engine $f "l2"
-      val l3 = engine $f "l3"
-      val l4 = engine $f "l4"
-      val l5 = engine $f "l5"
-      val t6 = engine $f "l6"
-      val l7 = engine $f "l7"
-      val l8 = engine $f "l8"
+      val t1 = engine.$f("l1")
+      val l2 = engine.$f("l2")
+      val l3 = engine.$f("l3")
+      val l4 = engine.$f("l4")
+      val l5 = engine.$f("l5")
+      val t6 = engine.$f("l6")
+      val l7 = engine.$f("l7")
+      val l8 = engine.$f("l8")
 
-      ZKSeleneseTestCase.assertEquals("First1", getValue(t1));
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
-      ZKSeleneseTestCase.assertEquals("First1 Last1", getText(l3));
-      ZKSeleneseTestCase.assertEquals("First1", getText(l4));
-      ZKSeleneseTestCase.assertEquals("First1", getText(l5));
-      ZKSeleneseTestCase.assertEquals("", getValue(t6));
-      ZKSeleneseTestCase.assertEquals("", getText(l7));
-      ZKSeleneseTestCase.assertEquals("", getText(l8));
+      verifyEquals("First1", getValue(t1));
+      verifyEquals("Last1", getText(l2));
+      verifyEquals("First1 Last1", getText(l3));
+      verifyEquals("First1", getText(l4));
+      verifyEquals("First1", getText(l5));
+      verifyEquals("", getValue(t6));
+      verifyEquals("", getText(l7));
+      verifyEquals("", getText(l8));
       //    	Assert.assertEquals("First1", findWidget("$l1").getAttribute("value"));
       //		Assert.assertEquals("Last1", findWidget("$l2").getAttribute("value"));
       //		Assert.assertEquals("First1 Last1",	findWidget("$l3").getAttribute("value"));
@@ -57,17 +58,17 @@ class Z60_LoadFormIndirectTest extends ZTL4ScalaTestCase {
       //		Assert.assertEquals("", findWidget("$l8").getAttribute("value"));
 
       `type`(t1, "XXX")
-      val btn1 = engine $f "btn1"
+      val btn1 = engine.$f("btn1")
       click(btn1)
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("XXX", getValue(t1));
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
-      ZKSeleneseTestCase.assertEquals("First1 Last1", getText(l3));
-      ZKSeleneseTestCase.assertEquals("XXX", getText(l4));
-      ZKSeleneseTestCase.assertEquals("First1", getText(l5));
-      ZKSeleneseTestCase.assertEquals("", getValue(t6));
-      ZKSeleneseTestCase.assertEquals("", getText(l7));
-      ZKSeleneseTestCase.assertEquals("", getText(l8));
+      verifyEquals("XXX", getValue(t1));
+      verifyEquals("Last1", getText(l2));
+      verifyEquals("First1 Last1", getText(l3));
+      verifyEquals("XXX", getText(l4));
+      verifyEquals("First1", getText(l5));
+      verifyEquals("", getValue(t6));
+      verifyEquals("", getText(l7));
+      verifyEquals("", getText(l8));
       //		findWidget("$l1").clear().keys("XXX");
       //		findWidget("$btn1").focus();
       //		Assert.assertEquals("XXX", findWidget("$l1").getAttribute("value"));
@@ -79,40 +80,40 @@ class Z60_LoadFormIndirectTest extends ZTL4ScalaTestCase {
       //		Assert.assertEquals("", findWidget("$l7").getAttribute("value"));
       //		Assert.assertEquals("", findWidget("$l8").getAttribute("value"));
 
-      val btn2 = engine $f "btn2"
+      val btn2 = engine.$f("btn2")
       click(btn2)
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l4));
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l5));
-      ZKSeleneseTestCase.assertEquals("", getText(l8));
+      verifyEquals("Last1", getText(l4));
+      verifyEquals("Last1", getText(l5));
+      verifyEquals("", getText(l8));
       //		findWidget("$btn2").click();
       //		Assert.assertEquals("First1", findWidget("$l4").getAttribute("value"));
       //		Assert.assertEquals("Last1", findWidget("$l5").getAttribute("value"));
       //		Assert.assertEquals("", findWidget("$l8").getAttribute("value"));
 
-      val btn3 = engine $f "btn3"
+      val btn3 = engine.$f("btn3")
       click(btn3)
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("First1 Last1", getText(l4));
-      ZKSeleneseTestCase.assertEquals("First1 Last1", getText(l5));
-      ZKSeleneseTestCase.assertEquals("", getText(l8));
+      verifyEquals("First1 Last1", getText(l4));
+      verifyEquals("First1 Last1", getText(l5));
+      verifyEquals("", getText(l8));
       //		findWidget("$btn3").click();
       //		Assert.assertEquals("First1", findWidget("$l4").getAttribute("value"));
       //		Assert.assertEquals("First1 Last1",
       //				findWidget("$l5").getAttribute("value"));
       //		Assert.assertEquals("", findWidget("$l8").getAttribute("value"));
 
-      val btn4 = engine $f "btn4"
+      val btn4 = engine.$f("btn4")
       click(btn4)
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("XXX", getValue(t1));
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
-      ZKSeleneseTestCase.assertEquals("XXX Last1", getText(l3));
-      ZKSeleneseTestCase.assertEquals("XXX Last1", getText(l4));
-      ZKSeleneseTestCase.assertEquals("XXX Last1", getText(l5));
-      ZKSeleneseTestCase.assertEquals("XXX", getValue(t6));
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l7));
-      ZKSeleneseTestCase.assertEquals("XXX Last1", getText(l8));
+      verifyEquals("XXX", getValue(t1));
+      verifyEquals("Last1", getText(l2));
+      verifyEquals("XXX Last1", getText(l3));
+      verifyEquals("XXX Last1", getText(l4));
+      verifyEquals("XXX Last1", getText(l5));
+      verifyEquals("XXX", getValue(t6));
+      verifyEquals("Last1", getText(l7));
+      verifyEquals("XXX Last1", getText(l8));
       //    	findWidget("$btn4").click();
       //		Assert.assertEquals("XXX", findWidget("$l1").getAttribute("value"));
       //		Assert.assertEquals("Last1", findWidget("$l2").getAttribute("value"));
@@ -130,9 +131,9 @@ class Z60_LoadFormIndirectTest extends ZTL4ScalaTestCase {
       `type`(t1, "YYY")
       click(btn1)
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("YYY", getText(l4));
-      ZKSeleneseTestCase.assertEquals("XXX", getText(l5));
-      ZKSeleneseTestCase.assertEquals("XXX Last1", getText(l8));
+      verifyEquals("YYY", getText(l4));
+      verifyEquals("XXX", getText(l5));
+      verifyEquals("XXX Last1", getText(l8));
       //		findWidget("$l1").clear().keys("YYY");
       //		findWidget("$btn1").focus();
       //		findWidget("$btn1").click();
@@ -142,14 +143,14 @@ class Z60_LoadFormIndirectTest extends ZTL4ScalaTestCase {
 
       click(btn4)
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("YYY", getValue(t1));
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l2));
-      ZKSeleneseTestCase.assertEquals("YYY Last1", getText(l3));
-      ZKSeleneseTestCase.assertEquals("YYY", getText(l4));
-      ZKSeleneseTestCase.assertEquals("YYY", getText(l5));
-      ZKSeleneseTestCase.assertEquals("YYY", getValue(t6));
-      ZKSeleneseTestCase.assertEquals("Last1", getText(l7));
-      ZKSeleneseTestCase.assertEquals("YYY Last1", getText(l8));
+      verifyEquals("YYY", getValue(t1));
+      verifyEquals("Last1", getText(l2));
+      verifyEquals("YYY Last1", getText(l3));
+      verifyEquals("YYY", getText(l4));
+      verifyEquals("YYY", getText(l5));
+      verifyEquals("YYY", getValue(t6));
+      verifyEquals("Last1", getText(l7));
+      verifyEquals("YYY Last1", getText(l8));
       //    	findWidget("$btn4").click();
       //		Assert.assertEquals("YYY", findWidget("$l1").getAttribute("value"));
       //		Assert.assertEquals("Last1", findWidget("$l2").getAttribute("value"));

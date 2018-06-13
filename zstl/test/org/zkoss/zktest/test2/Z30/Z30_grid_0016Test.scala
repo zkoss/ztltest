@@ -64,7 +64,7 @@ class Z30_grid_0016Test extends ZTL4ScalaTestCase {
       () => {
         def clickThenValidate(selector: String, validator: () => Unit) {
           click(jq(selector))
-          //Scripts.triggerMouseEventAt(getWebDriver(), jq(selector), "click", "2,2")
+          //clickAt(jq(selector), "2,2")
           waitResponse()
           validator()
         }

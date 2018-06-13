@@ -77,17 +77,17 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         val src = jq(".z-panel")
         val target = jq(".z-panel")
         mouseMoveAt(src, position)
-        waitResponse
+        waitResponse()
 
         mouseDownAt(src, position)
-        waitResponse
+        waitResponse()
 
         val position1 = "10,10"
         mouseMoveAt(target, position1)
-        waitResponse
+        waitResponse()
 
         mouseUpAt(target, position1)
-        waitResponse
+        waitResponse()
         verifyTrue("You should not see any dialog.", !jq(".z-window").exists)
       })
 

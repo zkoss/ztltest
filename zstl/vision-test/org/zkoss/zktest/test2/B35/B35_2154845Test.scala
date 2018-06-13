@@ -55,7 +55,7 @@ class B35_2154845Test extends ZTL4ScalaTestCase {
 		"""
 runZTL(zscript, () => {
 			click(jq("@button"))
-			waitResponse
+			waitResponse()
 			verifyImage()
 		})
 	}

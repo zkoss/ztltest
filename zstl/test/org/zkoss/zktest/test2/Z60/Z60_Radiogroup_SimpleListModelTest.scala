@@ -19,7 +19,8 @@ package org.zkoss.zktest.test2.Z60
 import java.lang._
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{ClientWidget, JQuery, Tags, Widget}
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.unit.{ClientWidget, JQuery, Widget}
 
 /**
   * A test class for bug Radiogroup-SimpleListModel

@@ -36,13 +36,13 @@ class B65_ZK_2004Test extends ZTL4ScalaTestCase {
         var wgt = jq(".z-chosenbox").toWidget()
         List("DD", "BB", "EE") foreach { item =>
           click(wgt)
-          waitResponse
+          waitResponse()
           click(jq(wgt.$n("pp")).find(".z-chosenbox-option:contains(" + item + ")"))
-          waitResponse
+          waitResponse()
         }
 
         click(jq(".z-button"))
-        waitResponse
+        waitResponse()
 
         verifyTrue("The chosenbox should not contain selected items.", !jq(".z-chosenbox-item").exists)
       })

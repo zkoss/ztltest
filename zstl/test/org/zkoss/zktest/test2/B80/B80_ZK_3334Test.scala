@@ -17,7 +17,9 @@ package org.zkoss.zktest.test2.B80
 import org.junit.Test
 import org.openqa.selenium.Dimension
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{JQuery, Tags};
+import org.zkoss.ztl.unit.JQuery
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   *
@@ -55,24 +57,21 @@ class B80_ZK_3334Test extends ZTL4ScalaTestCase {
       blur(com)
       waitResponse()
       val pp = jq(".z-errorbox")
-      val window = driver.manage().window()
-      val size = window.getSize()
       verifyTolerant(com.offsetLeft() + com.outerWidth(), pp.offsetLeft(), 1)
 
-      window.setSize(new Dimension(size.width - 100, size.height))
+      setWindowSize(getWindowWidth - 100, getWindowHeight())
       waitResponse()
       verifyTolerant(com.offsetLeft() + com.outerWidth(), pp.offsetLeft(), 1)
     })
   }
 
   def verifyPopup(com: JQuery, pp: JQuery) = {
-    val window = driver.manage().window()
-    val size = window.getSize()
+    val size = getWindowWidth
     verifyTolerant(com.offsetLeft(), pp.offsetLeft(), 1)
-    window.setSize(new Dimension(size.width - 100, size.height))
+    setWindowSize(size - 100, getWindowHeight())
     waitResponse()
     verifyTolerant(com.offsetLeft(), pp.offsetLeft(), 1)
-    window.setSize(size)
+    setWindowSize(size, getWindowHeight())
     waitResponse()
   }
 }

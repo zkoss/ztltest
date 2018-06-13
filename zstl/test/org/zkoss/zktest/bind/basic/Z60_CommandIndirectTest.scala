@@ -16,7 +16,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.basic
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author Hawk
@@ -30,19 +31,19 @@ class Z60_CommandIndirectTest extends ZTL4ScalaTestCase {
 """
     
     runZTL(zul, () => {
-      val commandLabel = engine $f "l1"
-      val commandBox = engine $f "cb1"
-      val commandButton = engine $f "btn1"
+      val commandLabel = engine.$f("l1")
+      val commandBox = engine.$f("cb1")
+      val commandButton = engine.$f("btn1")
 
-      ZKSeleneseTestCase.assertEquals("no-command", getText(commandLabel));
+      verifyEquals("no-command", getText(commandLabel));
       click(commandButton);
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("by command1", getText(commandLabel));
+      verifyEquals("by command1", getText(commandLabel));
 
       click(commandBox.$n("real"))
       click(commandButton);
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("by command2", getText(commandLabel));
+      verifyEquals("by command2", getText(commandLabel));
 
     })
   }

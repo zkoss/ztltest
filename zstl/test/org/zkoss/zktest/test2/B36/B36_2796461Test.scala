@@ -13,7 +13,7 @@ package org.zkoss.zktest.test2.B36
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 
 
 class B36_2796461Test extends ZTL4ScalaTestCase {
@@ -40,7 +40,7 @@ class B36_2796461Test extends ZTL4ScalaTestCase {
       click(db.$n("btn"))
       waitResponse()
       var pp = db.$n("pp")
-      verifyTolerant(Integer.parseInt(pp.get("scrollHeight")), jq(pp).outerHeight(), 6)
+      verifyTolerant(parseInt(pp.get("scrollHeight")), jq(pp).outerHeight(), 6)
     })
   }
 }

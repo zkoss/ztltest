@@ -17,7 +17,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.unit.Widget
 
 /**
   * A test class for bug 3161535
@@ -41,14 +42,14 @@ class B50_3161535Test extends ZTL4ScalaTestCase {
         );
         var width = jq(c1.$n()).outerWidth();
         verifyTrue("first column shall align left, \noffsetLeft of first label= " +
-          Integer.parseInt(l1.$n().get("offsetLeft")) + " should smaller then 10",
-          Integer.parseInt(l1.$n().get("offsetLeft")) <= 20);
+          parseInt(l1.$n().get("offsetLeft")) + " should smaller then 10",
+          parseInt(l1.$n().get("offsetLeft")) <= 20);
         verifyTrue("second column shall align center,\n offsetLeft of second label= " +
-          Integer.parseInt(l2.$n().get("offsetLeft")) + " should larger then width/3 (" + (width / 3) + ") and\n smaller then (width/3)*2 (" + (width / 3 * 2) + ")",
-          Integer.parseInt(l2.$n().get("offsetLeft")) >= (width / 3) && Integer.parseInt(l2.$n().get("offsetLeft")) <= (width / 3 * 2));
+          parseInt(l2.$n().get("offsetLeft")) + " should larger then width/3 (" + (width / 3) + ") and\n smaller then (width/3)*2 (" + (width / 3 * 2) + ")",
+          parseInt(l2.$n().get("offsetLeft")) >= (width / 3) && parseInt(l2.$n().get("offsetLeft")) <= (width / 3 * 2));
         verifyTrue("The third column shall align right,\n offsetLeft of third label= " +
-          Integer.parseInt(l3.$n().get("offsetLeft")) + " should larger then width - 30 (" + (width - 30) + ")",
-          Integer.parseInt(l3.$n().get("offsetLeft")) >= width - 30);
+          parseInt(l3.$n().get("offsetLeft")) + " should larger then width - 30 (" + (width - 30) + ")",
+          parseInt(l3.$n().get("offsetLeft")) >= width - 30);
       }
     );
 

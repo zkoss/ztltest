@@ -2,7 +2,8 @@ package org.zkoss.zktest.test2.B65
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Element, Tags}
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.unit.Element
 
 @Tags(tags = "B65-ZK-1877.zul")
 class B65_ZK_1877Test extends ZTL4ScalaTestCase {
@@ -53,16 +54,16 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
 
         val dragdrop = (src: Element, target: Element, from: String, to: String) => {
           mouseMoveAt(src, from)
-          waitResponse
+          waitResponse()
 
           mouseDownAt(src, from)
-          waitResponse
+          waitResponse()
 
           mouseMoveAt(target, to)
-          waitResponse
+          waitResponse()
 
           mouseUpAt(target, to)
-          waitResponse
+          waitResponse()
         }
 
         dragdrop(btn, rail, "2,2", "220,2")

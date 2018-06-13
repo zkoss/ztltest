@@ -12,9 +12,7 @@ class B70_ZK_2978Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(
       () => {
-        val window = driver.manage().window();
-        window.setSize(new Dimension(window.getSize().getWidth(), 400));
-
+        setWindowSize(getWindowWidth(), 400)
         sleep(500);
 
         val groupboxCaption = jq(".z-caption");

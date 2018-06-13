@@ -13,7 +13,7 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 
 
 class B50_3004412Test extends ZTL4ScalaTestCase {
@@ -41,9 +41,9 @@ class B50_3004412Test extends ZTL4ScalaTestCase {
       sleep(1000)
       verifyTrue(jq(popup).isVisible())
       var zindex = jq(cb.$n("pp")).css("z-index")
-      var ppZindex = if (zindex.equals("auto")) 0 else Integer.parseInt(zindex)
+      var ppZindex = if (zindex.equals("auto")) 0 else parseInt(zindex)
       zindex = jq(popup).css("z-index")
-      var popipZindex = if (zindex.equals("auto")) 0 else Integer.parseInt(zindex)
+      var popipZindex = if (zindex.equals("auto")) 0 else parseInt(zindex)
       verifyTrue(popipZindex > ppZindex)
     })
   }

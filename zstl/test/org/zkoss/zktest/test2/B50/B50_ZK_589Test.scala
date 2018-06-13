@@ -18,7 +18,8 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.unit.Widget
 
 /**
   * A test class for bug ZK-589

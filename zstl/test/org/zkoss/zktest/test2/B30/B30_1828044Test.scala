@@ -18,7 +18,9 @@ package org.zkoss.zktest.test2.B30
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{ClientWidget, Tags}
+import org.zkoss.ztl.unit.ClientWidget
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug 1828044

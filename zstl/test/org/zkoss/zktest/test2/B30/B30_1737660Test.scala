@@ -13,10 +13,7 @@ package org.zkoss.zktest.test2.B30
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
-
-import scala.util.control.Breaks._
-
+import org.zkoss.ztl.unit.Widget
 
 class B30_1737660Test extends ZTL4ScalaTestCase {
   @Test
@@ -88,15 +85,12 @@ class B30_1737660Test extends ZTL4ScalaTestCase {
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     val winTest = ztl$engine.$f("winTest")
     runZTL(zscript, () => {
-      for (i <- 0 until jq("@listbox").length()) {
+      for (i <- 0 until 2) { // 2 listbox
         var jqlb = jq("@listbox").eq(i)
-        var lhr = jqlb.find("@listhead").find("@listheader").first()
-        var lc = jqlb.find("@listitem").find("@listcell").first()
-        while (true) {
-          if ((!lhr.exists()) || (!lc.exists())) break
-          verifyEquals(lhr.outerWidth(), lc.outerWidth())
-          lhr = lhr.next()
-          lc = lc.next()
+        var lhr = jqlb.find("@listhead").find("@listheader")
+        var lc = jqlb.find("@listitem").find("@listcell")
+        for (j <- 0 to 7) { // 7 listhead/listcell
+          verifyEquals(lhr.eq(i).outerWidth(), lc.eq(i).outerWidth())
         }
       }
     })

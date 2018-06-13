@@ -19,7 +19,9 @@ package org.zkoss.zktest.test2.Z60
 import java.lang._
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{ClientWidget, Tags, Widget}
+import org.zkoss.ztl.unit.{ClientWidget, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug Selectbox-ListModelArray

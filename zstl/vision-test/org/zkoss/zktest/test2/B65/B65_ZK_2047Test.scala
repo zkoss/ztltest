@@ -36,7 +36,7 @@ class B65_ZK_2047Test extends ZTL4ScalaTestCase {
           verifyImage()
           var db = jq(".z-datebox").eq(i).toWidget()
           click(db.$n("btn"))
-          waitResponse
+          waitResponse()
           verifyImage()
 
           val cal = jq(db.$n("pp")).find(".z-calendar:eq(0)")

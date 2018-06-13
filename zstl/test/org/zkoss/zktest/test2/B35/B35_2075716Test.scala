@@ -91,7 +91,7 @@ class B35_2075716Test extends ZTL4ScalaTestCase {
 
       // Click on add button
       click(jq("@button:contains(add)"));
-      waitResponse
+      waitResponse()
 
       // Record new panel width
       var new_panel_width: Int = jq(".z-portalchildren:contains(portal 0)").width().intValue();

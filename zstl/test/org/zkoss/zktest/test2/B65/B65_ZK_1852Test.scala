@@ -27,7 +27,7 @@ class B65_ZK_1852Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         click(jq(".z-button"))
-        waitResponse
+        waitResponse()
         sleep(2000)
 
         verifyTrue("should show ''.", jq("#zk_log").`val`().contains(""))

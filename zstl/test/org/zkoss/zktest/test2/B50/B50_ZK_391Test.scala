@@ -20,7 +20,9 @@ import java.lang._
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.unit.Widget
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-391
@@ -43,16 +45,15 @@ class B50_ZK_391Test extends ZTL4ScalaTestCase {
           engine.$f("lb2"),
           engine.$f("lb3"),
           engine.$f("javaLbl")
-        );
+        )
+
         def checkPopup(lb: Widget, ppName: String) {
           mouseOver(lb);
           var t1: Long = System.currentTimeMillis();
           var pp: Widget = engine.$f(ppName);
 
           // wait at most 3 seconds
-          while (!pp.exists() && System.currentTimeMillis() - t1 <= 3000) {
-            sleep(300);
-          }
+          sleep(300);
           waitResponse()
           verifyTrue("popup should exist and visible", pp.exists() && "visible".equals(pp.$n().get("style.visibility")) &&
             !pp.$n().get("style.display").contains("none"));

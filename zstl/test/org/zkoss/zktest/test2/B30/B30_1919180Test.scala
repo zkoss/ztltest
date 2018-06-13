@@ -67,7 +67,7 @@ class B30_1919180Test extends ZTL4ScalaTestCase {
 
 		"""
     runZTL(zscript, () => {
-      val g1 = engine $f "g1"
+      val g1 = engine.$f("g1")
 
       val $col1 = jq("$col1")
       val $col2 = jq("$col2")

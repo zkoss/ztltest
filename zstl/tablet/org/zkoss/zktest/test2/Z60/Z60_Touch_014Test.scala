@@ -1,8 +1,8 @@
 package org.zkoss.zktest.test2.Z60
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.JQuery
 import org.junit.Test
+import org.zkoss.ztl.unit.JQuery
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_014Test extends ZTL4ScalaTestCase {

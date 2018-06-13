@@ -18,7 +18,9 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.unit.{ClientWidget, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-569
@@ -94,7 +96,7 @@ class B50_ZK_569Test extends ZTL4ScalaTestCase {
       var btn1: Widget = engine.$f("btn1");
       var btn2: Widget = engine.$f("btn2");
 
-      def clickAndWait = (target: org.zkoss.ztl.ClientWidget) => {
+      def clickAndWait = (target: ClientWidget) => {
         click(target);
         waitResponse();
       }

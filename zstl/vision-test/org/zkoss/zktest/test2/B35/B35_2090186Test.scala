@@ -41,7 +41,7 @@ class B35_2090186Test extends ZTL4ScalaTestCase {
 runZTL(zscript, () => {
 			verifyImage()
 			click(jq("$minmaxWin").toWidget().$n("max"))
-			waitResponse
+			waitResponse()
 			mouseDownAt(jq("$minmaxWin"), "5,5")
 			mouseMoveAt(jq("$minmaxWin"), "10,5");
 			verifyImage()

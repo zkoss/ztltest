@@ -18,8 +18,9 @@ package org.zkoss.zktest.test2.B35
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{JQuery, Tags}
-import org.zkoss.ztl.util.Scripts
+import org.zkoss.ztl.unit.JQuery
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * @author Fernando Selvatici
@@ -108,22 +109,11 @@ panels.remove(panels.size()-1);
     """
     runZTL(zscript, () => {
       def dragDrop(from: JQuery, fromPos: String, to: JQuery, toPos: String) {
-        val mousemoveAt = (locator: JQuery, coordString: String) => {
-          if (isIE) {
-            val froms = coordString.split(",")
-            val x0 = Integer.parseInt(froms(0))
-            val y0 = Integer.parseInt(froms(1))
-            val element0 = findElement(locator)
-            getActions().moveToElement(element0, x0, y0).perform()
-          } else {
-            Scripts.triggerMouseEventAt(getWebDriver(), locator, "mousemove", coordString);
-          }
-        }
-        mousemoveAt(from, fromPos)
+        mouseMoveAt(from, fromPos)
         waitResponse()
         mouseDownAt(from, fromPos)
         waitResponse()
-        mousemoveAt(to, toPos)
+        mouseMoveAt(to, toPos)
         waitResponse();
         mouseUpAt(to, toPos);
         waitResponse();

@@ -12,7 +12,7 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.userguide.form;
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 
 
 class PopupTest extends ZTL4ScalaTestCase {

@@ -13,10 +13,8 @@ class B70_ZK_2977Test extends ZTL4ScalaTestCase {
       () => {
         val combobox = jq(".z-combobox").eq(1);
         val comboboxButton = jq(".z-combobox-button").eq(1);
-        val window = driver.manage().window();
-        val clientHeight = window.getSize().height;
         val comboboxBottom = combobox.offsetTop() + combobox.height();
-        runScript("window.scrollTo(0," + (comboboxBottom + clientHeight) + ")");
+        runScript("window.scrollTo(0," + (comboboxBottom + getWindowHeight()) + ")");
         runScript("window.scrollBy(0,-" + combobox.height() + ")");
         click(comboboxButton);
         waitResponse(true);

@@ -46,8 +46,8 @@ class B35_2280258Test extends ZTL4ScalaTestCase {
       var c2t = getText(c2);
 
       //Compare label and real width
-      verifyTolerant(org.zkoss.ztl.ZKClientTestCase.parseInt(c1t), ce1, 2);
-      verifyTolerant(org.zkoss.ztl.ZKClientTestCase.parseInt(c2t), ce2, 2);
+      verifyTolerant(parseInt(c1t), ce1, 2);
+      verifyTolerant(parseInt(c2t), ce2, 2);
     }
     );
   }

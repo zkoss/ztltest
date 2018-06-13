@@ -17,7 +17,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.unit.Widget
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 import org.zkoss.ztl.util.Scripts
 
 /**
@@ -94,12 +96,12 @@ class B50_ZK_306Test extends ZTL4ScalaTestCase {
 
       clickItem(tree, 1);
       waitResponse();
-      Scripts.triggerMouseEventAt(getWebDriver(), btn, "click", "5,5");
+      clickAt(btn, "5,5");
       waitResponse();
       checkNumber(tb, 1);
       clickItem(tree, 3);
       waitResponse();
-      Scripts.triggerMouseEventAt(getWebDriver(), btn, "click", "5,5");
+      clickAt(btn, "5,5");
       waitResponse();
       checkNumber(tb, 1);
 
@@ -109,13 +111,13 @@ class B50_ZK_306Test extends ZTL4ScalaTestCase {
       waitResponse();
       clickItem(tree2, 3);
       waitResponse();
-      Scripts.triggerMouseEventAt(getWebDriver(), btn2, "click", "5,5");
+      clickAt(btn2, "5,5");
       waitResponse();
       checkNumber(tb2, 3);
 
       clickItem(tree2, 2);
       waitResponse();
-      Scripts.triggerMouseEventAt(getWebDriver(), btn2, "click", "5,5");
+      clickAt(btn2, "5,5");
       waitResponse();
       checkNumber(tb2, 2);
     }

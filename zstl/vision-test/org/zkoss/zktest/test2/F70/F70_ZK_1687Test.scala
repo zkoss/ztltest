@@ -93,16 +93,16 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         val target = jq(".z-panel:contains(Panel 2)")
         
         mouseMoveAt(src, position)
-        waitResponse
+        waitResponse()
 
         mouseDownAt(src, position)
-        waitResponse
+        waitResponse()
 
         mouseMoveAt(target, position)
-        waitResponse
+        waitResponse()
 
         mouseUpAt(target, position)
-        waitResponse
+        waitResponse()
         
         verifyImage()
         

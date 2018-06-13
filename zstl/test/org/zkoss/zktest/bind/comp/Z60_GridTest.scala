@@ -16,7 +16,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.comp
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author Hawk
@@ -31,19 +32,19 @@ class Z60_GridTest extends ZTL4ScalaTestCase {
     
       //button
       
-      val detailOpen = engine $f "detailOpen"
-      val groupOpen = engine $f "groupOpen"
+      val detailOpen = engine.$f("detailOpen")
+      val groupOpen = engine.$f("groupOpen")
       
       //test open
-      ZKSeleneseTestCase.assertEquals("false", getText(detailOpen));
+      verifyEquals("false", getText(detailOpen));
       click(widget(jq("@detail")).$n("icon"));
       waitResponse();
-      ZKSeleneseTestCase.assertEquals("true", getText(detailOpen));
+      verifyEquals("true", getText(detailOpen));
       
-      ZKSeleneseTestCase.assertEquals("false", getText(groupOpen));
+      verifyEquals("false", getText(groupOpen));
       click(widget(jq("@group")).$n("img"));
       waitResponse();
-      ZKSeleneseTestCase.assertEquals("true", getText(groupOpen));
+      verifyEquals("true", getText(groupOpen));
     })
   }
 }

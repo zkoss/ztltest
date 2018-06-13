@@ -116,7 +116,7 @@ class F50_ZK_500Test extends ZTL4ScalaTestCase {
       verifyEquals(value, jq("@spinner:eq(2)").toWidget().$n("real").get("value"))
 
       click(jq("@button"))
-      waitResponse
+      waitResponse()
       value = "1,234.57"
       verifyEquals(value, jq("@decimalbox:eq(2)").`val`())
       verifyEquals(value, jq("@doublebox:eq(2)").`val`())

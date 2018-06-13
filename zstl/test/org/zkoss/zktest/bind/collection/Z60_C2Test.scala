@@ -15,7 +15,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.bind.collection
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author pao
@@ -32,23 +33,23 @@ class Z60_C2 extends ZTL4ScalaTestCase {
 
       click(jq("@button").first());
       waitResponse();
-      ZKSeleneseTestCase.assertEquals(jq("@button").length(), 4);
+      verifyEquals(jq("@button").length(), 4);
 
       click(jq("@button").first());
       waitResponse();
-      ZKSeleneseTestCase.assertEquals(jq("@button").length(), 3);
+      verifyEquals(jq("@button").length(), 3);
 
       click(jq("@button").first());
       waitResponse();
-      ZKSeleneseTestCase.assertEquals(jq("@button").length(), 2);
+      verifyEquals(jq("@button").length(), 2);
 
       click(jq("@button").first());
       waitResponse();
-      ZKSeleneseTestCase.assertEquals(jq("@button").length(), 1);
+      verifyEquals(jq("@button").length(), 1);
 
       click(jq("@button").first());
       waitResponse();
-      ZKSeleneseTestCase.assertEquals(jq("@button").exists(), false);
+      verifyEquals(jq("@button").exists(), false);
     })
   }
 }

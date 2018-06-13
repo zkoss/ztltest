@@ -56,7 +56,7 @@ class Z30_echoEventTest extends ZTL4ScalaTestCase {
         click(jq("$btn"))
         sleep(1000);
         verifyEquals(jq("$w").find("@label").length, 2)
-        waitResponse
+        waitResponse()
         verifyEquals(jq("$w").find("@label").length, 3)
 
       }

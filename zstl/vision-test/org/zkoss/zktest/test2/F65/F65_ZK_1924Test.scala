@@ -37,10 +37,10 @@ Click 'scroll to top-left', then you should see green area contains topLeft text
   runZTL(zscript,
     () => {
       click(jq(".z-button:contains(bottom)"))
-      waitResponse
+      waitResponse()
       verifyImage()
       click(jq(".z-button:contains(top)"))
-      waitResponse
+      waitResponse()
       verifyImage()
     })
     

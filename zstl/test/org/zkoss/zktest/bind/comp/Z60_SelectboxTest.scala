@@ -17,7 +17,8 @@ package org.zkoss.zktest.bind.comp
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author Hawk
@@ -31,15 +32,15 @@ class Z60_SelectboxTest extends ZTL4ScalaTestCase {
 """
     runZTL(zul, () => {
     
-      val selectbox = engine $f "sbox"
-      val selectedLabel = engine $f "selected"
+      val selectbox = engine.$f("sbox")
+      val selectedLabel = engine.$f("selected")
       
       click(jq("option").eq(1));
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("1", getText(selectedLabel));
+      verifyEquals("1", getText(selectedLabel));
       click(jq("option").eq(2));
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("2", getText(selectedLabel));
+      verifyEquals("2", getText(selectedLabel));
  
     })
   }

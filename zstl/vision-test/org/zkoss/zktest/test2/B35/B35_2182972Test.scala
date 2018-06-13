@@ -57,12 +57,12 @@ class B35_2182972Test extends ZTL4ScalaTestCase {
 runZTL(zscript, () => {
 			List("$b1", "$b2", "$b3", "$b4").foreach(id => {
 				click(jq(id))
-				waitResponse
+				waitResponse()
 				verifyImage()
 				val btns = List("$bt", "$bb")
 				btns.foreach(b => {
 					click(jq(b))
-					waitResponse
+					waitResponse()
 					verifyImage()
 				})
 				// reset

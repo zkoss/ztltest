@@ -18,7 +18,9 @@ package org.zkoss.zktest.test2.F60
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.unit.{ClientWidget, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-719
@@ -145,13 +147,13 @@ class F60_ZK_719Test extends ZTL4ScalaTestCase {
         var tbbtnTwo: Widget = engine.$f("tbbtnTwo");
         var cbbtnTwo: Widget = engine.$f("cbbtnTwo");
 
-        def clickThenVerify(wgt: org.zkoss.ztl.ClientWidget, content: String) {
+        def clickThenVerify(wgt: ClientWidget, content: String) {
           clickAndWait(wgt);
           verifyTrue("The value of message label should become " + content,
             jq(".z-label:contains(" + content + ")").exists());
         }
 
-        def clickAndWait(wgt: org.zkoss.ztl.ClientWidget) {
+        def clickAndWait(wgt: ClientWidget) {
           click(wgt);
           waitResponse();
         }

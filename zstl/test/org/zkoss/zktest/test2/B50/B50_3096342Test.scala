@@ -16,7 +16,7 @@ import java.util.Calendar
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 import org.zkoss.ztl.util._;
 
 class B50_3096342Test extends ZTL4ScalaTestCase {
@@ -60,13 +60,13 @@ class B50_3096342Test extends ZTL4ScalaTestCase {
       click(jq(".z-timebox").toWidget().$n("btn-down"))
       var index = 19
       var dayOnCalendar = jq(".z-calendar-weekday:eq(" + index + ")")
-      var dayOfMonth = Integer.parseInt(dayOnCalendar.text())
+      var dayOfMonth = parseInt(dayOnCalendar.text())
       var calendar = Calendar.getInstance()
       if (dayOfMonth == calendar.get(Calendar.DAY_OF_MONTH)) {
         index = if (dayOfMonth == 1) dayOfMonth + 1 else dayOfMonth - 1
         dayOnCalendar = jq(".z-calendar-weekday:eq(" + index + ")")
       }
-      Scripts.triggerMouseEventAt(getWebDriver(), dayOnCalendar, "click", "1,1")
+      clickAt(dayOnCalendar, "1,1")
       waitResponse()
       clickAt(jq("$desp"), "10,10")
       waitResponse()

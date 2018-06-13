@@ -20,7 +20,9 @@ import java.lang._
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Element, JQuery, Tags, Widget}
+import org.zkoss.ztl.unit.{Element, JQuery, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-1028

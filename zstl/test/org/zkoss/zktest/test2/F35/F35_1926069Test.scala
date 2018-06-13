@@ -15,7 +15,7 @@ package org.zkoss.zktest.test2.F35
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 
 
 class F35_1926069Test extends ZTL4ScalaTestCase {

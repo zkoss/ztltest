@@ -18,7 +18,9 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Element, Tags, Widget}
+import org.zkoss.ztl.unit.{Element, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug 3285714
@@ -68,7 +70,7 @@ class B50_3285714Test extends ZTL4ScalaTestCase {
         val top = getScrollTop(grid) - jq(grid.$n("tpad")).outerHeight();
         def findTopRow(i: Int, max: Int): Element = {
           var row: Element = jq(rows.$n()).find(".z-row").get(i);
-          if (Integer.parseInt(row.get("offsetTop")) >= top
+          if (parseInt(row.get("offsetTop")) >= top
             || (i + 1) >= max)
             return row;
           else
@@ -78,7 +80,7 @@ class B50_3285714Test extends ZTL4ScalaTestCase {
         var topRow: Element = findTopRow(0, rowCnt);
         var content: String = getText(topRow);
 
-        var itemCnt: Integer = Integer.parseInt(content.substring(content.length() - 4, content.length()));
+        var itemCnt: Integer = parseInt(content.substring(content.length() - 4, content.length()));
         verifyTrue(Math.abs(5000 - itemCnt) <= 50);
       }
     );

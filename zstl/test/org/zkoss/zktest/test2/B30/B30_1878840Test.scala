@@ -70,47 +70,17 @@ class B30_1878840Test extends ZTL4ScalaTestCase {
       </zk>
     """
     runZTL(zscript, () => {
-
       var $jq = jq(engine.$f("list").$n("body"));
-
       // fix Firefox driver issue
       getEval("doScrollDown()");
       // $jq.scrollTop($jq.scrollHeight());
       waitResponse();
-
-      /* The costly option:
-        var i = 0;
-        val count = 100;
-
-        // Loop 100 times to scroll down in the listbox
-        while (i < count) {
-          // Option 1 (Works on FF and Chrome)
-          // NOTE: Sometimes Chrome gives an error, because it can't to process the response
-          click(jq(".z-listcell:contains(col - " + i + ")").get(0));
-
-          // Option 2 (doesn't work on Chrome because of a ChromeDriver bug:
-          //        http://sqa.stackexchange.com/questions/2023/webdriver-api-failed-to-send-keys-because-cannot-focus-element-better-work
-          // The idea here is to scroll with the cursor by pressing the down key (40)
-          //        keyPress(jq(".z-listcell").toLocator(), "\\40");
-          i += 1;
-        }
-       */
-
       // Click on the first header to sort
-      if (!isSafari)
-        click(jq(".z-listheader").get(0))
-      else
-        clickAt(jq(".z-listheader").get(0), "2,2")
-
+      click(jq(".z-listheader").get(0))
       waitResponse()
-
       // Twice to see the ordering
-      if (!isSafari)
-        click(jq(".z-listheader").get(0))
-      else
-        clickAt(jq(".z-listheader").get(0), "2,2")
+      click(jq(".z-listheader").get(0))
       waitResponse()
-
       verifyFalse(jq(".z-listcell:empty").get(0).exists())
     })
   }

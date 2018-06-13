@@ -18,7 +18,9 @@ package org.zkoss.zktest.test2.F51
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Element, JQuery, Tags, Widget}
+import org.zkoss.ztl.unit.{Element, JQuery, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-216-grid
@@ -99,7 +101,7 @@ class F51_ZK_216_gridTest extends ZTL4ScalaTestCase {
         var gbTwo: Widget = engine.$f("gbTwo");
 
         var bodyTwo: Element = gbTwo.$n("body");
-        var scrollHeight: Int = Integer.parseInt(bodyTwo.get("scrollHeight"));
+        var scrollHeight: Int = parseInt(bodyTwo.get("scrollHeight"));
 
         // verify listitem contents
         def verifyItem(leftContent: String, rightContent: String, grid: Widget) {

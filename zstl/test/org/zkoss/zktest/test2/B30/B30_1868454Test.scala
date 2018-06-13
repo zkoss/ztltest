@@ -15,7 +15,7 @@ package org.zkoss.zktest.test2.B30
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 
 
 class B30_1868454Test extends ZTL4ScalaTestCase {
@@ -60,7 +60,7 @@ class B30_1868454Test extends ZTL4ScalaTestCase {
       if (win2ZIndex == null || win2ZIndex.trim().length() == 0) {
         verifyTrue("CSS may be changed, please check again and modify test case.", false)
       }
-      verifyTrue(Integer.parseInt(win2ZIndex) > Integer.parseInt(win1ZIndex))
+      verifyTrue(parseInt(win2ZIndex) > parseInt(win1ZIndex))
     })
   }
 }

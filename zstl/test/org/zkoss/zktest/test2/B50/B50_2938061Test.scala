@@ -13,7 +13,7 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 import org.zkoss.ztl.util._
 
 class B50_2938061Test extends ZTL4ScalaTestCase {

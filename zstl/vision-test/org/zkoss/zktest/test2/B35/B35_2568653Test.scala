@@ -16,8 +16,8 @@ package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-import org.zkoss.ztl.ZK
 import org.junit.Test
+import org.zkoss.ztl.unit.ZK
 
 /**
  *
@@ -76,17 +76,17 @@ runZTL(zscript, () => {
 			val position = "10,10"
 	        val src = jq("$p1").find(".z-panel-header")
 	        mouseMoveAt(src, position)
-	        waitResponse
+	        waitResponse()
 	
 	        mouseDownAt(src, position)
-	        waitResponse
+	        waitResponse()
 	
 	        val newPosition = "10,600"
 	        mouseMoveAt(src, newPosition)
-	        waitResponse
+	        waitResponse()
 	        
 	        mouseUpAt(src, newPosition)
-	        waitResponse
+	        waitResponse()
 	        
 			sleep(1200)
 			verifyImage();

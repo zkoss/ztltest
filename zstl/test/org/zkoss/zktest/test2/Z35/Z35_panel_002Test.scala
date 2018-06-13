@@ -81,7 +81,7 @@ class Z35_panel_002Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         def clickThenValidate(selector: String, validator: () => Unit) {
-          Scripts.triggerMouseEventAt(getWebDriver(), jq(selector), "click", "2,2");
+          clickAt(jq(selector), "2,2");
           waitResponse(true);
           validator();
         }
@@ -135,12 +135,12 @@ class Z35_panel_002Test extends ZTL4ScalaTestCase {
         });
 
 
-        Scripts.triggerMouseEventAt(getWebDriver(), jq(jq("@panel").toWidget().$n("exp")), "click", "2,2");
+        clickAt(jq(jq("@panel").toWidget().$n("exp")), "2,2");
         waitResponse(true);
         sleep(200);
         verifyFalse(jq(".z-panel-body").isVisible());
 
-        Scripts.triggerMouseEventAt(getWebDriver(), jq(jq("@panel").toWidget().$n("exp")), "click", "2,2");
+        clickAt(jq(jq("@panel").toWidget().$n("exp")), "2,2");
         waitResponse(true);
         sleep(200);
         verifyTrue(jq(".z-panel-body").isVisible());

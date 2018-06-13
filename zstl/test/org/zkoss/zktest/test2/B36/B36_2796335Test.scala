@@ -15,7 +15,7 @@ package org.zkoss.zktest.test2.B36
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 
 
 class B36_2796335Test extends ZTL4ScalaTestCase {
@@ -67,12 +67,12 @@ class B36_2796335Test extends ZTL4ScalaTestCase {
       waitResponse()
       verifyEquals("50", div1.get("scrollTop"))
       var scrollTop = 84
-      verifyTolerant(scrollTop, Integer.parseInt(div2.get("scrollTop")), 6)
+      verifyTolerant(scrollTop, parseInt(div2.get("scrollTop")), 6)
       click(top)
       waitResponse()
       scrollTop = 0
       verifyEquals("0", div1.get("scrollTop"))
-      verifyTolerant(scrollTop, Integer.parseInt(div2.get("scrollTop")), 6)
+      verifyTolerant(scrollTop, parseInt(div2.get("scrollTop")), 6)
     })
   }
 }

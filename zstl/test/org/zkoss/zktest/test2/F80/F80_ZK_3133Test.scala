@@ -63,13 +63,10 @@ class F80_ZK_3133Test extends ZTL4ScalaTestCase {
 
       verifyTrue(jq("#zk_log").`val`().trim() == "onCreate")
 
-      val window = driver.manage().window()
-      val size = window.getSize()
-
       var zwin = jq(".z-window-content")
       val zwin1orgw = zwin.eq(0).text.trim.split(" > ")(1).replace("px", "").toInt
       val zwin2orgw = zwin.eq(1).text.trim.split(" > ")(1).replace("px", "").toInt
-      window.setSize(new Dimension(450, size.height))
+      setWindowSize(450, getWindowHeight)
       waitResponse()
 
       val zwin1w = zwin.eq(0).text.trim.split(" = ")(1).replace("px", "").toInt
@@ -87,7 +84,7 @@ class F80_ZK_3133Test extends ZTL4ScalaTestCase {
       verifyEquals(zwin1w, zwin.eq(0).text.trim.split(" = ")(1).replace("px", "").toInt)
       verifyEquals(zwin2w, zwin.eq(1).text.trim.split(" = ")(1).replace("px", "").toInt)
 
-      window.setSize(new Dimension(550, size.height))
+      setWindowSize(550, getWindowHeight)
       waitResponse()
 
       verifyEquals(zwin.eq(0).text.trim, "browser width > 500px")

@@ -15,7 +15,7 @@ package org.zkoss.zktest.test2.B36
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 import org.zkoss.ztl.util._
 
 
@@ -63,7 +63,7 @@ Please click the "Text" header (it means upon the word.), and it should be sorte
 		"""
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     runZTL(zscript, () => {
-      Scripts.triggerMouseEventAt(getWebDriver(), jq("@column:eq(0)"), "click", "2,2")
+      clickAt(jq("@column:eq(0)"), "2,2")
       waitResponse()
       verifyEquals("File:", jq("@row:eq(0) @label").text())
       verifyEquals("Options:", jq("@row:eq(1) @label").text())

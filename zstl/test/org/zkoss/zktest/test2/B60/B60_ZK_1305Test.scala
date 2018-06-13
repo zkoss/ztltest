@@ -49,13 +49,13 @@ class B60_ZK_1305Test extends ZTL4ScalaTestCase {
         val test = jq(".z-listitem:contains(test):eq(1)")
 
         mouseMoveAt(test0, position)
-        waitResponse
+        waitResponse()
 
         mouseDownAt(test0, position)
-        waitResponse
+        waitResponse()
 
         mouseMoveAt(test, position)
-        waitResponse
+        waitResponse()
 
         verifyTrue("Should be able to drag test0 item.", jq(".z-drop-ghost").exists())
       })

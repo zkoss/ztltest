@@ -16,7 +16,7 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.comp
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
 
 /**
  * @author Hawk
@@ -29,16 +29,16 @@ class Z60_WindowTest extends ZTL4ScalaTestCase {
 """
     runZTL(zul, () => {
     
-      val maximized = engine $f "maximized"
+      val maximized = engine.$f("maximized")
       click(jq("@window:eq(0)").toWidget().$n("max"))
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("true", getText(maximized));
+      verifyEquals("true", getText(maximized));
       
-      val window1Zindex = engine $f "window1Zindex"
-      val window2Zindex = engine $f "window2Zindex"
+      val window1Zindex = engine.$f("window1Zindex")
+      val window2Zindex = engine.$f("window2Zindex")
       var zindex1= getText(window1Zindex).toInt
       var zindex2= getText(window2Zindex).toInt
-      val window1 = engine $f "window1"
+      val window1 = engine.$f("window1")
       println(window1.exists())
       verifyTrue(zindex2<zindex1);
       //click to make it top

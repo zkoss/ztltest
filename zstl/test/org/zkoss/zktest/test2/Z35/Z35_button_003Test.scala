@@ -75,30 +75,30 @@ class Z35_button_003Test extends ZTL4ScalaTestCase {
       () => {
 
         click(jq("$btn1"))
-        waitResponse
+        waitResponse()
         verifyEquals(widget("$btn1").get("label"), "OnClick OK");
 
         click(jq("$btn2"))
-        waitResponse
+        waitResponse()
         verifyTrue(widget("$btn2").is("disabled"));
 
         contextMenu(jq("$btn3"));
-        waitResponse
+        waitResponse()
         verifyEquals(widget("$btn3").get("label"), "RightClick OK");
 
         doubleClick(jq("$btn4"))
-        waitResponse
+        waitResponse()
         verifyEquals(widget("$btn4").get("label"), "DoubleClick OK");
 
         focus(jq("$btn5"))
-        waitResponse
+        waitResponse()
         verifyEquals(widget("$btn5").get("label"), "Focused OK");
 
         click(jq("$btn6"))
-        waitResponse
+        waitResponse()
         verifyEquals(widget("$btn6").get("label"), "BlurMe");
         blur(jq("$btn6"))
-        waitResponse
+        waitResponse()
         verifyEquals(widget("$btn6").get("label"), "Blurred OK");
 
       }

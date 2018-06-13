@@ -13,7 +13,7 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 import org.zkoss.ztl.util._
 
 
@@ -61,13 +61,13 @@ class B50_ZK_277Test extends ZTL4ScalaTestCase {
     val btn1 = ztl$engine.$f("btn1")
     val btn2 = ztl$engine.$f("btn2")
     runZTL(zscript, () => {
-      Scripts.triggerMouseEventAt(getWebDriver(), btn1, "click", "5,5")
+      clickAt(btn1, "5,5")
       waitResponse()
       sleep(300)
       for (i <- 0 until 10) {
         verifyTrue(("option " + i).equals(jq(list.$n("rows")).find(".z-listcell").eq(i).text()))
       }
-      Scripts.triggerMouseEventAt(getWebDriver(), btn2, "click", "5,5")
+      clickAt(btn2, "5,5")
       waitResponse()
       sleep(300)
       for (i <- 0 until 10) {

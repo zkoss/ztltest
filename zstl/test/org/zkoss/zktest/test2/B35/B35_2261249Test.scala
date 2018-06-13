@@ -15,7 +15,9 @@ import java.util.ArrayList
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{JQuery, Widget}
+import org.zkoss.ztl.unit.{JQuery, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 
 class B35_2261249Test extends ZTL4ScalaTestCase {

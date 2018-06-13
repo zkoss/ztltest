@@ -17,8 +17,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
-import org.zkoss.ztl.util.Scripts
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.unit.Widget
 
 /**
   * A test class for bug ZK-725
@@ -33,7 +33,7 @@ class B60_ZK_725Test extends ZTL4ScalaTestCase {
     runZTL(
       () => {
         var grid: Widget = engine.$f("grid");
-        Scripts.triggerMouseEventAt(getWebDriver, jq("@column:eq(0)"), "click", "2,2")
+        clickAt(jq("@column:eq(0)"), "2,2")
         waitResponse(true)
         verifyTrue("should sorted correctly",
           jq("@row").get(0).get("id").equals(jq(".z-row").get(0).get("id")));

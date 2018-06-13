@@ -50,34 +50,6 @@ class B35_2073428Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        /* cant get hover style
-        waitResponse();
-
-        //Stone Menu
-        val menu=engine.$f("stone").$n("a");
-        click(menu);
-
-        waitResponse();
-
-        if(!ZK.is("ie9_"))
-          mouseOver(menu);
-        else
-          Scripts.triggerMouseEventAt(getWebDriver(), menu, "mouseover", "5,5");
-
-        waitResponse();
-
-        //Verify Over Style
-        val mo = jq("$stone").css("border-color");
-        verifyTrue(if("".equals(mo)) false else ColorVerifingHelper.isEqualColor("#8fb9d0", mo))
-
-        //Move the mouse out of the menu
-        mouseOut(menu);
-        waitResponse();
-
-        //Verify Over style isn't present
-        val mo1 = jq("$stone").css("border-color");
-        verifyFalse(if("".equals(mo)) false else ColorVerifingHelper.isEqualColor("#8fb9d0", mo))
-        */
       }
     );
   }

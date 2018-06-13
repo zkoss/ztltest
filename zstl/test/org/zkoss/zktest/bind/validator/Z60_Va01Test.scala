@@ -15,7 +15,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.bind.validator
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author pao
@@ -32,26 +33,26 @@ class Z60_Va01 extends ZTL4ScalaTestCase {
       val ADULT = "Adult";
       val NEGATIVE_ONE = "-1";
 
-      val ageBox = engine $f "ageBox"
-      val submitButton = engine $f "submitButton"
-      val adultLabel = engine $f "adultLabel"
+      val ageBox = engine.$f("ageBox")
+      val submitButton = engine.$f("submitButton")
+      val adultLabel = engine.$f("adultLabel")
 
-      ZKSeleneseTestCase.assertEquals(NEGATIVE_ONE, getValue(ageBox));
+      verifyEquals(NEGATIVE_ONE, getValue(ageBox));
 
       `type`(ageBox, "22");
       click(submitButton);
       waitResponse();
-      ZKSeleneseTestCase.assertEquals(ADULT, getText(adultLabel));
+      verifyEquals(ADULT, getText(adultLabel));
 
       `type`(ageBox, "-1");
       click(submitButton);
       waitResponse();
-      ZKSeleneseTestCase.assertEquals(ADULT, getText(adultLabel));
+      verifyEquals(ADULT, getText(adultLabel));
 
       `type`(ageBox, "11");
       click(submitButton);
       waitResponse();
-      ZKSeleneseTestCase.assertEquals(UNDER_AGE, getText(adultLabel));
+      verifyEquals(UNDER_AGE, getText(adultLabel));
 
     })
   }

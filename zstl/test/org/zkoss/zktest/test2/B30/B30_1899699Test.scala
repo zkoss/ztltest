@@ -13,7 +13,9 @@ package org.zkoss.zktest.test2.B30
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{JQuery, Widget}
+import org.zkoss.ztl.unit.{JQuery, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 
 class B30_1899699Test extends ZTL4ScalaTestCase {

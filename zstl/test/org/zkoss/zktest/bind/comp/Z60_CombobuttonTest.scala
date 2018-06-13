@@ -32,7 +32,7 @@ class Z60_CombobuttonTest extends ZTL4ScalaTestCase {
     runZTL(zul, () => {
     
       //button
-      val open = engine $f "open"
+      val open = engine.$f("open")
       verifyEquals("false", getText(open));
       click(jq(".z-combobutton").toWidget().$n("btn"))
       waitResponse()

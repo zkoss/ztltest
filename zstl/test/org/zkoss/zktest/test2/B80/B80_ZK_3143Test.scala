@@ -14,11 +14,14 @@ it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2.B80
 
+import java.util
+
 import org.junit.Test
 import org.openqa.selenium.interactions.Actions
 import org.openqa.selenium.{By, Keys}
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.unit.{ClientWidget, JQuery};
 
 /**
   *
@@ -29,16 +32,12 @@ class B80_ZK_3143Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {
     runZTL(() => {
-      val shiftClick = new Actions(driver);
-      val elements = driver().findElements(By.className("z-listitem-checkbox"))
+      val elements: JQuery = jq(".z-listitem-checkbox")
       shiftKeyDown()
-
-      shiftClick
-        .click(elements.get(0))
-        .keyDown(Keys.SHIFT)
-        .click(elements.get(5))
-        .keyUp(Keys.SHIFT)
-        .perform()
+      var items: util.List[ClientWidget] = new util.ArrayList[ClientWidget]()
+      items.add(elements.get(0))
+      items.add(elements.get(5))
+      shiftClickItems(items)
       verifyEquals("", getEval("(zk.ie && zk.ie == 8) ? document.selection.createRange().text : window.getSelection().toString()"))
     })
   }

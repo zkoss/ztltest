@@ -20,6 +20,7 @@ import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl._
+import org.zkoss.ztl.unit.{Element, Widget}
 
 /**
   * A test class for bug ZK-430

@@ -103,7 +103,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 
         val bBottom = button.offsetTop() + button.height();
         val totalHeight = bBottom + popup.height();
-        val windowHeight = Integer.parseInt(getEval("window.innerHeight | Math.max(document.body.clientHeight, document.documentElement.clientHeight)"));
+        val windowHeight = parseInt(getEval("window.innerHeight | Math.max(document.body.clientHeight, document.documentElement.clientHeight)"));
 
         println(bBottom + "," + totalHeight + "," + windowHeight);
 

@@ -1,7 +1,6 @@
 package org.zkoss.zktest.test2.Z60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.JQuery
 import org.openqa.selenium.interactions.TouchScreen
 import org.openqa.selenium.interactions.HasTouchScreen
 import org.openqa.selenium.WebElement
@@ -11,6 +10,7 @@ import org.openqa.selenium.interactions.internal.Coordinates
 import org.openqa.selenium.Point
 import org.zkoss.ztl.Tags
 import org.junit.Test
+import org.zkoss.ztl.unit.JQuery
 
 @Tags(tags = "Touch,Android")
 class Z60_Touch_003Test extends ZTL4ScalaTestCase {

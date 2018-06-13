@@ -17,7 +17,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.unit.{ClientWidget, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-765
@@ -103,7 +105,7 @@ class B60_ZK_765Test extends ZTL4ScalaTestCase {
         var btnTwo: Widget = engine.$f("btnTwo");
         var btnThree: Widget = engine.$f("btnThree");
 
-        def clickAndWait(wgt: org.zkoss.ztl.ClientWidget) {
+        def clickAndWait(wgt: ClientWidget) {
           click(wgt);
           waitResponse();
         }

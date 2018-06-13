@@ -58,18 +58,18 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         val top = src.offsetTop()
 
         mouseMoveAt(src, position)
-        waitResponse
+        waitResponse()
 
         mouseDownAt(src, position)
-        waitResponse
+        waitResponse()
 
         mouseMoveAt(btn, position)
-        waitResponse
+        waitResponse()
 
         verifyTrue("it should be able to drag and drop.", top != src.offsetTop())
 
         mouseUpAt(btn, position)
-        waitResponse
+        waitResponse()
 
 
       })

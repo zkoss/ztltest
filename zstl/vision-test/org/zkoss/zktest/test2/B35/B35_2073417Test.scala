@@ -57,7 +57,7 @@ runZTL(zscript, () => {
 			verifyImage()
 			click(jq("$btn1"))
 			click(jq("$btn2"))
-			waitResponse
+			waitResponse()
 			verifyImage()
 		})
 	}

@@ -11,7 +11,7 @@ class B65_ZK_2035Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       click(jq(".z-panel").toWidget().$n("exp"))
-      waitResponse
+      waitResponse()
       verifyTrue("should not see error message", !jq(".z-error").exists)
     })
 

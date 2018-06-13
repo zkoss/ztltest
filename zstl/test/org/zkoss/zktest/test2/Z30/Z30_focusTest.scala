@@ -49,9 +49,9 @@ and the focus remains on the first textbox</li>
 		"""
     runZTL(zscript, () => {
       click(jq("$tb1"))
-      waitResponse
+      waitResponse()
       verifyEquals(this.getEval("zk.currentFocus.id"), "t1");
-      Scripts.triggerMouseEventAt(getWebDriver(), jq("$tb2"), "click", "2,2")
+      clickAt(jq("$tb2"), "2,2")
       waitResponse()
       verifyEquals(this.getEval("zk.currentFocus.id"), "t2");
     })

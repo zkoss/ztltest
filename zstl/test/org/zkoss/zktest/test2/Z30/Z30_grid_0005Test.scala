@@ -84,23 +84,23 @@ class Z30_grid_0005Test extends ZTL4ScalaTestCase {
         var $head = jq("$grid").toWidget().$n("head");
         var $body = jq("$grid").toWidget().$n("body");
         // check colSpan
-        var c1 = Integer.parseInt(jq("$head1").toWidget().firstChild().$n().get("colSpan"));
-        var c2 = Integer.parseInt(jq("$head2").toWidget().lastChild().$n().get("colSpan"));
+        var c1 = parseInt(jq("$head1").toWidget().firstChild().$n().get("colSpan"));
+        var c2 = parseInt(jq("$head2").toWidget().lastChild().$n().get("colSpan"));
         verifyEquals(4, c1 + c2);
-        c1 = Integer.parseInt(jq("$head2").toWidget().firstChild().$n().get("colSpan"));
-        c2 = Integer.parseInt(jq("$head2").toWidget().lastChild().$n().get("colSpan"));
+        c1 = parseInt(jq("$head2").toWidget().firstChild().$n().get("colSpan"));
+        c2 = parseInt(jq("$head2").toWidget().lastChild().$n().get("colSpan"));
         verifyEquals(3, c1 + c2);
-        c1 = Integer.parseInt(jq("$head3").toWidget().firstChild().$n().get("colSpan"));
-        c2 = Integer.parseInt(jq("$head3").toWidget().firstChild().nextSibling().$n().get("colSpan"));
-        var c3 = Integer.parseInt(jq("$head3").toWidget().lastChild().$n().get("colSpan"));
+        c1 = parseInt(jq("$head3").toWidget().firstChild().$n().get("colSpan"));
+        c2 = parseInt(jq("$head3").toWidget().firstChild().nextSibling().$n().get("colSpan"));
+        var c3 = parseInt(jq("$head3").toWidget().lastChild().$n().get("colSpan"));
         verifyEquals(3, c1 + c2 + c3);
-        c1 = Integer.parseInt(jq("$head4").toWidget().firstChild().$n().get("colSpan"));
+        c1 = parseInt(jq("$head4").toWidget().firstChild().$n().get("colSpan"));
         verifyEquals(3, c1);
         var w = jq("$grid").innerWidth()
         verifyEquals(w + "", jq($head).outerWidth());
         verifyEquals(w + "", jq($body).outerWidth());
         var h = jq("$grid").height();
-        verifyEquals(h, Integer.parseInt($head.get("offsetHeight")) + Integer.parseInt($body.get("offsetHeight")));
+        verifyEquals(h, parseInt($head.get("offsetHeight")) + parseInt($body.get("offsetHeight")));
         // check sizing
         click(checkId);
         waitResponse();

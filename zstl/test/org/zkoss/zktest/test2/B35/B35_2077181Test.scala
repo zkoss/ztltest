@@ -252,7 +252,7 @@ Today's ceremony was also repeatedly interrupted as another guest SA Labor MP Ni
 
         //click Embedded button
         // cannot use click() in this case
-        Scripts.triggerMouseEventAt(driver, jq("$embed"), "click", "2,2");
+        clickAt(jq("$embed"), "2,2");
 
         waitResponse();
 

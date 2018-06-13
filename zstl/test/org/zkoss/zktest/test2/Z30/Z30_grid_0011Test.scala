@@ -137,7 +137,7 @@ class Z30_grid_0011Test extends ZTL4ScalaTestCase {
 
 
         click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
-        waitResponse
+        waitResponse()
 
         verifyRowContent(Iterator("4", "5", "6"));
         click(jq("@checkbox:first input"));
@@ -145,7 +145,7 @@ class Z30_grid_0011Test extends ZTL4ScalaTestCase {
 
 
         click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
-        waitResponse
+        waitResponse()
 
 
         verifyRowContent(Iterator("7", "8"));
@@ -154,13 +154,13 @@ class Z30_grid_0011Test extends ZTL4ScalaTestCase {
 
 
         click(jq("[name=" + jq(".z-paging").attr("id") + "-prev]"));
-        waitResponse
+        waitResponse()
         verifyRowContent(Iterator("4", "5", "6"));
         verifyFalse(jq("@checkbox:first input").get(0).is("checked"));
 
 
         click(jq("[name=" + jq(".z-paging").attr("id") + "-prev]"));
-        waitResponse
+        waitResponse()
         verifyRowContent(Iterator("1", "2", "3"));
         verifyFalse(jq("@checkbox:first input").get(0).is("checked"));
 

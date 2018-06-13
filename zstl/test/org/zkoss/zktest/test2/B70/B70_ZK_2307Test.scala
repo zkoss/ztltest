@@ -12,20 +12,16 @@ class B70_ZK_2307Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       // don't support opera
-      val window = driver.manage().window();
-      val originW = window.getSize().width;
-      val originH = window.getSize().height;
-      window.setSize(new Dimension(500, originH));
-
+      val window = getWebDriver.manage().window()
+      val originW = getWindowWidth()
+      val originH = getWindowHeight()
+      setWindowSize(500, originH)
       sleep(500);
-
-      val h5l = jq("$h5").offsetLeft();
-      val i5l = jq("$i5").offsetLeft();
-
+      val h5l = jq("$h5").offsetLeft()
+      val i5l = jq("$i5").offsetLeft()
       verifyTrue("list head and cell must align to same vertial line.", h5l == i5l);
 
-      window.setSize(new Dimension(originW, originH));
-      //window.maximize();
+      setWindowSize(originW, originH)
     })
 
   }

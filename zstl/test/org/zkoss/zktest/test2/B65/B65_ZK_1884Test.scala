@@ -37,16 +37,16 @@ class B65_ZK_1884Test extends ZTL4ScalaTestCase {
         val from = "2,2"
         val to = "220,2"
         mouseMoveAt(btn, from)
-        waitResponse
+        waitResponse()
 
         mouseDownAt(btn, from)
-        waitResponse
+        waitResponse()
 
         mouseMoveAt(rail, to)
-        waitResponse
+        waitResponse()
 
         mouseUpAt(rail, to)
-        waitResponse
+        waitResponse()
 
         val value = jq(".z-hbox .z-label:eq(0)").text().toInt
         verifyTrue("its value should not be greater then 70", value <= 70)

@@ -19,7 +19,9 @@ package org.zkoss.zktest.test2.F60
 import java.lang._
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.unit.{ClientWidget, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-701-Listmodel
@@ -81,7 +83,7 @@ class F60_ZK_701_ListmodelTest extends ZTL4ScalaTestCase {
         var grid: Widget = engine.$f("grid");
         var clonedGrid: Widget = null;
 
-        def clickAndWait(wgt: org.zkoss.ztl.ClientWidget) {
+        def clickAndWait(wgt: ClientWidget) {
           if (!isSafari)
             click(wgt);
           else

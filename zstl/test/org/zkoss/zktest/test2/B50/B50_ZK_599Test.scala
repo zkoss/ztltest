@@ -18,7 +18,8 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.unit.Widget
 
 /**
   * A test class for bug ZK-599
@@ -67,9 +68,9 @@ class B50_ZK_599Test extends ZTL4ScalaTestCase {
       var grid2: Widget = engine.$f("grid2");
 
       verifyTrue("grid 1 should have vertical scrollbar",
-        Integer.parseInt(grid1.$n("body").get("scrollHeight")) >= Integer.parseInt(grid1.$n("body").get("clientHeight")));
+        parseInt(grid1.$n("body").get("scrollHeight")) >= parseInt(grid1.$n("body").get("clientHeight")));
       verifyTrue("grid 1 should have vertical scrollbar",
-        Integer.parseInt(grid2.$n("body").get("scrollHeight")) >= Integer.parseInt(grid2.$n("body").get("clientHeight")));
+        parseInt(grid2.$n("body").get("scrollHeight")) >= parseInt(grid2.$n("body").get("clientHeight")));
     })
   }
 }

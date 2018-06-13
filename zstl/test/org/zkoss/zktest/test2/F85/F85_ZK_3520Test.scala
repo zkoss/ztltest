@@ -30,10 +30,6 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
       verifyTolerant(pink.offsetLeft() + 100, pp.offsetLeft(), 3)
 
       val yellow = jq(".z-div[style*=yellow]")
-      //      getActions
-      //        .moveToElement(findElement(yellow))
-      //        .contextClick()
-      //        .perform()
       contextMenu(yellow)
       waitResponse()
       // should see tooltip showed on 50px left of mouse pointer
@@ -59,10 +55,6 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
       verifyTolerant(cyan.offsetLeft() + 140, pp.offsetLeft(), 1)
 
       val pink = jq(".z-div[style*=pink]")
-      //      getActions
-      //        .moveToElement(findElement(pink))
-      //        .click()
-      //        .perform()
       click(pink)
       waitResponse()
       // should see tooltip showed at the "after_center" position
@@ -70,15 +62,9 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
       verifyTolerant(pink.offsetLeft() + 100, pp.offsetLeft() + pp.width() / 2, 3)
 
       val yellow = jq(".z-div[style*=yellow]")
-      getActions
-        .moveToElement(findElement(yellow))
-        .contextClick()
-        .perform()
+      contextMenu(yellow)
       waitResponse()
-      getActions
-        .moveToElement(findElement(yellow), 50, 50)
-        .contextClick()
-        .perform()
+      contextMenu(yellow)
       waitResponse()
       // should not see tooltip showed
       verifyFalse("yellowPopup should be hidden", pp.isVisible)

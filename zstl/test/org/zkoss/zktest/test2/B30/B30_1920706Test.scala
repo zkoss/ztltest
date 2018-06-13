@@ -62,7 +62,7 @@ new Datebox().setParent(row);
 			</zk>
 		""";
     runZTL(zscript, () => {
-      val g1 = engine $f "g1"
+      val g1 = engine.$f("g1")
       val $col1 = jq("$col1")
       val $col2 = jq("$col2")
       val $col3 = jq("$col3")
@@ -79,7 +79,7 @@ new Datebox().setParent(row);
 
       for ((btn, size) <- List((btn1, 20), (btn2, 100), (btn3, 200))) {
         click(btn)
-        waitResponse
+        waitResponse()
         verifyEquals(size, $col1.outerWidth())
 
         halfWidth = (jq(g1).innerWidth() - size) / 2

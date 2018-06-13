@@ -35,7 +35,11 @@ class Z60_ChildrenSimple2 extends ZTL4ScalaTestCase {
       verifyEquals(compare.length, labels.length())
       for (i <- 0 to compare.length - 1) {
         verifyEquals(compare(i), labels.eq(i).toWidget().get("value"))
-        verifyEquals(if ("Item A".equals(compare(i))) "c1" else "c2", labels.eq(i).toWidget().get("sclass"))
+        var sclass = "c1"
+        if (!"Item A".equals(compare(i))) {
+          sclass = "c2"
+        }
+        verifyEquals(sclass, labels.eq(i).toWidget().get("sclass"))
       }
       click(cmd3.toWidget())
       waitResponse()
@@ -44,7 +48,11 @@ class Z60_ChildrenSimple2 extends ZTL4ScalaTestCase {
       verifyEquals(compare.length, labels.length())
       for (i <- 0 to compare.length - 1) {
         verifyEquals(compare(i), labels.eq(i).toWidget().get("value"))
-        verifyEquals(if ("Item A".equals(compare(i))) "c1" else "c2", labels.eq(i).toWidget().get("sclass"))
+        var sclass = "c1"
+        if (!"Item A".equals(compare(i))) {
+          sclass = "c2"
+        }
+        verifyEquals(sclass, labels.eq(i).toWidget().get("sclass"))
       }
     })
   }

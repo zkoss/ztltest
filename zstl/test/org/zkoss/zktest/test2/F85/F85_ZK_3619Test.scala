@@ -12,7 +12,7 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.F85
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.JQuery
+import org.zkoss.ztl.unit.JQuery
 
 class F85_ZK_3619Test extends ZTL4ScalaTestCase {
 	

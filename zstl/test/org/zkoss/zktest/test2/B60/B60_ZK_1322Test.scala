@@ -40,7 +40,7 @@ class B60_ZK_1322Test extends ZTL4ScalaTestCase {
           sendKeys(timebox, Keys.END + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "33")
         }
         sleep(1000)
-        waitResponse
+        waitResponse()
 
         click(jq("@button"))
         waitResponse()

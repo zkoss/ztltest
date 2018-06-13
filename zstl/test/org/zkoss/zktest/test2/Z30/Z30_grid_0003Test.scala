@@ -13,7 +13,7 @@ package org.zkoss.zktest.test2.Z30
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 
 
 class Z30_grid_0003Test extends ZTL4ScalaTestCase {
@@ -68,14 +68,14 @@ class Z30_grid_0003Test extends ZTL4ScalaTestCase {
       verifyEquals("400px", g.get("width"))
       verifyEquals("13", rows.nChildren())
       verifyEquals("Option 130", rows.firstChild().firstChild().get("value"))
-      verifyTrue(10 < Integer.parseInt($paging.get("offsetHeight")))
+      verifyTrue(10 < parseInt($paging.get("offsetHeight")))
       verifyEquals("10", paging.get("activePage"))
       click(btn1)
       waitResponse()
       verifyEquals("400px", g.get("width"))
       verifyEquals("13", rows.nChildren())
       verifyEquals("Option 130", rows.firstChild().firstChild().get("value"))
-      verifyTrue(10 < Integer.parseInt($paging.get("offsetHeight")))
+      verifyTrue(10 < parseInt($paging.get("offsetHeight")))
       verifyEquals("10", paging.get("activePage"))
       click(btn2)
       waitResponse()
@@ -88,25 +88,25 @@ class Z30_grid_0003Test extends ZTL4ScalaTestCase {
       waitResponse()
       verifyEquals("13", rows.nChildren())
       verifyEquals("Option 0", rows.firstChild().firstChild().get("value"))
-      verifyTrue(10 < Integer.parseInt($paging.get("offsetHeight")))
+      verifyTrue(10 < parseInt($paging.get("offsetHeight")))
       verifyEquals("0", paging.get("activePage"))
       click(next)
       waitResponse()
       verifyEquals("13", rows.nChildren())
       verifyEquals("Option 13", rows.firstChild().firstChild().get("value"))
-      verifyTrue(10 < Integer.parseInt($paging.get("offsetHeight")))
+      verifyTrue(10 < parseInt($paging.get("offsetHeight")))
       verifyEquals("1", paging.get("activePage"))
       click(prev)
       waitResponse()
       verifyEquals("13", rows.nChildren())
       verifyEquals("Option 0", rows.firstChild().firstChild().get("value"))
-      verifyTrue(10 < Integer.parseInt($paging.get("offsetHeight")))
+      verifyTrue(10 < parseInt($paging.get("offsetHeight")))
       verifyEquals("0", paging.get("activePage"))
       click(last)
       waitResponse()
       verifyEquals("3", rows.nChildren())
       verifyEquals("Option 9997", rows.firstChild().firstChild().get("value"))
-      verifyTrue(10 < Integer.parseInt($paging.get("offsetHeight")))
+      verifyTrue(10 < parseInt($paging.get("offsetHeight")))
       verifyEquals("769", paging.get("activePage"))
     })
   }

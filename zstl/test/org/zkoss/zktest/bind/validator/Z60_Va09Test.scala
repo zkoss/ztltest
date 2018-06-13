@@ -15,7 +15,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.bind.validator
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author pao
@@ -29,25 +30,25 @@ class Z60_Va09Test extends ZTL4ScalaTestCase {
 
     runZTL(zul, () => {
 
-      val keywordBox = engine $f "keywordBox"
-      val keywordLabel = engine $f "keywordLabel"
-      val lengthBox = engine $f "lengthBox"
+      val keywordBox = engine.$f("keywordBox")
+      val keywordLabel = engine.$f("keywordLabel")
+      val lengthBox = engine.$f("lengthBox")
 
       `type`(keywordBox, "123");
       click(lengthBox); //to change focus
       waitResponse();
-      ZKSeleneseTestCase.assertEquals("123", getText(keywordLabel));
+      verifyEquals("123", getText(keywordLabel));
 
       `type`(keywordBox, "1234");
       click(lengthBox);
       waitResponse();
-      ZKSeleneseTestCase.assertEquals("123", getText(keywordLabel));
+      verifyEquals("123", getText(keywordLabel));
 
       `type`(lengthBox, "5");
       `type`(keywordBox, "12345");
       click(keywordLabel);
       waitResponse();
-      ZKSeleneseTestCase.assertEquals("12345", getText(keywordLabel));
+      verifyEquals("12345", getText(keywordLabel));
 
     })
   }

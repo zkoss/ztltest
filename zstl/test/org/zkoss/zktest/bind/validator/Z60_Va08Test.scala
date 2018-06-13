@@ -16,7 +16,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.validator
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author pao
@@ -30,18 +31,18 @@ class Z60_Va08Test extends ZTL4ScalaTestCase {
 
     runZTL(zul, () => {
 
-      val keywordBox = engine $f "keywordBox"
-      val keywordLabel = engine $f "keywordLabel"
+      val keywordBox = engine.$f("keywordBox")
+      val keywordLabel = engine.$f("keywordLabel")
 
       `type`(keywordBox, "123");
       sendKeys(keywordBox, Keys.TAB); //change focus
       waitResponse();
-      ZKSeleneseTestCase.assertEquals("123", getText(keywordLabel));
+      verifyEquals("123", getText(keywordLabel));
 
       `type`(keywordBox, "1234");
       sendKeys(keywordBox, Keys.TAB);
       waitResponse();
-      ZKSeleneseTestCase.assertEquals("123", getText(keywordLabel));
+      verifyEquals("123", getText(keywordLabel));
 
     })
   }

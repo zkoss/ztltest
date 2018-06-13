@@ -15,7 +15,7 @@ import java.util._
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget;
+import org.zkoss.ztl.unit.Widget
 
 class B50_3105728Test extends ZTL4ScalaTestCase {
   @Test

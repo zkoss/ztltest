@@ -17,15 +17,16 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
+
 import scala.collection.JavaConversions._
-import org.junit.Test;
-import org.zkoss.ztl.Element;
-import org.zkoss.ztl.JQuery;
-import org.zkoss.ztl.Tags;
-import org.zkoss.ztl.Widget;
-import org.zkoss.ztl.ZK;
-import org.zkoss.ztl.ZKClientTestCase;
+import org.junit.Test
+import org.zkoss.ztl.unit._
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.Widget
+import org.zkoss.ztl.ZKClientTestCase
 import java.lang._
+
+import org.zkoss.ztl.unit.ZK
 
 /**
  *
@@ -121,15 +122,18 @@ class B50_ZK_299Test extends ZTL4ScalaTestCase {
 						})
 						refresh()
 						waitForPageToLoad("10000")
-						waitResponse
+						waitResponse()
 
 						runRawZscript(zscript.toString())
-						waitResponse
+						waitResponse()
 						verifyImage()
 					}
 				});
 		} finally {
-			resetTheme("iceblue")
+
+  import org.zkoss.ztl.unit.JQuery
+
+  resetTheme("iceblue")
 		}
 	}
 

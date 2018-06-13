@@ -85,7 +85,6 @@ class B35_2075137Test extends ZTL4ScalaTestCase {
       waitResponse(true);
 
       // Move the mouse over the first slider
-      //Scripts.triggerMouseEventAt(getWebDriver(), jq("$slider").get(0), "mousemove", "0,4")
       val btn = engine.$f("slider").$n("btn")
       dragdropTo(btn, "5,5", "5,50")
       waitResponse(true);
@@ -100,8 +99,8 @@ class B35_2075137Test extends ZTL4ScalaTestCase {
 
       // Move the mouse over the second slider
       // The event doesn't take the last argument, so always moves the same distance
-      // Scripts.triggerMouseEventAt(getWebDriver(), jq("$slider2").get(0), "mousemove", "")
-      //waitResponse(true);
+      mouseMove(jq("$slider2").get(0))
+      waitResponse()
 
       verifyFalse("The value should be ...", jq("$textLabel2:contains(TESTING SLIDERS FUNCTIONALITY...)").exists());
 

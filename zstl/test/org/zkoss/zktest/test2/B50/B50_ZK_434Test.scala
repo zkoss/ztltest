@@ -19,7 +19,8 @@ package org.zkoss.zktest.test2.B50
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{JQuery, Tags}
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.unit.JQuery
 
 /**
   * A test class for bug ZK-434

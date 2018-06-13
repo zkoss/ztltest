@@ -17,7 +17,8 @@ package org.zkoss.zktest.bind.comp
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author Hawk
@@ -32,11 +33,11 @@ class Z60_ComboboxTest extends ZTL4ScalaTestCase {
     runZTL(zul, () => {
     
       //button
-      val open = engine $f "open"
-      ZKSeleneseTestCase.assertEquals("false", getText(open));
+      val open = engine.$f("open")
+      verifyEquals("false", getText(open));
       click(jq(".z-combobox").toWidget().$n("btn"))
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("true", getText(open));
+      verifyEquals("true", getText(open));
     })
   }
 }

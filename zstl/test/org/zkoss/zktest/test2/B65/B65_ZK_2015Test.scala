@@ -43,14 +43,14 @@ class B65_ZK_2015Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         click(jq(".z-button:contains(show)"))
-        waitResponse
+        waitResponse()
         click(jq(".z-button:contains(hide)"))
-        waitResponse
+        waitResponse()
 
         verifyTrue("BB and CC will hide", jq(".z-cell:contains(BB)").attr("style").contains("none")
           && jq(".z-cell:contains(CC)").attr("style").contains("none"))
         click(jq(".z-button:contains(show)"))
-        waitResponse
+        waitResponse()
         verifyTrue("BB and CC will show", !jq(".z-cell:contains(BB)").attr("style").contains("none")
           && !jq(".z-cell:contains(CC)").attr("style").contains("none"))
       })

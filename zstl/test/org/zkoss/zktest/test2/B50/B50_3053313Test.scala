@@ -20,7 +20,9 @@ import java.lang._
 import java.util.{ArrayList, Calendar, List}
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{JQuery, Tags, Widget}
+import org.zkoss.ztl.unit.{JQuery, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 import scala.collection.JavaConversions._;
 
@@ -76,7 +78,7 @@ class B50_3053313Test extends ZTL4ScalaTestCase {
           var td = l.get(j).get(0);
           var clsnm: String = td.get("className")
           if (jq(td).isVisible()) {
-            dt1 = Integer.parseInt(td.get("innerHTML"));
+            dt1 = parseInt(td.get("innerHTML"));
             if (!foundToday) {
               verifyFalse("for third datebox, today and all pass day should be selectable",
                 clsnm.contains("z-calendar-disabled"));
@@ -90,14 +92,14 @@ class B50_3053313Test extends ZTL4ScalaTestCase {
 
         click(dtbx2.$n("btn"));
         waitResponse();
-        dt1 = Integer.parseInt(jq(dtbx2.$n("pp"))
+        dt1 = parseInt(jq(dtbx2.$n("pp"))
           .find(".z-calendar-disabled").get(0).get("innerHTML"));
         verifyTrue("for second datebox, the only unselectable date should be today",
           (dt1 == today) && (jq(dtbx2.$n("pp")).find(".z-calendar-disabled").length() == 1));
 
         click(dtbx1.$n("btn"));
         waitResponse();
-        dt1 = Integer.parseInt(jq(dtbx1.$n("pp"))
+        dt1 = parseInt(jq(dtbx1.$n("pp"))
           .find(".z-calendar-disabled").last().get(0).get("innerHTML"));
         verifyTrue("for first datebox, the last unselectable date should be yesterday",
           (today - dt1 == 1) || ((today == 1) && (31 - dt1 <= 3)));

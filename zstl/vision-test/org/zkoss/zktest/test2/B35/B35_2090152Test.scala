@@ -69,7 +69,7 @@ button text label, that is correct. (IE6~7 only).
 		"""
 runZTL(zscript, () => {
 			jq("@button").foreach(b => click(b));
-			waitResponse
+			waitResponse()
 			verifyImage()
 		})
 	}

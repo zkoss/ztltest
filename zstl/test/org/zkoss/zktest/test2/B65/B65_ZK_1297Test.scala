@@ -13,7 +13,7 @@ class B65_ZK_1297Test extends ZTL4ScalaTestCase {
       //1. Click "Add" button, the height of listbox should not change a lot.
       val height = jq("@listbox").height()
       click(jq("@button"))
-      waitResponse
+      waitResponse()
       val newHeight = jq("@listbox").height()
       verifyTolerant(height, newHeight, 10)
     })

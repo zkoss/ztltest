@@ -16,8 +16,7 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.comp
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
-
+import org.zkoss.ztl._
 /**
  * @author Hawk
  */
@@ -30,13 +29,13 @@ class Z60_MenuitemTest extends ZTL4ScalaTestCase {
     runZTL(zul, () => {
     
       //button
-      val checked = engine $f "checked"
-      ZKSeleneseTestCase.assertEquals("false", getText(checked));
+      val checked = engine.$f("checked")
+      verifyEquals("false", getText(checked));
       click(jq("@menu"))
       waitResponse()
       click(jq("@menuitem"))
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("true", getText(checked));
+      verifyEquals("true", getText(checked));
     })
   }
 }

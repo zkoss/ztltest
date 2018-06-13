@@ -19,7 +19,8 @@ package org.zkoss.zktest.test2.B50
 import java.lang._
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Element, Tags, Widget}
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.unit.{Element, Widget}
 
 /**
   * A test class for bug 3142583

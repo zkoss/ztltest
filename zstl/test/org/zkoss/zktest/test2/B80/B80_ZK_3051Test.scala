@@ -16,9 +16,7 @@ class B80_ZK_3051Test extends ZTL4ScalaTestCase {
   """
     runZTL(zscript,
       () => {
-        val window = driver.manage().window();
-        window.setSize(new Dimension(250, 200));
-
+        setWindowSize(250, 200)
         sleep(500);
 
         val item = jq(".z-combobox-button");

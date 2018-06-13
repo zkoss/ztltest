@@ -18,7 +18,9 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Element, Tags, Widget}
+import org.zkoss.ztl.unit.{ClientWidget, Element, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-568
@@ -66,7 +68,7 @@ class B50_ZK_568Test extends ZTL4ScalaTestCase {
       var item15: Element = jq(pp).find(".z-comboitem").get(14);
       var lastItem: Element = jq(pp).find(".z-comboitem").get(49);
 
-      def clickAndWait = (target: org.zkoss.ztl.ClientWidget) => {
+      def clickAndWait = (target: ClientWidget) => {
         clickAt(target, "5,5");
         waitResponse();
       }
@@ -76,18 +78,18 @@ class B50_ZK_568Test extends ZTL4ScalaTestCase {
       clickAndWait(lastItem);
       clickAndWait(boxBtn);
 
-      var top: Integer = Integer.parseInt(pp.get("scrollTop"));
-      var offset: Integer = Integer.parseInt(jq(lastItem).get(0).get("offsetTop"));
-      var bottom: Integer = Integer.parseInt(pp.get("scrollTop")) + jq(pp).height();
+      var top: Integer = parseInt(pp.get("scrollTop"));
+      var offset: Integer = parseInt(jq(lastItem).get(0).get("offsetTop"));
+      var bottom: Integer = parseInt(pp.get("scrollTop")) + jq(pp).height();
 
       verifyTrue("the last item should in view of drop down list",
         (offset >= top && offset <= bottom));
       clickAndWait(btn);
       clickAndWait(boxBtn);
 
-      top = Integer.parseInt(pp.get("scrollTop"));
-      offset = Integer.parseInt(jq(item15).get(0).get("offsetTop")) + 4;
-      bottom = Integer.parseInt(pp.get("scrollTop")) + jq(pp).height();
+      top = parseInt(pp.get("scrollTop"));
+      offset = parseInt(jq(item15).get(0).get("offsetTop")) + 4;
+      bottom = parseInt(pp.get("scrollTop")) + jq(pp).height();
 
       verifyTrue("item 15 should in view of drop down list",
         (offset >= top && offset <= bottom));

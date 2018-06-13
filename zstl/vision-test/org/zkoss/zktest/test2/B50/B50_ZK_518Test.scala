@@ -41,7 +41,7 @@ class B50_ZK_518Test extends ZTL4ScalaTestCase {
 		"""
 runZTL(zscript, () => {
 			click(engine.$f("box").$n("btn"))
-			waitResponse
+			waitResponse()
 			click(engine.$f("ei"))
 			verifyImage()
 		})

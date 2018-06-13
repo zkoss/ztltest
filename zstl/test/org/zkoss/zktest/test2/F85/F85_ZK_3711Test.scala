@@ -2,7 +2,8 @@ package org.zkoss.zktest.test2.F85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{IgnoreBrowsers, Tags}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * @author rudyhuang
@@ -22,11 +23,10 @@ class F85_ZK_3711Test extends ZTL4ScalaTestCase {
       waitResponse()
 
       val tabbox = jq("@tabbox").toWidget
-      driver().navigate().back()
+      navigatePage(false)
       waitResponse()
       verifyEquals(tabbox.get("selectedIndex"), 1) // page 2
-
-      driver().navigate().forward()
+      navigatePage(true)
       waitResponse()
       verifyEquals(tabbox.get("selectedIndex"), 2) // page 3
     })

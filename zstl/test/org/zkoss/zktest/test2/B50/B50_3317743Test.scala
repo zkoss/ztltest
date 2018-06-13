@@ -17,7 +17,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.unit.Widget
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug 3317743
@@ -59,9 +61,9 @@ class B50_3317743Test extends ZTL4ScalaTestCase {
       waitResponse();
       clickAt(jq(listbox.$n("rows")).find(".z-listitem").get(3), "200,5");
       waitResponse();
-      println(Integer.parseInt(tb.$n().get("value")));
+      println(parseInt(tb.$n().get("value")));
 
-      verifyTrue(Integer.parseInt(tb.$n().get("value")) > 200);
+      verifyTrue(parseInt(tb.$n().get("value")) > 200);
 
       click(jq("[name=" + jq(jq(".z-paging")).attr("id") + "-prev]"));
       waitResponse();

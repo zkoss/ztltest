@@ -13,7 +13,7 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 import org.zkoss.ztl.util._
 
 
@@ -71,7 +71,7 @@ class B50_ZK_266Test extends ZTL4ScalaTestCase {
       var esort = jq$sort.get(0)
       var x = jq$sort.outerWidth()
       mouseOver(esort)
-      Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-column").toWidget().$n("btn"), "click", "2,2")
+      clickAt(jq(".z-column").toWidget().$n("btn"), "2,2")
       waitResponse()
       click(jq(".z-menupopup").find(".z-columns-menudescending"))
       waitResponse()
@@ -80,7 +80,7 @@ class B50_ZK_266Test extends ZTL4ScalaTestCase {
           .find(".z-row").eq(i).text().endsWith((10 - i - 1) + ""))
       }
       mouseOver(esort)
-      Scripts.triggerMouseEventAt(getWebDriver(), jq(".z-column").toWidget().$n("btn"), "click", "2,2")
+      clickAt(jq(".z-column").toWidget().$n("btn"), "2,2")
       waitResponse()
       click(jq(".z-menupopup").find(".z-columns-menuascending"))
       waitResponse()

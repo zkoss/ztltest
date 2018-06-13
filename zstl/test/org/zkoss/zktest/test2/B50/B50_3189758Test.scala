@@ -17,7 +17,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Element, JQuery, Tags, Widget}
+import org.zkoss.ztl.unit.{Element, JQuery, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 import scala.collection.JavaConversions._
 

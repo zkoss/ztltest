@@ -20,7 +20,9 @@ import java.lang._
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{JQuery, Tags, Widget}
+import org.zkoss.ztl.unit.{ClientWidget, JQuery, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-596
@@ -137,7 +139,7 @@ class B50_ZK_596Test extends ZTL4ScalaTestCase {
         engine.$f("btn5"),
         engine.$f("btn6")
       );
-      def clickAndWait = (target: org.zkoss.ztl.ClientWidget, delay: Long) => {
+      def clickAndWait = (target: ClientWidget, delay: Long) => {
         click(target)
         if (delay == null)
           waitResponse()

@@ -15,7 +15,8 @@ Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.bind.issue
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.Tags
+import org.zkoss.ztl.unit.Widget
 
 /**
  * @author pao

@@ -18,7 +18,9 @@ package org.zkoss.zktest.test2.B60
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.unit.{ClientWidget, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-827
@@ -105,7 +107,7 @@ class B60_ZK_827Test extends ZTL4ScalaTestCase {
         var btnThree: Widget = engine.$f("btnThree");
         var btnFour: Widget = engine.$f("btnFour");
         var btnFive: Widget = engine.$f("btnFive");
-        def clickAndWait(wgt: org.zkoss.ztl.ClientWidget) {
+        def clickAndWait(wgt: ClientWidget) {
           click(wgt);
           waitResponse();
         }
@@ -116,12 +118,12 @@ class B60_ZK_827Test extends ZTL4ScalaTestCase {
         clickAndWait(btnFour);
         clickAndWait(btnFive);
 
-        var index: Int = Integer.parseInt(msg.$n().get("innerHTML").trim().replace("[", "").replace("]", ""));
+        var index: Int = parseInt(msg.$n().get("innerHTML").trim().replace("[", "").replace("]", ""));
         verifyTrue("select should sync between client and server",
           jq(".z-listitem-selected:contains(" + index + ")").exists());
         clickAndWait(jq(".z-listitem").get(6));
         clickAndWait(btnFive);
-        index = Integer.parseInt(msg.$n().get("innerHTML").trim().replace("[", "").replace("]", ""));
+        index = parseInt(msg.$n().get("innerHTML").trim().replace("[", "").replace("]", ""));
         verifyTrue("select should sync between client and server",
           jq(".z-listitem-selected:contains(" + index + ")").exists());
 

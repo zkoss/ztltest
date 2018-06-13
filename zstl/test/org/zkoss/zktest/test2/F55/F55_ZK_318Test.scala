@@ -18,7 +18,9 @@ package org.zkoss.zktest.test2.F55
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.unit.{ClientWidget, Widget}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-318
@@ -47,12 +49,12 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         var pp2ColorPicker = ".z-menu:contains(Color)";
         var mbHelp: Widget = engine.$f("mbHelp");
 
-        def clickAndWait(wgt: org.zkoss.ztl.ClientWidget) {
+        def clickAndWait(wgt: ClientWidget) {
           click(wgt);
           waitResponse();
         }
 
-        def clickAndCheck(wgt: org.zkoss.ztl.ClientWidget, cnt: Array[String], box: Array[Widget]) {
+        def clickAndCheck(wgt: ClientWidget, cnt: Array[String], box: Array[Widget]) {
           clickAndWait(wgt);
 
           for (i <- 0 until cnt.length) {

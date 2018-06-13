@@ -66,15 +66,15 @@ class B35_2500279Test extends ZTL4ScalaTestCase {
 		"""
 runZTL(zscript, () => {
 			click(engine.$f("menu").$n("a"))
-			waitResponse
+			waitResponse()
 			verifyImage()
 			
 			click(engine.$f("db").$n("btn"))
-			waitResponse
+			waitResponse()
 			verifyImage()
 			
 			click(engine.$f("cb").$n("btn"))
-			waitResponse
+			waitResponse()
 			verifyImage()
 		})
 	}

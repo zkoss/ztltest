@@ -2,7 +2,8 @@ package org.zkoss.zktest.test2.F65
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{IgnoreBrowsers, Tags}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 @Tags(tags = "F65-ZK-2012.zul")
 @IgnoreBrowsers("chrome,ff,safari,edge,ie10,ie9")

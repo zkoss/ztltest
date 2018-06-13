@@ -17,7 +17,9 @@ package org.zkoss.zktest.bind.basic
 import java.util.ArrayList
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.unit.Widget
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author pao
@@ -28,7 +30,6 @@ class Z60_ChildrenComplexTest extends ZTL4ScalaTestCase {
     val zul = """
       <include src="/bind/basic/children-complex.zul"/>
     """
-
     runZTL(zul, () => {
       var nodes = new ArrayList[Node]()
       nodes.add(createNode("Item A", 0, 0))
@@ -38,14 +39,16 @@ class Z60_ChildrenComplexTest extends ZTL4ScalaTestCase {
       testComplex(nodes, layout, true)
     })
   }
-
   def testComplex(nodes: ArrayList[Node], parent: Widget, children1: Boolean): Unit = {
     var children = parent.firstChild()
     verifyEquals(nodes.size, parent.nChildren())
     var w = children
     for (i <- 0 to nodes.size - 1) {
       var n = nodes.get(i)
-      verifyEquals(if (children1) "children1" else "children2", w.get("sclass"))
+      var str = "children1"
+      if (!children1)
+        str = "children2"
+      verifyEquals(str, w.get("sclass"))
       var l = w.firstChild()
       verifyEquals(n.getName(), l.get("value"))
       var l2 = l.nextSibling()
@@ -63,17 +66,16 @@ class Z60_ChildrenComplexTest extends ZTL4ScalaTestCase {
       }
       return n
     }
-}
+  class Node(n: String) {
+    var name = n
+    var children = new ArrayList[Node]()
 
-class Node(n: String) {
-  var name = n
-  var children = new ArrayList[Node]()
+    def addChild(node: Node) {
+      children.add(node)
+    }
 
-  def addChild(node: Node) {
-    children.add(node)
+    def getChildren() = children
+
+    def getName() = name
   }
-
-  def getChildren() = children
-
-  def getName() = name
 }

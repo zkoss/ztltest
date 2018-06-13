@@ -64,19 +64,19 @@ You can click each link, then you should see that the label is the same as that 
 		"""
     runZTL(zscript, () => {
       click(jq("#a1"));
-      waitResponse
+      waitResponse()
       verifyEquals(widget(jq("$l")).get("value"), "onUser null");
 
       click(jq("#a2"));
-      waitResponse
+      waitResponse()
       verifyEquals(widget(jq("$l")).get("value"), "onUser [One]");
 
       click(jq("#a3"));
-      waitResponse
+      waitResponse()
       verifyEquals(widget(jq("$l")).get("value"), "onUser [One, Two]");
 
       click(jq("#a4"));
-      waitResponse
+      waitResponse()
       verifyEquals(widget(jq("$l")).get("value"), "onUser [1, 2]");
     })
   }

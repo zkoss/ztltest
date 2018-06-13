@@ -20,6 +20,7 @@ import java.lang._
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl._
+import org.zkoss.ztl.unit.{ClientWidget, Element, JQuery, Widget}
 
 /**
   * A test class for bug Combobox-ListModelArray
@@ -90,7 +91,7 @@ class Z60_Combobox_ListModelArrayTest extends ZTL4ScalaTestCase {
           var $pp: JQuery = jq(pp);
           open(id, true);
           if (inum > 5) {
-            var offset: Int = Integer.parseInt($pp.find(itemClass).get(inum - 2).get("offsetTop"));
+            var offset: Int = parseInt($pp.find(itemClass).get(inum - 2).get("offsetTop"));
             pp.eval("scrollTop = " + offset);
           } else
             pp.eval("scrollTop = 0");

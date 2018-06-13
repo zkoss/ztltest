@@ -11,10 +11,6 @@ class F65_ZK_1655Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       val yellow = jq(".z-div[style*=yellow]")
-      //      getActions
-      //        .moveToElement(findElement(yellow))
-      //        .contextClick()
-      //        .perform()
       contextMenu(yellow)
       waitResponse()
       val yellowPP = jq("@popup")
@@ -23,10 +19,6 @@ class F65_ZK_1655Test extends ZTL4ScalaTestCase {
       verifyTolerant(yellowPP.positionLeft() + 50, yellow.offsetLeft() + 100, 1)
 
       val pink = jq(".z-div[style*=pink]")
-      //      getActions
-      //        .moveToElement(findElement(pink))
-      //        .click()
-      //        .perform()
       click(pink)
       waitResponse()
       val pinkPP = jq("@popup")

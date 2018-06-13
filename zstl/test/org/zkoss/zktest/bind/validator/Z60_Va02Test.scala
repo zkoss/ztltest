@@ -15,7 +15,8 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.bind.validator
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author pao
@@ -33,27 +34,27 @@ class Z60_Va02Test extends ZTL4ScalaTestCase {
       val ADULT = "Adult";
       val NEGATIVE_ONE = "-1";
 
-      val ageBox = engine $f "ageBox"
-      val addButton = engine $f "addButton"
-      val adultLabel = engine $f "adultLabel"
-      val beforeAge = engine $f "beforeAge"
-      val ageLabel = engine $f "ageLabel"
+      val ageBox = engine.$f("ageBox")
+      val addButton = engine.$f("addButton")
+      val adultLabel = engine.$f("adultLabel")
+      val beforeAge = engine.$f("beforeAge")
+      val ageLabel = engine.$f("ageLabel")
 
-      ZKSeleneseTestCase.assertEquals(NEGATIVE_ONE, getValue(ageBox));
+      verifyEquals(NEGATIVE_ONE, getValue(ageBox));
       click(addButton);
-      ZKSeleneseTestCase.assertEquals(UNDER_AGE, getText(adultLabel));
+      verifyEquals(UNDER_AGE, getText(adultLabel));
 
       `type`(ageBox, "1");
       click(addButton);
       waitResponse();
-      ZKSeleneseTestCase.assertEquals("1", getText(beforeAge));
-      ZKSeleneseTestCase.assertEquals("11", getText(ageLabel));
-      ZKSeleneseTestCase.assertEquals(UNDER_AGE, getText(adultLabel));
+      verifyEquals("1", getText(beforeAge));
+      verifyEquals("11", getText(ageLabel));
+      verifyEquals(UNDER_AGE, getText(adultLabel));
 
       `type`(ageBox, "18");
       click(addButton);
       waitResponse();
-      ZKSeleneseTestCase.assertEquals(ADULT, getText(adultLabel));
+      verifyEquals(ADULT, getText(adultLabel));
 
     })
   }

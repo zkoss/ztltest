@@ -17,7 +17,9 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, Widget}
+import org.zkoss.ztl.unit.Widget
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug 2890514
@@ -70,7 +72,7 @@ class B50_2890514Test extends ZTL4ScalaTestCase {
         var fl: Widget = engine.$f("fl");
 
         var width: Int = jq(jq(row1.$n()).find(".z-row").get(0)).outerWidth();
-        var offsetLeft: Int = Integer.parseInt(fl.$n().get("offsetLeft"));
+        var offsetLeft: Int = parseInt(fl.$n().get("offsetLeft"));
         waitResponse();
 
         verifyTrue("the offsetLeft of File label (" + offsetLeft +

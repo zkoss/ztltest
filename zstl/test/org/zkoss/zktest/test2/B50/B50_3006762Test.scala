@@ -13,7 +13,7 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 
 
 class B50_3006762Test extends ZTL4ScalaTestCase {
@@ -64,7 +64,7 @@ class B50_3006762Test extends ZTL4ScalaTestCase {
       click(jq("@treerow").toWidget().$n("icon"))
       waitResponse()
       var node = tree.$n().firstChild()
-      verifyTolerant(Integer.parseInt(node.get("clientHeight")), Integer.parseInt(node.get("scrollHeight")), 1)
+      verifyTolerant(parseInt(node.get("clientHeight")), parseInt(node.get("scrollHeight")), 1)
     })
   }
 }

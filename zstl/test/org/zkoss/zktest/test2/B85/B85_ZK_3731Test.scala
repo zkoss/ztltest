@@ -24,8 +24,8 @@ class B85_ZK_3731Test extends ZTL4ScalaTestCase {
         click(jq("a").get(index));
         waitResponse();
       }
-      var number = driver.getWindowHandles.size();
-      verifyEquals(number, 10);
+      var number = getBrowserTabCount()
+      verifyEquals(number, 10)
     })
   }
 }

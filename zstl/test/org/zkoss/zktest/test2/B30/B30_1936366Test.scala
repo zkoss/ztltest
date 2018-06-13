@@ -49,10 +49,10 @@ class B30_1936366Test extends ZTL4ScalaTestCase {
 		""";
     runZTL(zscript, () => {
       click(jq("@button:eq(0)"));
-      waitResponse;
+      waitResponse()
       click(jq("@button:eq(1)"));
-      waitResponse;
-      val focus = engine $f ("focus");
+      waitResponse()
+      val focus = engine.$f("focus");
       verifyTrue(jq(".z-window").find(".z-textbox:focus").exists())
 
     })

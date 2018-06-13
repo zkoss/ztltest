@@ -67,7 +67,7 @@ class B65_ZK_1552Test extends ZTL4ScalaTestCase {
         List("combobox", "datebox", "bandbox") foreach { comp =>
           var wgt = jq(".z-" + comp).toWidget()
           click(wgt.$n("btn"))
-          waitResponse
+          waitResponse()
           verScroll(center, 1)
           verScroll(center, 0)
           verifyTrue("should not show the " + comp + " popup", !jq(wgt.$n("pp")).isVisible())

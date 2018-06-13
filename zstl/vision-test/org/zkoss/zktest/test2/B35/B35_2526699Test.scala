@@ -124,7 +124,7 @@ runZTL(zscript, () => {
 			click(jq("$test2"))
 			waitResponse(true)
 			windowResizeTo(500, 800)
-			waitResponse
+			waitResponse()
 			verifyImage()
 		})
 	}

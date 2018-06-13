@@ -2,7 +2,9 @@ package org.zkoss.zktest.test2.B85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{ClientWidget, Tags}
+import org.zkoss.ztl.unit.ClientWidget
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * @author rudyhuang

@@ -2,7 +2,8 @@ package org.zkoss.zktest.test2.F85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{IgnoreBrowsers, Tags}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
   * @author rudyhuang
@@ -21,11 +22,11 @@ class F85_ZK_3711_2Test extends ZTL4ScalaTestCase {
       click(btns.eq(1)) // replace 3
       waitResponse()
 
-      driver().navigate().back()
+      navigatePage(false)
       waitResponse()
       verifyContains("It should be f1=1.", getZKLog, "{\"f1\":1,")
 
-      driver().navigate().forward()
+      navigatePage(true)
       waitResponse()
       verifyContains("It should be f1=3.", getZKLog, "{\"f1\":3,")
     })

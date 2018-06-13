@@ -17,7 +17,8 @@ package org.zkoss.zktest.bind.comp
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{Tags, ZKSeleneseTestCase}
+import org.zkoss.ztl._
+import org.zkoss.ztl.unit._
 
 /**
  * @author Hawk
@@ -31,26 +32,26 @@ class Z60_TreeTest extends ZTL4ScalaTestCase {
 """
     runZTL(zul, () => {
     
-      val tree = engine $f "tree"
+      val tree = engine.$f("tree")
       
-      val selectedLabel = engine $f "selectedLabel"
+      val selectedLabel = engine.$f("selectedLabel")
       
       click(jq("@treerow").eq(1));
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("Root.1", getText(selectedLabel));
+      verifyEquals("Root.1", getText(selectedLabel));
       
-      val open = engine $f "open"
+      val open = engine.$f("open")
       click(jq(".z-treerow:contains(0)").toWidget().$n("open"))
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("true", getText(open));
+      verifyEquals("true", getText(open));
       
       click(jq("@treechildren").eq(1));
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("Root.0.0", getText(selectedLabel));
+      verifyEquals("Root.0.0", getText(selectedLabel));
 
       click(jq(".z-treerow:contains(1):eq(1)").toWidget().$n("open"))
       waitResponse()
-      ZKSeleneseTestCase.assertEquals("false", getText(open));
+      verifyEquals("false", getText(open));
     })
   }
 }

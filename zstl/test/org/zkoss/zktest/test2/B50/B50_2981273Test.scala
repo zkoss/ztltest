@@ -16,7 +16,7 @@ import java.util.Date
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 
 class B50_2981273Test extends ZTL4ScalaTestCase {
   @Test

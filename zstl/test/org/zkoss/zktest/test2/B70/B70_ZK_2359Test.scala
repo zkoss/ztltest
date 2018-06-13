@@ -3,6 +3,7 @@ package org.zkoss.zktest.test2.B70
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
+import org.zkoss.ztl.unit.JQuery
 
 @Tags(tags = "B70-ZK-2359.zul")
 class B70_ZK_2359Test extends ZTL4ScalaTestCase {
@@ -233,7 +234,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """
     runZTL(zscript,
       () => {
-        var check = (input: org.zkoss.ztl.JQuery) => {
+        var check = (input: JQuery) => {
           val value = input.attr("value");
           for (_ <- 1 to 5) {
             sleep(300);

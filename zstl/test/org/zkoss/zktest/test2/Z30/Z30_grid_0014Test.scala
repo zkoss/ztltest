@@ -96,7 +96,7 @@ class Z30_grid_0014Test extends ZTL4ScalaTestCase {
 
         def invalidateTest(iterator: Iterator[String]) {
           click(jq("$btnInvalide"));
-          waitResponse;
+          waitResponse()
           verifyRowContent(iterator);
         }
 

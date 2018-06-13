@@ -10,7 +10,6 @@ class B70_ZK_2844Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
     runZTL(() => {
-      println(getWebDriver.getWindowHandle)
       //click the left button
       click(jq("button").eq(0))
       waitResponse(true)

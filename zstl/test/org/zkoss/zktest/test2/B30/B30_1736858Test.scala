@@ -15,7 +15,7 @@ package org.zkoss.zktest.test2.B30
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 
 
 class B30_1736858Test extends ZTL4ScalaTestCase {
@@ -42,7 +42,7 @@ class B30_1736858Test extends ZTL4ScalaTestCase {
       verifyTrue(btn.exists())
       click(btn); // here will be a timeout
       sleep(1000)
-      verifyContains(getWebDriver().getCurrentUrl(), "timeout.zul")
+      verifyContains(getEval("location.href"), "timeout.zul")
     })
   }
 }

@@ -53,29 +53,29 @@ class B60_ZK_803Test extends ZTL4ScalaTestCase {
 
         // step 2
         mouseMoveAt(mary, position)
-        waitResponse
+        waitResponse()
 
         mouseDownAt(mary, position)
-        waitResponse
+        waitResponse()
 
         mouseMoveAt(john, position)
-        waitResponse
+        waitResponse()
 
         verifyTrue("should see two selected items dragged.", jq(".z-drop-ghost .z-drop-content:contains(Mary)").exists())
         verifyTrue("should see two selected items dragged.", jq(".z-drop-ghost .z-drop-content:contains(John)").exists())
 
         mouseUpAt(john, position)
-        waitResponse
+        waitResponse()
 
         // step 3
         mouseMoveAt(jane, position)
-        waitResponse
+        waitResponse()
 
         mouseDownAt(jane, position)
-        waitResponse
+        waitResponse()
 
         mouseMoveAt(john, position)
-        waitResponse
+        waitResponse()
 
         val drop = jq(".z-drop-ghost .z-drop-content")
         verifyEquals("should see only third item dragged", drop.length(), 1)

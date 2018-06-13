@@ -16,7 +16,7 @@ package org.zkoss.zktest.test2.F30
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Widget
+import org.zkoss.ztl.unit.Widget
 
 
 class F30_1721273Test extends ZTL4ScalaTestCase {

@@ -82,7 +82,7 @@ class B30_1943594Test extends ZTL4ScalaTestCase {
       click(jq("$a"))
       waitResponse()
       verifyTrue(jq(".z-messagebox").exists())
-      Scripts.triggerMouseEventAt(getWebDriver, jq("@button"), "click", "2,2")
+      clickAt(jq("@button"), "2,2")
       waitResponse()
       verifyFalse(jq(".z-messagebox").exists())
 
