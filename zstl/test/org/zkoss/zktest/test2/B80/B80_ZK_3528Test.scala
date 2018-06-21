@@ -13,7 +13,7 @@ class B80_ZK_3528Test extends ZTL4ScalaTestCase {
       click(jq("@listitem"))
       waitResponse()
       verifyEquals("z-focus-a", getEval("document.activeElement.className"))
-      val focusElem = if (isSafari) jq("@listbox") else jq(".z-focus-a")
+      val focusElem = jq(".z-focus-a")
       sendKeys(focusElem, Keys.ENTER)
       waitResponse(true)
       verifyTrue(jq(".z-listitem").length() == 0)

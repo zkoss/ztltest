@@ -126,7 +126,7 @@ class Z30_grid_0006Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyTolerant(jq("$col").outerWidth(), 125, if (!hasNativeScroll(jq("$grid"))) 2 else 5);
+        verifyTolerant(jq("$col").outerWidth(), 125, 5);
 
         click(jq("$btnWid"))
         waitResponse()
@@ -140,10 +140,12 @@ class Z30_grid_0006Test extends ZTL4ScalaTestCase {
 
         def verifyRowContent(iterator: Iterator[String]) = {
           val verify = iterator;
-          val list = jq("@row").iterator();
-          while (list.hasNext()) {
-            val row = list.next();
+          var rows = jq("@row")
+          var index = 0
+          while (index < rows.length()) {
+            val row = rows.eq(index)
             verifyEquals(row.find(".z-label:first").text(), verify.next());
+            index += 1
           }
         }
 

@@ -29,7 +29,7 @@ class B60_ZK_1126Test extends ZTL4ScalaTestCase {
           val hlayInn1 = btn.parents(".z-hlayout-inner").html()
           val hlayInn2 = rightBox.parents(".z-hlayout-inner").html()
 
-          val hlayChild = jq(".z-hlayout").children().iterator().toList.map(_.html())
+          val hlayChild = jq(".z-hlayout").html()
           val i0 = hlayChild.indexOf(hlayInn0)
           val i1 = hlayChild.indexOf(hlayInn1)
           val i2 = hlayChild.indexOf(hlayInn2)

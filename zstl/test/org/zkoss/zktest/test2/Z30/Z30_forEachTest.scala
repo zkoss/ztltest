@@ -59,12 +59,14 @@ class Z30_forEachTest extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        var iter = jq("@row").iterator();
 
         var i: Int = 5;
-        while (iter.hasNext()) {
-          var row = iter.next();
+        var rows = jq("@row")
+        var index = 0
+        while (index < rows.length()) {
+          val row = rows.eq(index)
           verifyEquals(row.find("@label:first").text(), "" + i);
+          index += 1
           i = i + 1;
         }
         verifyEquals(jq(".z-listitem-selected").find(".z-listcell:first").text(), "10");

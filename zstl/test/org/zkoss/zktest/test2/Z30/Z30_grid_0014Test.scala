@@ -87,10 +87,13 @@ class Z30_grid_0014Test extends ZTL4ScalaTestCase {
 
         def verifyRowContent(iterator: Iterator[String]) = {
           val verify = iterator;
-          val list = jq("@row").iterator();
-          while (list.hasNext()) {
-            val row = list.next();
-            verifyEquals(row.find(".z-label:first").text(), verify.next());
+          var rows = jq("@row")
+          var index = 0
+          while (index < rows.length()) {
+            val row = rows.eq(index)
+            var text = verify.next();
+            verifyEquals(row.find(".z-label:first").text(), text);
+            index += 1
           }
         }
 

@@ -45,13 +45,10 @@ class B70_ZK_2534Test extends ZTL4ScalaTestCase {
         click(check);
         waitResponse();
         var evens = jq(".z-listitem:even");
-        var it = evens.iterator();
-        while (it.hasNext()) {
-          var even = it.next();
+        for (i <- 0 to 1) {
+          var even = evens.eq(i);
           verifyTrue(even.attr("class").contains("z-listitem-selected"));
         }
-
       })
-
   }
 }

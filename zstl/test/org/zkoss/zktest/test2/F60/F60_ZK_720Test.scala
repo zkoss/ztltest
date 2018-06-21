@@ -88,8 +88,7 @@ class F60_ZK_720Test extends ZTL4ScalaTestCase {
           click(tbn);
           mouseOut(tbn);
           waitResponse();
-          verifyTrue("Should" + (if (toggled) " not" else "") + " be toggled",
-            jq(tbn.$n()).hasClass("z-toolbarbutton-checked") != toggled);
+          verifyTrue(jq(tbn.$n()).hasClass("z-toolbarbutton-checked") != toggled);
         }
 
         engine.$f("tbn1");

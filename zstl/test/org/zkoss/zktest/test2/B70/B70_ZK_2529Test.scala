@@ -11,7 +11,6 @@ class B70_ZK_2529Test extends ZTL4ScalaTestCase {
   def testClick() = {
     val zscript =
       """
-
 <zk>
 	<label multiline="true">
 		1. try to type to each textbox
@@ -28,15 +27,12 @@ class B70_ZK_2529Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         var text = jq(".z-textbox");
-        var it = text.iterator();
-        while (it.hasNext()) {
-          var t = it.next();
-          keyPress(t, "chunfu");
+        for (i <- 0 to 2) {
+          var t = text.get(i)
+          typeKeys(t, "chunfu")
           waitResponse();
-          verifyTrue(t.eval("val()").equals("chunfu"));
+          verifyEquals("chunfu", t.eval("val()"))
         }
-
       })
-
   }
 }

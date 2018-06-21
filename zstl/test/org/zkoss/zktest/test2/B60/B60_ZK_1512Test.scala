@@ -3,8 +3,7 @@ package org.zkoss.zktest.test2.B60
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.Tags
-
-import scala.collection.JavaConversions._
+import scala.util.control.Breaks._
 
 @Tags(tags = "B60-ZK-1512.zul")
 class B60_ZK_1512Test extends ZTL4ScalaTestCase {
@@ -91,13 +90,15 @@ class B60_ZK_1512Test extends ZTL4ScalaTestCase {
         click(seldAllChkInWindow)
         waitResponse()
 
-        val jqliInWindow = jq(".z-window-modal").find("tbody[id*=rows]").find("z-listitem").iterator().toList
-
-        val allSeldInWindow = jqliInWindow.forall(e => e.hasClass("z-listitem-selected"))
-
+        val jqliInWindow = jq(".z-window-modal").find("tbody[id*=rows]").find("z-listitem")
+        var allSeldInWindow = true
+        for (i <- 1 to jqliInWindow.length()) {
+          if (!jqliInWindow.eq(i).hasClass("z-listitem-selected")) {
+            allSeldInWindow = false
+            break
+          }
+        }
         verifyTrue("Listbox 'Select All' Checkbox should work correctly.", allSeldInWindow)
-
       })
-
   }
 }

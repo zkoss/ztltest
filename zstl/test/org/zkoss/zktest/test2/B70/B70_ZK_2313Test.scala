@@ -152,34 +152,37 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         val lists = jq("@listbox");
         var scrollFail = false;
 
-        click(b1);
-        waitResponse();
-        var iter = lists.iterator();
-        while (iter.hasNext()) {
-          val list = iter.next();
+        click(b1)
+        waitResponse()
+        var index = 0
+        while (index < lists.length()) {
+          val list = lists.eq(index);
           println(getScrollTop(list.toWidget()));
           if (getScrollTop(list.toWidget()) == 0)
             scrollFail = true;
+          index += 1
         }
 
         click(b2);
         waitResponse();
-        iter = lists.iterator();
-        while (iter.hasNext()) {
-          val list = iter.next();
+        index = 0
+        while (index < lists.length()) {
+          val list = lists.eq(index);
           println(getScrollTop(list.toWidget()));
           if (getScrollTop(list.toWidget()) > 0)
             scrollFail = true;
+          index += 1
         }
 
         click(b3);
         waitResponse();
-        iter = lists.iterator();
-        while (iter.hasNext()) {
-          val list = iter.next();
+        index = 0
+        while (index < lists.length()) {
+          val list = lists.eq(index);
           println(getScrollTop(list.toWidget()));
           if (getScrollTop(list.toWidget()) == 0)
             scrollFail = true;
+          index += 1
         }
 
         verifyFalse("scrolling should be changed after button click.", scrollFail);

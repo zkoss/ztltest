@@ -70,8 +70,12 @@ class Z60_ChildrenMenuTest extends ZTL4ScalaTestCase {
     {
       var n = new Node(name)
       if (nested > 0) {
-        for (i <- 0 to children - 1)
-          n.addChild(createMenuNode(name + "_" + i, if (i == children - 1) 0 else children, nested - 1))
+        for (i <- 0 to children - 1) {
+          var cnt = children;
+          if (i == children - 1)
+            cnt = 0
+          n.addChild(createMenuNode(name + "_" + i, cnt, nested - 1))
+        }
       }
       return n
     }

@@ -140,7 +140,6 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 
 """
 
-    def abs(x: Int) = if (x >= 0) x else -x;
     runZTL(zscript,
       () => {
         var rowlayout = jq(".z-rowlayout").eq(0);
@@ -150,11 +149,11 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
           var rowchildren = rowlayout.children().eq(i);
           if (i > 0) {
             var rowchildrenpre = rowlayout.children().eq(i - 1);
-            verifyTrue(abs(rowchildren.width() - rowchildrenpre.width()) < 2);
+            verifyTrue(Math.abs(rowchildren.width() - rowchildrenpre.width()) < 2);
           }
           childrenWidth += rowchildren.outerWidth(true);
         }
-        verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
+        verifyTrue("total width must be equal to sum of children width", Math.abs(totalWidth - childrenWidth) < 15);
 
         rowlayout = jq(".z-rowlayout").eq(6);
         totalWidth = rowlayout.outerWidth();
@@ -163,13 +162,13 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
           var rowchildren = rowlayout.children().eq(i);
           if (i > 0) {
             var rowchildrenpre = rowlayout.children().eq(i - 1);
-            verifyTrue(abs(rowchildren.width() - rowchildrenpre.width()) < 2);
+            verifyTrue(Math.abs(rowchildren.width() - rowchildrenpre.width()) < 2);
             //test offset
             verifyTrue(rowchildren.outerWidth(true) < rowchildrenpre.outerWidth(true));
           }
           childrenWidth += rowchildren.outerWidth(true);
         }
-        verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
+        verifyTrue("total width must be equal to sum of children width", Math.abs(totalWidth - childrenWidth) < 15);
 
         rowlayout = jq(".z-rowlayout").eq(9);
         totalWidth = rowlayout.outerWidth();
@@ -178,11 +177,11 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
           var rowchildren = rowlayout.children().eq(i);
           if (i > 0) {
             var rowchildrenpre = rowlayout.children().eq(i - 1);
-            verifyTrue(abs(rowchildren.width() - rowchildrenpre.width()) < 2);
+            verifyTrue(Math.abs(rowchildren.width() - rowchildrenpre.width()) < 2);
           }
           childrenWidth += rowchildren.outerWidth(true);
         }
-        verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
+        verifyTrue("total width must be equal to sum of children width", Math.abs(totalWidth - childrenWidth) < 15);
 
         var spinner = jq(".z-spinner-input");
         sendKeys(spinner, Keys.ARROW_DOWN);
@@ -194,11 +193,11 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
           var rowchildren = rowlayout.children().eq(i);
           if (i > 0) {
             var rowchildrenpre = rowlayout.children().eq(i - 1);
-            verifyTrue(abs(rowchildren.width() - rowchildrenpre.width()) < 2);
+            verifyTrue(Math.abs(rowchildren.width() - rowchildrenpre.width()) < 2);
           }
           childrenWidth += rowchildren.outerWidth(true);
         }
-        verifyTrue("total width must be equal to sum of children width", abs(totalWidth - childrenWidth) < 15);
+        verifyTrue("total width must be equal to sum of children width", Math.abs(totalWidth - childrenWidth) < 15);
       })
 
   }

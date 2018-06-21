@@ -22,7 +22,7 @@ class B70_ZK_2435Test extends ZTL4ScalaTestCase {
         clickAt(john, "2,2");
       waitResponse();
       var listbox = jq("@listbox").toWidget();
-      val a = if (isSafari) listbox else listbox.$n("a") //button can be focused and sendKey
+      val a = listbox.$n("a") //button can be focused and sendKey
       focus(a);
       sendKeys(a, Keys.ENTER);
       waitResponse();

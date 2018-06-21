@@ -132,9 +132,11 @@ Copyright (C) 2015 Potix Corporation. All Rights Reserved.
         click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
         waitResponse()
         //check the all input should be 222
-        var iter = jq("input").iterator()
-        while (iter.hasNext()) {
-          verifyEquals("222", iter.next().`val`())
+        var inputs = jq("input")
+        var index = 0
+        while (index < inputs.length()) {
+          verifyEquals("222", inputs.eq(index).`val`())
+          index += 1
         }
 
         //click the 1st combobox button in the 2nd grid
@@ -156,9 +158,10 @@ Copyright (C) 2015 Potix Corporation. All Rights Reserved.
         click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(0))
         waitResponse()
         //check the all input should be 111
-        iter = jq("input").iterator()
-        while (iter.hasNext()) {
-          verifyEquals("111", iter.next().`val`())
+        index = 0
+        while (index < inputs.length()) {
+          verifyEquals("111", inputs.eq(index).`val`())
+          index += 1
         }
 
         //click the 1st combobox button in the 3rd grid
@@ -180,9 +183,10 @@ Copyright (C) 2015 Potix Corporation. All Rights Reserved.
         click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(1))
         waitResponse()
         //check the all input should be 222
-        iter = jq("input").iterator()
-        while (iter.hasNext()) {
-          verifyEquals("222", iter.next().`val`())
+        index = 0
+        while (index < inputs.length()) {
+          verifyEquals("222", inputs.eq(index).`val`())
+          index += 1
         }
 
         //click the 1st combobox button in the 4th grid
@@ -204,9 +208,10 @@ Copyright (C) 2015 Potix Corporation. All Rights Reserved.
         click(jq(".z-combobox-popup.z-combobox-open .z-comboitem").eq(2))
         waitResponse()
         //check the all input should be 333
-        iter = jq("input").iterator()
-        while (iter.hasNext()) {
-          verifyEquals("333", iter.next().`val`())
+        index = 0
+        while (index < inputs.length()) {
+          verifyEquals("333", inputs.eq(index).`val`())
+          index += 1
         }
         //check there are no errors
         verifyFalse(hasError())

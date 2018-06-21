@@ -41,7 +41,7 @@ class B50_3288904Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       var inp = jq("@datebox").toWidget().$n("real")
       focus(inp)
-      sendKeys(inp, if (isSafari()) Keys.COMMAND + "" + Keys.ARROW_RIGHT else Keys.END)
+      sendKeys(inp, Keys.END)
       sendKeys(inp, "000")
       blur(inp)
       verifyContains(jq(inp).`val`(), "200000")

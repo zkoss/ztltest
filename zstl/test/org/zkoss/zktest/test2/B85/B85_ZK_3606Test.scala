@@ -2,7 +2,6 @@ package org.zkoss.zktest.test2.B85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{JQuery, Tags}
 
 /* B85_ZK_3606.java
 
@@ -16,7 +15,6 @@ import org.zkoss.ztl.{JQuery, Tags}
 Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
 
-@Tags(tags = "")
 class B85_ZK_3606Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit = {

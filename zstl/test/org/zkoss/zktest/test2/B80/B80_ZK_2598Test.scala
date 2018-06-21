@@ -10,14 +10,15 @@ class B80_ZK_2598Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
     runZTL(() => {
-      var btns = jq(".z-button").iterator();
-      click(jq(".z-button").eq(0));
+      var btns = jq(".z-button");
+      click(btns.eq(0));
       waitResponse();
       var result = jq(".z-messagebox-window .z-label").text();
       click(jq(".z-messagebox-button"));
       waitResponse()
-      while (btns.hasNext()) {
-        var btn = btns.next();
+      var index = 0
+      while (index < btns.length()) {
+        var btn = btns.eq(index)
         click(btn);
         waitResponse();
         verifyTrue(jq(".z-messagebox-button").exists());
@@ -26,6 +27,5 @@ class B80_ZK_2598Test extends ZTL4ScalaTestCase {
         waitResponse();
       }
     })
-
   }
 }

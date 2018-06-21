@@ -34,7 +34,7 @@ class B35_2349456Test extends ZTL4ScalaTestCase {
         engine.$f("list");
       var listElement =
         listWidget.$n("real");
-      val a = if (isSafari) listWidget else listWidget.$n("a")
+      val a = listWidget.$n("a")
 
       // Click on first element of the list to verify later the final selected item
       click(jq(".z-listitem:contains(option 0)"));

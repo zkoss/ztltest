@@ -50,14 +50,10 @@ class F55_ZK_12Test extends ZTL4ScalaTestCase {
           zklog = jq("textarea").get(0);
           logContent = zklog.get("value");
 
-          verifyTrue("The ok checkbox should " + (if (okEn) "" else " not") + " be enabled.",
-            logContent.contains("ok is enabled") == okEn);
-          verifyTrue("The ok checkbox should " + (if (okDis) "" else " not") + " be disabled.",
-            logContent.contains("ok is disabled") == okDis);
-          verifyTrue("The cancel checkbox should " + (if (canEn) "" else " not") + " be enabled.",
-            logContent.contains("cancel is enabled") == canEn);
-          verifyTrue("The cancel checkbox should " + (if (canDis) "" else " not") + " be disabled.",
-            logContent.contains("cancel is disabled") == canDis);
+          verifyTrue(logContent.contains("ok is enabled") == okEn);
+          verifyTrue(logContent.contains("ok is disabled") == okDis);
+          verifyTrue(logContent.contains("cancel is enabled") == canEn);
+          verifyTrue(logContent.contains("cancel is disabled") == canDis);
           if (okEn && okDis)
             verifyTrue("the ok checkbox should enabled after disabled",
               logContent.lastIndexOf("ok is disabled") < logContent.lastIndexOf("ok is enabled"));

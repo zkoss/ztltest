@@ -30,7 +30,7 @@ class B35_2614901Test extends ZTL4ScalaTestCase {
       click(jq(".z-menu").get(0))
       waitResponse()
 
-      val focusElement = if (isSafari) jq(".z-menupopup") else jq(".z-menupopup").toWidget.$n("a")
+      val focusElement = jq(".z-menupopup").toWidget.$n("a")
       // Scroll up and down on the menu
       sendKeys(focusElement, Keys.DOWN)
       waitResponse()

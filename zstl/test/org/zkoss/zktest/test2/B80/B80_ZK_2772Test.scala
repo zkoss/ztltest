@@ -13,9 +13,11 @@ class B80_ZK_2772Test extends ZTL4ScalaTestCase {
       () => {
         //save the original column width
         var originalWidths = List[Int]()
-        var jqi = jq(".z-column").iterator()
-        while (jqi.hasNext()) {
-          originalWidths :+= jqi.next().width() //append in place
+        var cols = jq(".z-column")
+        var index = 0
+        while (index < cols.length()) {
+          originalWidths :+= cols.eq(index).next().width() //append in place
+          index += 1
         }
         //scroll to right
         nativeFrozenScroll(jq(".z-grid"), 400)
@@ -24,7 +26,7 @@ class B80_ZK_2772Test extends ZTL4ScalaTestCase {
         click(jq(".z-column").last())
         waitResponse()
         //check the new column width
-        var cols = jq(".z-column")
+        cols = jq(".z-column")
         //skip index 5~8
         var i = 0
         for (width <- originalWidths) {
@@ -49,17 +51,21 @@ class B80_ZK_2772Test extends ZTL4ScalaTestCase {
         waitResponse()
         //save column width
         var newWidths = List[Int]()
-        jqi = jq(".z-column").iterator()
-        while (jqi.hasNext()) {
-          newWidths :+= jqi.next().width()
+        cols = jq(".z-column")
+        index = 0
+        while (index < cols.length()) {
+          newWidths :+= cols.eq(index).width() //append in place
+          index += 1
         }
         //sort column 7
         click(column7);
         waitResponse()
         //check width should be the same
-        jqi = jq(".z-column").iterator()
+        cols = jq(".z-column")
+        index = 0
         for (width <- newWidths) {
-          verifyTolerant(width, jqi.next().outerWidth(), 1)
+          verifyTolerant(width, cols.eq(index).outerWidth(), 1)
+          index += 1
         }
       })
   }

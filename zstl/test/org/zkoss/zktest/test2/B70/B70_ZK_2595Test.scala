@@ -122,17 +122,19 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     runZTL(zscript,
       () => {
         var hlayout = jq(".z-hlayout");
-        var hChildrenSize = hlayout.children().eval("size()");
-        var hChildWidth = hlayout.width().toInt / hChildrenSize.toInt;
-        var it = hlayout.children().iterator();
-        while (it.hasNext()) {
-          var t = it.next();
+        var hChildren = hlayout.children()
+        var hChildrenSize = hChildren.eval("size()");
+        var hChildWidth = hlayout.width() / hChildrenSize.toInt;
+        var index = 0
+        while (index < hChildren.length()) {
+          var t = hChildren.eq(index)
           verifyTrue(t.css("width") == hChildWidth + "px");
+          index += 1
         }
 
         var hbox = jq(".z-hbox").toWidget();
         var hboxChild = hbox.firstChild();
-        var hboxChildWidth = jq(".z-hbox").width().toInt / hbox.nChildren().toInt;
+        var hboxChildWidth = jq(".z-hbox").width() / hbox.nChildren();
         for (i <- 0 to hbox.nChildren() - 1) {
           var s = "td[id=\"" + hboxChild.uuid() + "-chdex" + "\"]";
 
@@ -140,18 +142,20 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
           hboxChild = hboxChild.nextSibling();
         }
 
-        var vlayout = jq(".z-vlayout");
-        var vChildrenSize = vlayout.children().eval("size()");
-        var vChildWidth = vlayout.height().toInt / vChildrenSize.toInt;
-        it = vlayout.children().iterator();
-        while (it.hasNext()) {
-          var t = it.next();
+        var vlayout = jq(".z-vlayout")
+        var vChildren = vlayout.children()
+        var vChildrenSize = vChildren.eval("size()");
+        var vChildWidth = vlayout.height() / vChildrenSize.toInt;
+        index = 0
+        while (index < hChildren.length()) {
+          var t = vChildren.eq(index)
           verifyTrue(t.css("height") == vChildWidth + "px");
+          index += 1
         }
 
-        var vbox = jq(".z-vbox").toWidget();
+        var vbox = jq(".z-vbox").toWidget()
         var vboxChild = vbox.firstChild();
-        var vboxChildHeight = jq(".z-vbox").height().toInt / vbox.nChildren().toInt;
+        var vboxChildHeight = jq(".z-vbox").height() / vbox.nChildren();
         for (i <- 0 to vbox.nChildren() - 1) {
           var s = "tr[id=\"" + vboxChild.uuid() + "-chdex" + "\"]";
           verifyTrue(Math.abs(vboxChildHeight - jq(s).height()) < 10);
@@ -162,17 +166,19 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         waitResponse();
 
         hlayout = jq(".z-hlayout");
-        hChildrenSize = hlayout.children().eval("size()");
-        hChildWidth = hlayout.width().toInt / hChildrenSize.toInt;
-        it = hlayout.children().iterator();
-        while (it.hasNext()) {
-          var t = it.next();
+        hChildren = hlayout.children()
+        hChildrenSize = hChildren.eval("size()");
+        hChildWidth = hlayout.width() / hChildrenSize.toInt;
+        index = 0
+        while (index < hChildren.length()) {
+          var t = hChildren.eq(index)
           verifyTrue(t.css("width") == hChildWidth + "px");
+          index += 1
         }
 
         hbox = jq(".z-hbox").toWidget();
         hboxChild = hbox.firstChild();
-        hboxChildWidth = jq(".z-hbox").width().toInt / hbox.nChildren().toInt;
+        hboxChildWidth = jq(".z-hbox").width() / hbox.nChildren();
         for (i <- 0 to hbox.nChildren() - 1) {
           var s = "td[id=\"" + hboxChild.uuid() + "-chdex" + "\"]";
 
@@ -181,17 +187,18 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         }
 
         vlayout = jq(".z-vlayout");
-        vChildrenSize = vlayout.children().eval("size()");
-        vChildWidth = vlayout.height().toInt / vChildrenSize.toInt;
-        it = vlayout.children().iterator();
-        while (it.hasNext()) {
-          var t = it.next();
+        vChildren = vlayout.children()
+        vChildrenSize = vChildren.eval("size()");
+        vChildWidth = vlayout.height() / vChildrenSize.toInt;
+        while (index < hChildren.length()) {
+          var t = vChildren.eq(index)
           verifyTrue(t.css("height") == vChildWidth + "px");
+          index += 1
         }
 
         vbox = jq(".z-vbox").toWidget();
         vboxChild = vbox.firstChild();
-        vboxChildHeight = jq(".z-vbox").height().toInt / vbox.nChildren().toInt;
+        vboxChildHeight = jq(".z-vbox").height() / vbox.nChildren();
         for (i <- 0 to vbox.nChildren() - 1) {
           var s = "tr[id=\"" + vboxChild.uuid() + "-chdex" + "\"]";
           verifyTrue(Math.abs(vboxChildHeight - jq(s).height()) < 10);

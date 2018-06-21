@@ -63,7 +63,9 @@ class B50_3096342Test extends ZTL4ScalaTestCase {
       var dayOfMonth = parseInt(dayOnCalendar.text())
       var calendar = Calendar.getInstance()
       if (dayOfMonth == calendar.get(Calendar.DAY_OF_MONTH)) {
-        index = if (dayOfMonth == 1) dayOfMonth + 1 else dayOfMonth - 1
+        index = dayOfMonth - 1
+        if (dayOfMonth == 1)
+          index = dayOfMonth + 1
         dayOnCalendar = jq(".z-calendar-weekday:eq(" + index + ")")
       }
       clickAt(dayOnCalendar, "1,1")

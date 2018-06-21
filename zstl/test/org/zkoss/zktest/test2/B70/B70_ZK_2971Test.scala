@@ -18,7 +18,7 @@ class B70_ZK_2971Test extends ZTL4ScalaTestCase {
         start.get(0).eval("scrollIntoView()") // FIXME: Firefox workaround
         click(start)
         waitResponse()
-        var real = if (isSafari) listbox2 else listbox2.toWidget().$n("a")
+        var real = listbox2.toWidget().$n("a")
         for (i <- 6 to 19) {
           sendKeys(real, Keys.DOWN);
           waitResponse();
@@ -34,7 +34,7 @@ class B70_ZK_2971Test extends ZTL4ScalaTestCase {
         click(listbox4.find(".z-listitem").eq(6));
         waitResponse();
 
-        real = if (isSafari) listbox4 else listbox4.toWidget().$n("a")
+        real = listbox4.toWidget().$n("a")
         val scrollTop4 = listbox4.find(".z-listbox-body").scrollTop();
         for (i <- 7 to 9) {
           sendKeys(real, Keys.SHIFT + "" + Keys.DOWN);

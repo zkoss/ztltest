@@ -130,7 +130,10 @@ class Z60_Listbox_ListModelArray_RODTest extends ZTL4ScalaTestCase {
         def selectItem = (id: String, num: Int) => {
           var lbx: Widget = engine.$f(id);
 
-          verScroll(lbx, if (num > 2) (num - 3) / 300.0 else 0.0)
+          var dist = 0.0
+          if (num > 2)
+            dist = (num - 3) * 1.0 / 300
+          verScroll(lbx, dist)
           waitResponse();
 
           sleep(1000);

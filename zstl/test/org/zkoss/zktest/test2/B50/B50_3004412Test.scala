@@ -41,9 +41,13 @@ class B50_3004412Test extends ZTL4ScalaTestCase {
       sleep(1000)
       verifyTrue(jq(popup).isVisible())
       var zindex = jq(cb.$n("pp")).css("z-index")
-      var ppZindex = if (zindex.equals("auto")) 0 else parseInt(zindex)
+      var ppZindex = parseInt(zindex)
+      if (zindex.equals("auto"))
+        ppZindex = 0
       zindex = jq(popup).css("z-index")
-      var popipZindex = if (zindex.equals("auto")) 0 else parseInt(zindex)
+      var popipZindex = parseInt(zindex)
+      if (zindex.equals("auto"))
+        popipZindex = 0
       verifyTrue(popipZindex > ppZindex)
     })
   }
