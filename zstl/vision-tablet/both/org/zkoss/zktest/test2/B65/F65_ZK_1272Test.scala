@@ -1,8 +1,8 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 
 @Tags(tags = "F65-ZK-1272.zul,Tablet")
 class F65_ZK_1272Test extends ZTL4ScalaTestCase {

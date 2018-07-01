@@ -1,7 +1,7 @@
 
 package org.zkoss.zktest.test2.Z65
 
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 
 @Tags(tags = "Z65-Flex-143.zul,Flex")

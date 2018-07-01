@@ -6,7 +6,7 @@ import java.util.Date
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 
 @Tags(tags = "F80-ZK-2641.zul")
 class F80_ZK_2641Test extends ZTL4ScalaTestCase {

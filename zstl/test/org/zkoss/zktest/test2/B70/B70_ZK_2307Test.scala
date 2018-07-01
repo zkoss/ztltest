@@ -3,7 +3,7 @@ package org.zkoss.zktest.test2.B70
 import org.junit.Test
 import org.openqa.selenium.Dimension
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 
 @Tags(tags = "B70-ZK-2307.zul")
 class B70_ZK_2307Test extends ZTL4ScalaTestCase {

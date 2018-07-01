@@ -19,7 +19,7 @@ package org.zkoss.zktest.test2.B36
 import java.util.Calendar
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 
 /**
   * A test class for bug 2844707

@@ -22,6 +22,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.Element
 import org.zkoss.ztl._
 import org.zkoss.ztl.unit._
+import org.zkoss.ztl.annotation.Tags
 
 /**
   * A test class for bug 3058028

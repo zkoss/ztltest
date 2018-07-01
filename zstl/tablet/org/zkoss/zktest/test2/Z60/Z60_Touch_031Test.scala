@@ -2,7 +2,7 @@ package org.zkoss.zktest.test2.Z60
 import org.openqa.selenium.By
 import org.openqa.selenium.Rotatable
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 import org.openqa.selenium.ScreenOrientation
 import org.junit.Test
 

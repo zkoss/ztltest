@@ -17,7 +17,7 @@ package org.zkoss.zktest.bind.comp
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 
 /**
  * @author pao

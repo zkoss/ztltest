@@ -18,8 +18,7 @@ import java.util.ArrayList
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.Widget
-import org.zkoss.ztl._
-import org.zkoss.ztl.unit._
+import org.zkoss.ztl.annotation.Tags
 
 /**
  * @author pao

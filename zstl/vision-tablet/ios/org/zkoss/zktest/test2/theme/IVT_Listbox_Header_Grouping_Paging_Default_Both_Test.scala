@@ -1,8 +1,7 @@
 package org.zkoss.zktest.test2.theme
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 
 @Tags(tags = "IOS,VisionTest")
 class IVT_Listbox_Header_Grouping_Paging_Default_Both_Test extends ZTL4ScalaTestCase {

@@ -3,7 +3,7 @@ package org.zkoss.zktest.test2.B50
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 
 @Tags(tags = "B50-ZK-941.zul")
 class B50_ZK_941Test extends ZTL4ScalaTestCase {

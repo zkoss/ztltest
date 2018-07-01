@@ -4,6 +4,7 @@ import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl._
 import org.zkoss.ztl.unit._
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
 @Tags(tags = "F65-ZK-2012.zul")
 @IgnoreBrowsers("chrome,ff,safari,edge,ie10,ie9")

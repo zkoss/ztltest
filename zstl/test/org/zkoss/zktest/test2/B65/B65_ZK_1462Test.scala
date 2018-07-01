@@ -3,7 +3,7 @@ package org.zkoss.zktest.test2.B65
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 
 /**
   * there is some diff with origin zul: add width for panel,

@@ -16,6 +16,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.{JQuery, Widget}
 import org.zkoss.ztl._
 import org.zkoss.ztl.unit._
+import org.zkoss.ztl.annotation.Tags
 
 
 class B30_1892446Test extends ZTL4ScalaTestCase {

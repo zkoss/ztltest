@@ -2,7 +2,7 @@ package org.zkoss.zktest.userguide.form
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 import org.zkoss.ztl.util.ColorVerifingHelper
 
 @Tags(tags = "Z-Userguide-Form.zul,Textbox,Intbox,Form,Spinner,ie9")

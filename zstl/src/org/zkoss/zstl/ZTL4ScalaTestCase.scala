@@ -4,6 +4,7 @@
 package org.zkoss.zstl
 
 import org.zkoss.ztl._
+import org.zkoss.ztl.annotation._
 import org.zkoss.ztl.util.ConfigHelper
 
 import scala.collection.JavaConversions._

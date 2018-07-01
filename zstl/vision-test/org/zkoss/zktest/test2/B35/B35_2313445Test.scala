@@ -15,7 +15,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 package org.zkoss.zktest.test2.B35
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.annotation.Tags;
 
 /**
  *

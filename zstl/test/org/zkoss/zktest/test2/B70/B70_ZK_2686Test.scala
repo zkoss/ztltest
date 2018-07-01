@@ -4,9 +4,9 @@ import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl._
 import org.zkoss.ztl.unit._
+import org.zkoss.ztl.annotation.Tags
 
 @Tags(tags = "B70-ZK-2686.zul")
-@IgnoreBrowsers("ie8")
 class B70_ZK_2686Test extends ZTL4ScalaTestCase {
 
   @Test

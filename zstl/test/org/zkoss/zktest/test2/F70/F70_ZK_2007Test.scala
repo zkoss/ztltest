@@ -2,7 +2,7 @@ package org.zkoss.zktest.test2.F70
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 
 @Tags(tags = "F70-ZK-2007.zul")
 class F70_ZK_2007Test extends ZTL4ScalaTestCase {

@@ -20,6 +20,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.{Element, JQuery, Widget}
 import org.zkoss.ztl._
 import org.zkoss.ztl.unit._
+import org.zkoss.ztl.annotation.Tags
 
 import scala.collection.JavaConversions._
 

@@ -2,7 +2,7 @@ package org.zkoss.zktest.test2.B65
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 import org.zkoss.ztl.unit.ClientWidget
 
 @Tags(tags = "B65-ZK-1324.zul")

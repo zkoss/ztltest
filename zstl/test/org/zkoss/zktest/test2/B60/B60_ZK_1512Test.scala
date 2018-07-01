@@ -2,7 +2,7 @@ package org.zkoss.zktest.test2.B60
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 import scala.util.control.Breaks._
 
 @Tags(tags = "B60-ZK-1512.zul")

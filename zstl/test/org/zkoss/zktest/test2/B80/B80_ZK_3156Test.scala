@@ -16,7 +16,7 @@ package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{IgnoreBrowsers, Tags};
+import org.zkoss.ztl.annotation.IgnoreBrowsers;
 
 /**
   *

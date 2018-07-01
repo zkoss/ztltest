@@ -1,6 +1,6 @@
 package org.zkoss.zktest.test2.theme
 
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 
 @Tags(tags = "Touch,Android")

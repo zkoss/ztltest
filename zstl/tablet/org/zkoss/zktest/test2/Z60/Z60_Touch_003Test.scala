@@ -8,7 +8,7 @@ import org.openqa.selenium.By
 import org.openqa.selenium.internal.Locatable
 import org.openqa.selenium.interactions.internal.Coordinates
 import org.openqa.selenium.Point
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 import org.junit.Test
 import org.zkoss.ztl.unit.JQuery
 

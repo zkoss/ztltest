@@ -17,7 +17,7 @@ Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 
 /**
   * A test class for bug ZK-1338

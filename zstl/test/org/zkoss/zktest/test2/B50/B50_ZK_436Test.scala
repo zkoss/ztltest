@@ -17,7 +17,7 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.{IgnoreBrowsers, Tags}
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
 /**
   * A test class for bug ZK-436

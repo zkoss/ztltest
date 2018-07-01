@@ -2,7 +2,7 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 
 @Tags(tags = "B50-2998196.zul,A,E,Frozen,Grid")
 class B50_2998196Test extends ZTL4ScalaTestCase {

@@ -21,7 +21,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import scala.collection.JavaConversions._
 import org.junit.Test
 import org.zkoss.ztl.unit._
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 import org.zkoss.ztl.Widget
 import org.zkoss.ztl.ZKClientTestCase
 import java.lang._

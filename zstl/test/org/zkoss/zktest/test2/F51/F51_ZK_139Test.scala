@@ -19,7 +19,7 @@ package org.zkoss.zktest.test2.F51
 import java.lang._
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 import org.zkoss.ztl.unit.{JQuery, Widget}
 
 /**

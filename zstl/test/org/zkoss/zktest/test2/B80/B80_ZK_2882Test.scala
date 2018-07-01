@@ -2,7 +2,7 @@ package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 
 @Tags(tags = "B80-ZK-2882.zul")
 class B80_ZK_2882Test extends ZTL4ScalaTestCase {

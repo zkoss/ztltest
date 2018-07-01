@@ -1,6 +1,6 @@
 package org.zkoss.zktest.test2.B65
 
-import org.zkoss.ztl.Tags
+import org.zkoss.ztl.annotation.Tags
 import org.zkoss.zstl.ZTL4ScalaTestCase
 
 @Tags(tags = "B65-ZK-1403.zul,VisionTest")

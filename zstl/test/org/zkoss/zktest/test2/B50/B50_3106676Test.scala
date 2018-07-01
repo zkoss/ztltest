@@ -20,7 +20,7 @@ import java.util.Calendar
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.Widget
-import org.zkoss.ztl._
+import org.zkoss.ztl.annotation.Tags
 /**
   * A test class for bug 3106676
   *
