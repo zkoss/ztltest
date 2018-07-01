@@ -11,7 +11,6 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B36
 
-;
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
@@ -39,7 +38,7 @@ class B36_2778524Test extends ZTL4ScalaTestCase {
       click(db1.$n("btn"))
       waitResponse()
       click(jq(db1.$n("pp")).find("@calendar").find("td:eq(12)"))
-      verifyEquals(false, strIndexOf(jq(db1.$n("real")).`val`(), "1999").toInt > 0)
+      verifyNotContains(jq(db1.$n("real")).`val`(), "1999")
       click(db2.$n("btn"))
       waitResponse()
       click(jq(db2.$n("pp")).find("@calendar").find("td:eq(12)"))
