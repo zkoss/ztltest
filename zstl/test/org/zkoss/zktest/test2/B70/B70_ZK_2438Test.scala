@@ -23,7 +23,7 @@ class B70_ZK_2438Test extends ZTL4ScalaTestCase {
         waitResponse()
         dragdropTo(sliderBtn, startL + "," + startT, endL + "," + startT)
         waitResponse()
-        verifyTrue(jq(".z-cell>.z-label").last().text().equals("2"))
+        verifyEquals("2", jq(".z-cell>.z-label").last().text())
       })
 
   }

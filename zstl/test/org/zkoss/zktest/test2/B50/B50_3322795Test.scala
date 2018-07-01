@@ -52,15 +52,15 @@ class B50_3322795Test extends ZTL4ScalaTestCase {
           click(ds.$n("btn-up"));
           waitResponse();
 
-          verifyTrue("the value change is 1 each time",
-            (value + ".7").equals(ds.$n("real").get("value")));
+          verifyEquals("the value change is 1 each time",
+            (value + ".7"), ds.$n("real").get("value"))
         }
         for (j <- 1 until 10) {
-          value -= 1;
+          value = value - 1
           click(ds.$n("btn-down"));
-          waitResponse();
-          verifyTrue("the value change is 1 each time",
-            (value + ".7").equals(ds.$n("real").get("value")));
+          waitResponse()
+          verifyEquals("the value change is 1 each time",
+            (value + ".7"), ds.$n("real").get("value"))
         }
       }
     );

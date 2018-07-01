@@ -129,14 +129,14 @@ class Z35_listgroup_0001Test extends ZTL4ScalaTestCase {
       click(model1Btn);
       waitResponse();
       var model1VerifyStr = jq("tr.z-listgroup:eq(0)").text();
-      verifyTrue("jq(\"tr.z-listgroup:eq(0)\").text(): " +
-        model1VerifyStr, model1VerifyStr.contains("option"));
+      verifyContains("jq(\"tr.z-listgroup:eq(0)\").text(): " +
+        model1VerifyStr, model1VerifyStr, "option")
       // data, head
       click(model2Btn)
       waitResponse();
       var model2VerifyStr = jq("tr.z-listgroup:eq(0)").text()
-      verifyTrue("jq(\"tr.z-listgroup:eq(0)\").text(): " +
-        model2VerifyStr, model2VerifyStr.contains("Group"))
+      verifyContains("jq(\"tr.z-listgroup:eq(0)\").text(): " +
+        model2VerifyStr, model2VerifyStr, "Group")
       // data, head, foot
       click(model3Btn);
       waitResponse()
@@ -150,8 +150,8 @@ class Z35_listgroup_0001Test extends ZTL4ScalaTestCase {
       verifyTrue("jq(\"tr.z-listgroupfoot\").length(): " +
         footerQty, footerQty == 2)
       var footerStr = jq("tr.z-listgroupfoot:eq(0)").text();
-      verifyTrue("jq(\"tr.z-listgroupfoot:eq(0)\"): " +
-        footerStr, footerStr.contains("A1"));
+      verifyContains("jq(\"tr.z-listgroupfoot:eq(0)\"): " +
+        footerStr, footerStr, "A1")
       // not all foot 2
       click(model5Btn)
       waitResponse();
@@ -160,11 +160,10 @@ class Z35_listgroup_0001Test extends ZTL4ScalaTestCase {
         footerQty, footerQty == 2)
       click(jq("tr.z-listgroup:eq(0)").toWidget().$n("img"))
       waitResponse();
-      if (isIE())
-        sleep(300);
+      sleep(300);
       footerStr = jq("tr.z-listgroupfoot:eq(0)").text()
-      verifyTrue("jq(\"tr.z-listgroupfoot:eq(0)\"): " +
-        footerStr, footerStr.contains("B2"))
+      verifyContains("jq(\"tr.z-listgroupfoot:eq(0)\"): " +
+        footerStr, footerStr, "B2")
       // Clear without any exceptions
       click(clearBtn);
       waitResponse()

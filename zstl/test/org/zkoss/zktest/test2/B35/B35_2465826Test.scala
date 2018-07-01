@@ -37,7 +37,7 @@ class B35_2465826Test extends ZTL4ScalaTestCase {
       // Record the selected item text
       val itemText = jq(".z-listitem-selected").text();
 
-      verifyFalse("The selection cannot be empty", itemText.isEmpty());
+      verifyNotEquals("The selection cannot be empty", "", itemText);
       // Press enter key
       val focusElem =  jq("@listbox").toWidget().$n("a")
       sendKeys(focusElem, Keys.ENTER);
@@ -50,7 +50,7 @@ class B35_2465826Test extends ZTL4ScalaTestCase {
       sendKeys(jq("@button"), Keys.ENTER);
 
       // Verify that the selected item is the same as before
-      verifyTrue("The selected item changed", itemText.equals(jq(".z-listitem-selected").text()));
+      verifyEquals("The selected item changed", itemText, jq(".z-listitem-selected").text())
     })
   }
 }

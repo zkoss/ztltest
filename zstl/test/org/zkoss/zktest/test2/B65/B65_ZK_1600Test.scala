@@ -38,7 +38,7 @@ class B65_ZK_1600Test extends ZTL4ScalaTestCase {
         blur(datebox)
         waitResponse()
 
-        verifyTrue("should see error message 'Vous devez spécifier une date.' .", jq(".z-errorbox-content").text().contains("cifier une date."))
+        verifyContains("should see error message 'Vous devez spécifier une date.' .", jq(".z-errorbox-content").text(), "cifier une date.")
       })
 
   }

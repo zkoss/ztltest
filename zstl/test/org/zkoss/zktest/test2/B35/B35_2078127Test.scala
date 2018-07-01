@@ -198,10 +198,10 @@ f1.detach();
       val css3After = jq(jq(".z-listcell").toWidget().$n("cave")).css("font-family");
       val css4After = jq(jq(".z-listcell").toWidget().$n("cave")).css("font-color");
 
-      verifyTrue("The font-weight should be equal than before", css1Before.equals(css1After));
-      verifyTrue("The font-size should be equal than before", css2Before.equals(css2After));
-      verifyTrue("The font-family should be equal than before", css3Before.equals(css3After));
-      verifyTrue("The font-color should be equal than before", css4Before.equals(css4After));
+      verifyEquals("The font-weight should be equal than before", css1Before, css1After)
+      verifyEquals("The font-size should be equal than before", css2Before, css2After)
+      verifyEquals("The font-family should be equal than before", css3Before, css3After)
+      verifyEquals("The font-color should be equal than before", css4Before, css4After)
     })
   }
 }

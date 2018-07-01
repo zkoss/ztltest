@@ -12,8 +12,7 @@ class B70_ZK_2096Test extends ZTL4ScalaTestCase {
     runZTL(
       () => {
         val btn = jq(".z-button")
-
-        1 to 5 foreach { n =>
+        for (n <- 1 to 5) {
           click(btn)
           waitResponse()
         }

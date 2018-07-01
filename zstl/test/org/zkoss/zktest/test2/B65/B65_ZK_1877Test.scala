@@ -69,8 +69,8 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         dragdrop(btn, rail, "2,2", "220,2")
         dragdrop(btn, rail, "2,2", "0,2")
 
-        verifyTrue("You should see the curpos stays in 0",
-          jq(".z-label:contains(curpos:) + .z-label").text().contains("0"))
+        verifyContains("You should see the curpos stays in 0",
+          jq(".z-label:contains(curpos:) + .z-label").text(), "0")
       })
 
   }

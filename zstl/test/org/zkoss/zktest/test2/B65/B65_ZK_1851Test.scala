@@ -27,7 +27,6 @@ class B65_ZK_1851Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-
         val doVerify = (comp: String) => {
           val spinner = jq(".z-" + comp).toWidget()
           val inp = spinner.$n("real")
@@ -39,10 +38,8 @@ class B65_ZK_1851Test extends ZTL4ScalaTestCase {
           waitResponse()
           verifyTrue(inp.get("value") != "NaN")
         }
-
-        List("spinner", "doublespinner") foreach doVerify
-
+        doVerify("spinner")
+        doVerify("doublespinner")
       })
-
   }
 }

@@ -50,7 +50,7 @@ class Z60_Touch_017Test extends ZTL4ScalaTestCase {
 				// Should see drop-down options at the bottom of the screen
 				var pp = jq(jq(".z-combobox").toWidget().$n("pp"));
 				verifyTrue(pp.isVisible());
-				var pp_top = pp.css("top").replaceAll("px","").toInt;
+				var pp_top = parseInt(pp.css("top"));
 				verifyTrue(bodyHeight - pp_top < 10);
 				
 				// Drop-down options should have scrollbar
@@ -64,7 +64,7 @@ class Z60_Touch_017Test extends ZTL4ScalaTestCase {
 				// Should see drop-down options at the bottom of the screen
 				pp = jq(jq(".z-combobox:eq(1)").toWidget().$n("pp"));
 				verifyTrue(pp.isVisible());
-				pp_top = pp.css("top").replaceAll("px","").toInt;
+				pp_top = parseInt(pp.css("top"));
 				verifyTrue(bodyHeight - pp_top < 10);
 			}
 		);

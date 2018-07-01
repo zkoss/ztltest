@@ -20,13 +20,11 @@ class B80_ZK_2901Test extends ZTL4ScalaTestCase {
         click(button)
         // wait for at most 3 seconds, if longer, it is a bug (only IE)
         waitResponse(3000)
-        if (!isIE) {
-          waitResponse(1000)
-        }
+        waitResponse(1000)
 
         val itemText = jq(".z-treecell-content .z-label").eq(0).text()
         // check the content of the first item is "1490"
-        verifyTrue("expecting 1490, got: " + itemText, itemText.equals("1490"))
+        verifyEquals("expecting 1490, got: " + itemText, "1490", itemText)
       })
   }
 }

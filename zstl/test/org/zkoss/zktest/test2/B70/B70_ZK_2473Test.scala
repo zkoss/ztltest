@@ -25,7 +25,7 @@ class B70_ZK_2473Test extends ZTL4ScalaTestCase {
       () => {
         var label = jq("label > span").first();
 
-        verifyTrue(label.length() > 0 && label.text().contains("Included content"));
+        verifyContains(label.text(), "Included content")
 
       })
 

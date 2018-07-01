@@ -63,8 +63,8 @@ class B50_ZK_373Test extends ZTL4ScalaTestCase {
       waitResponse()
       verifyEquals(0, jq(list.$n("body")).scrollTop())
       verifyEquals(0, jq(grid.$n("body")).scrollTop())
-      verifyTrue(jq(list.$n("rows")).find(".z-listcell").eq(0).text().contains("Option 0"))
-      verifyTrue(jq(grid.$n("body")).find(".z-row").eq(0).text().contains("0"))
+      verifyContains(jq(list.$n("rows")).find(".z-listcell").eq(0).text(), "Option 0")
+      verifyContains(jq(grid.$n("body")).find(".z-row").eq(0).text(), "0")
     })
   }
 }

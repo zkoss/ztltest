@@ -43,7 +43,7 @@ class B50_3002607Test extends ZTL4ScalaTestCase {
       waitResponse()
       sendKeys(tb.$n(), Keys.BACK_SPACE)
       waitResponse()
-      verifyFalse(jq(".z-textbox").`val`().equals(before))
+      verifyNotEquals(jq(".z-textbox").`val`(), before)
     })
   }
 }

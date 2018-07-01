@@ -42,10 +42,10 @@ class B35_2073409Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       val gr1 = jq("$group1");
-      val txt = getText(gr1).trim;
+      val txt = getText(gr1);
 
       //Group1 exists
-      verifyEquals(txt, "Group1");
+      verifyContains(txt, "Group1");
 
       //Click group to open
       val cl = jq("$group1").find("span");

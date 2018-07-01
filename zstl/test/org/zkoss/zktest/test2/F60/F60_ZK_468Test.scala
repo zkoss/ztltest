@@ -40,8 +40,8 @@ class F60_ZK_468Test extends ZTL4ScalaTestCase {
       def selectItem(content: String) {
         select(box, content)
         waitResponse()
-        verifyTrue("the label below should be changed as your selection",
-          _val.$n().get("innerHTML").equals(content));
+        verifyEquals("the label below should be changed as your selection",
+          _val.$n().get("innerHTML"), content)
       }
 
       selectItem("Tony")

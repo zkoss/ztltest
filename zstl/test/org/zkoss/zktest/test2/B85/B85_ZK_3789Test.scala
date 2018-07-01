@@ -29,7 +29,7 @@ class B85_ZK_3789Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       click(jq("a.z-bandbox-button").get(0))
       waitResponse()
-      verifyNotEquals("Error popped.", "fail", getZKLog().trim());
+      verifyNotEquals("Error popped.", "fail", getZKLog())
     })
   }
 }

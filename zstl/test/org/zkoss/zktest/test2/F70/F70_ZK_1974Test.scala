@@ -123,10 +123,10 @@ class F70_ZK_1974Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        0 to 1 foreach { index =>
+        for (index <- 0 to 1) {
           val tb = jq(".z-tabbox").eq(index)
           var h = 0
-          0 to 2 foreach { tabIndex =>
+          for (tabIndex <- 0 to 2) {
             click(tb.find(".z-tab:eq(" + tabIndex + ")"))
             waitResponse()
             sleep(500)

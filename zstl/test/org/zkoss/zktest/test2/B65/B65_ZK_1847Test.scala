@@ -30,8 +30,8 @@ class B65_ZK_1847Test extends ZTL4ScalaTestCase {
       () => {
         click(jq(".z-button"))
         waitResponse()
-        verifyTrue("it should work as expected",
-          jq(".z-hlayout .z-label").text().contains("null"))
+        verifyContains("it should work as expected",
+          jq(".z-hlayout .z-label").text(), "null")
       })
 
   }

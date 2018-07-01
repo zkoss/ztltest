@@ -18,8 +18,8 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
   def testClick() = {
     runZTL(
       () => {
-        var textVal = jq(".z-textbox").`val`().trim;
-        var labelTxt = jq(".z-label:eq(1)").text().trim();
+        var textVal = jq(".z-textbox").`val`()
+        var labelTxt = jq(".z-label:eq(1)").text()
         verifyEquals(textVal, labelTxt)
       })
   }

@@ -91,9 +91,11 @@ class B60_ZK_707_ListModelTest extends ZTL4ScalaTestCase {
         }
 
         def checkOrder(content: String, order: Int) {
-          verifyTrue("The item " + order + " of first/second grid should contains" + content,
-            jq(gridOne.$n()).find(".z-listitem").get(order).get("innerHTML").contains(content)
-              && jq(gridTwo.$n()).find(".z-listitem").get(order).get("innerHTML").contains(content));
+          verifyContains("The item " + order + " of first/second grid should contains" + content,
+            jq(gridOne.$n()).find(".z-listitem").get(order).get("innerHTML"), content)
+
+          verifyContains("The item " + order + " of first/second grid should contains" + content,
+            jq(gridTwo.$n()).find(".z-listitem").get(order).get("innerHTML"), content)
         }
 
         selectItem(gridOne, "option_1");

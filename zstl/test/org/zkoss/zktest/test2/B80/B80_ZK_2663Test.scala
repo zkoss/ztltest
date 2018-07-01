@@ -21,7 +21,7 @@ class B80_ZK_2663Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       click(jq(".z-button"))
       waitResponse()
-      verifyTrue(jq(".z-popup").css("display").equals("block"))
+      verifyEquals("block", jq(".z-popup").css("display"))
     })
   }
 }

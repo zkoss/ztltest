@@ -53,10 +53,8 @@ class Z60_ChildrenMenuTest extends ZTL4ScalaTestCase {
           verifyEquals("zul.menu.Menuitem", w.eval("className"))
         else {
           verifyEquals("zul.menu.Menu", w.eval("className"))
-          if (w.firstChild() == null) {
-            click(w) // need to click if menu is in menu bar
-            waitResponse()
-          }
+          click(w) // need to click if menu is in menu bar
+          waitResponse()
           // show menu popup
           w.firstChild().eval("open()")
           waitResponse()

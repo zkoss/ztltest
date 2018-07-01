@@ -236,9 +236,9 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       () => {
         var check = (input: JQuery) => {
           val value = input.attr("value");
-          for (_ <- 1 to 5) {
+          for (i <- 1 to 5) {
             sleep(300);
-            verifyTrue("value should be the same. it means no flickering.", input.attr("value").equals(value));
+            verifyEquals("value should be the same. it means no flickering.", value, input.attr("value"));
           }
         };
 

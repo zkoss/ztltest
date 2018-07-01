@@ -79,7 +79,7 @@ class B60_ZK_803Test extends ZTL4ScalaTestCase {
 
         val drop = jq(".z-drop-ghost .z-drop-content")
         verifyEquals("should see only third item dragged", drop.length(), 1)
-        verifyTrue("should see only third item dragged", drop.text().contains("Jane"))
+        verifyContains("should see only third item dragged", drop.text(), "Jane")
 
       })
 

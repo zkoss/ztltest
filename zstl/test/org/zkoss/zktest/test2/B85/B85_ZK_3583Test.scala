@@ -31,7 +31,7 @@ class B85_ZK_3583Test extends ZTL4ScalaTestCase {
       mouseOver(jq(".z-button"))
       waitResponse(true)
 
-      verifyTrue(popup.css("display").equals("block"))
+      verifyEquals("block", popup.css("display"))
     })
   }
 }

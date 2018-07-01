@@ -34,7 +34,7 @@ class B70_ZK_2709_1Test extends ZTL4ScalaTestCase {
       waitResponse(true)
       blur(jq("input"))
       waitResponse(true)
-      verifyTrue(getZKLog().contains("it works"))
+      verifyContains(getZKLog(), "it works")
     })
   }
 }

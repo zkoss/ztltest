@@ -47,16 +47,16 @@ class F60_ZK_423Test extends ZTL4ScalaTestCase {
       sendKeys(lbx.$n("a"), Keys.ARROW_DOWN);
       waitResponse();
 
-      verifyTrue("First listitem should be selected",
-        tbxTwo.$n().get("value").contains("true"));
+      verifyContains("First listitem should be selected",
+        tbxTwo.$n().get("value"), "true")
 
       sendKeys(lbx.$n("a"), Keys.TAB);
       waitResponse();
       sendKeys(tree.$n("a"), Keys.ARROW_DOWN);
       waitResponse();
 
-      verifyTrue("First listitem should be selected",
-        tbxOne.$n().get("value").contains("true"));
+      verifyContains("First listitem should be selected",
+        tbxOne.$n().get("value"), "true")
     }
     );
   }

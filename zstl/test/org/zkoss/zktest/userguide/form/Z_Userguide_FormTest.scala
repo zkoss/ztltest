@@ -81,7 +81,7 @@ class Z_Userguide_FormTest extends ZTL4ScalaTestCase {
       sendKeys(txt4, "zk")
       waitResponse()
       blur(txt4)
-      verifyTrue(jq(".z-errorbox").text().contains("Please enter an e-mail address"))
+      verifyContains(jq(".z-errorbox").text(), "Please enter an e-mail address")
       sendKeys(txt4, "zk@zkoss.org")
       blur(txt4)
       focus(jq("$intro"))

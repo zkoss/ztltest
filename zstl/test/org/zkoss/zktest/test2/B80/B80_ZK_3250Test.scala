@@ -12,27 +12,35 @@ class B80_ZK_3250Test extends ZTL4ScalaTestCase {
       () => {
         verScroll(jq(".z-listbox-body"), 0)
         waitResponse()
-        verifyTrue(getZKLog.equalsIgnoreCase(""))
+        verifyEquals("", getZKLog())
 
         click(jq("@button"))
         waitResponse()
-        verifyTrue(getZKLog.equalsIgnoreCase(""))
+        verifyEquals("", getZKLog())
 
         verScroll(jq(".z-listbox-body"), 100)
         waitResponse()
-        verifyTrue(getZKLog.trim.equalsIgnoreCase("after setItemsInvalid_"))
+        verifyEquals("after setItemsInvalid_", getZKLog())
+        closeZKLog()
+        waitResponse()
 
         click(jq("@button"))
         waitResponse()
-        verifyTrue(getZKLog.trim.equalsIgnoreCase("after setItemsInvalid_\nafter setItemsInvalid_"))
+        verifyEquals("after setItemsInvalid_", getZKLog())
+        closeZKLog()
+        waitResponse()
 
         verScroll(jq(".z-listbox-body"), 0)
         waitResponse()
-        verifyTrue(getZKLog.trim.equalsIgnoreCase("after setItemsInvalid_\nafter setItemsInvalid_\nafter setItemsInvalid_"))
+        verifyEquals("after setItemsInvalid_", getZKLog())
+        closeZKLog()
+        waitResponse()
 
         click(jq("@button"))
         waitResponse()
-        verifyTrue(getZKLog.trim.equalsIgnoreCase("after setItemsInvalid_\nafter setItemsInvalid_\nafter setItemsInvalid_"))
+        verifyEquals("after setItemsInvalid_", getZKLog())
+        closeZKLog()
+        waitResponse()
       })
   }
 }

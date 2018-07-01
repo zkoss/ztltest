@@ -52,12 +52,7 @@ class B36_2794205Test extends ZTL4ScalaTestCase {
       click(jq("@button"))
       waitResponse()
       var offsetLeft = jq(".z-errorbox").offsetLeft()
-      if (isSafari) {
-        select(myDropdownList, "zk")
-      } else {
-        mouseDownAt(myDropdownList, "1,1")
-        mouseUpAt(myDropdownList, "1,1")
-      }
+      select(myDropdownList, "zk")
       //open select tag with IE
       focus(myDropdownList)
       altKeyDown()

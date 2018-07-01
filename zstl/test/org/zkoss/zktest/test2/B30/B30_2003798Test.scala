@@ -77,12 +77,11 @@ class B30_2003798Test extends ZTL4ScalaTestCase {
       mouseMoveAt(img, "2,2")
       waitResponse();
       // Verify that the first row is selected
-      verifyFalse("The row must be highlighted", "".equals(jq(".z-treecell:eq(0)").css("background")));
+      verifyNotEquals("The row must be highlighted", "", jq(".z-treecell:eq(0)").css("background"))
       click(img);
       waitResponse();
-
       var cssClass = jq("@treerow").get(0).get("className");
-      verifyTrue("The row must be selected", cssClass.contains("z-treerow-selected"));
+      verifyContains("The row must be selected", cssClass, "z-treerow-selected");
 
     })
   }

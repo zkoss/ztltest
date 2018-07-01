@@ -32,7 +32,7 @@ class B50_ZK_926Test extends ZTL4ScalaTestCase {
       () => {
         jq(".z-listbox-body").toElement().set("scrollTop", 100)
         waitResponse()
-        verifyEquals("should see 'scroll, 100'", jq("#zk_log").`val`().replace("\n", ""), "scroll, 100")
+        verifyContains("should see 'scroll, 100'", getZKLog(), "scroll, 100")
       })
 
   }

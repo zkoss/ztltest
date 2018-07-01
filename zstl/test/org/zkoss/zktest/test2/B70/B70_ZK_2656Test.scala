@@ -56,7 +56,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     runZTL(zscript,
       () => {
         var log = jq("#zk_log").eval("val()");
-        verifyFalse(log.contains("undefined"));
+        verifyFalse(getZKLog(), "undefined")
       })
 
   }

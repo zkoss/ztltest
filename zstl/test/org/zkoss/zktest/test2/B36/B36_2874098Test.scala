@@ -107,10 +107,8 @@ class B36_2874098Test extends ZTL4ScalaTestCase {
         verifyTrue(error.isVisible());
         //Error box message
         var em = "All values are wrong: a";
-        var erval = getText(error).trim;
-
         //Verify error message
-        verifyEquals(em, erval);
+        verifyEquals(em, getText(error));
 
       });
   }

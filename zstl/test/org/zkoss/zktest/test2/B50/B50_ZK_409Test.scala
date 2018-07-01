@@ -51,8 +51,9 @@ class B50_ZK_409Test extends ZTL4ScalaTestCase {
           jq(".z-error").exists());
         var hlWins: JQuery = jq(".z-window-highlighted");
         verifyTrue("only one highlighted window and contains expected message",
-          (hlWins.length() == 1) && (jq(".z-messagebox-window").find(".z-label")
-            .text().contains("Question is pressed. Are you sure?")));
+          (hlWins.length() == 1))
+        verifyContains(jq(".z-messagebox-window").find(".z-label")
+          .text(), "Question is pressed. Are you sure?")
       }
     );
 

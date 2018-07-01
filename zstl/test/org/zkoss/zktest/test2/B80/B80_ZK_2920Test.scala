@@ -31,10 +31,7 @@ class B80_ZK_2920Test extends ZTL4ScalaTestCase {
         // make sure one item is selected
         verifyTrue(jq(".z-chosenbox-item").length() == 1)
         // click else where to close the chosenbox
-        if (!isSafari)
-          click(jq(".z-window-header"));
-        else
-          clickAt(jq(".z-window-header"), "2,2")
+        click(jq(".z-window-header"));
         waitResponse(true)
         // open the chosenbox again
         click(button)

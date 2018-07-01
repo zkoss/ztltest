@@ -72,8 +72,8 @@ Copyright (C) 2012 Potix Corporation. All Rights Reserved.
           bb.toWidget().$n("real").get("value") == "B")
         click(jq(".z-button:eq(0)"))
         waitResponse()
-        verifyTrue("it should pop up a 'value:B' messagebox",
-          jq(".z-messagebox-window .z-label").text().contains("value:B"))
+        verifyContains("it should pop up a 'value:B' messagebox",
+          jq(".z-messagebox-window .z-label").text(), "value:B")
 
       })
 

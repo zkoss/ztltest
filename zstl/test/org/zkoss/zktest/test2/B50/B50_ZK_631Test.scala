@@ -104,8 +104,10 @@ class B50_ZK_631Test extends ZTL4ScalaTestCase {
       click(doberr);
       waitResponse();
       var errMsg: String = doberr.$n().get("innerHTML");
-      verifyTrue("should display custom error about date format",
-        errMsg.contains("abc") && errMsg.contains("yyyy/MM/dd"));
+      verifyContains("should display custom error about date format",
+        errMsg, "abc")
+      verifyContains("should display custom error about date format",
+        errMsg, "yyyy/MM/dd")
     })
   }
 }

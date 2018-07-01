@@ -95,12 +95,12 @@ class B50_3287366Test extends ZTL4ScalaTestCase {
       click(jq("@combobox:eq(0)").toWidget().$n("btn"));
       waitResponse()
       var pp = jq(".z-combobox").toWidget().$n("pp")
-      verifyEquals(jq(pp).text().trim(), "A")
+      verifyContains(jq(pp).text(), "A")
       click(jq("@combobox:eq(0)").toWidget().$n("btn"));
       waitResponse()
       click(jq("@combobox:eq(1)").toWidget().$n("btn"));
       waitResponse()
-      verifyEquals(jq(pp).text().trim(), "A")
+      verifyContains(jq(pp).text(), "A")
     })
   }
 }

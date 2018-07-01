@@ -22,10 +22,7 @@ class B60_ZK_1315Test extends ZTL4ScalaTestCase {
       verifyEquals("Hide 'Title' column by menupopup.", faker.css("visibility"), "hidden")
 
       val publisher = jq("$col")
-      if (!isSafari)
-        click(publisher)
-      else
-        clickAt(publisher, "2,2")
+      click(publisher)
       waitResponse()
       verifyTrue("Click 'Publisher' column to sort.", jq(publisher.toWidget().$n("sort-icon")).is("[class*=up]"))
 

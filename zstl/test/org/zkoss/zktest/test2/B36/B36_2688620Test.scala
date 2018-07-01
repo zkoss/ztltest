@@ -37,7 +37,7 @@ class B36_2688620Test extends ZTL4ScalaTestCase {
       var df: SimpleDateFormat = new SimpleDateFormat("hh:MM:ss");
       var str = df.format(d);
       val msg = "[" + str.substring(0, 2) + "] should be selected";
-      verifyTrue(msg, zk(jq("@timebox").find("input")).eval("getSelectionRange()").equals("[0, 2]"));
+      verifyEquals(msg, "[0, 2]", zk(jq("@timebox").find("input")).eval("getSelectionRange()"));
     })
   }
 }

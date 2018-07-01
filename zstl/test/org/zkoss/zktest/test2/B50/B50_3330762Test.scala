@@ -76,8 +76,8 @@ class B50_3330762Test extends ZTL4ScalaTestCase {
           click(btn);
           waitResponse();
 
-          verifyTrue("the value of label should equal to the value of doublespinner",
-            value.equals(getText(lb)));
+          verifyEquals("the value of label should equal to the value of doublespinner",
+            value, getText(lb))
           verifyFalse("should not have Exception",
             jq(".z-window-highlighted").exists());
           verifyFalse("should not have Exception",

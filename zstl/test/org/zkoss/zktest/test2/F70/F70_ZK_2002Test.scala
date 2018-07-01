@@ -11,13 +11,11 @@ class F70_ZK_2002Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       val tb = jq(".z-tabbox").eq(3)
-      0 to 2 foreach { index =>
+      for (index <- 0 to 2) {
         click(tb.find(".z-tab:eq(" + index + ")"))
         waitResponse()
-
         verifyTrue("each tabpanel should start with a 'New --' text", tb.find(".z-tabpanel:eq(" + index + "):contains(New --)").exists)
       }
-
       click(jq(".z-button:contains(add New Tab)"))
       waitResponse()
       verifyTrue("should see one 'New -- tab4' tab is added.", tb.find(".z-tab:contains(New -- Tab4)").exists)

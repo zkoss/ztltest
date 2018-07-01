@@ -41,25 +41,21 @@ class B65_ZK_1217Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        0 to 1 foreach (n => captionTest(n))
-
+        for (n <- 0 to 1) {
+          captionTest(n)
+        }
       })
-
     def captionTest(n: Int) {
       val nthCaption = jq("@caption:eq(" + n + ")")
       val collapsibleWidget = jq(jq(".z-groupbox:eq(" + n + ")").toWidget().$n("cave"))
       val block = collapsibleWidget.css("display")
-
       click(nthCaption)
       waitResponse()
       sleep(1000)
-
       verifyNotEquals("panel or borderlayout should be open/close", collapsibleWidget.css("display"), block)
-
       click(nthCaption)
       waitResponse()
       sleep(1000)
-
       verifyEquals("its content shouldn't be hidden", collapsibleWidget.css("display"), block)
     }
 

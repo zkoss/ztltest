@@ -50,7 +50,7 @@ class B30_1876292Test extends ZTL4ScalaTestCase {
       blur(combobox)
       click(reset)
       waitResponse()
-      verifyTrue(combobox.`val`().isEmpty())
+      verifyEquals("", combobox.`val`())
 
       /** reset */
       setSpeed("200")
@@ -86,7 +86,7 @@ class B30_1876292Test extends ZTL4ScalaTestCase {
       focus(combobox)
       click(reset)
       waitResponse()
-      verifyTrue(combobox.`val`().isEmpty())
+      verifyEquals("", combobox.`val`())
     })
   }
 
@@ -123,7 +123,7 @@ class B30_1876292Test extends ZTL4ScalaTestCase {
       blur(combobox)
       click(reset)
       waitResponse()
-      verifyTrue(combobox.`val`().isEmpty())
+      verifyTrue("", combobox.`val`())
 
       /** reset */
       setSpeed("200")

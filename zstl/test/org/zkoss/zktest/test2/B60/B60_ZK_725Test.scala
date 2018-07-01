@@ -35,12 +35,12 @@ class B60_ZK_725Test extends ZTL4ScalaTestCase {
         var grid: Widget = engine.$f("grid");
         clickAt(jq("@column:eq(0)"), "2,2")
         waitResponse(true)
-        verifyTrue("should sorted correctly",
-          jq("@row").get(0).get("id").equals(jq(".z-row").get(0).get("id")));
-        verifyTrue("should sorted correctly",
-          jq("@row").get(1).get("id").equals(jq(".z-row").get(1).get("id")));
-        verifyTrue("should sorted correctly",
-          jq("@row").get(2).get("id").equals(jq(".z-row").get(2).get("id")));
+        verifyEquals("should sorted correctly",
+          jq("@row").get(0).get("id"), jq(".z-row").get(0).get("id"))
+        verifyEquals("should sorted correctly",
+          jq("@row").get(1).get("id"), jq(".z-row").get(1).get("id"))
+        verifyEquals("should sorted correctly",
+          jq("@row").get(2).get("id"), jq(".z-row").get(2).get("id"))
       }
     );
   }

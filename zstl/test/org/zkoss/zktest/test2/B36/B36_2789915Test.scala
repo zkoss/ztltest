@@ -51,7 +51,7 @@ class B36_2789915Test extends ZTL4ScalaTestCase {
       click(toolbarbutton1)
       waitResponse()
       mouseOut(toolbarbutton1)
-      verifyTrue(jq(toolbarbutton1).find("img").attr("src").indexOf("defender") > 1)
+      verifyContains(jq(toolbarbutton1).find("img").attr("src"), "defender")
     })
   }
 }

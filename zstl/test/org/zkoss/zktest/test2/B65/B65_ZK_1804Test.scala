@@ -21,13 +21,13 @@ class B65_ZK_1804Test extends ZTL4ScalaTestCase {
         click(jq(".z-calendar-title .z-calendar-text:eq(1)"))
         waitResponse()
         val cal = jq(".z-calendar").toWidget()
-        1 to 8 foreach { n =>
+        for (n <- 1 to 8) {
           click(cal.$n("right"))
         }
         waitResponse()
         verifyTrue("Should not be able to select year greater than 2099", !jq("td:contains(2100)").exists)
 
-        1 to 19 foreach { n =>
+        for (n <- 1 to 19) {
           click(cal.$n("left"))
         }
         waitResponse()

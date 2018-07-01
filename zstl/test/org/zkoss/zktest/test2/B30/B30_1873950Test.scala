@@ -49,12 +49,6 @@ class B30_1873950Test extends ZTL4ScalaTestCase {
       // Check z-index exists or not.
       var win1ZIndex = jq(win1).css("z-index")
       var win2ZIndex = jq(win2).css("z-index")
-      if (win1ZIndex == null || win1ZIndex.trim().length() == 0) {
-        verifyTrue("CSS may be changed, please check again and modify test case.", false)
-      }
-      if (win2ZIndex == null || win2ZIndex.trim().length() == 0) {
-        verifyTrue("CSS may be changed, please check again and modify test case.", false)
-      }
       verifyTrue(parseInt(win2ZIndex) > parseInt(win1ZIndex))
     })
   }

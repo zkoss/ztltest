@@ -38,7 +38,7 @@ class B50_ZK_620Test extends ZTL4ScalaTestCase {
       for (i <- 0 to 1) {
         var areaCave = areas(i).eq(0).toWidget.$n("cave")
         var areaHeight = jq(areaCave).outerHeight()
-        var areaPaddings = parseInt(jq(areaCave).css("padding-top").replaceAll("px", "")) + parseInt(jq(areaCave).css("padding-bottom").replaceAll("px", ""))
+        var areaPaddings = parseInt(jq(areaCave).css("padding-top")) + parseInt(jq(areaCave).css("padding-bottom"))
         var wh = jq(windows.eq(i)).outerHeight(true)
         println("north height minue padding (" + (areaHeight - areaPaddings) + ") should equal to window height (" + wh + ")")
         verifyTolerant((areaHeight - areaPaddings), wh, 2);

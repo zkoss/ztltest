@@ -32,33 +32,21 @@ class B35_2104921Test extends ZTL4ScalaTestCase {
       var eastBtn = jq("$e")
       var westBtn = jq("$w")
       // Click on the east button
-      if (!isSafari)
-        click(jq(eastBtn.toWidget().$n("btn")))
-      else
-        clickAt(jq(eastBtn.toWidget().$n("btn")), "2,2")
+      click(jq(eastBtn.toWidget().$n("btn")))
       waitResponse(true);
       // Click on the west button
-      if (!isSafari)
-        click(jq(westBtn.toWidget().$n("btn")))
-      else
-        clickAt(jq(westBtn.toWidget().$n("btn")), "2,2")
+      click(jq(westBtn.toWidget().$n("btn")))
       waitResponse(true);
 
       // Click on the East bar
-      if (!isSafari)
-        click(jq(eastBtn.toWidget().$n("colled")))
-      else
-        clickAt(jq(eastBtn.toWidget().$n("colled")), "2,2")
+      click(jq(eastBtn.toWidget().$n("colled")))
       waitResponse(true);
 
       // Verify the css style of the east zone. If the style contains the display attribute setted to block, it is visible
       verifyTrue("The east zone should be visible", jq("@east").eq(1).isVisible());
 
       // Click on the West bar
-      if (!isSafari)
-        click(jq(westBtn.toWidget().$n("colled")))
-      else
-        clickAt(jq(westBtn.toWidget().$n("colled")), "2,2")
+      click(jq(westBtn.toWidget().$n("colled")))
       waitResponse(true);
 
       // Verify the css style of the east zone. If the style contains the display attribute setted to none, 

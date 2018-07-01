@@ -120,8 +120,8 @@ class B60_ZK_1031Test extends ZTL4ScalaTestCase {
         click(btn);
         waitResponse();
         for (i <- 1 to 5) {
-          verifyTrue("Select index in label " + i + " should be 1",
-            engine.$f("lb" + i).$n().get("innerHTML").contains("1"));
+          verifyContains("Select index in label " + i + " should be 1",
+            engine.$f("lb" + i).$n().get("innerHTML"), "1")
         }
       }
     );

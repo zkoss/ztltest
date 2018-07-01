@@ -11,7 +11,7 @@ class B70_ZK_2468Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(
       () => {
-        verifyTrue(jq(".z-grid-body").width.equals(jq(".z-grid-body > table").width))
+        verifyEquals(jq(".z-grid-body").width(), jq(".z-grid-body > table").width())
       })
 
   }

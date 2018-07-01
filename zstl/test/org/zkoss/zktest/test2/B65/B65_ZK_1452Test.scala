@@ -9,16 +9,13 @@ class B65_ZK_1452Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       var col = jq("$col")
-      1 to 3 foreach { i =>
-        if (!isSafari)
-          click(col)
-        else
-          clickAt(col, "2,2")
-        waitResponse()
-      }
-
+      click(col)
+      waitResponse()
+      click(col)
+      waitResponse()
+      click(col)
+      waitResponse()
       verifyTrue("Should not see js error message", !jq(".z-errorbox").exists())
     })
-
   }
 }

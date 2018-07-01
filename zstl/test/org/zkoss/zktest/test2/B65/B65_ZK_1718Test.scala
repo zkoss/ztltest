@@ -27,7 +27,7 @@ class B65_ZK_1718Test extends ZTL4ScalaTestCase {
         click(db.$n("btn"))
         waitResponse()
 
-        21 to 30 foreach { n =>
+        for (n <- 21 to 30) {
           verifyTrue("should see the 2013/4/" + n + " after 2013/4/20 are disabled.",
             jq(".z-calendar-body td:contains(" + n + ")").hasClass("z-calendar-disabled"))
         }

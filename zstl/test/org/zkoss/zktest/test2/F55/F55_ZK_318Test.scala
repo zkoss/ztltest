@@ -58,8 +58,8 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
           clickAndWait(wgt);
 
           for (i <- 0 until cnt.length) {
-            verifyTrue("Should has this message: " + cnt(i),
-              box(i).$n().get("value").contains(cnt(i)));
+            verifyContains("Should has this message: " + cnt(i),
+              box(i).$n().get("value"), cnt(i))
           }
         }
 
@@ -135,9 +135,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
           jq(ppOne.$n()).is(":visible"));
 
         // step 10
-        // Skip IE, because IEDriver has an issue about mouse hovering
-        if (!isIE)
-          clickAndWait(cbx.$n("real"))
+        clickAndWait(cbx.$n("real"))
 
         // step 11
         clickAndWait(jq(".z-button:contains(change image)"))
@@ -162,11 +160,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         val bgColor = jq("@window .z-window-content").get(0).get("style.backgroundColor")
         clickAndWait(jq(bd2).toWidget.$n("btn"))
         openMenu(Array(pp2About, pp2Menu, pp2ColorPicker, pp2ColorPicker))
-        // FIXME: https://github.com/SeleniumHQ/selenium/issues/4292
-        if (isIE)
-          jq(".z-colorpalette-color:eq(22)").get(0).eval("click();'dummy'")
-        else
-          click(jq(".z-colorpalette-color:eq(22)"))
+        jq(".z-colorpalette-color:eq(22)").get(0).eval("click();'dummy'")
         waitResponse()
         verifyNotEquals("The background color didn't change", bgColor, jq("@window .z-window-content").get(0).get("style.backgroundColor"))
 

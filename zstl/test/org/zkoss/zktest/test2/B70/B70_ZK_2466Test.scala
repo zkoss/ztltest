@@ -15,7 +15,7 @@ class B70_ZK_2466Test extends ZTL4ScalaTestCase {
         click(btn);
         waitResponse();
         val AAA = jq(".z-column-content").first().text();
-        verifyTrue("AAA".equals(AAA));
+        verifyEquals("AAA", AAA)
 
       })
 

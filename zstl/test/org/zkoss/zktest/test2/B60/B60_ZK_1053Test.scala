@@ -72,21 +72,21 @@ class B60_ZK_1053Test extends ZTL4ScalaTestCase {
 
         focus(sbx);
         waitResponse();
-        verifyTrue("You should see the msg become 'msg: Selectbox onFocus'",
-          msg.$n().get("innerHTML").contains("msg: Selectbox onFocus"));
+        verifyContains("You should see the msg become 'msg: Selectbox onFocus'",
+          msg.$n().get("innerHTML"), "msg: Selectbox onFocus")
         blur(sbx);
         waitResponse();
-        verifyTrue("You should see the msg become 'msg: Selectbox onBlur'",
-          msg.$n().get("innerHTML").contains("msg: Selectbox onBlur"));
+        verifyContains("You should see the msg become 'msg: Selectbox onBlur'",
+          msg.$n().get("innerHTML"), "msg: Selectbox onBlur")
 
         focus(cbx.$n("inp"));
         waitResponse();
-        verifyTrue("You should see the msg become 'msg: Chosenbox onFocus'",
-          msg.$n().get("innerHTML").contains("msg: Chosenbox onFocus"));
+        verifyContains("You should see the msg become 'msg: Chosenbox onFocus'",
+          msg.$n().get("innerHTML"), "msg: Chosenbox onFocus")
         blur(cbx.$n("inp"));
         waitResponse();
-        verifyTrue("You should see the msg become 'msg: Chosenbox onBlur'",
-          msg.$n().get("innerHTML").contains("msg: Chosenbox onBlur"));
+        verifyContains("You should see the msg become 'msg: Chosenbox onBlur'",
+          msg.$n().get("innerHTML"), "msg: Chosenbox onBlur")
       }
     );
   }

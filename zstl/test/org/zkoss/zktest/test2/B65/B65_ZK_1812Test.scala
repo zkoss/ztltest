@@ -71,28 +71,27 @@ class B65_ZK_1812Test extends ZTL4ScalaTestCase {
         click(jq(".z-button:contains(fire event):eq(0)"))
         waitResponse()
         val lbl0 = jq(".z-label:contains(Actual Result)").eq(0).parent().next().find(".z-label")
-        verifyTrue(lbl0.text().contains("plain string"))
+        verifyContains(lbl0.text(), "plain string")
 
         click(jq(".z-button:contains(fire event):eq(1)"))
         waitResponse()
         val lbl1 = jq(".z-label:contains(Actual Result)").eq(1).parent().next().find(".z-label")
-        verifyTrue(lbl1.text().contains("attrValueWithEmptyName"))
+        verifyContains(lbl1.text(), "attrValueWithEmptyName")
 
         click(jq(".z-button:contains(fire event):eq(2)"))
         waitResponse()
         val lbl2 = jq(".z-label:contains(Actual Result)").eq(2).parent().next().find(".z-label")
-        verifyTrue(lbl2.text().contains("{\"attrName\" : \"attrValue\"}".replace(" ", "")))
+        verifyContains(lbl2.text(), "{\"attrName\":\"attrValue\"}")
 
         click(jq(".z-button:contains(fire event):eq(3)"))
         waitResponse()
         val lbl3 = jq(".z-label:contains(Actual Result)").eq(3).parent().next().find(".z-label")
-        verifyTrue(lbl3.text().contains("{\"attrName\" : \"attrValue\"}".replace(" ", "")))
+        verifyContains(lbl3.text(), "{\"attrName\":\"attrValue\"}")
 
         click(jq(".z-button:contains(fire event):eq(4)"))
         waitResponse()
         val lbl4 = jq(".z-label:contains(Actual Result)").eq(4).parent().next().find(".z-label")
-        verifyTrue(lbl4.text().contains("{\"\" : \"attrValueWithEmptyName\", \"attrName\" : \"attrValue\"}".replace(" ", "")))
+        verifyContains(lbl4.text(), "{\"\":\"attrValueWithEmptyName\",\"attrName\":\"attrValue\"}")
       })
-
   }
 }

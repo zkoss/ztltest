@@ -63,13 +63,13 @@ class B50_2974364Test extends ZTL4ScalaTestCase {
       waitResponse()
       var color = ColorVerifingHelper.isEqualColor("green", jq(bandinp).css("color"))
       verifyTrue(color)
-      if (!("bold".equals(jq(bandinp).css("font-weight")) || "700".equals(jq(bb.$n("real")).css("font-weight"))))
-        verifyTrue(false)
+      verifyEquals("bold", jq(bandinp).css("font-weight"))
+      verifyNotEquals("700", jq(bb.$n("real")).css("font-weight"))
       click(btn)
       waitResponse()
       verifyEquals(origColor, jq(bandinp).css("color"))
-      if (!("normal".equals(jq(bandinp).css("font-weight")) || "400".equals(jq(bandinp).css("font-weight"))))
-        verifyTrue(false)
+      verifyEquals("normal", jq(bandinp).css("font-weight"))
+      verifyNotEquals("400", jq(bb.$n("real")).css("font-weight"))
     })
   }
 }

@@ -30,7 +30,7 @@ class B50_3000987Test extends ZTL4ScalaTestCase {
 		ListitemRenderer lir = new ListitemRenderer() {
 
                     public void render( Listitem item, java.lang.Object data, int index ) {
-                        new Listcell( ( ( String ) data ).toUpperCase()).setParent( item );
+                        new Listcell( ( ( String ) data ).replaceAlltoUpperCase()).setParent( item );
                         item.setValue( data );
                     }
                 };

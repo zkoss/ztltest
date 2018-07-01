@@ -46,8 +46,12 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
 
         sleep(500);
         val v = jq("#zk_log").`val`()
-        verifyTrue("If you can see the log with '</script>' three times, the bug is fixed.",
-          v.contains("</Script>") && v.contains("</ScripT>") && v.contains("</ScrIpt>"))
+        verifyContains("If you can see the log with '</script>' three times, the bug is fixed.",
+          v, "</Script>")
+        verifyContains("If you can see the log with '</script>' three times, the bug is fixed.",
+          v, "</ScripT>")
+        verifyContains("If you can see the log with '</script>' three times, the bug is fixed.",
+          v, "</ScrIpt>")
       })
 
   }

@@ -30,10 +30,7 @@ class B80_ZK_3260Test extends ZTL4ScalaTestCase {
       click(jq(".z-datebox-button"))
       waitResponse()
       val cell = jq(".z-calendar-cell:eq(0)")
-      if (isSafari)
-        clickAt(cell, "1,1")
-      else
-        click(cell)
+      click(cell)
       waitResponse()
       verifyNotEquals("", jq(".z-datebox-input").`val`())
     })

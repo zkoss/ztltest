@@ -33,7 +33,8 @@ class B65_ZK_2028Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         var inp = jq(".z-chosenbox").toWidget().$n("inp")
-        List("book", "apple", "cake") foreach { item =>
+        var list = List("book", "apple", "cake")
+        for (item <- list) {
           sendKeys(inp, item)
           waitResponse(true)
           sleep(200)
@@ -41,10 +42,8 @@ class B65_ZK_2028Test extends ZTL4ScalaTestCase {
           waitResponse(true)
           sleep(200)
         }
-
         click(jq(".z-chosenbox-item:contains(cake) .z-chosenbox-delete"))
         waitResponse(true)
-
         verifyTrue("'book' and 'apple' should still be selected.",
           jq(".z-chosenbox-item:contains(apple)").exists
             && jq(".z-chosenbox-item:contains(book)").exists())

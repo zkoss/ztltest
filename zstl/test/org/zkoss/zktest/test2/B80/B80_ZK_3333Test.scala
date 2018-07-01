@@ -32,7 +32,7 @@ class B80_ZK_3333Test extends ZTL4ScalaTestCase {
       `type`(tb, "ss")
       click(jq("@button"))
       waitResponse()
-      verifyTrue(jq("@label:eq(1)").text().trim().endsWith("PROXY MSG : original messagess"))
+      verifyContains(jq("@label:eq(1)").text(), "PROXY MSG : original messagess")
       verifyEquals("original messagess", jq("@label:eq(2)").text())
     })
   }

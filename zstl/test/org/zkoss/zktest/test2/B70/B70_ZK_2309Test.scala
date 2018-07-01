@@ -68,15 +68,10 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     runZTL(zscript,
       () => {
         val ALLOWANCE = 1;
-
         click(jq("$maxL"));
         waitResponse();
-
         val outer = jq("$layout");
         val inner = jq("$left");
-
-        println(outer.width() + "," + inner.width() + "," + Math.abs(outer.width() - inner.width()));
-
         verifyTrue("the width of \"Left box\" should expand its width as its parent.", Math.abs(outer.width() - inner.width()) <= ALLOWANCE);
       })
 

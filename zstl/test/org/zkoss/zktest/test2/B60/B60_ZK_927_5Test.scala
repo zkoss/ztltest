@@ -96,11 +96,9 @@ class B60_ZK_927_5Test extends ZTL4ScalaTestCase {
         }
 
         def check(sbx: Widget, num: Int, checkLbl: Boolean) {
-          verifyTrue("",
-            sbx.$n().get("selectedIndex").contains(num + ""));
+          verifyContains(sbx.$n().get("selectedIndex"), num + "")
           if (checkLbl)
-            verifyTrue("",
-              lbl.$n().get("innerHTML").contains(num + ""));
+            verifyContains(lbl.$n().get("innerHTML"), num + "")
         }
 
         select(sel1, 2);
@@ -112,7 +110,7 @@ class B60_ZK_927_5Test extends ZTL4ScalaTestCase {
         waitResponse();
         click(reload);
         waitResponse();
-        verifyTrue("", lbl.$n().get("innerHTML").contains(0 + ""));
+        verifyContains(lbl.$n().get("innerHTML"), 0 + "")
 
         check(sel1, 2, false);
         check(sel2, 2, false);

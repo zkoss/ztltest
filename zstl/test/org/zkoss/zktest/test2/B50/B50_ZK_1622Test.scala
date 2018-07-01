@@ -10,10 +10,10 @@ class B50_ZK_1622Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
     runZTL(() => {
-      List("listbox", "tree") foreach { compName =>
+      var list = List("listbox", "tree")
+      for (compName <- list) {
         val main = jq("@" + compName).toWidget()
         verScroll(main, 1)
-
         var cell = "treecell"
         if (compName == "listbox")
           cell = "listcell"
@@ -27,6 +27,5 @@ class B50_ZK_1622Test extends ZTL4ScalaTestCase {
         verifyTolerant(jq(main.$n("cave")).outerHeight(), jq(main.$n("body")).scrollHeight(), 2)
       }
     })
-
   }
 }

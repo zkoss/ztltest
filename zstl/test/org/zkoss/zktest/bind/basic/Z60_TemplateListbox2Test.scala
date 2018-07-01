@@ -71,7 +71,7 @@ class Z60_TemplateListbox2Test extends ZTL4ScalaTestCase {
         verifyEquals("item index " + i, msg.get("value"))
         // verify template
         cell = outeritem.lastChild()
-        if (outerl.equals("A") || i == 2)
+        if (i == 0 || i == 2)
           verifyEquals("Model1", cell.get("label"))
         else
           verifyEquals("Model2", cell.get("label"))
@@ -95,7 +95,7 @@ class Z60_TemplateListbox2Test extends ZTL4ScalaTestCase {
         verifyEquals(outerl, cell.get("label")) // verify the label
         // verify template
         cell = outeritem.lastChild()
-        if (outerl.equals("A") || i == 2)
+        if (i == 0 || i == 2)
           verifyEquals("Model1", cell.get("label"))
         else
           verifyEquals("Model2", cell.get("label"))
@@ -119,7 +119,7 @@ class Z60_TemplateListbox2Test extends ZTL4ScalaTestCase {
         verifyEquals(outerl, cell.get("label")) // verify the label
         // verify template
         cell = outeritem.lastChild()
-        if (outerl.equals("A") || i == 2)
+        if (i == 0 || i == 2)
           verifyEquals("Model1", cell.get("label"))
         else
           verifyEquals("Model2", cell.get("label"))

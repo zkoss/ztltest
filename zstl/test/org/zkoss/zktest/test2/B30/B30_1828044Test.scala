@@ -61,31 +61,29 @@ class B30_1828044Test extends ZTL4ScalaTestCase {
    """
     runZTL(zscript,
       () => {
-        def isHidden = (wgt: ClientWidget) => jq(wgt).attr("style").contains("hidden")
-
         click(jq("@button:eq(0)"));
         waitResponse();
         //col1 must be visible & col2 invisible
-        val faker1 = jq(jq("$col1").toWidget().$n("hdfaker"))
-        val faker2 = jq(jq("$col2").toWidget().$n("hdfaker"))
-        verifyTrue(!isHidden(faker1));
-        verifyTrue(isHidden(faker2));
+        val faker1 = jq(jq("$col1").toWidget().$n("hdfaker")).attr("style")
+        val faker2 = jq(jq("$col2").toWidget().$n("hdfaker")).attr("style")
+        verifyNotContains(faker1, "hidden")
+        verifyContains(faker2, "hidden")
 
-        click(jq("@button:eq(0)"));
-        waitResponse();
+        click(jq("@button:eq(0)"))
+        waitResponse()
         //col1 must be invisible & col2 visible
-        verifyTrue(!isHidden(faker2));
-        verifyTrue(isHidden(faker1));
+        verifyNotContains(faker2, "hidden")
+        verifyContains(faker1, "hidden")
 
-        click(jq("@button:eq(1)"));
-        waitResponse();
+        click(jq("@button:eq(1)"))
+        waitResponse()
         //Header must be invisible & cols too
-        verifyTrue(!jq("$cols").isVisible());
+        verifyTrue(!jq("$cols").isVisible())
 
-        click(jq("@button:eq(1)"));
-        waitResponse();
+        click(jq("@button:eq(1)"))
+        waitResponse()
         //Cols must be visible
-        verifyTrue(jq("$cols").isVisible());
+        verifyTrue(jq("$cols").isVisible())
 
       }
     );

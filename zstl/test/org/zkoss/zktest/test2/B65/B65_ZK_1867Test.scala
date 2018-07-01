@@ -72,17 +72,17 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         click(jq(".z-listitem:contains(A)"))
         waitResponse()
         val row = jq(".z-row:visible")
-        println(row.length(), row.text())
-        verifyTrue("the grid shows only one row as same as your selection",
-          row.length() == 1 && row.text().contains("A"))
+        verifyEquals("the grid shows only one row as same as your selection",
+          row.length(), 1)
+        verifyContains(row.text(), "A")
 
         click(jq(".z-button:contains(add)"))
         waitResponse()
         val last = jq(".z-listitem:last-child")
         click(last)
         waitResponse()
-        verifyTrue("the new added item should be shown on grid",
-          last.text() == row.text())
+        verifyEquals("the new added item should be shown on grid",
+          last.text(), row.text())
 
       })
 

@@ -45,11 +45,11 @@ class B65_ZK_1524Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        List("z-window-embedded", "z-groupbox-3d", "z-panel") foreach { cmpClass =>
+        val clsList = List("z-window-embedded", "z-groupbox-3d", "z-panel")
+        for (cmpClass <- clsList) {
           val cnt = jq("." + cmpClass)
           verifyEquals("Width of 'Title' window and 'Caption' container should be the same.", cnt.find(":contains(Title)").width(), cnt.find(":contains(Caption)").width())
         }
       })
-
   }
 }

@@ -73,19 +73,18 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 		</vlayout>
 	</window>
 </zk>
-
-
 		"""
     runZTL(zscript, () => {
       var buttons = jq("@button")
-      for (i <- 0 to buttons.length() - 1) {
+      for (i <- 0 to 1) {
         click(buttons.eq(i))
         waitResponse()
         click(jq("@window").last().find("@button"))
         waitResponse()
         sleep(200)
-        var log: Array[String] = jq("#zk_log").`val`().split('\n');
-        verifyEquals(buttons.eq(i).text(), log(log.length - 1).trim)
+        verifyEquals(buttons.eq(i).text(), getZKLog())
+        closeZKLog()
+        waitResponse()
       }
     })
   }

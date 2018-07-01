@@ -49,7 +49,7 @@ class B30_2522437Test extends ZTL4ScalaTestCase {
       val contentAfter = getBodyText();
 
       // Verify that all is the same
-      verifyTrue("The html content should not be changed", contentBefore.equals(contentAfter));
+      verifyEquals("The html content should not be changed", contentBefore, contentAfter)
 
     })
   }

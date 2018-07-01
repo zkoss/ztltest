@@ -83,10 +83,10 @@ class F55_ZK_446Test extends ZTL4ScalaTestCase {
         def inputAndCheck(value: String, fired: String, shouldError: Boolean) {
           sendKeys(tbx, value);
           sleep(500);
-          verifyTrue("value should be identical",
-            lb.$n().get("innerHTML").equals(lb2.$n().get("innerHTML")));
-          verifyTrue("event should be fired if no error",
-            ib.$n().get("value").equals(fired));
+          verifyEquals("value should be identical",
+            lb.$n().get("innerHTML"), lb2.$n().get("innerHTML"))
+          verifyEquals("event should be fired if no error",
+            ib.$n().get("value"), fired)
           verifyTrue(jq(".z-errorbox").exists() == shouldError);
         }
 

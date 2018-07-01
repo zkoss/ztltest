@@ -56,10 +56,10 @@ class B36_2803575Test extends ZTL4ScalaTestCase {
     val btn = ztl$engine.$f("btn")
     runZTL(zscript, () => {
       sleep(1000); //for DataBinding
-      verifyTrue("Color is : " + jq("$label1").css("color"), "rgb(0, 0, 255)blue#0000ff".indexOf(jq("$label1").css("color")) > -1)
+      verifyContains("Color is : " + jq("$label1").css("color"), "rgb(0, 0, 255)blue#0000ff", jq("$label1").css("color"))
       click(jq("$btn"))
       waitResponse()
-      verifyTrue("Color is : " + jq("$label1").css("color"), "rgb(255, 0, 0)red#ff0000".indexOf(jq("$label1").css("color")) > -1)
+      verifyContains("Color is : " + jq("$label1").css("color"), "rgb(255, 0, 0)red#ff0000", jq("$label1").css("color"))
     })
   }
 }

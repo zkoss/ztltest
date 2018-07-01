@@ -18,8 +18,7 @@ class B60_ZK_1341Test extends ZTL4ScalaTestCase {
       click(engine.$f("db").$n("btn"))
       waitResponse()
       val datetimelongfmt = jq(jq(".z-datebox:eq(0)").toWidget().$n("real")).`val`()
-      println(datetimelongfmt, timelongfmt)
-      verifyTrue("should see correct date time in datebox.", datetimelongfmt.contains(timelongfmt))
+      verifyContains("should see correct date time in datebox.", datetimelongfmt, timelongfmt)
     })
   }
 }

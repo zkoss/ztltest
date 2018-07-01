@@ -16,29 +16,23 @@ class B70_ZK_2435Test extends ZTL4ScalaTestCase {
       click(btn);
       waitResponse();
       var john = jq(".z-listitem").first();
-      if (!isSafari)
-        click(john);
-      else
-        clickAt(john, "2,2");
+      click(john);
       waitResponse();
       var listbox = jq("@listbox").toWidget();
       val a = listbox.$n("a") //button can be focused and sendKey
       focus(a);
       sendKeys(a, Keys.ENTER);
       waitResponse();
-      verifyTrue(input.eval("val()").equals("John"));
+      verifyEquals(input.eval("val()"), "John")
       waitResponse();
       click(btn);
       waitResponse();
-      if (!isSafari)
-        click(john);
-      else
-        clickAt(john, "2,2");
+      click(john);
       waitResponse();
       focus(a);
       sendKeys(a, Keys.ESCAPE);
       waitResponse();
-      verifyTrue(input.eval("val()").equals(""));
+      verifyEquals(input.eval("val()"), "")
 
     })
 

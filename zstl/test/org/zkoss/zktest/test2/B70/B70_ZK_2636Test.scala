@@ -56,7 +56,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         waitResponse();
         click(save);
         sleep(1000);
-        verifyEquals("a\nValidate value: a", jq("#zk_log").eval("val()").trim());
+        verifyEquals("a\nValidate value: a", getZKLog());
       })
 
   }

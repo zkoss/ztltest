@@ -9,10 +9,7 @@ class B65_ZK_1540Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       val shadow = jq(".z-datebox").css("box-shadow")
-      var expectResult = "rgb(0, 165, 225) 0px 0px 6px 0px"
-      if (isIE || isEdge)
-        expectResult = "0px 0px 6px #00a5e1"
-      verifyEquals("Should see a blue shadow surrounding the datebox completely.", expectResult, shadow)
+      verifyContains("Should see a blue shadow surrounding the datebox completely.", "rgb(0, 165, 225) 0px 0px 6px 0px0px 0px 6px #00a5e1", shadow)
     })
 
   }

@@ -80,7 +80,7 @@ class B50_3095549Test extends ZTL4ScalaTestCase {
       click(jq("@button"))
       waitResponse()
       verifyEquals(4, jq("@treerow").length())
-      verifyTrue(jq("@treerow:eq(3)").text().contains("Item 1-3"))
+      verifyContains(jq("@treerow:eq(3)").text(), "Item 1-3")
     })
   }
 
@@ -144,7 +144,7 @@ class B50_3095549Test extends ZTL4ScalaTestCase {
       click(jq(".z-treerow").toWidget().$n("icon"))
       waitResponse()
       verifyEquals(4, jq("@treerow").length())
-      verifyTrue(jq("@treerow:eq(3)").text().contains("Item 1-3"))
+      verifyContains(jq("@treerow:eq(3)").text(), "Item 1-3")
     })
   }
 }

@@ -9,7 +9,8 @@ class B70_ZK_2003Test extends ZTL4ScalaTestCase {
     runZTL(
       () => {
         val split = jq(".z-north").toWidget.$n("split")
-        List("combobox", "bandbox") foreach { comp =>
+        var list = List("combobox", "bandbox")
+        for (comp <- list) {
           val wgt = jq(".z-" + comp).toWidget
           val wgtpp = wgt.$n("pp")
           click(wgt.$n("btn"))

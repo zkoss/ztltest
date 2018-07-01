@@ -50,13 +50,10 @@ class B50_2943174Test extends ZTL4ScalaTestCase {
                 	<button label="show size" w:onClick="var $tb = jq('$tb');var $lb = jq('$lb'); zk.log($tb.offset().left + $tb.outerWidth() == $lb.offset().left + $lb.outerWidth());" />
                 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
-    val tb = ztl$engine.$f("tb")
-    val lb = ztl$engine.$f("lb")
     runZTL(zscript, () => {
       click(jq("@button"))
       waitResponse()
-      verifyEquals("true", getZKLog().trim())
+      verifyContains(getZKLog(), "true")
     })
   }
 }

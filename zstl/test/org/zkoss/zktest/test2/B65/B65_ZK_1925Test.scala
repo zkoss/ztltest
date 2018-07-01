@@ -67,13 +67,11 @@ class B65_ZK_1925Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        0 to 1 foreach { index =>
+        for (index <- 0 to 1) {
           verifyTrue("The Red div should have the same height, as the green divs next to them",
             jq(".z-div:contains(inline)").eq(index).height() ==
               jq(".z-div:contains(sclass)").eq(index).height())
         }
-
       })
-
   }
 }

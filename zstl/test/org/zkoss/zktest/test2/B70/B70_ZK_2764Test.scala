@@ -32,7 +32,7 @@ class B70_ZK_2764Test extends ZTL4ScalaTestCase {
       var cellsString = ""
       for (i <- 0 to treeCells.length() - 1) {
         var cell = treeCells.eq(i)
-        cellsString += cell.text().trim
+        cellsString += cell.text()
       }
       verifyEquals(" node 1 (3) node 1.1 (2) node 1.1.1 (0) node 1.1.2 (1) node 2 (5) node 3 (7) node 4 (9) node 5 (11)",
         cellsString)
@@ -42,7 +42,7 @@ class B70_ZK_2764Test extends ZTL4ScalaTestCase {
       cellsString = ""
       for (i <- 0 to treeCells.length() - 1) {
         var cell = treeCells.eq(i)
-        cellsString += cell.text().trim
+        cellsString += cell.text()
       }
       verifyEquals(" node 1 (3). node 1.1 (2). node 1.1.1 (0). node 1.1.2 (1). node 2 (5). node 3 (7). node 4 (9). node 5 (11).",
         cellsString)
@@ -52,7 +52,7 @@ class B70_ZK_2764Test extends ZTL4ScalaTestCase {
       cellsString = ""
       for (i <- 0 to treeCells.length() - 1) {
         var cell = treeCells.eq(i)
-        cellsString += cell.text().trim
+        cellsString += cell.text()
       }
       verifyEquals(" node 1 (16) node 1.1 (15) node 1.1.1 (13) node 1.1.2 (14) node 2 (18) node 3 (20) node 4 (22) node 5 (24)",
         cellsString)

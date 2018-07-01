@@ -50,10 +50,10 @@ class B50_3309256Test extends ZTL4ScalaTestCase {
           dbx.$n("real").get("value").length() >= 8);
         verifyTrue("the text of the input element should be ready (length >= 8",
           tbx.$n("real").get("value").length() >= 8);
-        verifyFalse("If the text of the input element should not contains single quote (')",
-          dbx.$n("real").get("value").contains("'"));
-        verifyFalse("If the text of the input element should not contains single quote (')",
-          tbx.$n("real").get("value").contains("'"));
+        verifyNotContains("If the text of the input element should not contains single quote (')",
+          dbx.$n("real").get("value"), "'")
+        verifyNotContains("If the text of the input element should not contains single quote (')",
+          tbx.$n("real").get("value"), "'")
       }
     );
 

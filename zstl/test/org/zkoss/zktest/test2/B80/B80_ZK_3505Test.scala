@@ -18,22 +18,15 @@ class B80_ZK_3505Test extends ZTL4ScalaTestCase {
       val wd2captionid = jq(".z-window .z-caption").get(1).eval("id")
       var a = ""
       for (i <- 0 to 20) {
-        pressTab()
+        keyPressNative("9")
         a += getEval("document.activeElement.id") + " "
       }
-      verifyTrue("panel caption 1 should not be selected", a.indexOf(pn1captionid) == -1)
-      verifyTrue("panel caption 2 should be selected", a.indexOf(pn2captionid) != -1)
-      verifyTrue("groupbox caption 1 should not be selected", a.indexOf(gb1captionid) == -1)
-      verifyTrue("groupbox caption 2 should be selected", a.indexOf(gb2captionid) != -1)
-      verifyTrue("window caption 1 should not be selected", a.indexOf(wd1captionid) == -1)
-      verifyTrue("window caption 2 should be selected", a.indexOf(wd2captionid) != -1)
+      verifyNotContains("panel caption 1 should not be selected", a, pn1captionid)
+      verifyNotContains("panel caption 2 should be selected", a, pn2captionid)
+      verifyNotContains("groupbox caption 1 should not be selected", a, gb1captionid)
+      verifyNotContains("groupbox caption 2 should be selected", a, gb2captionid)
+      verifyNotContains("window caption 1 should not be selected", a, wd1captionid)
+      verifyNotContains("window caption 2 should be selected", a, wd2captionid)
     })
-  }
-
-  def pressTab(): Unit = {
-    if (isFirefox || isChrome)
-      sendKeys(jq("body"), Keys.TAB)
-    else
-      keyPressNative("9")
   }
 }

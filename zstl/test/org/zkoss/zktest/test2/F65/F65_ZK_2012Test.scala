@@ -64,8 +64,8 @@ class F65_ZK_2012Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         val log = jq("#zk_log").`val`()
-        verifyTrue("should see 'zk.ie: 11, zk.ff: false' in zk.log", log.contains("zk.ie: 11")
-          && log.contains("zk.ff: false"))
+        verifyContains("should see 'zk.ie: 11, zk.ff: false' in zk.log", log, "zk.ie: 11")
+        verifyContains("should see 'zk.ie: 11, zk.ff: false' in zk.log", log, "zk.ff: false")
         click(jq(".z-button"))
         waitResponse()
 

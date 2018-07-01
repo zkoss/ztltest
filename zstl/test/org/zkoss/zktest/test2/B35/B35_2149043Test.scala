@@ -54,7 +54,7 @@ class B35_2149043Test extends ZTL4ScalaTestCase {
       val img = engine.$f("f1").get("image");
 
       // Verify that the image is changed
-      verifyTrue("The image should be /test2/img/icon_email.png", img.contains("/test2/img/icon_email.png"));
+      verifyContains("The image should be /test2/img/icon_email.png", img, "/test2/img/icon_email.png")
 
       for (i <- -20 to 10 by (5))
         mouseMoveAt(jq(".z-fisheye:eq(0) img"), i + "," + i);

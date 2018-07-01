@@ -93,12 +93,12 @@ class B50_3322909Test extends ZTL4ScalaTestCase {
       waitResponse();
       click(btn2);
       waitResponse();
-      verifyTrue(getText(test.$n("empty")).contains("No items match your search"))
+      verifyContains(getText(test.$n("empty")), "No items match your search")
       click(btn1);
       waitResponse();
       click(btn2);
       waitResponse();
-      verifyTrue(getText(test.$n("empty")).contains("No items match your search"))
+      verifyContains(getText(test.$n("empty")), "No items match your search")
     }
 
     runZTL(zscript, executor);

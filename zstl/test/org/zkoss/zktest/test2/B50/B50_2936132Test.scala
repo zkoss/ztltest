@@ -92,9 +92,9 @@ class B50_2936132Test extends ZTL4ScalaTestCase {
       click(jq(".z-treerow:eq(0)").toWidget().$n("icon"))
       waitResponse()
       verifyEquals(6, jq("tr.z-treerow").length())
-      verifyTrue(jq(jq(".z-treecell:eq(1)").toWidget().$n("cave")).text().contains("Item 1-1"))
-      verifyTrue(jq(jq(".z-treecell:eq(2)").toWidget().$n("cave")).text().contains("Item 1-2"))
-      verifyTrue(jq(jq(".z-treecell:eq(3)").toWidget().$n("cave")).text().contains("Item 1-3"))
+      verifyContains(jq(jq(".z-treecell:eq(1)").toWidget().$n("cave")).text(), "Item 1-1")
+      verifyContains(jq(jq(".z-treecell:eq(2)").toWidget().$n("cave")).text(), "Item 1-2")
+      verifyContains(jq(jq(".z-treecell:eq(3)").toWidget().$n("cave")).text(), "Item 1-3")
     })
   }
 
@@ -171,9 +171,9 @@ class B50_2936132Test extends ZTL4ScalaTestCase {
       click(jq(".z-treerow:eq(0)").toWidget().$n("icon"))
       waitResponse()
       verifyEquals(6, jq("tr.z-treerow").length())
-      verifyTrue(jq(jq(".z-treecell:eq(1)").toWidget().$n("cave")).text().contains("Item 1-1"))
-      verifyTrue(jq(jq(".z-treecell:eq(2)").toWidget().$n("cave")).text().contains("Item 1-2"))
-      verifyTrue(jq(jq(".z-treecell:eq(3)").toWidget().$n("cave")).text().contains("Item 1-3"))
+      verifyContains(jq(jq(".z-treecell:eq(1)").toWidget().$n("cave")).text(), "Item 1-1")
+      verifyContains(jq(jq(".z-treecell:eq(2)").toWidget().$n("cave")).text(), "Item 1-2")
+      verifyContains(jq(jq(".z-treecell:eq(3)").toWidget().$n("cave")).text(), "Item 1-3")
     })
   }
 }

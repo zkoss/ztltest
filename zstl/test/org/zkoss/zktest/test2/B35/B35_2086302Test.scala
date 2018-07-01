@@ -35,10 +35,7 @@ class B35_2086302Test extends ZTL4ScalaTestCase {
     runZTL(
       () => {
         //click open button
-        if (isSafari)
-          clickAt(jq("@button"), "8,8");
-        else
-          click(jq("$bt1"));
+        click(jq("$bt1"));
         waitResponse(true);
 
         var bl1 = jq("$bl1");

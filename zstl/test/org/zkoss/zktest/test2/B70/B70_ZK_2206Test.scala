@@ -47,7 +47,7 @@ Clients.evalJavaScript("zk.log(zk.Widget.$('$abc') != null)");
         click(jq(".z-button"))
         waitResponse()
         sleep(200) // wait for the log to show up
-        verifyTrue("the log with a word 'true'", jq("#zk_log").`val`().trim() == "true")
+        verifyContains("the log with a word 'true'", getZKLog(), "true")
       })
 
   }

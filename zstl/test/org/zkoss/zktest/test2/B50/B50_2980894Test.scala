@@ -32,13 +32,13 @@ class B50_2980894Test extends ZTL4ScalaTestCase {
       click(cal.$n("ty"))
       waitResponse()
       var mid = cal.$n("mid")
-      verifyTrue(mid.get("className").contains("z-calendar-year"))
+      verifyContains(mid.get("className"), "z-calendar-year"))
       click(cal.$n("y0"))
       waitResponse()
-      verifyTrue(mid.get("className").contains("z-calendar-mon"))
+      verifyContains(mid.get("className"), "z-calendar-mon"))
       click(cal.$n("m0"))
       waitResponse()
-      verifyTrue(mid.get("className").contains("z-calendar-body"))
+      verifyContains(mid.get("className"), "z-calendar-body")
     })
   }
 }

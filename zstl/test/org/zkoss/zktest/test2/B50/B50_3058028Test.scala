@@ -63,10 +63,10 @@ class B50_3058028Test extends ZTL4ScalaTestCase {
         sendKeys(jq("@textbox"), Keys.TAB)
         waitResponse()
         var inp: Element = jq(".z-combobox").toWidget().$n("real")
-        verifyTrue(!"".equals(jq(jq(".z-combobox:eq(0)").toWidget().$n("real")).css("box-shadow")))
+        verifyNotEquals("", jq(jq(".z-combobox:eq(0)").toWidget().$n("real")).css("box-shadow"))
         sendKeys(inp, Keys.TAB)
         waitResponse()
-        verifyTrue(!"".equals(jq(jq(".z-combobox:eq(1)").toWidget().$n("real")).css("box-shadow")))
+        verifyNotEquals("", jq(jq(".z-combobox:eq(1)").toWidget().$n("real")).css("box-shadow"))
       }
     )
   }

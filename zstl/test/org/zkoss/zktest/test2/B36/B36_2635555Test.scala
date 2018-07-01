@@ -98,7 +98,7 @@ onBlur='self.style="background:white"' />
         waitResponse();
         var color = text.css("background-color");
 
-        verifyTrue(color.equals("rgb(255, 0, 0)"));
+        verifyEquals("rgb(255, 0, 0)", color);
 
       });
   }

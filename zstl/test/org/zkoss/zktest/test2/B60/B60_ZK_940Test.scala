@@ -62,24 +62,19 @@ class B60_ZK_940Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        Map("z-listitem" -> "Listitem 1", "z-treerow" -> "Treeitem 1") foreach { classWithLabel =>
-          val cls = classWithLabel._1
-          val label = classWithLabel._2
+        var clsList = List("z-listitem", "z-treerow")
+        var labelList = List("Listitem 1", "Treeitem 1")
+        for (cls <- clsList; label <- labelList) {
           val seltr = "." + cls
           val item1 = jq(seltr + ":contains(" + label + ")")
-
           click(item1)
           waitResponse()
           val items = jq(seltr + " " + seltr)
           verifyTrue("should NOT see any of other Listitems/Treeitems selected.", !items.hasClass(cls + "-seld"))
-
           mouseOver(item1)
           waitResponse()
           verifyTrue("the checkmark of other Listitems/Treeitems should NOT reflect hover state (blue color).", !items.hasClass(cls + "-over"))
-
         }
-
       })
-
   }
 }

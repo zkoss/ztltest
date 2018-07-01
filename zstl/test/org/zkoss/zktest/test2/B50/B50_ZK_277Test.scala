@@ -65,13 +65,13 @@ class B50_ZK_277Test extends ZTL4ScalaTestCase {
       waitResponse()
       sleep(300)
       for (i <- 0 until 10) {
-        verifyTrue(("option " + i).equals(jq(list.$n("rows")).find(".z-listcell").eq(i).text()))
+        verifyEquals(("option " + i), jq(list.$n("rows")).find(".z-listcell").eq(i).text())
       }
       clickAt(btn2, "5,5")
       waitResponse()
       sleep(300)
       for (i <- 0 until 10) {
-        verifyTrue(("plan " + i).equals(jq(list.$n("rows")).find(".z-listcell").eq(i).text()))
+        verifyEquals(("plan " + i), jq(list.$n("rows")).find(".z-listcell").eq(i).text())
       }
     })
   }

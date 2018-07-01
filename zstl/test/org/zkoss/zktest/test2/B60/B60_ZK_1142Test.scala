@@ -40,9 +40,9 @@ class B60_ZK_1142Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        val strs = List("Document", "Spreadsheet")
         val newMenu = jq(".z-menu:contains(New)")
-        strs foreach { str =>
+        val strs = List("Document", "Spreadsheet")
+        for (str <- strs) {
           click(jq("@menu:contains(File)"))
           waitResponse()
           click(newMenu)

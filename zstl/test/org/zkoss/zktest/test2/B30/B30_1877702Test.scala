@@ -49,7 +49,7 @@ class B30_1877702Test extends ZTL4ScalaTestCase {
       verifyEquals("onSelect is fired, aaa", jq("$msg").text())
       click(reset)
       waitResponse()
-      verifyTrue(jq(".z-combobx-input").`val`().isEmpty())
+      verifyEquals("", jq(".z-combobx-input").`val`())
       click(jq(jq(".z-combobox").toWidget().$n("btn")))
       waitResponse()
       click(jq(".z-comboitem:eq(0)"))

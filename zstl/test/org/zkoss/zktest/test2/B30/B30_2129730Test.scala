@@ -90,11 +90,11 @@ class Person {
       sleep(1000);
       //for DataBinding
       var firstName = jq(".z-textbox:eq(0)").`val`()
-      verifyTrue("First name: " + firstName, firstName.equals("Bill"))
+      verifyEquals("First name: " + firstName, "Bill", firstName)
       var lastName = jq(".z-textbox:eq(1)").`val`()
-      verifyTrue("Last Name: " + lastName, lastName.equals("Gates"))
-      verifyTrue("Column of Full Name is not empty.",
-        jq(jq(".z-listcell:eq(2)").toWidget().$n("cave")).children().length() == 0)
+      verifyEquals("Last Name: " + lastName, "Gates", lastName)
+      verifyEquals("Column of Full Name is not empty.", 0,
+        jq(jq(".z-listcell:eq(2)").toWidget().$n("cave")).children().length())
     })
   }
 }

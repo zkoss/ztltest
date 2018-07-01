@@ -83,12 +83,12 @@ class B36_2814504Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       click(jq("@window @button[label=\"change label\"]:eq(0)"))
       waitResponse()
-      verifyTrue(jq(jq("$i2").toWidget().$n("cave")).text().contains("test1"))
+      verifyContains(jq(jq("$i2").toWidget().$n("cave")).text(), "test1")
       click(jq("@window @button[label=\"change label\"]:eq(1)"))
       waitResponse()
       click(jq("[name=" + jq("@paging").attr("id") + "-prev]"))
       waitResponse()
-      verifyTrue(jq(jq("$i1").toWidget().$n("cave")).text().contains("test2"))
+      verifyContains(jq(jq("$i1").toWidget().$n("cave")).text(), "test2")
     })
   }
 }

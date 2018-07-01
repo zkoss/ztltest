@@ -84,10 +84,7 @@ class F60_ZK_701_TreeTest extends ZTL4ScalaTestCase {
         var clonedTree: Widget = null;
 
         def clickAndWait(wgt: ClientWidget) {
-          if (!isSafari)
-            click(wgt);
-          else
-            clickAt(wgt, "2,2")
+          click(wgt);
           waitResponse();
         }
 
@@ -105,8 +102,8 @@ class F60_ZK_701_TreeTest extends ZTL4ScalaTestCase {
         }
 
         def verifyOrder(wgt: Widget, content: String, order: Int) {
-          verifyTrue("The " + order + " th element should contains " + content,
-            jq(wgt).find(".z-treerow").get(order).get("innerHTML").contains(content));
+          verifyContains("The " + order + " th element should contains " + content,
+            jq(wgt).find(".z-treerow").get(order).get("innerHTML"), content)
         }
 
         selectItem(tree, "/src");

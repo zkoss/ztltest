@@ -12,13 +12,11 @@ class B85_ZK_3756Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit = {
     runZTL(() => {
-      verifyEquals("included", jq("@include").text.trim)
-
+      verifyContains(jq("@include").text(), "included")
       click(jq("@button"))
       waitResponse()
-
-      verifyEquals(2, jq("@include").length)
-      verifyEquals("included", jq("@include:eq(1)").text.trim)
+      verifyEquals(2, jq("@include").length())
+      verifyContains(jq("@include:eq(1)").text(), "included")
     })
   }
 }

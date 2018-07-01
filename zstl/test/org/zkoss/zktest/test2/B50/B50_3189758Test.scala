@@ -248,16 +248,16 @@ class B50_3189758Test extends ZTL4ScalaTestCase {
           var lbCnt1: Int = jq(cel1).find(".z-label").length;
           var lbCnt2: Int = jq(cel2).find(".z-label").length;
 
-          verifyTrue("the amount of label in both column should be equal",
-            lbCnt1 == lbCnt2);
+          verifyEquals("the amount of label in both column should be equal",
+            lbCnt1, lbCnt2)
           for (i <- 0 until lbCnt1) {
             var lb1: Element = jq(cel1).find(".z-label").get(i);
             var lb2: Element = jq(cel2).find(".z-label").get(i);
 
-            verifyTrue("the class name of both label should be equal",
-              lb1.get("className").equals(lb2.get("className")));
-            verifyTrue("the innerHTML of both label should be equal",
-              lb1.get("innerHTML").equals(lb2.get("innerHTML")));
+            verifyEquals("the class name of both label should be equal",
+              lb1.get("className"), lb2.get("className"))
+            verifyEquals("the innerHTML of both label should be equal",
+              lb1.get("innerHTML"), lb2.get("innerHTML"))
           }
         }
       }

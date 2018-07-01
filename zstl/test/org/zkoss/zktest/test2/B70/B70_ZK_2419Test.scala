@@ -58,7 +58,8 @@ public class SliderDoubleVM {
         waitResponse();
         dragdropTo(sliderBtn, "0,0", "55,0");
         waitResponse();
-        verifyTrue(jq(".z-label").last().text().equals("3.5") && sliderBtn.attr("title").equals("3.5"));
+        verifyEquals("3.5", jq(".z-label").last().text())
+        verifyEquals("3.5", sliderBtn.attr("title"))
       })
 
   }

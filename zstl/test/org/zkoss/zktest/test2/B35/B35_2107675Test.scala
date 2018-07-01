@@ -38,12 +38,11 @@ class B35_2107675Test extends ZTL4ScalaTestCase {
 		</zk>
 	</zk>
 </zk>
-
 		"""
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     runZTL(zscript, () => {
-      verifyEquals("Correct 4", jq("@label:eq(1)").text().trim())
-      verifyEquals("Correct 3", jq("@label:eq(2)").text().trim())
+      verifyContains(jq("@label:eq(1)").text(), "Correct 4")
+      verifyContains(jq("@label:eq(2)").text(), "Correct 3")
     })
   }
 }

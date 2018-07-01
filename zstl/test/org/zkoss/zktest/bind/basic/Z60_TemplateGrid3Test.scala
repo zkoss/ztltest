@@ -50,14 +50,8 @@ class Z60_TemplateGrid3Test extends ZTL4ScalaTestCase {
         outerrow = outerrow.nextSibling();
       }
       // ===========================================
-      var btns = jq("@button");
-
-      for (i <- 0 to btns.length() - 1) {
-        if ("change1".equals(btns.eq(i).toWidget().get("label"))) {
-          click(btns.eq(i).toWidget());
-          waitResponse();
-        }
-      }
+      click(jq("$chgBtn1"))
+      waitResponse();
       outerbox = jq("$outergrid").toWidget();
       outerrows = jq(outerbox).find("@rows").toWidget().firstChild();
       itemLabel = Array("X", "A", "C", "D");
@@ -79,13 +73,8 @@ class Z60_TemplateGrid3Test extends ZTL4ScalaTestCase {
         outerrow = outerrow.nextSibling();
       }
       // ===========================================
-      btns = jq("@button");
-      for (i <- 0 to btns.length() - 1) {
-        if ("change2".equals(btns.eq(i).toWidget().get("label"))) {
-          click(btns.eq(i).toWidget());
-          waitResponse();
-        }
-      }
+      click(jq("$chgBtn2"))
+      waitResponse();
       outerbox = jq("$outergrid").toWidget();
       outerrows = jq(outerbox).find("@rows").toWidget().firstChild();
       itemLabel = Array("A", "B", "C", "D");

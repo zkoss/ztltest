@@ -8,10 +8,7 @@ class B36_2973306Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       var detail = jq("$detail").toWidget
-      if (!isSafari)
-        click(detail.$n("icon"))
-      else
-        clickAt(detail.$n("icon"), "2,2")
+      click(detail.$n("icon"))
       waitResponse()
       verifyEquals(1, jq(detail.$n("fake")).find(">td").length())
     })

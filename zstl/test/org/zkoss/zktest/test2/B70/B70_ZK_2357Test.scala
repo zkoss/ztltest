@@ -59,18 +59,18 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         val tbox = jq("$tbox");
         contextMenu(jq("@button").eq(0));
         waitResponse();
-        verifyTrue("button should be triggered.", tbox.toWidget().get("value").equals("1"));
+        verifyEquals("button should be triggered.", "1", tbox.toWidget().get("value"));
         click(jq("@menu"));
         waitResponse();
         contextMenu(jq("@menuitem").eq(0));
         waitResponse();
-        verifyTrue("button should be triggered.", tbox.toWidget().get("value").equals("2"));
+        verifyEquals("button should be triggered.", "2", tbox.toWidget().get("value"))
         contextMenu(jq("@menuitem").eq(1));
         waitResponse();
-        verifyTrue("button should be triggered.", tbox.toWidget().get("value").equals("3"));
+        verifyEquals("button should be triggered.", "3", tbox.toWidget().get("value"))
         contextMenu(jq("@toolbarbutton"));
         waitResponse();
-        verifyTrue("button should be triggered.", tbox.toWidget().get("value").equals("4"));
+        verifyEquals("button should be triggered.", "4", tbox.toWidget().get("value"))
       })
 
   }

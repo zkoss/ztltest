@@ -72,12 +72,12 @@ class B50_ZK_488Test extends ZTL4ScalaTestCase {
       mouseMoveAt(lb2, "25,25")
       mouseUp(lb2)
       waitResponse()
-      verifyTrue("li1 in lb2".equals(tb.$n().get("value")))
+      verifyEquals("li1 in lb2", tb.$n().get("value"))
       mouseDownAt(li2, "5,5")
       mouseMoveAt(lb1, "25,25")
       mouseUp(lb1)
       waitResponse()
-      verifyTrue("li2 in lb1".equals(tb.$n().get("value")))
+      verifyEquals("li2 in lb1", tb.$n().get("value"))
     })
   }
 }

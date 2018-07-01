@@ -34,7 +34,7 @@ class Z60_Touch_018Test extends ZTL4ScalaTestCase {
 				var color_pp = jq(jq(".z-colorbox").toWidget().$n("pp"))
 				verifyTrue(color_pp.isVisible());
 				
-				var pp_top = color_pp.css("top").replaceAll("px","").toInt;
+				var pp_top = parseInt(color_pp.css("top"));
 				verifyTrue(pageHeight - pp_top < 10);
 				
 				var color_palette = color_pp.find(".z-colorpalette");

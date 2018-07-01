@@ -54,7 +54,8 @@ class B50_ZK_1523Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        List("one", "two") foreach { text =>
+        var list = List("one", "two")
+        for (text <- list) {
           click(jq(".z-button:contains(test " + text + ")"))
           waitResponse()
           val win = jq(".z-messagebox-window")

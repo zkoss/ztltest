@@ -37,8 +37,8 @@ class B60_ZK_1377Test extends ZTL4ScalaTestCase {
         waitResponse()
         sendKeys(box, Keys.TAB)
         waitResponse()
-        verifyTrue("the window title should change to the value you edited",
-          jq(jq(".z-window-embedded").toWidget().$n("cap")).text().contains("123"))
+        verifyContains("the window title should change to the value you edited",
+          jq(jq(".z-window-embedded").toWidget().$n("cap")).text(), "123")
 
       })
 

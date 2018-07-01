@@ -16,21 +16,19 @@ package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.Tags;
+import org.zkoss.ztl.{IgnoreBrowsers, Tags};
 
 /**
   *
   * @author Sefi
   */
-@Tags(tags = "")
+@IgnoreBrowsers("chrome,ff,safari,edge,ie10,ie9")
 class B80_ZK_3156Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {
     runZTL(() => {
-      val lb = jq(".z-label:eq(1)").text();
-      if (isEdge()) {
-        verifyTrue(lb.length > 6)
-      }
+      val lb = jq(".z-label:eq(1)").text()
+      verifyTrue(lb.length > 6)
     })
   }
 }

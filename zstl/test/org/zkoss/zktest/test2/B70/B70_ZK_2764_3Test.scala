@@ -60,7 +60,7 @@ class B70_ZK_2764_3Test extends ZTL4ScalaTestCase {
       for (i <- 0 to treeCells.length()) {
         var treeCell = treeCells.eq(i);
         println("print treecelltext: " + treeCell.text() + ", " + origList(i))
-        verifyTrue(treeCell.text().contains(origList(i)))
+        verifyContains(treeCell.text(), origList(i))
       }
     })
   }

@@ -28,7 +28,7 @@ class F85_ZK_3739Test extends ZTL4ScalaTestCase {
       waitResponse()
 
       // Check server
-      verifyEquals("==SELECT DISTINCT ======================", getZKLog.trim)
+      verifyEquals("==SELECT DISTINCT ======================", getZKLog())
     })
   }
 }

@@ -26,7 +26,7 @@ class B80_ZK_2906Test extends ZTL4ScalaTestCase {
 
         val itemText = jq(".z-chosenbox-empty span").text()
         // check the content of the first item is '`&<>"'
-        verifyTrue("expecting '`&<>\", got: " + itemText, itemText.equals("Create new contact ''`&<>\"'"))
+        verifyEquals("expecting '`&<>\", got: " + itemText, "Create new contact ''`&<>\"'", itemText)
       })
   }
 }

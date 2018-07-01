@@ -61,34 +61,33 @@ class F80_ZK_3133Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript, () => {
 
-      verifyTrue(jq("#zk_log").`val`().trim() == "onCreate")
+      verifyTrue(getZKLog(), "onCreate")
 
       var zwin = jq(".z-window-content")
-      val zwin1orgw = zwin.eq(0).text.trim.split(" > ")(1).replace("px", "").toInt
-      val zwin2orgw = zwin.eq(1).text.trim.split(" > ")(1).replace("px", "").toInt
-      setWindowSize(450, getWindowHeight)
+      val zwin1orgw = parseInt(zwin.eq(0).text())
+      val zwin2orgw = parseInt(zwin.eq(1).text())
+      setWindowSize(450, getWindowHeight())
       waitResponse()
 
-      val zwin1w = zwin.eq(0).text.trim.split(" = ")(1).replace("px", "").toInt
-      val zwin2w = zwin.eq(1).text.trim.split(" = ")(1).replace("px", "").toInt
+      val zwin1w = parseInt(zwin.eq(0).text())
+      val zwin2w = parseInt(zwin.eq(1).text())
       verifyTrue(zwin1w < zwin1orgw)
       verifyTrue(zwin2w < zwin2orgw)
 
-      refresh();
+      refresh()
       waitForPageToLoad("10000");
       runRawZscript(zscript)
       waitResponse()
 
-
       zwin = jq(".z-window-content")
-      verifyEquals(zwin1w, zwin.eq(0).text.trim.split(" = ")(1).replace("px", "").toInt)
-      verifyEquals(zwin2w, zwin.eq(1).text.trim.split(" = ")(1).replace("px", "").toInt)
+      verifyEquals(zwin1w, parseInt(zwin.eq(0).text()))
+      verifyEquals(zwin2w, parseInt(zwin.eq(1).text()))
 
-      setWindowSize(550, getWindowHeight)
+      setWindowSize(550, getWindowHeight())
       waitResponse()
 
-      verifyEquals(zwin.eq(0).text.trim, "browser width > 500px")
-      verifyEquals(zwin.eq(1).text.trim, "browser width > 500px")
+      verifyContains(zwin.eq(0).text(), "browser width > 500px")
+      verifyContains(zwin.eq(1).text(), "browser width > 500px")
 
     })
   }

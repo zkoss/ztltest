@@ -122,9 +122,9 @@ ListModel people = new BindingListModelList(peopleList, true);
       click(jq(add))
       waitResponse()
       var lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")")
-      verifyTrue("The name of last row is not match. Name: " + lastRecName.`val`(), lastRecName.`val`().equals("A"))
+      verifyEquals("The name of last row is not match. Name: " + lastRecName.`val`(), "A", lastRecName.`val`())
       var lastRecBalance = jq(".z-decimalbox:eq(" + (jq(".z-decimalbox").length() - 2) + ")")
-      verifyTrue("The balance of last row is not match. Balance: " + lastRecBalance.`val`(), lastRecBalance.`val`().equals("123"))
+      verifyEquals("The balance of last row is not match. Balance: " + lastRecBalance.`val`(), "123", lastRecBalance.`val`())
       // B, -123
       sendKeys(jq(newName), "B")
       sendKeys(jq(newBalance), "-123")
@@ -132,9 +132,9 @@ ListModel people = new BindingListModelList(peopleList, true);
       click(jq(add))
       waitResponse()
       lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")")
-      verifyTrue("The name of last row is not match. Name: " + lastRecName.`val`(), lastRecName.`val`().equals("B"))
+      verifyEquals("The name of last row is not match. Name: " + lastRecName.`val`(), "B", lastRecName.`val`())
       lastRecBalance = jq(".z-decimalbox:eq(" + (jq(".z-decimalbox").length() - 2) + ")")
-      verifyTrue("The balance of last row is not match. Balance: " + lastRecBalance.`val`(), lastRecBalance.`val`().equals("-123"))
+      verifyEquals("The balance of last row is not match. Balance: " + lastRecBalance.`val`(), "-123", lastRecBalance.`val`())
       // C, 1.255
       sendKeys(jq(newName), "C")
       sendKeys(jq(newBalance), "1.255")
@@ -142,9 +142,9 @@ ListModel people = new BindingListModelList(peopleList, true);
       click(jq(add))
       waitResponse()
       lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")")
-      verifyTrue("The name of last row is not match. Name: " + lastRecName.`val`(), lastRecName.`val`().equals("C"))
+      verifyEquals("The name of last row is not match. Name: " + "C", lastRecName.`val`(), lastRecName.`val`())
       lastRecBalance = jq(".z-decimalbox:eq(" + (jq(".z-decimalbox").length() - 2) + ")")
-      verifyTrue("The balance of last row is not match. Balance: " + lastRecBalance.`val`(), lastRecBalance.`val`().equals("1.26"))
+      verifyEquals("The balance of last row is not match. Balance: " + lastRecBalance.`val`(), "1.26", lastRecBalance.`val`())
       // D, 1.285
       sendKeys(jq(newName), "D")
       sendKeys(jq(newBalance), "1.285")
@@ -152,9 +152,9 @@ ListModel people = new BindingListModelList(peopleList, true);
       click(jq(add))
       waitResponse()
       lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")")
-      verifyTrue("The name of last row is not match. Name: " + lastRecName.`val`(), lastRecName.`val`().equals("D"))
+      verifyEquals("The name of last row is not match. Name: " + lastRecName.`val`(), "D", lastRecName.`val`())
       lastRecBalance = jq(".z-decimalbox:eq(" + (jq(".z-decimalbox").length() - 2) + ")")
-      verifyTrue("The balance of last row is not match. Balance: " + lastRecBalance.`val`(), lastRecBalance.`val`().equals("1.28"))
+      verifyEquals("The balance of last row is not match. Balance: " + lastRecBalance.`val`(), "1.28", lastRecBalance.`val`())
       // E, 12345678901234567890
       sendKeys(jq(newName), "E")
       sendKeys(jq(newBalance), "12345678901234567890")
@@ -162,10 +162,10 @@ ListModel people = new BindingListModelList(peopleList, true);
       click(jq(add))
       waitResponse()
       lastRecName = jq(".z-textbox:eq(" + (jq(".z-textbox").length() - 2) + ")")
-      verifyTrue("The name of last row is not match. Name: " + lastRecName.`val`(), lastRecName.`val`().equals("E"))
+      verifyEquals("The name of last row is not match. Name: " + lastRecName.`val`(), "E", lastRecName.`val`())
       lastRecBalance = jq(".z-decimalbox:eq(" + (jq(".z-decimalbox").length() - 2) + ")")
-      verifyTrue("The balance of last row is not match. Balance: " + lastRecBalance.`val`(),
-        lastRecBalance.`val`().equals("12,345,678,901,234,567,890"))
+      verifyEquals("The balance of last row is not match. Balance: " + lastRecBalance.`val`(), "12,345,678,901,234,567,890",
+        lastRecBalance.`val`())
     })
   }
 }

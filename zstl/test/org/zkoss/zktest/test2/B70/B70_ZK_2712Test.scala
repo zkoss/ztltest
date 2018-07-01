@@ -82,7 +82,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       click(jq("@button"))
       waitResponse()
       verifyEquals(1, jq("@treerow").length())
-      verifyTrue(jq(".z-treecell-content").text().contains("New item"))
+      verifyContains(jq(".z-treecell-content").text(), "New item")
     })
   }
 }

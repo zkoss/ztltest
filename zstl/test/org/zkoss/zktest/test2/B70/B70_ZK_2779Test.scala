@@ -52,23 +52,22 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """
     runZTL(zscript,
       () => {
-        val log = jq("#zk_log")
         val msg_1 = "selection count after unchecked is 22"
         val msg_2 = msg_1 + "\nselection count after unchecked is 11"
         val msg_3 = msg_2 + "\nselection count after unchecked is 0"
         val msg_4 = msg_3 + "\nselection count after unchecked is 11"
         click(jq(".z-treerow-checkbox:eq(0)"))
         waitResponse()
-        verifyEquals(msg_1, log.eval("val()").trim)
+        verifyEquals(msg_1, getZKLog())
         click(jq(".z-treerow-checkbox:eq(1)"))
         waitResponse()
-        verifyEquals(msg_2, log.eval("val()").trim)
+        verifyEquals(msg_2, getZKLog())
         click(jq(".z-treerow-checkbox:eq(2)"))
         waitResponse()
-        verifyEquals(msg_3, log.eval("val()").trim)
+        verifyEquals(msg_3, getZKLog())
         click(jq(".z-treerow-checkbox:eq(2)"))
         waitResponse()
-        verifyEquals(msg_4, log.eval("val()").trim)
+        verifyEquals(msg_4, getZKLog())
       })
   }
 }

@@ -63,7 +63,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       () => {
         click(jq(".z-combobox-button").eq(0));
         waitResponse();
-        verifyEquals("Clicked", jq("#zk_log").eval("val()").trim());
+        verifyContains(getZKLog(), "Clicked")
         verifyTrue(jq(".z-listitem").eq(0).hasClass("z-listitem-selected"));
       })
 

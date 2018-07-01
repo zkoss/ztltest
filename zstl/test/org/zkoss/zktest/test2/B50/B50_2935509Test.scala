@@ -71,8 +71,8 @@ class B50_2935509Test extends ZTL4ScalaTestCase {
         waitResponse();
 
         def checkHeader(i: Int, content: String) {
-          verifyTrue("header " + (i + 1) + " should contains " + content,
-            jq(gg.$n("head")).find(".z-columns").find(".z-column").eq(i).text().contains(content));
+          verifyContains("header " + (i + 1) + " should contains " + content,
+            jq(gg.$n("head")).find(".z-columns").find(".z-column").eq(i).text(), content)
         }
 
         checkHeader(0, "11");

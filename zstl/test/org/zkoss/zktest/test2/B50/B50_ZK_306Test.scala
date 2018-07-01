@@ -127,28 +127,10 @@ class B50_ZK_306Test extends ZTL4ScalaTestCase {
     }
 
     def checkNumber(wgt: Widget, cnt: java.lang.Integer) {
-      verifyTrue(jq(wgt.$n()).get(0).get("innerHTML").split("@").length == cnt + 1);
+      verifyContains(jq(wgt.$n()).get(0).get("innerHTML"), cnt.toString());
     }
 
     runZTL(zscript, executor);
 
-    // Run syntax 2
-    /**
-      * runZTL(zscript,
-      * () => {
-      * var l1: Widget = engine.$f("l1");
-      * var l2: Widget = engine.$f("l2");
-      * waitResponse();
-      * var strClickBefor = getText(l1);
-      * click(l1);
-      * waitResponse();
-      * verifyNotEquals(strClickBefor, getText(l1));
-      * strClickBefor = getText(l2);
-      * click(l2);
-      * waitResponse();
-      * verifyNotEquals(strClickBefor, getText(l2));
-      * }
-      * );
-      */
   }
 }

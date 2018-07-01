@@ -49,8 +49,8 @@ class B50_3278524Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         waitResponse();
-        verifyTrue("Should appear a log message 'false'",
-          jq("#zk_log").get(0).get("value").contains("false"));
+        verifyContains("Should appear a log message 'false'",
+          jq("#zk_log").get(0).get("value"), "false")
       }
     );
 

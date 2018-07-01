@@ -41,9 +41,9 @@ class B30_1829397Test extends ZTL4ScalaTestCase {
     """
     runZTL(zscript, () => {
       verifyTrue(jq("$v").isVisible());
-      verifyTrue(jq(".z-label").eq(0).text().contains("You shall see only one label below:"));
+      verifyContains(jq(".z-label").eq(0).text(), "You shall see only one label below:")
       sleep(1100);
-      verifyTrue(jq(".z-label").eq(1).text().contains("You shall see this label only once!!!"));
+      verifyContains(jq(".z-label").eq(1).text(), "You shall see this label only once!!!")
     })
   }
 }

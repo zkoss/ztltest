@@ -29,7 +29,7 @@ class B60_ZK_1101Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        1 to 3 foreach { it =>
+        for (it <- 1 to 3) {
           click(jq(".z-button:contains(addChild)"))
           waitResponse()
         }

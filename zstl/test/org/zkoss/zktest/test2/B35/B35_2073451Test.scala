@@ -31,18 +31,8 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
 
-      if (!isIE && !isEdge) {
-        click(jq("$anc"));
-        // Press the TAB key
-        // Note: Does not work on Chrome due to a ChromeDriver issue: http://code.google.com/p/selenium/issues/detail?id=2328
-        sendKeys(jq("$anc"), Keys.TAB);
-        waitResponse();
-      } else { // ie cant focus correct
-        click(jq("$FocusOnMe"));
-        waitResponse();
-      }
-      // Fails with sendKeys. I works clicking on the button
-      // click(jq(".z-button:contains(FocusOnMe)"));
+      click(jq("$FocusOnMe"));
+      waitResponse();
 
       // Verify that the label of the button is correct
       verifyTrue("The button label must be 'Focused OK'", jq(".z-button:contains(Focused OK)").exists());
@@ -65,7 +55,7 @@ class B35_2073451Test extends ZTL4ScalaTestCase {
 
       waitForPageToLoad("2000")
       // Verify that the google page is opened by verifying the existence of the "Search" button
-      verifyTrue("The visible page should be www.google.com", getEval("location.href").contains("google"));
+      verifyContains("The visible page should be www.google.com", getEval("location.href"), "google");
 
 
     })

@@ -156,20 +156,20 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         waitResponse();
         sendKeys(inp, Keys.ENTER);
         waitResponse();
-        verifyTrue(inp.attr("value").equals("2"));
-        verifyFalse(value.equals(target.html()));
-        value = target.html();
+        verifyEquals("2", inp.attr("value"))
+        verifyNotEquals(target.html(), value)
+        value = target.html()
 
         sendKeys(inp, Keys.PAGE_UP);
         waitResponse();
-        verifyTrue(inp.attr("value").equals("1"));
-        verifyFalse(value.equals(target.html()));
+        verifyEquals("1", inp.attr("value"))
+        verifyNotEquals(target.html(), value)
         value = target.html();
 
         sendKeys(inp, Keys.PAGE_DOWN);
         waitResponse();
-        verifyTrue(inp.attr("value").equals("2"));
-        verifyFalse(value.equals(target.html()));
+        verifyEquals("2", inp.attr("value"))
+        verifyNotEquals(target.html(), value)
         value = target.html();
 
         // second input
@@ -182,21 +182,20 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         sendKeys(inp, Keys.ARROW_DOWN);
         waitResponse();
         sendKeys(inp, Keys.ENTER);
-        waitResponse();
-        verifyTrue(inp.attr("value").equals("1"));
-        verifyFalse(value.equals(target.html()));
+        verifyEquals("1", inp.attr("value"))
+        verifyNotEquals(target.html(), value)
         value = target.html();
 
         sendKeys(inp, Keys.PAGE_DOWN);
         waitResponse();
-        verifyTrue(inp.attr("value").equals("2"));
-        verifyFalse(value.equals(target.html()));
+        verifyEquals("2", inp.attr("value"))
+        verifyNotEquals(target.html(), value)
         value = target.html();
 
         sendKeys(inp, Keys.PAGE_UP);
         waitResponse();
-        verifyTrue(inp.attr("value").equals("1"));
-        verifyFalse(value.equals(target.html()));
+        verifyEquals("1", inp.attr("value"))
+        verifyNotEquals(target.html(), value)
         value = target.html();
 
         // third input
@@ -210,20 +209,20 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         waitResponse();
         sendKeys(inp, Keys.ENTER);
         waitResponse();
-        verifyTrue(inp.attr("value").equals("2"));
-        verifyFalse(value.equals(target.html()));
+        verifyEquals("2", inp.attr("value"))
+        verifyNotEquals(target.html(), value)
         value = target.html();
 
         sendKeys(inp, Keys.PAGE_UP);
         waitResponse();
-        verifyTrue(inp.attr("value").equals("1"));
-        verifyFalse(value.equals(target.html()));
+        verifyEquals("1", inp.attr("value"))
+        verifyNotEquals(target.html(), value)
         value = target.html();
 
         sendKeys(inp, Keys.PAGE_DOWN);
         waitResponse();
-        verifyTrue(inp.attr("value").equals("2"));
-        verifyFalse(value.equals(target.html()));
+        verifyEquals("2", inp.attr("value"))
+        verifyNotEquals(target.html(), value)
         value = target.html();
 
         // fourth input
@@ -237,21 +236,20 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         waitResponse();
         sendKeys(inp, Keys.ENTER);
         waitResponse();
-        verifyTrue(inp.attr("value").equals("2"));
-        verifyFalse(value.equals(target.html()));
+        verifyEquals("2", inp.attr("value"))
+        verifyNotEquals(target.html(), value)
         value = target.html();
 
         sendKeys(inp, Keys.PAGE_UP);
         waitResponse();
-        verifyTrue(inp.attr("value").equals("1"));
-        verifyFalse(value.equals(target.html()));
+        verifyEquals("1", inp.attr("value"))
+        verifyNotEquals(target.html(), value)
         value = target.html();
 
         sendKeys(inp, Keys.PAGE_DOWN);
         waitResponse();
-        verifyTrue(inp.attr("value").equals("2"));
-        verifyFalse(value.equals(target.html()));
-        value = target.html();
+        verifyEquals("2", inp.attr("value"))
+        verifyNotEquals(target.html(), value)
       })
 
   }

@@ -46,10 +46,10 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     runZTL(zscript,
       () => {
         val ls = jq("@label");
-        verifyTrue(ls.eq(1).html().equals("HelloWorld"));
-        verifyTrue(ls.eq(2).html().equals("HelloWorld3"));
-        verifyTrue(ls.eq(3).html().equals("HelloWorld34"));
-        verifyTrue(ls.eq(4).html().equals("HelloWorld345"));
+        verifyEquals(ls.eq(1).html(), "HelloWorld")
+        verifyEquals(ls.eq(2).html(), "HelloWorld3")
+        verifyEquals(ls.eq(3).html(), "HelloWorld34")
+        verifyEquals(ls.eq(4).html(), "HelloWorld345")
       })
 
   }

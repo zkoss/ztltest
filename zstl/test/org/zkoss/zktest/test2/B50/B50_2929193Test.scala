@@ -36,14 +36,11 @@ class B50_2929193Test extends ZTL4ScalaTestCase {
       click(db.$n("btn"));
       waitResponse();
       var clickTarget = jq(db.$n("pp")).find(".z-calendar-weekday").get(10)
-      if (!isSafari)
-        click(clickTarget);
-      else
-        clickAt(clickTarget, "2,2")
+      click(clickTarget);
       waitResponse();
 
-      verifyTrue("The Calendar should close",
-        "none".equals(db.$n("pp").get("style.display")));
+      verifyEquals("The Calendar should close",
+        "none", db.$n("pp").get("style.display"))
     }
     );
 

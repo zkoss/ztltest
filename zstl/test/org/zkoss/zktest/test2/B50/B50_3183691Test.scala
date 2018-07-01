@@ -63,7 +63,7 @@ class B50_3183691Test extends ZTL4ScalaTestCase {
       waitResponse();
       var cb: Widget = engine.$f("cb");
       verifyTrue(cb != null);
-      verifyFalse("none".equals(cb.$n("pp").get("style.display")));
+      verifyNotEquals("none", cb.$n("pp").get("style.display"))
     }
 
     runZTL(zscript, executor);

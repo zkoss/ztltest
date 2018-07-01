@@ -60,11 +60,11 @@ class B30_1710925Test extends ZTL4ScalaTestCase {
       click(btn1)
       waitResponse()
       var color = jq("body").css("backgroundColor")
-      verifyTrue("rgb(255, 255, 0)#ffff00".contains(color) || "yellow".equals(color))
+      verifyContains("rgb(255, 255, 0)#ffff00yellow", color)
       click(btn2)
       waitResponse()
       color = jq("body").css("backgroundColor")
-      verifyTrue("rgb(0, 0, 255)#0000ff".contains(color) || "blue".equals(color))
+      verifyContains("rgb(0, 0, 255)#0000ffblue", color)
     })
   }
 }

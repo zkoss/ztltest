@@ -12,17 +12,17 @@ class B85_ZK_3934Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       click(jq("@button:eq(0)"))
       waitResponse()
-      verifyEquals(".z-listcell : 150 / 150", getZKLog.trim)
+      verifyContains(getZKLog(), ".z-listcell : 150 / 150")
       closeZKLog()
 
       click(jq("@button:eq(1)"))
       waitResponse()
-      verifyEquals(".z-cell : 150 / 150", getZKLog.trim)
+      verifyContains(getZKLog(), ".z-cell : 150 / 150")
       closeZKLog()
 
       click(jq("@button:eq(2)"))
       waitResponse()
-      verifyEquals(".z-treecell : 150 / 150", getZKLog.trim)
+      verifyContains(getZKLog(), ".z-treecell : 150 / 150")
     })
   }
 }

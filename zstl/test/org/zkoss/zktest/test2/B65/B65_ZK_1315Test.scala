@@ -76,20 +76,14 @@ class B65_ZK_1315Test extends ZTL4ScalaTestCase {
         waitResponse()
 
         val titleDisplay = jq(".z-menuitem:contains(Title):eq(0)")
-        if (!isSafari)
-          click(titleDisplay);
-        else
-          clickAt(titleDisplay, "2,2")
+        click(titleDisplay);
         waitResponse()
 
         val titleColumn = jq(".z-column:contains(Title):eq(0)")
         verifyTrue("Hide 'Title' column by menupopup.", titleColumn.isVisible())
 
         val publisher = jq(".z-column:contains(Publisher):eq(0)")
-        if (!isSafari)
-          click(publisher);
-        else
-          clickAt(publisher, "2,2")
+        click(publisher);
         waitResponse()
         verifyTrue("Click 'Publisher' column to sort.", jq(publisher.toWidget().$n("sort-icon")).is("[class*=up]"))
 
@@ -97,10 +91,7 @@ class B65_ZK_1315Test extends ZTL4ScalaTestCase {
         waitResponse()
         click(menupopupLink)
         waitResponse()
-        if (!isSafari)
-          click(titleDisplay);
-        else
-          clickAt(titleDisplay, "2,2")
+        click(titleDisplay);
         waitResponse()
         verifyNotEquals("Show 'Title' column by menupopup.", titleColumn.css("display"), "none")
 

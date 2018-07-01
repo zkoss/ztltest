@@ -39,7 +39,7 @@ class B50_3026665Test extends ZTL4ScalaTestCase {
       waitResponse();
       focus(jq(jq("@bandbox").toWidget().$n("pp")).find("@intbox"))
       waitResponse()
-      verifyTrue(!"".equals(jq("@bandbox").css("box-shadow")))
+      verifyNotEquals("", jq("@bandbox").css("box-shadow"))
     })
   }
 }

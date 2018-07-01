@@ -51,7 +51,7 @@ class B70_ZK_2136Test extends ZTL4ScalaTestCase {
         waitResponse(true);
         sleep(500);
 
-        verifyTrue("the detail text of the paging bar should be updated", jq(".z-drop-ghost").eval("attr('class')").contains("z-drop-allow"));
+        verifyContains("the detail text of the paging bar should be updated", jq(".z-drop-ghost").eval("attr('class')"), "z-drop-allow")
       })
 
   }

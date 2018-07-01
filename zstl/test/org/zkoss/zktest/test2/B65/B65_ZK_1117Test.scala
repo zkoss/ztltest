@@ -26,7 +26,8 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        0 to 1 foreach spinnerTest _
+        for (i <- 0 to 1)
+          spinnerTest(i)
       })
 
     def spinnerTest(nth: Int) {

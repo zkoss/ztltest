@@ -52,8 +52,8 @@ class B30_1991859Test extends ZTL4ScalaTestCase {
       verifyTrue("The Messagebox must be visible", jq(".z-messagebox-window").exists());
 
       // Verify that the alert that is visible is the correct one
-      verifyTrue("The alert visible is not the correct", jq(".z-messagebox-window").html().contains("only this one!"));
-      verifyFalse("The alert visible is the wrong one", jq(".z-messagebox-window").html().contains("you cannot see this one!"));
+      verifyContains("The alert visible is not the correct", jq(".z-messagebox-window").html(), "only this one!");
+      verifyNotContains("The alert visible is the wrong one", jq(".z-messagebox-window").html(), "you cannot see this one!");
 
     })
   }

@@ -85,43 +85,43 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         waitResponse(true);
         click(jq("$b1"));
         waitResponse();
-        verifyTrue(t1.eval("val()").equals("test1"));
-        verifyTrue(t2.eval("val()").equals(""));
+        verifyEquals(t1.eval("val()"), "test1")
+        verifyEquals(t2.eval("val()"), "")
         click(jq("$clean"));
         waitResponse();
 
         click(jq("$b2"));
         waitResponse();
-        verifyTrue(t1.eval("val()").equals("test1"));
-        verifyTrue(t2.eval("val()").equals("test2"));
+        verifyEquals(t1.eval("val()"), "test1")
+        verifyEquals(t2.eval("val()"), "test2")
         click(jq("$clean"));
         waitResponse();
 
         click(jq("$b3"));
         waitResponse();
-        verifyTrue(t1.eval("val()").equals("test1"));
-        verifyTrue(t2.eval("val()").equals("test3"));
+        verifyEquals(t1.eval("val()"), "test1")
+        verifyEquals(t2.eval("val()"), "test3")
         click(jq("$clean"));
         waitResponse();
 
         click(jq("$b4"));
         waitResponse();
-        verifyTrue(t1.eval("val()").equals("test1"));
-        verifyTrue(t2.eval("val()").equals("test4"));
+        verifyEquals(t1.eval("val()"), "test1")
+        verifyEquals(t2.eval("val()"), "test4")
         click(jq("$clean"));
         waitResponse();
 
         click(jq("$b5"));
         waitResponse();
-        verifyTrue(t1.eval("val()").equals("test1"));
-        verifyTrue(t2.eval("val()").equals(""));
+        verifyEquals(t1.eval("val()"), "test1")
+        verifyEquals(t2.eval("val()"), "")
         click(jq("$clean"));
         waitResponse();
 
         click(jq("$b6"));
         waitResponse();
-        verifyTrue(t1.eval("val()").equals("test1"));
-        verifyTrue(t2.eval("val()").equals("test6"));
+        verifyEquals(t1.eval("val()"), "test1")
+        verifyEquals(t2.eval("val()"), "test6")
       })
 
   }

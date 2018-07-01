@@ -43,11 +43,11 @@ class B50_3011319Test extends ZTL4ScalaTestCase {
 
         // wait animation
         waitResponse(true);
-        verifyTrue("the title should be April",
+        verifyContains("the title should be April",
           jq(db.$n("pp")).find(".z-calendar-title").find(".z-calendar-text")
-            .get(0).get("innerHTML").contains("Apr"));
-        verifyTrue("the 30th day of April should be selected",
-          jq(db.$n("pp")).find(".z-calendar-selected").get(0).get("innerHTML").contains("30"));
+            .get(0).get("innerHTML"), "Apr")
+        verifyContains("the 30th day of April should be selected",
+          jq(db.$n("pp")).find(".z-calendar-selected").get(0).get("innerHTML"), "30")
 
         click(btn);
         waitResponse();
@@ -62,11 +62,11 @@ class B50_3011319Test extends ZTL4ScalaTestCase {
 
         // wait animation        
         waitResponse(true);
-        verifyTrue("the title should be Feburary",
+        verifyContains("the title should be Feburary",
           jq(db.$n("pp")).find(".z-calendar-title").find(".z-calendar-text")
-            .get(0).get("innerHTML").contains("Feb"));
-        verifyTrue("the 28th day of Feburary should be selected",
-          jq(db.$n("pp")).find(".z-calendar-selected").get(0).get("innerHTML").contains("28"));
+            .get(0).get("innerHTML"), "Feb")
+        verifyContains("the 28th day of Feburary should be selected",
+          jq(db.$n("pp")).find(".z-calendar-selected").get(0).get("innerHTML"), "28")
       }
     );
 

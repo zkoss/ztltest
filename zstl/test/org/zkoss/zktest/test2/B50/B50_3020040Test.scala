@@ -52,8 +52,7 @@ class B50_3020040Test extends ZTL4ScalaTestCase {
 			</zk>
 
     """
-
-    def executor = () => {
+    runZTL(zscript, () => {
       var (btn: Widget,
       box: Widget) = (
         engine.$f("btn"),
@@ -63,13 +62,8 @@ class B50_3020040Test extends ZTL4ScalaTestCase {
 
       click(btn);
       waitResponse();
-      checkSelected(jq(box.$n("rows")).find(".z-listitem").get(1));
-      checkSelected(jq(box.$n("rows")).find(".z-listitem").get(2));
-    }
-
-    def checkSelected(ele: Element) = {
-      verifyTrue(ele.get("className").contains("z-listitem-selected"));
-    }
-    runZTL(zscript, executor);
+      verifyContains(jq(box.$n("rows")).find(".z-listitem").get(1).get("className"), "z-listitem-selected")
+      verifyContains(jq(box.$n("rows")).find(".z-listitem").get(2).get("className"), "z-listitem-selected")
+    })
   }
 }

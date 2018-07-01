@@ -60,7 +60,7 @@ event should be triggered in IE.
       verifyTrue("The textbox should have focus", jq("$demo1:focus").exists());
 
       // Verify that the value is updated
-      verifyTrue("The text should be selected", jq("$demo2").`val`().equals("2"));
+      verifyEquals("The text should be selected", "2", jq("$demo2").`val`());
 
     })
   }

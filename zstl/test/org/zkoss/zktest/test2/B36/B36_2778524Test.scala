@@ -39,7 +39,7 @@ class B36_2778524Test extends ZTL4ScalaTestCase {
       click(db1.$n("btn"))
       waitResponse()
       click(jq(db1.$n("pp")).find("@calendar").find("td:eq(12)"))
-      verifyFalse(jq(db1.$n("real")).`val`().indexOf("1999") > 0)
+      verifyEquals(false, strIndexOf(jq(db1.$n("real")).`val`(), "1999").toInt > 0)
       click(db2.$n("btn"))
       waitResponse()
       click(jq(db2.$n("pp")).find("@calendar").find("td:eq(12)"))

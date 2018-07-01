@@ -11,7 +11,7 @@ class B70_ZK_2370Test extends ZTL4ScalaTestCase {
   def testClick() = {
     val zscript =
       """
-
+<zk>
 <panel title="Caption property ordering issue" border="normal"
 	width="300px">
 	<caption id="c" label="Caption"
@@ -21,8 +21,7 @@ class B70_ZK_2370Test extends ZTL4ScalaTestCase {
 			If you click the below buttons in turn, the icon in the caption will
 			not be updated correctly - it will lag behind by one assignment as it
 			seems that if the label is set, the image is only subsequently
-			updated when the label is set again.
-			<button label="Bad Left"
+			updatedriabel="Bad Left"
 				image="/img/Centigrade-Widget-Icons/ArrowLeft-16x16.png" width="125px"
 				onClick='this.c.label="Left"; this.c.image="/img/Centigrade-Widget-Icons/ArrowLeft-16x16.png"' />
 			<button label="Bad Right"
@@ -43,22 +42,27 @@ class B70_ZK_2370Test extends ZTL4ScalaTestCase {
 		</vlayout>
 	</panelchildren>
 </panel>
-
+<script>
+  function checkLeft() {
+    return jq(".z-caption-image").attr("src").indexOf("ArrowLeft") > 0
+  }
+  function checkRight() {
+    return jq(".z-caption-image").attr("src").indexOf("ArrowRight") > 0
+ }
+</script>
+</zk>
 """
     runZTL(zscript,
       () => {
-
-        var img = jq(".z-caption-image");
-        var badL = jq(".z-button:contains(Bad Left)");
-        click(badL);
-        waitResponse();
-        verifyTrue(img.attr("src").indexOf("ArrowLeft") > 0);
-        var badR = jq(".z-button:contains(Bad Right)");
-        click(badR);
-        waitResponse();
-        verifyTrue(img.attr("src").indexOf("ArrowRight") > 0);
-
+        var img = jq(".z-caption-image")
+        var badL = jq(".z-button:contains(Bad Left)")
+        click(badL)
+        waitResponse()
+        verifyEquals(true, getEval("checkLeft()"))
+        var badR = jq(".z-button:contains(Bad Right)")
+        click(badR)
+        waitResponse()
+        verifyEquals(true, getEval("checkRight()"))
       })
-
   }
 }

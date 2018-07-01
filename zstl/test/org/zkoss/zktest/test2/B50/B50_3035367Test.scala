@@ -66,7 +66,7 @@ class B50_3035367Test extends ZTL4ScalaTestCase {
       verifyFalse(jq(".z-error").exists())
       click(jq(t2))
       waitResponse()
-      verifyEquals("Listbox", getText(jq("@listheader")).trim())
+      verifyEquals("Listbox", getText(jq("@listheader")))
       verifyEquals("element", getText(jq("@listcell")))
       click(jq(".z-tabbox-left-scroll").get(0))
       waitResponse()
@@ -81,7 +81,7 @@ class B50_3035367Test extends ZTL4ScalaTestCase {
       waitResponse()
       click(jq(t3))
       waitResponse()
-      verifyEquals("Grid", getText(jq("@column")).trim())
+      verifyEquals("Grid", getText(jq("@column")))
       verifyEquals("element", getText(jq("@label")))
     })
   }

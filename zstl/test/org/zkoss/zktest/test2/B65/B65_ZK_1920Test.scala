@@ -50,15 +50,12 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
     runZTL(zscript,
       () => {
         val handler = jq(".z-listitem:contains(handler)")
-        1 to 2 foreach { n =>
-          click(handler)
-          waitResponse()
-          verifyTrue("5 items were selected",
-            jq(".z-listbox:eq(1) .z-listitem-selected").length() == 5)
-
-        }
-
+        click(handler)
+        waitResponse()
+        verifyTrue("5 items were selected", jq(".z-listbox:eq(1) .z-listitem-selected").length() == 5)
+        click(handler)
+        waitResponse()
+        verifyTrue("5 items were selected", jq(".z-listbox:eq(1) .z-listitem-selected").length() == 5)
       })
-
   }
 }

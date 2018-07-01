@@ -24,8 +24,7 @@ class B65_ZK_1324Test extends ZTL4ScalaTestCase {
 
       click(ppBtn1)
       waitResponse()
-      if (!isSafari) // The button in Safari cannot get focus, so skip this check
-        verifyTrue("Button1 should have focus", hasFocus(ppBtn1))
+      verifyTrue("Button1 should have focus", hasFocus(ppBtn1))
 
       click(jq("body"))
       waitResponse()

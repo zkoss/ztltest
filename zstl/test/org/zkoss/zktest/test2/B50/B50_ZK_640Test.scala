@@ -62,10 +62,10 @@ class B50_ZK_640Test extends ZTL4ScalaTestCase {
       var tbbOne: Widget = engine.$f("tbbOne");
       var tbbTwo: Widget = engine.$f("tbbTwo");
 
-      verifyFalse("no extra space if image only",
-        tbbOne.$n().get("innerHTML").contains("&nbsp;"));
-      verifyTrue("space exists between label and image",
-        tbbTwo.$n().get("innerHTML").contains("&nbsp;"));
+      verifyNotContains("no extra space if image only",
+        tbbOne.$n().get("innerHTML"), "&nbsp;")
+      verifyContains("space exists between label and image",
+        tbbTwo.$n().get("innerHTML"), "&nbsp;")
     })
   }
 }

@@ -37,7 +37,7 @@ class B36_2726542Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       click(jq("@button"))
       waitResponse()
-      verifyEquals("0", jq(l1).`val`().trim())
+      verifyContains(jq(l1).`val`(), "0")
     })
   }
 }

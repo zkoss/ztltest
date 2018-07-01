@@ -49,7 +49,7 @@ class B50_3026819Test extends ZTL4ScalaTestCase {
       focus(txt1.$n())
       sendKeys(txt1.$n(), Keys.TAB)
       waitResponse()
-      verifyTrue(!"".equals(jq(txt3).css("box-shadow")))
+      verifyNotEquals("", jq(txt3).css("box-shadow"))
     })
   }
 }

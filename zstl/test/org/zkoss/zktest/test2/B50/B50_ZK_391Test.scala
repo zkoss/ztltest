@@ -55,8 +55,9 @@ class B50_ZK_391Test extends ZTL4ScalaTestCase {
           // wait at most 3 seconds
           sleep(300);
           waitResponse()
-          verifyTrue("popup should exist and visible", pp.exists() && "visible".equals(pp.$n().get("style.visibility")) &&
-            !pp.$n().get("style.display").contains("none"));
+          verifyTrue("popup should exist and visible", pp.exists())
+          verifyEquals("visible", pp.$n().get("style.visibility"))
+          verifyNotContains("popup should exist and visible", pp.$n().get("style.display"), "none")
           var ppRight: Int = jq(pp.$n()).offsetLeft() + jq(pp.$n()).outerWidth();
           var lbRight: Int = jq(lb.$n()).offsetLeft() + jq(lb.$n()).outerWidth();
           verifyTrue("the right side of popup should close to and slightly over the right side of label", Math.abs(ppRight - lbRight) <= 10);

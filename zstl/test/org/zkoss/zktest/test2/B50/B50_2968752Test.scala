@@ -35,16 +35,12 @@ class B50_2968752Test extends ZTL4ScalaTestCase {
 			    </menubar>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
-    val menubar = ztl$engine.$f("menubar")
-    val menu = ztl$engine.$f("menu")
-    val menuitem = ztl$engine.$f("menuitem")
     runZTL(zscript, () => {
-      click(menu)
-      click(menuitem)
+      click(jq("$menu"))
+      click(jq("$menuitem"))
       waitResponse()
-      verifyTrue(menu.get("image").indexOf("/img/Centigrade-Widget-Icons/Briefcase-16x16.png") > 0)
-      verifyTrue(menu.$n("img").get("src").indexOf("/img/Centigrade-Widget-Icons/Briefcase-16x16.png") > 0)
+      verifyEquals("/zktest/img/Centigrade-Widget-Icons/QuestionmarkButton-16x16.png", jq("$menu").toWidget.get("image"))
+      verifyEquals("/zktest/img/Centigrade-Widget-Icons/Briefcase-16x16.png", jq("$menu").toWidget.$n("img").get("src"))
     })
   }
 }

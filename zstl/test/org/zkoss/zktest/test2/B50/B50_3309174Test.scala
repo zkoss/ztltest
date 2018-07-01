@@ -75,7 +75,7 @@ class B50_3309174Test extends ZTL4ScalaTestCase {
 
       click(btn);
       waitResponse();
-      verifyTrue(jq(grid.$n("body")).find(".z-row").eq(0).text().contains("20"));
+      verifyContains(jq(grid.$n("body")).find(".z-row").eq(0).text(), "20")
     }
 
     runZTL(zscript, executor);

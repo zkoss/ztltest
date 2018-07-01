@@ -20,7 +20,7 @@ class B70_ZK_2679Test extends ZTL4ScalaTestCase {
         click(jq(".z-calendar-right"))
         waitResponse()
         val log = jq("#zk_log").eval("val()")
-        verifyFalse(log.contains("invoke beforeUnload"))
+        verifyNotContains(getZKLog(), "invoke beforeUnload")
       })
   }
 }

@@ -43,9 +43,7 @@ class B60_ZK_985Test extends ZTL4ScalaTestCase {
         waitResponse()
         click(btn)
         waitResponse()
-        val result = jq(lb).html.trim
-        println(result)
-        verifyTrue("Textbox should not be cleared", result.contains("asdf"))
+        verifyContains("Textbox should not be cleared", jq(lb).html(), "asdf")
       }
     );
   }

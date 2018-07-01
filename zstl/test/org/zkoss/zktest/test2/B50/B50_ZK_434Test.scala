@@ -58,8 +58,8 @@ class B50_ZK_434Test extends ZTL4ScalaTestCase {
         def inputThenVerify(inp: JQuery, value: String) {
           sendKeys(inp, value)
           waitResponse()
-          verifyTrue("it should appear \"AM/PM\" 12:12:12 in timebox",
-            inp.`val`().equals("AM 12:12:12") || inp.`val`().equals("PM 12:12:12"))
+          verifyContains("it should appear \"AM/PM\" 12:12:12 in timebox",
+            inp.`val`(), "M 12:12:12")
         }
 
         toPos(0, tbInp)

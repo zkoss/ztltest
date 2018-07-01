@@ -74,21 +74,18 @@ select tab2 and close it, should not cause an error, also creation of new tabs s
 </zk>"""
     runZTL(zscript,
       () => {
-        List("tabbox", "tabbox-accordion").zipWithIndex foreach {
-          case (value, index) =>
-            val tab = jq(".z-" + value + " .z-tab-text:contains(Tab 2)").toWidget()
-            click(tab)
-            waitResponse()
-
-            click(tab.$n("cls"))
-            waitResponse()
-            verifyFalse("should see no javascript error", jq(".z-error").exists())
-
-            click(jq(".z-button:contains(add)").eq(index))
-            waitResponse()
-            verifyFalse("should see no javascript error", jq(".z-error").exists())
+        var valList = List("tabbox", "tabbox-accordion")
+        for (value <- valList; index <- 0 to 1) {
+          val tab = jq(".z-" + value + " .z-tab-text:contains(Tab 2)").toWidget()
+          click(tab)
+          waitResponse()
+          click(tab.$n("cls"))
+          waitResponse()
+          verifyFalse("should see no javascript error", jq(".z-error").exists())
+          click(jq(".z-button:contains(add)").eq(index))
+          waitResponse()
+          verifyFalse("should see no javascript error", jq(".z-error").exists())
         }
-
       })
 
   }

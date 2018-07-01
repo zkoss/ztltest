@@ -79,7 +79,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         waitResponse()
         click(jq(".z-button"))
         waitResponse()
-        verifyTrue("it shouldn't appear with '[]' text.", !jq(".z-messagebox-window .z-label").text().contains("[]"))
+        verifyContains("it shouldn't appear with '[]' text.", !jq(".z-messagebox-window .z-label").text(), "[]")
       })
 
   }

@@ -56,16 +56,16 @@ class B50_ZK_359Test extends ZTL4ScalaTestCase {
     val bb = ztl$engine.$f("bb")
     val lb2 = ztl$engine.$f("lb2")
     runZTL(zscript, () => {
-      verifyTrue("".equals(lb1.$n().get("value")))
+      verifyEquals("", lb1.$n().get("value"))
       click(btn1)
       waitResponse()
-      verifyTrue("".equals(lb1.$n().get("value")))
+      verifyEquals("", lb1.$n().get("value"))
       click(btn2)
       waitResponse()
-      verifyTrue("".equals(lb1.$n().get("value")))
+      verifyEquals("", lb1.$n().get("value"))
       click(bb.$n("btn"))
       waitResponse()
-      verifyTrue("".equals(lb2.$n().get("value")))
+      verifyEquals("", lb2.$n().get("value"))
     })
   }
 }

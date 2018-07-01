@@ -280,7 +280,7 @@ class B65_ZK_1632Test extends ZTL4ScalaTestCase {
 """
     runZTL(zscript,
       () => {
-        0 to 20 foreach { i =>
+        for (i <- 0 to 20) {
           sendKeys(jq(".z-textbox:eq(" + i + ")"), Keys.TAB)
         }
         waitResponse()

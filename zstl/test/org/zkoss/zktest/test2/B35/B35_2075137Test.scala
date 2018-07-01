@@ -89,7 +89,7 @@ class B35_2075137Test extends ZTL4ScalaTestCase {
       dragdropTo(btn, "5,5", "5,50")
       waitResponse(true);
       // check button color
-      verifyFalse("#d6f0fd".equals(jq(btn).css("backgroind-color")));
+      verifyNotEquals("#d6f0fd", jq(btn).css("backgroind-color"))
 
       verifyFalse("The value should be ...", jq("$textLabel:contains(TESTING SLIDERS FUNCTIONALITY...)").exists());
 
@@ -115,7 +115,7 @@ class B35_2075137Test extends ZTL4ScalaTestCase {
       waitResponse(true);
 
       // check button color
-      verifyFalse("#d6f0fd".equals(jq(btn).css("backgroind-color")));
+      verifyNotEquals("#d6f0fd", jq(btn).css("backgroind-color"))
 
       verifyFalse("The value should be ...", jq("$textLabel3:contains(TESTING SLIDERS FUNCTIONALITY...)").exists());
 

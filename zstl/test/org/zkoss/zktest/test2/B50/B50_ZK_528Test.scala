@@ -59,7 +59,7 @@ class B50_ZK_528Test extends ZTL4ScalaTestCase {
       val hiddenCol = jq("@grid").find("col[id*=hdfaker][style*=hidden]")
       val column = jq("@grid").find(".z-column")
       verifyEquals(column.length() - hiddenCol.length(), 1);
-      verifyTrue(!hiddenCol.attr("id").contains(jq(".z-column").attr("id")));
+      verifyNotContains(hiddenCol.attr("id"), jq(".z-column").attr("id"))
       verifyTrue(jq(emp).isVisible());
       verifyEquals("Empty Message", jq(jq("@grid").toWidget().$n("empty")).text());
 
@@ -117,7 +117,7 @@ class B50_ZK_528Test extends ZTL4ScalaTestCase {
       val hiddenCol = jq("@listbox").find("col[id*=hdfaker][style*=hidden]")
       val column = jq("@listbox").find(".z-listheader")
       verifyEquals(column.length() - hiddenCol.length(), 1);
-      verifyTrue(!hiddenCol.attr("id").contains(jq(".z-listheader").attr("id")));
+      verifyNotContains(hiddenCol.attr("id"), jq(".z-listheader").attr("id"))
       verifyTrue(jq(emp).isVisible());
       verifyEquals("Empty Message", jq(emp).text());
 

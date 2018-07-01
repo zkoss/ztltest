@@ -55,7 +55,7 @@ class B50_3167027Test extends ZTL4ScalaTestCase {
       click(jq("@button"))
       waitResponse()
       verifyTrue(isVisible(jq("@treecell:eq(0)")))
-      verifyTrue(jq("@treecell:eq(0)").text().contains("new Item"))
+      verifyContains(jq("@treecell:eq(0)").text(), "new Item")
     })
   }
 }

@@ -23,7 +23,7 @@ class B65_ZK_1692Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        verifyTrue("you should not see 'true' in the log window", !jq("#zk_log").`val`().contains("true"))
+        verifyNotContains("you should not see 'true' in the log window", getZKLog(), "true")
       })
 
   }

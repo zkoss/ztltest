@@ -49,8 +49,8 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """
     runZTL(zscript,
       () => {
-        verifyTrue(!jq(".z-group-inner").first.attr("colSpan").equals("2"))
-        verifyTrue(!jq(".z-listgroup-inner").first.attr("colSpan").equals("2"))
+        verifyNotEquals("2", jq(".z-group-inner").first.attr("colSpan"))
+        verifyNotEquals("2", jq(".z-listgroup-inner").first.attr("colSpan"))
       })
   }
 }

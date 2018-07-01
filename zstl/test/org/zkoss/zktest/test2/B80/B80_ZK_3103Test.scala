@@ -19,7 +19,7 @@ class B80_ZK_3103Test extends ZTL4ScalaTestCase {
         click(selBtn)
         waitResponse(true)
         for (i <- 0 to 3) {
-          verifyEquals("Item 2", jq(".z-listitem-selected div:eq(" + i + ")").text().substring(1))
+          verifyContains(jq(".z-listitem-selected div:eq(" + i + ")").text(), "Item 2")
         }
         click(clearBtn)
         waitResponse(true)
@@ -28,7 +28,7 @@ class B80_ZK_3103Test extends ZTL4ScalaTestCase {
         click(selBtn)
         waitResponse(true)
         for (i <- 0 to 3) {
-          verifyEquals("Item 18", jq(".z-listitem-selected div:eq(" + i + ")").text().substring(1))
+          verifyContains(jq(".z-listitem-selected div:eq(" + i + ")").text(), "Item 18")
         }
         click(clearBtn)
         waitResponse(true)
@@ -37,7 +37,7 @@ class B80_ZK_3103Test extends ZTL4ScalaTestCase {
         click(selBtn)
         waitResponse(true)
         for (i <- 0 to 3) {
-          verifyEquals("Item 21", jq(".z-listitem-selected div:eq(" + i + ")").text().substring(1))
+          verifyContains(jq(".z-listitem-selected div:eq(" + i + ")").text(), "Item 21")
           var lbb = jq(".z-listbox-body:eq(" + i + ")")
           var li = jq(".z-listitem:contains(Item 21):eq(" + i + ")")
           verifyTrue(lbb.offsetTop() + lbb.height() >= li.offsetTop() + li.height())
@@ -51,7 +51,7 @@ class B80_ZK_3103Test extends ZTL4ScalaTestCase {
         waitResponse(true)
         waitResponse(true)
         for (i <- 0 to 3) {
-          verifyEquals("Item 17", jq(".z-listitem-selected div:eq(" + i + ")").text().substring(1))
+          verifyContains(jq(".z-listitem-selected div:eq(" + i + ")").text(), "Item 17")
           var lbb = jq(".z-listbox-body:eq(" + i + ")")
           var li = jq(".z-listitem:contains(Item 17):eq(" + i + ")")
           verifyTrue(lbb.offsetTop() + lbb.height() >= li.offsetTop() + li.height())

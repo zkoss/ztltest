@@ -62,7 +62,7 @@ class Z60_TemplateListbox1Test extends ZTL4ScalaTestCase {
         verifyEquals("item index " + i, msg.get("value"))
         // verify template
         cell = outeritem.lastChild()
-        if (outerl.equals("A") || i == 2)
+        if (i == 0 || i == 2)
           verifyEquals("Model1", cell.get("label"))
         else
           verifyEquals("Model2", cell.get("label"))

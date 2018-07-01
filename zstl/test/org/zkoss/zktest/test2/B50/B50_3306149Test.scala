@@ -85,7 +85,7 @@ class B50_3306149Test extends ZTL4ScalaTestCase {
       verifyTrue(beforeRemove > afterRemove)
       btns = jq(grid.$n("body")).find("@button")
       lastBtn = btns.last()
-      verifyTrue(getText(lastBtn).contains("remove 198"))
+      verifyContains(getText(lastBtn), "remove 198")
     }
 
     runZTL(zscript, executor);

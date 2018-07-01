@@ -101,10 +101,10 @@ class B50_3131173Test extends ZTL4ScalaTestCase {
       waitResponse()
       click(jq(".z-treerow-checkbox:eq(0)"));
       waitResponse()
-      verifyTrue(jq("@treecell:eq(0)").text().contains("Item 4: / selected:true"))
+      verifyContains(jq("@treecell:eq(0)").text(), "Item 4: / selected:true")
       click(jq(".z-treerow-checkbox:eq(0)"));
       waitResponse()
-      verifyTrue(jq("@treecell:eq(0)").text().contains("Item 4: / selected:false"))
+      verifyContains(jq("@treecell:eq(0)").text(), "Item 4: / selected:false")
     })
   }
 }

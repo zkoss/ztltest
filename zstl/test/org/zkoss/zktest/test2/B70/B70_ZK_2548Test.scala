@@ -69,13 +69,13 @@ class B70_ZK_2548Test extends ZTL4ScalaTestCase {
         waitResponse();
         sendKeys(input, Keys.DOWN);
         waitResponse();
-        verifyTrue(input.eval("val()").equals("d1"));
+        verifyEquals("d1", input.eval("val()"))
         sendKeys(input, Keys.TAB);
         waitResponse();
         focus(input2);
         waitResponse();
         sendKeys(input2, Keys.DOWN);
-        verifyTrue(input2.eval("val()").equals("d1s1"));
+        verifyEquals("d1s1", input2.eval("val()"))
 
       })
 

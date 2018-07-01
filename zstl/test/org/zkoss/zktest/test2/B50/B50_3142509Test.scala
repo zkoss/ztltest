@@ -55,7 +55,7 @@ class B50_3142509Test extends ZTL4ScalaTestCase {
       waitResponse();
       click(btn);
       waitResponse();
-      verifyTrue("item4".equals(list.$n().get("value")));
+      verifyEquals("item4", list.$n().get("value"))
     }
 
     runZTL(zscript, executor);

@@ -144,7 +144,8 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
         runRawZscript(zscript.toString)
       _engine.set(new Widget(new StringBuffer("zk.Desktop._dt")));
       executor()
-      generateCafeTest(target)
+      generateCafeTest(target, ch.getCafeTestDir)
+
     }
   }
   def engine(): Widget = _engine.get();

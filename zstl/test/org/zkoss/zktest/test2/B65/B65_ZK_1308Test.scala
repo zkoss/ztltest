@@ -16,8 +16,8 @@ You should see Super and Subclass without <label value="null" style="font-weight
 
     runZTL(zscript,
       () => {
-        verifyTrue("You should see Super and Subclass without 'null' value", !jq(".z-label:contains(Super):eq(1)").text().contains("null"))
-        verifyTrue("You should see Super and Subclass without 'null' value", !jq(".z-label:contains(Subclass):eq(1)").text().contains("null"))
+        verifyNotContains("You should see Super and Subclass without 'null' value", jq(".z-label:contains(Super):eq(1)").text(), "null")
+        verifyNotContains("You should see Super and Subclass without 'null' value", jq(".z-label:contains(Subclass):eq(1)").text(), "null")
       })
 
   }

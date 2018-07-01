@@ -64,7 +64,8 @@ class B65_ZK_1552Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         var center = jq(".z-center")
-        List("combobox", "datebox", "bandbox") foreach { comp =>
+        val compList = List("combobox", "datebox", "bandbox")
+        for (comp <- compList) {
           var wgt = jq(".z-" + comp).toWidget()
           click(wgt.$n("btn"))
           waitResponse()

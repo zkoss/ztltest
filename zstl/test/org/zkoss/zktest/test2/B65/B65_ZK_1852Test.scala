@@ -30,7 +30,7 @@ class B65_ZK_1852Test extends ZTL4ScalaTestCase {
         waitResponse()
         sleep(2000)
 
-        verifyTrue("should show ''.", jq("#zk_log").`val`().contains(""))
+        verifyContains("should show ''.", getZKLog(), "")
       })
 
   }

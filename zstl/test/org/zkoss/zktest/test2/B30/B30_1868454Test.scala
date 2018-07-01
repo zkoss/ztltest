@@ -11,8 +11,6 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B30
 
-;
-
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.Widget
@@ -41,10 +39,8 @@ class B30_1868454Test extends ZTL4ScalaTestCase {
 		"""
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     val goBtn = ztl$engine.$f("goBtn")
-    val win1 = ztl$engine.$f("win1")
     val win2Btn = ztl$engine.$f("win2Btn")
     val detachBtn1 = ztl$engine.$f("detachBtn1")
-    val win2 = ztl$engine.$f("win2")
     val detachBtn2 = ztl$engine.$f("detachBtn2")
     runZTL(zscript, () => {
       click(goBtn)
@@ -52,14 +48,8 @@ class B30_1868454Test extends ZTL4ScalaTestCase {
       click(win2Btn)
       waitResponse()
       // Check z-index exists or not.
-      var win1ZIndex = jq(win1).css("z-index")
-      var win2ZIndex = jq(win2).css("z-index")
-      if (win1ZIndex == null || win1ZIndex.trim().length() == 0) {
-        verifyTrue("CSS may be changed, please check again and modify test case.", false)
-      }
-      if (win2ZIndex == null || win2ZIndex.trim().length() == 0) {
-        verifyTrue("CSS may be changed, please check again and modify test case.", false)
-      }
+      var win1ZIndex = jq("$win1").css("z-index")
+      var win2ZIndex = jq("$win2").css("z-index")
       verifyTrue(parseInt(win2ZIndex) > parseInt(win1ZIndex))
     })
   }

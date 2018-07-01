@@ -73,8 +73,7 @@ class B65_ZK_2080Test extends ZTL4ScalaTestCase {
         val inp = jq(".z-chosenbox").toWidget().$n("inp")
         sendKeys(inp, "A")
         waitResponse(true)
-        if (isIE())
-          sleep(200)
+        sleep(200)
         verifyTrue("should see popup with 'AA' option showed.", jq(".z-chosenbox-option:contains(AA)").exists)
       })
 

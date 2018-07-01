@@ -34,7 +34,7 @@ class B70_ZK_2709Test extends ZTL4ScalaTestCase {
       var timebox = jq("@timebox input")
       click(timebox)
       waitResponse()
-      for (_ <- 1 to 10) sendKeys(timebox, Keys.ARROW_LEFT)
+      for (i <- 1 to 10) sendKeys(timebox, Keys.ARROW_LEFT)
       waitResponse()
       sendKeys(timebox, "11" + Keys.ENTER)
       waitResponse()
@@ -44,7 +44,7 @@ class B70_ZK_2709Test extends ZTL4ScalaTestCase {
 
       var timeFormat = new SimpleDateFormat("hh")
       //only compare hour
-      verifyTrue(dateboxInput.contains(timeFormat.format(today.getTime())))
+      verifyContains(dateboxInput, timeFormat.format(today.getTime()))
     })
   }
 }

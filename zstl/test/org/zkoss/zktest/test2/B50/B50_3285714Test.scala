@@ -80,8 +80,8 @@ class B50_3285714Test extends ZTL4ScalaTestCase {
         var topRow: Element = findTopRow(0, rowCnt);
         var content: String = getText(topRow);
 
-        var itemCnt: Integer = parseInt(content.substring(content.length() - 4, content.length()));
-        verifyTrue(Math.abs(5000 - itemCnt) <= 50);
+        var itemCnt: Integer = parseInt(content)
+        verifyTrue(Math.abs(5000 - itemCnt) <= 50)
       }
     );
 

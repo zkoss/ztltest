@@ -24,6 +24,7 @@ class B50_3096342Test extends ZTL4ScalaTestCase {
   def testztl() = {
     var zscript =
       """
+         <zk>
 			<vlayout id="inf">
 				<html id="desp"><![CDATA[
 				<ol>
@@ -48,7 +49,13 @@ class B50_3096342Test extends ZTL4ScalaTestCase {
 					<button label="reset" onClick='d2.setValue(new Date())'/>
 				</hlayout>
 			</vlayout>
-
+      <script>
+        function checkMsg() {
+          var msg = jq("@label:last").text()
+          return msg.indexOf("d2:onChange:") != -1 && msg.indexOf("null") == -1
+        }
+      </script>
+      </zk>
 		"""
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     val inf = ztl$engine.$f("inf")
@@ -72,16 +79,14 @@ class B50_3096342Test extends ZTL4ScalaTestCase {
       waitResponse()
       clickAt(jq("$desp"), "10,10")
       waitResponse()
-      var msg = jq("@label:last").text()
-      verifyTrue(msg.indexOf("d2:onChange:") != -1 && msg.indexOf("null") == -1)
+      verifyEquals(true, getEval("checkMsg", false))
       var dateInput = jq(jq(".z-datebox").toWidget().$n("real"))
       dateInput.toElement().set("value", "")
       sendKeys(dateInput, "" + Keys.TAB)
       waitResponse()
       blur(dateInput)
-      msg = jq("@label:last").text()
       verifyEquals("d2:onChange: null", jq("@label:last").text())
-      verifyTrue(msg.indexOf("d2:onChange:") != -1 && msg.indexOf("null") != -1)
+      verifyEquals(true, getEval("checkMsg", false))
     })
   }
 }

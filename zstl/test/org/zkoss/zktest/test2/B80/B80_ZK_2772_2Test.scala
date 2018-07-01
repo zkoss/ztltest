@@ -20,10 +20,7 @@ class B80_ZK_2772_2Test extends ZTL4ScalaTestCase {
           index += 1
         }
         //sort column 6
-        if (!isSafari)
-          click(jq(".z-column").eq(5));
-        else
-          clickAt(jq(".z-column").eq(5), "2,2");
+        click(jq(".z-column").eq(5));
         waitResponse()
         //check the new column width
         cols = jq(".z-column")
@@ -36,10 +33,7 @@ class B80_ZK_2772_2Test extends ZTL4ScalaTestCase {
         nativeFrozenScroll(jq(".z-grid"), 1000)
         waitResponse()
         //sort the last column
-        if (!isSafari)
-          click(jq(".z-column").last());
-        else
-          clickAt(jq(".z-column").last(), "2,2");
+        click(jq(".z-column").last());
         waitResponse()
         //check the new column width remains the same
         cols = jq(".z-column")
@@ -74,10 +68,7 @@ class B80_ZK_2772_2Test extends ZTL4ScalaTestCase {
           index += 1
         }
         //sort column 7
-        if (!isSafari)
-          click(column7);
-        else
-          clickAt(column7, "2,2");
+        click(column7);
         waitResponse()
         //check width should be the same
         cols = jq(".z-column")

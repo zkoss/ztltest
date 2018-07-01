@@ -38,7 +38,7 @@ class Z60_B01528NPEInPagingMoldTest extends ZTL4ScalaTestCase {
       waitResponse()
 
       var v = jq("$tb").toWidget().get("value")
-      verifyTrue(v == null || v.equals(""))
+      verifyEquals("", v)
       items = listbox.find("@listitem")
 
       verifyEquals(9, items.length())

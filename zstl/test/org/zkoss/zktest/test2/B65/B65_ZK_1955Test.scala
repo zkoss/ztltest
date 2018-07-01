@@ -66,25 +66,24 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
     runZTL(zscript,
       () => {
         val bb = jq(".z-bandbox").toWidget()
-        val log = jq("#zk_log")
         focus(bb.$n("real"))
         waitResponse()
         sleep(300)
-        verifyTrue(log.`val`().contains("focus is in bandbox"))
+        verifyContains(getZKLog(), "focus is in bandbox")
 
-        log.toElement().set("value", "")
+        closeZKLog()
         click(bb.$n("btn"))
         waitResponse()
         click(jq(bb.$n("pp")).find(".z-listitem"))
         waitResponse()
         sleep(300)
-        verifyTrue(log.`val`().contains("focus is in bandbox"))
+        verifyContains(getZKLog(), "focus is in bandbox")
 
-        log.toElement().set("value", "")
+        closeZKLog()
         click(jq(".z-window-content"))
         waitResponse()
         sleep(300)
-        verifyTrue(log.`val`().contains("I do not know where is focus"))
+        verifyContains(getZKLog(), "I do not know where is focus")
       })
 
   }

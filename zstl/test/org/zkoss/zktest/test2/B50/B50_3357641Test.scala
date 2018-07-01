@@ -136,7 +136,7 @@ class B50_3357641Test extends ZTL4ScalaTestCase {
 
     """
 
-    def executor() = () => {
+    runZTL(zscript, () => {
       var testListbox: Widget = engine.$f("testListbox");
       var btnNewModel: Widget = engine.$f("btnNewModel");
       waitResponse();
@@ -147,30 +147,9 @@ class B50_3357641Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       for (i <- 0 until 5) {
-        verifyTrue(jq(testListbox.$n("rows")).find(".z-listcell").eq(i).text().contains("items" + i));
+        verifyContains(jq(testListbox.$n("rows")).find(".z-listcell").eq(i).text(), "items" + i)
       }
       verifyFalse(jq(testListbox.$n("rows")).find(".z-listcell").get(5).exists());
-    }
-
-    runZTL(zscript, executor);
-
-    // Run syntax 2
-    /**
-      * runZTL(zscript,
-      * () => {
-      * var l1: Widget = engine.$f("l1");
-      * var l2: Widget = engine.$f("l2");
-      * waitResponse();
-      * var strClickBefor = getText(l1);
-      * click(l1);
-      * waitResponse();
-      * verifyNotEquals(strClickBefor, getText(l1));
-      * strClickBefor = getText(l2);
-      * click(l2);
-      * waitResponse();
-      * verifyNotEquals(strClickBefor, getText(l2));
-      * }
-      * );
-      */
+    })
   }
 }

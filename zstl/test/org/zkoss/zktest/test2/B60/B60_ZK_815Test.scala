@@ -57,7 +57,7 @@ class B60_ZK_815Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        0 to 2 foreach { index =>
+        for (index <- 0 to 2) {
           val listbox = jq(".z-listbox:eq(" + index + ")")
           val item = listbox.find(".z-listitem:contains(Item 0)")
           click(item)
@@ -70,18 +70,16 @@ class B60_ZK_815Test extends ZTL4ScalaTestCase {
           else
             verifyTrue(msg.exists())
           val txt = msg.text()
-          1 to 12 foreach { i =>
+          for (i <- 1 to 12) {
             val seld = listbox.find(".z-listitem-selected")
             sendKeys(seld, Keys.DOWN)
           }
           waitResponse()
-
           if (index != 2)
             verifyEquals(msg.text(), "onSelect: Listbox " + (index + 1) + ": [Item 24]")
           else
             verifyTrue(msg != txt)
         }
-
       })
   }
 }

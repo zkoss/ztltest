@@ -36,18 +36,13 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """
     runZTL(zscript,
       () => {
-        var result = "hello\n" +
-          "</Script>";
-        verifyEquals(jq("#zk_log").eval("val()").trim(), result);
+        var result = "hello\n</Script>"
+        verifyEquals(result, getZKLog())
         var btn = jq("@button");
         click(btn);
         waitResponse(true);
-        result = "hello\n" +
-          "</Script>\n" +
-          "hello\n" +
-          "</Script>";
-
-        verifyEquals(jq("#zk_log").eval("val()").trim(), result);
+        result = "hello\n</Script>\nhello\n</Script>";
+        verifyEquals(result, getZKLog());
       })
 
   }

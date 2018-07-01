@@ -46,13 +46,12 @@ class B65_ZK_2015Test extends ZTL4ScalaTestCase {
         waitResponse()
         click(jq(".z-button:contains(hide)"))
         waitResponse()
-
-        verifyTrue("BB and CC will hide", jq(".z-cell:contains(BB)").attr("style").contains("none")
-          && jq(".z-cell:contains(CC)").attr("style").contains("none"))
+        verifyContains("BB and CC will hide", jq(".z-cell:contains(BB)").attr("style"), "none")
+        verifyContains("BB and CC will hide", jq(".z-cell:contains(CC)").attr("style"), "none")
         click(jq(".z-button:contains(show)"))
         waitResponse()
-        verifyTrue("BB and CC will show", !jq(".z-cell:contains(BB)").attr("style").contains("none")
-          && !jq(".z-cell:contains(CC)").attr("style").contains("none"))
+        verifyNotContains("BB and CC will show", jq(".z-cell:contains(BB)").attr("style"), "none")
+        verifyNotContains("BB and CC will show", jq(".z-cell:contains(CC)").attr("style"), "none")
       })
 
   }

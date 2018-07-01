@@ -45,10 +45,7 @@ class B36_2821745Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       click(jq("@button"))
       waitResponse()
-      if (!isSafari())
-        click(jq("@listcell:contains(option 5)"))
-      else
-        clickAt(jq("@listcell:contains(option 5)"), "2,2")
+      click(jq("@listcell:contains(option 5)"))
       waitResponse()
       verifyEquals("block", jq("@groupbox").find(".z-groupbox-content").css("display"))
     })

@@ -59,9 +59,9 @@ class B50_3030342Test extends ZTL4ScalaTestCase {
       var listbox: Widget = engine.$f("listbox");
       waitResponse();
 
-      verifyTrue(jq(listbox.$n("rows")).find(".z-listcell").eq(0).text().contains("David"));
-      verifyTrue(jq(listbox.$n("rows")).find(".z-listcell").eq(1).text().contains("Thomas"));
-      verifyTrue(jq(listbox.$n("rows")).find(".z-listcell").eq(2).text().contains("Steven"));
+      verifyContains(jq(listbox.$n("rows")).find(".z-listcell").eq(0).text(), "David")
+      verifyContains(jq(listbox.$n("rows")).find(".z-listcell").eq(1).text(), "Thomas")
+      verifyContains(jq(listbox.$n("rows")).find(".z-listcell").eq(2).text(), "Steven")
     }
 
     runZTL(zscript, executor);
