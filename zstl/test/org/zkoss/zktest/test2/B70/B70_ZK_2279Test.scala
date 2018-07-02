@@ -74,7 +74,7 @@ public class IndexVm {
       () => {
         click(jq("@datebox").eq(0).find(".z-datebox-button"));
         waitResponse();
-        mouseDown(jq(".z-datebox-open .z-calendar-right"));
+        click(jq(".z-datebox-open .z-calendar-right"));
         waitResponse();
         verifyImage();
       })

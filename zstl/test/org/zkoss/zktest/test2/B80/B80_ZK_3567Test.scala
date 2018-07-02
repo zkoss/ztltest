@@ -15,8 +15,8 @@ class B80_ZK_3567Test extends ZTL4ScalaTestCase {
       click(jq(".z-listitem").get(1))
       waitResponse()
       verifyFalse(jq("#zk_log").exists())
-      mouseMove(jq(".z-button"))
-      pause(1000)
+      mouseOver(jq(".z-button"))
+      sleep(1000)
       verifyFalse(jq("#zk_log").exists())
     })
   }

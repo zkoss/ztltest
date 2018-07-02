@@ -72,12 +72,11 @@ class B30_2003798Test extends ZTL4ScalaTestCase {
     """
     runZTL(zscript, () => {
       // Mouse over the "foo" word
-      // Option 2: mouseOver(jq(".z-label:contains(foo)"));
-      val img = engine.$f("img");
-      mouseMoveAt(img, "2,2")
+      mouseOver(jq(".z-label:contains(foo)"))
       waitResponse();
       // Verify that the first row is selected
       verifyNotEquals("The row must be highlighted", "", jq(".z-treecell:eq(0)").css("background"))
+      val img = engine.$f("img");
       click(img);
       waitResponse();
       var cssClass = jq("@treerow").get(0).get("className");

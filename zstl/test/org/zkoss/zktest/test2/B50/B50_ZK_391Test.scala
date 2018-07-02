@@ -62,7 +62,7 @@ class B50_ZK_391Test extends ZTL4ScalaTestCase {
           var ppRight: Int = jq(pp.$n()).offsetLeft() + jq(pp.$n()).outerWidth();
           var lbRight: Int = jq(lb.$n()).offsetLeft() + jq(lb.$n()).outerWidth();
           verifyTrue("the right side of popup should close to and slightly over the right side of label", Math.abs(ppRight - lbRight) <= 10);
-          mouseOut(lb);
+          mouseOver(jq("$l1"))
           waitResponse()
         }
 

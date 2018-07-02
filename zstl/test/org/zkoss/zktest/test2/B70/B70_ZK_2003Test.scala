@@ -18,16 +18,7 @@ class B70_ZK_2003Test extends ZTL4ScalaTestCase {
           verifyTrue("the " + comp + " popup will show up", jq(wgtpp).isVisible)
           val p = "2,2"
           val np = "2,4"
-          mouseMoveAt(split, p)
-          waitResponse()
-
-          mouseDownAt(split, p)
-          waitResponse()
-
-          mouseMoveAt(split, np)
-          waitResponse()
-
-          mouseUpAt(split, np)
+          dragdropTo(split, p , np)
           waitResponse()
 
           verifyTrue("the " + comp + " popup must be hidden", !jq(wgtpp).isVisible)

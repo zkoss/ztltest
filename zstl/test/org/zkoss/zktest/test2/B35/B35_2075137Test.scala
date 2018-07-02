@@ -99,7 +99,7 @@ class B35_2075137Test extends ZTL4ScalaTestCase {
 
       // Move the mouse over the second slider
       // The event doesn't take the last argument, so always moves the same distance
-      mouseMove(jq("$slider2").get(0))
+      mouseOver(jq("$slider2").get(0))
       waitResponse()
 
       verifyFalse("The value should be ...", jq("$textLabel2:contains(TESTING SLIDERS FUNCTIONALITY...)").exists());

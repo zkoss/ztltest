@@ -41,11 +41,7 @@ class B80_ZK_2772Test extends ZTL4ScalaTestCase {
         //resize column 7
         val column7 = jq(".z-column").eq(6)
         val width_0 = column7.outerWidth()
-        mouseMoveAt(column7, column7.outerWidth() + "," + (column7.outerHeight() / 2))
-        waitResponse()
-        mouseDownAt(column7, column7.outerWidth() + "," + (column7.outerHeight() / 2))
-        waitResponse()
-        mouseMoveAt(column7, (column7.outerWidth() - 100) + "," + (column7.outerHeight() / 2))
+        dragdropTo(column7, column7.outerWidth() + "," + (column7.outerHeight() / 2), (column7.outerWidth() - 100) + "," + (column7.outerHeight() / 2))
         waitResponse()
         mouseUp(column7)
         waitResponse()

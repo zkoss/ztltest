@@ -50,9 +50,7 @@ class B80_ZK_3141Test extends ZTL4ScalaTestCase {
       waitResponse()
 
       val hd = jq(".z-window-header")
-      mouseDownAt(hd, "10,10")
-      mouseMoveAt(hd, "30,30")
-      mouseUp(hd)
+      dragdropTo(hd, "10,10", "30,30")
       waitResponse()
       chkpos
     })

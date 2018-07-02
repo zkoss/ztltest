@@ -86,7 +86,6 @@ class F60_ZK_720Test extends ZTL4ScalaTestCase {
         def checkAct(tbn: Widget) {
           var toggled: Boolean = jq(tbn.$n()).hasClass("z-toolbarbutton-checked");
           click(tbn);
-          mouseOut(tbn);
           waitResponse();
           verifyTrue(jq(tbn.$n()).hasClass("z-toolbarbutton-checked") != toggled);
         }
@@ -97,12 +96,10 @@ class F60_ZK_720Test extends ZTL4ScalaTestCase {
           checkAct(engine.$f("tbn" + i));
         }
         click(engine.$f("tbn9"));
-        mouseOut(engine.$f("tbn9"));
         waitResponse();
         verifyContains("should be toggled",
           lbl.$n().get("innerHTML"), "true")
         click(engine.$f("tbn9"));
-        mouseOut(engine.$f("tbn9"));
         waitResponse();
         verifyContains("should not be toggled",
           lbl.$n().get("innerHTML"), "false")

@@ -26,16 +26,7 @@ class B70_ZK_1826Test extends ZTL4ScalaTestCase {
 
         val position = "2,2"
         val src = jq(".z-window")
-        mouseMoveAt(src, position)
-        waitResponse()
-
-        mouseDownAt(src, position)
-        waitResponse()
-
-        mouseMoveAt(src, "2,4")
-        waitResponse()
-
-        mouseUpAt(src, "2,4")
+        dragdropTo(src, position, "2,4")
         waitResponse()
 
         val h = src.height()

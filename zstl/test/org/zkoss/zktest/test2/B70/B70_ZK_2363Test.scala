@@ -37,11 +37,7 @@ class B70_ZK_2363Test extends ZTL4ScalaTestCase {
         val win = jq("@window");
         val width = win.width();
         println(width);
-        mouseDownAt(win, "0,20");
-        waitResponse();
-        mouseMoveAt(win, "50,20");
-        waitResponse();
-        mouseUpAt(win, "50,20");
+        dragdropTo(win, "0,20", "50,20")
         waitResponse();
         verifyFalse("you shouldn't see any js error.", jq(".z-error").exists());
       })

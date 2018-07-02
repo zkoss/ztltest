@@ -19,23 +19,15 @@ class B70_ZK_2264Test extends ZTL4ScalaTestCase {
           grid.toWidget().eval("_scrollbar._mouseEnter()");
           val indicator = jq(".z-scrollbar-indicator");
           // move to right side
-          mouseDownAt(indicator, "100,2");
-          waitResponse();
-          mouseMoveAt(indicator, indicator.width() + ",2");
-          waitResponse();
+          dragdropTo(indicator, "100,2", indicator.width() + ",2")
+          waitResponse()
 
           click(jq(".z-paging-next"));
           waitResponse();
 
           // move to left side
           grid.toWidget().eval("_scrollbar._mouseEnter()");
-          mouseDownAt(indicator, "2,2");
-          waitResponse();
-          mouseMoveAt(indicator, "2,2");
-          waitResponse();
-
-          // move to right side
-          mouseMoveAt(indicator, indicator.width() + ",2");
+          dragdropTo(indicator, "2,2", indicator.width() + ",2")
           waitResponse();
 
           println(jq("@column").eq(1).width());

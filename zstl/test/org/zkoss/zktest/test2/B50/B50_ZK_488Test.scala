@@ -68,14 +68,10 @@ class B50_ZK_488Test extends ZTL4ScalaTestCase {
     val li2 = ztl$engine.$f("li2")
     val tb = ztl$engine.$f("tb")
     runZTL(zscript, () => {
-      mouseDownAt(li1, "5,5")
-      mouseMoveAt(lb2, "25,25")
-      mouseUp(lb2)
+      dragdropToObject(li1, lb2, "5,5", "25,25");
       waitResponse()
       verifyEquals("li1 in lb2", tb.$n().get("value"))
-      mouseDownAt(li2, "5,5")
-      mouseMoveAt(lb1, "25,25")
-      mouseUp(lb1)
+      dragdropToObject(li2, lb1, "5,5", "25,25");
       waitResponse()
       verifyEquals("li2 in lb1", tb.$n().get("value"))
     })

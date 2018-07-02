@@ -14,12 +14,8 @@ class B70_ZK_2949Test extends ZTL4ScalaTestCase {
       () => {
         def resizeColumn(grid: JQuery) = {
           val firstColumn = grid.find(".z-column").eq(0);
-          mouseDownAt(firstColumn, (firstColumn.offsetLeft() + firstColumn.width() - 3) + "," + (firstColumn.offsetTop() + 5));
-          waitResponse();
-
-          mouseMoveAt(firstColumn, (firstColumn.offsetLeft() + firstColumn.width() - 30) + "," + (firstColumn.offsetTop() + 5))
-          waitResponse();
-          mouseUp(firstColumn);
+          dragdropTo(firstColumn, (firstColumn.offsetLeft() + firstColumn.width() - 3) + "," + (firstColumn.offsetTop() + 5)
+            , (firstColumn.offsetLeft() + firstColumn.width() - 30) + "," + (firstColumn.offsetTop() + 5))
           waitResponse();
         }
 

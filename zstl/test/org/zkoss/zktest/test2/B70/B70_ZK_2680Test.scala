@@ -17,7 +17,7 @@ class B70_ZK_2680Test extends ZTL4ScalaTestCase {
         click(jq(".z-nav-popup .z-nav-content").first())
         waitResponse(true)
         sleep(2000)
-        mouseOut(icon)
+        mouseOver(jq("$l1"))
         waitResponse(true)
         mouseOver(icon)
         waitResponse(true)

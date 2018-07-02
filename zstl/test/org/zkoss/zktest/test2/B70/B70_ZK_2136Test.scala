@@ -2,9 +2,10 @@ package org.zkoss.zktest.test2.B70
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{SeleniumOnly, Tags}
 
 @Tags(tags = "B70-ZK-2136.zul")
+@SeleniumOnly
 class B70_ZK_2136Test extends ZTL4ScalaTestCase {
 
   @Test

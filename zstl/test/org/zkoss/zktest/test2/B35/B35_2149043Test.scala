@@ -56,8 +56,7 @@ class B35_2149043Test extends ZTL4ScalaTestCase {
       // Verify that the image is changed
       verifyContains("The image should be /test2/img/icon_email.png", img, "/test2/img/icon_email.png")
 
-      for (i <- -20 to 10 by (5))
-        mouseMoveAt(jq(".z-fisheye:eq(0) img"), i + "," + i);
+      mouseOver(jq(".z-fisheye:eq(4) img"));
       waitResponse();
       verifyTrue(height < jq("$f1").outerHeight());
       verifyTrue(width < jq("$f1").outerWidth());

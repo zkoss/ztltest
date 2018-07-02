@@ -46,9 +46,7 @@ class B50_3037626Test extends ZTL4ScalaTestCase {
     val grid = ztl$engine.$f("grid")
     runZTL(zscript, () => {
       var i = jq("$cell1").width()
-      mouseDownAt(jq("@splitter"), "0,138")
-      mouseMoveAt(jq("@splitter"), "-250,138")
-      mouseUpAt(jq("@splitter"), "-250,138")
+      dragdropTo(jq("@splitter"), "0,138", "-250,138")
       verifyTrue(i - 250 - jq("$cell1").width() < 8)
     })
   }

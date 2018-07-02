@@ -89,17 +89,15 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
 
         //Get Window
         var win2 = jq("$win2");
-        var w = win2.outerWidth();
-        var h = win2.outerHeight();
+        var w = win2.outerWidth()
+        var h = win2.outerHeight()
         var dim = w / 2 + "," + h;
         var dim2 = w / 2 + "," + (h * 2);
         var dim3 = w + "," + (h / 2);
         var dim4 = (w * 2) + "," + (h / 2);
 
         //Vertical resize
-        mouseDownAt(win2.toWidget(), dim);
-        mouseMoveAt(win2.toWidget(), dim2);
-        mouseUpAt(win2.toWidget(), dim2);
+        dragdropTo(win2, dim, dim2)
         waitResponse();
 
         var h1 = win2.height();
@@ -108,16 +106,10 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
         waitResponse();
 
         //Horizontal resize
-        mouseDownAt(win2.toWidget(), dim3);
-        mouseMoveAt(win2.toWidget(), dim4);
-        mouseUpAt(win2.toWidget(), dim4);
+        dragdropTo(win2, dim3, dim4)
         waitResponse();
-
         var w1 = win2.width();
-
         verifyTrue(w1 != w);
-
-
       });
   }
 

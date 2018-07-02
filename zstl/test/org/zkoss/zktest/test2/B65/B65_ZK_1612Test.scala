@@ -67,16 +67,7 @@ void changeTitle(org.zkoss.zul.Panel thePanel)
 
         val position = "2,2"
         val target = jq(".z-panel-body:eq(1)")
-        mouseMoveAt(img, position)
-        waitResponse()
-
-        mouseDownAt(img, position)
-        waitResponse()
-
-        mouseMoveAt(target, position)
-        waitResponse()
-
-        mouseUpAt(target, position)
+        dragdropToObject(img, target, position, position)
         waitResponse()
 
         verifyTrue("You should see the title of the right side panel is changed.", header.text() != headerText)

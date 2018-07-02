@@ -41,6 +41,7 @@ class B36_2789915Test extends ZTL4ScalaTestCase {
 			toolbarbutton1.setImage("/img/live.gif");
 			}' />
 			</toolbar>
+      <label id="l1"> out </label>
 			</zk> 
 		"""
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
@@ -48,9 +49,11 @@ class B36_2789915Test extends ZTL4ScalaTestCase {
     val toolbarbutton1 = ztl$engine.$f("toolbarbutton1")
     runZTL(zscript, () => {
       mouseOver(toolbarbutton1)
+      waitResponse()
       click(toolbarbutton1)
       waitResponse()
-      mouseOut(toolbarbutton1)
+      mouseOver(jq("$l1"))
+      waitResponse()
       verifyContains(jq(toolbarbutton1).find("img").attr("src"), "defender")
     })
   }

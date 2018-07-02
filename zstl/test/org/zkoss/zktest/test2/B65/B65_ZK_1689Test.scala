@@ -45,16 +45,7 @@ class B65_ZK_1689Test extends ZTL4ScalaTestCase {
         val position = "2,2"
         val src = jq("@window.z-window-popup:contains(relative win)").toWidget().$n("cap")
         val target = jq("@window.z-window-embedded:contains(parent win)").toWidget().$n("cap")
-        mouseMoveAt(src, position)
-        waitResponse()
-
-        mouseDownAt(src, position)
-        waitResponse()
-
-        mouseMoveAt(target, position)
-        waitResponse()
-
-        mouseUpAt(target, position)
+        dragdropToObject(src, target, position, position)
         waitResponse()
 
         val left = jq(".z-label:contains(px):eq(0)").text()

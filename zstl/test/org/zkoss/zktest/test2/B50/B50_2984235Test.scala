@@ -34,10 +34,11 @@ class B50_2984235Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       var tbNode = tb.$n()
       mouseOver(tbNode)
+      waitResponse()
       sleep(1000)
       verifyTrue(popup.exists())
-      mouseOut(tbNode)
       mouseOver(cb.$n())
+      waitResponse()
       sleep(1000)
       verifyTrue(popup.exists())
     })

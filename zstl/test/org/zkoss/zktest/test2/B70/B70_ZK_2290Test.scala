@@ -65,15 +65,8 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         val headers = jq(".z-listheader");
         val h1 = headers.eq(1);
         val h6 = headers.eq(6);
-        mouseMoveAt(h1, h1.width() + ",10");
-        waitResponse();
-        mouseDownAt(h1, h1.width() + ",10");
-        waitResponse();
-        mouseMoveAt(h6, h6.width() + ",10");
-        waitResponse();
-        mouseUpAt(h6, h6.width() + ",10");
-        waitResponse();
-
+        dragdropToObject(h1, h6, h1.width() + ",10", h6.width() + ",10")
+        waitResponse()
         verifyTrue("browser should show scrollbar.", hasHScrollbar(jq(".z-listbox-body")));
       })
 

@@ -57,16 +57,12 @@ Please scroll to right, and click the next page. (you should not see any JS erro
     runZTL(zscript,
       () => {
         val grid = jq("@grid");
-        if (!hasNativeScroll(grid.toWidget())) { // ie8 only has native scrollbar
-          val indicator = jq(".z-scrollbar-indicator");
-          mouseDownAt(indicator, "100,2");
-          waitResponse();
-          mouseMoveAt(indicator, indicator.width() + ",2");
-          waitResponse();
-          click(jq(".z-paging-next"));
-          waitResponse();
-          verifyFalse(jq(".z-error").exists());
-        }
+        val indicator = jq(".z-scrollbar-indicator");
+        dragdropTo(indicator, "100,2", indicator.width() + ",2")
+        waitResponse();
+        click(jq(".z-paging-next"));
+        waitResponse();
+        verifyFalse(jq(".z-error").exists());
       })
 
   }

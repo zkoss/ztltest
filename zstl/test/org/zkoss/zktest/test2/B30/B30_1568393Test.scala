@@ -83,9 +83,7 @@ class B30_1568393Test extends ZTL4ScalaTestCase {
       var x = getElementPositionLeft(overlapped).intValue()
       var y = getElementPositionTop(overlapped).intValue()
       for (i <- 1 until 6) {
-        mouseDownAt(overlapped, "1" + i + ",2")
-        mouseMoveAt(overlapped, "1" + (i + 1) + ",2")
-        mouseUp(overlapped)
+        dragdropTo(overlapped, "1" + i + ",2", "1" + (i + 1) + ",2")
       }
       var x2 = getElementPositionLeft(overlapped).intValue()
       var y2 = getElementPositionTop(overlapped).intValue()

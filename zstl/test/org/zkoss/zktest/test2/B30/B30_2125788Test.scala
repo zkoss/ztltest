@@ -38,13 +38,6 @@ class B30_2125788Test extends ZTL4ScalaTestCase {
       </window>
     """
     runZTL(zscript, () => {
-      def dragDrop(from: Element, fromPos: String, to: Element, toPos: String) {
-        mouseDownAt(from, fromPos);
-        mouseMoveAt(to, toPos);
-        mouseUpAt(to, toPos);
-        waitResponse();
-      }
-
       // Click on first button
       click(jq("@button:eq(1)"));
       waitResponse();

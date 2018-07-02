@@ -76,15 +76,8 @@ class B50_3303725Test extends ZTL4ScalaTestCase {
           engine.$f("p1"),
           engine.$f("p2"),
           engine.$f("p3"));
-        def dragDrop(from: Element, fromPos: String, to: Element, toPos: String) {
-          mouseDownAt(from, fromPos);
-          mouseMoveAt(to, toPos);
-          mouseUpAt(to, toPos);
-          waitResponse();
-        }
-
-        dragDrop(p2.$n("cap"), "100,10", jq(p1.$n()).find(".z-panelchildren").get(0), "100,180");
-
+        dragdropToObject(p2.$n("cap"), jq(p1.$n()).find(".z-panelchildren").get(0), "100,10", "100,180");
+        waitResponse()
         var h1: Int = jq(jq(".z-portalchildren").toWidget().$n("cave")).height();
         var h2: Int = jq(p1.$n()).outerHeight() +
           jq(p2.$n()).outerHeight() +

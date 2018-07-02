@@ -52,22 +52,8 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         val btn = slider.$n("btn")
         val rail = slider.$n("inner")
 
-        val dragdrop = (src: Element, target: Element, from: String, to: String) => {
-          mouseMoveAt(src, from)
-          waitResponse()
-
-          mouseDownAt(src, from)
-          waitResponse()
-
-          mouseMoveAt(target, to)
-          waitResponse()
-
-          mouseUpAt(target, to)
-          waitResponse()
-        }
-
-        dragdrop(btn, rail, "2,2", "220,2")
-        dragdrop(btn, rail, "2,2", "0,2")
+        dragdropToObject(btn, rail, "2,2", "220,2")
+        dragdropToObject(btn, rail, "2,2", "0,2")
 
         verifyContains("You should see the curpos stays in 0",
           jq(".z-label:contains(curpos:) + .z-label").text(), "0")

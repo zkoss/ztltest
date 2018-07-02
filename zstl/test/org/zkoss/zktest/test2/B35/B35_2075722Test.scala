@@ -107,17 +107,6 @@ panels.remove(panels.size()-1);
       </window>
     """
     runZTL(zscript, () => {
-      def dragDrop(from: JQuery, fromPos: String, to: JQuery, toPos: String) {
-        mouseMoveAt(from, fromPos)
-        waitResponse()
-        mouseDownAt(from, fromPos)
-        waitResponse()
-        mouseMoveAt(to, toPos)
-        waitResponse();
-        mouseUpAt(to, toPos);
-        waitResponse();
-      }
-
       var topPanel1, topPanel2, topPanel3, topPanel4, topPanel5, topPanel6 = 0;
 
       // Click on first button
@@ -140,7 +129,7 @@ panels.remove(panels.size()-1);
       val panel5 = jq(".z-panel:contains(panel5)")
       val panel6 = jq(".z-panel:contains(panel6)")
 
-      dragDrop(panelheader3, "2,2", panelheader1, "0,0");
+      dragdropToObject(panelheader3, panelheader1, "2,2", "0,0")
       waitResponse();
 
       topPanel3 = panel3.positionTop();
@@ -148,7 +137,7 @@ panels.remove(panels.size()-1);
 
       verifyTrue("The panel 1 should be below the panel 3", topPanel1 > topPanel3);
 
-      dragDrop(panelheader2, "2,2", panelheader3, "0,0");
+      dragdropToObject(panelheader2, panelheader3, "2,2", "0,0");
       waitResponse();
 
       topPanel2 = panel2.positionTop();
@@ -156,7 +145,7 @@ panels.remove(panels.size()-1);
 
       verifyTrue("The panel 3 should be below the panel 2", topPanel3 > topPanel2);
 
-      dragDrop(panelheader1, "2,2", panelheader2, "0,0");
+      dragdropToObject(panelheader1, panelheader2, "2,2", "0,0");
       waitResponse();
 
       topPanel1 = panel1.positionTop();
@@ -168,7 +157,7 @@ panels.remove(panels.size()-1);
       click(jq("@button").get(1));
       waitResponse();
 
-      dragDrop(panelheader6, "2,2", panelheader4, "0,0");
+      dragdropToObject(panelheader6, panelheader4, "2,2", "0,0");
       waitResponse();
 
       topPanel6 = panel6.positionTop();
@@ -176,7 +165,7 @@ panels.remove(panels.size()-1);
 
       verifyTrue("The panel 4 should be below the panel 6", topPanel4 > topPanel6);
 
-      dragDrop(panelheader5, "2,2", panelheader6, "0,0");
+      dragdropToObject(panelheader5, panelheader6, "2,2", "0,0");
       waitResponse();
 
       topPanel5 = panel5.positionTop();
@@ -184,7 +173,7 @@ panels.remove(panels.size()-1);
 
       verifyTrue("The panel 6 should be below the panel 5", topPanel6 > topPanel5);
 
-      dragDrop(panelheader4, "2,2", panelheader5, "0,0");
+      dragdropToObject(panelheader4, panelheader5, "2,2", "0,0");
       waitResponse();
 
       topPanel4 = panel4.positionTop();
@@ -196,10 +185,10 @@ panels.remove(panels.size()-1);
       click(jq("@button").get(2));
       waitResponse();
 
-      dragDrop(panelheader6, "2,2", panelheader3, "0,0");
+      dragdropToObject(panelheader6, panelheader3, "2,2", "0,0");
       waitResponse();
 
-      dragDrop(panelheader6, "2,2", panelheader1, "0,0");
+      dragdropToObject(panelheader6, panelheader1, "2,2", "0,0");
       waitResponse();
 
       topPanel6 = panel6.positionTop();
@@ -207,7 +196,7 @@ panels.remove(panels.size()-1);
 
       verifyTrue("The panel 1 should be below the panel 6", topPanel1 > topPanel6);
 
-      dragDrop(panelheader1, "2,2", panelheader6, "0,0");
+      dragdropToObject(panelheader1, panelheader6, "2,2",  "0,0");
       waitResponse();
 
       topPanel1 = panel1.positionTop();

@@ -43,9 +43,8 @@ class B36_2811990Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       var btn = jq("$sl").toWidget().$n("btn")
       verifyEquals(jq(btn).attr("title"), "50")
-      mouseDownAt(jq(btn), "8,6")
-      mouseMoveAt(jq(btn), "45,8")
-      mouseUpAt(jq(btn), "45,8")
+      dragdropTo(jq(btn), "8,6", "45,8")
+      waitResponse()
       verifyEquals(jq(btn).attr("title"), "70")
       click(jq("@button"))
       waitResponse()

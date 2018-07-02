@@ -16,13 +16,14 @@ package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags;
+import org.zkoss.ztl.annotation.{SeleniumOnly, Tags};
 
 /**
   *
   * @author Sefi
   */
 @Tags(tags = "")
+@SeleniumOnly
 class B80_ZK_3221Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {
