@@ -61,7 +61,7 @@ class F80_ZK_3133Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript, () => {
 
-      verifyTrue(getZKLog(), "onCreate")
+      verifyEquals(getZKLog().trim(), "onCreate")
 
       var zwin = jq(".z-window-content")
       val zwin1orgw = parseInt(zwin.eq(0).text())

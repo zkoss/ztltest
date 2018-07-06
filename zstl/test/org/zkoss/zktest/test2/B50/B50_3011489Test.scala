@@ -28,7 +28,7 @@ class B50_3011489Test extends ZTL4ScalaTestCase {
 		"""
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     runZTL(zscript, () => {
-      typeKeys(jq("@decimalbox"), "3.5")
+      `type`(jq("@decimalbox"), "3.5")
       verifyEquals("350.00%", getValue(jq("@decimalbox ")))
     })
   }

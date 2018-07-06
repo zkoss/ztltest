@@ -128,7 +128,7 @@ class B50_ZK_306Test extends ZTL4ScalaTestCase {
     }
 
     def checkNumber(wgt: Widget, cnt: java.lang.Integer) {
-      verifyContains(jq(wgt.$n()).get(0).get("innerHTML"), cnt.toString());
+      verifyTrue(jq(wgt.$n()).get(0).get("innerHTML").split("@").length == cnt + 1)
     }
 
     runZTL(zscript, executor);

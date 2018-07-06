@@ -19,7 +19,7 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
     runZTL(
       () => {
         var textVal = jq(".z-textbox").`val`()
-        var labelTxt = jq(".z-label:eq(1)").text()
+        var labelTxt = jq(".z-label:eq(1)").text().trim()
         verifyEquals(textVal, labelTxt)
       })
   }

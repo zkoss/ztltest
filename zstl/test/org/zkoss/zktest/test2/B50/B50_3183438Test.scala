@@ -47,7 +47,7 @@ class B50_3183438Test extends ZTL4ScalaTestCase {
       sleep(1000); //for DataBinding
       verifyEquals("B", jq(".z-textbox").`val`())
       verifyEquals("B", jq("@label").text())
-      typeKeys(jq("@textbox"), "C")
+      `type`(jq("@textbox"), "C")
       waitResponse()
       verifyEquals("C", jq(".z-textbox").`val`())
       verifyEquals("C", jq("@label").text())

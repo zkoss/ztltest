@@ -40,11 +40,11 @@ class B30_1615919Test extends ZTL4ScalaTestCase {
       click(btn)
       waitResponse()
       var win = jq("@window")
-      var left = win.css("left").toInt
-      var top = win.css("top").toInt
+      var left = win.css("left")
+      var top = win.css("top")
       dragdropTo(jq("@window").toWidget().$n("cap"), "10,10", "160,160")
-      verifyNotEquals(left, win.css("left").toInt)
-      verifyNotEquals(top, win.css("top").toInt)
+      verifyNotEquals(left, win.css("left"))
+      verifyNotEquals(top, win.css("top"))
     })
   }
 }

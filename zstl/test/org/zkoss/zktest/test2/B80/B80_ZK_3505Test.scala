@@ -22,11 +22,11 @@ class B80_ZK_3505Test extends ZTL4ScalaTestCase {
         a += getEval("document.activeElement.id") + " "
       }
       verifyNotContains("panel caption 1 should not be selected", a, pn1captionid)
-      verifyNotContains("panel caption 2 should be selected", a, pn2captionid)
+      verifyContains("panel caption 2 should be selected", a, pn2captionid)
       verifyNotContains("groupbox caption 1 should not be selected", a, gb1captionid)
-      verifyNotContains("groupbox caption 2 should be selected", a, gb2captionid)
+      verifyContains("groupbox caption 2 should be selected", a, gb2captionid)
       verifyNotContains("window caption 1 should not be selected", a, wd1captionid)
-      verifyNotContains("window caption 2 should be selected", a, wd2captionid)
+      verifyContains("window caption 2 should be selected", a, wd2captionid)
     })
   }
 }

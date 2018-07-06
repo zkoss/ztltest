@@ -37,12 +37,12 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     runZTL(zscript,
       () => {
         var result = "hello\n</Script>"
-        verifyEquals(result, getZKLog())
+        verifyEquals(result, getZKLog().trim())
         var btn = jq("@button");
         click(btn);
         waitResponse(true);
         result = "hello\n</Script>\nhello\n</Script>";
-        verifyEquals(result, getZKLog());
+        verifyEquals(result, getZKLog().trim());
       })
 
   }

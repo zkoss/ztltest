@@ -48,7 +48,7 @@ Make a textbox databinding access:load only. (This bug used to cause NullPointer
       sleep(1000); //for DataBinding
       verifyEquals("ZK", jq(tb).`val`())
       verifyEquals("ZK", jq(label).html())
-      typeKeys(tb, "Test")
+      `type`(tb, "Test")
       verifyEquals("Test", jq(tb).`val`())
       verifyEquals("ZK", jq(label).html())
       verifyFalse(jq(".z-error").exists())

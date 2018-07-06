@@ -55,7 +55,7 @@ Constraint ctt = new Constraint() {
       verifyFalse(error.exists()); //error box should not exist
       blur(txtbox)
       waitResponse()
-      verifyFalse(jq(txtbox).exists()); //txtbox should disappear
+      verifyFalse(jq(".z-textbox").exists()) //txtbox should disappear
     })
   }
 }

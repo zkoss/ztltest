@@ -21,7 +21,7 @@ class B70_ZK_2370Test extends ZTL4ScalaTestCase {
 			If you click the below buttons in turn, the icon in the caption will
 			not be updated correctly - it will lag behind by one assignment as it
 			seems that if the label is set, the image is only subsequently
-			updatedriabel="Bad Left"
+			<button label="Bad Left"
 				image="/img/Centigrade-Widget-Icons/ArrowLeft-16x16.png" width="125px"
 				onClick='this.c.label="Left"; this.c.image="/img/Centigrade-Widget-Icons/ArrowLeft-16x16.png"' />
 			<button label="Bad Right"
