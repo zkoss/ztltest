@@ -34,7 +34,7 @@ class B30_1845026Test extends ZTL4ScalaTestCase {
       waitResponse()
       var rowText = firstRow.text()
       //"item 1 should be change to a but it is:"+ rowtext
-      verifyEquals(true, getEval("getText() != null && getText().indexOf(\"a\") != -1"))
+      verifyTrue(rowText != null && rowText.indexOf("a") != -1)
     })
   }
 }

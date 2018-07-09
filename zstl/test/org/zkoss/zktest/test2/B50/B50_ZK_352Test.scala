@@ -46,10 +46,10 @@ class B50_ZK_352Test extends ZTL4ScalaTestCase {
       lb.$n("body").eval("scrollLeft = 500")
       waitResponse()
       verifyTrue(lb.$n("body").get("scrollLeft").toInt < 110)
-      verifyTrue(lh1.$n().get("width").toInt == 0)
-      verifyTrue(lh1.$n("cave").get("width").toInt == 0)
-      verifyTrue(lh2.$n().get("width").toInt == 0)
-      verifyTrue(lh2.$n("cave").get("width").toInt == 0)
+      verifyTrue(lh1.$n().get("width").isEmpty())
+      verifyTrue(lh1.$n("cave").get("width").isEmpty())
+      verifyTrue(lh2.$n().get("width").isEmpty())
+      verifyTrue(lh2.$n("cave").get("width").isEmpty())
     })
   }
 }

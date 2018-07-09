@@ -50,7 +50,7 @@ class Z60_TemplateGrid3Test extends ZTL4ScalaTestCase {
         outerrow = outerrow.nextSibling();
       }
       // ===========================================
-      click(jq("$chgBtn1"))
+      click(jq(".z-button:contains(change1)"))
       waitResponse();
       outerbox = jq("$outergrid").toWidget();
       outerrows = jq(outerbox).find("@rows").toWidget().firstChild();
@@ -73,7 +73,7 @@ class Z60_TemplateGrid3Test extends ZTL4ScalaTestCase {
         outerrow = outerrow.nextSibling();
       }
       // ===========================================
-      click(jq("$chgBtn2"))
+      click(jq(".z-button:contains(change2)"))
       waitResponse();
       outerbox = jq("$outergrid").toWidget();
       outerrows = jq(outerbox).find("@rows").toWidget().firstChild();

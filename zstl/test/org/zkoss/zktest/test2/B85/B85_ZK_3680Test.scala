@@ -8,7 +8,7 @@ class B85_ZK_3680Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {
     runZTL(() => {
-      verScrollNoBody(jq(".z-tabpanel").eq(0), 0.8)
+      verScroll(jq(".z-tabpanel").eq(0), 0.8)
       waitResponse(true)
 
       click(jq(".z-bandbox-button"))
@@ -16,7 +16,7 @@ class B85_ZK_3680Test extends ZTL4ScalaTestCase {
 
       verifyEquals("Did a thing\nopened\n", getZKLog())
 
-      verScrollNoBody(jq(".z-tabpanel").eq(0), 0)
+      verScroll(jq(".z-tabpanel").eq(0), 0)
       waitResponse(true)
 
       verifyEquals("Did a thing\nopened\nDid a thing\nclosed\n", getZKLog())

@@ -123,7 +123,7 @@ class B30_1876292Test extends ZTL4ScalaTestCase {
       blur(combobox)
       click(reset)
       waitResponse()
-      verifyTrue("", combobox.`val`())
+      verifyEquals("", combobox.`val`())
 
       /** reset */
       setSpeed("200")

@@ -11,10 +11,6 @@ class B60_ZK_919Test extends ZTL4ScalaTestCase {
       val datelongfmt1 = jq(jq(".z-datebox:eq(1)").toWidget().$n("real")).`val`()
       val datelongfmt2 = jq(jq(".z-datebox:eq(2)").toWidget().$n("real")).`val`()
       val datelongfmt3 = jq(jq(".z-datebox:eq(3)").toWidget().$n("real")).`val`()
-      val msg1 = "1. You shall see 4 type of dates whose time part are the same. "
-      click(jq("$checkBtn"))
-      waitResponse()
-      verifyEquals(msg1, "true", getZKLog())
       for (i <- 0 to 3) {
         click(jq(".z-datebox:eq(" + i + ")").toWidget().$n("btn"))
         waitResponse()

@@ -70,7 +70,7 @@ class B30_1822566Test extends ZTL4ScalaTestCase {
     val rows = ztl$engine.$f("rows")
     runZTL(zscript, () => {
       var jcol1 = jq(col1.$n())
-      var jrow1 = jq(jq("@row").toWidget().firstChild().$n("chdextr"))
+      var jrow1 = jq(".z-row-inner:eq(0)")
       // growing
       click(btn1)
       waitResponse()

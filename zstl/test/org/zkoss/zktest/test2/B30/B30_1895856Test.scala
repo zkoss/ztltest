@@ -85,7 +85,7 @@ class B30_1895856Test extends ZTL4ScalaTestCase {
       verifyEquals("Hello", jq("$fn").`val`())
       verifyEquals("ZK", jq("$ln").`val`())
       verifyEquals("Hello ZK", jq("$fullname").text())
-      typeKeys(jq("$fn"), "hi")
+      `type`(jq("$fn"), "hi")
       click(jq("$btn"))
       waitResponse()
       verifyEquals("hi ZK", jq("$fullname").text())

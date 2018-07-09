@@ -53,7 +53,7 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
           verifyEquals("Model2", cell.get("label"))
       }
       // ==============================================
-      click(jq("$chgBtn1"))
+      click(jq(".z-button:contains(change1)"))
       waitResponse()
       outerbox = jq("$outerbox").toWidget()
       outeritems = outerbox.firstChild() // include header
@@ -75,7 +75,7 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
           verifyEquals("Model2", cell.get("label"))
       }
       // ==============================================
-      click(jq("$chgBtn2"))
+      click(jq(".z-button:contains(change2)"))
       waitResponse()
       outerbox = jq("$outerbox").toWidget()
       outeritems = outerbox.firstChild() // include header

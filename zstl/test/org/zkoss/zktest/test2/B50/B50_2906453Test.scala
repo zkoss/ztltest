@@ -123,7 +123,7 @@ void format(String xid) {
           msgBuffer.append(", value: ")
           msgBuffer.append(jq(clientWidget).`val`())
           var $wgt = jq(clientWidget)
-          verifyEquals(msgBuffer.toString(), formatter.format(testValue), $wgt.`val`())
+          verifyEquals(msgBuffer.toString(), formatter.format(testValue.toDouble), $wgt.`val`())
           $wgt.toElement().set("value", "")
         }
       }
