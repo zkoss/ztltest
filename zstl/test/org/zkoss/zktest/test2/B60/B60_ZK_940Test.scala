@@ -62,9 +62,9 @@ class B60_ZK_940Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        var clsList = List("z-listitem", "z-treerow")
-        var labelList = List("Listitem 1", "Treeitem 1")
-        for (cls <- clsList; label <- labelList) {
+        checkSelection("z-listitem", "Listitem 1")
+        checkSelection("z-treerow", "Treeitem 1")
+        def checkSelection(cls: String, label: String): Unit = {
           val seltr = "." + cls
           val item1 = jq(seltr + ":contains(" + label + ")")
           click(item1)

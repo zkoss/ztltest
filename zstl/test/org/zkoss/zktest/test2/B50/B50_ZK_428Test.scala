@@ -36,7 +36,7 @@ class B50_ZK_428Test extends ZTL4ScalaTestCase {
   def testClick() = {
     val zscript =
       """
-			<zk>
+			<zk xmlns:w="client">
 				<zscript><![CDATA[
 					import java.util.ArrayList;
 					ArrayList productList = new ArrayList();
@@ -71,11 +71,20 @@ class B50_ZK_428Test extends ZTL4ScalaTestCase {
 						listModel.addAll(productList);
 					}
 				]]></zscript>
+				<script><![CDATA[
+						var time = 1;
+						function logTime() {
+				
+							setInterval(function(){
+								zk.log(time++ + 'sec>' + jq(".z-row").length);
+							}, 1000);
+						}
+					]]></script>
 				<window title="new page title" border="normal">
 					<div>Click on the button. If it takes more than 20 seconds to run on the client side, it is a bug.</div>
 					ListModelList Size:
 					<intbox id="modelSize" value="50" />
-					<button label="change" id="button">
+					<button label="change" id="button" w:onClick="logTime()">
 						<attribute name="onClick">
 							setProdListModel(modelSize.getValue());
 							grdProductProductions.setModel(listModel);
@@ -90,23 +99,14 @@ class B50_ZK_428Test extends ZTL4ScalaTestCase {
 					</grid>
 				</window>
 			</zk>
-
     """
     runZTL(zscript,
       () => {
         var button: Widget = engine.$f("button");
-        var cnt: Int = 5;
-
-        var t1: Long = System.currentTimeMillis();
         click(button);
-        while (cnt != 50) {
-          cnt = jq(".z-row").length();
-        }
-        var t2: Long = System.currentTimeMillis();
-        verifyTrue("it should not take more than 20 seconds to run on the client side for change the size of ListModelList",
-          (t2 - t1) < 20000);
+        wait(20000)
+        verifyContains("it should not take more than 20 seconds to run on the client side for change the size of ListModelList", getZKLog(), ">50")
       }
     );
-
   }
 }

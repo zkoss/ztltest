@@ -36,7 +36,7 @@ class B50_3101558Test extends ZTL4ScalaTestCase {
     val div = ztl$engine.$f("div")
     runZTL(zscript, () => {
       var w = div.firstChild()
-      for (i <- 0 until div.nChildren()) {
+      for (i <- 0 until 5) {
         verifyEquals(35, jq(w).width())
         w = w.nextSibling()
       }

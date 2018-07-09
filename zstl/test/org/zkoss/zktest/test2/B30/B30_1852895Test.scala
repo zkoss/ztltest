@@ -25,7 +25,7 @@ class B30_1852895Test extends ZTL4ScalaTestCase {
       waitResponse()
       click(jq(".z-button"))
       waitResponse()
-      verifyEquals("1", jq(".z-messagebox .z-label").text().trim())
+      verifyContains(jq(".z-messagebox .z-label").text(), "1")
     })
   }
 }

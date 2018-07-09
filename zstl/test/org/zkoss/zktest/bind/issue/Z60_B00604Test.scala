@@ -45,7 +45,7 @@ class Z60_B00604Test extends ZTL4ScalaTestCase {
         val items = listbox.find("@listitem")
         verifyEquals(3, items.length())
         var item = items.first()
-        for (j <- 0 to items.length() - 1) {
+        for (j <- 0 to 2) {
           val cell1 = item.children().first()
           val cell2 = cell1.next()
           verifyEquals(itemLabel1(j), cell1.toWidget().get("label"))

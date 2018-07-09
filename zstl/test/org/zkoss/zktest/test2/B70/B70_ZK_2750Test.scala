@@ -65,7 +65,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     runZTL(zscript, () => {
       var buttons = jq("@button")
       var beginWidth = jq("@west").width();
-      for (i <- 0 to buttons.length() - 1) {
+      for (i <- 0 to 2) {
         for (j <- 0 to 5) {
           click(buttons.eq(i))
           waitResponse()

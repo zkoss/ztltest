@@ -11,8 +11,10 @@ class B70_ZK_2084Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(
       () => {
-        var list = List("0.0", "0.0", "0.00")
-        for (index <- 0 to 3; result <- list) {
+        checkResult(0, "0.0")
+        checkResult(1, "0.0")
+        checkResult(2, "0.00")
+        def checkResult(index: Int, result: String): Unit = {
           val ds = jq(".z-doublespinner").eq(index).toWidget()
           clickAt(ds.$n("btn-up"), "5,5")
           waitResponse()

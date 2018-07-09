@@ -145,7 +145,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         var rowlayout = jq(".z-rowlayout").eq(0);
         var totalWidth = rowlayout.outerWidth();
         var childrenWidth = 0;
-        for (i <- 0 to rowlayout.children().length() - 1) {
+        for (i <- 0 to 11) {
           var rowchildren = rowlayout.children().eq(i);
           if (i > 0) {
             var rowchildrenpre = rowlayout.children().eq(i - 1);
@@ -158,7 +158,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         rowlayout = jq(".z-rowlayout").eq(6);
         totalWidth = rowlayout.outerWidth();
         childrenWidth = 0;
-        for (i <- 0 to rowlayout.children().length() - 1) {
+        for (i <- 0 to 1) {
           var rowchildren = rowlayout.children().eq(i);
           if (i > 0) {
             var rowchildrenpre = rowlayout.children().eq(i - 1);
@@ -173,7 +173,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         rowlayout = jq(".z-rowlayout").eq(9);
         totalWidth = rowlayout.outerWidth();
         childrenWidth = 0;
-        for (i <- 0 to rowlayout.children().length() - 1) {
+        for (i <- 0 to 11) {
           var rowchildren = rowlayout.children().eq(i);
           if (i > 0) {
             var rowchildrenpre = rowlayout.children().eq(i - 1);
@@ -189,7 +189,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         totalWidth = rowlayout.outerWidth();
         childrenWidth = 0;
         verifyTrue(rowlayout.children().length() == 11);
-        for (i <- 0 to rowlayout.children().length() - 1) {
+        for (i <- 0 to 10) {
           var rowchildren = rowlayout.children().eq(i);
           if (i > 0) {
             var rowchildrenpre = rowlayout.children().eq(i - 1);

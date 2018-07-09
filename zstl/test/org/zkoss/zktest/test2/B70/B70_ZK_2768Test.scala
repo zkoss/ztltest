@@ -70,7 +70,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 		"""
     runZTL(zscript, () => {
       var toolbarBtns = jq(".z-toolbarbutton");
-      for (i <- 0 to toolbarBtns.length() - 1) {
+      for (i <- 0 to 3) {
         click(toolbarBtns.eq(i))
         waitResponse()
         verifyFalse(hasError);

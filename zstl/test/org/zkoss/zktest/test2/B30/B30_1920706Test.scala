@@ -17,6 +17,7 @@ package org.zkoss.zktest.test2.B30
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.unit.JQuery
 
 /**
   *
@@ -66,9 +67,7 @@ new Datebox().setParent(row);
       val $col1 = jq("$col1")
       val $col2 = jq("$col2")
       val $col3 = jq("$col3")
-
       verifyEquals(50, $col1.outerWidth())
-
       var halfWidth = (jq(g1).innerWidth() - 50) / 2
       verifyEquals(halfWidth, $col2.outerWidth())
       verifyEquals(halfWidth, $col3.outerWidth())
@@ -77,11 +76,13 @@ new Datebox().setParent(row);
       val btn2 = jq("@button:eq(1)")
       val btn3 = jq("@button:eq(2)")
 
-      for ((btn, size) <- List((btn1, 20), (btn2, 100), (btn3, 200))) {
+      checkSize(btn1, 20)
+      checkSize(btn2, 100)
+      checkSize(btn3, 200)
+      def checkSize(btn: JQuery, size: Int): Unit = {
         click(btn)
         waitResponse()
         verifyEquals(size, $col1.outerWidth())
-
         halfWidth = (jq(g1).innerWidth() - size) / 2
         verifyEquals(halfWidth, $col2.outerWidth())
         verifyEquals(halfWidth, $col3.outerWidth())

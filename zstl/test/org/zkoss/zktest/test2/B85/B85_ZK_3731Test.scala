@@ -20,7 +20,7 @@ class B85_ZK_3731Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit = {
     runZTL(executor = () => {
-      for (index <- 0 to jq("a").length() - 1) {
+      for (index <- 0 to 8) {
         click(jq("a").get(index));
         waitResponse();
       }

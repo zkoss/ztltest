@@ -30,7 +30,7 @@ class B70_ZK_2764Test extends ZTL4ScalaTestCase {
       waitResponse()
       var treeCells = jq(".z-treecell-text")
       var cellsString = ""
-      for (i <- 0 to treeCells.length() - 1) {
+      for (i <- 0 to 7) {
         var cell = treeCells.eq(i)
         cellsString += cell.text()
       }
@@ -40,7 +40,7 @@ class B70_ZK_2764Test extends ZTL4ScalaTestCase {
       click(jq("@button"))
       waitResponse()
       cellsString = ""
-      for (i <- 0 to treeCells.length() - 1) {
+      for (i <- 0 to 7) {
         var cell = treeCells.eq(i)
         cellsString += cell.text()
       }
@@ -50,7 +50,7 @@ class B70_ZK_2764Test extends ZTL4ScalaTestCase {
       click(jq("@button").eq(1))
       waitResponse()
       cellsString = ""
-      for (i <- 0 to treeCells.length() - 1) {
+      for (i <- 0 to 7) {
         var cell = treeCells.eq(i)
         cellsString += cell.text()
       }

@@ -81,7 +81,7 @@ class B30_1888911Test extends ZTL4ScalaTestCase {
     val mainwin = ztl$engine.$f("mainwin")
     runZTL(zscript, () => {
       sleep(1000); //for DataBinding
-      for (i <- 1 until jq(".z-column").length()) {
+      for (i <- 1 until 4) {
         verifyEquals("BBB", jq(".z-column:eq(" + i + ")").text())
       }
     })

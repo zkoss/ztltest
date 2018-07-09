@@ -38,7 +38,7 @@ class B60_ZK_898Test extends ZTL4ScalaTestCase {
       click(jq("@button"));
       waitResponse();
       containers = jq(".z-hlayout-inner");
-      for (i <- 0 until containers.length()) {
+      for (i <- 0 until 2) {
         container = jq(containers.get(i));
         verifyTrue("You should see paging disappeared with Listbox content",
           !isVisible(jq(".z-paging").eq(i)));

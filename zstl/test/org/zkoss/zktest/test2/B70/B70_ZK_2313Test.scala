@@ -155,7 +155,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         click(b1)
         waitResponse()
         var index = 0
-        while (index < lists.length()) {
+        while (index < 8) { //lists.length()
           val list = lists.eq(index);
           println(getScrollTop(list.toWidget()));
           if (getScrollTop(list.toWidget()) == 0)
@@ -166,7 +166,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         click(b2);
         waitResponse();
         index = 0
-        while (index < lists.length()) {
+        while (index < 8) { //lists.length()
           val list = lists.eq(index);
           println(getScrollTop(list.toWidget()));
           if (getScrollTop(list.toWidget()) > 0)
@@ -177,7 +177,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         click(b3);
         waitResponse();
         index = 0
-        while (index < lists.length()) {
+        while (index < 8) { //lists.length()
           val list = lists.eq(index);
           println(getScrollTop(list.toWidget()));
           if (getScrollTop(list.toWidget()) == 0)

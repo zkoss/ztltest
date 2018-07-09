@@ -65,14 +65,14 @@ http://www.zkoss.org/2005/zul/zul.xsd "
     runZTL(zscript, () => {
       var fullwidth = jq("@listhead").width()
       var percents = Array(20, 10, 20, 20, 20)
-      for (i <- 0 until jq("@listheader").length) {
+      for (i <- 0 until 5) {
         var jq$header: JQuery = jq("@listheader").eq(i)
         verifyTolerant(percents(i), jq$header.width() * 100 / fullwidth, 2)
       }
       for (k <- 0 until 2) {
         var jqselector = "@listitem:eq(" + k + ") @listcell"
         var m = 0
-        for (m <- 0 until jq(jqselector).length) {
+        for (m <- 0 until 5) {
           var jq$listcell: JQuery = jq(jqselector).eq(m)
           verifyTolerant(percents(m), jq$listcell.width() * 100 / fullwidth, 2)
         }

@@ -60,7 +60,7 @@ class B50_ZK_381Test extends ZTL4ScalaTestCase {
       var fullWidth = 0
       var i = jq(menubar.$n("cave")).children().length()
       var e = jq(menubar.$n("cave")).get(0).firstChild()
-      for (j <- 0 until i) {
+      for (j <- 0 until 3) {
         fullWidth += e.get("offsetWidth").toInt
         e = e.nextSibling()
       }

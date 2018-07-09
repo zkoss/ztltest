@@ -17,6 +17,7 @@ package org.zkoss.zktest.test2.B30
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.unit.JQuery
 
 /**
   *
@@ -85,7 +86,11 @@ class B30_1919180Test extends ZTL4ScalaTestCase {
       val btn2 = jq("@button:eq(2)")
       val btn3 = jq("@button:eq(3)")
 
-      for ((btn, size) <- List((btn2, 150), (btn3, 300), (btn1, 50))) {
+      checkSize(btn2, 150)
+      checkSize(btn3, 300)
+      checkSize(btn1, 50)
+
+      def checkSize(btn: JQuery, size: Int): Unit = {
         click(btn)
         waitResponse(true)
         val $row1 = jq(jq(".z-row:eq(0)").children().get(0))

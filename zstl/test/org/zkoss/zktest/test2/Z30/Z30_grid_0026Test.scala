@@ -153,7 +153,7 @@ class Z30_grid_0026Test extends ZTL4ScalaTestCase {
     """
     runZTL(zscript,
       () => {
-        verifyEquals(jq("@row").length.toString(), "32");
+        verifyEquals(jq("@row").length(), "32");
 
         verifyEquals(jq("@row:eq(0) @label:eq(0)").text(), "0");
 

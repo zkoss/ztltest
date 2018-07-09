@@ -89,7 +89,7 @@ class Z30_grid_0014Test extends ZTL4ScalaTestCase {
           val verify = iterator;
           var rows = jq("@row")
           var index = 0
-          while (index < rows.length()) {
+          while (index < iterator.length) {
             val row = rows.eq(index)
             var text = verify.next();
             verifyEquals(row.find(".z-label:first").text(), text);
@@ -103,11 +103,11 @@ class Z30_grid_0014Test extends ZTL4ScalaTestCase {
           verifyRowContent(iterator);
         }
 
-        verifyEquals(jq("@row").length.toString(), "0");
+        verifyEquals(jq("@row").length(), "0");
         verifyFalse(jq("@paging").is(":visible"));
 
         clickThenValidate("$btnAdd", () => {
-          verifyEquals(jq("@row").length.toString(), "5");
+          verifyEquals(jq("@row").length(), "5");
           verifyRowContent(Iterator("Item 1-L", "Item 2-L", "Item 3-L", "Item 4-L", "Item 5-L"))
         });
 
@@ -117,7 +117,7 @@ class Z30_grid_0014Test extends ZTL4ScalaTestCase {
 
         clickThenValidate("$btnAdd", () => {
           verifyTrue(jq("@paging").is(":visible"));
-          verifyEquals(jq("@row").length.toString(), "5");
+          verifyEquals(jq("@row").length(), "5");
           verifyRowContent(Iterator("Updated 0", "Item 2-L", "Item 3-L", "Item 4-L", "Item 5-L"))
         });
 
@@ -129,14 +129,14 @@ class Z30_grid_0014Test extends ZTL4ScalaTestCase {
 
         val next = "[name=" + jq(".z-paging").attr("id") + "-next]"
         clickThenValidate(next, () => {
-          verifyEquals(jq("@row").length.toString(), "5");
+          verifyEquals(jq("@row").length(), "5");
           verifyRowContent(Iterator("Item 6-L", "Item 7-L", "Item 8-L", "Item 9-L", "Updated 9"))
           invalidateTest(Iterator("Item 6-L", "Item 7-L", "Item 8-L", "Item 9-L", "Updated 9"))
         });
 
         val prev = "[name=" + jq(".z-paging").attr("id") + "-prev]"
         clickThenValidate(prev, () => {
-          verifyEquals(jq("@row").length.toString(), "5");
+          verifyEquals(jq("@row").length(), "5");
           verifyRowContent(Iterator("Updated 0", "Item 2-L", "Item 3-L", "Item 4-L", "Item 5-L"))
           invalidateTest(Iterator("Updated 0", "Item 2-L", "Item 3-L", "Item 4-L", "Item 5-L"))
         });

@@ -134,7 +134,7 @@ Copyright (C) 2015 Potix Corporation. All Rights Reserved.
         //check the all input should be 222
         var inputs = jq("input")
         var index = 0
-        while (index < inputs.length()) {
+        while (index < 12) {
           verifyEquals("222", inputs.eq(index).`val`())
           index += 1
         }
@@ -159,7 +159,7 @@ Copyright (C) 2015 Potix Corporation. All Rights Reserved.
         waitResponse()
         //check the all input should be 111
         index = 0
-        while (index < inputs.length()) {
+        while (index < 12) {
           verifyEquals("111", inputs.eq(index).`val`())
           index += 1
         }
@@ -184,7 +184,7 @@ Copyright (C) 2015 Potix Corporation. All Rights Reserved.
         waitResponse()
         //check the all input should be 222
         index = 0
-        while (index < inputs.length()) {
+        while (index < 12) {
           verifyEquals("222", inputs.eq(index).`val`())
           index += 1
         }
@@ -209,7 +209,7 @@ Copyright (C) 2015 Potix Corporation. All Rights Reserved.
         waitResponse()
         //check the all input should be 333
         index = 0
-        while (index < inputs.length()) {
+        while (index < 12) {
           verifyEquals("333", inputs.eq(index).`val`())
           index += 1
         }

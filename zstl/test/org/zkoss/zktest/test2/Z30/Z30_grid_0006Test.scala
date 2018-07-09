@@ -142,7 +142,7 @@ class Z30_grid_0006Test extends ZTL4ScalaTestCase {
           val verify = iterator;
           var rows = jq("@row")
           var index = 0
-          while (index < rows.length()) {
+          while (index < iterator.length) {
             val row = rows.eq(index)
             verifyEquals(row.find(".z-label:first").text(), verify.next());
             index += 1

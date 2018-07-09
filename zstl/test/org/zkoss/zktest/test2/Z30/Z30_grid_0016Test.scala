@@ -64,29 +64,26 @@ class Z30_grid_0016Test extends ZTL4ScalaTestCase {
       () => {
         def clickThenValidate(selector: String, validator: () => Unit) {
           click(jq(selector))
-          //clickAt(jq(selector), "2,2")
           waitResponse()
           validator()
         }
 
-        def verifyRowContent(iterator: Iterator[String]) = {
+        def verifyRowContent(iterator: Iterator[String], rowCnt: Int) = {
           val verify = iterator;
           var rows = jq("@row")
-          var index = 0
-          while (index < rows.length()) {
+          for (index <- 0 until rowCnt) {
             val row = rows.eq(index)
             var text = verify.next();
             verifyEquals(row.find(".z-label:first").text(), text);
-            index += 1
           }
         }
 
-        verifyEquals(jq("@rows").length.toString(), "0");
-        verifyEquals(jq("@row").length.toString(), "0");
+        verifyEquals(jq("@rows").length(), "0");
+        verifyEquals(jq("@row").length(), "0");
 
         clickThenValidate("$btnAddRows", () => {
-          verifyEquals(jq("@rows").length.toString(), "1");
-          verifyEquals(jq("@row").length.toString(), "0");
+          verifyEquals(jq("@rows").length(), "1");
+          verifyEquals(jq("@row").length(), "0");
         });
 
 
@@ -95,28 +92,28 @@ class Z30_grid_0016Test extends ZTL4ScalaTestCase {
           list += "Item " + i + "-L"
 
           clickThenValidate("$btnAddRow", () => {
-            verifyEquals(jq("@rows").length.toString(), "1");
-            verifyEquals(jq("@row").length.toString(), "" + i);
-            verifyRowContent(list.iterator)
+            verifyEquals(jq("@rows").length(), "1");
+            verifyEquals(jq("@row").length(), "" + i);
+            verifyRowContent(list.iterator, i)
           });
         }
 
         clickThenValidate("$btnAddRow", () => {
-          verifyEquals(jq("@rows").length.toString(), "1");
-          verifyEquals(jq("@row").length.toString(), "20"); //paging
-          verifyRowContent(list.iterator)
+          verifyEquals(jq("@rows").length(), "1");
+          verifyEquals(jq("@row").length(), "20"); //paging
+          verifyRowContent(list.iterator, 20)
         });
 
         clickThenValidate("$btnAddRow", () => {
-          verifyEquals(jq("@rows").length.toString(), "1");
-          verifyEquals(jq("@row").length.toString(), "20"); //paging
-          verifyRowContent(list.iterator)
+          verifyEquals(jq("@rows").length(), "1");
+          verifyEquals(jq("@row").length(), "20"); //paging
+          verifyRowContent(list.iterator, 20)
         });
 
         clickThenValidate("[name=" + jq(".z-paging").attr("id") + "-next]", () => {
-          verifyEquals(jq("@rows").length.toString(), "1");
-          verifyEquals(jq("@row").length.toString(), "2"); //paging
-          verifyRowContent(Iterator("Item 21-L", "Item 22-L"));
+          verifyEquals(jq("@rows").length(), "1");
+          verifyEquals(jq("@row").length(), "2"); //paging
+          verifyRowContent(Iterator("Item 21-L", "Item 22-L"), 2);
         });
 
 

@@ -126,7 +126,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         var hChildrenSize = hChildren.eval("size()");
         var hChildWidth = hlayout.width() / hChildrenSize.toInt;
         var index = 0
-        while (index < hChildren.length()) {
+        while (index < 3) {
           var t = hChildren.eq(index)
           verifyTrue(t.css("width") == hChildWidth + "px");
           index += 1
@@ -135,7 +135,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         var hbox = jq(".z-hbox").toWidget();
         var hboxChild = hbox.firstChild();
         var hboxChildWidth = jq(".z-hbox").width() / hbox.nChildren();
-        for (i <- 0 to hbox.nChildren() - 1) {
+        for (i <- 0 to 2) {
           var s = "td[id=\"" + hboxChild.uuid() + "-chdex" + "\"]";
 
           verifyTrue(Math.abs(hboxChildWidth - jq(s).width()) < 10);
@@ -147,7 +147,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         var vChildrenSize = vChildren.eval("size()");
         var vChildWidth = vlayout.height() / vChildrenSize.toInt;
         index = 0
-        while (index < hChildren.length()) {
+        while (index < 3) {
           var t = vChildren.eq(index)
           verifyTrue(t.css("height") == vChildWidth + "px");
           index += 1
@@ -156,7 +156,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         var vbox = jq(".z-vbox").toWidget()
         var vboxChild = vbox.firstChild();
         var vboxChildHeight = jq(".z-vbox").height() / vbox.nChildren();
-        for (i <- 0 to vbox.nChildren() - 1) {
+        for (i <- 0 to 2) {
           var s = "tr[id=\"" + vboxChild.uuid() + "-chdex" + "\"]";
           verifyTrue(Math.abs(vboxChildHeight - jq(s).height()) < 10);
           vboxChild = vboxChild.nextSibling();
@@ -170,7 +170,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         hChildrenSize = hChildren.eval("size()");
         hChildWidth = hlayout.width() / hChildrenSize.toInt;
         index = 0
-        while (index < hChildren.length()) {
+        while (index < 4) {
           var t = hChildren.eq(index)
           verifyTrue(t.css("width") == hChildWidth + "px");
           index += 1
@@ -179,7 +179,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         hbox = jq(".z-hbox").toWidget();
         hboxChild = hbox.firstChild();
         hboxChildWidth = jq(".z-hbox").width() / hbox.nChildren();
-        for (i <- 0 to hbox.nChildren() - 1) {
+        for (i <- 0 to 3) {
           var s = "td[id=\"" + hboxChild.uuid() + "-chdex" + "\"]";
 
           verifyTrue(Math.abs(hboxChildWidth - jq(s).width()) < 10);
@@ -190,7 +190,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         vChildren = vlayout.children()
         vChildrenSize = vChildren.eval("size()");
         vChildWidth = vlayout.height() / vChildrenSize.toInt;
-        while (index < hChildren.length()) {
+        while (index < 4) {
           var t = vChildren.eq(index)
           verifyTrue(t.css("height") == vChildWidth + "px");
           index += 1
@@ -199,7 +199,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         vbox = jq(".z-vbox").toWidget();
         vboxChild = vbox.firstChild();
         vboxChildHeight = jq(".z-vbox").height() / vbox.nChildren();
-        for (i <- 0 to vbox.nChildren() - 1) {
+        for (i <- 0 to 3) {
           var s = "tr[id=\"" + vboxChild.uuid() + "-chdex" + "\"]";
           verifyTrue(Math.abs(vboxChildHeight - jq(s).height()) < 10);
           vboxChild = vboxChild.nextSibling();

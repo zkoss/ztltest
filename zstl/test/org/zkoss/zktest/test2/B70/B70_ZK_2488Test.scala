@@ -57,7 +57,7 @@ class B70_ZK_2488Test extends ZTL4ScalaTestCase {
         var index = 0
         var c = jq(".z-caption-content")
         var l = jq(".z-caption-content>.z-label")
-        while (index < c.length() && index < l.length()) {
+        while (index < 4) { //c.length, l.length
           var caption = c.eq(index)
           var label = l.eq(index)
           verifyTrue(caption.positionLeft() < label.positionLeft());

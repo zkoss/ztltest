@@ -92,7 +92,7 @@ class B60_ZK_927_2Test extends ZTL4ScalaTestCase {
         def check(item: Int) {
           var listitems: JQuery = jq(lbx).find(".z-listitem");
           var selected: Boolean = null;
-          for (i <- 0 until listitems.length()) {
+          for (i <- 0 until 10) {
             selected = (item == i);
             verifyTrue(jq(lbx).find(".z-listitem-selected:contains(item " + i + ")").exists() == selected);
           }

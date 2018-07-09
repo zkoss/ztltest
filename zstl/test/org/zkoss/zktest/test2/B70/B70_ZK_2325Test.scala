@@ -72,7 +72,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       () => {
         val sep = jq(".z-hbox-separator")
         var index = 0
-        while (index < sep.length()) {
+        while (index < 8) { //sep.length()
           val s = sep.eq(index);
           verifyTrue("seperator shouldn't occupy 1 or 2px", s.width() == 0 || s.css("display") == "none");
           index += 1

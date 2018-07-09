@@ -74,8 +74,9 @@ select tab2 and close it, should not cause an error, also creation of new tabs s
 </zk>"""
     runZTL(zscript,
       () => {
-        var valList = List("tabbox", "tabbox-accordion")
-        for (value <- valList; index <- 0 to 1) {
+        checkError("tabbox", 0)
+        checkError("tabbox-accordion", 1)
+        def checkError(value: String, index: Int): Unit = {
           val tab = jq(".z-" + value + " .z-tab-text:contains(Tab 2)").toWidget()
           click(tab)
           waitResponse()

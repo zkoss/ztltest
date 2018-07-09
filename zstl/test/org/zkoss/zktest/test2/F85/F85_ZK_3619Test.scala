@@ -41,8 +41,6 @@ class F85_ZK_3619Test extends ZTL4ScalaTestCase {
 	}
 	
 	def testDisabled(cells: JQuery): Unit = {
-		for (index <- 0 until cells.length()) {
-			verifyTrue(cells.eq(index).hasClass("z-calendar-disabled"))
-		}
+			verifyEquals(jq(".z-calendar-cell:visible").length, jq(".z-calendar-cell.z-calendar-disabled:visible").length)
 	}
 }

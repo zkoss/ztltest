@@ -16,7 +16,7 @@ class B85_ZK_3773Test extends ZTL4ScalaTestCase {
   def test(): Unit = {
     runZTL(() => {
       val themes = jq("@groupbox @button")
-      for (i <- 0 until themes.length()) {
+      for (i <- 0 until 4) {
         testInTheme(themes.eq(i))
       }
       click(jq("$restore"))

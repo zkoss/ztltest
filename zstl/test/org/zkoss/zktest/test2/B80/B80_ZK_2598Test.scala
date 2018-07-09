@@ -17,7 +17,7 @@ class B80_ZK_2598Test extends ZTL4ScalaTestCase {
       click(jq(".z-messagebox-button"));
       waitResponse()
       var index = 0
-      while (index < btns.length()) {
+      while (index < 3) {
         var btn = btns.eq(index)
         click(btn);
         waitResponse();

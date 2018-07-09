@@ -24,9 +24,7 @@ class Z60_F00995ValidationMessagesTest extends ZTL4ScalaTestCase {
     val zul = """
       <include src="/bind/issue/F00995ValidationMessages.zul"/>
 """
-
     runZTL(zul, () => {
-
       var l1 = jq("$l1")
       var t1 = jq("$t1")
 
@@ -104,7 +102,7 @@ class Z60_F00995ValidationMessagesTest extends ZTL4ScalaTestCase {
 
       var i = 1
       var rows = msggrid1.find("@row")
-      for (j <- 0 until rows.length()) {
+      for (j <- 0 until 3) {
         var row = rows.eq(j)
         verifyEquals("[" + i + "] value must equals ignore case 'abc', but is ABCa", row.find("@label").toWidget().get("value"))
         i = i + 1
@@ -112,7 +110,7 @@ class Z60_F00995ValidationMessagesTest extends ZTL4ScalaTestCase {
 
       i = 1
       rows = msggrid2.find("@row")
-      for (j <- 0 until rows.length()) {
+      for (j <- 0 until 3) {
         var row = rows.eq(j)
         verifyEquals("[" + i + "] value must equals ignore case 'abc', but is ABCa", row.find("@label").toWidget().get("value"))
         i = i + 1
@@ -120,7 +118,7 @@ class Z60_F00995ValidationMessagesTest extends ZTL4ScalaTestCase {
 
       i = 1
       rows = msggrid3.find("@row")
-      for (j <- 0 until rows.length()) {
+      for (j <- 0 until 3) {
         var row = rows.eq(j)
         verifyEquals("[" + i + "] value must equals ignore case 'abc', but is ABCa", row.find("@label").toWidget().get("value"))
         i = i + 1

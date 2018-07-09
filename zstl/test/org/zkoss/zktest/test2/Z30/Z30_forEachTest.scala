@@ -61,11 +61,11 @@ class Z30_forEachTest extends ZTL4ScalaTestCase {
       () => {
 
         var i: Int = 5;
-        var rows = jq("@row")
+        var rows = jq("@listitem")
         var index = 0
-        while (index < rows.length()) {
+        while (index < 46) {
           val row = rows.eq(index)
-          verifyEquals(row.find("@label:first").text(), "" + i);
+          verifyEquals(row.find("@listcell:first").text(), "" + i);
           index += 1
           i = i + 1;
         }

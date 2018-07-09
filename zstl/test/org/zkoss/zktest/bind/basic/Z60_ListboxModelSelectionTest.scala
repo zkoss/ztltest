@@ -53,7 +53,7 @@ class Z60_ListboxModelSelectionTest extends ZTL4ScalaTestCase {
 
   def getListboxSelectedItem(listbox: Widget): Widget = {
     var listitems = listbox.firstChild(); // include header
-    for (i <- 0 to listbox.nChildren() - 2) {
+    for (i <- 0 to 3) {
       listitems = listitems.nextSibling();
       if (listitems.is("selected"))
         return listitems;
@@ -64,7 +64,7 @@ class Z60_ListboxModelSelectionTest extends ZTL4ScalaTestCase {
   def getListboxSelectedIndex(listbox: Widget): Int = {
     var listitems = listbox.firstChild(); // include header
     var selectedIndex = -1;
-    for (i <- 0 to listbox.nChildren() - 2) {
+    for (i <- 0 to 3) {
       listitems = listitems.nextSibling();
       if (listitems.is("selected"))
         selectedIndex = i;

@@ -95,13 +95,13 @@ class B30_1892446Test extends ZTL4ScalaTestCase {
     val tree = ztl$engine.$f("tree")
     val tree2 = ztl$engine.$f("tree2")
     runZTL(zscript, () => {
-      for (i <- 0 until jq("@tree").length) {
+      for (i <- 0 until 2) {
         var jqTree: JQuery = jq("@tree").eq(i)
         verifyContains(jqTree.find("@treecell").eq(2).text(), "[Tommy, Juile, [Gray, [Paul, Eric]]]")
       }
       click(jq("@button"))
       waitResponse()
-      for (i <- 0 until jq("@tree").length) {
+      for (i <- 0 until 2) {
         var jqTree: JQuery = jq("@tree").eq(i)
         verifyContains(jqTree.find("@treecell").eq(2).text(), "[Clinton, Obama]")
       }

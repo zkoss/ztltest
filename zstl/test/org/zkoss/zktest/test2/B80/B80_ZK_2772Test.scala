@@ -15,6 +15,7 @@ class B80_ZK_2772Test extends ZTL4ScalaTestCase {
         var originalWidths = List[Int]()
         var cols = jq(".z-column")
         var index = 0
+        println("1>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + cols.length())
         while (index < cols.length()) {
           originalWidths :+= cols.eq(index).next().width() //append in place
           index += 1
@@ -29,6 +30,7 @@ class B80_ZK_2772Test extends ZTL4ScalaTestCase {
         cols = jq(".z-column")
         //skip index 5~8
         var i = 0
+
         for (width <- originalWidths) {
           println(i)
           if (i < 5 || i > 8)

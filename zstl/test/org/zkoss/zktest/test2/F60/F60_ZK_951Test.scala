@@ -189,7 +189,7 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
           var colSize: Int = cols.length();
           var hbar: JQuery = jq(biglist.$n("hbar"));
           var vbar: JQuery = jq(biglist.$n("vbar"));
-          for (i <- 0 until rowSize) {
+          for (i <- 0 until 10) { //rowSize
             var row: JQuery = jq(rows.find("tr").get(i));
 
             if ((row.offsetTop() + row.outerHeight(true)) > hbar.offsetTop()) {
@@ -197,7 +197,7 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
             } else if (i == (rowSize - 1))
               tmpValueOne = i;
           }
-          for (j <- 0 until colSize) {
+          for (j <- 0 until 9) { //colSize
             var col: JQuery = jq(cols.get(j));
             if ((col.offsetLeft() + col.outerWidth(true)) > vbar.offsetLeft()) {
               tmpValueTwo = j - 1;
