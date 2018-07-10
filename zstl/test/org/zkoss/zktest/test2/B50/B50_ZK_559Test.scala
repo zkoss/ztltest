@@ -65,11 +65,8 @@ class B50_ZK_559Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       var listbox: Widget = engine.$f("listbox");
       var tabbox: Widget = engine.$f("tabbox");
-
-      var gap: Integer = Math.abs(jq(tabbox.$n()).positionTop() - jq(listbox.$n()).height() - jq(listbox.$n()).positionTop());
-
       verifyTrue("the gap between listbox and tabbox should not too large",
-        gap < 15);
+        getEval("Math.abs(" + jq(tabbox.$n()).positionTop() + "-" + jq(listbox.$n()).height() + "-" + jq(listbox.$n()).positionTop() + ") < 15"))
     })
   }
 

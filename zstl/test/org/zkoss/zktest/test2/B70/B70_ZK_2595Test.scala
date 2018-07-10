@@ -137,8 +137,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         var hboxChildWidth = jq(".z-hbox").width() / hbox.nChildren();
         for (i <- 0 to 2) {
           var s = "td[id=\"" + hboxChild.uuid() + "-chdex" + "\"]";
-
-          verifyTrue(Math.abs(hboxChildWidth - jq(s).width()) < 10);
+          verifyTrue(getEval("Math.abs(" + hboxChildWidth + "-" + jq(s).width() + ") < 10)"))
           hboxChild = hboxChild.nextSibling();
         }
 
@@ -158,7 +157,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         var vboxChildHeight = jq(".z-vbox").height() / vbox.nChildren();
         for (i <- 0 to 2) {
           var s = "tr[id=\"" + vboxChild.uuid() + "-chdex" + "\"]";
-          verifyTrue(Math.abs(vboxChildHeight - jq(s).height()) < 10);
+          verifyTrue(getEval("Math.abs(" + vboxChildHeight + "-" + jq(s).height() + ") < 10)"))
           vboxChild = vboxChild.nextSibling();
         }
 
@@ -181,8 +180,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         hboxChildWidth = jq(".z-hbox").width() / hbox.nChildren();
         for (i <- 0 to 3) {
           var s = "td[id=\"" + hboxChild.uuid() + "-chdex" + "\"]";
-
-          verifyTrue(Math.abs(hboxChildWidth - jq(s).width()) < 10);
+          verifyTrue(getEval("Math.abs(" + hboxChildWidth + "-" + jq(s).width() + ") < 10)"))
           hboxChild = hboxChild.nextSibling();
         }
 
@@ -201,7 +199,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         vboxChildHeight = jq(".z-vbox").height() / vbox.nChildren();
         for (i <- 0 to 3) {
           var s = "tr[id=\"" + vboxChild.uuid() + "-chdex" + "\"]";
-          verifyTrue(Math.abs(vboxChildHeight - jq(s).height()) < 10);
+          verifyTrue(getEval("Math.abs(" + vboxChildHeight + "-" + jq(s).height() + ") < 10)"))
           vboxChild = vboxChild.nextSibling();
         }
       })

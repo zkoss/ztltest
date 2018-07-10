@@ -81,14 +81,12 @@ class B50_ZK_543Test extends ZTL4ScalaTestCase {
 					</listitem>
 				</listbox>
 			</zk>
-
     """
     runZTL(zscript, () => {
       var listbox: Widget = engine.$f("listbox");
-
       // IE may have few pixel below
       verifyTrue("the body height should equal to cave height",
-        Math.abs(jq(listbox.$n("body")).outerHeight() - jq(listbox.$n("cave")).outerHeight()) < 3);
+        getEval("Math.abs(" + jq(listbox.$n("body")).outerHeight() + "-" + jq(listbox.$n("cave")).outerHeight() + ") < 3"))
     })
   }
 }

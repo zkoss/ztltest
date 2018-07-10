@@ -87,12 +87,14 @@ class F60_ZK_470Test extends ZTL4ScalaTestCase {
         var win5: Widget = engine.$f("win5");
         var win6: Widget = engine.$f("win6");
 
-        var parentW: Double = jq(al.$n()).width();
-        var parentH: Double = jq(al.$n()).height();
+        var parentW = jq(al.$n()).width();
+        var parentH = jq(al.$n()).height();
 
-        def checkSize(win: Widget, winW: Double, winH: Double) {
-          verifyTrue("Ths window size should be " + winW + ", " + winH,
-            math.abs(jq(win).outerWidth() - winW) < 2 && math.abs(jq(win).outerHeight() - winH) < 2);
+        def checkSize(win: Widget, winW: Number, winH: Number) {
+          verifyTrue("Ths window size should be " + winW,
+            getEval("Math.abs(" + jq(win).outerWidth() + " - " + winW + ") < 2"))
+          verifyTrue("Ths window size should be " + winH,
+            getEval("Math.abs(" + jq(win).outerHeight() + " - " + winH + ") < 2"))
         }
 
         checkSize(win1, parentW - 100, 200);

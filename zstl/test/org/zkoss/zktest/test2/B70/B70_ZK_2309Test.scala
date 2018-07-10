@@ -72,7 +72,8 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         waitResponse();
         val outer = jq("$layout");
         val inner = jq("$left");
-        verifyTrue("the width of \"Left box\" should expand its width as its parent.", Math.abs(outer.width() - inner.width()) <= ALLOWANCE);
+        verifyTrue("the width of \"Left box\" should expand its width as its parent.",
+          getEval("Math.abs(" + outer.width() + "-" + inner.width() + ") <= " + ALLOWANCE + ")"))
       })
 
   }

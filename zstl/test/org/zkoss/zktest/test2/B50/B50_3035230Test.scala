@@ -71,10 +71,8 @@ class B50_3035230Test extends ZTL4ScalaTestCase {
     val c3 = ztl$engine.$f("c3")
     val c4 = ztl$engine.$f("c4")
     runZTL(zscript, () => {
-      var diffC1C2 = Math.abs(jq(c1).outerWidth() - jq(c2).outerWidth())
-      var diffC3C4 = Math.abs(jq(c3).outerWidth() - jq(c4).outerWidth())
-      verifyTrue(diffC1C2 <= 3)
-      verifyTrue(diffC3C4 <= 3)
+      verifyTrue(getEval("Math.abs(" + jq(c1).outerWidth() + "-" + jq(c2).outerWidth() + ") <= 3"))
+      verifyTrue(getEval("Math.abs(" + jq(c3).outerWidth() + "-" + jq(c4).outerWidth() + ") <= 3"))
     })
   }
 }

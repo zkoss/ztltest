@@ -103,17 +103,24 @@ class F60_ZK_469Test extends ZTL4ScalaTestCase {
         def clickAndVerify(btn: Widget, addX: Int, addY: Int) {
           click(btn);
           waitResponse();
-          w1x += addX;
-          w1y += addY;
-          w2x += addX;
-          w2y += addY;
-          w3x += addX;
-          w3y += addY;
-
+          w1x += addX
+          w1y += addY
+          w2x += addX
+          w2y += addY
+          w3x += addX
+          w3y += addY
           verifyTrue("The position should be changed correctly",
-            math.abs((jq(w1).offsetLeft() - parentLeft - w1x)) < 2 && math.abs(jq(w1).offsetTop() - parentTop - w1y) < 2
-              && math.abs((jq(w2).offsetLeft() - parentLeft - w2x)) < 2 && math.abs(jq(w2).offsetTop() - parentTop - w2y) < 2
-              && math.abs((jq(w3).offsetLeft() - parentLeft - w3x)) < 2 && math.abs(jq(w3).offsetTop() - parentTop - w3y) < 2);
+            getEval("Math.abs(" + jq(w1).offsetLeft() + "-" + parentLeft + "-" + w1x + ") < 2"))
+          verifyTrue("The position should be changed correctly",
+            getEval("Math.abs(" + jq(w1).offsetTop() + "-" + parentTop + "-" + w1y + ") < 2"))
+          verifyTrue("The position should be changed correctly",
+            getEval("Math.abs(" + jq(w2).offsetLeft() + "-" + parentLeft + "-" + w2x + ") < 2"))
+          verifyTrue("The position should be changed correctly",
+            getEval("Math.abs(" + jq(w2).offsetTop() + "-" + parentTop + "-" + w2y + ") < 2"))
+          verifyTrue("The position should be changed correctly",
+            getEval("Math.abs(" + jq(w3).offsetLeft() + "-" + parentLeft + "-" + w3x + ") < 2"))
+          verifyTrue("The position should be changed correctly",
+            getEval("Math.abs(" + jq(w3).offsetTop() + "-" + parentTop + "-" + w3y + ") < 2"))
         }
 
         clickAndVerify(btnOne, 100, 0);

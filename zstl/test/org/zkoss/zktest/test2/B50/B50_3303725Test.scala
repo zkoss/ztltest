@@ -84,8 +84,7 @@ class B50_3303725Test extends ZTL4ScalaTestCase {
           jq(p3.$n()).outerHeight();
         verifyTrue("the sum of the height of the three panel (" + h2
           + ") should close to the height of the Portallayout (" + h1
-          + ")",
-          Math.abs(h1 - h2) < 10);
+          + ")", getEval("Math.abs(" + h1 + " - " + h2 + ") < 10"))
         verifyEquals(jq(ptl.$n()).find(".z-panel").get(1).get("id"), p2.$n().get("id"));
       }
     );

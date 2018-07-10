@@ -67,7 +67,7 @@ class B50_ZK_414Test extends ZTL4ScalaTestCase {
       click(jq(".z-treerow:contains(something):eq(1)").toWidget().$n("open"))
       waitResponse()
       sleep(2000)
-      verifyTrue(java.lang.Math.abs(getScrollTop(groupTree)) > 200)
+      verifyTrue(getScrollTop(groupTree) > 200)
     })
   }
 }
