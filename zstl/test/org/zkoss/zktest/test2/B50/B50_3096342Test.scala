@@ -49,18 +49,19 @@ class B50_3096342Test extends ZTL4ScalaTestCase {
 					<button label="reset" onClick='d2.setValue(new Date())'/>
 				</hlayout>
 			</vlayout>
-      <script>
-        function checkMsg() {
-          var msg = jq("@label:last").text()
-          return msg.indexOf("d2:onChange:") != -1 && msg.indexOf("null") == -1
-        }
-      </script>
+      <script><![CDATA[
+        function checkMsg(checkNull) {
+          var msg = jq("@label:last").text();
+           var result;
+            if (checkNull)
+            result = msg.indexOf("null") == -1;
+            else
+            	result = msg.indexOf("null") != -1;
+            return msg.indexOf("d2:onChange:") != -1 && result;
+          }
+        ]]></script>
       </zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
-    val inf = ztl$engine.$f("inf")
-    val desp = ztl$engine.$f("desp")
-    val d2 = ztl$engine.$f("d2")
     runZTL(zscript, () => {
       click(jq(jq(".z-datebox").toWidget().$n("btn")))
       waitResponse()
@@ -79,14 +80,14 @@ class B50_3096342Test extends ZTL4ScalaTestCase {
       waitResponse()
       clickAt(jq("$desp"), "10,10")
       waitResponse()
-      verifyEquals(true, getEval("checkMsg", false))
+      verifyEquals(true, getEval("checkMsg(true)"))
       var dateInput = jq(jq(".z-datebox").toWidget().$n("real"))
       dateInput.toElement().set("value", "")
       sendKeys(dateInput, "" + Keys.TAB)
       waitResponse()
       blur(dateInput)
       verifyEquals("d2:onChange: null", jq("@label:last").text())
-      verifyEquals(true, getEval("checkMsg", false))
+      verifyEquals(true, getEval("checkMsg(false)"))
     })
   }
 }
