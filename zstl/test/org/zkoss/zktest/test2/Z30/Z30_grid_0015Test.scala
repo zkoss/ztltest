@@ -31,123 +31,8 @@ class Z30_grid_0015Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript =
-      """
-			<window>
-				Use external paging component in two grids , when you click next page ,both the two grid should change to next page .
-			<vbox>
-			<paging id="pg" pageSize="4"/>
-			<hbox>
-				<grid id="grid1" width="300px" mold="paging" paginal="${pg}">
-					<columns>
-						<column label="Left"/>
-						<column label="Right"/>
-					</columns>
-					<auxhead>
-						<auxheader label="Whole" colspan="2"/>
-					</auxhead>
-					<rows>
-						<row>
-							<label value="Item 1.1"/>
-							<label value="Item 1.2"/>
-						</row>
-						<row>
-							<label value="Item 2.1"/>
-							<label value="Item 2.2"/>
-						</row>
-						<row>
-							<label value="Item 3.1"/>
-							<label value="Item 3.2"/>
-						</row>
-						<row>
-							<label value="Item 4.1"/>
-							<label value="Item 4.2"/>
-						</row>
-						<row>
-							<label value="Item 5.1"/>
-							<label value="Item 5.2"/>
-						</row>
-						<row>
-							<label value="Item 6.1"/>
-							<label value="Item 6.2"/>
-						</row>
-						<row>
-							<label value="Item 7.1"/>
-							<label value="Item 7.2"/>
-						</row>
-					</rows>
-				</grid>
-				<grid  id="grid2" width="300px" mold="paging" paginal="${pg}">
-					<columns>
-						<column label="Left"/>
-						<column label="Right"/>
-					</columns>
-					<rows>
-						<row>
-							<label value="Item A.1"/>
-							<label value="Item A.2"/>
-						</row>
-						<row>
-							<label value="Item B.1"/>
-							<label value="Item B.2"/>
-						</row>
-						<row>
-							<label value="Item C.1"/>
-							<label value="Item C.2"/>
-						</row>
-						<row>
-							<label value="Item D.1"/>
-							<label value="Item D.2"/>
-						</row>
-						<row>
-							<label value="Item E.1"/>
-							<label value="Item E.2"/>
-						</row>
-						<row>
-							<label value="Item F.1"/>
-							<label value="Item F.2"/>
-						</row>
-					</rows>
-				</grid>
-			</hbox>
-			<zscript><![CDATA[
-				void addgd(int cnt) {
-					for (int j = 0; ++j <= cnt;) {
-						Row r = new Row();
-						String prefix = "Item " + (grid.getRows().getChildren().size() + 1);
-						new Label(prefix + "-L").setParent(r);
-						new Label(prefix + "-C").setParent(r);
-						new Label(prefix + "-R").setParent(r);
-						r.setParent(gd.getRows());
-					}
-				}
-				]]>
-			</zscript>
-			</vbox>
-			</window>
 
-    """
-
-    runZTL(zscript,
-      () => {
-        def clickThenValidate(selector: String, validator: () => Unit) {
-          click(jq(selector));
-          waitResponse()
-          validator()
-        }
-
-        def verifyRowContent(gridSelector: String, iterator: Iterator[String]) = {
-          val verify = iterator;
-          var rows = jq(gridSelector).find(".z-row")
-          var index = 0
-          while (index < iterator.length) {
-            val row = rows.eq(index)
-            var text = verify.next()
-            verifyEquals(row.find(".z-label:first").text(), text);
-            index += 1
-          }
-        }
-
+    runZTL(() => {
         verifyRowContent("$grid1", Iterator(
           "Item 1.1",
           "Item 2.1",
@@ -161,8 +46,8 @@ class Z30_grid_0015Test extends ZTL4ScalaTestCase {
           "Item C.1",
           "Item D.1"
         ));
-
-        clickThenValidate("[name=" + jq(".z-paging").attr("id") + "-next]", () => {
+        //"[name=" + jq(".z-paging").attr("id") + "-next]" (when using IR getting wrong, need to survey) 
+        clickThenValidate(".z-paging-next", () => {
           verifyRowContent("$grid1", Iterator(
             "Item 5.1",
             "Item 6.1",
@@ -175,7 +60,8 @@ class Z30_grid_0015Test extends ZTL4ScalaTestCase {
           ));
         });
 
-        clickThenValidate("[name=" + jq(".z-paging").attr("id") + "-prev]", () => {
+        //"[name=" + jq(".z-paging").attr("id") + "-prev]"
+        clickThenValidate(".z-paging-previous", () => {
           verifyRowContent("$grid1", Iterator(
             "Item 1.1",
             "Item 2.1",
@@ -193,5 +79,21 @@ class Z30_grid_0015Test extends ZTL4ScalaTestCase {
         });
       }
     );
+    def clickThenValidate(selector: String, validator: () => Unit) {
+      click(jq(selector));
+      waitResponse()
+      validator()
+    }
+
+    def verifyRowContent(gridSelector: String, iterator: Iterator[String]) = {
+      var rows = jq(gridSelector).find(".z-row")
+      var index = 0
+      while (iterator.hasNext) {
+        val row = rows.eq(index)
+        var text = iterator.next()
+        verifyEquals(row.find(".z-label:first").text(), text);
+        index += 1
+      }
+    }
   }
 }

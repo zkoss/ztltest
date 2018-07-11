@@ -29,7 +29,7 @@ class B85_ZK_3920Test extends ZTL4ScalaTestCase {
       waitResponse();
       click(jq(".z-listgroup-icon").get(1));
       waitResponse();
-      verifyTrue(lbbody.height() - fa.height() - fa.offsetTop() > 0);
+      verifyTrue(lbbody.height() + lbbody.offsetTop() - fa.height() - fa.offsetTop() >= 0);
     });
   }
 }

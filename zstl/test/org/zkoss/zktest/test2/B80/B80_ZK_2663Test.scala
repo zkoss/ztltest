@@ -18,7 +18,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 class B80_ZK_2663Test extends ZTL4ScalaTestCase {
   @Test
   def testPopup() = {
-    runZTL(() => {
+    runZTLinAction("test2/B80-ZK-2663.zhtml", () => {
       click(jq(".z-button"))
       waitResponse()
       verifyEquals("block", jq(".z-popup").css("display"))
