@@ -79,7 +79,7 @@ new Datebox().setParent(row);
       checkSize(btn1, 20)
       checkSize(btn2, 100)
       checkSize(btn3, 200)
-      def checkSize(btn: JQuery, size: Int): Unit = {
+      def checkSize(btn: JQuery, size: Int)=  {
         click(btn)
         waitResponse()
         verifyEquals(size, $col1.outerWidth())

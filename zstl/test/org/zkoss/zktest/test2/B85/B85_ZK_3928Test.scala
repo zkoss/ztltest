@@ -10,7 +10,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B85-ZK-3928.zul")
 class B85_ZK_3928Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       click(jq("@button:contains(Open item-0)"))
       waitResponse()

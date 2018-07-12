@@ -10,7 +10,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "F85-ZK-3683.zul")
 class F85_ZK_3683Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val splitter = jq("@splitlayout .z-splitlayout-splitter")
       val win = jq("@window")

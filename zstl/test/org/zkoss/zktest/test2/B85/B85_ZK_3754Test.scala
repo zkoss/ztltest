@@ -10,7 +10,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B85-ZK-3754.zul")
 class B85_ZK_3754Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val navWidth = jq(".z-nav:eq(0)").outerWidth()
       click(jq("@button"))

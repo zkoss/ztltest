@@ -43,7 +43,7 @@ class B50_2997079Test extends ZTL4ScalaTestCase {
       click(jq("@button[label=\"test2\"]"))
       waitResponse()
       var css = jq(".z-label").css("background-color")
-      verifyTrue("css: [" + css + "]", ColorVerifingHelper.isEqualColor("blue", css));
+      verifyEqualColor("css: [" + css + "]", "blue", css)
     })
   }
 }

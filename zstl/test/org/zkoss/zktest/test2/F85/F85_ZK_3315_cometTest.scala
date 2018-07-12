@@ -10,7 +10,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "F85-ZK-3315-comet.zul")
 class F85_ZK_3315_cometTest extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       `type`(jq("@textbox"), "ZTL Test")
       keyPressEnter(jq("@textbox"))

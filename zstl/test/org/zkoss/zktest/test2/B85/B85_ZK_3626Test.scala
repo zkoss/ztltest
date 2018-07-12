@@ -17,7 +17,7 @@ import org.openqa.selenium.Keys
 Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */ class B85_ZK_3626Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       runScript("document.body.style.zoom = '150%'")
       waitResponse()

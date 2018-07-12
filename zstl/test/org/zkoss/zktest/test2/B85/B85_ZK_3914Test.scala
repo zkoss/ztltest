@@ -17,14 +17,14 @@ import org.zkoss.ztl.unit.JQuery
 
 class B85_ZK_3914Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       testEmptyMessageWidth(jq(".z-grid-emptybody"))
       testEmptyMessageWidth(jq(".z-listbox-emptybody"))
     })
   }
 
-  def testEmptyMessageWidth(emptyBody: JQuery): Unit = {
+  def testEmptyMessageWidth(emptyBody: JQuery)=  {
     verifyTolerant(emptyBody.width(), emptyBody.find("td").width(), 2)
   }
 }

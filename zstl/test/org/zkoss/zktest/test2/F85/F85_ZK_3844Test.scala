@@ -10,7 +10,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "F85-ZK-3844.zul")
 class F85_ZK_3844Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       (1 to 4).foreach(i => {
         verifyTrue(s"button $i icon missing",

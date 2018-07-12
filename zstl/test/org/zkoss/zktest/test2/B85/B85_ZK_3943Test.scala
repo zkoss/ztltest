@@ -12,7 +12,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B85-ZK-3943.zul")
 class B85_ZK_3943Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       click(jq("@button:eq(0)"))
       waitResponse()
@@ -27,7 +27,7 @@ class B85_ZK_3943Test extends ZTL4ScalaTestCase {
     })
   }
 
-  def checkPopupPosition(btn: JQuery, pp: JQuery): Unit = {
+  def checkPopupPosition(btn: JQuery, pp: JQuery)=  {
     val popRightEdge = pp.offsetLeft() + pp.outerWidth()
     val btnRightEdge = btn.offsetLeft() + btn.outerWidth()
     verifyTolerant(popRightEdge, btnRightEdge, 2)

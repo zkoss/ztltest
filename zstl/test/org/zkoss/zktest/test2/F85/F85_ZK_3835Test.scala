@@ -10,7 +10,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "F85-ZK-3835.zul")
 class F85_ZK_3835Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val tree = jq("@tree")
       val content = jq("@tree .z-tree-body")

@@ -10,7 +10,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B85-ZK-3656.zul")
 class B85_ZK_3656Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val headerCm = jq(".z-listheader-checkable:eq(0)")
       click(headerCm)

@@ -10,7 +10,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B85-ZK-3840.zul")
 class B85_ZK_3840Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val win = widget(jq("@window"))
       val btns = jq("@button")

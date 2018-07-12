@@ -20,7 +20,7 @@ class B85_ZK_3722Test extends ZTL4ScalaTestCase {
   var pos1Map: Map[String, Int] = Map()
   var monList = Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
   @Test
-	def test(): Unit = {
+	def test()=  {
 		runZTL(() => {
       var cellSize = 0
       var rowinnerSize = 0

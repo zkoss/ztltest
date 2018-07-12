@@ -10,7 +10,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "F85-ZK-3520.zul")
 class F85_ZK_3520Test extends ZTL4ScalaTestCase {
   @Test
-  def testBeforeChange(): Unit = {
+  def testBeforeChange()=  {
     runZTL(() => {
       val cyan = jq(".z-div[style*=cyan]")
       val pp = jq("@popup")
@@ -39,7 +39,7 @@ class F85_ZK_3520Test extends ZTL4ScalaTestCase {
   }
 
   @Test
-  def testAfterChange(): Unit = {
+  def testAfterChange()=  {
     runZTL(() => {
       click(jq("@button"))
       waitResponse()

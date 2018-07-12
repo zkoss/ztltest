@@ -18,7 +18,7 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 @Tags(tags = "")
 class B85_ZK_3731Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(executor = () => {
       for (index <- 0 to 8) {
         click(jq("a").get(index));

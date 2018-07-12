@@ -16,7 +16,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B85_ZK_3865Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val outers = jq(".outer")
       for (i <- 0 to 4) {

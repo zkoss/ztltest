@@ -12,7 +12,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "F85-ZK-3678.zul")
 class F85_ZK_3678Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val elems = List(jq("@window"), jq("@panel"), jq("@tabbox"), jq("@groupbox"))
       for (e <- elems)

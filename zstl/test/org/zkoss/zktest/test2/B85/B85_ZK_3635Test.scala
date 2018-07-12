@@ -17,7 +17,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 class B85_ZK_3635Test extends ZTL4ScalaTestCase {
 
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       click(jq(".z-bandbox-button"))
       waitResponse(true)
@@ -33,7 +33,7 @@ class B85_ZK_3635Test extends ZTL4ScalaTestCase {
     })
   }
 
-  def pressTab(): Unit = {
+  def pressTab()=  {
     keyPressNative("9")
     waitResponse(true)
   }

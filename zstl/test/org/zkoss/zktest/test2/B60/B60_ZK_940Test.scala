@@ -64,7 +64,7 @@ class B60_ZK_940Test extends ZTL4ScalaTestCase {
       () => {
         checkSelection("z-listitem", "Listitem 1")
         checkSelection("z-treerow", "Treeitem 1")
-        def checkSelection(cls: String, label: String): Unit = {
+        def checkSelection(cls: String, label: String)=  {
           val seltr = "." + cls
           val item1 = jq(seltr + ":contains(" + label + ")")
           click(item1)

@@ -33,7 +33,6 @@ class B30_1899003Test extends ZTL4ScalaTestCase {
   def testClick() = {
     val zscript =
       """
-      
     		<window>
     			<html><![CDATA[
     				Test Environment: IE6<br/>
@@ -50,18 +49,12 @@ class B30_1899003Test extends ZTL4ScalaTestCase {
           """
     runZTL(zscript,
       () => {
-
         val sep = jq(jq(".z-vbox").toWidget().$n("real")).find("tr:eq(1)");
-
         verifyEquals(sep.prev().text(), "abc");
-
         verifyEquals(sep.next().text(), "xyz");
-
         verifyTrue(sep.hasClass("z-vbox-separator"));
-
-        verifyTrue(org.zkoss.ztl.util.ColorVerifingHelper.isEqualColor("blue", jq(sep).find("td").css("border-bottom-color")));
-
+        verifyEqualColor("blue", jq(sep).find("td").css("border-bottom-color"))
       }
-    );
+    )
   }
 }

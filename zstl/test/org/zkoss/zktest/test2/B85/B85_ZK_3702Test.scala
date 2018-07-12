@@ -16,7 +16,7 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 
 class B85_ZK_3702Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       focus(jq("@combobox").toWidget().$n("real"));
       waitResponse()

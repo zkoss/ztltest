@@ -8,7 +8,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B36-2796144.zul,datebox,timebox,calendar")
 class B36_2796144Test extends ZTL4ScalaTestCase {
   @Test
-  def testTime1(): Unit = {
+  def testTime1()=  {
     runZTL(() => {
       val returnDate = engine.$f("returnDate")
       val dateValue2 = engine.$f("dateValue2")
@@ -26,7 +26,7 @@ class B36_2796144Test extends ZTL4ScalaTestCase {
   }
 
   @Test
-  def testTime2(): Unit = {
+  def testTime2()=  {
     runZTL(() => {
       val returnDate = engine.$f("returnDate")
       val dateValue2 = engine.$f("dateValue2")

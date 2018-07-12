@@ -19,7 +19,7 @@ class B85_ZK_3641Test extends ZTL4ScalaTestCase {
 
 
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       testIframeVisible(jq(".z-datebox-button"))
       testIframeVisible(jq(".z-chosenbox"))
@@ -27,7 +27,7 @@ class B85_ZK_3641Test extends ZTL4ScalaTestCase {
     })
   }
 
-  def testIframeVisible(wgt: JQuery): Unit = {
+  def testIframeVisible(wgt: JQuery)=  {
     click(wgt)
     waitResponse(true)
 

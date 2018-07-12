@@ -13,7 +13,7 @@ import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 @IgnoreBrowsers("ie9")
 class F85_ZK_3711Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val btns = jq("@button")
       click(btns.eq(1)) // push page 2

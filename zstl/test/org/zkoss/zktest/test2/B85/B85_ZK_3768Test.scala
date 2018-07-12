@@ -10,7 +10,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B85-ZK-3768.zul")
 class B85_ZK_3768Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       click(jq("@button:eq(1)"))
       waitResponse()
@@ -29,7 +29,7 @@ class B85_ZK_3768Test extends ZTL4ScalaTestCase {
   }
 
   @Test
-  def test2(): Unit = {
+  def test2()=  {
     runZTL(() => {
       click(jq("@button:eq(1)"))
       waitResponse()

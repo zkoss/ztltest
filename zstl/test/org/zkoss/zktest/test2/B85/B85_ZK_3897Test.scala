@@ -11,7 +11,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B85-ZK-3897.zul")
 class B85_ZK_3897Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val timeZones = Array(jq("@button:eq(0)"), jq("@button:eq(1)"), jq("@button:eq(2)"))
       timeZones.foreach(tz => {
@@ -23,7 +23,7 @@ class B85_ZK_3897Test extends ZTL4ScalaTestCase {
     })
   }
 
-  def testKeyboardSelectRange(expectMin: String, expectMax: String): Unit = {
+  def testKeyboardSelectRange(expectMin: String, expectMax: String)=  {
     val btn = jq("@datebox a.z-datebox-button")
     val real = jq("@datebox .z-datebox-input")
 

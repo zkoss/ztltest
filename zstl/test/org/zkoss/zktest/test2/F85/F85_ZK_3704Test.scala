@@ -17,7 +17,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 class F85_ZK_3704Test extends ZTL4ScalaTestCase {
 	
 	@Test
-	def test(): Unit = {
+	def test()=  {
 		runZTL(() => {
 			val testInput = "123456.789"
 			val decimalboxOne = jq(".z-decimalbox:eq(0)")

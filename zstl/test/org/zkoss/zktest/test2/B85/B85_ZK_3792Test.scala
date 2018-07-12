@@ -16,7 +16,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B85_ZK_3792Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       var datebox = jq("@datebox").toWidget.$n("real")
       sendKeys(datebox, "3:00 am")

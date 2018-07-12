@@ -10,7 +10,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B85-ZK-3718.zul")
 class B85_ZK_3718Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val height = jq("@vlayout").height() // 500px
       val lastDiv = jq(".z-vlayout-inner:last")

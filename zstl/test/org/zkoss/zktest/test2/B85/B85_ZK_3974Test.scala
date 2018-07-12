@@ -16,7 +16,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B85_ZK_3974Test extends ZTL4ScalaTestCase {
 	@Test
-	def test(): Unit = {
+	def test()=  {
 		runZTL(() => {
 			for (i <- 0 to 1) {
 				click(jq(".z-spinner-down"))

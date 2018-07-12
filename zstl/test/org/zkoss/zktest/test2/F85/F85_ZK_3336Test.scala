@@ -13,7 +13,7 @@ import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 @IgnoreBrowsers("ie9")
 class F85_ZK_3336Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val tbeditor = jq("@tbeditor .z-tbeditor-editor")
       val textbox = jq("@textbox")

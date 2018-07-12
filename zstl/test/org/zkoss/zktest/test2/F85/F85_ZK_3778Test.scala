@@ -31,7 +31,7 @@ class F85_ZK_3778Test extends ZTL4ScalaTestCase {
       waitResponse();
       dragdropTo(jq(".z-slider-button:eq(1)"), "0,0", "0,100")
       waitResponse();
-      verifyEquals("false\ntrue\n".trim(), getZKLog().trim())
+      verifyEquals("false\ntrue\n".trim(), getZKLog())
     })
   }
 }

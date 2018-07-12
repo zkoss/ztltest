@@ -16,7 +16,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B85_ZK_3911Test extends ZTL4ScalaTestCase {
 	@Test
-	def test(): Unit = {
+	def test()=  {
 		runZTL(() => {
 			val height = jq(".z-page").height()
 			val label = jq(".lb")

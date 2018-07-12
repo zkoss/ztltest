@@ -11,7 +11,7 @@ import org.zkoss.ztl.unit.JQuery
 @Tags(tags = "F85-ZK-3690.zul")
 class F85_ZK_3690Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val btns = jq("@button")
 

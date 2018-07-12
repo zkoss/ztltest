@@ -16,7 +16,7 @@ import org.zkoss.ztl.unit.JQuery
 
 class F85_ZK_3619Test extends ZTL4ScalaTestCase {
 	
-	def test(): Unit = {
+	def test()=  {
 		runZTL(() => {
 			val buttons = jq(".z-button")
 			
@@ -40,7 +40,7 @@ class F85_ZK_3619Test extends ZTL4ScalaTestCase {
 		})
 	}
 	
-	def testDisabled(cells: JQuery): Unit = {
+	def testDisabled(cells: JQuery)=  {
 			verifyEquals(jq(".z-calendar-cell:visible").length, jq(".z-calendar-cell.z-calendar-disabled:visible").length)
 	}
 }

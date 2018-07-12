@@ -10,7 +10,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B85-ZK-3579.zul")
 class B85_ZK_3579Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       verifyTolerant(400, jq("@combobutton:eq(0) .z-combobutton-content").outerWidth(), 4)
     })

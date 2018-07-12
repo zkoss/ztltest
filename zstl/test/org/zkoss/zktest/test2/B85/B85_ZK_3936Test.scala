@@ -15,7 +15,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */ class B85_ZK_3936Test extends ZTL4ScalaTestCase {
  @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       verifyEquals("60px", jq("$combo1").toWidget.$n("real").eval("style.width"))
     });

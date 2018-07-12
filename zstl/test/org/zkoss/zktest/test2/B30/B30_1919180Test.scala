@@ -90,7 +90,7 @@ class B30_1919180Test extends ZTL4ScalaTestCase {
       checkSize(btn3, 300)
       checkSize(btn1, 50)
 
-      def checkSize(btn: JQuery, size: Int): Unit = {
+      def checkSize(btn: JQuery, size: Int)=  {
         click(btn)
         waitResponse(true)
         val $row1 = jq(jq(".z-row:eq(0)").children().get(0))

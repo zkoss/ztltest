@@ -47,10 +47,8 @@ Integer
     runZTL(zscript, () => {
       click(jq("@button"))
       waitResponse()
-      var color = ColorVerifingHelper.isEqualColor("red", jq(".z-paging:eq(0)").css("backgroundColor"))
-      verifyTrue(color)
-      var color1 = org.zkoss.ztl.util.ColorVerifingHelper.isEqualColor("red", jq(".z-paging:eq(1)").css("backgroundColor"))
-      verifyTrue(color1)
+      verifyEqualColor("red", jq(".z-paging:eq(0)").css("backgroundColor"))
+      verifyEqualColor("red", jq(".z-paging:eq(1)").css("backgroundColor"))
     })
   }
 }

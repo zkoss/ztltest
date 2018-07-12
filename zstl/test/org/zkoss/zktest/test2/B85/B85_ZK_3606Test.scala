@@ -17,7 +17,7 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 
 class B85_ZK_3606Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val window = jq(".z-window")
       var button = jq("button");

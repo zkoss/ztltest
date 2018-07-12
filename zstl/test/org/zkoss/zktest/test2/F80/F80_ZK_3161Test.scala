@@ -15,10 +15,8 @@ class F80_ZK_3161Test extends ZTL4ScalaTestCase {
     runZTL(
       () => {
         var tt = jq(".z-west-collapsed").get(0).get("title")
-        System.out.println(tt)
         verifyEquals("west title", tt)
         tt = jq(".z-north-collapsed").get(0).get("title")
-        System.out.println(tt)
         verifyEquals("", tt)
       }
     )

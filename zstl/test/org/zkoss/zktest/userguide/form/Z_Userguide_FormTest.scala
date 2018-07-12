@@ -8,7 +8,7 @@ import org.zkoss.ztl.util.ColorVerifingHelper
 @Tags(tags = "Z-Userguide-Form.zul,Textbox,Intbox,Form,Spinner,ie9")
 class Z_Userguide_FormTest extends ZTL4ScalaTestCase {
   @Test
-  def testForm(): Unit = {
+  def testForm()=  {
     runZTL(() => {
       // first time to access this page will take a long time.
       waitResponse()
@@ -107,7 +107,7 @@ class Z_Userguide_FormTest extends ZTL4ScalaTestCase {
       val g = getValue(jq(".z-colorpicker").toWidget.$n("g-inp"))
       val b = getValue(jq(".z-colorpicker").toWidget.$n("b-inp"))
       val currColor = jq("@colorbox").toWidget.$n("currcolor").get("style.backgroundColor")
-      verifyTrue(ColorVerifingHelper.isEqualColor(s"rgb($r,$g,$b)", currColor))
+      verifyEqualColor("rgb(" + r + "," + g + "," + b + ")", currColor)
     })
   }
 }

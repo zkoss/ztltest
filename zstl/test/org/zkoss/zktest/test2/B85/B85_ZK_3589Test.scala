@@ -10,7 +10,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B85-ZK-3589.zul")
 class B85_ZK_3589Test extends ZTL4ScalaTestCase {
   @Test
-  def testScrollOverViewport(): Unit = {
+  def testScrollOverViewport()=  {
     runZTL(() => {
       val lbl = jq("@label")
       val top = jq("$btnTop")
@@ -32,7 +32,7 @@ class B85_ZK_3589Test extends ZTL4ScalaTestCase {
   }
 
   @Test
-  def testScrollABit(): Unit = {
+  def testScrollABit()=  {
     runZTL(() => {
       val lbl = jq("@label")
       click(lbl)

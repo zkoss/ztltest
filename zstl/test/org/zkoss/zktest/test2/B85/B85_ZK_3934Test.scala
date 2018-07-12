@@ -8,7 +8,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
   */
 class B85_ZK_3934Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       click(jq("@button:eq(0)"))
       waitResponse()

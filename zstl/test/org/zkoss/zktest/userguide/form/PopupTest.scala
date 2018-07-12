@@ -9,16 +9,20 @@
 
 Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
-package org.zkoss.zktest.userguide.form;
+package org.zkoss.zktest.userguide.form
+
+;
+
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.Widget
 
 
 class PopupTest extends ZTL4ScalaTestCase {
-@Test
-	def testPopup() = {
-									var zscript = """ 
+  @Test
+  def testPopup() = {
+    var zscript =
+      """
 <window id="demo"
 	apply="org.zkoss.zktest.test.DemoWindowComposer">
 	<html><![CDATA[
@@ -132,31 +136,31 @@ class PopupTest extends ZTL4ScalaTestCase {
 </window>
 		
 		 """
-				val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
-				val demo = ztl$engine.$f("demo")
-				val infos = ztl$engine.$f("infos")
-				val demoView = ztl$engine.$f("demoView")
-				val srcView = ztl$engine.$f("srcView")
-				val view = ztl$engine.$f("view")
-				val codeView = ztl$engine.$f("codeView")
-				val intro = ztl$engine.$f("intro")
-				val editPopup = ztl$engine.$f("editPopup")
-				val title = ztl$engine.$f("title")
-				val mail = ztl$engine.$f("mail")
-				val tryBtn = ztl$engine.$f("tryBtn")
-				val reloadBtn = ztl$engine.$f("reloadBtn")
-										runZTL(zscript, () => {
-												mouseOver(jq("$view").find("@label:eq(2)"))
-						sleep(1000)
-						verifyTrue(jq("$mail").isVisible())
-						click(jq("$view").find("@textbox:eq(0)"))
-						waitResponse()
-						verifyFalse(jq("@popup").isVisible())
-						click(jq("$view").find("@label:eq(4)"))
-						waitResponse()
-						verifyTrue(jq("$view").find("@html").exists())
-								})
-				}
+    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val demo = ztl$engine.$f("demo")
+    val infos = ztl$engine.$f("infos")
+    val demoView = ztl$engine.$f("demoView")
+    val srcView = ztl$engine.$f("srcView")
+    val view = ztl$engine.$f("view")
+    val codeView = ztl$engine.$f("codeView")
+    val intro = ztl$engine.$f("intro")
+    val editPopup = ztl$engine.$f("editPopup")
+    val title = ztl$engine.$f("title")
+    val mail = ztl$engine.$f("mail")
+    val tryBtn = ztl$engine.$f("tryBtn")
+    val reloadBtn = ztl$engine.$f("reloadBtn")
+    runZTL(zscript, () => {
+      mouseOver(jq("$view").find("@label:eq(2)"))
+      sleep(1000)
+      verifyTrue(jq("$mail").isVisible())
+      click(jq("$view").find("@textbox:eq(0)"))
+      waitResponse()
+      verifyFalse(jq("@popup").isVisible())
+      click(jq("$view").find("@label:eq(4)"))
+      waitResponse()
+      verifyTrue(jq("$view").find("@html").exists())
+    })
+  }
 }
 
 

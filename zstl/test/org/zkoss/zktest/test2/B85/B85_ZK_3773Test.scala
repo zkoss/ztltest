@@ -13,7 +13,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B85-ZK-3773.zul")
 class B85_ZK_3773Test extends ZTL4ScalaTestCase {
   @Test
-  def test(): Unit = {
+  def test()=  {
     runZTL(() => {
       val themes = jq("@groupbox @button")
       for (i <- 0 until 4) {
@@ -24,7 +24,7 @@ class B85_ZK_3773Test extends ZTL4ScalaTestCase {
     })
   }
 
-  def testInTheme(themeBtn: ClientWidget): Unit = {
+  def testInTheme(themeBtn: ClientWidget)=  {
     click(themeBtn)
     sleep(2000)
     waitResponse()

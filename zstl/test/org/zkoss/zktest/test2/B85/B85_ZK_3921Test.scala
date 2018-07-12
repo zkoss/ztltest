@@ -18,7 +18,7 @@ import org.zkoss.ztl.unit.JQuery
 class B85_ZK_3921Test extends ZTL4ScalaTestCase {
 	
 	@Test
-	def test(): Unit = {
+	def test()=  {
 		runZTL(() => {
 			testWidget(jq(".z-grid-body"), jq(".z-button:eq(0)"))
 			testWidget(jq(".z-listbox-body"), jq(".z-button:eq(2)"))
@@ -26,7 +26,7 @@ class B85_ZK_3921Test extends ZTL4ScalaTestCase {
 		})
 	}
 	
-	def testWidget(widget: JQuery, button: JQuery): Unit = {
+	def testWidget(widget: JQuery, button: JQuery)=  {
 		verScroll(widget, .5)
 		waitResponse()
 		

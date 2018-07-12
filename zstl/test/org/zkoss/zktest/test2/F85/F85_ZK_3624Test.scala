@@ -18,14 +18,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 class F85_ZK_3624Test extends ZTL4ScalaTestCase {
 	
 	@Test
-	def test(): Unit = {
+	def test()=  {
 		runZTL(() => {
 			testBy(increaseByButton, decreaseByButton)
 			testBy(increaseByKeyboard, decreaseByKeyboard)
 		})
 	}
 	
-	def testBy(increase: () => Unit, decrease: () => Unit): Unit = {
+	def testBy(increase: () => Unit, decrease: () => Unit)=  {
 		click(jq("@button:eq(0)"))
 		waitResponse()
 		
@@ -56,27 +56,27 @@ class F85_ZK_3624Test extends ZTL4ScalaTestCase {
 	}
 	
 	
-	def increaseByButton(): Unit = {
+	def increaseByButton()=  {
 		click(jq(".z-spinner-up"))
 		waitResponse()
 	}
 	
-	def decreaseByButton(): Unit = {
+	def decreaseByButton()=  {
 		click(jq(".z-spinner-down"))
 		waitResponse()
 	}
 	
-	def increaseByKeyboard(): Unit = {
+	def increaseByKeyboard()=  {
 		sendKeys(jq(".z-spinner-input"), Keys.UP)
 		waitResponse()
 	}
 	
-	def decreaseByKeyboard(): Unit = {
+	def decreaseByKeyboard()=  {
 		sendKeys(jq(".z-spinner-input"), Keys.DOWN)
 		waitResponse()
 	}
 	
-	def clearSpinnerValue(): Unit = {
+	def clearSpinnerValue()=  {
 		`type`(jq(".z-spinner-input"), "")
 		waitResponse()
 	}
