@@ -28,7 +28,7 @@ class B85_ZK_3725Test extends ZTL4ScalaTestCase {
   def test() = {
     runZTL(() => {
       sleep(10000)
-      verifyEquals("error popped", getZKLog(), "T1 TaskResult for UI\nT3 TaskResult for UI\nT4 TaskResult for UI\n")
+      verifyEquals("error popped", getZKLog().trim(), "T1 TaskResult for UI\nT3 TaskResult for UI\nT4 TaskResult for UI\n".trim())
     })
   }
 }

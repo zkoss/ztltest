@@ -21,24 +21,10 @@ import org.zkoss.ztl.unit.Widget
 class B30_1486556Test extends ZTL4ScalaTestCase {
   @Test
   def testConstraint1() = {
-    var zscript =
-      """
-			<zk>
-				<textbox constraint="/.+@.+\.[a-z]+/: Invalid e-mailaddress" id="tb" />
-				<button id="btn" label="check" onClick="checkDate()" />
-			</zk>
-		"""
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
-    val tb = ztl$engine.$f("tb")
-    val btn = ztl$engine.$f("btn")
-    runZTL(zscript, () => {
-      runZscript(
-        """
-		void checkDate() {
-			tb.getValue();
-		}
-		""")
-      focus(tb.$n())
+    val tb = ztl$engine.$f("iTxt2")
+    runZTL(() => {
+      focus(tb)
       blur(tb);
       waitResponse()
       verifyTrue(jq(tb).hasClass("z-textbox-invalid"));
@@ -47,12 +33,10 @@ class B30_1486556Test extends ZTL4ScalaTestCase {
 
   @Test
   def testConstraint2() = {
-    var zscript = """$source.content"""
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
-    val tb = ztl$engine.$f("tb")
-    val btn = ztl$engine.$f("btn")
-    runZTL(zscript, () => {
-      runZscript("""$serverZscript""")
+    val tb = ztl$engine.$f("iTxt2")
+    runZTL(() => {
+      val btn = jq("@button")
       focus(tb.$n())
       click(btn);
       waitResponse()

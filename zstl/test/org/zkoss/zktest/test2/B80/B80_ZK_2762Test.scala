@@ -18,7 +18,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 class B80_ZK_2762Test extends ZTL4ScalaTestCase {
   @Test
   def testtitle() = {
-    runZTL(() => {
+    runZTLinAction("test2/B80-ZK-2762.zhtml",() => {
       verifyEquals("someobject", jq("title").html())
     })
   }
