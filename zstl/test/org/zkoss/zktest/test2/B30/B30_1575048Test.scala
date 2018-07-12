@@ -20,10 +20,10 @@ class B30_1575048Test extends ZTL4ScalaTestCase {
   def testDelete() = {
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     val userList = ztl$engine.$f("userList")
-    val del = ztl$engine.$f("del")
+    val del = jq(".z-button:eq(0)")
     val itemId = ztl$engine.$f("itemId")
     val itemName = ztl$engine.$f("itemName")
-    val add = ztl$engine.$f("add")
+    val add = jq(".z-button:eq(1)")
     runZTL(() => {
       click(userList.getChild("getBodyWidgetIterator().next()"))
       waitResponse()

@@ -31,10 +31,13 @@ class B50_ZK_436Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
     runZTL(() => {
-      //IE Only
-      click(jq("@button"))
-      waitResponse()
-      verifyTrue("the only \"false\" should be the one in description", getZKLog())
+      val bodyHTML: String = jq("body").get(0).get("innerHTML")
+      val first: Int = bodyHTML.indexOf("false")
+      val last: Int = bodyHTML.lastIndexOf("false")
+      val first2: Int = bodyHTML.indexOf("\"false\"")
+      
+      verifyTrue("the only \"false\" should be the one in description",
+        (first == last) && (first - first2 == 1))
     })
   }
 }

@@ -102,11 +102,19 @@ class B50_ZK_428Test extends ZTL4ScalaTestCase {
     """
     runZTL(zscript,
       () => {
-        var button: Widget = engine.$f("button");
-        click(button);
-        wait(20000)
-        verifyContains("it should not take more than 20 seconds to run on the client side for change the size of ListModelList", getZKLog(), ">50")
+        val button: Widget = engine.$f("button")
+        var cnt: Int = 5
+  
+        val t1: Long = System.currentTimeMillis()
+        click(button)
+        while (cnt != 50) {
+          cnt = jq(".z-row").length()
+        }
+        val t2: Long = System.currentTimeMillis()
+        
+        verifyTrue("it should not take more than 20 seconds to run on the client side for change the size of ListModelList",
+          t2 - t1 < 20000)
       }
-    );
+    )
   }
 }

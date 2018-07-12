@@ -24,7 +24,7 @@ class F85_ZK_3538Test extends ZTL4ScalaTestCase {
             verifyTrue(textbox.is(":focus"))
             click(jq(".z-tree-icon:eq(1)"))
             waitResponse(true)
-            verifyEquals("tree is on focus\n", getZKLog())
+            verifyEquals("tree is on focus", getZKLog())
         })
     }
 }

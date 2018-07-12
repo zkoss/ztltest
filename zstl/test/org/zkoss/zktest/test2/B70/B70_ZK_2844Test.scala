@@ -19,7 +19,7 @@ class B70_ZK_2844Test extends ZTL4ScalaTestCase {
       click(jq("button").eq(1))
       waitResponse(true)
       //check message in zk.log is "au working"
-      verifyEquals("au working\n", getZKLog())
+      verifyEquals("au working", getZKLog())
     })
   }
 }

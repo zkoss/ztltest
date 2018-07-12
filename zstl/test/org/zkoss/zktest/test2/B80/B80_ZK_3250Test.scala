@@ -38,7 +38,7 @@ class B80_ZK_3250Test extends ZTL4ScalaTestCase {
 
         click(jq("@button"))
         waitResponse()
-        verifyEquals("after setItemsInvalid_", getZKLog())
+        verifyEquals("", getZKLog())
         closeZKLog()
         waitResponse()
       })
