@@ -19,7 +19,7 @@ class F85_ZK_3525Test extends ZTL4ScalaTestCase {
       click(jq("@button"))
       waitResponse()
 
-      verifyEquals("", getZKLog, "1\n0\n")
+      verifyEquals(getZKLog, "1\n0")
     })
   }
 }

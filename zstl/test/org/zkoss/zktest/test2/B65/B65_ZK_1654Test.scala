@@ -23,7 +23,7 @@ class B65_ZK_1654Test extends ZTL4ScalaTestCase {
         click(jq(".z-colorbox"))
         waitResponse()
         val colorpaletteInp = jq(jq(".z-colorpalette").toWidget().$n("hex-inp"))
-        sendKeys(colorpaletteInp, "A")
+        `type`(colorpaletteInp, "A")
         waitResponse()
         verifyEquals("should see 'A' or 'a' showed", colorpaletteInp.`val`(), "A")
 

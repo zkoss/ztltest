@@ -14,12 +14,12 @@ class B85_ZK_3680Test extends ZTL4ScalaTestCase {
       click(jq(".z-bandbox-button"))
       waitResponse(true)
 
-      verifyEquals("Did a thing\nopened\n", getZKLog())
+      verifyEquals("Did a thing\nopened", getZKLog())
 
       verScroll(jq(".z-tabpanel").eq(0), 0)
       waitResponse(true)
 
-      verifyEquals("Did a thing\nopened\nDid a thing\nclosed\n", getZKLog())
+      verifyEquals("Did a thing\nopened\nDid a thing\nclosed", getZKLog())
     })
   }
 }

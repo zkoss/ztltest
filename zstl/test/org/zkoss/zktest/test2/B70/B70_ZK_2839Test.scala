@@ -20,7 +20,7 @@ class B70_ZK_2839Test extends ZTL4ScalaTestCase {
         click(jq("button").eq(1))
         waitResponse(true)
         //check for 3 messages in zk.log
-        verifyEquals("hello from global f1()\nhello from global f1()\nhello from local f2()\n", getZKLog())
+        verifyEquals("hello from global f1()\nhello from global f1()\nhello from local f2()", getZKLog())
       })
   }
 }
