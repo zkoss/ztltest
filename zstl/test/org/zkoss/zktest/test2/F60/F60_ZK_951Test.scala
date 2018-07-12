@@ -18,10 +18,8 @@ package org.zkoss.zktest.test2.F60
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.{JQuery, Widget}
-import org.zkoss.ztl._
-import org.zkoss.ztl.unit._
 import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.unit.{JQuery, Widget}
 
 /**
   * A test class for bug ZK-951
@@ -161,9 +159,9 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
         var rdoTwo: Widget = engine.$f("rdoTwo");
         var windowWidth: Int = jq(div).outerWidth(true);
         var windowHeight: Int = jq(div).outerHeight(true);
-        var tmpValueOne: Int = 0;
-        var tmpValueTwo: Int = 0;
-        var tmpValueThree: Int = 0;
+        var numberOfColumns: Int = 0;
+        var numberOfRows: Int = 0;
+        var numberOfCells: Int = 0;
 
         def sel(sbx: Widget, item: String) {
           select(sbx, item);
@@ -177,9 +175,9 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
         }
 
         def setValues() {
-          tmpValueOne = jq(biglist.$n("cols")).find("th").length();
-          tmpValueTwo = jq(biglist.$n("rows")).find("tr").length();
-          tmpValueThree = jq(biglist.$n("rows")).find("td").length();
+          numberOfColumns = jq(biglist.$n("cols")).find("th").length();
+          numberOfRows = jq(biglist.$n("rows")).find("tr").length();
+          numberOfCells = jq(biglist.$n("rows")).find("td").length();
         }
 
         def checkRange() {
@@ -189,20 +187,20 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
           var colSize: Int = cols.length();
           var hbar: JQuery = jq(biglist.$n("hbar"));
           var vbar: JQuery = jq(biglist.$n("vbar"));
-          for (i <- 0 until 10) { //rowSize
+          for (i <- 0 until rowSize) { //rowSize
             var row: JQuery = jq(rows.find("tr").get(i));
 
             if ((row.offsetTop() + row.outerHeight(true)) > hbar.offsetTop()) {
-              tmpValueOne = i - 1;
+              numberOfRows = i - 1;
             } else if (i == (rowSize - 1))
-              tmpValueOne = i;
+              numberOfRows = i;
           }
-          for (j <- 0 until 9) { //colSize
+          for (j <- 0 until colSize) { //colSize
             var col: JQuery = jq(cols.get(j));
             if ((col.offsetLeft() + col.outerWidth(true)) > vbar.offsetLeft()) {
-              tmpValueTwo = j - 1;
+              numberOfColumns = j - 1;
             } else if (j == (colSize - 1))
-              tmpValueTwo = j;
+              numberOfColumns = j;
           }
         }
 
@@ -213,21 +211,19 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
           var col: JQuery = null;
           var listWidth: Int = 0;
           var listHeight: Int = 0;
-          checkRange();
-          rowRange = tmpValueOne;
-          colRange = tmpValueTwo;
-
           click(rdoTwo.$n("real"));
           waitResponse();
+  
+          checkRange();
 
-          row = jq(jq(biglist.$n("rows")).find("tr").get(rowRange));
-          col = jq(jq(jq(biglist.$n("rows")).find("tr").get(0)).find("td").get(colRange));
+          row = jq(jq(biglist.$n("rows")).find("tr").get(numberOfRows));
+          col = jq(jq(jq(biglist.$n("rows")).find("tr").get(0)).find("td").get(numberOfColumns));
           listWidth = jq(biglist.$n("body")).offsetLeft() + jq(biglist.$n("body")).outerWidth();
           listHeight = jq(biglist.$n("body")).offsetTop() + jq(biglist.$n("body")).outerHeight();
 
           println("List size should match the range")
-          verifyTolerant(listWidth, col.offsetLeft() + col.outerWidth(), 2)
-          verifyTolerant(listHeight, row.offsetTop() + row.outerHeight(), 2)
+          verifyTolerant(listWidth, col.offsetLeft() + col.outerWidth(), 3)
+          verifyTolerant(listHeight, row.offsetTop() + row.outerHeight(), 3)
         }
 
         def checkFrozen() {
@@ -259,14 +255,14 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
         waitResponse();
         setValues();
         verifyTrue("Only single column",
-          tmpValueOne == 1 && tmpValueTwo == tmpValueThree);
+          numberOfColumns == 1 && numberOfRows == numberOfCells);
 
         // check multiple column
         sel(sbx, "MultipleColumn");
         waitResponse();
         setValues();
         verifyTrue("Has multiple column",
-          tmpValueOne > 1 && tmpValueTwo == 10 && tmpValueThree == tmpValueOne * tmpValueTwo);
+          numberOfColumns > 1 && numberOfCells == numberOfColumns * numberOfRows);
 
         // check single row
         sel(sbx, "SingleRow");
@@ -274,14 +270,14 @@ class F60_ZK_951Test extends ZTL4ScalaTestCase {
         setValues();
 
         verifyTrue("Only single row",
-          tmpValueTwo == 1 && tmpValueOne == tmpValueThree);
+          numberOfRows == 1 && numberOfColumns == numberOfCells);
 
         // check multiple row
         sel(sbx, "MultipleRow");
         waitResponse();
         setValues();
         verifyTrue("Has multiple row",
-          tmpValueTwo > 1 && tmpValueThree == tmpValueOne * tmpValueTwo);
+          numberOfRows > 1 && numberOfCells == numberOfColumns * numberOfRows);
 
         // change to big data
         sel(sbx, "BigData");
