@@ -44,21 +44,21 @@ class Z60_B00913ValueReloadTest extends ZTL4ScalaTestCase {
       var l1 = jq("$l1")
       var msg1 = jq("$msg1")
 
-      verifyEquals("", msg1.toWidget().get("value"))
+      verifyEquals("", msg1.toWidget().attr("value"))
 
       `type`(tb1.toWidget(), "abc")
       waitResponse()
 
-      verifyEquals("value has to be def", msg1.toWidget().get("value"))
-      verifyEquals("abc", tb1.toWidget().get("value"))
-      verifyEquals("KGB", l1.toWidget().get("value"))
+      verifyEquals("value has to be def", msg1.toWidget().attr("value"))
+      verifyEquals("abc", tb1.toWidget().attr("value"))
+      verifyEquals("KGB", l1.toWidget().attr("value"))
 
       `type`(tb1.toWidget(), "def")
       waitResponse()
 
-      verifyEquals("", msg1.toWidget().get("value"))
-      verifyEquals("def", tb1.toWidget().get("value"))
-      verifyEquals("def", l1.toWidget().get("value"))
+      verifyEquals("", msg1.toWidget().attr("value"))
+      verifyEquals("def", tb1.toWidget().attr("value"))
+      verifyEquals("def", l1.toWidget().attr("value"))
 
     })
   }

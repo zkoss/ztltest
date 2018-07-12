@@ -44,7 +44,7 @@ class B50_3031562Test extends ZTL4ScalaTestCase {
     val hbox = ztl$engine.$f("hbox")
     val msg = ztl$engine.$f("msg")
     runZTL(zscript, () => {
-      verifyEquals(msg.get("value"), "")
+      verifyEquals(msg.attr("value"), "")
     })
   }
 }

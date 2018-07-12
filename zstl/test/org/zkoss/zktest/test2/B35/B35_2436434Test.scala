@@ -59,10 +59,10 @@ class B35_2436434Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       click(btn)
       waitResponse()
-      var x = tabs.get("scrollLeft").toInt
+      var x = tabs.attr("scrollLeft").toInt
       click(jq(".z-tabbox").toWidget().$n("right"))
       waitResponse()
-      var y = tabs.get("scrollLeft").toInt
+      var y = tabs.attr("scrollLeft").toInt
       verifyTrue(x == 0)
       verifyTrue(y > x)
     })

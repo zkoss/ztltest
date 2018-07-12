@@ -49,10 +49,10 @@ class F30_1843802Test extends ZTL4ScalaTestCase {
       waitResponse()
       verifyTrue(jq(jq(".z-combobox").toWidget().$n("pp")).isVisible())
       click(jq("@comboitem").get(0)); // disabled comboitem, shall do nothing
-      verifyEquals("", cb.$n("real").get("value"))
+      verifyEquals("", cb.$n("real").attr("value"))
       verifyTrue(jq(jq(".z-combobox").toWidget().$n("pp")).isVisible()); // popup shall still be open
       click(jq("@comboitem").get(1))
-      verifyEquals("item2", cb.$n("real").get("value"))
+      verifyEquals("item2", cb.$n("real").attr("value"))
       verifyFalse(jq(jq(".z-combobox").toWidget().$n("pp")).isVisible())
       typeKeys(cb.$n("real"), "item1")
       blur(cb.$n("real"))

@@ -87,10 +87,10 @@ class B50_3290321Test extends ZTL4ScalaTestCase {
       lb.$n("head").eval("scrollLeft = 3000")
       lb.$n("body").eval("scrollLeft = 3000")
       sleep(1000)
-      var hsl = lb.$n("head").get("scrollTop").toInt
+      var hsl = lb.$n("head").attr("scrollTop").toInt
       clickAt(sh, hsl + ",20")
       waitResponse()
-      var newHsl = lb.$n("head").get("scrollTop").toInt
+      var newHsl = lb.$n("head").attr("scrollTop").toInt
       verifyTrue(hsl == newHsl)
       verifyTrue(jq(".z-listheader").toWidget().$n("sort-icon").exists())
     })

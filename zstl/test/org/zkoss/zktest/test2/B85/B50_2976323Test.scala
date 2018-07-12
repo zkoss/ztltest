@@ -12,14 +12,14 @@ class B50_2976323Test extends ZTL4ScalaTestCase {
       var mb = jq("$mb")
       dragdropToObject(two, one, "0,10", "0,10")
       waitResponse()
-      verifyEquals("two", mb.first.toWidget.firstChild().get("id"))
-      verifyEquals(two.parent().get(0).firstChild().get("id"), two.get(0).get("id"))
+      verifyEquals("two", mb.first.toWidget.firstChild().attr("id"))
+      verifyEquals(two.parent().get(0).firstChild().attr("id"), two.get(0).attr("id"))
 
 
       dragdropToObject(one, two, "0,10", "0,10")
       waitResponse()
-      verifyEquals("one", mb.first.toWidget.firstChild().get("id"))
-      verifyEquals(two.parent().get(0).firstChild().nextSibling().get("id"), two.get(0).get("id"))
+      verifyEquals("one", mb.first.toWidget.firstChild().attr("id"))
+      verifyEquals(two.parent().get(0).firstChild().nextSibling().attr("id"), two.get(0).attr("id"))
     })
   }
 }

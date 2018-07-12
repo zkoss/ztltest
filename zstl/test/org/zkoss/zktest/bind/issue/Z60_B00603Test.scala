@@ -37,7 +37,7 @@ class Z60_B00603Test extends ZTL4ScalaTestCase {
         outeritem = outeritem.nextSibling() 
         val outerl = itemLabel(i) 
         var cell = outeritem.firstChild() 
-        verifyEquals(outerl, cell.get("label")) 
+        verifyEquals(outerl, cell.attr("label"))
         val innerbox = jq(outeritem).find("@listbox") 
         verifyTrue(innerbox != null) 
         val inneritems = jq(innerbox).find("@listitem") 
@@ -46,9 +46,9 @@ class Z60_B00603Test extends ZTL4ScalaTestCase {
         for (j <- 0 to 1) {
           val innerl = optionLabel(j) 
           cell = inneritem.toWidget().firstChild() 
-          verifyEquals(outerl + " " + innerl, cell.get("label")) 
+          verifyEquals(outerl + " " + innerl, cell.attr("label"))
           cell = cell.nextSibling() 
-          verifyEquals(outerl + " " + innerl + innerl, cell.get("label")) 
+          verifyEquals(outerl + " " + innerl + innerl, cell.attr("label"))
           inneritem = inneritem.next() 
         }
       }

@@ -26,17 +26,17 @@ class Z60_B01887DetachAttachTest extends ZTL4ScalaTestCase {
 """
 
     runZTL(zul, () => {
-      verifyEquals("/bind/issue/B01887DetachAttachInner1.zul", jq("$lab1").toWidget().get("value"));
+      verifyEquals("/bind/issue/B01887DetachAttachInner1.zul", jq("$lab1").toWidget().attr("value"));
       verifyEquals(null, jq("$lab2").toWidget())
       
       click(jq("$btn2").toWidget())
       waitResponse()
-      verifyEquals("/bind/issue/B01887DetachAttachInner2.zul", jq("$lab2").toWidget().get("value"));
+      verifyEquals("/bind/issue/B01887DetachAttachInner2.zul", jq("$lab2").toWidget().attr("value"));
       verifyEquals(null, jq("$lab1").toWidget())
       
       click(jq("$btn1").toWidget())
       waitResponse()
-      verifyEquals("/bind/issue/B01887DetachAttachInner1.zul", jq("$lab1").toWidget().get("value"));
+      verifyEquals("/bind/issue/B01887DetachAttachInner1.zul", jq("$lab1").toWidget().attr("value"));
       verifyEquals(null, jq("$lab2").toWidget())
     })
 

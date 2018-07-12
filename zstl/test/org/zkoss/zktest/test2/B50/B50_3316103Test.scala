@@ -83,12 +83,12 @@ class B50_3316103Test extends ZTL4ScalaTestCase {
         click(jq(cbx.$n("pp")).find(".z-comboitem").get(1));
         waitResponse();
         verifyEquals("the value of combobox should equal to the label text next to it",
-          cbx.$n("real").get("value"), label2.$n().get("innerHTML"))
+          cbx.$n("real").attr("value"), label2.$n().attr("innerHTML"))
         click(dbx.$n("btn"));
         click(jq(dbx.$n("pp")).find(".z-calendar-weekday").get(10));
         waitResponse();
         verifyEquals("the value of datebox should equal to the label text next to it",
-          dbx.$n("real").get("value"), label3.$n().get("innerHTML"))
+          dbx.$n("real").attr("value"), label3.$n().attr("innerHTML"))
       }
     );
 

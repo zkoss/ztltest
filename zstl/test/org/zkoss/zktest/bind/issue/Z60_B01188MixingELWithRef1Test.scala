@@ -31,18 +31,18 @@ class Z60_B01188MixingELWithRef1Test extends ZTL4ScalaTestCase {
 
       var outerItems = lb.find("@listitem.outer")
       verifyEquals(2, outerItems.length())
-      verifyEquals("Today", outerItems.eq(0).find("@listcell.outer @label").toWidget().get("value"))
-      verifyEquals("Tomorrow", outerItems.eq(1).find("@listcell.outer @label").toWidget().get("value"))
+      verifyEquals("Today", outerItems.eq(0).find("@listcell.outer @label").toWidget().attr("value"))
+      verifyEquals("Tomorrow", outerItems.eq(1).find("@listcell.outer @label").toWidget().attr("value"))
 
       var innerItems = outerItems.eq(0).find("@listbox @listitem.inner")
       verifyEquals(2, innerItems.length())
-      verifyEquals("Item 1", innerItems.eq(0).find("@listcell.inner @label").toWidget().get("value"))
-      verifyEquals("Item 2", innerItems.eq(1).find("@listcell.inner @label").toWidget().get("value"))
+      verifyEquals("Item 1", innerItems.eq(0).find("@listcell.inner @label").toWidget().attr("value"))
+      verifyEquals("Item 2", innerItems.eq(1).find("@listcell.inner @label").toWidget().attr("value"))
 
       innerItems = outerItems.eq(1).find("@listbox @listitem.inner")
       verifyEquals(2, innerItems.length())
-      verifyEquals("Item 3", innerItems.eq(0).find("@listcell.inner @label").toWidget().get("value"))
-      verifyEquals("Item 4", innerItems.eq(1).find("@listcell.inner @label").toWidget().get("value"))
+      verifyEquals("Item 3", innerItems.eq(0).find("@listcell.inner @label").toWidget().attr("value"))
+      verifyEquals("Item 4", innerItems.eq(1).find("@listcell.inner @label").toWidget().attr("value"))
 
     })
   }

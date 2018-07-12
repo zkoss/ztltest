@@ -37,16 +37,16 @@ class Z60_TemplateGrid3Test extends ZTL4ScalaTestCase {
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i);
         var rowkid = outerrow.firstChild();
-        verifyEquals("" + i, rowkid.get("value")); // verify the index on label
+        verifyEquals("" + i, rowkid.attr("value")); // verify the index on label
         rowkid = rowkid.nextSibling();
-        verifyEquals(outerl, rowkid.get("value")); // verify the label on label
+        verifyEquals(outerl, rowkid.attr("value")); // verify the label on label
         // verify template
         rowkid = outerrow.lastChild();
         var label = jq(rowkid).find("@label").toWidget(); // index button
         if (outerl.equals("A") || i == 2)
-          verifyEquals("Model1", label.get("value"));
+          verifyEquals("Model1", label.attr("value"));
         else
-          verifyEquals("Model2", label.get("value"));
+          verifyEquals("Model2", label.attr("value"));
         outerrow = outerrow.nextSibling();
       }
       // ===========================================
@@ -60,16 +60,16 @@ class Z60_TemplateGrid3Test extends ZTL4ScalaTestCase {
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i);
         var rowkid = outerrow.firstChild();
-        verifyEquals("" + i, rowkid.get("value")); // verify the index on label
+        verifyEquals("" + i, rowkid.attr("value")); // verify the index on label
         rowkid = rowkid.nextSibling();
-        verifyEquals(outerl, rowkid.get("value")); // verify the label on label
+        verifyEquals(outerl, rowkid.attr("value")); // verify the label on label
         // verify template
         rowkid = outerrow.lastChild();
         var label = jq(rowkid).find("@label").toWidget(); // index button
         if (outerl.equals("A") || i == 2)
-          verifyEquals("Model1", label.get("value"));
+          verifyEquals("Model1", label.attr("value"));
         else
-          verifyEquals("Model2", label.get("value"));
+          verifyEquals("Model2", label.attr("value"));
         outerrow = outerrow.nextSibling();
       }
       // ===========================================
@@ -83,16 +83,16 @@ class Z60_TemplateGrid3Test extends ZTL4ScalaTestCase {
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i);
         var rowkid = outerrow.firstChild();
-        verifyEquals("" + i, rowkid.get("value")); // verify the index on label
+        verifyEquals("" + i, rowkid.attr("value")); // verify the index on label
         rowkid = rowkid.nextSibling();
-        verifyEquals(outerl, rowkid.get("value")); // verify the label on label
+        verifyEquals(outerl, rowkid.attr("value")); // verify the label on label
         // verify template
         rowkid = outerrow.lastChild();
         var label = jq(rowkid).find("@label").toWidget(); // index button
         if (outerl.equals("A") || i == 2)
-          verifyEquals("Model1", label.get("value"));
+          verifyEquals("Model1", label.attr("value"));
         else
-          verifyEquals("Model2", label.get("value"));
+          verifyEquals("Model2", label.attr("value"));
         outerrow = outerrow.nextSibling();
       }
     })

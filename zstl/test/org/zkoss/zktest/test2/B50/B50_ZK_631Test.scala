@@ -104,7 +104,7 @@ class B50_ZK_631Test extends ZTL4ScalaTestCase {
       sendKeys(jq(dob.$n()).find("input"), "abc");
       click(doberr);
       waitResponse();
-      var errMsg: String = doberr.$n().get("innerHTML");
+      var errMsg: String = doberr.$n().attr("innerHTML");
       verifyContains("should display custom error about date format",
         errMsg, "abc")
       verifyContains("should display custom error about date format",

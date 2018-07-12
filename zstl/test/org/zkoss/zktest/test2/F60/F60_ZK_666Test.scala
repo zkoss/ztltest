@@ -67,14 +67,14 @@ class F60_ZK_666Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         verifyContains("The first two lines shall be the same: value is \"abc\", and annotation is \"@annot()\".",
-          jq(".z-textbox").get(0).get("value"), "abc")
-        verifyContains(jq(".z-label").get(0).get("innerHTML"), "@annot()")
-        verifyContains(jq(".z-label").get(1).get("innerHTML"), "@annot()")
+          jq(".z-textbox").get(0).attr("value"), "abc")
+        verifyContains(jq(".z-label").get(0).attr("innerHTML"), "@annot()")
+        verifyContains(jq(".z-label").get(1).attr("innerHTML"), "@annot()")
         verifyContains("The last two lines shall be the same: value is \"@annot()\", and has no annotation",
-          jq(".z-textbox").get(2).get("value"), "@annot()")
-        verifyContains("The last two lines shall be the same: value is \"@annot()\", and has no annotation", jq(".z-textbox").get(3).get("value"), "@annot()")
-        verifyNotContains("The last two lines shall be the same: value is \"@annot()\", and has no annotation", jq(".z-label").get(2).get("innerHTML"), "@annot()")
-        verifyNotContains("The last two lines shall be the same: value is \"@annot()\", and has no annotation", jq(".z-label").get(3).get("innerHTML"), "@annot()")
+          jq(".z-textbox").get(2).attr("value"), "@annot()")
+        verifyContains("The last two lines shall be the same: value is \"@annot()\", and has no annotation", jq(".z-textbox").get(3).attr("value"), "@annot()")
+        verifyNotContains("The last two lines shall be the same: value is \"@annot()\", and has no annotation", jq(".z-label").get(2).attr("innerHTML"), "@annot()")
+        verifyNotContains("The last two lines shall be the same: value is \"@annot()\", and has no annotation", jq(".z-label").get(3).attr("innerHTML"), "@annot()")
       }
     );
   }

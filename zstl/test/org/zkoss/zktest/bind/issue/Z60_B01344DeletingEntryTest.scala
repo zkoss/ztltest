@@ -27,7 +27,7 @@ class Z60_B01344DeletingEntryTest extends ZTL4ScalaTestCase {
 
       var btn1 = jq("$btn1")
       for (i <- 10 to (0, -1) ) {
-        verifyEquals("" + i, jq("$lb1").toWidget().get("value"))
+        verifyEquals("" + i, jq("$lb1").toWidget().attr("value"))
         verifyEquals(i, jq("$listbox").find("@listitem").length())
         if (i > 0) {
           click(btn1.toWidget())

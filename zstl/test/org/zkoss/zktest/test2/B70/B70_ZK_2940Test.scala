@@ -24,15 +24,15 @@ class B70_ZK_2940Test extends ZTL4ScalaTestCase {
 
       sendKeys(cf, Keys.TAB)
       waitResponse()
-      verifyEquals(btns.get(0).get("id"), getEval(zcf))
+      verifyEquals(btns.get(0).attr("id"), getEval(zcf))
       waitResponse()
       sendKeys(cf, Keys.TAB)
       waitResponse()
-      verifyEquals(btns.get(1).get("id"), getEval(zcf))
+      verifyEquals(btns.get(1).attr("id"), getEval(zcf))
       waitResponse()
       sendKeys(cf, Keys.TAB)
       waitResponse()
-      verifyEquals(jq("@combobutton").get(0).get("id"), getEval(zcf))
+      verifyEquals(jq("@combobutton").get(0).attr("id"), getEval(zcf))
     })
   }
 }

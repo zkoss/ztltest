@@ -113,7 +113,7 @@ class F51_ZK_216Test extends ZTL4ScalaTestCase {
         var btnOne: Widget = engine.$f("btnOne");
         var btnTwo: Widget = engine.$f("btnTwo");
         var bodyTwo: Element = lbTwo.$n("body");
-        var scrollHeight: Int = parseInt(bodyTwo.get("scrollHeight"));
+        var scrollHeight: Int = parseInt(bodyTwo.attr("scrollHeight"));
 
         // verify listitem contents
         def verifyItem(leftContent: String, rightContent: String, listbox: Widget) {

@@ -38,21 +38,21 @@ class Z60_B00911FormNotifyChangeTest extends ZTL4ScalaTestCase {
       var l6 = jq("$l6");
       var btn = jq("$btn");
 
-      verifyEquals("Dennis", l1.toWidget().get("value"));
-      verifyEquals("Dennis", l2.toWidget().get("value"));
-      verifyEquals("Dennis", l3.toWidget().get("value"));
-      verifyEquals("A", l4.toWidget().get("value"));
-      verifyEquals("A", l5.toWidget().get("value"));
-      verifyEquals("A", l6.toWidget().get("value"));
+      verifyEquals("Dennis", l1.toWidget().attr("value"));
+      verifyEquals("Dennis", l2.toWidget().attr("value"));
+      verifyEquals("Dennis", l3.toWidget().attr("value"));
+      verifyEquals("A", l4.toWidget().attr("value"));
+      verifyEquals("A", l5.toWidget().attr("value"));
+      verifyEquals("A", l6.toWidget().attr("value"));
 
       click(btn.toWidget());
       waitResponse();
-      verifyEquals("Alex", l1.toWidget().get("value"));
-      verifyEquals("Alex", l2.toWidget().get("value"));
-      verifyEquals("Alex", l3.toWidget().get("value"));
-      verifyEquals("A", l4.toWidget().get("value"));
-      verifyEquals("A", l5.toWidget().get("value"));
-      verifyEquals("A", l6.toWidget().get("value"));
+      verifyEquals("Alex", l1.toWidget().attr("value"));
+      verifyEquals("Alex", l2.toWidget().attr("value"));
+      verifyEquals("Alex", l3.toWidget().attr("value"));
+      verifyEquals("A", l4.toWidget().attr("value"));
+      verifyEquals("A", l5.toWidget().attr("value"));
+      verifyEquals("A", l6.toWidget().attr("value"));
 
     })
   }

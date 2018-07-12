@@ -32,7 +32,7 @@ class Z60_B01791GlobalCommandTest extends ZTL4ScalaTestCase {
 		click(btn.toWidget());
 		waitResponse()
 		
-		verifyEquals("global: onClick, global", lab1.toWidget().get("value"));  
+		verifyEquals("global: onClick, global", lab1.toWidget().attr("value"));
 
     })
   }

@@ -88,44 +88,44 @@ class F50_ZK_500Test extends ZTL4ScalaTestCase {
       var value = "1,234.57"
       verifyEquals(value, jq("@decimalbox:eq(0)").`val`())
       verifyEquals(value, jq("@doublebox:eq(0)").`val`())
-      verifyEquals(value, jq("@doublespinner:eq(0)").toWidget().$n("real").get("value"))
+      verifyEquals(value, jq("@doublespinner:eq(0)").toWidget().$n("real").attr("value"))
 
       value = "1,234"
       verifyEquals(value, jq("@intbox:eq(0)").`val`())
       verifyEquals(value, jq("@longbox:eq(0)").`val`())
-      verifyEquals(value, jq("@spinner:eq(0)").toWidget().$n("real").get("value"))
+      verifyEquals(value, jq("@spinner:eq(0)").toWidget().$n("real").attr("value"))
 
       value = "01,234.57"
       verifyEquals(value, jq("@decimalbox:eq(1)").`val`())
       verifyEquals(value, jq("@doublebox:eq(1)").`val`())
-      verifyEquals(value, jq("@doublespinner:eq(1)").toWidget().$n("real").get("value"))
+      verifyEquals(value, jq("@doublespinner:eq(1)").toWidget().$n("real").attr("value"))
 
       value = "01,234.00"
       verifyEquals(value, jq("@intbox:eq(1)").`val`())
       verifyEquals(value, jq("@longbox:eq(1)").`val`())
-      verifyEquals(value, jq("@spinner:eq(1)").toWidget().$n("real").get("value"))
+      verifyEquals(value, jq("@spinner:eq(1)").toWidget().$n("real").attr("value"))
 
       value = "1234.567"
       verifyEquals(value, jq("@decimalbox:eq(2)").`val`())
       verifyEquals(value, jq("@doublebox:eq(2)").`val`())
-      verifyEquals(value, jq("@doublespinner:eq(2)").toWidget().$n("real").get("value"))
+      verifyEquals(value, jq("@doublespinner:eq(2)").toWidget().$n("real").attr("value"))
 
       value = "1234"
       verifyEquals(value, jq("@intbox:eq(2)").`val`())
       verifyEquals(value, jq("@longbox:eq(2)").`val`())
-      verifyEquals(value, jq("@spinner:eq(2)").toWidget().$n("real").get("value"))
+      verifyEquals(value, jq("@spinner:eq(2)").toWidget().$n("real").attr("value"))
 
       click(jq("@button"))
       waitResponse()
       value = "1,234.57"
       verifyEquals(value, jq("@decimalbox:eq(2)").`val`())
       verifyEquals(value, jq("@doublebox:eq(2)").`val`())
-      verifyEquals(value, jq("@doublespinner:eq(2)").toWidget().$n("real").get("value"))
+      verifyEquals(value, jq("@doublespinner:eq(2)").toWidget().$n("real").attr("value"))
 
       value = "1,234"
       verifyEquals(value, jq("@intbox:eq(2)").`val`())
       verifyEquals(value, jq("@longbox:eq(2)").`val`())
-      verifyEquals(value, jq("@spinner:eq(2)").toWidget().$n("real").get("value"))
+      verifyEquals(value, jq("@spinner:eq(2)").toWidget().$n("real").attr("value"))
     })
   }
 }

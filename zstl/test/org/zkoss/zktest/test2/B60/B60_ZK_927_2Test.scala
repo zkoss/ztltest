@@ -97,7 +97,7 @@ class B60_ZK_927_2Test extends ZTL4ScalaTestCase {
             verifyTrue(jq(lbx).find(".z-listitem-selected:contains(item " + i + ")").exists() == selected);
           }
           verifyContains("item " + item + " should be selected",
-            lb.$n().get("innerHTML"), "item " + item)
+            lb.$n().attr("innerHTML"), "item " + item)
         }
 
         check(0);

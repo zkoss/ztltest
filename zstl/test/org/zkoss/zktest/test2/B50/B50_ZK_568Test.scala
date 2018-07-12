@@ -75,22 +75,22 @@ class B50_ZK_568Test extends ZTL4ScalaTestCase {
       }
 
       clickAndWait(boxBtn);
-      pp.eval("scrollTop = " + jq(lastItem).get(0).get("offsetTop"));
+      pp.eval("scrollTop = " + jq(lastItem).get(0).attr("offsetTop"));
       clickAndWait(lastItem);
       clickAndWait(boxBtn);
 
-      var top: Integer = parseInt(pp.get("scrollTop"));
-      var offset: Integer = parseInt(jq(lastItem).get(0).get("offsetTop"));
-      var bottom: Integer = parseInt(pp.get("scrollTop")) + jq(pp).height();
+      var top: Integer = parseInt(pp.attr("scrollTop"));
+      var offset: Integer = parseInt(jq(lastItem).get(0).attr("offsetTop"));
+      var bottom: Integer = parseInt(pp.attr("scrollTop")) + jq(pp).height();
 
       verifyTrue("the last item should in view of drop down list",
         (offset >= top && offset <= bottom));
       clickAndWait(btn);
       clickAndWait(boxBtn);
 
-      top = parseInt(pp.get("scrollTop"));
-      offset = parseInt(jq(item15).get(0).get("offsetTop")) + 4;
-      bottom = parseInt(pp.get("scrollTop")) + jq(pp).height();
+      top = parseInt(pp.attr("scrollTop"));
+      offset = parseInt(jq(item15).get(0).attr("offsetTop")) + 4;
+      bottom = parseInt(pp.attr("scrollTop")) + jq(pp).height();
 
       verifyTrue("item 15 should in view of drop down list",
         (offset >= top && offset <= bottom));

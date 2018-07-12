@@ -37,9 +37,9 @@ class Z60_TemplateListbox1Test extends ZTL4ScalaTestCase {
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i)
         var cell = outeritem.firstChild()
-        verifyEquals("" + i, cell.get("label")) // verify the index
+        verifyEquals("" + i, cell.attr("label")) // verify the index
         cell = cell.nextSibling()
-        verifyEquals(outerl, cell.get("label")) // verify the label
+        verifyEquals(outerl, cell.attr("label")) // verify the label
         var innerbox = jq(outeritem).find("@listbox").toWidget()
         verifyTrue(innerbox.exists())
         var inneritems = jq(innerbox).find("@listitem")
@@ -47,25 +47,25 @@ class Z60_TemplateListbox1Test extends ZTL4ScalaTestCase {
         for (j <- 0 to 1) {
           var inneritem = inneritems.eq(j).toWidget()
           cell = inneritem.firstChild()
-          verifyEquals("" + j, cell.get("label"))
+          verifyEquals("" + j, cell.attr("label"))
           cell = cell.nextSibling()
-          verifyEquals("" + i, cell.get("label"))
+          verifyEquals("" + i, cell.attr("label"))
           var innerl = itemLabel(i) + " " + j
           cell = cell.nextSibling()
-          verifyEquals(innerl, cell.get("label"))
+          verifyEquals(innerl, cell.attr("label"))
         }
         cell = outeritem.lastChild().previousSibling()
         var btn = jq(cell).find("@button").toWidget() // index button
         var msg = jq("$msg").toWidget()
         click(btn)
         waitResponse()
-        verifyEquals("item index " + i, msg.get("value"))
+        verifyEquals("item index " + i, msg.attr("value"))
         // verify template
         cell = outeritem.lastChild()
         if (i == 0 || i == 2)
-          verifyEquals("Model1", cell.get("label"))
+          verifyEquals("Model1", cell.attr("label"))
         else
-          verifyEquals("Model2", cell.get("label"))
+          verifyEquals("Model2", cell.attr("label"))
         outeritem = outeritem.nextSibling()
       }
     })

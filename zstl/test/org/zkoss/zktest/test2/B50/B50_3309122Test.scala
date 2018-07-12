@@ -124,8 +124,8 @@ class B50_3309122Test extends ZTL4ScalaTestCase {
       var $rows: JQuery = $body.find(".z-rows");
       for (i <- 0 until 10) {
         var $row: JQuery = jq($rows.find(".z-row").get(i));
-        verifyContains($row.find(".z-label").get(0).get("innerHTML"), "10")
-        verifyContains($row.find(".z-label").get(1).get("innerHTML"), "Western")
+        verifyContains($row.find(".z-label").get(0).attr("innerHTML"), "10")
+        verifyContains($row.find(".z-label").get(1).attr("innerHTML"), "Western")
       }
     }
 

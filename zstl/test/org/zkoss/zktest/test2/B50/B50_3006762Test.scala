@@ -64,7 +64,7 @@ class B50_3006762Test extends ZTL4ScalaTestCase {
       click(jq("@treerow").toWidget().$n("icon"))
       waitResponse()
       var node = tree.$n().firstChild()
-      verifyTolerant(parseInt(node.get("clientHeight")), parseInt(node.get("scrollHeight")), 1)
+      verifyTolerant(parseInt(node.attr("clientHeight")), parseInt(node.attr("scrollHeight")), 1)
     })
   }
 }

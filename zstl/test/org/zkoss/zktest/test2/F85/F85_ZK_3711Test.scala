@@ -26,10 +26,10 @@ class F85_ZK_3711Test extends ZTL4ScalaTestCase {
       val tabbox = jq("@tabbox").toWidget
       navigatePage(false)
       waitResponse()
-      verifyEquals(tabbox.get("selectedIndex"), 1) // page 2
+      verifyEquals(tabbox.attr("selectedIndex"), 1) // page 2
       navigatePage(true)
       waitResponse()
-      verifyEquals(tabbox.get("selectedIndex"), 2) // page 3
+      verifyEquals(tabbox.attr("selectedIndex"), 2) // page 3
     })
   }
 }

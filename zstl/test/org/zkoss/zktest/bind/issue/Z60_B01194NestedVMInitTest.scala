@@ -35,38 +35,38 @@ class Z60_B01194NestedVMInitTest extends ZTL4ScalaTestCase {
       var outerNameLb = jq("$outerNameLb")
       var outerDescTxb = jq("$outerDescTxb")
 
-      var text = vmsDescTxb.toWidget().get("value")
+      var text = vmsDescTxb.toWidget().attr("value")
       verifyTrue(text.length() > 0)
-      verifyEquals(text, vmInnerVmDescTxb.toWidget().get("value"))
-      verifyEquals(text, vmInnerVmDescLb.toWidget().get("value"))
-      verifyEquals(text, outerDescTxb.toWidget().get("value"))
+      verifyEquals(text, vmInnerVmDescTxb.toWidget().attr("value"))
+      verifyEquals(text, vmInnerVmDescLb.toWidget().attr("value"))
+      verifyEquals(text, outerDescTxb.toWidget().attr("value"))
 
       text = "Ian Tsai 1"
       `type`(vmsNameTxb.toWidget(), text)
       waitResponse()
-      verifyEquals(text, headerNameLb.toWidget().get("value"))
-      verifyEquals(text, outerNameLb.toWidget().get("value"))
+      verifyEquals(text, headerNameLb.toWidget().attr("value"))
+      verifyEquals(text, outerNameLb.toWidget().attr("value"))
 
       text = "AAA"
       `type`(vmsDescTxb.toWidget(), text)
       waitResponse()
-      verifyEquals(text, vmInnerVmDescTxb.toWidget().get("value"))
-      verifyEquals(text, vmInnerVmDescLb.toWidget().get("value"))
-      verifyEquals(text, outerDescTxb.toWidget().get("value"))
+      verifyEquals(text, vmInnerVmDescTxb.toWidget().attr("value"))
+      verifyEquals(text, vmInnerVmDescLb.toWidget().attr("value"))
+      verifyEquals(text, outerDescTxb.toWidget().attr("value"))
 
       text = "BBB"
       `type`(vmInnerVmDescTxb.toWidget(), text)
       waitResponse()
-      verifyEquals(text, vmsDescTxb.toWidget().get("value"))
-      verifyEquals(text, vmInnerVmDescLb.toWidget().get("value"))
-      verifyEquals(text, outerDescTxb.toWidget().get("value"))
+      verifyEquals(text, vmsDescTxb.toWidget().attr("value"))
+      verifyEquals(text, vmInnerVmDescLb.toWidget().attr("value"))
+      verifyEquals(text, outerDescTxb.toWidget().attr("value"))
 
       text = "CCC"
       `type`(outerDescTxb.toWidget(), text)
       waitResponse()
-      verifyEquals(text, vmsDescTxb.toWidget().get("value"))
-      verifyEquals(text, vmInnerVmDescLb.toWidget().get("value"))
-      verifyEquals(text, vmInnerVmDescTxb.toWidget().get("value"))
+      verifyEquals(text, vmsDescTxb.toWidget().attr("value"))
+      verifyEquals(text, vmInnerVmDescLb.toWidget().attr("value"))
+      verifyEquals(text, vmInnerVmDescTxb.toWidget().attr("value"))
 
     })
   }

@@ -77,8 +77,8 @@ class B50_2980383Test extends ZTL4ScalaTestCase {
       var header = tabs.$n()
       var tab = last.$n()
       // one px tolerant would be ok .
-      verifyTolerant(header.get("scrollLeft").toInt + header.get("offsetWidth").toInt,
-        tab.get("offsetLeft").toInt + tab.get("offsetWidth").toInt, 1)
+      verifyTolerant(header.attr("scrollLeft").toInt + header.attr("offsetWidth").toInt,
+        tab.attr("offsetLeft").toInt + tab.attr("offsetWidth").toInt, 1)
     })
   }
 }

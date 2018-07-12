@@ -40,7 +40,7 @@ class B30_1553937Test extends ZTL4ScalaTestCase {
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     val list = ztl$engine.$f("list")
     runZTL(zscript, () => {
-      var w = Integer.valueOf(list.$n().parentNode().get("offsetWidth"))
+      var w = Integer.valueOf(list.$n().parentNode().attr("offsetWidth"))
       verifyEquals(200, w)
     })
   }

@@ -43,12 +43,12 @@ class Z60_B01787NotifyChangeListboxTest extends ZTL4ScalaTestCase {
     	  }
     	  val comp1s = jq("$listbox @listitem")
     	  verifyEquals(2, comp1s.length)
-    	  verifyEquals(answer(i)(0), comp1s.eq(0).toWidget().get("label"))
-    	  verifyEquals(answer(i)(1), comp1s.eq(1).toWidget().get("label"))
+    	  verifyEquals(answer(i)(0), comp1s.eq(0).toWidget().attr("label"))
+    	  verifyEquals(answer(i)(1), comp1s.eq(1).toWidget().attr("label"))
     	  val box1s = jq("$box1 @label")
     	  verifyEquals(2, box1s.length)
-    	  verifyEquals(answer(i)(2), box1s.eq(0).toWidget().get("value"))
-    	  verifyEquals(answer(i)(3), box1s.eq(1).toWidget().get("value"))
+    	  verifyEquals(answer(i)(2), box1s.eq(0).toWidget().attr("value"))
+    	  verifyEquals(answer(i)(3), box1s.eq(1).toWidget().attr("value"))
       })
     }
 

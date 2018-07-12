@@ -106,7 +106,7 @@ class Z_Userguide_FormTest extends ZTL4ScalaTestCase {
       val r = getValue(jq(".z-colorpicker").toWidget.$n("r-inp"))
       val g = getValue(jq(".z-colorpicker").toWidget.$n("g-inp"))
       val b = getValue(jq(".z-colorpicker").toWidget.$n("b-inp"))
-      val currColor = jq("@colorbox").toWidget.$n("currcolor").get("style.backgroundColor")
+      val currColor = jq("@colorbox").toWidget.$n("currcolor").attr("style.backgroundColor")
       verifyEqualColor("rgb(" + r + "," + g + "," + b + ")", currColor)
     })
   }

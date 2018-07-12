@@ -29,8 +29,8 @@ class Z60_B01699IncludeMultipleTimesTest extends ZTL4ScalaTestCase {
       val lab2 = jq("$lb2").toWidget();
       val btn = jq("$btn").toWidget();
       
-      verifyEquals("Foo_1", lab1.get("value"));
-      verifyEquals("Bar_1", lab2.get("value"));
+      verifyEquals("Foo_1", lab1.attr("value"));
+      verifyEquals("Bar_1", lab2.attr("value"));
       
       click(btn);
       waitResponse();
@@ -38,8 +38,8 @@ class Z60_B01699IncludeMultipleTimesTest extends ZTL4ScalaTestCase {
       val lab3 = jq("$lb1").toWidget();
       val lab4 = jq("$lb2").toWidget();
       
-      verifyEquals("FOO_1", lab3.get("value"));
-      verifyEquals("BAR_1", lab4.get("value"));
+      verifyEquals("FOO_1", lab3.attr("value"));
+      verifyEquals("BAR_1", lab4.attr("value"));
       
     })
 

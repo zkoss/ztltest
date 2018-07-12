@@ -33,10 +33,10 @@ class B65_ZK_1851Test extends ZTL4ScalaTestCase {
           sendKeys(inp, "1")
           waitResponse()
           blur(inp)
-          verifyTrue(inp.get("value") != "NaN")
+          verifyTrue(inp.attr("value") != "NaN")
           click(spinner.$n("btn-up"))
           waitResponse()
-          verifyTrue(inp.get("value") != "NaN")
+          verifyTrue(inp.attr("value") != "NaN")
         }
         doVerify("spinner")
         doVerify("doublespinner")

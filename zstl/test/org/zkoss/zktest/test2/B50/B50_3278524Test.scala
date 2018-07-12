@@ -50,7 +50,7 @@ class B50_3278524Test extends ZTL4ScalaTestCase {
       () => {
         waitResponse();
         verifyContains("Should appear a log message 'false'",
-          jq("#zk_log").get(0).get("value"), "false")
+          jq("#zk_log").get(0).attr("value"), "false")
       }
     );
 

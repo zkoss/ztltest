@@ -60,11 +60,11 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
       clearAndInput(tb1Inp, "1212");
       waitResponse()
       verifyEquals("it should be able to type and display \"1212\" of first timebox.",
-        "1212", tb1Inp.get("value"))
+        "1212", tb1Inp.attr("value"))
       clearAndInput(tb2Inp, "121212");
       waitResponse()
       verifyContains("Type 121212 into the timebox, it should be able to type and display \"PM 12:12:12\" or \"AM 12:12:12\" (depended on when you test it).",
-        tb2Inp.get("value"), "M 12:12:12")
+        tb2Inp.attr("value"), "M 12:12:12")
       click(tb3Inp);
       waitResponse()
       // move to the right most side
@@ -88,7 +88,7 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
         var checkStr = getEval("getNextAMPM()")
         click(ele);
         waitResponse()
-        verifyContains("should change AM/PM", tb3Inp.get("value"), checkStr);
+        verifyContains("should change AM/PM", tb3Inp.attr("value"), checkStr);
       }
     }
     );

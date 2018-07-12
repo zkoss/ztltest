@@ -44,10 +44,10 @@ class B50_2970902Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       sleep(1000); //for DataBinding
       cb1.set("open", true)
-      verifyTrue(cb1.firstChild().$n().get("offsetHeight").toInt > 5)
+      verifyTrue(cb1.firstChild().$n().attr("offsetHeight").toInt > 5)
       waitResponse()
       cb2.set("open", true)
-      verifyTrue(ci2.$n().get("offsetHeight").toInt > 5)
+      verifyTrue(ci2.$n().attr("offsetHeight").toInt > 5)
     })
   }
 }

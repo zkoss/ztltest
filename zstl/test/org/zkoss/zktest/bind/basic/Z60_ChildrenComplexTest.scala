@@ -38,7 +38,7 @@ class Z60_ChildrenComplexTest extends ZTL4ScalaTestCase {
       testComplex(nodes, layout, true)
     })
   }
-  def testComplex(nodes: ArrayList[Node], parent: Widget, children1: Boolean)=  {
+  def testComplex(nodes: ArrayList[Node], parent: Widget, children1: Boolean): Unit=  {
     var children = parent.firstChild()
     verifyEquals(nodes.size, parent.nChildren())
     var w = children
@@ -47,9 +47,9 @@ class Z60_ChildrenComplexTest extends ZTL4ScalaTestCase {
       var str = "children1"
       if (!children1)
         str = "children2"
-      verifyEquals(str, w.get("sclass"))
+      verifyEquals(str, w.attr("sclass"))
       var l = w.firstChild()
-      verifyEquals(n.getName(), l.get("value"))
+      verifyEquals(n.getName(), l.attr("value"))
       var l2 = l.nextSibling()
       testComplex(n.getChildren(), l2, !children1)
       w = w.nextSibling()

@@ -21,7 +21,7 @@ class B70_ZK_2152Test extends ZTL4ScalaTestCase {
       waitResponse()
       sendKeys(inp, Keys.ENTER)
       waitResponse()
-      verifyEquals(jq("@datebox").eq(0).toWidget().get("text"), "10/10/2014 21:00:00");
+      verifyEquals(jq("@datebox").eq(0).toWidget().attr("text"), "10/10/2014 21:00:00");
 
       click(jq(".z-datebox-button").eq(1))
       waitResponse()
@@ -34,7 +34,7 @@ class B70_ZK_2152Test extends ZTL4ScalaTestCase {
       waitResponse()
       sendKeys(inp, Keys.ENTER)
       waitResponse()
-      verifyEquals(jq("@datebox").eq(1).toWidget().get("text"), "10/10/2014 11:00:00 AM")
+      verifyEquals(jq("@datebox").eq(1).toWidget().attr("text"), "10/10/2014 11:00:00 AM")
 
       click(jq(".z-datebox-button").eq(2))
       waitResponse()
@@ -49,7 +49,7 @@ class B70_ZK_2152Test extends ZTL4ScalaTestCase {
       waitResponse()
       sendKeys(inp, Keys.ENTER)
       waitResponse()
-      verifyEquals(jq("@datebox").eq(2).toWidget().get("text"), "10/10/2014 11:00:00 AM")
+      verifyEquals(jq("@datebox").eq(2).toWidget().attr("text"), "10/10/2014 11:00:00 AM")
 
       click(jq(".z-datebox-button").eq(3))
       waitResponse()
@@ -62,7 +62,7 @@ class B70_ZK_2152Test extends ZTL4ScalaTestCase {
       waitResponse()
       sendKeys(inp, Keys.ENTER)
       waitResponse()
-      verifyEquals(jq("@datebox").eq(3).toWidget().get("text"), "10/10/2014 21:00:00")
+      verifyEquals(jq("@datebox").eq(3).toWidget().attr("text"), "10/10/2014 21:00:00")
     })
   }
 }

@@ -34,11 +34,11 @@ class Z60_F01046PublicEventTest extends ZTL4ScalaTestCase {
 
       click(btn1.toWidget())
       waitResponse()
-      verifyEquals("Hello i am a vm", msg2.toWidget().get("value"))
+      verifyEquals("Hello i am a vm", msg2.toWidget().attr("value"))
 
       click(btn2.toWidget())
       waitResponse()
-      verifyEquals("Hello i am a composer", msg1.toWidget().get("value"))
+      verifyEquals("Hello i am a composer", msg1.toWidget().attr("value"))
 
     })
   }

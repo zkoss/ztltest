@@ -27,12 +27,12 @@ class Z60_B01795NestedTemplateTest extends ZTL4ScalaTestCase {
 
     runZTL(zul, () => {
       val box1s = jq("@grid @label")
-      verifyEquals("[AJAX]", box1s.eq(0).toWidget.get("value"))
-      verifyEquals("[AJAX]", box1s.eq(1).toWidget.get("value"))
-      verifyEquals("[AJAX]", box1s.eq(2).toWidget.get("value"))
-      verifyEquals("[Java, C]", box1s.eq(3).toWidget.get("value"))
-      verifyEquals("[Java, C]", box1s.eq(4).toWidget.get("value"))
-      verifyEquals("[Java, C]", box1s.eq(5).toWidget.get("value"))
+      verifyEquals("[AJAX]", box1s.eq(0).toWidget.attr("value"))
+      verifyEquals("[AJAX]", box1s.eq(1).toWidget.attr("value"))
+      verifyEquals("[AJAX]", box1s.eq(2).toWidget.attr("value"))
+      verifyEquals("[Java, C]", box1s.eq(3).toWidget.attr("value"))
+      verifyEquals("[Java, C]", box1s.eq(4).toWidget.attr("value"))
+      verifyEquals("[Java, C]", box1s.eq(5).toWidget.attr("value"))
     })
   }
 }

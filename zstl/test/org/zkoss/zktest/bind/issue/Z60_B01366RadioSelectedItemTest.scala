@@ -31,17 +31,17 @@ class Z60_B01366RadioSelectedItemTest extends ZTL4ScalaTestCase {
 
       click(rg1.find("@radio").eq(0).toWidget().$n("real"))
       waitResponse()
-      verifyEquals("true", rg2.find("@radio").eq(0).toWidget().get("checked"))
-      verifyEquals("false", rg2.find("@radio").eq(1).toWidget().get("checked"))
-      verifyEquals("false", rg2.find("@radio").eq(2).toWidget().get("checked"))
-      verifyEquals("name 0", lb1.toWidget().get("value"))
+      verifyEquals("true", rg2.find("@radio").eq(0).toWidget().attr("checked"))
+      verifyEquals("false", rg2.find("@radio").eq(1).toWidget().attr("checked"))
+      verifyEquals("false", rg2.find("@radio").eq(2).toWidget().attr("checked"))
+      verifyEquals("name 0", lb1.toWidget().attr("value"))
 
       click(rg2.find("@radio").eq(1).toWidget().$n("real"))
       waitResponse()
-      verifyEquals("false", rg1.find("@radio").eq(0).toWidget().get("checked"))
-      verifyEquals("true", rg1.find("@radio").eq(1).toWidget().get("checked"))
-      verifyEquals("false", rg1.find("@radio").eq(2).toWidget().get("checked"))
-      verifyEquals("name 1", lb1.toWidget().get("value"))
+      verifyEquals("false", rg1.find("@radio").eq(0).toWidget().attr("checked"))
+      verifyEquals("true", rg1.find("@radio").eq(1).toWidget().attr("checked"))
+      verifyEquals("false", rg1.find("@radio").eq(2).toWidget().attr("checked"))
+      verifyEquals("name 1", lb1.toWidget().attr("value"))
 
     })
   }

@@ -71,10 +71,10 @@ class B50_3204965Test extends ZTL4ScalaTestCase {
       var btn: Widget = engine.$f("btn");
       var tb: Widget = engine.$f("tb");
       waitResponse();
-      var size1: Int = parseInt(tb.$n().get("value"));
+      var size1: Int = parseInt(tb.$n().attr("value"));
       click(btn);
       waitResponse();
-      var size2: Int = parseInt(tb.$n().get("value"));
+      var size2: Int = parseInt(tb.$n().attr("value"));
       verifyNotEquals(size1, size2);
     }
 

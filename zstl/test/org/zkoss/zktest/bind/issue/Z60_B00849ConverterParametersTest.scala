@@ -54,27 +54,27 @@ class Z60_B00849ConverterParametersTest extends ZTL4ScalaTestCase {
       waitResponse();
       click(cmd1.toWidget());
       waitResponse();
-      verifyEquals("", l11.toWidget().get("value"));
-      verifyEquals("", l12.toWidget().get("value"));
-      verifyEquals("A:value1", tb1.toWidget().get("value"));
+      verifyEquals("", l11.toWidget().attr("value"));
+      verifyEquals("", l12.toWidget().attr("value"));
+      verifyEquals("A:value1", tb1.toWidget().attr("value"));
 
       tb2.toElement().set("value", "")
       sendKeys(tb2.toWidget(), "B" + Keys.TAB);
       waitResponse();
       click(cmd2.toWidget());
       waitResponse();
-      verifyEquals("", l21.toWidget().get("value"));
-      verifyEquals("", l22.toWidget().get("value"));
-      verifyEquals("B:value2", tb2.toWidget().get("value"));
+      verifyEquals("", l21.toWidget().attr("value"));
+      verifyEquals("", l22.toWidget().attr("value"));
+      verifyEquals("B:value2", tb2.toWidget().attr("value"));
 
       tb3.toElement().set("value", "")
       sendKeys(tb3.toWidget(), "C" + Keys.TAB);
       waitResponse();
       click(cmd3.toWidget());
       waitResponse();
-      verifyEquals("", l31.toWidget().get("value"));
-      verifyEquals("", l32.toWidget().get("value"));
-      verifyEquals("C:value3", tb3.toWidget().get("value"));
+      verifyEquals("", l31.toWidget().attr("value"));
+      verifyEquals("", l32.toWidget().attr("value"));
+      verifyEquals("C:value3", tb3.toWidget().attr("value"));
 
     })
   }

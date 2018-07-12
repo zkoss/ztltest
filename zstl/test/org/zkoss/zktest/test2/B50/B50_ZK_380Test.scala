@@ -64,8 +64,8 @@ class B50_ZK_380Test extends ZTL4ScalaTestCase {
     val l1 = ztl$engine.$f("l1")
     val l2 = ztl$engine.$f("l2")
     runZTL(zscript, () => {
-      verifyNotEquals("hidden", i1.$n("cm").get("style.visibility"))
-      verifyEquals("hidden", i2.$n("cm").get("style.visibility"))
+      verifyNotEquals("hidden", i1.$n("cm").attr("style.visibility"))
+      verifyEquals("hidden", i2.$n("cm").attr("style.visibility"))
       click(i1)
       waitResponse()
       click(i2)

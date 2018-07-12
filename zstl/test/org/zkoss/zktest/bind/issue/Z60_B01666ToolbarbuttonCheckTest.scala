@@ -33,13 +33,13 @@ class Z60_B01666ToolbarbuttonCheckTest extends ZTL4ScalaTestCase {
 
       click(btn1.toWidget())
       waitResponse()
-      verifyEquals("false", checkedLab.toWidget().get("value"))
-      verifyEquals("checked false", messageLab.toWidget().get("value"))
+      verifyEquals("false", checkedLab.toWidget().attr("value"))
+      verifyEquals("checked false", messageLab.toWidget().attr("value"))
 
       click(btn1.toWidget())
       waitResponse()
-      verifyEquals("true", checkedLab.toWidget().get("value"))
-      verifyEquals("checked true", messageLab.toWidget().get("value"))
+      verifyEquals("true", checkedLab.toWidget().attr("value"))
+      verifyEquals("checked true", messageLab.toWidget().attr("value"))
 
     })
   }

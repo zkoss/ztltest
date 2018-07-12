@@ -33,12 +33,12 @@ class Z60_B01165InnerViewMdelTest extends ZTL4ScalaTestCase {
       var vmsSelIdLb = jq("$vmsSelIdLb")
       var vmsSelDescLb = jq("$vmsSelDescLb")
 
-      verifyEquals("b3", outerPidLb.toWidget().get("value"))
-      verifyEquals("this is b3", outerPDescLb.toWidget().get("value"))
-      verifyEquals("b3", pidLb.toWidget().get("value"))
-      verifyEquals("this is b3", pDescLb.toWidget().get("value"))
-      verifyEquals("b3", vmsSelIdLb.toWidget().get("value"))
-      verifyEquals("this is b3", vmsSelDescLb.toWidget().get("value"))
+      verifyEquals("b3", outerPidLb.toWidget().attr("value"))
+      verifyEquals("this is b3", outerPDescLb.toWidget().attr("value"))
+      verifyEquals("b3", pidLb.toWidget().attr("value"))
+      verifyEquals("this is b3", pDescLb.toWidget().attr("value"))
+      verifyEquals("b3", vmsSelIdLb.toWidget().attr("value"))
+      verifyEquals("this is b3", vmsSelDescLb.toWidget().attr("value"))
 
     })
   }

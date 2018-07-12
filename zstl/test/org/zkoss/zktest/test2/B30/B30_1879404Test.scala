@@ -75,7 +75,7 @@ class B30_1879404Test extends ZTL4ScalaTestCase {
       focus($msg)
       sendKeys($msg, Keys.ENTER)
       waitResponse()
-      verifyEquals("ryan is boring", ms.get("value"))
+      verifyEquals("ryan is boring", ms.attr("value"))
     })
   }
 }

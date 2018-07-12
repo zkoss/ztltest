@@ -65,14 +65,14 @@ class B36_2796335Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       click(bottom)
       waitResponse()
-      verifyEquals("50", div1.get("scrollTop"))
+      verifyEquals("50", div1.attr("scrollTop"))
       var scrollTop = 84
-      verifyTolerant(scrollTop, parseInt(div2.get("scrollTop")), 6)
+      verifyTolerant(scrollTop, parseInt(div2.attr("scrollTop")), 6)
       click(top)
       waitResponse()
       scrollTop = 0
-      verifyEquals("0", div1.get("scrollTop"))
-      verifyTolerant(scrollTop, parseInt(div2.get("scrollTop")), 6)
+      verifyEquals("0", div1.attr("scrollTop"))
+      verifyTolerant(scrollTop, parseInt(div2.attr("scrollTop")), 6)
     })
   }
 }

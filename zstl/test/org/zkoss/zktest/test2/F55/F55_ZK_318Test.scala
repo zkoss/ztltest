@@ -60,7 +60,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 
           for (i <- 0 until cnt.length) {
             verifyContains("Should has this message: " + cnt(i),
-              box(i).$n().get("value"), cnt(i))
+              box(i).$n().attr("value"), cnt(i))
           }
         }
 
@@ -158,12 +158,12 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         clickAndWait(jq(".z-label:contains(message box)"))
 
         // step 14
-        val bgColor = jq("@window .z-window-content").get(0).get("style.backgroundColor")
+        val bgColor = jq("@window .z-window-content").get(0).attr("style.backgroundColor")
         clickAndWait(jq(bd2).toWidget.$n("btn"))
         openMenu(Array(pp2About, pp2Menu, pp2ColorPicker, pp2ColorPicker))
         jq(".z-colorpalette-color:eq(22)").get(0).eval("click();'dummy'")
         waitResponse()
-        verifyNotEquals("The background color didn't change", bgColor, jq("@window .z-window-content").get(0).get("style.backgroundColor"))
+        verifyNotEquals("The background color didn't change", bgColor, jq("@window .z-window-content").get(0).attr("style.backgroundColor"))
 
         // step 15
         clickAndWait(jq("@button:contains(change child)"))

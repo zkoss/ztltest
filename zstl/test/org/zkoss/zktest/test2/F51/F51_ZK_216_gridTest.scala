@@ -102,7 +102,7 @@ class F51_ZK_216_gridTest extends ZTL4ScalaTestCase {
         var gbTwo: Widget = engine.$f("gbTwo");
 
         var bodyTwo: Element = gbTwo.$n("body");
-        var scrollHeight: Int = parseInt(bodyTwo.get("scrollHeight"));
+        var scrollHeight: Int = parseInt(bodyTwo.attr("scrollHeight"));
 
         // verify listitem contents
         def verifyItem(leftContent: String, rightContent: String, grid: Widget) {

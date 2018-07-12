@@ -80,13 +80,13 @@ class B50_3325041Test extends ZTL4ScalaTestCase {
           inp.eval("value=" + value);
           blur(inp);
 
-          var vinp: String = inp.get("value");
+          var vinp: String = inp.attr("value");
           verifyEquals("the value should be inputed correctly",
             vinp, value)
           click(btn);
           waitResponse();
 
-          var vmsg: String = jq(".z-messagebox-window").find(".z-label").get(0).get("innerHTML");
+          var vmsg: String = jq(".z-messagebox-window").find(".z-label").get(0).attr("innerHTML");
           verifyEquals("the value in messagebox should equal to inputed value",
             vmsg, value)
           click(jq(".z-messagebox-window").find(".z-button").get(0));

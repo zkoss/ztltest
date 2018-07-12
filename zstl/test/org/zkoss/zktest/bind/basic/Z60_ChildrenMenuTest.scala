@@ -41,14 +41,14 @@ class Z60_ChildrenMenuTest extends ZTL4ScalaTestCase {
     })
   }
 
-  def testMenu(nodes: ArrayList[Node], parent: Widget)=
+  def testMenu(nodes: ArrayList[Node], parent: Widget) : Unit=
     {
       var children = parent.firstChild()
       verifyEquals(nodes.size(), parent.nChildren())
       var w = children
       for (i <- 0 to nodes.size() - 1) {
         var n = nodes.get(i)
-        verifyEquals(n.getName(), w.get("label"))
+        verifyEquals(n.getName(), w.attr("label"))
         if (n.getChildren().size() == 0)
           verifyEquals("zul.menu.Menuitem", w.eval("className"))
         else {

@@ -29,9 +29,9 @@ class Z60_B01469ScopeParamRefTest extends ZTL4ScalaTestCase {
       var l2 = jq("$l2")
       var l3 = jq("$l3")
 
-      verifyEquals("ABC", l1.toWidget().get("value"))
-      verifyEquals("ABC", l2.toWidget().get("value"))
-      verifyEquals("ABC", l3.toWidget().get("value"))
+      verifyEquals("ABC", l1.toWidget().attr("value"))
+      verifyEquals("ABC", l2.toWidget().attr("value"))
+      verifyEquals("ABC", l3.toWidget().attr("value"))
     })
   }
 }

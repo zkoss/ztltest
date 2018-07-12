@@ -35,20 +35,20 @@ class Z60_B01066IncorrectFormValueTest extends ZTL4ScalaTestCase {
       var lb1 = jq("$lb1")
       var lb2 = jq("$lb2")
 
-      verifyEquals("A", lb1.toWidget().get("value"))
-      verifyEquals("A", lb2.toWidget().get("value"))
+      verifyEquals("A", lb1.toWidget().attr("value"))
+      verifyEquals("A", lb2.toWidget().attr("value"))
 
       `type`(tb1.toWidget(), "Abc")
       waitResponse()
 
-      verifyEquals("A", lb1.toWidget().get("value"))
-      verifyEquals("A", lb2.toWidget().get("value"))
+      verifyEquals("A", lb1.toWidget().attr("value"))
+      verifyEquals("A", lb2.toWidget().attr("value"))
 
       click(save.toWidget())
       waitResponse()
 
-      verifyEquals("Abc", lb1.toWidget().get("value"))
-      verifyEquals("Abc", lb2.toWidget().get("value"))
+      verifyEquals("Abc", lb1.toWidget().attr("value"))
+      verifyEquals("Abc", lb2.toWidget().attr("value"))
 
     })
   }

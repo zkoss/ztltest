@@ -30,8 +30,8 @@ class B50_2981016Test extends ZTL4ScalaTestCase {
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     val cb = ztl$engine.$f("cb")
     runZTL(zscript, () => {
-      var inpWidth = Integer.valueOf(cb.$n("real").get("offsetWidth"))
-      var btnWidth = Integer.valueOf(cb.$n("btn").get("offsetWidth"));
+      var inpWidth = Integer.valueOf(cb.$n("real").attr("offsetWidth"))
+      var btnWidth = Integer.valueOf(cb.$n("btn").attr("offsetWidth"));
       verifyTolerant(inpWidth + btnWidth, 80, 2)
     })
   }

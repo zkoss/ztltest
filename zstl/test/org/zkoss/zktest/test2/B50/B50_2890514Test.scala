@@ -71,7 +71,7 @@ class B50_2890514Test extends ZTL4ScalaTestCase {
         var fl: Widget = engine.$f("fl");
 
         var width: Int = jq(jq(row1.$n()).find(".z-row").get(0)).outerWidth();
-        var offsetLeft: Int = parseInt(fl.$n().get("offsetLeft"));
+        var offsetLeft: Int = parseInt(fl.$n().attr("offsetLeft"));
         waitResponse();
 
         verifyTrue("the offsetLeft of File label (" + offsetLeft +

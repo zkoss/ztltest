@@ -40,17 +40,17 @@ class Z60_Va06Test extends ZTL4ScalaTestCase {
       `type`(ageBox, "-1");
       click(checkButton);
       waitResponse();
-      verifyEquals("false", checkBox.get("checked"));
+      verifyEquals("false", checkBox.attr("checked"));
 
       `type`(ageBox, "22");
       click(checkButton);
       waitResponse();
-      verifyEquals("true", checkBox.get("checked"));
+      verifyEquals("true", checkBox.attr("checked"));
 
       `type`(ageBox, "1");
       click(checkButton);
       waitResponse();
-      verifyEquals("false", checkBox.get("checked"));
+      verifyEquals("false", checkBox.attr("checked"));
     })
   }
 }

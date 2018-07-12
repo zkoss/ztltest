@@ -68,9 +68,9 @@ class B50_ZK_599Test extends ZTL4ScalaTestCase {
       var grid2: Widget = engine.$f("grid2");
 
       verifyTrue("grid 1 should have vertical scrollbar",
-        parseInt(grid1.$n("body").get("scrollHeight")) >= parseInt(grid1.$n("body").get("clientHeight")));
+        parseInt(grid1.$n("body").attr("scrollHeight")) >= parseInt(grid1.$n("body").attr("clientHeight")));
       verifyTrue("grid 1 should have vertical scrollbar",
-        parseInt(grid2.$n("body").get("scrollHeight")) >= parseInt(grid2.$n("body").get("clientHeight")));
+        parseInt(grid2.$n("body").attr("scrollHeight")) >= parseInt(grid2.$n("body").attr("clientHeight")));
     })
   }
 }

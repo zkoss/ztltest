@@ -39,7 +39,7 @@ class Z60_F00864ValidationContextEasierTest extends ZTL4ScalaTestCase {
       var save1 = jq("$save1")
       var err = jq("$err")
 
-      verifyEquals("", err.toWidget().get("value"))
+      verifyEquals("", err.toWidget().attr("value"))
       inp1.toElement().set("value", "")
       sendKeys(inp1.toWidget(), "Dennis")
       waitResponse()
@@ -49,9 +49,9 @@ class Z60_F00864ValidationContextEasierTest extends ZTL4ScalaTestCase {
       click(save1.toWidget())
       waitResponse()
 
-      verifyEquals("", err.toWidget().get("value"))
-      verifyEquals("Dennis", msg1.toWidget().get("value"))
-      verifyEquals("100", msg2.toWidget().get("value"))
+      verifyEquals("", err.toWidget().attr("value"))
+      verifyEquals("Dennis", msg1.toWidget().attr("value"))
+      verifyEquals("100", msg2.toWidget().attr("value"))
 
     })
   }

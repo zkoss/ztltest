@@ -42,9 +42,9 @@ class Z60_CollectionIndexListbox2Test extends ZTL4ScalaTestCase {
         outeritem = outeritem.nextSibling()
         val outerl = itemLabel(i)
         var cell = outeritem.firstChild()
-        verifyEquals("" + i, cell.get("label")) // verify the index
+        verifyEquals("" + i, cell.attr("label")) // verify the index
         cell = cell.nextSibling()
-        verifyEquals(outerl, cell.get("label")) // verify the label
+        verifyEquals(outerl, cell.attr("label")) // verify the label
         val innerbox = jq(outeritem).find("@listbox").toWidget()
         verifyTrue(innerbox.exists())
         val inneritems = jq(innerbox).find("@listitem")
@@ -52,12 +52,12 @@ class Z60_CollectionIndexListbox2Test extends ZTL4ScalaTestCase {
         var inneritem = inneritems.first()
         for (j <- 0 to 1) {
           cell = inneritem.toWidget().firstChild()
-          verifyEquals("" + j, cell.get("label"))
+          verifyEquals("" + j, cell.attr("label"))
           cell = cell.nextSibling()
-          verifyEquals("" + i, cell.get("label"))
+          verifyEquals("" + i, cell.attr("label"))
           val innerl = itemLabel(i) + " " + j
           cell = cell.nextSibling()
-          verifyEquals(innerl, cell.get("label"))
+          verifyEquals(innerl, cell.attr("label"))
           inneritem = inneritem.next()
         }
         cell = outeritem.lastChild()
@@ -65,7 +65,7 @@ class Z60_CollectionIndexListbox2Test extends ZTL4ScalaTestCase {
         val msg = jq("$msg").toWidget()
         click(btn)
         waitResponse()
-        verifyEquals("item index " + i, msg.get("value"))
+        verifyEquals("item index " + i, msg.attr("value"))
       }
       // ===============================add after row
       outeritem = outerbox.firstChild().nextSibling() // skip header
@@ -80,9 +80,9 @@ class Z60_CollectionIndexListbox2Test extends ZTL4ScalaTestCase {
         outeritem = outeritem.nextSibling()
         val outerl = itemLabel(i)
         var cell = outeritem.firstChild()
-        verifyEquals("" + i, cell.get("label")) // verify the index
+        verifyEquals("" + i, cell.attr("label")) // verify the index
         cell = cell.nextSibling()
-        verifyEquals(outerl, cell.get("label")) // verify the label
+        verifyEquals(outerl, cell.attr("label")) // verify the label
         val innerbox = jq(outeritem).find("@listbox").toWidget()
         verifyTrue(innerbox.exists())
         val inneritems = jq(innerbox).find("@listitem")
@@ -90,12 +90,12 @@ class Z60_CollectionIndexListbox2Test extends ZTL4ScalaTestCase {
         var inneritem = inneritems.first()
         for (j <- 0 to 1) {
           cell = inneritem.toWidget().firstChild()
-          verifyEquals("" + j, cell.get("label"))
+          verifyEquals("" + j, cell.attr("label"))
           cell = cell.nextSibling()
-          verifyEquals("" + i, cell.get("label"))
+          verifyEquals("" + i, cell.attr("label"))
           val innerl = itemLabel(i) + " " + j
           cell = cell.nextSibling()
-          verifyEquals(innerl, cell.get("label"))
+          verifyEquals(innerl, cell.attr("label"))
           inneritem = inneritem.next()
         }
         cell = outeritem.lastChild()
@@ -103,7 +103,7 @@ class Z60_CollectionIndexListbox2Test extends ZTL4ScalaTestCase {
         val msg = jq("$msg").toWidget()
         click(btn)
         waitResponse()
-        verifyEquals("item index " + i, msg.get("value"))
+        verifyEquals("item index " + i, msg.attr("value"))
       }
       // ===============================add add before row
       outeritem = outerbox.firstChild().nextSibling() // skip header
@@ -118,9 +118,9 @@ class Z60_CollectionIndexListbox2Test extends ZTL4ScalaTestCase {
         outeritem = outeritem.nextSibling()
         val outerl = itemLabel(i)
         var cell = outeritem.firstChild()
-        verifyEquals("" + i, cell.get("label")) // verify the index
+        verifyEquals("" + i, cell.attr("label")) // verify the index
         cell = cell.nextSibling()
-        verifyEquals(outerl, cell.get("label")) // verify the label
+        verifyEquals(outerl, cell.attr("label")) // verify the label
         val innerbox = jq(outeritem).find("@listbox").toWidget()
         verifyTrue(innerbox.exists())
         val inneritems = jq(innerbox).find("@listitem")
@@ -128,12 +128,12 @@ class Z60_CollectionIndexListbox2Test extends ZTL4ScalaTestCase {
         var inneritem = inneritems.first()
         for (j <- 0 to 1) {
           cell = inneritem.toWidget().firstChild()
-          verifyEquals("" + j, cell.get("label"))
+          verifyEquals("" + j, cell.attr("label"))
           cell = cell.nextSibling()
-          verifyEquals("" + i, cell.get("label"))
+          verifyEquals("" + i, cell.attr("label"))
           val innerl = itemLabel(i) + " " + j
           cell = cell.nextSibling()
-          verifyEquals(innerl, cell.get("label"))
+          verifyEquals(innerl, cell.attr("label"))
           inneritem = inneritem.next()
         }
         cell = outeritem.lastChild()
@@ -141,7 +141,7 @@ class Z60_CollectionIndexListbox2Test extends ZTL4ScalaTestCase {
         val msg = jq("$msg").toWidget()
         click(btn)
         waitResponse()
-        verifyEquals("item index " + i, msg.get("value"))
+        verifyEquals("item index " + i, msg.attr("value"))
       }
     })
   }

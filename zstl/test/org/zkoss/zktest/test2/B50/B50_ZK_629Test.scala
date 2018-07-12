@@ -99,7 +99,7 @@ class B50_ZK_629Test extends ZTL4ScalaTestCase {
 
         def checkValue(ele: Element) {
           verifyContains("You should see the values in each input element \"0,5\" or \"0,00...5\", not \"5\".",
-            ele.get("value"), "0,");
+            ele.attr("value"), "0,");
         }
 
         checkValue(db1.$n());

@@ -50,7 +50,7 @@ sp.setConstraint("min -10 max 10");
       waitResponse()
       click(jq(".z-spinner").toWidget().$n("btn-up"))
       waitResponse()
-      verifyEquals(3, jq(".z-spinner").toWidget().$n("real").get("value"))
+      verifyEquals(3, jq(".z-spinner").toWidget().$n("real").attr("value"))
     })
   }
 }

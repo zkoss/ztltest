@@ -84,13 +84,13 @@ class B50_2379135Test extends ZTL4ScalaTestCase {
 
       contextMenu(li2);
       waitResponse();
-      verifyContains(l.$n().get("innerHTML"), "Second")
+      verifyContains(l.$n().attr("innerHTML"), "Second")
       contextMenu(li3);
       waitResponse();
-      verifyContains(l.$n().get("innerHTML"), "Third")
+      verifyContains(l.$n().attr("innerHTML"), "Third")
       contextMenu(btn1);
       waitResponse();
-      verifyContains(l.$n().get("innerHTML"), "Third")
+      verifyContains(l.$n().attr("innerHTML"), "Third")
     }
 
     runZTL(zscript, executor);

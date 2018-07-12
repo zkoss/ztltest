@@ -43,8 +43,8 @@ class B30_1562358Test extends ZTL4ScalaTestCase {
       // if (true) return
       //			verifyTrue(getElementHeight(row.firstChild()).intValue() < 35)
       //			varbody = grid.$n("body")
-      //			var ch = parseInt(body.get("clientHeight"))
-      //			var oh = parseInt(body.get("offsetHeight"))
+      //			var ch = parseInt(body.attr("clientHeight"))
+      //			var oh = parseInt(body.attr("offsetHeight"))
       //			verifyEquals(oh - ch, JQuery.scrollbarWidth())
     })
   }

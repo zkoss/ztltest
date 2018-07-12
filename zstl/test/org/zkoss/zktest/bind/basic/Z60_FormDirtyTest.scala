@@ -38,38 +38,38 @@ class Z60_FormDirtyTest extends ZTL4ScalaTestCase {
     	blur(n)
       }
       
-      verifyEquals("false", jq("$dirty").toWidget().get("value"))
-      verifyEquals("Dennis", jq("$l1").toWidget().get("value"))
+      verifyEquals("false", jq("$dirty").toWidget().attr("value"))
+      verifyEquals("Dennis", jq("$l1").toWidget().attr("value"))
       
       `type`(jq("$t1").toWidget(), "X")
       waitResponse()
-      verifyEquals("true", jq("$dirty").toWidget().get("value"))
-      verifyEquals("X", jq("$l1").toWidget().get("value"))
+      verifyEquals("true", jq("$dirty").toWidget().attr("value"))
+      verifyEquals("X", jq("$l1").toWidget().attr("value"))
       
       `type`(jq("$t1").toWidget(), "Dennis")
       waitResponse()
       // since ZK 8.0.2, once the value changed, it would become dirty.
-      verifyEquals("true", jq("$dirty").toWidget().get("value"))
-      verifyEquals("Dennis", jq("$l1").toWidget().get("value"))
+      verifyEquals("true", jq("$dirty").toWidget().attr("value"))
+      verifyEquals("Dennis", jq("$l1").toWidget().attr("value"))
       
       `type`(jq("$t1").toWidget(), "Y")
       waitResponse()
-      verifyEquals("true", jq("$dirty").toWidget().get("value"))
-      verifyEquals("Y", jq("$l1").toWidget().get("value"))
+      verifyEquals("true", jq("$dirty").toWidget().attr("value"))
+      verifyEquals("Y", jq("$l1").toWidget().attr("value"))
       
       click(jq("$btn2").toWidget())
       waitResponse()
-      verifyEquals("old-name Dennis", jq("$msg").toWidget().get("value"))
+      verifyEquals("old-name Dennis", jq("$msg").toWidget().attr("value"))
       
       click(jq("$btn1").toWidget())
       waitResponse()
-      verifyEquals("saved Y", jq("$msg").toWidget().get("value"))
+      verifyEquals("saved Y", jq("$msg").toWidget().attr("value"))
       
       click(jq("$btn2").toWidget())
       waitResponse()
-      verifyEquals("old-name Y", jq("$msg").toWidget().get("value"))
-      verifyEquals("false", jq("$dirty").toWidget().get("value"))
-      verifyEquals("Y", jq("$l1").toWidget().get("value"))
+      verifyEquals("old-name Y", jq("$msg").toWidget().attr("value"))
+      verifyEquals("false", jq("$dirty").toWidget().attr("value"))
+      verifyEquals("Y", jq("$l1").toWidget().attr("value"))
     })
   }
 }

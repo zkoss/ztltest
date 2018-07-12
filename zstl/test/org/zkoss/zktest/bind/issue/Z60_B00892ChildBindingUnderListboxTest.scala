@@ -39,23 +39,23 @@ class Z60_B00892ChildBindingUnderListboxTest extends ZTL4ScalaTestCase {
 
       var cell = items.eq(0).find("@listcell")
       verifyEquals(2, cell.length())
-      verifyEquals("0", cell.eq(0).toWidget().get("label"))
-      verifyEquals("A", cell.eq(1).toWidget().get("label"))
+      verifyEquals("0", cell.eq(0).toWidget().attr("label"))
+      verifyEquals("A", cell.eq(1).toWidget().attr("label"))
 
       cell = items.eq(1).find("@listcell")
       verifyEquals(2, cell.length())
-      verifyEquals("1", cell.eq(0).toWidget().get("label"))
-      verifyEquals("B", cell.eq(1).toWidget().get("label"))
+      verifyEquals("1", cell.eq(0).toWidget().attr("label"))
+      verifyEquals("B", cell.eq(1).toWidget().attr("label"))
 
       cell = items.eq(2).find("@listcell")
       verifyEquals(2, cell.length())
-      verifyEquals("2", cell.eq(0).toWidget().get("label"))
-      verifyEquals("C", cell.eq(1).toWidget().get("label"))
+      verifyEquals("2", cell.eq(0).toWidget().attr("label"))
+      verifyEquals("C", cell.eq(1).toWidget().attr("label"))
 
       cell = items.eq(3).find("@listcell")
       verifyEquals(2, cell.length())
-      verifyEquals("3", cell.eq(0).toWidget().get("label"))
-      verifyEquals("D", cell.eq(1).toWidget().get("label"))
+      verifyEquals("3", cell.eq(0).toWidget().attr("label"))
+      verifyEquals("D", cell.eq(1).toWidget().attr("label"))
     })
   }
 }

@@ -38,16 +38,16 @@ class B70_ZK_2057Test extends ZTL4ScalaTestCase {
         val cb = jq(".z-checkbox").toWidget().$n("real")
         click(ckecked)
         waitResponse()
-        verifyTrue("the checkbox will be checked", cb.get("checked") == "true")
+        verifyTrue("the checkbox will be checked", cb.attr("checked") == "true")
 
         click(unckecked)
         waitResponse()
 
-        verifyTrue("the checkbox will be unchecked", cb.get("checked") != "true")
+        verifyTrue("the checkbox will be unchecked", cb.attr("checked") != "true")
 
         click(ckecked)
         waitResponse()
-        verifyTrue("the checkbox will be checked", cb.get("checked") == "true")
+        verifyTrue("the checkbox will be checked", cb.attr("checked") == "true")
       })
 
   }

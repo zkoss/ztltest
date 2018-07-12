@@ -31,10 +31,10 @@ class Z60_F01231AfterComposeVMTest extends ZTL4ScalaTestCase {
       var nameLb = jq("$nameLb")
       var descTxb = jq("$descTxb")
 
-      verifyEquals("AAAA", myWin.toWidget().get("title"))
-      verifyEquals("This is a label", headerLb.toWidget().get("value"))
-      verifyEquals("admin", nameLb.toWidget().get("value"))
-      verifyEquals("this is desc", descTxb.toWidget().get("value"))
+      verifyEquals("AAAA", myWin.toWidget().attr("title"))
+      verifyEquals("This is a label", headerLb.toWidget().attr("value"))
+      verifyEquals("admin", nameLb.toWidget().attr("value"))
+      verifyEquals("this is desc", descTxb.toWidget().attr("value"))
 
     })
   }

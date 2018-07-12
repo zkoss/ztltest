@@ -40,9 +40,9 @@ class Z60_CollectionIndexDefaultTest extends ZTL4ScalaTestCase {
         var outerl = itemLabel(i)
 
         var cell = outeritem.firstChild()
-        verifyEquals("" + i, cell.get("label")) // verify the index
+        verifyEquals("" + i, cell.attr("label")) // verify the index
         cell = cell.nextSibling()
-        verifyEquals(outerl, cell.get("label")) //verify the label
+        verifyEquals(outerl, cell.attr("label")) //verify the label
       }
 
       var grid = jq("$grid")
@@ -55,9 +55,9 @@ class Z60_CollectionIndexDefaultTest extends ZTL4ScalaTestCase {
         var outerl = itemLabel(i)
 
         var rowkid = outerrow.firstChild()
-        verifyEquals("" + i, rowkid.get("value")) // verify the index  on label
+        verifyEquals("" + i, rowkid.attr("value")) // verify the index  on label
         rowkid = rowkid.nextSibling()
-        verifyEquals(outerl, rowkid.get("value")) //verify the label on label
+        verifyEquals(outerl, rowkid.attr("value")) //verify the label on label
         outerrow = outerrow.nextSibling()
       }
 
@@ -68,8 +68,8 @@ class Z60_CollectionIndexDefaultTest extends ZTL4ScalaTestCase {
       verifyEquals(itemLabel.length, comboitems.length())
       for (i <- 0 to itemLabel.length - 1) {
         var comboitem = comboitems.eq(i).toWidget()
-        verifyEquals(itemLabel(i), comboitem.get("label"))
-        verifyEquals("" + i, comboitem.get("description"))
+        verifyEquals(itemLabel(i), comboitem.attr("label"))
+        verifyEquals("" + i, comboitem.attr("description"))
       }
 
     })

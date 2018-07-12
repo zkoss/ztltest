@@ -39,7 +39,7 @@ class B50_3292544Test extends ZTL4ScalaTestCase {
       sendKeys(input, ".")
       sendKeys(input, "5")
       blur(input)
-      verifyEquals("0.5", input.get("value"))
+      verifyEquals("0.5", input.attr("value"))
     })
   }
 }

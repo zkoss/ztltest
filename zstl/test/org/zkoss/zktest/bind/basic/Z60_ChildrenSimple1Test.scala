@@ -39,12 +39,12 @@ class Z60_ChildrenSimple1Test extends ZTL4ScalaTestCase {
       var compare = Array("Item A", "Item B", "Item C")
       verifyEquals(compare.length, labels.length())
       for (i <- 0 to compare.length - 1) {
-        verifyEquals(compare(i), labels.eq(i).toWidget().get("value"))
+        verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(load).find("@label")
       verifyEquals(compare.length, labels.length())
       for (i <- 0 to compare.length - 1) {
-        verifyEquals(compare(i), labels.eq(i).toWidget().get("value"))
+        verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(aftercmd).find("@label")
       verifyEquals(0, labels.length())
@@ -54,13 +54,13 @@ class Z60_ChildrenSimple1Test extends ZTL4ScalaTestCase {
       compare = Array("Item A", "Item B", "Item C")
       verifyEquals(compare.length, labels.length())
       for (i <- 0 to compare.length - 1) {
-        verifyEquals(compare(i), labels.eq(i).toWidget().get("value"))
+        verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(load).find("@label")
       compare = Array("Item A", "Item B", "Item C", "Item D")
       verifyEquals(compare.length, labels.length())
       for (i <- 0 to compare.length - 1) {
-        verifyEquals(compare(i), labels.eq(i).toWidget().get("value"))
+        verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(aftercmd).find("@label")
       verifyEquals(0, labels.length())
@@ -70,19 +70,19 @@ class Z60_ChildrenSimple1Test extends ZTL4ScalaTestCase {
       compare = Array("Item A", "Item B", "Item C")
       verifyEquals(compare.length, labels.length())
       for (i <- 0 to compare.length - 1) {
-        verifyEquals(compare(i), labels.eq(i).toWidget().get("value"))
+        verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(load).find("@label")
       compare = Array("Item A", "Item B", "Item C", "Item D")
       verifyEquals(compare.length, labels.length())
       for (i <- 0 to compare.length - 1) {
-        verifyEquals(compare(i), labels.eq(i).toWidget().get("value"))
+        verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(aftercmd).find("@label")
       compare = Array("Item A", "Item B", "Item C", "Item D", "Item E")
       verifyEquals(compare.length, labels.length())
       for (i <- 0 to compare.length - 1) {
-        verifyEquals(compare(i), labels.eq(i).toWidget().get("value"))
+        verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       click(cmd1)
       waitResponse()
@@ -90,13 +90,13 @@ class Z60_ChildrenSimple1Test extends ZTL4ScalaTestCase {
       compare = Array("Item A", "Item B", "Item C", "Item D", "Item E", "Item D")
       verifyEquals(compare.length, labels.length())
       for (i <- 0 to compare.length - 1) {
-        verifyEquals(compare(i), labels.eq(i).toWidget().get("value"))
+        verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(aftercmd).find("@label")
       compare = Array("Item A", "Item B", "Item C", "Item D", "Item E")
       verifyEquals(compare.length, labels.length())
       for (i <- 0 to compare.length - 1) {
-        verifyEquals(compare(i), labels.eq(i).toWidget().get("value"))
+        verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
     })
   }

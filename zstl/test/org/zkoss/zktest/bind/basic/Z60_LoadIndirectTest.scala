@@ -88,7 +88,7 @@ class Z60_LoadIndirectTest extends ZTL4ScalaTestCase {
       verifyEquals("Last1", getText(l2));
       verifyEquals("BBB Last1", getText(l3));
       verifyEquals("BBB Last1", getText(l4));
-      verifyEquals("2", getSelectedIndex(select)); //listbox.$n().get("selectedIndex")
+      verifyEquals("2", getSelectedIndex(select)); //listbox.$n().attr("selectedIndex")
       //		findWidget("$btn3").click();
       //		Assert.assertEquals("BBB",findWidget("$l1").getAttribute("value"));
       //		Assert.assertEquals("Last1",findWidget("$l2").getAttribute("value"));

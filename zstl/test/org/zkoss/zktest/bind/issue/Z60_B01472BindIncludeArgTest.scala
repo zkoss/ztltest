@@ -33,8 +33,8 @@ class Z60_B01472BindIncludeArgTest extends ZTL4ScalaTestCase {
       var tb1 = jq("$tb1")
       var btn1 = jq("$btn1")
 
-      verifyEquals("ABC", lb1.toWidget().get("value"))
-      verifyEquals("ABC", lb2.toWidget().get("value"))
+      verifyEquals("ABC", lb1.toWidget().attr("value"))
+      verifyEquals("ABC", lb2.toWidget().attr("value"))
 
       `type`(tb1.toWidget(), "XYZ")
       waitResponse()
@@ -42,8 +42,8 @@ class Z60_B01472BindIncludeArgTest extends ZTL4ScalaTestCase {
       waitResponse()
 
       lb2 = jq("$lb2") //get again, it was changed
-      verifyEquals("XYZ", lb1.toWidget().get("value"))
-      verifyEquals("XYZ", lb2.toWidget().get("value"))
+      verifyEquals("XYZ", lb1.toWidget().attr("value"))
+      verifyEquals("XYZ", lb2.toWidget().attr("value"))
 
     })
   }

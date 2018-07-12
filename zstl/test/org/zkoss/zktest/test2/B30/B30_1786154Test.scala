@@ -45,16 +45,16 @@ class B30_1786154Test extends ZTL4ScalaTestCase {
 		"""
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     runZTL(zscript, () => {
-      verifyEquals("100 , 0", widget(jq("@button:eq(0)")).get("label"))
-      verifyEquals("101 , 0", widget(jq("@button:eq(1)")).get("label"))
-      verifyEquals("102 , 0", widget(jq("@button:eq(2)")).get("label"))
-      verifyEquals("103 , 0", widget(jq("@button:eq(3)")).get("label"))
-      verifyEquals("104 , 0", widget(jq("@button:eq(4)")).get("label"))
-      verifyEquals("105 , 1", widget(jq("@button:eq(5)")).get("label"))
-      verifyEquals("106 , 1", widget(jq("@button:eq(6)")).get("label"))
-      verifyEquals("107 , 1", widget(jq("@button:eq(7)")).get("label"))
-      verifyEquals("108 , 1", widget(jq("@button:eq(8)")).get("label"))
-      verifyEquals("109 , 1", widget(jq("@button:eq(9)")).get("label"))
+      verifyEquals("100 , 0", widget(jq("@button:eq(0)")).attr("label"))
+      verifyEquals("101 , 0", widget(jq("@button:eq(1)")).attr("label"))
+      verifyEquals("102 , 0", widget(jq("@button:eq(2)")).attr("label"))
+      verifyEquals("103 , 0", widget(jq("@button:eq(3)")).attr("label"))
+      verifyEquals("104 , 0", widget(jq("@button:eq(4)")).attr("label"))
+      verifyEquals("105 , 1", widget(jq("@button:eq(5)")).attr("label"))
+      verifyEquals("106 , 1", widget(jq("@button:eq(6)")).attr("label"))
+      verifyEquals("107 , 1", widget(jq("@button:eq(7)")).attr("label"))
+      verifyEquals("108 , 1", widget(jq("@button:eq(8)")).attr("label"))
+      verifyEquals("109 , 1", widget(jq("@button:eq(9)")).attr("label"))
     })
   }
 }

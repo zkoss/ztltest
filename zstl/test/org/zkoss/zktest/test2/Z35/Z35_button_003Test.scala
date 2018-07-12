@@ -76,7 +76,7 @@ class Z35_button_003Test extends ZTL4ScalaTestCase {
 
         click(jq("$btn1"))
         waitResponse()
-        verifyEquals(widget("$btn1").get("label"), "OnClick OK");
+        verifyEquals(widget("$btn1").attr("label"), "OnClick OK");
 
         click(jq("$btn2"))
         waitResponse()
@@ -84,22 +84,22 @@ class Z35_button_003Test extends ZTL4ScalaTestCase {
 
         contextMenu(jq("$btn3"));
         waitResponse()
-        verifyEquals(widget("$btn3").get("label"), "RightClick OK");
+        verifyEquals(widget("$btn3").attr("label"), "RightClick OK");
 
         doubleClick(jq("$btn4"))
         waitResponse()
-        verifyEquals(widget("$btn4").get("label"), "DoubleClick OK");
+        verifyEquals(widget("$btn4").attr("label"), "DoubleClick OK");
 
         focus(jq("$btn5"))
         waitResponse()
-        verifyEquals(widget("$btn5").get("label"), "Focused OK");
+        verifyEquals(widget("$btn5").attr("label"), "Focused OK");
 
         click(jq("$btn6"))
         waitResponse()
-        verifyEquals(widget("$btn6").get("label"), "BlurMe");
+        verifyEquals(widget("$btn6").attr("label"), "BlurMe");
         blur(jq("$btn6"))
         waitResponse()
-        verifyEquals(widget("$btn6").get("label"), "Blurred OK");
+        verifyEquals(widget("$btn6").attr("label"), "Blurred OK");
 
       }
     );

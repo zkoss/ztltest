@@ -33,17 +33,17 @@ class Z60_B01640CommandSend2WrongViewModelTest extends ZTL4ScalaTestCase {
 
       var lab = jq("$lab")
 
-      verifyEquals("initialized", lab.toWidget().get("value"))
+      verifyEquals("initialized", lab.toWidget().attr("value"))
 
       var outerBtn = jq("$outerBtn")
       click(outerBtn.toWidget())
       waitResponse()
-      verifyEquals("do outerGridCommand", lab.toWidget().get("value"))
+      verifyEquals("do outerGridCommand", lab.toWidget().attr("value"))
 
       var innerBtn = jq("$innerBtn")
       click(innerBtn.toWidget())
       waitResponse()
-      verifyEquals("do innerGridCommand A", lab.toWidget().get("value"))
+      verifyEquals("do innerGridCommand A", lab.toWidget().attr("value"))
 
     })
   }

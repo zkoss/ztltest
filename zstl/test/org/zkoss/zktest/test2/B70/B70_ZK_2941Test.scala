@@ -15,7 +15,7 @@ class B70_ZK_2941Test extends ZTL4ScalaTestCase {
 	@Test
 	def testClick() = {
 		runZTL(() => {
-			val cbbid = jq("@combobutton").get(0).get("id")
+			val cbbid = jq("@combobutton").get(0).attr("id")
 			
 			focus(jq("$btn"))
 			waitResponse()

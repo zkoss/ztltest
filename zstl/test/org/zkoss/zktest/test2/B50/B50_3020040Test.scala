@@ -63,8 +63,8 @@ class B50_3020040Test extends ZTL4ScalaTestCase {
 
       click(btn);
       waitResponse();
-      verifyContains(jq(box.$n("rows")).find(".z-listitem").get(1).get("className"), "z-listitem-selected")
-      verifyContains(jq(box.$n("rows")).find(".z-listitem").get(2).get("className"), "z-listitem-selected")
+      verifyContains(jq(box.$n("rows")).find(".z-listitem").get(1).attr("className"), "z-listitem-selected")
+      verifyContains(jq(box.$n("rows")).find(".z-listitem").get(2).attr("className"), "z-listitem-selected")
     })
   }
 }

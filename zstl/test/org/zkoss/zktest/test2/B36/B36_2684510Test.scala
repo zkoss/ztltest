@@ -41,7 +41,7 @@ class B36_2684510Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       click(b)
       waitResponse()
-      verifyEquals("<Button b>:onClick:void", i.get("value"))
+      verifyEquals("<Button b>:onClick:void", i.attr("value"))
     })
   }
 }

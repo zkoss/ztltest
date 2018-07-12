@@ -36,9 +36,9 @@ class Z60_ListboxModelSelectionTest extends ZTL4ScalaTestCase {
       var outeritem = outeritems.nextSibling() // select 2nd
       clickAt(outeritem.firstChild(), "2,2") // click on listitem is not work if it has listbox inside, (it will click on the inside listbox)
       waitResponse()
-      // verifyEquals("1", outerbox.get("selectedIndex"))
+      // verifyEquals("1", outerbox.attr("selectedIndex"))
       verifyEquals(1, getListboxSelectedIndex(outerbox))
-      verifyEquals("", msg.get("value"))
+      verifyEquals("", msg.attr("value"))
       click(jq("$btn1").toWidget())
       waitResponse()
       // verifyEquals(1L, outerbox.getAttribute("selectedIndex")) // fail in max
@@ -47,7 +47,7 @@ class Z60_ListboxModelSelectionTest extends ZTL4ScalaTestCase {
       outeritem = outeritems.nextSibling() // select 2nd
       // verifyEquals(outeritem.uuid(), outerbox.eval("getSelectedItem().uuid"))
       verifyEquals(outeritem.uuid(), getListboxSelectedItem(outerbox).uuid())
-      verifyEquals("reloaded", msg.get("value"))
+      verifyEquals("reloaded", msg.attr("value"))
     })
   }
 

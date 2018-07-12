@@ -32,10 +32,10 @@ class Z60_F01033InitClassTest extends ZTL4ScalaTestCase {
       var l21 = jq("$l21")
       var l22 = jq("$l22")
 
-      verifyEquals("", l11.toWidget().get("value"))
-      verifyEquals("Chen", l12.toWidget().get("value"))
-      verifyEquals("Ian", l21.toWidget().get("value"))
-      verifyEquals("Tasi", l22.toWidget().get("value"))
+      verifyEquals("", l11.toWidget().attr("value"))
+      verifyEquals("Chen", l12.toWidget().attr("value"))
+      verifyEquals("Ian", l21.toWidget().attr("value"))
+      verifyEquals("Tasi", l22.toWidget().attr("value"))
 
     })
   }

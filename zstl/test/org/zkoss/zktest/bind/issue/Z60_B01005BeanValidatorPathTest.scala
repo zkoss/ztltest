@@ -37,35 +37,35 @@ class Z60_B01005BeanValidatorPathTest extends ZTL4ScalaTestCase {
 		var update = jq("$update")
 		var msg = jq("$msg")
 		
-		verifyEquals("A", t1.toWidget().get("value"))
+		verifyEquals("A", t1.toWidget().attr("value"))
 		`type`(t1.toWidget(), "Aa")
 		waitResponse()
-		verifyEquals("min length is 3", msg1.toWidget().get("value"))
-		verifyEquals("A", l1.toWidget().get("value"))
+		verifyEquals("min length is 3", msg1.toWidget().attr("value"))
+		verifyEquals("A", l1.toWidget().attr("value"))
 
 		`type`(t1.toWidget(),"Aab")
 		waitResponse()
-		verifyEquals("", msg1.toWidget().get("value"))
-		verifyEquals("Aab", l1.toWidget().get("value"))
+		verifyEquals("", msg1.toWidget().attr("value"))
+		verifyEquals("Aab", l1.toWidget().attr("value"))
 		
 		
-		verifyEquals("A", t2.toWidget().get("value"))
+		verifyEquals("A", t2.toWidget().attr("value"))
 		`type`(t2.toWidget() , "Ab")
 		waitResponse()
-		verifyEquals("min length is 3", msg2.toWidget().get("value"))
-		verifyEquals("Aab", l1.toWidget().get("value"))
+		verifyEquals("min length is 3", msg2.toWidget().attr("value"))
+		verifyEquals("Aab", l1.toWidget().attr("value"))
 
 		`type`(t2.toWidget(),"Abc")
 		waitResponse()
-		verifyEquals("", msg2.toWidget().get("value"))
-		verifyEquals("Aab", l1.toWidget().get("value"))
+		verifyEquals("", msg2.toWidget().attr("value"))
+		verifyEquals("Aab", l1.toWidget().attr("value"))
 		
 		click(update.toWidget())
 		waitResponse()
-		verifyEquals("Abc", t1.toWidget().get("value"))
-		verifyEquals("Abc", l1.toWidget().get("value"))
+		verifyEquals("Abc", t1.toWidget().attr("value"))
+		verifyEquals("Abc", l1.toWidget().attr("value"))
 		
-		verifyEquals("update value1:Abc", msg.toWidget().get("value"))
+		verifyEquals("update value1:Abc", msg.toWidget().attr("value"))
 	
     })
   }

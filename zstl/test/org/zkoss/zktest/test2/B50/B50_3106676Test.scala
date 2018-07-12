@@ -58,7 +58,7 @@ class B50_3106676Test extends ZTL4ScalaTestCase {
       click(dtbx.$n("btn"));
       waitResponse();
       var today: Int = jq(".z-calendar-selected").last().text().toInt;
-      var yesterday: Int = Integer.parseInt(jq(dtbx.$n("pp")).find(".z-calendar-disabled").last().get(0).get("innerHTML"));
+      var yesterday: Int = Integer.parseInt(jq(dtbx.$n("pp")).find(".z-calendar-disabled").last().get(0).attr("innerHTML"));
       verifyTrue("the last unselectable date should be yesterday",
         (today - yesterday == 1) || ((today == 1) && (31 - yesterday <= 3)));
     }

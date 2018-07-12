@@ -37,12 +37,12 @@ class Z60_C1 extends ZTL4ScalaTestCase {
       `type`(singleBox.$n("real"), "Car Mark");
       sendKeys(singleBox.$n("real"), Keys.TAB);
       waitResponse();
-      verifyEquals("TOYOTA", contentListbox.firstChild().get("label"));
+      verifyEquals("TOYOTA", contentListbox.firstChild().attr("label"));
 
       `type`(singleBox.$n("real"), "Fruit");
       sendKeys(singleBox.$n("real"), Keys.TAB);
       waitResponse();
-      verifyEquals("Apple", contentListbox.firstChild().get("label"));
+      verifyEquals("Apple", contentListbox.firstChild().attr("label"));
 
     })
   }

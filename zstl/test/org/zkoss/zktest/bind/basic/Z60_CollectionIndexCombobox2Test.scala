@@ -47,14 +47,14 @@ class Z60_CollectionIndexCombobox2 extends ZTL4ScalaTestCase {
         verifyEquals(2, comboitems.length())
         for (j <- 0 to 1) {
           var comboitem = comboitems.eq(j)
-          verifyEquals(itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.toWidget().get("label"))
-          verifyEquals(itemLabel(i) + " " + j, comboitem.toWidget().get("description"))
+          verifyEquals(itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.toWidget().attr("label"))
+          verifyEquals(itemLabel(i) + " " + j, comboitem.toWidget().attr("description"))
         }
         var btn = outerrow.find("@button") // index button
         var msg = jq("$msg")
         click(btn.toWidget())
         waitResponse()
-        verifyEquals("item index " + i, msg.toWidget().get("value"))
+        verifyEquals("item index " + i, msg.toWidget().attr("value"))
       }
       // =================================add after 2rd row
       outeritem = outerrows.eq(1)
@@ -73,14 +73,14 @@ class Z60_CollectionIndexCombobox2 extends ZTL4ScalaTestCase {
         verifyEquals(2, comboitems.length())
         for (j <- 0 to 1) {
           var comboitem = comboitems.eq(j)
-          verifyEquals(itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.toWidget().get("label"))
-          verifyEquals(itemLabel(i) + " " + j, comboitem.toWidget().get("description"))
+          verifyEquals(itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.toWidget().attr("label"))
+          verifyEquals(itemLabel(i) + " " + j, comboitem.toWidget().attr("description"))
         }
         var btn = outerrow.find("@button") // index button
         var msg = jq("$msg")
         click(btn.toWidget())
         waitResponse()
-        verifyEquals("item index " + i, msg.toWidget().get("value"))
+        verifyEquals("item index " + i, msg.toWidget().attr("value"))
       }
       // =================================add before 2rd row
       outeritem = outerrows.eq(2)
@@ -99,14 +99,14 @@ class Z60_CollectionIndexCombobox2 extends ZTL4ScalaTestCase {
         verifyEquals(2, comboitems.length())
         for (j <- 0 to 1) {
           var comboitem = comboitems.eq(j)
-          verifyEquals(itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.toWidget().get("label"))
-          verifyEquals(itemLabel(i) + " " + j, comboitem.toWidget().get("description"))
+          verifyEquals(itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.toWidget().attr("label"))
+          verifyEquals(itemLabel(i) + " " + j, comboitem.toWidget().attr("description"))
         }
         var btn = outerrow.find("@button") // index button
         var msg = jq("$msg")
         click(btn.toWidget())
         waitResponse()
-        verifyEquals("item index " + i, msg.toWidget().get("value"))
+        verifyEquals("item index " + i, msg.toWidget().attr("value"))
       }
     })
   }

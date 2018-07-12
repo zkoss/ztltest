@@ -57,9 +57,9 @@ class B60_ZK_622Test extends ZTL4ScalaTestCase {
         click(btn);
         waitResponse();
         verifyEquals("mail should not be checked", "false",
-          male1.$n("real").get("checked"))
+          male1.$n("real").attr("checked"))
         verifyContains("label 'undefined' is shown",
-          log.$n().get("innerHTML"), "undefined")
+          log.$n().attr("innerHTML"), "undefined")
       }
     );
   }

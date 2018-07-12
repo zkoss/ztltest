@@ -37,7 +37,7 @@ class Z60_B01139LoadInitTest extends ZTL4ScalaTestCase {
       waitResponse()
       click(changeNameBtn.toWidget())
       waitResponse()
-      verifyEquals("XYZ", nameLbl.toWidget().get("value"))
+      verifyEquals("XYZ", nameLbl.toWidget().attr("value"))
 
       `type`(nameTexb.toWidget(), "XXX")
       waitResponse()
@@ -45,7 +45,7 @@ class Z60_B01139LoadInitTest extends ZTL4ScalaTestCase {
       waitResponse()
       click(changeNameBtn)
       waitResponse()
-      verifyEquals("XYZ", nameLbl.toWidget().get("value"))
+      verifyEquals("XYZ", nameLbl.toWidget().attr("value"))
 
       `type`(nameTexb.toWidget(), "XXX")
       waitResponse()
@@ -53,7 +53,7 @@ class Z60_B01139LoadInitTest extends ZTL4ScalaTestCase {
       waitResponse()
       click(changeNameBtn.toWidget())
       waitResponse()
-      verifyEquals("XXX", nameLbl.toWidget().get("value"))
+      verifyEquals("XXX", nameLbl.toWidget().attr("value"))
 
     })
   }

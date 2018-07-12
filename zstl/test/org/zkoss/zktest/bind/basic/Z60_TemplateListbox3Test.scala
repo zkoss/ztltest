@@ -42,15 +42,15 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
         outeritem = outeritem.nextSibling()
         var outerl = itemLabel(i)
         var cell = outeritem.firstChild()
-        verifyEquals("" + i, cell.get("label")) // verify the index
+        verifyEquals("" + i, cell.attr("label")) // verify the index
         cell = cell.nextSibling()
-        verifyEquals(outerl, cell.get("label")) // verify the label
+        verifyEquals(outerl, cell.attr("label")) // verify the label
         // verify template
         cell = outeritem.lastChild()
         if (i == 0 || i == 2)
-          verifyEquals("Model1", cell.get("label"))
+          verifyEquals("Model1", cell.attr("label"))
         else
-          verifyEquals("Model2", cell.get("label"))
+          verifyEquals("Model2", cell.attr("label"))
       }
       // ==============================================
       click(jq(".z-button:contains(change1)"))
@@ -64,15 +64,15 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
         outeritem = outeritem.nextSibling()
         var outerl = itemLabel(i)
         var cell = outeritem.firstChild()
-        verifyEquals("" + i, cell.get("label")) // verify the index
+        verifyEquals("" + i, cell.attr("label")) // verify the index
         cell = cell.nextSibling()
-        verifyEquals(outerl, cell.get("label")) // verify the label
+        verifyEquals(outerl, cell.attr("label")) // verify the label
         // verify template
         cell = outeritem.lastChild()
         if (outerl.equals("A") || i == 2)
-          verifyEquals("Model1", cell.get("label"))
+          verifyEquals("Model1", cell.attr("label"))
         else
-          verifyEquals("Model2", cell.get("label"))
+          verifyEquals("Model2", cell.attr("label"))
       }
       // ==============================================
       click(jq(".z-button:contains(change2)"))
@@ -86,15 +86,15 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
         outeritem = outeritem.nextSibling()
         var outerl = itemLabel(i)
         var cell = outeritem.firstChild()
-        verifyEquals("" + i, cell.get("label")) // verify the index
+        verifyEquals("" + i, cell.attr("label")) // verify the index
         cell = cell.nextSibling()
-        verifyEquals(outerl, cell.get("label")) // verify the label
+        verifyEquals(outerl, cell.attr("label")) // verify the label
         // verify template
         cell = outeritem.lastChild()
         if (outerl.equals("A") || i == 2)
-          verifyEquals("Model1", cell.get("label"))
+          verifyEquals("Model1", cell.attr("label"))
         else
-          verifyEquals("Model2", cell.get("label"))
+          verifyEquals("Model2", cell.attr("label"))
       }
     })
   }

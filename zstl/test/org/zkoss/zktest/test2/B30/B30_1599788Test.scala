@@ -76,7 +76,7 @@ class B30_1599788Test extends ZTL4ScalaTestCase {
         waitResponse()
         click(stop)
         waitResponse()
-        verifyEquals(rowNr.get("value"), serverRows.firstChild().firstChild().get("value"))
+        verifyEquals(rowNr.attr("value"), serverRows.firstChild().firstChild().attr("value"))
       }
     })
   }

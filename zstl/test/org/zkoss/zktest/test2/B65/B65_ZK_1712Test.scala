@@ -22,7 +22,7 @@ class B65_ZK_1712Test extends ZTL4ScalaTestCase {
         click(jq(db.$n("pp")).find(".z-calendar").toWidget().$n("right"))
         waitResponse()
 
-        verifyTrue("should see input value keep blank.", db.$n("real").get("value") == "")
+        verifyTrue("should see input value keep blank.", db.$n("real").attr("value") == "")
       })
 
   }

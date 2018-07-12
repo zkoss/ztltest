@@ -44,9 +44,9 @@ class Z60_TemplateGrid2Test extends ZTL4ScalaTestCase {
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i);
         var rowkid = outerrow.firstChild();
-        verifyEquals("" + i, rowkid.get("value")); // verify the index on label
+        verifyEquals("" + i, rowkid.attr("value")); // verify the index on label
         rowkid = rowkid.nextSibling();
-        verifyEquals(outerl, rowkid.get("value")); // verify the label on label
+        verifyEquals(outerl, rowkid.attr("value")); // verify the label on label
         // verify inner index
         var innergrid = rowkid.nextSibling();
         verifyTrue(innergrid.exists());
@@ -55,26 +55,26 @@ class Z60_TemplateGrid2Test extends ZTL4ScalaTestCase {
         for (j <- 0 to 1) {
           var innerrow = innerrows.eq(j).toWidget();
           rowkid = innerrow.firstChild();
-          verifyEquals("" + j, rowkid.get("value"));
+          verifyEquals("" + j, rowkid.attr("value"));
           rowkid = rowkid.nextSibling();
-          verifyEquals("" + i, rowkid.get("value"));
+          verifyEquals("" + i, rowkid.attr("value"));
           var innerl = itemLabel(i) + " " + j;
           rowkid = rowkid.nextSibling();
-          verifyEquals(innerl, rowkid.get("value"));
+          verifyEquals(innerl, rowkid.attr("value"));
         }
         rowkid = outerrow.lastChild().previousSibling();
         var btn = jq(rowkid).find("@button").toWidget(); // index button
         var msg = jq("$msg").toWidget();
         click(btn);
         waitResponse();
-        verifyEquals("item index " + i, msg.get("value"));
+        verifyEquals("item index " + i, msg.attr("value"));
         // verify template
         rowkid = outerrow.lastChild();
         var label = jq(rowkid).find("@label").toWidget(); // index button
         if (outerl.equals("A") || i == 2)
-          verifyEquals("Model1", label.get("value"));
+          verifyEquals("Model1", label.attr("value"));
         else
-          verifyEquals("Model2", label.get("value"));
+          verifyEquals("Model2", label.attr("value"));
         outerrow = outerrow.nextSibling();
       }
       // =================================add after row
@@ -90,15 +90,15 @@ class Z60_TemplateGrid2Test extends ZTL4ScalaTestCase {
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i);
         var rowkid = outerrow.firstChild();
-        verifyEquals("" + i, rowkid.get("value")); // verify the index on label
+        verifyEquals("" + i, rowkid.attr("value")); // verify the index on label
         rowkid = rowkid.nextSibling();
-        verifyEquals(outerl, rowkid.get("value")); // verify the label on label
+        verifyEquals(outerl, rowkid.attr("value")); // verify the label on label
         rowkid = outerrow.lastChild();
         var label = jq(rowkid).find("@label").toWidget(); // index button
         if (outerl.equals("A") || i == 2)
-          verifyEquals("Model1", label.get("value"));
+          verifyEquals("Model1", label.attr("value"));
         else
-          verifyEquals("Model2", label.get("value"));
+          verifyEquals("Model2", label.attr("value"));
         outerrow = outerrow.nextSibling();
       }
       // =================================add after row
@@ -114,15 +114,15 @@ class Z60_TemplateGrid2Test extends ZTL4ScalaTestCase {
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i);
         var rowkid = outerrow.firstChild();
-        verifyEquals("" + i, rowkid.get("value")); // verify the index on label
+        verifyEquals("" + i, rowkid.attr("value")); // verify the index on label
         rowkid = rowkid.nextSibling();
-        verifyEquals(outerl, rowkid.get("value")); // verify the label on label
+        verifyEquals(outerl, rowkid.attr("value")); // verify the label on label
         rowkid = outerrow.lastChild();
         var label = jq(rowkid).find("@label").toWidget(); // index button
         if (outerl.equals("A") || i == 2)
-          verifyEquals("Model1", label.get("value"));
+          verifyEquals("Model1", label.attr("value"));
         else
-          verifyEquals("Model2", label.get("value"));
+          verifyEquals("Model2", label.attr("value"));
         outerrow = outerrow.nextSibling();
       }
     })

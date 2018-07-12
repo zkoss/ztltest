@@ -58,16 +58,16 @@ class B30_1726783Test extends ZTL4ScalaTestCase {
     val tab1 = ztl$engine.$f("tab1")
     val tab2 = ztl$engine.$f("tab2")
     runZTL(zscript, () => {
-      verifyEquals("true", info1.get("value"))
-      verifyEquals("false", info2.get("value"))
+      verifyEquals("true", info1.attr("value"))
+      verifyEquals("false", info2.attr("value"))
       click(tab2)
       waitResponse()
-      verifyEquals("false", info1.get("value"))
-      verifyEquals("true", info2.get("value"))
+      verifyEquals("false", info1.attr("value"))
+      verifyEquals("true", info2.attr("value"))
       click(tab1)
       waitResponse()
-      verifyEquals("true", info1.get("value"))
-      verifyEquals("false", info2.get("value"))
+      verifyEquals("true", info1.attr("value"))
+      verifyEquals("false", info2.attr("value"))
     })
   }
 }

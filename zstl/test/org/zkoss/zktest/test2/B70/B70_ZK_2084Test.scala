@@ -20,7 +20,7 @@ class B70_ZK_2084Test extends ZTL4ScalaTestCase {
           waitResponse()
           clickAt(ds.$n("btn-down"), "5,5")
           waitResponse()
-          verifyTrue("should see " + result, ds.$n("real").get("value") == result)
+          verifyTrue("should see " + result, ds.$n("real").attr("value") == result)
         }
       })
   }

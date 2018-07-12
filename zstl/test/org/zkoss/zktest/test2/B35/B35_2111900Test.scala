@@ -43,7 +43,7 @@ class B35_2111900Test extends ZTL4ScalaTestCase {
       var testWord = "i am tester~happy~tester~~"
       typeKeys(jq("@textbox"), testWord)
       waitResponse()
-      verifyEquals(testWord, copy.get("value"))
+      verifyEquals(testWord, copy.attr("value"))
     })
   }
 }

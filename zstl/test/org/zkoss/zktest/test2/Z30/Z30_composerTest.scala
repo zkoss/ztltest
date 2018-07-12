@@ -51,7 +51,7 @@ class Z30_composerTest extends ZTL4ScalaTestCase {
       () => {
         verifyEquals(jq("$win1").size, 0)
         verifyEquals(jq("$win2").size, 0)
-        verifyEquals(widget(jq("$winO")).get("title"), "Composer: Original");
+        verifyEquals(widget(jq("$winO")).attr("title"), "Composer: Original");
       }
     );
   }

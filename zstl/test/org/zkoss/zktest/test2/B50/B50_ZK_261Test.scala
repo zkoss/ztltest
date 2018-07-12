@@ -73,7 +73,7 @@ class B50_ZK_261Test extends ZTL4ScalaTestCase {
         waitResponse();
         verifyContains("The answer should be true",
           jq(".z-messagebox").find(".z-label").get(0)
-            .get("innerHTML"), "true")
+            .attr("innerHTML"), "true")
       }
     );
 

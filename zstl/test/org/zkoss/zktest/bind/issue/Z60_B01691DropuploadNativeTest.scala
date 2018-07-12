@@ -34,17 +34,17 @@ class Z60_B01691DropuploadNativeTest extends ZTL4ScalaTestCase {
 
       click(btn1.toWidget())
       waitResponse()
-      verifyEquals("true", lab1.toWidget().get("value"))
+      verifyEquals("true", lab1.toWidget().attr("value"))
       click(btn2.toWidget())
       waitResponse()
-      verifyEquals("native is true", lab2.toWidget().get("value"))
+      verifyEquals("native is true", lab2.toWidget().attr("value"))
 
       click(btn1.toWidget())
       waitResponse()
-      verifyEquals("false", lab1.toWidget().get("value"))
+      verifyEquals("false", lab1.toWidget().attr("value"))
       click(btn2.toWidget())
       waitResponse()
-      verifyEquals("native is false", lab2.toWidget().get("value"))
+      verifyEquals("native is false", lab2.toWidget().attr("value"))
 
     })
   }

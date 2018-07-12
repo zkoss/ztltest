@@ -50,22 +50,22 @@ class Z60_B00869SerializationTest extends ZTL4ScalaTestCase {
       var serialize = jq("$serialize")
       var children = jq("$children")
 
-      verifyEquals("A", selected.toWidget().get("value"))
-      verifyEquals("A", tb1.toWidget().get("value"))
-      verifyEquals("B", children.find("@label").eq(1).toWidget().get("value"))
+      verifyEquals("A", selected.toWidget().attr("value"))
+      verifyEquals("A", tb1.toWidget().attr("value"))
+      verifyEquals("B", children.find("@label").eq(1).toWidget().attr("value"))
 
       click(listbox.find("@listitem").eq(1).toWidget())
       waitResponse()
-      verifyEquals("B", selected.toWidget().get("value"))
-      verifyEquals("B", tb1.toWidget().get("value"))
+      verifyEquals("B", selected.toWidget().attr("value"))
+      verifyEquals("B", tb1.toWidget().attr("value"))
 
       `type`(tb1.toWidget(), "BX")
       waitResponse()
       click(save.toWidget())
       waitResponse()
-      verifyEquals("BX", selected.toWidget().get("value"))
-      verifyEquals("BX", children.find("@label").eq(1).toWidget().get("value"))
-      verifyEquals("BX", listbox.find("@listitem").eq(1).find("@listcell").eq(1).toWidget().get("label"))
+      verifyEquals("BX", selected.toWidget().attr("value"))
+      verifyEquals("BX", children.find("@label").eq(1).toWidget().attr("value"))
+      verifyEquals("BX", listbox.find("@listitem").eq(1).find("@listcell").eq(1).toWidget().attr("label"))
 
       click(serialize.toWidget())
       waitResponse()
@@ -79,20 +79,20 @@ class Z60_B00869SerializationTest extends ZTL4ScalaTestCase {
       serialize = jq("$serialize")
       children = jq("$children")
 
-      verifyTrue(msg.toWidget().get("value").toString().startsWith("done deserialize:"))
+      verifyTrue(msg.toWidget().attr("value").toString().startsWith("done deserialize:"))
 
       click(listbox.find("@listitem").eq(2).toWidget())
       waitResponse()
-      verifyEquals("C", selected.toWidget().get("value"))
-      verifyEquals("C", tb1.toWidget().get("value"))
+      verifyEquals("C", selected.toWidget().attr("value"))
+      verifyEquals("C", tb1.toWidget().attr("value"))
 
       `type`(tb1.toWidget(), "CY")
       waitResponse()
       click(save.toWidget())
       waitResponse()
-      verifyEquals("CY", selected.toWidget().get("value"))
-      verifyEquals("CY", children.find("@label").eq(2).toWidget().get("value"))
-      verifyEquals("CY", listbox.find("@listitem").eq(2).find("@listcell").eq(1).toWidget().get("label"))
+      verifyEquals("CY", selected.toWidget().attr("value"))
+      verifyEquals("CY", children.find("@label").eq(2).toWidget().attr("value"))
+      verifyEquals("CY", listbox.find("@listitem").eq(2).find("@listcell").eq(1).toWidget().attr("label"))
 
     })
   }

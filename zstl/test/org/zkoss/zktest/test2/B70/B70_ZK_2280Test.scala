@@ -44,7 +44,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         click(minus);
         waitResponse();
 
-        verifyTrue("the detail text of the paging bar should be updated", jq("@paging").toWidget().get("TotalSize") == "11");
+        verifyTrue("the detail text of the paging bar should be updated", jq("@paging").toWidget().attr("TotalSize") == "11");
       })
 
   }

@@ -56,16 +56,16 @@ class B30_1893575Test extends ZTL4ScalaTestCase {
         //Verify male not checked and female checked
         val f = jq("$female").toWidget().$n("real");
         val m = jq("$male1").toWidget().$n("real");
-        verifyEquals("true", f.toElement().get("checked"));
-        verifyNotEquals("true", m.toElement().get("checked"));
+        verifyEquals("true", f.toElement().attr("checked"));
+        verifyNotEquals("true", m.toElement().attr("checked"));
 
         //Click 'show' button
         click(jq("@button:eq(0)"));
         waitResponse();
 
         //Verify male not checked and female checked
-        verifyEquals("true", f.toElement().get("checked"))
-        verifyNotEquals("true", m.toElement().get("checked"))
+        verifyEquals("true", f.toElement().attr("checked"))
+        verifyNotEquals("true", m.toElement().attr("checked"))
 
 
       }

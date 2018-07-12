@@ -98,11 +98,11 @@ class F60_ZK_720Test extends ZTL4ScalaTestCase {
         click(engine.$f("tbn9"));
         waitResponse();
         verifyContains("should be toggled",
-          lbl.$n().get("innerHTML"), "true")
+          lbl.$n().attr("innerHTML"), "true")
         click(engine.$f("tbn9"));
         waitResponse();
         verifyContains("should not be toggled",
-          lbl.$n().get("innerHTML"), "false")
+          lbl.$n().attr("innerHTML"), "false")
       }
     );
   }

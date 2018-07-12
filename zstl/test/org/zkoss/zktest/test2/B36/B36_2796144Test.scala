@@ -21,7 +21,7 @@ class B36_2796144Test extends ZTL4ScalaTestCase {
       waitResponse()
       sendKeys(inp, Keys.TAB)
       waitResponse()
-      verifyContains(dateValue2.get("value"), time)
+      verifyContains(dateValue2.attr("value"), time)
     })
   }
 
@@ -44,7 +44,7 @@ class B36_2796144Test extends ZTL4ScalaTestCase {
       waitResponse()
       sendKeys(inp, Keys.TAB)
       waitResponse()
-      verifyContains(dateValue2.get("value"), time)
+      verifyContains(dateValue2.attr("value"), time)
     })
   }
 }

@@ -48,13 +48,13 @@ class F30_1796281Test extends ZTL4ScalaTestCase {
     val btn1 = ztl$engine.$f("btn1")
     val btn2 = ztl$engine.$f("btn2")
     runZTL(zscript, () => {
-      verifyEquals("", cbbox.$n("real").get("value"))
+      verifyEquals("", cbbox.$n("real").attr("value"))
       click(btn1)
       waitResponse()
-      verifyEquals("Cool!", cbbox.$n("real").get("value"))
+      verifyEquals("Cool!", cbbox.$n("real").attr("value"))
       click(btn2)
       waitResponse()
-      verifyEquals("Thumbs Up!", cbbox.$n("real").get("value"))
+      verifyEquals("Thumbs Up!", cbbox.$n("real").attr("value"))
     })
   }
 }

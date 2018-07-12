@@ -79,7 +79,7 @@ class B30_2003798Test extends ZTL4ScalaTestCase {
       val img = engine.$f("img");
       click(img);
       waitResponse();
-      var cssClass = jq("@treerow").get(0).get("className");
+      var cssClass = jq("@treerow").get(0).attr("className");
       verifyContains("The row must be selected", cssClass, "z-treerow-selected");
 
     })

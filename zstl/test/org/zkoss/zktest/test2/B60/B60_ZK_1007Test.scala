@@ -60,7 +60,7 @@ class B60_ZK_1007Test extends ZTL4ScalaTestCase {
         var lbl: Widget = engine.$f("lbl");
 
         verifyContains("Render items should be 2",
-          lbl.$n().get("innerHTML"), "2")
+          lbl.$n().attr("innerHTML"), "2")
       }
     );
   }

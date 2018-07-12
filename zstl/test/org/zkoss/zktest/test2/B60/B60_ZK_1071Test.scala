@@ -69,7 +69,7 @@ Copyright (C) 2012 Potix Corporation. All Rights Reserved.
         click(jq(".z-listitem:contains(B)"))
         waitResponse()
         verifyTrue("the bandbox value should become 'B'",
-          bb.toWidget().$n("real").get("value") == "B")
+          bb.toWidget().$n("real").attr("value") == "B")
         click(jq(".z-button:eq(0)"))
         waitResponse()
         verifyContains("it should pop up a 'value:B' messagebox",

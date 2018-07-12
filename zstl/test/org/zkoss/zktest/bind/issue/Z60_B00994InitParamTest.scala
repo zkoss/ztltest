@@ -30,8 +30,8 @@ class Z60_B00994InitParamTest extends ZTL4ScalaTestCase {
       var l1 = jq("$l1");
       var l2 = jq("$l2");
 
-      verifyEquals("foo", l1.toWidget().get("value"));
-      verifyEquals("bar", l2.toWidget().get("value"));
+      verifyEquals("foo", l1.toWidget().attr("value"));
+      verifyEquals("bar", l2.toWidget().attr("value"));
 
     })
   }

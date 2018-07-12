@@ -36,35 +36,35 @@ class Z60_B01529SelectedItemsIndexTest extends ZTL4ScalaTestCase {
 
       click(items.eq(1).toWidget())
       waitResponse()
-      verifyEquals("[1]", lb.toWidget().get("value"))
+      verifyEquals("[1]", lb.toWidget().attr("value"))
 
       click(items.eq(8).toWidget())
       waitResponse()
-      verifyEquals("[1, 8]", lb.toWidget().get("value"))
+      verifyEquals("[1, 8]", lb.toWidget().attr("value"))
 
       click(items.eq(9).toWidget())
       waitResponse()
-      verifyEquals("[1, 8, 9]", lb.toWidget().get("value"))
+      verifyEquals("[1, 8, 9]", lb.toWidget().attr("value"))
 
       click(items.eq(4).toWidget())
       waitResponse()
-      verifyEquals("[1, 8, 9, 4]", lb.toWidget().get("value"))
+      verifyEquals("[1, 8, 9, 4]", lb.toWidget().attr("value"))
 
       click(items.eq(8).toWidget())
       waitResponse()
-      verifyEquals("[1, 9, 4]", lb.toWidget().get("value"))
+      verifyEquals("[1, 9, 4]", lb.toWidget().attr("value"))
 
       click(items.eq(8).toWidget())
       waitResponse()
-      verifyEquals("[1, 9, 4, 8]", lb.toWidget().get("value"))
+      verifyEquals("[1, 9, 4, 8]", lb.toWidget().attr("value"))
 
       click(items.eq(1).toWidget())
       waitResponse()
-      verifyEquals("[9, 4, 8]", lb.toWidget().get("value"))
+      verifyEquals("[9, 4, 8]", lb.toWidget().attr("value"))
 
       click(items.eq(2).toWidget())
       waitResponse()
-      verifyEquals("[9, 4, 8, 2]", lb.toWidget().get("value"))
+      verifyEquals("[9, 4, 8, 2]", lb.toWidget().attr("value"))
 
     })
   }

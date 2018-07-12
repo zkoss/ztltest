@@ -32,7 +32,7 @@ class B60_ZK_1322Test extends ZTL4ScalaTestCase {
         click(jq("@timebox"))
         waitResponse()
         val timebox = jq(".z-timebox").toWidget().$n("real")
-        val time = timebox.get("value")
+        val time = timebox.attr("value")
 
         if (time.matches(""".*[1-5][0-9]""")) {
           sendKeys(timebox, Keys.END + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "00")
@@ -45,7 +45,7 @@ class B60_ZK_1322Test extends ZTL4ScalaTestCase {
         click(jq("@button"))
         waitResponse()
 
-        verifyEquals(timebox.get("value"), "")
+        verifyEquals(timebox.attr("value"), "")
       })
 
   }

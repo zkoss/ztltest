@@ -51,7 +51,7 @@ class B35_2149043Test extends ZTL4ScalaTestCase {
       // Click on Change image button
       click(jq("@button"));
       waitResponse();
-      val img = engine.$f("f1").get("image");
+      val img = engine.$f("f1").attr("image");
 
       // Verify that the image is changed
       verifyContains("The image should be /test2/img/icon_email.png", img, "/test2/img/icon_email.png")

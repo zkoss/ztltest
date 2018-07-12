@@ -50,14 +50,14 @@ class Z60_ComboboxModelTest extends ZTL4ScalaTestCase {
 
         for (j <- 0 to 1) {
           var comboitem = comboitems.eq(j).toWidget()
-          verifyEquals(itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.get("label"))
-          verifyEquals(itemLabel(i) + " " + j, comboitem.get("description"))
+          verifyEquals(itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.attr("label"))
+          verifyEquals(itemLabel(i) + " " + j, comboitem.attr("description"))
         }
         var btn = jq(outerrow).find("@button").toWidget() // index button
         var msg = jq("$msg").toWidget()
         click(btn)
         waitResponse()
-        verifyEquals("item index " + i, msg.get("value"))
+        verifyEquals("item index " + i, msg.attr("value"))
         outerrow = outerrow.nextSibling()
       }
       // =================================add after 2rd row
@@ -77,14 +77,14 @@ class Z60_ComboboxModelTest extends ZTL4ScalaTestCase {
         verifyEquals(2, comboitems.length())
         for (j <- 0 to 1) {
           var comboitem = comboitems.eq(j).toWidget()
-          verifyEquals(itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.get("label"))
-          verifyEquals(itemLabel(i) + " " + j, comboitem.get("description"))
+          verifyEquals(itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.attr("label"))
+          verifyEquals(itemLabel(i) + " " + j, comboitem.attr("description"))
         }
         var btn = jq(outerrow).find("@button").toWidget() // index button
         var msg = jq("$msg").toWidget()
         click(btn)
         waitResponse()
-        verifyEquals("item index " + i, msg.get("value"))
+        verifyEquals("item index " + i, msg.attr("value"))
         outerrow = outerrow.nextSibling()
       }
       // =================================add before 2rd row
@@ -104,14 +104,14 @@ class Z60_ComboboxModelTest extends ZTL4ScalaTestCase {
         verifyEquals(2, comboitems.length())
         for (j <- 0 to 1) {
           var comboitem = comboitems.eq(j).toWidget()
-          verifyEquals(itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.get("label"))
-          verifyEquals(itemLabel(i) + " " + j, comboitem.get("description"))
+          verifyEquals(itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.attr("label"))
+          verifyEquals(itemLabel(i) + " " + j, comboitem.attr("description"))
         }
         var btn = jq(outerrow).find("@button").toWidget() // index button
         var msg = jq("$msg").toWidget()
         click(btn)
         waitResponse()
-        verifyEquals("item index " + i, msg.get("value"))
+        verifyEquals("item index " + i, msg.attr("value"))
         outerrow = outerrow.nextSibling()
       }
     })

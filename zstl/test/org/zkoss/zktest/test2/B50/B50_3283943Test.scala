@@ -126,7 +126,7 @@ class B50_3283943Test extends ZTL4ScalaTestCase {
     def checkGridUuid(wgt: Widget, lbs: Widget, lbc: Widget) {
       clickAt(wgt.$n(), "10,3");
       waitResponse();
-      verifyEquals(lbs.$n().get("innerHTML"), lbc.$n().get("innerHTML"))
+      verifyEquals(lbs.$n().attr("innerHTML"), lbc.$n().attr("innerHTML"))
     }
 
     runZTL(zscript, executor);

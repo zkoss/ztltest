@@ -62,9 +62,9 @@ class B50_3317743Test extends ZTL4ScalaTestCase {
       waitResponse();
       clickAt(jq(listbox.$n("rows")).find(".z-listitem").get(3), "200,5");
       waitResponse();
-      println(parseInt(tb.$n().get("value")));
+      println(parseInt(tb.$n().attr("value")));
 
-      verifyTrue(parseInt(tb.$n().get("value")) > 200);
+      verifyTrue(parseInt(tb.$n().attr("value")) > 200);
 
       click(jq("[name=" + jq(jq(".z-paging")).attr("id") + "-prev]"));
       waitResponse();

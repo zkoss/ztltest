@@ -36,11 +36,11 @@ class B60_ZK_725Test extends ZTL4ScalaTestCase {
         clickAt(jq("@column:eq(0)"), "2,2")
         waitResponse(true)
         verifyEquals("should sorted correctly",
-          jq("@row").get(0).get("id"), jq(".z-row").get(0).get("id"))
+          jq("@row").get(0).attr("id"), jq(".z-row").get(0).attr("id"))
         verifyEquals("should sorted correctly",
-          jq("@row").get(1).get("id"), jq(".z-row").get(1).get("id"))
+          jq("@row").get(1).attr("id"), jq(".z-row").get(1).attr("id"))
         verifyEquals("should sorted correctly",
-          jq("@row").get(2).get("id"), jq(".z-row").get(2).get("id"))
+          jq("@row").get(2).attr("id"), jq(".z-row").get(2).attr("id"))
       }
     );
   }

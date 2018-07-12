@@ -36,11 +36,11 @@ class B50_2968752Test extends ZTL4ScalaTestCase {
 			</zk>
 		"""
     runZTL(zscript, () => {
-      verifyEquals("/zktest/img/Centigrade-Widget-Icons/QuestionmarkButton-16x16.png", jq("$menu").toWidget.get("image"))
+      verifyEquals("/zktest/img/Centigrade-Widget-Icons/QuestionmarkButton-16x16.png", jq("$menu").toWidget.attr("image"))
       click(jq("$menu"))
       click(jq("$menuitem"))
       waitResponse()
-      verifyEquals("/zktest/img/Centigrade-Widget-Icons/Briefcase-16x16.png", jq("$menu").toWidget.get("image"))
+      verifyEquals("/zktest/img/Centigrade-Widget-Icons/Briefcase-16x16.png", jq("$menu").toWidget.attr("image"))
     })
   }
 }

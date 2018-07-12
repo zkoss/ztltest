@@ -37,7 +37,7 @@ l.setValue("Just a \"test\" with quotes");
     val l = ztl$engine.$f("l")
     val test = ztl$engine.$f("test")
     runZTL(zscript, () => {
-      verifyEquals("Just a \"test\" with quotes", test.get("value"));
+      verifyEquals("Just a \"test\" with quotes", test.attr("value"));
     })
   }
 }

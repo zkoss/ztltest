@@ -81,20 +81,20 @@ class F60_ZK_621Test extends ZTL4ScalaTestCase {
         click(cbx.$n("btn"));
         waitResponse();
         verifyContains("You should see the message become 'message: combobox is open? true'.",
-          lb.$n().get("innerHTML"), "message: combobox is open? true")
+          lb.$n().attr("innerHTML"), "message: combobox is open? true")
         click(cbx.$n("btn"));
         waitResponse();
         verifyContains("You should see the message become 'message: combobox is open? false'.",
-          lb.$n().get("innerHTML"), "message: combobox is open? false")
+          lb.$n().attr("innerHTML"), "message: combobox is open? false")
 
         click(bd.$n("btn"));
         waitResponse();
         verifyContains("You should see the message become 'message: bandbox is open? true'.",
-          lb.$n().get("innerHTML"), "message: bandbox is open? true")
+          lb.$n().attr("innerHTML"), "message: bandbox is open? true")
         click(bd.$n("btn"));
         waitResponse();
         verifyContains("You should see the message become 'message: bandbox is open? false'.",
-          lb.$n().get("innerHTML"), "message: bandbox is open? false")
+          lb.$n().attr("innerHTML"), "message: bandbox is open? false")
       }
     );
   }

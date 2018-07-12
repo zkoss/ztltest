@@ -59,7 +59,7 @@ class B50_3025674Test extends ZTL4ScalaTestCase {
     val auxhead = ztl$engine.$f("auxhead")
     val msg = ztl$engine.$f("msg")
     runZTL(zscript, () => {
-      verifyEquals(msg.get("value"), "")
+      verifyEquals(msg.attr("value"), "")
     })
   }
 }

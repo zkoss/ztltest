@@ -54,12 +54,12 @@ Steps:<br/>
       sendKeys(t1, "mm")
       blur(t1)
       waitResponse()
-      verifyEquals("mm", l.get("value"))
+      verifyEquals("mm", l.attr("value"))
       focus(t2)
       typeKeys(t2, "kk")
       blur(t2)
       waitResponse()
-      verifyEquals("kk", l.get("value"))
+      verifyEquals("kk", l.attr("value"))
     })
   }
 }

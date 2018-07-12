@@ -31,11 +31,11 @@ class Z60_B01259HaskMapInFx2Test extends ZTL4ScalaTestCase {
       var l14 = jq("$l14")
       var l15 = jq("$l15")
 
-      verifyEquals("Hello World", l11.toWidget().get("value"))
-      verifyEquals("Hello World", l12.toWidget().get("value"))
-      verifyEquals("Hello World", l13.toWidget().get("value"))
-      verifyEquals("Hi Dennis", l14.toWidget().get("value"))
-      verifyEquals("Hi Dennis", l15.toWidget().get("value"))
+      verifyEquals("Hello World", l11.toWidget().attr("value"))
+      verifyEquals("Hello World", l12.toWidget().attr("value"))
+      verifyEquals("Hello World", l13.toWidget().attr("value"))
+      verifyEquals("Hi Dennis", l14.toWidget().attr("value"))
+      verifyEquals("Hi Dennis", l15.toWidget().attr("value"))
 
     })
   }

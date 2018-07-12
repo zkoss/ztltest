@@ -16,7 +16,7 @@ class B70_ZK_2024Test extends ZTL4ScalaTestCase {
         waitResponse()
 
         verifyTrue("the label should show 'Sverige' and the value should show 'SE'.",
-          inp.get("value") == "SE" && jq(".z-label:contains(Sverige)").exists)
+          inp.attr("value") == "SE" && jq(".z-label:contains(Sverige)").exists)
       })
 
   }

@@ -30,7 +30,7 @@ class B70_ZK_2020Test extends ZTL4ScalaTestCase {
         val tb = jq(".z-textbox")
         sendKeys(tb, "123")
         waitResponse()
-        verifyTrue("should be able to edit textbox value", tb.toElement().get("value") == "123")
+        verifyTrue("should be able to edit textbox value", tb.toElement().attr("value") == "123")
       })
 
   }

@@ -15,7 +15,7 @@ class B80_ZK_3077Test extends ZTL4ScalaTestCase {
         clickAll()
         clickAll()
         verifyTrue(jq(".z-listitem-focus").length() == 1)
-        verifyEquals(jq(".z-listitem").get(3).toElement.get("id"), jq(".z-listitem-focus").toElement.get("id"))
+        verifyEquals(jq(".z-listitem").get(3).toElement.attr("id"), jq(".z-listitem-focus").toElement.attr("id"))
       }
     )
   }

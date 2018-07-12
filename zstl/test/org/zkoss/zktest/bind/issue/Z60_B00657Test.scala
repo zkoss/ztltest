@@ -31,23 +31,23 @@ class Z60_B00657Test extends ZTL4ScalaTestCase {
 """
 
     runZTL(zul, () => {
-      verifyEquals("0", jq("$listbox").toWidget().get("selectedIndex"))
-      verifyEquals("0", jq("$intbox").toWidget().get("value"))
+      verifyEquals("0", jq("$listbox").toWidget().attr("selectedIndex"))
+      verifyEquals("0", jq("$intbox").toWidget().attr("value"))
       val intbox = jq("$intbox")
       intbox.toElement().set("value", "")
       sendKeys(intbox, "1" + Keys.TAB)
       waitResponse()
       blur(intbox)
       waitResponse()
-      verifyEquals("1", jq("$listbox").toWidget().get("selectedIndex"))
-      verifyEquals("1", jq("$intbox").toWidget().get("value"))
+      verifyEquals("1", jq("$listbox").toWidget().attr("selectedIndex"))
+      verifyEquals("1", jq("$intbox").toWidget().attr("value"))
       intbox.toElement().set("value", "")
       sendKeys(intbox, "2" + Keys.TAB)
       waitResponse()
       blur(intbox)
       waitResponse()
-      verifyEquals("2", jq("$listbox").toWidget().get("selectedIndex"))
-      verifyEquals("2", jq("$intbox").toWidget().get("value"))
+      verifyEquals("2", jq("$listbox").toWidget().attr("selectedIndex"))
+      verifyEquals("2", jq("$intbox").toWidget().attr("value"))
     })
   }
 }

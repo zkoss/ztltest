@@ -37,18 +37,18 @@ class Z60_B00847FormInitTest extends ZTL4ScalaTestCase {
       var cmd1 = jq("$cmd1")
       var cmd2 = jq("$cmd2")
 
-      verifyEquals("blue", l1.toWidget().get("value"))
-      verifyEquals("blue", l2.toWidget().get("value"))
+      verifyEquals("blue", l1.toWidget().attr("value"))
+      verifyEquals("blue", l2.toWidget().attr("value"))
 
       click(cmd1.toWidget())
       waitResponse()
-      verifyEquals("red", l1.toWidget().get("value"))
-      verifyEquals("blue", l2.toWidget().get("value"))
+      verifyEquals("red", l1.toWidget().attr("value"))
+      verifyEquals("blue", l2.toWidget().attr("value"))
 
       click(cmd2.toWidget())
       waitResponse()
-      verifyEquals("yellow", l1.toWidget().get("value"))
-      verifyEquals("yellow", l2.toWidget().get("value"))
+      verifyEquals("yellow", l1.toWidget().attr("value"))
+      verifyEquals("yellow", l2.toWidget().attr("value"))
 
     })
   }

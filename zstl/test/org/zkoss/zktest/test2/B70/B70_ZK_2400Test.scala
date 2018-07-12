@@ -43,7 +43,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         waitResponse();
         clickAt(btn, "1,1");
         waitResponse();
-        verifyEquals("click up button shouldn't trigger onChange.", "", jq("$lbl").toWidget().get("value"));
+        verifyEquals("click up button shouldn't trigger onChange.", "", jq("$lbl").toWidget().attr("value"));
       })
 
   }

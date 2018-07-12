@@ -42,14 +42,14 @@ class B50_3161535Test extends ZTL4ScalaTestCase {
         );
         var width = jq(c1.$n()).outerWidth();
         verifyTrue("first column shall align left, \noffsetLeft of first label= " +
-          parseInt(l1.$n().get("offsetLeft")) + " should smaller then 10",
-          parseInt(l1.$n().get("offsetLeft")) <= 20);
+          parseInt(l1.$n().attr("offsetLeft")) + " should smaller then 10",
+          parseInt(l1.$n().attr("offsetLeft")) <= 20);
         verifyTrue("second column shall align center,\n offsetLeft of second label= " +
-          parseInt(l2.$n().get("offsetLeft")) + " should larger then width/3 (" + (width / 3) + ") and\n smaller then (width/3)*2 (" + (width / 3 * 2) + ")",
-          parseInt(l2.$n().get("offsetLeft")) >= (width / 3) && parseInt(l2.$n().get("offsetLeft")) <= (width / 3 * 2));
+          parseInt(l2.$n().attr("offsetLeft")) + " should larger then width/3 (" + (width / 3) + ") and\n smaller then (width/3)*2 (" + (width / 3 * 2) + ")",
+          parseInt(l2.$n().attr("offsetLeft")) >= (width / 3) && parseInt(l2.$n().attr("offsetLeft")) <= (width / 3 * 2));
         verifyTrue("The third column shall align right,\n offsetLeft of third label= " +
-          parseInt(l3.$n().get("offsetLeft")) + " should larger then width - 30 (" + (width - 30) + ")",
-          parseInt(l3.$n().get("offsetLeft")) >= width - 30);
+          parseInt(l3.$n().attr("offsetLeft")) + " should larger then width - 30 (" + (width - 30) + ")",
+          parseInt(l3.$n().attr("offsetLeft")) >= width - 30);
       }
     );
 

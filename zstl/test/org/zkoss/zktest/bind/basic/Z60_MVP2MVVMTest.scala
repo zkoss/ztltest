@@ -29,16 +29,16 @@ class Z60_MVP2MVVMTest extends ZTL4ScalaTestCase {
 """
 
     runZTL(zul, () => {
-      verifyEquals("true", jq("$textA").toWidget().get("disabled"))
+      verifyEquals("true", jq("$textA").toWidget().attr("disabled"))
       click(jq("$outerToggle1").toWidget())
       waitResponse()
-      verifyEquals("false", jq("$textA").toWidget().get("disabled"))
+      verifyEquals("false", jq("$textA").toWidget().attr("disabled"))
       click(jq("$outerToggle2").toWidget())
       waitResponse()
-      verifyEquals("true", jq("$textA").toWidget().get("disabled"))
+      verifyEquals("true", jq("$textA").toWidget().attr("disabled"))
       click(jq("$innerToggle").toWidget())
       waitResponse()
-      verifyEquals("false", jq("$textA").toWidget().get("disabled"))
+      verifyEquals("false", jq("$textA").toWidget().attr("disabled"))
     })
   }
 }

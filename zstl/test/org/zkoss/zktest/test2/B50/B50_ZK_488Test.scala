@@ -70,10 +70,10 @@ class B50_ZK_488Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       dragdropToObject(li1, lb2, "5,5", "25,25");
       waitResponse()
-      verifyEquals("li1 in lb2", tb.$n().get("value"))
+      verifyEquals("li1 in lb2", tb.$n().attr("value"))
       dragdropToObject(li2, lb1, "5,5", "25,25");
       waitResponse()
-      verifyEquals("li2 in lb1", tb.$n().get("value"))
+      verifyEquals("li2 in lb1", tb.$n().attr("value"))
     })
   }
 }

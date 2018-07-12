@@ -58,7 +58,7 @@ class B50_ZK_424Test extends ZTL4ScalaTestCase {
     val textbox3 = ztl$engine.$f("textbox3")
     val msg = ztl$engine.$f("msg")
     runZTL(zscript, () => {
-      verifyEquals("111", msg.$n().get("innerHTML"))
+      verifyEquals("111", msg.$n().attr("innerHTML"))
     })
   }
 }

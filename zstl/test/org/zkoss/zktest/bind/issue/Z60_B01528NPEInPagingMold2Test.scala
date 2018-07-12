@@ -31,19 +31,19 @@ class Z60_B01528NPEInPagingMold2Test extends ZTL4ScalaTestCase {
 
       click(jq("$btn1").toWidget())
       waitResponse()
-      verifyEquals("Item 0 Updated", listbox.find("@listitem").eq(0).find("@listcell").toWidget().get("label"))
+      verifyEquals("Item 0 Updated", listbox.find("@listitem").eq(0).find("@listcell").toWidget().attr("label"))
 
       click(jq("$btn2").toWidget())
       waitResponse()
-      verifyEquals("Item 2 Updated", listbox.find("@listitem").eq(2).find("@listcell").toWidget().get("label"))
+      verifyEquals("Item 2 Updated", listbox.find("@listitem").eq(2).find("@listcell").toWidget().attr("label"))
 
       click(jq("$btn3").toWidget())
       waitResponse()
-      verifyEquals("Item 5 Updated", listbox.find("@listitem").eq(5).find("@listcell").toWidget().get("label"))
+      verifyEquals("Item 5 Updated", listbox.find("@listitem").eq(5).find("@listcell").toWidget().attr("label"))
 
       click(jq("$btn4").toWidget())
       waitResponse()
-      verifyEquals("Item 9 Updated", listbox.find("@listitem").eq(9).find("@listcell").toWidget().get("label"))
+      verifyEquals("Item 9 Updated", listbox.find("@listitem").eq(9).find("@listcell").toWidget().attr("label"))
 
     })
   }

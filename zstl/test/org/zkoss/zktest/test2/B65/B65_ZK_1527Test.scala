@@ -23,10 +23,10 @@ class B65_ZK_1527Test extends ZTL4ScalaTestCase {
         click(jq(jq(".z-datebox").toWidget().$n("btn")))
         waitResponse()
 
-        val before = jq(".z-timebox").toWidget().$n("real").get("value");
+        val before = jq(".z-timebox").toWidget().$n("real").attr("value");
         click(jq(".z-timebox").toWidget().$n("btn-down"))
         waitResponse()
-        val after = jq(".z-timebox").toWidget().$n("real").get("value");
+        val after = jq(".z-timebox").toWidget().$n("real").attr("value");
         verifyNotEquals("should see the value in datebox changed", before, after)
       })
 

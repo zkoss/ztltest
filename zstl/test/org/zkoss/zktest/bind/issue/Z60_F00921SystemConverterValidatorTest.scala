@@ -35,10 +35,10 @@ class Z60_F00921SystemConverterValidatorTest extends ZTL4ScalaTestCase {
       var l3 = jq("$l3")
       var l4 = jq("$l4")
 
-      verifyEquals("XConverterX", l1.toWidget().get("value"))
-      verifyEquals("YConverterY", l2.toWidget().get("value"))
-      verifyEquals("XValidator", l3.toWidget().get("value"))
-      verifyEquals("YValidator", l4.toWidget().get("value"))
+      verifyEquals("XConverterX", l1.toWidget().attr("value"))
+      verifyEquals("YConverterY", l2.toWidget().attr("value"))
+      verifyEquals("XValidator", l3.toWidget().attr("value"))
+      verifyEquals("YValidator", l4.toWidget().attr("value"))
 
     })
   }

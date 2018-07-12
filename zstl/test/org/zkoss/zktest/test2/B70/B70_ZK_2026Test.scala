@@ -33,7 +33,7 @@ class B70_ZK_2026Test extends ZTL4ScalaTestCase {
         click(calendar0.find(".z-calendar-body td:contains(20)"))
         waitResponse()
         val cal = Calendar.getInstance()
-        verifyNotContains("the year should not changes to the current year.", jq(".z-datebox").toWidget().$n("real").get("value"), "" + cal.get(Calendar.YEAR))
+        verifyNotContains("the year should not changes to the current year.", jq(".z-datebox").toWidget().$n("real").attr("value"), "" + cal.get(Calendar.YEAR))
       })
 
   }

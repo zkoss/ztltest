@@ -53,7 +53,7 @@ class B50_3099277Test extends ZTL4ScalaTestCase {
       var btn: Widget = engine.$f("btn");
       click(btn);
       sleep(500)
-      verifyContains(jq(".z-log").find("textarea").get(0).get("value"), "value 1")
+      verifyContains(jq(".z-log").find("textarea").get(0).attr("value"), "value 1")
     }
 
     runZTL(zscript, executor);

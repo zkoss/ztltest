@@ -36,9 +36,9 @@ class Z60_CollectionIndexGrid1 extends ZTL4ScalaTestCase {
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i)
         var rowkid = outerrow.firstChild()
-        verifyEquals("" + i, rowkid.get("value")) // verify the index on label
+        verifyEquals("" + i, rowkid.attr("value")) // verify the index on label
         rowkid = rowkid.nextSibling()
-        verifyEquals(outerl, rowkid.get("value")) // verify the label on label
+        verifyEquals(outerl, rowkid.attr("value")) // verify the label on label
         var innergrid = rowkid.nextSibling()
         verifyTrue(innergrid.exists())
         var innerrows = jq(innergrid).find("@row")
@@ -46,12 +46,12 @@ class Z60_CollectionIndexGrid1 extends ZTL4ScalaTestCase {
         var innerrow = innerrows.first()
         for (j <- 0 to 1) {
           rowkid = innerrow.toWidget().firstChild()
-          verifyEquals("" + j, rowkid.get("value"))
+          verifyEquals("" + j, rowkid.attr("value"))
           rowkid = rowkid.nextSibling()
-          verifyEquals("" + i, rowkid.get("value"))
+          verifyEquals("" + i, rowkid.attr("value"))
           var innerl = itemLabel(i) + " " + j
           rowkid = rowkid.nextSibling()
-          verifyEquals(innerl, rowkid.get("value"))
+          verifyEquals(innerl, rowkid.attr("value"))
           innerrow = innerrows.next()
         }
         rowkid = outerrow.lastChild()
@@ -59,7 +59,7 @@ class Z60_CollectionIndexGrid1 extends ZTL4ScalaTestCase {
         var msg = jq("$msg").toWidget()
         click(btn)
         waitResponse()
-        verifyEquals("item index " + i, msg.get("value"))
+        verifyEquals("item index " + i, msg.attr("value"))
         outerrow = outerrow.nextSibling()
       }
     })

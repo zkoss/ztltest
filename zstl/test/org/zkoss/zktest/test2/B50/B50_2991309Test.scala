@@ -68,7 +68,7 @@ class B50_2991309Test extends ZTL4ScalaTestCase {
       waitResponse()
       click(btn)
       waitResponse()
-      verifyEquals(msg.get("value"), "")
+      verifyEquals(msg.attr("value"), "")
     })
   }
 }

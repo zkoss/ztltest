@@ -36,13 +36,13 @@ class Z60_ELTagTest extends ZTL4ScalaTestCase {
 
       `type`(t1.toWidget(), "AA")
       waitResponse()
-      verifyEquals("AA:A", l1.toWidget().get("value"))
-      verifyEquals("AA-B", l2.toWidget().get("value"))
+      verifyEquals("AA:A", l1.toWidget().attr("value"))
+      verifyEquals("AA-B", l2.toWidget().attr("value"))
 
       `type`(t1.toWidget(), "BB")
       waitResponse()
-      verifyEquals("BB:A", l1.toWidget().get("value"))
-      verifyEquals("BB-B", l2.toWidget().get("value"))
+      verifyEquals("BB:A", l1.toWidget().attr("value"))
+      verifyEquals("BB-B", l2.toWidget().attr("value"))
 
     })
   }

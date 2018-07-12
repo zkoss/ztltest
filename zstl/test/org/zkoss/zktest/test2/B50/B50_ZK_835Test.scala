@@ -210,7 +210,7 @@ class B50_ZK_835Test extends ZTL4ScalaTestCase {
         // wait the zk.log
         sleep(500);
         verifyTrue("Should only three log message",
-          log.get("value").length() < 37);
+          log.attr("value").length() < 37);
       }
     );
   }

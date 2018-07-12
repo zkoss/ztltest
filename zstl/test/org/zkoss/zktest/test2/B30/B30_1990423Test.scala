@@ -53,7 +53,7 @@ class B30_1990423Test extends ZTL4ScalaTestCase {
 
         //Test if border isn't pressent
         val win1 = jq("@window:eq(0)");
-        var br1 = win1.toWidget().get("border");
+        var br1 = win1.toWidget().attr("border");
         verifyEquals(br1, "none");
 
         //Button "has border"
@@ -64,7 +64,7 @@ class B30_1990423Test extends ZTL4ScalaTestCase {
 
         //Test if border is pressent
         val win = jq("@window:eq(0)");
-        var br = win.toWidget().get("border");
+        var br = win.toWidget().attr("border");
         verifyEquals(br, "normal");
 
       }

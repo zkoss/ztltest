@@ -28,17 +28,17 @@ class B50_2980894Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       click(db.$n("btn"))
       waitResponse()
-      var cal = new Widget(db.$n("pp").firstChild().get("id"))
+      var cal = new Widget(db.$n("pp").firstChild().attr("id"))
       click(cal.$n("ty"))
       waitResponse()
       var mid = cal.$n("mid")
-      verifyContains(mid.get("className"), "z-calendar-year")
+      verifyContains(mid.attr("className"), "z-calendar-year")
       click(cal.$n("y0"))
       waitResponse()
-      verifyContains(mid.get("className"), "z-calendar-mon")
+      verifyContains(mid.attr("className"), "z-calendar-mon")
       click(cal.$n("m0"))
       waitResponse()
-      verifyContains(mid.get("className"), "z-calendar-body")
+      verifyContains(mid.attr("className"), "z-calendar-body")
     })
   }
 }

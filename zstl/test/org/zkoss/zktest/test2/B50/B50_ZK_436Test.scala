@@ -31,7 +31,7 @@ class B50_ZK_436Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
     runZTL(() => {
-      val bodyHTML: String = jq("body").get(0).get("innerHTML")
+      val bodyHTML: String = jq("body").get(0).attr("innerHTML")
       val first: Int = bodyHTML.indexOf("false")
       val last: Int = bodyHTML.lastIndexOf("false")
       val first2: Int = bodyHTML.indexOf("\"false\"")

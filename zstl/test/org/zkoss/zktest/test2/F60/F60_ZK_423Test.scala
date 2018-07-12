@@ -49,7 +49,7 @@ class F60_ZK_423Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       verifyContains("First listitem should be selected",
-        tbxTwo.$n().get("value"), "true")
+        tbxTwo.$n().attr("value"), "true")
 
       sendKeys(lbx.$n("a"), Keys.TAB);
       waitResponse();
@@ -57,7 +57,7 @@ class F60_ZK_423Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       verifyContains("First listitem should be selected",
-        tbxOne.$n().get("value"), "true")
+        tbxOne.$n().attr("value"), "true")
     }
     );
   }

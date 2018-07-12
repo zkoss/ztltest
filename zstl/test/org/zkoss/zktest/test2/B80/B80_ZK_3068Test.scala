@@ -15,10 +15,10 @@ class B80_ZK_3068Test extends ZTL4ScalaTestCase {
 
         val btn1 = jq("$btn1")
         val zcf = "zk.currentFocus.uuid"
-        verifyEquals(getEval(zcf), btn1.get(0).get("id"))
+        verifyEquals(getEval(zcf), btn1.get(0).attr("id"))
         sendKeys(btn1, Keys.TAB)
         waitResponse()
-        verifyEquals(getEval(zcf), jq("$btn2").get(0).get("id"))
+        verifyEquals(getEval(zcf), jq("$btn2").get(0).attr("id"))
       })
   }
 }

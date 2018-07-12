@@ -40,7 +40,7 @@ class B36_2796461Test extends ZTL4ScalaTestCase {
       click(db.$n("btn"))
       waitResponse()
       var pp = db.$n("pp")
-      verifyTolerant(parseInt(pp.get("scrollHeight")), jq(pp).outerHeight(), 6)
+      verifyTolerant(parseInt(pp.attr("scrollHeight")), jq(pp).outerHeight(), 6)
     })
   }
 }

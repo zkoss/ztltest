@@ -44,7 +44,7 @@ class B50_3013538Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       click(btn)
       waitResponse()
-      verifyEquals(msg.get("value"), "")
+      verifyEquals(msg.attr("value"), "")
     })
   }
 }

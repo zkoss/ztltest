@@ -13,14 +13,14 @@ class B70_ZK_2202Test extends ZTL4ScalaTestCase {
     runZTL(
       () => {
         val db = jq(".z-datebox").toWidget
-        val value = db.$n("real").get("value")
+        val value = db.$n("real").attr("value")
         click(db.$n("btn"))
         waitResponse()
 
         sendKeys(jq(".z-timebox").toWidget.$n("real"),
           Keys.HOME + "" + Keys.ARROW_RIGHT + "" + Keys.ARROW_RIGHT + "" + Keys.ARROW_RIGHT + "" + Keys.ARROW_UP
             + "" + Keys.ENTER)
-        verifyTrue("the value of datebox should be updated", value != db.$n("real").get("value"))
+        verifyTrue("the value of datebox should be updated", value != db.$n("real").attr("value"))
       })
 
   }

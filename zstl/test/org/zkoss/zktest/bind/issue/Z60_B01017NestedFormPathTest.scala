@@ -44,36 +44,36 @@ class Z60_B01017NestedFormPathTest extends ZTL4ScalaTestCase {
 
       var update = jq("$update")
 
-      verifyEquals("A", l11.toWidget().get("value"))
-      verifyEquals("B", l21.toWidget().get("value"))
-      verifyEquals("C", l31.toWidget().get("value"))
+      verifyEquals("A", l11.toWidget().attr("value"))
+      verifyEquals("B", l21.toWidget().attr("value"))
+      verifyEquals("C", l31.toWidget().attr("value"))
 
-      verifyEquals("A", t1.toWidget().get("value"))
-      verifyEquals("B", t2.toWidget().get("value"))
-      verifyEquals("C", t3.toWidget().get("value"))
+      verifyEquals("A", t1.toWidget().attr("value"))
+      verifyEquals("B", t2.toWidget().attr("value"))
+      verifyEquals("C", t3.toWidget().attr("value"))
 
       `type`(t1.toWidget(), "Aa")
       waitResponse()
-      verifyEquals("A", l11.toWidget().get("value"))
-      verifyEquals("value is 'Aa'", l12.toWidget().get("value"))
+      verifyEquals("A", l11.toWidget().attr("value"))
+      verifyEquals("value is 'Aa'", l12.toWidget().attr("value"))
 
       `type`(t2.toWidget(), "Bb")
       waitResponse()
-      verifyEquals("B", l21.toWidget().get("value"))
-      verifyEquals("value is 'Bb'", l22.toWidget().get("value"))
+      verifyEquals("B", l21.toWidget().attr("value"))
+      verifyEquals("value is 'Bb'", l22.toWidget().attr("value"))
 
       `type`(t3.toWidget(), "Cc")
       waitResponse()
-      verifyEquals("C", l31.toWidget().get("value"))
-      verifyEquals("value is 'Cc'", l32.toWidget().get("value"))
+      verifyEquals("C", l31.toWidget().attr("value"))
+      verifyEquals("value is 'Cc'", l32.toWidget().attr("value"))
 
       click(update.toWidget())
       waitResponse()
-      verifyEquals("Aa", l11.toWidget().get("value"))
-      verifyEquals("Bb", l21.toWidget().get("value"))
-      verifyEquals("Cc", l31.toWidget().get("value"))
+      verifyEquals("Aa", l11.toWidget().attr("value"))
+      verifyEquals("Bb", l21.toWidget().attr("value"))
+      verifyEquals("Cc", l31.toWidget().attr("value"))
 
-      verifyEquals("update value1:Aa,value2:Bb,value3:Cc", msg.toWidget().get("value"))
+      verifyEquals("update value1:Aa,value2:Bb,value3:Cc", msg.toWidget().attr("value"))
     })
   }
 }

@@ -37,21 +37,21 @@ class Z60_B01062NullIntValueTest extends ZTL4ScalaTestCase {
 
       var save = jq("$save")
 
-      verifyEquals("", lb11.toWidget().get("value"))
-      verifyEquals("0", lb12.toWidget().get("value"))
-      verifyEquals("", lb21.toWidget().get("value"))
-      verifyEquals("0", lb22.toWidget().get("value"))
+      verifyEquals("", lb11.toWidget().attr("value"))
+      verifyEquals("0", lb12.toWidget().attr("value"))
+      verifyEquals("", lb21.toWidget().attr("value"))
+      verifyEquals("0", lb22.toWidget().attr("value"))
 
       click(save.toWidget())
       waitResponse()
 
-      verifyEquals("", lb11.toWidget().get("value"))
-      verifyEquals("0", lb12.toWidget().get("value"))
-      verifyEquals("", lb21.toWidget().get("value"))
-      verifyEquals("0", lb22.toWidget().get("value"))
+      verifyEquals("", lb11.toWidget().attr("value"))
+      verifyEquals("0", lb12.toWidget().attr("value"))
+      verifyEquals("", lb21.toWidget().attr("value"))
+      verifyEquals("0", lb22.toWidget().attr("value"))
 
-      verifyEquals("value1 is null, value2 is 0", msg1.toWidget().get("value"))
-      verifyEquals("value1 is null, value2 is 0", msg2.toWidget().get("value"))
+      verifyEquals("value1 is null, value2 is 0", msg1.toWidget().attr("value"))
+      verifyEquals("value1 is null, value2 is 0", msg2.toWidget().attr("value"))
 
     })
   }

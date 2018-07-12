@@ -44,7 +44,7 @@ class F30_1598234Test extends ZTL4ScalaTestCase {
       waitResponse()
       blur(inp)
       waitResponse()
-      verifyEquals("abc", msg.get("value"))
+      verifyEquals("abc", msg.attr("value"))
       blur(cb)
       verifyTrue(jq(".z-errorbox").exists())
     })

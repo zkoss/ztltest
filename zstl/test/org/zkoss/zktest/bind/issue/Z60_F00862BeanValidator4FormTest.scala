@@ -48,47 +48,47 @@ class Z60_F00862BeanValidator4FormTest extends ZTL4ScalaTestCase {
 //
 //      `type`(tb1.toWidget(), "")
 //      waitResponse()
-//      verifyEquals("name can not be null", msg1.toWidget().get("value"))
+//      verifyEquals("name can not be null", msg1.toWidget().attr("value"))
 //
 //      `type`(tb1.toWidget(), "Alex")
 //      waitResponse()
-//      verifyEquals("", msg1.toWidget().get("value"))
+//      verifyEquals("", msg1.toWidget().attr("value"))
 //
 //      `type`(tb2.toWidget(), "")
 //      waitResponse()
-//      verifyEquals("Last name can not be null", msg2.toWidget().get("value"))
+//      verifyEquals("Last name can not be null", msg2.toWidget().attr("value"))
 //
 //      `type`(tb2, "Wu")
 //      waitResponse()
-//      verifyEquals("", msg1.toWidget().get("value"))
+//      verifyEquals("", msg1.toWidget().attr("value"))
 //
 //      `type`(tb3, "a@b")
 //      waitResponse()
-//      verifyEquals("email lenght must large than 8", msg3.toWidget().get("value"))
+//      verifyEquals("email lenght must large than 8", msg3.toWidget().attr("value"))
 //
-//      verifyEquals("Dennis", l1.toWidget().get("value"))
-//      verifyEquals("Chen", l2.toWidget().get("value"))
-//      verifyEquals("", l3.toWidget().get("value"))
+//      verifyEquals("Dennis", l1.toWidget().attr("value"))
+//      verifyEquals("Chen", l2.toWidget().attr("value"))
+//      verifyEquals("", l3.toWidget().attr("value"))
 //
 //      click(save.toWidget())
 //      waitResponse()
 //
-//      verifyEquals("email lenght must large than 8", msg3.toWidget().get("value"))
-//      verifyEquals("Dennis", l1.toWidget().get("value"))
-//      verifyEquals("Chen", l2.toWidget().get("value"))
-//      verifyEquals("", l3.toWidget().get("value"))
+//      verifyEquals("email lenght must large than 8", msg3.toWidget().attr("value"))
+//      verifyEquals("Dennis", l1.toWidget().attr("value"))
+//      verifyEquals("Chen", l2.toWidget().attr("value"))
+//      verifyEquals("", l3.toWidget().attr("value"))
 //
 //      `type`(tb3.toWidget(), "a@b.cdefg")
 //      waitResponse()
-//      verifyEquals("", msg3.toWidget().get("value"))
+//      verifyEquals("", msg3.toWidget().attr("value"))
 //
 //      click(save.toWidget())
 //      waitResponse()
 //
-//      verifyEquals("", msg3.toWidget().get("value"))
-//      verifyEquals("Alex", l1.toWidget().get("value"))
-//      verifyEquals("Wu", l2.toWidget().get("value"))
-//      verifyEquals("a@b.cdefg", l3.toWidget().get("value"))
+//      verifyEquals("", msg3.toWidget().attr("value"))
+//      verifyEquals("Alex", l1.toWidget().attr("value"))
+//      verifyEquals("Wu", l2.toWidget().attr("value"))
+//      verifyEquals("a@b.cdefg", l3.toWidget().attr("value"))
 //
 //    })
   }

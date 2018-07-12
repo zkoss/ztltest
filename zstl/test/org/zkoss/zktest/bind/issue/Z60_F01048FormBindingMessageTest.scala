@@ -39,56 +39,56 @@ class Z60_F01048FormBindingMessageTest extends ZTL4ScalaTestCase {
 
       click(save.toWidget())
       waitResponse()
-      verifyEquals("First name is missing.", lb1.toWidget().get("value"))
-      verifyEquals("Last name is missing.", lb2.toWidget().get("value"))
-      verifyEquals("Age is missing.", lb3.toWidget().get("value"))
+      verifyEquals("First name is missing.", lb1.toWidget().attr("value"))
+      verifyEquals("Last name is missing.", lb2.toWidget().attr("value"))
+      verifyEquals("Age is missing.", lb3.toWidget().attr("value"))
 
       `type`(tb1.toWidget(), "Dennis")
       waitResponse()
-      verifyEquals("", lb1.toWidget().get("value"))
+      verifyEquals("", lb1.toWidget().attr("value"))
 
       `type`(tb2.toWidget(), "Chen")
       waitResponse()
-      verifyEquals("", lb2.toWidget().get("value"))
+      verifyEquals("", lb2.toWidget().attr("value"))
 
       `type`(tb3.toWidget(), "35")
       waitResponse()
-      verifyEquals("", lb3.toWidget().get("value"))
+      verifyEquals("", lb3.toWidget().attr("value"))
 
       `type`(tb1.toWidget(), "")
       waitResponse()
       `type`(tb3.toWidget(), "")
       waitResponse()
 
-      verifyEquals("", lb1.toWidget().get("value"))
-      verifyEquals("", lb2.toWidget().get("value"))
-      verifyEquals("", lb3.toWidget().get("value"))
+      verifyEquals("", lb1.toWidget().attr("value"))
+      verifyEquals("", lb2.toWidget().attr("value"))
+      verifyEquals("", lb3.toWidget().attr("value"))
 
       click(save.toWidget())
       waitResponse()
 
-      verifyEquals("First name is missing.", lb1.toWidget().get("value"))
-      verifyEquals("", lb2.toWidget().get("value"))
-      verifyEquals("Age is missing.", lb3.toWidget().get("value"))
+      verifyEquals("First name is missing.", lb1.toWidget().attr("value"))
+      verifyEquals("", lb2.toWidget().attr("value"))
+      verifyEquals("Age is missing.", lb3.toWidget().attr("value"))
 
       `type`(tb1.toWidget(), "DennisA")
       waitResponse()
-      verifyEquals("", lb1.toWidget().get("value"))
+      verifyEquals("", lb1.toWidget().attr("value"))
 
       `type`(tb2.toWidget(), "ChenB")
       waitResponse()
-      verifyEquals("", lb2.toWidget().get("value"))
+      verifyEquals("", lb2.toWidget().attr("value"))
 
       `type`(tb3.toWidget(), "37")
       waitResponse()
-      verifyEquals("", lb3.toWidget().get("value"))
+      verifyEquals("", lb3.toWidget().attr("value"))
 
       click(save.toWidget())
       waitResponse()
-      verifyEquals("", lb1.toWidget().get("value"))
-      verifyEquals("", lb2.toWidget().get("value"))
-      verifyEquals("", lb3.toWidget().get("value"))
-      verifyEquals("Update DennisA,ChenB,37", jq("$msg").toWidget().get("value"))
+      verifyEquals("", lb1.toWidget().attr("value"))
+      verifyEquals("", lb2.toWidget().attr("value"))
+      verifyEquals("", lb3.toWidget().attr("value"))
+      verifyEquals("Update DennisA,ChenB,37", jq("$msg").toWidget().attr("value"))
 
     })
   }

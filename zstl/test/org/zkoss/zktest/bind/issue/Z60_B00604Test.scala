@@ -48,8 +48,8 @@ class Z60_B00604Test extends ZTL4ScalaTestCase {
         for (j <- 0 to 2) {
           val cell1 = item.children().first()
           val cell2 = cell1.next()
-          verifyEquals(itemLabel1(j), cell1.toWidget().get("label"))
-          verifyEquals(itemLabel2(j), cell2.toWidget().get("label"))
+          verifyEquals(itemLabel1(j), cell1.toWidget().attr("label"))
+          verifyEquals(itemLabel2(j), cell2.toWidget().attr("label"))
           item = item.next()
         }
         click(engine.$f("btn1"))

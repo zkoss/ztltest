@@ -43,8 +43,8 @@ class B50_ZK_332Test extends ZTL4ScalaTestCase {
       verifyEquals(2, jq(tree.$n("rows")).find(".z-treerow").length())
       click(jq(tr.$n("open")))
       waitResponse()
-      verifyEquals("", jq(tree.$n("rows")).find(".z-treerow").get(2).get("style.display"))
-      verifyEquals("", jq(tree.$n("rows")).find(".z-treerow").get(3).get("style.display"))
+      verifyEquals("", jq(tree.$n("rows")).find(".z-treerow").get(2).attr("style.display"))
+      verifyEquals("", jq(tree.$n("rows")).find(".z-treerow").get(3).attr("style.display"))
     })
   }
 }

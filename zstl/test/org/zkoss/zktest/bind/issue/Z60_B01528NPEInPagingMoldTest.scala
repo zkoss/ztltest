@@ -32,12 +32,12 @@ class Z60_B01528NPEInPagingMoldTest extends ZTL4ScalaTestCase {
       click(items.eq(9).toWidget())
       waitResponse()
 
-      verifyEquals("Item 9", jq("$tb").toWidget().get("value"))
+      verifyEquals("Item 9", jq("$tb").toWidget().attr("value"))
 
       click(jq("$delete").toWidget())
       waitResponse()
 
-      var v = jq("$tb").toWidget().get("value")
+      var v = jq("$tb").toWidget().attr("value")
       verifyEquals("", v)
       items = listbox.find("@listitem")
 

@@ -104,7 +104,7 @@ class F60_ZK_701_TreeTest extends ZTL4ScalaTestCase {
 
         def verifyOrder(wgt: Widget, content: String, order: Int) {
           verifyContains("The " + order + " th element should contains " + content,
-            jq(wgt).find(".z-treerow").get(order).get("innerHTML"), content)
+            jq(wgt).find(".z-treerow").get(order).attr("innerHTML"), content)
         }
 
         selectItem(tree, "/src");

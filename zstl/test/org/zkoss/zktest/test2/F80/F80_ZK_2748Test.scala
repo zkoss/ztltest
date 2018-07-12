@@ -14,8 +14,8 @@ class F80_ZK_2748Test extends ZTL4ScalaTestCase {
   def test() = {
     runZTL(
       () => {
-        val lb1 = jq("@label").get(1).get("offsetTop")
-        val lb2 = jq("@label").get(2).get("offsetTop")
+        val lb1 = jq("@label").get(1).attr("offsetTop")
+        val lb2 = jq("@label").get(2).attr("offsetTop")
         verifyEquals(lb1, lb2)
       }
     )

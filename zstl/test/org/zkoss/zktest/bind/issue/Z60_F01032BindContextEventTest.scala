@@ -33,11 +33,11 @@ class Z60_F01032BindContextEventTest extends ZTL4ScalaTestCase {
 
       `type`(tb.toWidget(), "a")
       waitResponse()
-      verifyEquals("evt1:onChange,evt2:onChange, cmd:cmd", msg.toWidget().get("value"))
+      verifyEquals("evt1:onChange,evt2:onChange, cmd:cmd", msg.toWidget().attr("value"))
 
       click(btn.toWidget())
       waitResponse()
-      verifyEquals("evt1:onClick,evt2:onClick, cmd:cmd", msg.toWidget().get("value"))
+      verifyEquals("evt1:onClick,evt2:onClick, cmd:cmd", msg.toWidget().attr("value"))
 
     })
   }

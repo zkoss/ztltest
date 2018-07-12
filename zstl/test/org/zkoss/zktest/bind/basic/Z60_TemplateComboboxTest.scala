@@ -42,16 +42,16 @@ class Z60_TemplateCombobox extends ZTL4ScalaTestCase {
         for (j <- 0 to 1) {
           var comboitem = comboitems.eq(j).toWidget()
           if (j == 0 || j == 2)
-            verifyEquals("Model1-" + itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.get("label"))
+            verifyEquals("Model1-" + itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.attr("label"))
           else
-            verifyEquals("Model2-" + itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.get("label"))
-          verifyEquals(itemLabel(i) + " " + j, comboitem.get("description"))
+            verifyEquals("Model2-" + itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.attr("label"))
+          verifyEquals(itemLabel(i) + " " + j, comboitem.attr("description"))
         }
         var btn = jq(outerrow).find("@button").toWidget() // index button
         var msg = jq("$msg").toWidget()
         click(btn)
         waitResponse(true)
-        verifyEquals("item index " + i, msg.get("value"))
+        verifyEquals("item index " + i, msg.attr("value"))
         outerrow = outerrow.nextSibling()
       }
     })

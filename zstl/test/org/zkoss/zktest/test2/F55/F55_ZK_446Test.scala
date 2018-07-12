@@ -85,9 +85,9 @@ class F55_ZK_446Test extends ZTL4ScalaTestCase {
           sendKeys(tbx, value);
           sleep(500);
           verifyEquals("value should be identical",
-            lb.$n().get("innerHTML"), lb2.$n().get("innerHTML"))
+            lb.$n().attr("innerHTML"), lb2.$n().attr("innerHTML"))
           verifyEquals("event should be fired if no error",
-            ib.$n().get("value"), fired)
+            ib.$n().attr("value"), fired)
           verifyTrue(jq(".z-errorbox").exists() == shouldError);
         }
 

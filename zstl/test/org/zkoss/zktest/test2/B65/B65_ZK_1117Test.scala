@@ -67,7 +67,7 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
         sendKeys(snpinerinp, Keys.END + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE)
 
         waitResponse()
-        verifyEquals(snpinerinp.get("value"), "")
+        verifyEquals(snpinerinp.attr("value"), "")
         waitResponse()
         click(clickbtn)
         waitResponse()

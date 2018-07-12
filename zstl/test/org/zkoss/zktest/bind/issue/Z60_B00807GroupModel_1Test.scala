@@ -42,19 +42,19 @@ class Z60_B00807GroupModel_1Test extends ZTL4ScalaTestCase {
       verifyEquals(3, groupfoots.length())
       verifyEquals(5, rows.length())
 
-      verifyEquals("Fruits", groups.eq(0).toWidget().get("label"))
-      verifyEquals("Seafood", groups.eq(1).toWidget().get("label"))
-      verifyEquals("Vegetables", groups.eq(2).toWidget().get("label"))
+      verifyEquals("Fruits", groups.eq(0).toWidget().attr("label"))
+      verifyEquals("Seafood", groups.eq(1).toWidget().attr("label"))
+      verifyEquals("Vegetables", groups.eq(2).toWidget().attr("label"))
 
-      verifyEquals("1", groupfoots.eq(0).find("@label").toWidget().get("value"))
-      verifyEquals("2", groupfoots.eq(1).find("@label").toWidget().get("value"))
-      verifyEquals("2", groupfoots.eq(2).find("@label").toWidget().get("value"))
+      verifyEquals("1", groupfoots.eq(0).find("@label").toWidget().attr("value"))
+      verifyEquals("2", groupfoots.eq(1).find("@label").toWidget().attr("value"))
+      verifyEquals("2", groupfoots.eq(2).find("@label").toWidget().attr("value"))
 
-      verifyEquals("Apples", rows.eq(0).find("@label").eq(1).toWidget().get("value"))
-      verifyEquals("Salmon", rows.eq(1).find("@label").eq(1).toWidget().get("value"))
-      verifyEquals("Shrimp", rows.eq(2).find("@label").eq(1).toWidget().get("value"))
-      verifyEquals("Asparagus", rows.eq(3).find("@label").eq(1).toWidget().get("value"))
-      verifyEquals("Beets", rows.eq(4).find("@label").eq(1).toWidget().get("value"))
+      verifyEquals("Apples", rows.eq(0).find("@label").eq(1).toWidget().attr("value"))
+      verifyEquals("Salmon", rows.eq(1).find("@label").eq(1).toWidget().attr("value"))
+      verifyEquals("Shrimp", rows.eq(2).find("@label").eq(1).toWidget().attr("value"))
+      verifyEquals("Asparagus", rows.eq(3).find("@label").eq(1).toWidget().attr("value"))
+      verifyEquals("Beets", rows.eq(4).find("@label").eq(1).toWidget().attr("value"))
 
     })
   }

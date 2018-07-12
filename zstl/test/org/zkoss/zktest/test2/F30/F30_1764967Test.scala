@@ -85,11 +85,11 @@ public class Order {
       waitResponse()
       click(jq(".z-comboitem").get(4))
       waitResponse()
-      verifyEquals(comboInput.get("value"), name.get("value"))
+      verifyEquals(comboInput.attr("value"), name.attr("value"))
       sendKeys(comboInput, "xxx")
       blur(comboInput)
       waitResponse()
-      verifyEquals("", name.get("value"))
+      verifyEquals("", name.attr("value"))
     })
   }
 }

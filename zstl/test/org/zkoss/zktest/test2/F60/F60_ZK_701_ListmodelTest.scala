@@ -104,7 +104,7 @@ class F60_ZK_701_ListmodelTest extends ZTL4ScalaTestCase {
 
         def verifyOrder(wgt: Widget, content: String, order: Int) {
           verifyContains("The " + order + " th element should contains " + content,
-            jq(wgt).find(".z-listitem").get(order).get("innerHTML"), content)
+            jq(wgt).find(".z-listitem").get(order).attr("innerHTML"), content)
         }
 
         selectItem(grid, "option 3");

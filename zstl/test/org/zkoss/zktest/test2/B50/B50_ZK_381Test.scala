@@ -61,7 +61,7 @@ class B50_ZK_381Test extends ZTL4ScalaTestCase {
       var i = jq(menubar.$n("cave")).children().length()
       var e = jq(menubar.$n("cave")).get(0).firstChild()
       for (j <- 0 until 3) {
-        fullWidth += e.get("offsetWidth").toInt
+        fullWidth += e.attr("offsetWidth").toInt
         e = e.nextSibling()
       }
       for (j <- 0 until 5) {
@@ -69,13 +69,13 @@ class B50_ZK_381Test extends ZTL4ScalaTestCase {
         sleep(500)
       }
       waitResponse()
-      verifyTolerant(menubar.$n("body").get("scrollLeft").toInt, (fullWidth - menubar.$n("body").get("offsetWidth").toInt), 16)
+      verifyTolerant(menubar.$n("body").attr("scrollLeft").toInt, (fullWidth - menubar.$n("body").attr("offsetWidth").toInt), 16)
       for (j <- 0 until 5) {
         click(jq(".z-menubar").toWidget().$n("left"))
         sleep(500)
       }
       waitResponse()
-      verifyEquals(0, menubar.$n("body").get("scrollLeft").toInt)
+      verifyEquals(0, menubar.$n("body").attr("scrollLeft").toInt)
     })
   }
 }

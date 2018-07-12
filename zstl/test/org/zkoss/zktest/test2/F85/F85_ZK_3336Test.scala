@@ -21,9 +21,9 @@ class F85_ZK_3336Test extends ZTL4ScalaTestCase {
       tbeditor.toElement.set("innerHTML", "")
       `type`(tbeditor, "Hello world")
       waitResponse()
-      val textboxValue = textbox.toElement.get("value")
+      val textboxValue = textbox.toElement.attr("value")
       verifyContains("onChange should be working", textboxValue, tbeditor.text())
-      verifyEquals("Widget getValue is wrong", textboxValue, tbeditor.toWidget.get("Value"))
+      verifyEquals("Widget getValue is wrong", textboxValue, tbeditor.toWidget.attr("Value"))
 
       click(jq("@button:eq(0)"))
       waitResponse()

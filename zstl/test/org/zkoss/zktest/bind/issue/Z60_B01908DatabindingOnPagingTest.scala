@@ -28,15 +28,15 @@ class Z60_B01908DatabindingOnPagingTest extends ZTL4ScalaTestCase {
     runZTL(zul, () => {
       val pg = jq("$pg").toWidget();
       val lab1 = jq("$lab1").toWidget();
-      verifyEquals(3L, pg.get("activePage"))
-      verifyEquals(10L, pg.get("pageSize"))
-      verifyEquals(100L, pg.get("totalSize"))
-      verifyEquals("3", lab1.get("value"))
+      verifyEquals(3L, pg.attr("activePage"))
+      verifyEquals(10L, pg.attr("pageSize"))
+      verifyEquals(100L, pg.attr("totalSize"))
+      verifyEquals("3", lab1.attr("value"))
       
 //      pg.set("setActivePage", 4)
 //      waitResponse()
-//      verifyEquals(4L, pg.get("activePage"))
-//      verifyEquals("4", lab1.get("value"))
+//      verifyEquals(4L, pg.attr("activePage"))
+//      verifyEquals("4", lab1.attr("value"))
     })
 
   }

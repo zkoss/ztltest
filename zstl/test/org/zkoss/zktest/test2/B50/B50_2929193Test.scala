@@ -41,7 +41,7 @@ class B50_2929193Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       verifyEquals("The Calendar should close",
-        "none", db.$n("pp").get("style.display"))
+        "none", db.$n("pp").attr("style.display"))
     }
     );
 
