@@ -17,7 +17,7 @@ class B80_ZK_2772Test extends ZTL4ScalaTestCase {
         var index = 0
         println("1>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + cols.length())
         while (index < cols.length()) {
-          originalWidths :+= cols.eq(index).next().width() //append in place
+          originalWidths :+= cols.eq(index).width() //append in place
           index += 1
         }
         //scroll to right

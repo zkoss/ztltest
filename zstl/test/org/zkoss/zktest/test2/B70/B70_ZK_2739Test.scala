@@ -42,16 +42,6 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 
 -->
 <zk>
-	<script>
-		<![CDATA[
-		setInterval(function () {
-			if (zk.currentFocus && zk.currentFocus._label) {
-        jq('#zk_logbox').remove();
-				zk.log(zk.currentFocus._label);
-			}
-		}, 100)
-		]]>
-	</script>
 	<window border="normal" title="Test" height="500px"
 		contentStyle="overflow-y:scroll;" mode="modal">
 		<vlayout spacing="10px">
@@ -63,12 +53,12 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 			</label>
 			<hlayout>
 				<textbox />
-				<button label="Open Modal button without autodisabled"
+				<button label="Open Modal button without autodisabled" onFocus='Clients.log(self.label)'
 					onClick='Executions.createComponents("test2/B70-ZK-2739_1.zul", null, null)' />
 			</hlayout>
 			<hlayout>
 				<textbox />
-				<button label="Open Modal button with autodisabled"
+				<button label="Open Modal button with autodisabled" onFocus='Clients.log(self.label)'
 					onClick='Executions.createComponents("test2/B70-ZK-2739_1.zul", null, null)' autodisable="self" />
 			</hlayout>
 		</vlayout>
@@ -79,6 +69,8 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       var buttons = jq("@button")
       for (i <- 0 to 1) {
         click(buttons.eq(i))
+        waitResponse()
+        closeZKLog()
         waitResponse()
         click(jq("@window").last().find("@button"))
         waitResponse()

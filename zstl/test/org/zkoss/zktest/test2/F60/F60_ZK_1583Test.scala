@@ -17,16 +17,16 @@ class F60_ZK_1583Test extends ZTL4ScalaTestCase {
           waitResponse(true)
           var statusList = List("info", "warning", "error")
           var colorList = List("green", "yellow", "red")
-          for (notifyType <- statusList; color <- colorList) {
-            click(jq(".z-button:contains(" + notifyType + ")"))
+          for (i <- 0 to 2) {
+            click(jq(".z-button:contains(" + statusList(i) + ")"))
             waitResponse(true)
-            val div = jq("div[style*=" + color + "]")
+            val div = jq("div[style*=" + colorList(i) + "]")
             val pointer = jq(".z-notification-pointer")
             val divLeftMid = div.offsetLeft() + 0.5 * div.width()
             val pointerLeftMid = pointer.offsetLeft() + 0.5 * pointer.width()
             val divTopMid = div.offsetTop() + 0.5 * div.height()
             val pointerTopMid = pointer.offsetTop() + 0.5 * pointer.height()
-            var msg = ">>>" + pos + ":" + notifyType + ", "
+            var msg = ">>>" + pos + ":" + statusList(i) + ", "
             if (pos.startsWith("b") || pos.startsWith("a")) {
               msg = msg + divLeftMid + ", " + pointerLeftMid + ". Should see the ARROW of notification point to center"
               println(msg)

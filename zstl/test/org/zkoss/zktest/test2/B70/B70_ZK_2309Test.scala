@@ -67,13 +67,9 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """
     runZTL(zscript,
       () => {
-        val ALLOWANCE = 1;
-        click(jq("$maxL"));
-        waitResponse();
-        val outer = jq("$layout");
-        val inner = jq("$left");
-        verifyTrue("the width of \"Left box\" should expand its width as its parent.",
-          getEval("Math.abs(" + outer.width() + "-" + inner.width() + ") <= " + ALLOWANCE))
+        click(jq("$maxL"))
+        waitResponse()
+        verifyTolerant(jq("$layout").width(), jq("$left").width(), 3)
       })
 
   }
