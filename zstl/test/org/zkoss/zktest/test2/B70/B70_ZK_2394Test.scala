@@ -48,8 +48,8 @@ class B70_ZK_2394Test extends ZTL4ScalaTestCase {
         while (iter.hasNext) {
           bdcolwidth += iter.next.width
         }
-        verifyTrue(getEval("Math.abs(" + hdtblwidth + "-" + hdcolwidth + ") < 1)"))
-        verifyTrue(getEval("Math.abs(" + bdtblwidth + "-" + bdcolwidth + ") < 1)"))
+        verifyTrue(getEval("Math.abs(" + hdtblwidth + "-" + hdcolwidth + ") < 1"))
+        verifyTrue(getEval("Math.abs(" + bdtblwidth + "-" + bdcolwidth + ") < 1"))
       })
 
   }

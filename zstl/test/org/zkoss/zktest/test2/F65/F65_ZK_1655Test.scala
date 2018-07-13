@@ -28,7 +28,7 @@ class F65_ZK_1655Test extends ZTL4ScalaTestCase {
       verifyTolerant(pinkPP.offsetLeft(), pink.offsetLeft() + 100, 3)
 
       val cyan = jq(".z-div[style*=cyan]")
-      mouseOver(cyan)
+      mouseMoveAt(cyan, "100,100")
       waitResponse()
       sleep(1000)
       val cyanPP = jq("@popup")

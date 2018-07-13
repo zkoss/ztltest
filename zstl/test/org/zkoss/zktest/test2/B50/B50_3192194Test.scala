@@ -38,7 +38,7 @@ class B50_3192194Test extends ZTL4ScalaTestCase {
 			list2.add("Thomas");
 			list2.add("Steven");
 			ListModelList lm2 = new ListModelList(list2);
-			lm2.addSelection(lm2.attr(0));
+			lm2.addSelection(lm2.get(0));
 			combobox.setModel(lm2);
 		]]></attribute>
 	</combobox>

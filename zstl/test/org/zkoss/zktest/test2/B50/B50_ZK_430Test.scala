@@ -53,7 +53,7 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
         waitResponse()
         ele.eval("select()");
         waitResponse()
-        sendKeys(ele, value)
+        `type`(ele, value)
         waitResponse()
       }
 

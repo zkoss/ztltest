@@ -17,13 +17,11 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 
 class B85_ZK_3606Test extends ZTL4ScalaTestCase {
   @Test
-  def test()=  {
+  def test() = {
     runZTL(() => {
       val window = jq(".z-window")
       var button = jq("button");
       var test = jq(".z-hlayout").find(".z-label")
-      verScrollAbs(window, 0)
-      waitResponse()
       click(test)
       waitResponse()
       var popup = jq(".z-popup-open").first()
@@ -44,7 +42,7 @@ class B85_ZK_3606Test extends ZTL4ScalaTestCase {
       verScrollAbs(window, 100)
       waitResponse()
       var noti2 = noti.offsetTop();
-      verifyEquals(100, noti1-noti2)
+      verifyEquals(100, noti1 - noti2)
     })
   }
 }

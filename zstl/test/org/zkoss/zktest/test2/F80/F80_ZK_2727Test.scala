@@ -91,13 +91,13 @@ public String toggleOrient(Scrollview sv) {
       () => {
         var sv = jq("@scrollview");
         var count = jq("@window").length();
-        horScrollNoBody(sv, 1);
+        horScrollNoBody(sv, 100);
         verifyTrue(jq("@window").length() > count);
 
         count = jq("@window").length();
         click(jq(".z-button"));
         waitResponse()
-        verScroll(sv, 1);
+        verScrollNoBody(sv, 100);
         waitResponse()
         verifyTrue(jq("@window").length() > count);
       })

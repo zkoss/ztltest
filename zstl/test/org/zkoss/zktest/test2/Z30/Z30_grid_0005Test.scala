@@ -105,7 +105,7 @@ class Z30_grid_0005Test extends ZTL4ScalaTestCase {
         click(checkId);
         waitResponse();
         var width = getElementWidth(uuid);
-        mouseOverAt($jq.toWidget(), width + ",0");
+        mouseMoveAt($jq.toWidget(), width + ",0");
         waitResponse()
         verifyTrue($jq.hasClass("z-column-sizing"));
         //a workaround to chrome, move 10px per drag

@@ -41,7 +41,7 @@ class B36_2803575Test extends ZTL4ScalaTestCase {
 				<attribute name="onClick">
 					Map map = label1.getAttribute("bindingArgs");
 					if (map != null) {
-						String s2= map.attr("x1");
+						String s2= map.get("x1");
 						if (s2 != null) {
 							label1.setStyle(s2);
 						}

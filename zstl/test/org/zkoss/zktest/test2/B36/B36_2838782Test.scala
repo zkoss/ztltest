@@ -48,8 +48,11 @@ class B36_2838782Test extends ZTL4ScalaTestCase {
       click(jq("@treerow:eq(0)").toWidget().$n("icon"))
       waitResponse()
       sendKeys(jq(tree), Keys.DOWN)
+      waitResponse()
       sendKeys(jq(tree), Keys.DOWN)
+      waitResponse()
       sendKeys(jq(tree), Keys.UP)
+      waitResponse()
       verifyTrue(jq("@treecell:contains(7)").parent(".z-treerow").hasClass("z-treerow-selected"))
     })
   }

@@ -19,9 +19,9 @@ class B80_ZK_2920Test extends ZTL4ScalaTestCase {
         // open chosenbox
         click(button)
         waitResponse(true)
-        val chosenbox = jq(".z-chosenbox")
+        val chosenbox = jq(".z-chosenbox-input")
         // focus on the input of chosenbox
-        click(chosenbox)
+        click(chosenbox.eq(0))
         waitResponse(true)
         // make sure chosenbox is empty at first
         verifyTrue(jq(".z-chosenbox-item").length() == 0)

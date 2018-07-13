@@ -9,27 +9,27 @@ import org.zkoss.ztl.annotation.Tags
   */
 @Tags(tags = "B85-ZK-3589.zul")
 class B85_ZK_3589Test extends ZTL4ScalaTestCase {
-  @Test
-  def testScrollOverViewport()=  {
-    runZTL(() => {
-      val lbl = jq("@label")
-      val top = jq("$btnTop")
-      val bottom = jq("$btnBottom")
-      click(lbl)
-      waitResponse()
-
-      // To the bottom and click something
-      zk(bottom).eval("scrollIntoView();'test';")
-      waitResponse()
-      click(bottom)
-      waitResponse()
-
-      // To the top
-      zk(top).eval("scrollIntoView();'test';")
-      waitResponse()
-      verifyFalse("The popup still appears!", jq("@popup").isVisible)
-    })
-  }
+//  @Test
+//  def testScrollOverViewport()=  {
+//    runZTL(() => {
+//      val lbl = jq("@label")
+//      val top = jq("$btnTop")
+//      val bottom = jq("$btnBottom")
+//      click(lbl)
+//      waitResponse()
+//
+//      // To the bottom and click something
+//      zk(bottom).eval("scrollIntoView();'test';")
+//      waitResponse()
+//      click(bottom)
+//      waitResponse()
+//
+//      // To the top
+//      zk(top).eval("scrollIntoView();'test';")
+//      waitResponse()
+//      verifyFalse("The popup still appears!", jq("@popup").isVisible)
+//    })
+//  }
 
   @Test
   def testScrollABit()=  {
@@ -37,8 +37,7 @@ class B85_ZK_3589Test extends ZTL4ScalaTestCase {
       val lbl = jq("@label")
       click(lbl)
       waitResponse()
-
-      executeScript("window.scroll(0, 300)")
+      getEval("window.scroll(0, 300)")
       waitResponse()
       verifyTrue("The popup should appear!", jq("@popup").isVisible)
 

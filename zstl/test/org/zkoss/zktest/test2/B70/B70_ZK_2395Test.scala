@@ -16,26 +16,26 @@ class B70_ZK_2395Test extends ZTL4ScalaTestCase {
           val listbox = jq("@listbox");
           val grid = jq("@grid");
           println(tree.eq(0).find("@treecol").last().offsetLeft(), tree.eq(0).find("@treerow").first().find("@treecell").last().offsetLeft());
-          verifyTrue("tree header and content shouldn't misaligned.",
-            tree.eq(0).find("@treecol").last().offsetLeft() ==
-              tree.eq(0).find("@treerow").first().find("@treecell").last().offsetLeft());
-          verifyTrue("tree header and content shouldn't misaligned.",
-            tree.eq(1).find("@treecol").last().offsetLeft() ==
-              tree.eq(1).find("@treerow").first().find("@treecell").last().offsetLeft());
+          verifyEquals("tree header and content shouldn't misaligned.",
+            tree.eq(0).find("@treecol").last().offsetLeft(),
+            tree.eq(0).find("@treerow").first().find("@treecell").last().offsetLeft());
+          verifyEquals("tree header and content shouldn't misaligned.",
+            tree.eq(1).find("@treecol").last().offsetLeft(),
+            tree.eq(1).find("@treerow").first().find("@treecell").last().offsetLeft());
 
-          verifyTrue("listbox header and content shouldn't misaligned.",
-            listbox.eq(0).find("@listheader").last().offsetLeft() ==
+          verifyEquals("listbox header and content shouldn't misaligned.",
+            listbox.eq(0).find("@listheader").last().offsetLeft(),
               listbox.eq(0).find("@listitem").first().find("@listcell").last().offsetLeft());
-          verifyTrue("listbox header and content shouldn't misaligned.",
-            listbox.eq(1).find("@listheader").last().offsetLeft() ==
+          verifyEquals("listbox header and content shouldn't misaligned.",
+            listbox.eq(1).find("@listheader").last().offsetLeft(),
               listbox.eq(1).find("@listitem").first().find("@listcell").last().offsetLeft());
 
 
-          verifyTrue("grid header and content shouldn't misaligned.",
-            grid.eq(0).find("@column").last().offsetLeft() ==
+          verifyEquals("grid header and content shouldn't misaligned.",
+            grid.eq(0).find("@column").last().offsetLeft(),
               grid.eq(0).find("@row").first().find(".z-row-inner").last().offsetLeft());
-          verifyTrue("grid header and content shouldn't misaligned.",
-            grid.eq(1).find("@column").last().offsetLeft() ==
+          verifyEquals("grid header and content shouldn't misaligned.",
+            grid.eq(1).find("@column").last().offsetLeft(),
               grid.eq(1).find("@row").first().find(".z-row-inner").last().offsetLeft());
         };
         sleep(3000);

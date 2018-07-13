@@ -51,9 +51,10 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         val slider = jq(".z-slider-horizontal").toWidget()
         val btn = slider.$n("btn")
         val rail = slider.$n("inner")
-
-        dragdropToObject(btn, rail, "2,2", "220,2")
-        dragdropToObject(btn, rail, "2,2", "0,2")
+        dragAndDrop(btn, "220,0")
+        waitResponse()
+        dragAndDrop(btn, "-220,0")
+        waitResponse()
 
         verifyContains("You should see the curpos stays in 0",
           jq(".z-label:contains(curpos:) + .z-label").text(), "0")

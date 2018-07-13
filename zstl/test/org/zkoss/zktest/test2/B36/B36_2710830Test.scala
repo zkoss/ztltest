@@ -20,7 +20,7 @@ class B36_2710830Test extends ZTL4ScalaTestCase {
   @Test
   def testposition() = {
     runZTL(() => {
-      click("@button")
+      click(jq("@button"))
       waitResponse()
       verifyEquals("true", getZKLog())
     })

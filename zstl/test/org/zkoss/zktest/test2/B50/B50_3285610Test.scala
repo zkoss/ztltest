@@ -41,6 +41,7 @@ class B50_3285610Test extends ZTL4ScalaTestCase {
     val tb = ztl$engine.$f("tb")
     runZTL(zscript, () => {
       focus(jq(test1))
+      waitResponse()
       sendKeys(test1, Keys.TAB)
       waitResponse()
       verifyTrue("" != jq(".z-textbox").css("box-shadow"))

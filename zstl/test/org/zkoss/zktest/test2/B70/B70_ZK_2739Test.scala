@@ -46,6 +46,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 		<![CDATA[
 		setInterval(function () {
 			if (zk.currentFocus && zk.currentFocus._label) {
+        jq('#zk_logbox').remove();
 				zk.log(zk.currentFocus._label);
 			}
 		}, 100)
