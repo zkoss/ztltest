@@ -34,26 +34,27 @@ ListSubModel model = ListModels.toListSubModel(new ListModelList(list));
 
     runZTL(zscript,
       () => {
-        val chosenbox = jq(".z-chosenbox-input")
-
-        click(chosenbox)
-        waitResponse()
-
-        sendKeys(chosenbox, "r")
-        waitResponse()
-
-        sleep(2000)
+        clickAndType()
 
         click(jq(".z-chosenbox-option:contains(row 4)"))
         waitResponse()
-
-        sendKeys(chosenbox, "r")
-        waitResponse()
-
-        sleep(2000)
+  
+        clickAndType()
 
         verifyTrue("you should see the drop down list", jq(".z-chosenbox-option:contains(row 6)").exists())
       })
 
+  }
+  
+  def clickAndType(): Unit = {
+    val chosenbox = jq(".z-chosenbox-input")
+    
+    click(chosenbox)
+    waitResponse()
+  
+    sendKeys(chosenbox, "r")
+    waitResponse()
+  
+    sleep(2000)
   }
 }

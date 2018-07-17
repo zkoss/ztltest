@@ -54,7 +54,9 @@ class B50_ZK_391Test extends ZTL4ScalaTestCase {
           var pp: Widget = engine.$f(ppName);
 
           // wait at most 3 seconds
-          sleep(300);
+          while (!pp.exists() && System.currentTimeMillis() - t1 <= 3000) {
+            sleep(300)
+          }
           waitResponse()
           verifyTrue("popup should exist and visible", pp.exists())
           verifyEquals("visible", pp.$n().attr("style.visibility"))

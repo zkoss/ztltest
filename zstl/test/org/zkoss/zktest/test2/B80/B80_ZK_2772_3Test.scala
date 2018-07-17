@@ -16,7 +16,7 @@ class B80_ZK_2772_3Test extends ZTL4ScalaTestCase {
         var cols = jq(".z-column")
         var index = 0
         while (index < cols.length()) {
-          originalWidths :+= cols.eq(index).next().width() //append in place
+          originalWidths :+= cols.eq(index).width() //append in place
           index += 1
         }
         //sort column 6

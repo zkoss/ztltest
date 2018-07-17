@@ -24,11 +24,13 @@ class B85_ZK_3583Test extends ZTL4ScalaTestCase {
       verifyFalse(popup.exists())
 
       mouseOver(jq(".z-div").eq(1))
+      sleep(1000)
       waitResponse(true)
 
       verifyTrue(popup.exists())
 
       mouseOver(jq(".z-button"))
+      sleep(1000)
       waitResponse(true)
 
       verifyEquals("block", popup.css("display"))

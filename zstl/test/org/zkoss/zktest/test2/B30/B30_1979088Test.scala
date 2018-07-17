@@ -20,33 +20,9 @@ import org.zkoss.ztl.util.ColorVerifingHelper
 class B30_1979088Test extends ZTL4ScalaTestCase {
   @Test
   def testztl() = {
-    var zscript =
-      """
-			
-
-
-<window>
-	Click the "test" button, then the background of the both paging are changed to red.
-<zscript>
-List items = new org.zkoss.zktest.test2.BigList(100); //a big list of
-Integer
-</zscript>
-<button label="test" onClick='list.pagingChild.setStyle("background:red;");'/>
-<listbox mold="paging" id="list" pagingPosition="both">
-<listitem forEach="&#36;{items}">
-<listcell label="&#36;{each}-1"/>
-<listcell label="&#36;{each}-2"/>
-<listcell label="&#36;{each}-3"/>
-<listcell label="&#36;{each}-4"/>
-</listitem>
-</listbox>
-</window>
-		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
-    val list = ztl$engine.$f("list")
-    runZTL(zscript, () => {
+    runZTL(() => {
       click(jq("@button"))
-      waitResponse()
+      sleep(1000)
       verifyEqualColor("red", jq(".z-paging:eq(0)").css("backgroundColor"))
       verifyEqualColor("red", jq(".z-paging:eq(1)").css("backgroundColor"))
     })

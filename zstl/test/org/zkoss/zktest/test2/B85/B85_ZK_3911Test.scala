@@ -13,7 +13,9 @@ package org.zkoss.zktest.test2.B85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.annotation.IgnoreBrowsers
 
+@IgnoreBrowsers("ie9")
 class B85_ZK_3911Test extends ZTL4ScalaTestCase {
 	@Test
 	def test()=  {

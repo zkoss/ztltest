@@ -42,7 +42,7 @@ class B50_ZK_596Test extends ZTL4ScalaTestCase {
 		<div height="25px">1. Click the buttons below from left to right. </div>
 		<div height="25px">2. The header of tabbox should shrink or expand while</div>
 		<hbox><div height="25px" width="20px"></div><div height="25px"> the toolbar expand or shrink.</div></hbox>
-			<tabbox id="tb" width="800px">
+			<tabbox id="tb" width="1000px">
 				<tabs id="tbs">
 					<tab label="Tab 1" closable="true" />
 					<tab label="Tab 2" closable="true"/>
