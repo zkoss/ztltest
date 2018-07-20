@@ -62,9 +62,9 @@ class B50_3285714Test extends ZTL4ScalaTestCase {
         var grid: Widget = engine.$f("grid");
         var rows: Widget = engine.$f("rows");
 
-        verScroll(grid, 1)
+        verScroll(grid, 100)
         sleep(600);
-        verScroll(grid, .5)
+        verScroll(grid, 50)
         sleep(600);
 
         var rowCnt: Int = jq(rows.$n()).find(".z-row").length();

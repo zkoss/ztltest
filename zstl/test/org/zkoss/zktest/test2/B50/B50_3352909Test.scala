@@ -60,11 +60,11 @@ class B50_3352909Test extends ZTL4ScalaTestCase {
       var grid: Widget = engine.$f("grid")
       waitResponse()
 
-      verScroll(lb, 0.5)
+      verScroll(lb, 50)
       waitResponse()
       verifyTrue(jq(lb.$n("body")).scrollTop() > 2000)
 
-      verScroll(grid, 0.5)
+      verScroll(grid, 50)
       waitResponse()
       sleep(500)
       verifyTrue(jq(grid.$n("body")).scrollTop() > 2000)

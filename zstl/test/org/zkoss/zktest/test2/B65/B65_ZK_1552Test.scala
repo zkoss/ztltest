@@ -69,7 +69,7 @@ class B65_ZK_1552Test extends ZTL4ScalaTestCase {
           var wgt = jq(".z-" + comp).toWidget()
           click(wgt.$n("btn"))
           waitResponse()
-          verScroll(center, 1)
+          verScroll(center, 100)
           verScroll(center, 0)
           verifyTrue("should not show the " + comp + " popup", !jq(wgt.$n("pp")).isVisible())
         }

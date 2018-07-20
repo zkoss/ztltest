@@ -13,6 +13,7 @@ class B80_ZK_2660Test extends ZTL4ScalaTestCase {
       () => {
         val header = jq(".z-listheader").last()
         val btn = jq(".z-listheader").last().find("a")
+        sleep(1000)
         mouseOver(header)
         waitResponse()
         click(btn)

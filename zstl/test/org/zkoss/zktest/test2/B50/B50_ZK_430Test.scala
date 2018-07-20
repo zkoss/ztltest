@@ -53,7 +53,7 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
         waitResponse()
         ele.eval("select()");
         waitResponse()
-        `type`(ele, value)
+        sendKeys(ele, value)
         waitResponse()
       }
 
@@ -85,10 +85,12 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
       waitResponse()
 
       def clickAndCheck(ele: Element) {
-        var checkStr = getEval("getNextAMPM()")
-        click(ele);
+        var checkStr = "PM"
+        if (!tb3Inp.attr("value").contains(checkStr))
+          checkStr = "AM"
+        click(ele)
         waitResponse()
-        verifyContains("should change AM/PM", tb3Inp.attr("value"), checkStr);
+        verifyTrue("should change AM/PM", tb3Inp.attr("value").contains(checkStr))
       }
     }
     );
