@@ -50,13 +50,10 @@ class B50_ZK_391Test extends ZTL4ScalaTestCase {
 
         def checkPopup(lb: Widget, ppName: String) {
           mouseOver(lb);
-          var t1: Long = System.currentTimeMillis();
           var pp: Widget = engine.$f(ppName);
 
           // wait at most 3 seconds
-          while (!pp.exists() && System.currentTimeMillis() - t1 <= 3000) {
-            sleep(300)
-          }
+          sleep(3000)
           waitResponse()
           verifyTrue("popup should exist and visible", pp.exists())
           verifyEquals("visible", pp.$n().attr("style.visibility"))
@@ -72,7 +69,6 @@ class B50_ZK_391Test extends ZTL4ScalaTestCase {
         checkPopup(lb2, "zulPu2");
         checkPopup(lb3, "zulPu3");
         checkPopup(javaLbl, "javaPu");
-
       }
     );
 

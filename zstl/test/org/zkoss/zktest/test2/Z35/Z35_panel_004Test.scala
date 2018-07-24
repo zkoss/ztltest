@@ -84,7 +84,7 @@ class Z35_panel_004Test extends ZTL4ScalaTestCase {
         click(jq("$btn1"));
         waitResponse()
         sleep(1000);
-        verifyNotEquals(width.toString(), jq("$p1").outerWidth().toString());
+        verifyNotEquals(width, jq("$p1").outerWidth());
         verifyTrue(jq(".z-panel-body").isVisible());
 
 

@@ -46,36 +46,36 @@ class B80_ZK_1987Test extends ZTL4ScalaTestCase {
         //repeat the same thing in iframe
         //*******************************
         //open the combobox
-        executeScript("""$("iframe").contents().find(".z-combobox-button")[0].click()""")
+        getEval("$(\"iframe\").contents().find(\".z-combobox-button\")[0].click()")
         waitResponse()
         //check that 2nd item should be selected by default
-        verifyEquals("true", getEval("""$("iframe").contents().find(".z-comboitem").eq(1).hasClass("z-comboitem-selected")"""))
+        verifyEquals("true", getEval("$(\"iframe\").contents().find(\".z-comboitem\").eq(1).hasClass(\"z-comboitem-selected\")"))
         //select the 3rd option
-        executeScript("""$("iframe").contents().find(".z-comboitem").eq(2).click()""")
+        getEval("$(\"iframe\").contents().find(\".z-comboitem\").eq(2).click()")
         waitResponse()
         //check the message is showing "Selected ID: Element(id=3, label=bar)"
-        verifyEquals("Element(id=3, label=bar)", getEval("""$("iframe").contents().find(".z-window.z-window-embedded .z-label").eq(1).text()"""))
+        verifyEquals("Element(id=3, label=bar)", getEval("$(\"iframe\").contents().find(\".z-window.z-window-embedded .z-label\").eq(1).text()"))
         //open the combobox and select the 2nd option
-        executeScript("""$("iframe").contents().find(".z-combobox-button")[0].click()""")
+        getEval("$(\"iframe\").contents().find(\".z-combobox-button\")[0].click()")
         waitResponse()
-        executeScript("""$("iframe").contents().find(".z-comboitem").eq(1).click()""")
+        getEval("$(\"iframe\").contents().find(\".z-comboitem\").eq(1).click()")
         waitResponse()
         //check the message is showing "Selected ID: Element(id=2, label=foo)"
-        verifyEquals("Element(id=2, label=foo)", getEval("""$("iframe").contents().find(".z-window.z-window-embedded .z-label").eq(1).text()"""))
+        verifyEquals("Element(id=2, label=foo)", getEval("$(\"iframe\").contents().find(\".z-window.z-window-embedded .z-label\").eq(1).text()"))
         //open the combobox and select the 1st option
-        executeScript("""$("iframe").contents().find(".z-combobox-button")[0].click()""")
+        getEval("$(\"iframe\").contents().find(\".z-combobox-button\")[0].click()")
         waitResponse()
-        executeScript("""$("iframe").contents().find(".z-comboitem").eq(0).click()""")
+        getEval("$(\"iframe\").contents().find(\".z-comboitem\").eq(0).click()")
         waitResponse()
         //check the message is showing "Selected ID: Element(id=1, label=foo)"
-        verifyEquals("Element(id=1, label=foo)", getEval("""$("iframe").contents().find(".z-window.z-window-embedded .z-label").eq(1).text()"""))
+        verifyEquals("Element(id=1, label=foo)", getEval("$(\"iframe\").contents().find(\".z-window.z-window-embedded .z-label\").eq(1).text()"))
         //open the combobox and select the 2nd option
-        executeScript("""$("iframe").contents().find(".z-combobox-button")[0].click()""")
+        getEval("$(\"iframe\").contents().find(\".z-combobox-button\")[0].click()")
         waitResponse()
-        executeScript("""$("iframe").contents().find(".z-comboitem").eq(1).click()""")
+        getEval("$(\"iframe\").contents().find(\".z-comboitem\").eq(1).click()")
         waitResponse()
         //check the message is showing "Selected ID: Element(id=3, label=bar)"
-        verifyEquals("Element(id=2, label=foo)", getEval("""$("iframe").contents().find(".z-window.z-window-embedded .z-label").eq(1).text()"""))
+        verifyEquals("Element(id=2, label=foo)", getEval("$(\"iframe\").contents().find(\".z-window.z-window-embedded .z-label\").eq(1).text()"))
       })
   }
 }

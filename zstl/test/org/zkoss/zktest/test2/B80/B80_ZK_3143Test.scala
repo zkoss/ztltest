@@ -17,8 +17,6 @@ package org.zkoss.zktest.test2.B80
 import java.util
 
 import org.junit.Test
-import org.openqa.selenium.interactions.Actions
-import org.openqa.selenium.{By, Keys}
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
 import org.zkoss.ztl.unit.{ClientWidget, JQuery};

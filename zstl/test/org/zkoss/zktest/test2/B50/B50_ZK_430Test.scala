@@ -85,14 +85,12 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
       waitResponse()
 
       def clickAndCheck(ele: Element) {
-        var checkStr = "PM"
-        if (!tb3Inp.attr("value").contains(checkStr))
-          checkStr = "AM"
+        var checkStr = getEval("getNextAMPM()")
         click(ele)
         waitResponse()
-        verifyTrue("should change AM/PM", tb3Inp.attr("value").contains(checkStr))
+        verifyContains("should change AM/PM", tb3Inp.attr("value"), checkStr);
       }
     }
-    );
+    )
   }
 }

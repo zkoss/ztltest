@@ -37,7 +37,6 @@ class B80_ZK_3114Test extends ZTL4ScalaTestCase {
         waitResponse(true)
         //should exist 3 selected options "DD" "BB" "EE"
         var chbitem = jq(".z-chosenbox > .z-chosenbox-item").length()
-        System.out.println(chbitem)
         verifyEquals(3, chbitem)
         //click "replace" button
         var btn = jq("@button").get(0)
@@ -45,7 +44,6 @@ class B80_ZK_3114Test extends ZTL4ScalaTestCase {
         waitResponse(true)
         //shouldn't have any selected options
         chbitem = jq(".z-chosenbox > .z-chosenbox-item").length()
-        System.out.println(chbitem)
         verifyEquals(0, chbitem)
       }
     )

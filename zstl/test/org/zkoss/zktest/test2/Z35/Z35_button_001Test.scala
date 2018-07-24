@@ -29,6 +29,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "Z35-button-001.zul,Z35,C,E,Button")
 class Z35_button_001Test extends ZTL4ScalaTestCase {
 
+
   @Test
   def testClick() = {
     val zscript =
@@ -58,26 +59,26 @@ class Z35_button_001Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        def clickAlert = {
+        def clickAlert() = {
           click(jq(".z-messagebox-window .z-button"));
         };
 
         click(jq("@button").eq(0));
         waitResponse()
         verifyEquals("If you see this message, test is completed ok.", jq(".z-messagebox-window .z-label").text());
-        clickAlert
+        clickAlert()
         waitResponse()
 
         click(jq("@button").eq(1));
         waitResponse()
         verifyEquals("If you see this message, test is completed ok.", jq(".z-messagebox-window .z-label").text());
-        clickAlert
+        clickAlert()
         waitResponse()
 
         click(jq("@button").eq(2));
         waitResponse()
         verifyEquals("If you see this message, test is completed ok.", jq(".z-messagebox-window .z-label").text());
-        clickAlert
+        clickAlert()
 
       }
     );

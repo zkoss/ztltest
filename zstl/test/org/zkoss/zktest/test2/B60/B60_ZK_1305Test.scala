@@ -15,21 +15,9 @@ class B60_ZK_1305Test extends ZTL4ScalaTestCase {
         waitResponse()
 
         verifyTrue("should see 'select index: 0' message showed.", jq(".z-label:contains(select index: 0)").exists())
-
-        val position = "2,2"
-        val test = jq(".z-listitem:contains(test):eq(1)")
-
-        mouseMoveAt(test0, position)
+        dragAndDrop(test0, "20, 20")
         waitResponse()
-
-        mouseDownAt(test0, position)
-        waitResponse()
-
-        mouseMoveAt(test, position)
-        waitResponse()
-        waitResponse()
-
-        verifyTrue("Should be able to drag test0 item.", jq(".z-drop-ghost").exists())
+        verifyContains("Should be able to drag test0 item.", getZKLog(), "z-drop-text")
       })
 
   }

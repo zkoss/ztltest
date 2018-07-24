@@ -40,8 +40,7 @@ class B65_ZK_1689Test extends ZTL4ScalaTestCase {
 		</button>
 	</window>
 </zk>"""
-    runZTL(zscript,
-      executor = () => {
+    runZTL(zscript, () => {
         val position = "2,2"
         val src = jq("@window.z-window-popup:contains(relative win)").toWidget().$n("cap")
         val target = jq("@window.z-window-embedded:contains(parent win)").toWidget().$n("cap")

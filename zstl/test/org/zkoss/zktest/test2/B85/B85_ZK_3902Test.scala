@@ -17,7 +17,6 @@ class B85_ZK_3902Test extends ZTL4ScalaTestCase {
 
       val popupTop = jq("@popup").offsetTop
       val liTop = jq("@listitem").offsetTop
-      println(s"Popup offsetTop = $popupTop, Listitem offsetTop = $liTop")
       verifyTrue("The popup offsetTop is wrong.", popupTop > liTop)
     })
   }

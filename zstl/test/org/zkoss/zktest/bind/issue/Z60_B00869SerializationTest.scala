@@ -79,7 +79,7 @@ class Z60_B00869SerializationTest extends ZTL4ScalaTestCase {
       serialize = jq("$serialize")
       children = jq("$children")
 
-      verifyTrue(msg.toWidget().attr("value").toString().startsWith("done deserialize:"))
+      verifyContains(msg.toWidget().attr("value"), "done deserialize:")
 
       click(listbox.find("@listitem").eq(2).toWidget())
       waitResponse()

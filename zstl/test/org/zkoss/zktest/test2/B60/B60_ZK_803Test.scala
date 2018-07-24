@@ -9,78 +9,30 @@ class B60_ZK_803Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript =
-      """<zk>
-        <div>1. Select first item and second item.</div>
-        <div>2. Drag first item, you should see two selected items dragged.</div>
-        <div>3. Drag third item, you should see only third item dragged</div>
-        <listbox width="200px" multiple="true" checkmark="true">
-          <listhead>
-            <listheader label="name" sort="auto"/>
-            <listheader label="gender" sort="auto"/>
-          </listhead>
-          <listitem draggable="true">
-            <listcell label="Mary"/>
-            <listcell label="FEMALE"/>
-          </listitem>
-          <listitem draggable="true">
-            <listcell label="John"/>
-            <listcell label="MALE"/>
-          </listitem>
-          <listitem draggable="true">
-            <listcell label="Jane"/>
-            <listcell label="FEMALE"/>
-          </listitem>
-          <listitem draggable="true">
-            <listcell label="Henry"/>
-            <listcell label="MALE"/>
-          </listitem>
-        </listbox>
-      </zk>"""
-
-    runZTL(zscript,
-      () => {
-        val mary = jq(".z-listitem:contains(Mary)")
-        val john = jq(".z-listitem:contains(John)")
-        val jane = jq(".z-listitem:contains(Jane)")
+    runZTL(() => {
+        val mary = jq(".z-listcell:contains(Mary)")
+        val john = jq(".z-listcell:contains(John)")
+        val jane = jq(".z-listcell:contains(Jane)")
 
         // step 1
         click(mary)
         waitResponse()
         click(john)
         waitResponse()
-        val position = "2,2"
 
         // step 2
-        mouseMoveAt(mary, position)
+        dragAndDrop(mary, "120,20")
         waitResponse()
 
-        mouseDownAt(mary, position)
+        verifyContains("should see two selected items dragged.", getZKLog(), "Mary")
+        verifyContains("should see two selected items dragged.", getZKLog(), "John")
+        closeZKLog()
         waitResponse()
-
-        mouseMoveAt(john, position)
-        waitResponse()
-        waitResponse()
-
-        verifyTrue("should see two selected items dragged.", jq(".z-drop-ghost .z-drop-content:contains(Mary)").exists())
-        verifyTrue("should see two selected items dragged.", jq(".z-drop-ghost .z-drop-content:contains(John)").exists())
-
-        mouseUpAt(john, position)
-        waitResponse()
-
         // step 3
-        mouseMoveAt(jane, position)
+        dragAndDrop(jane, "120,20")
         waitResponse()
-
-        mouseDownAt(jane, position)
-        waitResponse()
-
-        mouseMoveAt(john, position)
-        waitResponse()
-
-        val drop = jq(".z-drop-ghost .z-drop-content")
-        verifyEquals("should see only third item dragged", drop.length(), 1)
-        verifyContains("should see only third item dragged", drop.text(), "Jane")
+        verifyContains("should see only third item dragged.", getZKLog(), "Jane")
+        verifyContains("should see only third item dragged.", getZKLog(), ">>>1")
 
       })
 

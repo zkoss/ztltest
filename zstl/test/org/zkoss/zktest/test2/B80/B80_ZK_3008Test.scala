@@ -15,7 +15,6 @@ class B80_ZK_3008Test extends ZTL4ScalaTestCase {
         sendKeys(inp, "ge")
         waitResponse()
         val pp = jq(".z-combobox-popup")
-        println(cb.toString() + ">>> " + ZKTestCase.getCurrent.getEval(cb.toString() + ".offset()"))
         verifyTolerant(cb.offsetTop(), pp.outerHeight() + pp.offsetTop(), 3)
         sendKeys(inp, Keys.BACK_SPACE)
         waitResponse()

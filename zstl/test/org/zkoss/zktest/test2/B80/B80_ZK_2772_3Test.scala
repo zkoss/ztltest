@@ -12,22 +12,14 @@ class B80_ZK_2772_3Test extends ZTL4ScalaTestCase {
     runZTL(
       () => {
         //save the original column width
-        var originalWidths = List[Int]()
-        var cols = jq(".z-column")
-        var index = 0
-        while (index < cols.length()) {
-          originalWidths :+= cols.eq(index).width() //append in place
-          index += 1
-        }
+        getEval("recordColsWidth()")
         //sort column 6
         clickAt(jq(".z-column").eq(5), "2,2")
         waitResponse()
         //check the new column width
-        cols = jq(".z-column")
-        index = 0
-        for (width <- originalWidths) {
-          verifyEquals(width, cols.eq(index).width())
-          index += 1
+        var cols = jq(".z-column")
+        for (i <- 0 to 9) {
+          verifyTolerant(getEval("getRecordedColWidth(" + i + ")").toInt, cols.eq(i).outerWidth(), 1)
         }
         //scroll to right
         nativeFrozenScroll(jq(".z-grid"), 400)
@@ -39,10 +31,9 @@ class B80_ZK_2772_3Test extends ZTL4ScalaTestCase {
         //skip index 5~8
         var i = 0
         cols = jq(".z-column")
-        for (width <- originalWidths) {
+        for (i <- 0 to 9) {
           if (i < 5 || i > 8)
-            verifyTolerant(width, cols.eq(i).outerWidth(), 1)
-          i += 1
+            verifyTolerant(getEval("getRecordedColWidth(" + i + ")").toInt, cols.eq(i).outerWidth(), 1)
         }
         //scroll to left
         nativeFrozenScroll(jq(".z-grid"), -400)
@@ -53,22 +44,14 @@ class B80_ZK_2772_3Test extends ZTL4ScalaTestCase {
         dragdropTo(column7, column7.outerWidth() + "," + (column7.outerHeight() / 2), (column7.outerWidth() + 100) + "," + (column7.outerHeight() / 2))
         waitResponse()
         //save column width
-        var newWidths = List[Int]()
-        cols = jq(".z-column")
-        index = 0
-        while (index < cols.length()) {
-          newWidths :+= cols.eq(index).width()
-          index += 1
-        }
+        getEval("recordColsWidth()")
         //sort column 7
         clickAt(column7, "2,2")
         waitResponse()
         //check width should be the same
         cols = jq(".z-column")
-        index = 0
-        for (width <- newWidths) {
-          verifyEquals(width, cols.eq(index).width())
-          index += 1
+        for (i <- 0 to 9) {
+          verifyTolerant(getEval("getRecordedColWidth(" + i + ")").toInt, cols.eq(i).outerWidth(), 1)
         }
       })
   }

@@ -17,13 +17,14 @@ package org.zkoss.zktest.test2.F80
 import org.junit.Test
 import org.openqa.selenium.Dimension
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{SeleniumOnly, Tags}
 
 /**
   *
   * @author Sefi
   */
 @Tags(tags = "F80-ZK-3133.zul")
+@SeleniumOnly
 class F80_ZK_3133Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {

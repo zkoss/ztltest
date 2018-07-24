@@ -73,7 +73,7 @@ class Z35_panel_001Test extends ZTL4ScalaTestCase {
 					</button>
 			</window>
 
-    """;
+    """
 
     runZTL(zscript,
       () => {
@@ -95,10 +95,10 @@ class Z35_panel_001Test extends ZTL4ScalaTestCase {
         waitResponse();
         verifyFalse(jq(".z-panel").hasClass(".z-panel-noframe"));
 
-        val width = jq(".z-panel").outerWidth()
+        val w = jq(".z-panel").outerWidth()
         click(jq("$btn4"));
         waitResponse();
-        verifyNotEquals(width, jq(".z-panel").outerWidth())
+        verifyNotEquals(w, jq(".z-panel").outerWidth())
 
       }
     );

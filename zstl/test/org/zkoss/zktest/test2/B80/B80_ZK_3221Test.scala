@@ -19,19 +19,17 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.{SeleniumOnly, Tags};
 
 /**
-  *
   * @author Sefi
   */
 @Tags(tags = "")
-@SeleniumOnly
 class B80_ZK_3221Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {
     runZTL(() => {
       val item = jq(".z-listitem")
-      mouseDownAt(item, "5,5")
-      mouseMoveAt(item, "20,20")
-      verifyContains(jq("#zk_ddghost").text, "123456789123456789")
+      dragAndDrop(item, "20,20")
+      waitResponse()
+      verifyEquals("true", getZKLog())
     })
   }
 }

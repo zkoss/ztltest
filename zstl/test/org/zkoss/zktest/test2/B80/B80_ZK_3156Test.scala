@@ -27,8 +27,7 @@ class B80_ZK_3156Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {
     runZTL(() => {
-      val lb = jq(".z-label:eq(1)").text()
-      verifyTrue(lb.length > 6)
+      verifyEquals("true", getEval("jq(\".z-label:eq(1)\").text().length > 6"))
     })
   }
 }

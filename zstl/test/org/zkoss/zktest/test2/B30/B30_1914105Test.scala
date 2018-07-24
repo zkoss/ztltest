@@ -45,7 +45,8 @@ class B30_1914105Test extends ZTL4ScalaTestCase {
       val ck1 = engine.$f("ck1")
       val ck2 = engine.$f("ck2")
       sendKeys(tb.$n("real"), "12:00:00")
-      verifyTrue("value should start with 12:00:00", jq(tb.$n("real")).`val`().startsWith("12:00:00"))
+      waitResponse()
+      verifyContains("value should start with 12:00:00", jq(tb.$n("real")).`val`(), "12:00:00")
 
       // test readonly
       click(ck1.$n("real"))

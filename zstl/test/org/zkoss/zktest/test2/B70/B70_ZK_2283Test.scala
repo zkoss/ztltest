@@ -319,7 +319,7 @@ public class Dictionary {
         waitResponse();
         sleep(1000);
         val suggestion = jq(".z-comboitem-selected .z-comboitem-text").eq(0).html();
-        verifyTrue("Suggestion fail. Can't match the typing.", suggestion.startsWith("aba"));
+        verifyContains("Suggestion fail. Can't match the typing.", suggestion, "aba");
       })
 
   }

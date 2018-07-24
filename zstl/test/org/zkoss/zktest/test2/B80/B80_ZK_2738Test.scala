@@ -7,8 +7,7 @@ class B80_ZK_2738Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    runZTL(
-      executor = () => {
+    runZTL(() => {
         val d1 = jq(".z-div").eq(0)
         val l1 = d1.find(".z-label")
         verifyEquals(4, l1.length())
