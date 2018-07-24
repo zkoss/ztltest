@@ -47,7 +47,7 @@ class B70_ZK_2238Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         val tree = jq(".z-tree")
-        verScroll(tree, 1.0)
+        verScroll(tree, 100)
         click(jq(".z-treerow:contains(99)").toWidget().$n("open"))
         waitResponse()
         verifyTrue("the tree should not out of view", tree.isVisible())

@@ -32,7 +32,7 @@ class F70_ZK_2007Test extends ZTL4ScalaTestCase {
       waitResponse()
       verifyTrue("open the context menu", jq(".z-menupopup").exists)
 
-      contextMenuAt(item2, "0,0")
+      contextMenuAt(item2, "1,1")
       waitResponse()
       verifyTrue("it will close", !jq(".z-menupopup").isVisible())
     })
