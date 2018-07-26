@@ -21,13 +21,15 @@ class F85_ZK_3835Test extends ZTL4ScalaTestCase {
       val contentH2 = content.scrollHeight()
       verifyTrue("When opened node, the height should be bigger", contentH2 > contentH1)
 
-      verScroll(tree, 100)
+      verScrollAbs(tree, contentH2)
+      waitResponse()
       click(jq(".z-treerow:last").toWidget.$n("open"))
       waitResponse()
       val contentH3 = content.scrollHeight()
       verifyTrue("When opened node, the height should be bigger", contentH3 > contentH2)
 
       verScroll(tree, 0)
+      waitResponse()
       click(jq(".z-treerow:eq(0)").toWidget.$n("open"))
       waitResponse()
       val contentH4 = content.scrollHeight()
