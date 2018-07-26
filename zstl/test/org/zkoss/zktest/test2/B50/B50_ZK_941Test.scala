@@ -43,13 +43,13 @@ class B50_ZK_941Test extends ZTL4ScalaTestCase {
         waitResponse()
         blur(dec0)
         waitResponse()
-        verifyTrue("the error message will be shown at its right side", jq(".z-label[style*=red]").text().length() != 0)
+        verifyContains("the error message will be shown at its right side", jq(".z-label[style*=red]").text(), "1.239")
 
         sendKeys(dec0, Keys.END + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "0")
         waitResponse()
         blur(dec0)
         waitResponse()
-        verifyTrue("should clear the error message", jq(".z-label[style*=red]").text().length() == 0)
+        verifyNotContains("should clear the error message", jq(".z-label[style*=red]").text(), "1.239")
 
         val dec1 = jq(".z-decimalbox:eq(1)")
         sendKeys(dec1, "1.239")

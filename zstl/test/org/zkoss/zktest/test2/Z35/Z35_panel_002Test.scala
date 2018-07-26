@@ -87,34 +87,34 @@ class Z35_panel_002Test extends ZTL4ScalaTestCase {
         }
 
         clickThenValidate("$btn1", () => {
-          jq(jq("@panel").toWidget().$n("exp")).isVisible();
+          verifyTrue(jq(jq("@panel").toWidget().$n("exp")).isVisible())
         });
         clickThenValidate("$btn2", () => {
-          jq(jq("@panel").toWidget().$n("exp")).isVisible();
-          jq(jq("@panel").toWidget().$n("min")).isVisible();
+          verifyTrue(jq(jq("@panel").toWidget().$n("exp")).isVisible());
+          verifyTrue(jq(jq("@panel").toWidget().$n("min")).isVisible());
         });
         clickThenValidate("$btn3", () => {
-          jq(jq("@panel").toWidget().$n("exp")).isVisible();
-          jq(jq("@panel").toWidget().$n("min")).isVisible();
-          jq(jq("@panel").toWidget().$n("max")).isVisible();
+          verifyTrue(jq(jq("@panel").toWidget().$n("exp")).isVisible());
+          verifyTrue(jq(jq("@panel").toWidget().$n("min")).isVisible());
+          verifyTrue(jq(jq("@panel").toWidget().$n("max")).isVisible());
         });
         clickThenValidate("$btn4", () => {
-          jq(jq("@panel").toWidget().$n("exp")).isVisible();
-          jq(jq("@panel").toWidget().$n("min")).isVisible();
-          jq(jq("@panel").toWidget().$n("max")).isVisible();
-          jq(jq("@panel").toWidget().$n("close")).isVisible();
+          verifyTrue(jq(jq("@panel").toWidget().$n("exp")).isVisible());
+          verifyTrue(jq(jq("@panel").toWidget().$n("min")).isVisible());
+          verifyTrue(jq(jq("@panel").toWidget().$n("max")).isVisible());
+          verifyTrue(jq(jq("@panel").toWidget().$n("close")).isVisible());
         });
 
         clickThenValidate("$btn3", () => {
-          jq(jq("@panel").toWidget().$n("exp")).isVisible();
-          jq(jq("@panel").toWidget().$n("min")).isVisible();
-          jq(jq("@panel").toWidget().$n("close")).isVisible();
+          verifyTrue(jq(jq("@panel").toWidget().$n("exp")).isVisible());
+          verifyTrue(jq(jq("@panel").toWidget().$n("min")).isVisible());
+          verifyTrue(jq(jq("@panel").toWidget().$n("close")).isVisible());
         });
         clickThenValidate("$btn3", () => {
-          jq(jq("@panel").toWidget().$n("exp")).isVisible();
-          jq(jq("@panel").toWidget().$n("min")).isVisible();
-          jq(jq("@panel").toWidget().$n("max")).isVisible();
-          jq(jq("@panel").toWidget().$n("close")).isVisible();
+          verifyTrue(jq(jq("@panel").toWidget().$n("exp")).isVisible());
+          verifyTrue(jq(jq("@panel").toWidget().$n("min")).isVisible());
+          verifyTrue(jq(jq("@panel").toWidget().$n("max")).isVisible());
+          verifyTrue(jq(jq("@panel").toWidget().$n("close")).isVisible());
         });
 
         clickThenValidate("$btnFloat", () => {

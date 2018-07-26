@@ -38,10 +38,10 @@ class B50_3024208Test extends ZTL4ScalaTestCase {
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     val d = ztl$engine.$f("d")
     runZTL(zscript, () => {
-      var x = getElementPositionTop(d.$n("btn")).intValue()
+      var x = jq(d.$n("btn")).positionLeft()
       mouseOver(d.$n("btn"))
       sleep(500)
-      var x1 = getElementPositionTop(d.$n("btn")).intValue()
+      var x1 = jq(d.$n("btn")).positionTop()
       verifyEquals(x, x1)
     })
   }

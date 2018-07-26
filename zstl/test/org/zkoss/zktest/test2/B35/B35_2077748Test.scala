@@ -65,7 +65,7 @@ column should be in the center of Browser window
     runZTL(zscript, () => {
       /*
       // Window position
-      val winPos = getElementPositionLeft(jq("$centerWindow")).intValue();
+      val winPos = getElementPositionLeft(jq("$centerWindow"));
 
       // Window with
       val winWith = jq("$centerWindow").width();

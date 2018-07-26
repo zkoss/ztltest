@@ -80,13 +80,13 @@ class B30_1568393Test extends ZTL4ScalaTestCase {
     val root = ztl$engine.$f("root")
     val overlapped = ztl$engine.$f("overlapped")
     runZTL(zscript, () => {
-      var x = getElementPositionLeft(overlapped).intValue()
-      var y = getElementPositionTop(overlapped).intValue()
+      var x = jq(overlapped).positionLeft()
+      var y = jq(overlapped).positionTop()
       for (i <- 1 until 6) {
         dragdropTo(overlapped, "1" + i + ",2", "1" + (i + 1) + ",2")
       }
-      var x2 = getElementPositionLeft(overlapped).intValue()
-      var y2 = getElementPositionTop(overlapped).intValue()
+      var x2 = jq(overlapped).positionLeft()
+      var y2 = jq(overlapped).positionTop()
       // after several mouse click, the root should not move it
       // position
       verifyEquals(x, x2)

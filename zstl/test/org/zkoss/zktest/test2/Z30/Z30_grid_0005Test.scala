@@ -80,7 +80,6 @@ class Z30_grid_0005Test extends ZTL4ScalaTestCase {
       () => {
         var checkId = jq("$checkbox").toWidget().uuid() + "-real";
         var $jq = jq("$column");
-        var uuid = jq("$column").toWidget().uuid();
         var $head = jq("$grid").toWidget().$n("head");
         var $body = jq("$grid").toWidget().$n("body");
         // check colSpan
@@ -104,14 +103,14 @@ class Z30_grid_0005Test extends ZTL4ScalaTestCase {
         // check sizing
         click(checkId);
         waitResponse();
-        var width = getElementWidth(uuid);
+        var width = $jq.width();
         mouseMoveAt($jq.toWidget(), width + ",0");
         waitResponse()
         verifyTrue($jq.hasClass("z-column-sizing"));
         //a workaround to chrome, move 10px per drag
-        dragdropTo(jq("$column").toWidget(), width + ",0", width.intValue() - 10 + ",0");
-        dragdropTo(jq("$column").toWidget(), width.intValue() - 10 + ",0", width.intValue() - 20 + ",0");
-        verifyNotEquals(width.intValue(), getElementWidth(uuid).intValue());
+        dragdropTo(jq("$column").toWidget(), width + ",0", width - 10 + ",0");
+        dragdropTo(jq("$column").toWidget(), width - 10 + ",0", width - 20 + ",0");
+        verifyNotEquals(width, $jq.width());
       }
     );
   }

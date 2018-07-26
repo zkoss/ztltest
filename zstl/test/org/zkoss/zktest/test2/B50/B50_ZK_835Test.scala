@@ -206,11 +206,9 @@ class B50_ZK_835Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        var log: Element = jq("textarea").get(0);
         // wait the zk.log
-        sleep(500);
-        verifyTrue("Should only three log message",
-          log.attr("value").length() < 37);
+        sleep(1000);
+        verifyNotContains("Should only three log message", getZKLog(), "unbind");
       }
     );
   }

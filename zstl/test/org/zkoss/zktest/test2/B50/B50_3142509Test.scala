@@ -47,11 +47,8 @@ class B50_3142509Test extends ZTL4ScalaTestCase {
     """
 
     def executor = () => {
-      var (btn: Widget,
-      list: Widget) = (
-        engine.$f("btn"),
-        engine.$f("list")
-      );
+      var btn: Widget = engine.$f("btn")
+      var list: Widget = engine.$f("list")
       waitResponse();
       click(btn);
       waitResponse();

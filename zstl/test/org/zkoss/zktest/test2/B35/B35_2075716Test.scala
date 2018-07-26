@@ -84,17 +84,17 @@ class B35_2075716Test extends ZTL4ScalaTestCase {
     """;
     runZTL(zscript, () => {
       // Record total width
-      var total_width: Int = jq(".z-portallayout").width().intValue();
+      var total_width: Int = jq(".z-portallayout").width();
 
       // Record width of the first panel
-      var panel0_width: Int = jq(".z-portalchildren").width().intValue();
+      var panel0_width: Int = jq(".z-portalchildren").width();
 
       // Click on add button
       click(jq("@button:contains(add)"));
       waitResponse()
 
       // Record new panel width
-      var new_panel_width: Int = jq(".z-portalchildren:contains(portal 0)").width().intValue();
+      var new_panel_width: Int = jq(".z-portalchildren:contains(portal 0)").width();
 
       // Record the remainder width
       val remainder_width: Int = ((total_width - panel0_width) - 10);

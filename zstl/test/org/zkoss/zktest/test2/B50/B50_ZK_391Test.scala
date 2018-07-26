@@ -38,15 +38,10 @@ class B50_ZK_391Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(
       () => {
-        var (lb1: Widget,
-        lb2: Widget,
-        lb3: Widget,
-        javaLbl: Widget) = (
-          engine.$f("lb1"),
-          engine.$f("lb2"),
-          engine.$f("lb3"),
-          engine.$f("javaLbl")
-        )
+        var lb1: Widget = engine.$f("lb1")
+        var lb2: Widget = engine.$f("lb2")
+        var lb3: Widget = engine.$f("lb3")
+        var javaLbl: Widget = engine.$f("javaLbl")
 
         def checkPopup(lb: Widget, ppName: String) {
           mouseOver(lb);

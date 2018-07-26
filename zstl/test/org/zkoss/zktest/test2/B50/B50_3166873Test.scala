@@ -52,12 +52,12 @@ class B50_3166873Test extends ZTL4ScalaTestCase {
     val s1 = ztl$engine.$f("s1")
     val s2 = ztl$engine.$f("s2")
     runZTL(zscript, () => {
-      var left = getElementPositionLeft(s1).intValue()
-      var top = getElementPositionTop(s2).intValue()
+      var left = jq(s1).positionLeft()
+      var top = jq(s2).positionTop()
       dragdropTo(s1, "3,3", "13,3")
       dragdropTo(s2, "3,3", "3,13")
-      verifyNotEquals(left, getElementPositionLeft(s1).intValue())
-      verifyNotEquals(top, getElementPositionTop(s2).intValue())
+      verifyNotEquals(left, jq(s1).positionLeft())
+      verifyNotEquals(top, jq(s2).positionTop())
     })
   }
 }

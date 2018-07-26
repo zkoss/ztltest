@@ -50,7 +50,7 @@ class B30_1701986Test extends ZTL4ScalaTestCase {
 									long startM = beginValue.getTime();
 									long endM = endValue.getTime();
 									int days_plan = ((Long) ((endM - startM) / 1000 / 60 / 60 / 24))
-											.intValue();
+											;
 									((Label) comp.getFellowIfAny("days"))
 											.setValue(new Integer(days_plan).toString());
 									comp.getFellow("beginDate").clearErrorMessage();

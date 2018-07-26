@@ -51,18 +51,18 @@ class B50_ZK_460Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       click(jq(".z-spinner").toWidget().$n("btn-up"))
       waitResponse()
-      verifyTrue(lc1.$n().attr("value").length() == 0)
+      verifyEquals(lc1.$n().attr("value"), "")
       click(jq(".z-spinner").toWidget().$n("btn-down"))
       waitResponse()
-      verifyTrue(lc1.$n().attr("value").length() == 0)
+      verifyEquals(lc1.$n().attr("value"), "")
       click(jq(".z-timebox").toWidget().$n("btn-up"))
       waitResponse()
       click(jq(".z-timebox").toWidget().$n("btn-up"))
       waitResponse()
-      verifyTrue(lc2.$n().attr("value").length() == 0)
+      verifyEquals(lc2.$n().attr("value"), "")
       click(jq(".z-timebox").toWidget().$n("btn-down"))
       waitResponse()
-      verifyTrue(lc2.$n().attr("value").length() == 0)
+      verifyEquals(lc2.$n().attr("value"), "")
     })
   }
 }

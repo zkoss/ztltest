@@ -40,12 +40,14 @@ class B30_1914078Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       val btn = jq("@button");
       val win = jq("$win")
-      val (width, height) = (jq("body").width() / 2, jq("body").height() / 2);
+      val width = jq("body").width() / 2
+      val height = jq("body").height() / 2
       for (i <- 0 until 6) {
         click(btn)
         if (i % 2 == 0) {
           waitResponse(true)
-          var (left, top) = (win.offsetLeft(), win.offsetTop())
+          var left = win.offsetLeft()
+          var top = win.offsetTop()
           verifyTrue(top > 100);
           verifyTrue(top < height);
           verifyTrue(left > 100);

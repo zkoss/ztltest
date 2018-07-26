@@ -15,11 +15,12 @@ import org.openqa.selenium.Keys
                 Wed Mar 07 6:47 PM:14 CST 2018, Created by klyve
 
 Copyright (C) 2018 Potix Corporation. All Rights Reserved.
-*/ class B85_ZK_3626Test extends ZTL4ScalaTestCase {
+*/
+class B85_ZK_3626Test extends ZTL4ScalaTestCase {
   @Test
   def test()=  {
     runZTL(() => {
-      runScript("document.body.style.zoom = '150%'")
+      getEval("document.body.style.zoom = '150%'")
       waitResponse()
       for (i <- 1 to 8) {
         jq(".z-menubar-right").eval("click()")

@@ -30,8 +30,8 @@ class B30_1908188Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       // Record Menu position
-      var xMenu: Int = getElementPositionLeft(jq("$testMenu")).intValue();
-      var yMenu: Int = getElementPositionTop(jq("$testMenu")).intValue();
+      var xMenu: Int = jq("$testMenu").positionLeft();
+      var yMenu: Int = jq("$testMenu").positionTop();
 
       // Click on the menu
       click(jq("$testMenu"));
@@ -44,8 +44,8 @@ class B30_1908188Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       // Record Popup position
-      var x: Int = getElementPositionLeft(jq(".z-popup")).intValue();
-      var y: Int = getElementPositionTop(jq(".z-popup")).intValue();
+      var x: Int = jq(".z-popup").positionLeft()
+      var y: Int = jq(".z-popup").positionTop()
 
       // Verify that the popup is below the test menu. It may fail if the browser is sized with a small height and width
       verifyTrue("The popup must be at right and below of the menu", x > xMenu && y > yMenu);
@@ -60,8 +60,8 @@ class B30_1908188Test extends ZTL4ScalaTestCase {
 
       waitResponse();
       // Record Popup position
-      x = getElementPositionLeft(jq(".z-popup")).intValue();
-      y = getElementPositionTop(jq(".z-popup")).intValue();
+      x = jq(".z-popup").positionLeft()
+      y = jq(".z-popup").positionTop()
 
       // Verify that the popup is in position (50,50). 
       verifyTrue("The popup must be at position (50,50)", x == 50 && y == 50);

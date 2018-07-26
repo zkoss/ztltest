@@ -44,11 +44,14 @@ class B50_3242925Test extends ZTL4ScalaTestCase {
 		"""
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     runZTL(zscript, () => {
-      var x = getElementWidth(jq("@splitter")).intValue()
+      var x = jq("@splitter").width()
       dragdropTo(jq("@splitter"), "3,3", "50,3")
+      waitResponse()
       dragdropTo(jq("@splitter"), "3,3", "-150,3")
+      waitResponse()
       dragdropTo(jq("@splitter"), "3,3", "100,3")
-      var x1 = getElementWidth(jq("@splitter")).intValue()
+      waitResponse()
+      var x1 = jq("@splitter").width()
       verifyEquals(x, x1)
     })
   }

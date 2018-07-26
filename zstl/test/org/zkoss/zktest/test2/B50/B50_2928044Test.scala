@@ -33,7 +33,7 @@ You can not type the words more than 3.
       focus(txt)
       var jq$txt = jq("$txt")
       typeKeys(jq$txt, "AAAA")
-      verifyEquals(jq(jq$txt).`val`().length(), 3)
+      verifyNotContains(jq(jq$txt).`val`(), "AAAA")
     })
   }
 }

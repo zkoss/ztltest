@@ -73,7 +73,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         click(jq(".z-combobox-button").eq(0))
         waitResponse()
         //check the combobox popup menu have only text
-        verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text().length() > 0)
+        verifyNotEquals(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text(), "")
         verifyFalse(jq(".z-combobox-popup.z-combobox-open .z-comboitem-image").eq(0).children().exists())
         //close the 1st combobox
         click(jq(".z-combobox-button").eq(0))
@@ -82,7 +82,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         click(jq(".z-combobox-button").eq(1))
         waitResponse()
         //check the combobox popup menu have text and icon
-        verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text().length() > 0)
+        verifyNotEquals(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text(), "")
         verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-icon").eq(0).children().exists())
         //close the 2nd combobox
         click(jq(".z-combobox-button").eq(1))
@@ -91,7 +91,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         click(jq(".z-combobox-button").eq(2))
         waitResponse()
         //check the combobox popup menu have text and icon
-        verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text().length() > 0)
+        verifyNotEquals(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text(), "")
         verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-icon").eq(0).children().exists())
         //close the 3rd combobox
         click(jq(".z-combobox-button").eq(2))
@@ -100,7 +100,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         click(jq(".z-combobox-button").eq(3))
         waitResponse()
         //check the combobox popup menu have text, icon, and image
-        verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text().length() > 0)
+        verifyNotEquals(jq(".z-combobox-popup.z-combobox-open .z-comboitem-text").eq(0).text(), "")
         verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-icon").eq(0).children().exists())
         verifyTrue(jq(".z-combobox-popup.z-combobox-open .z-comboitem-image").eq(0).children().exists())
         //close the 4th combobox

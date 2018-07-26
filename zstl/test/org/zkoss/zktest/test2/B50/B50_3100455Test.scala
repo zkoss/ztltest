@@ -165,23 +165,14 @@ class B50_3100455Test extends ZTL4ScalaTestCase {
     """
     runZTL(zscript,
       () => {
-        var (grid: Widget,
-        grid2: Widget,
-        listbox: Widget,
-        listbox2: Widget,
-        btn1: Widget,
-        btn2: Widget,
-        btn3: Widget,
-        btn4: Widget) = (
-          engine.$f("grid"),
-          engine.$f("grid2"),
-          engine.$f("listbox"),
-          engine.$f("listbox2"),
-          engine.$f("btn1"),
-          engine.$f("btn2"),
-          engine.$f("btn3"),
-          engine.$f("btn4")
-        );
+        var grid: Widget = engine.$f("grid")
+        var grid2: Widget = engine.$f("grid2")
+        var listbox: Widget = engine.$f("listbox")
+        var listbox2: Widget = engine.$f("listbox2")
+        var btn1: Widget = engine.$f("btn1")
+        var btn2: Widget = engine.$f("btn2")
+        var btn3: Widget = engine.$f("btn3")
+        var btn4: Widget = engine.$f("btn4")
         var bodyWidth1: Int = jq(grid.$n("body")).outerWidth();
         var bodyWidth2: Int = jq(grid2.$n("body")).outerWidth();
         var bodyWidth3: Int = jq(listbox.$n("body")).outerWidth();

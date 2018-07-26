@@ -60,17 +60,11 @@ class B50_3314513Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         var outer: Widget = engine.$f("outer");
-        var (lb1: Widget,
-        dbx1: Widget,
-        dbx2: Widget,
-        dbx3: Widget,
-        dbx4: Widget) = (
-          engine.$f("lb1"),
-          engine.$f("dbx1"),
-          engine.$f("dbx2"),
-          engine.$f("dbx3"),
-          engine.$f("dbx4")
-        );
+        var lb1: Widget = engine.$f("lb1")
+        var dbx1: Widget = engine.$f("dbx1")
+        var dbx2: Widget = engine.$f("dbx2")
+        var dbx3: Widget = engine.$f("dbx3")
+        var dbx4: Widget = engine.$f("dbx4")
         click(dbx1.$n("real"));
         dbx1.$n("real").eval("value = 'abc'");
         click(outer);

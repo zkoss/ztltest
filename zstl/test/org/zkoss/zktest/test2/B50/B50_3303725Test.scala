@@ -68,14 +68,10 @@ class B50_3303725Test extends ZTL4ScalaTestCase {
     """
     runZTL(zscript,
       () => {
-        var (ptl: Widget,
-        p1: Widget,
-        p2: Widget,
-        p3: Widget) = (
-          engine.$f("ptl"),
-          engine.$f("p1"),
-          engine.$f("p2"),
-          engine.$f("p3"));
+        var ptl: Widget = engine.$f("ptl")
+        var p1: Widget = engine.$f("p1")
+        var p2: Widget = engine.$f("p2")
+        var p3: Widget = engine.$f("p3")
         dragdropToObject(p2.$n("cap"), jq(p1.$n()).find(".z-panelchildren").get(0), "100,10", "100,180");
         waitResponse()
         var h1: Int = jq(jq(".z-portalchildren").toWidget().$n("cave")).height();

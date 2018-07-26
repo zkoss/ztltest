@@ -29,10 +29,10 @@ class F60_ZK_1583Test extends ZTL4ScalaTestCase {
             if (index < 6) {
               msg = msg + divLeftMid + ", " + pointerLeftMid + ". Should see the ARROW of notification point to center"
               println(msg)
-              verifyTrue(msg, (divLeftMid - pointerLeftMid).abs < 11)
+              verifyTrue(msg, getEval("Math.abs(" + divLeftMid + "-" + pointerLeftMid + ") < 11"))
             } else {
               msg = msg + divTopMid + ", " + pointerTopMid + ". Should see the ARROW of notification point to center"
-              verifyTrue(msg, (divTopMid - pointerTopMid).abs < 11)
+              verifyTrue(msg, getEval("Math.abs(" + divTopMid + "-" + pointerTopMid + ") < 11"))
             }
             waitResponse(true)
           }

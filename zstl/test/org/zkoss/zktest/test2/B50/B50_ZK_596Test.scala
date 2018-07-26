@@ -121,35 +121,23 @@ class B50_ZK_596Test extends ZTL4ScalaTestCase {
 
 
     runZTL(zscript, () => {
-      var (tb: Widget,
-      tbs: Widget,
-      tbar: Widget,
-      btn1: Widget,
-      btn2: Widget,
-      btn3: Widget,
-      btn4: Widget,
-      btn5: Widget,
-      btn6: Widget) = (
-        engine.$f("tb"),
-        engine.$f("tbs"),
-        engine.$f("tbar"),
-        engine.$f("btn1"),
-        engine.$f("btn2"),
-        engine.$f("btn3"),
-        engine.$f("btn4"),
-        engine.$f("btn5"),
-        engine.$f("btn6")
-      );
-      def clickAndWait = (target: ClientWidget, delay: Long) => {
+      var tb: Widget = engine.$f("tb")
+      var tbs: Widget = engine.$f("tbs")
+      var tbar: Widget = engine.$f("tbar")
+      var btn1: Widget = engine.$f("btn1")
+      var btn2: Widget = engine.$f("btn2")
+      var btn3: Widget = engine.$f("btn3")
+      var btn4: Widget = engine.$f("btn4")
+      var btn5: Widget = engine.$f("btn5")
+      var btn6: Widget = engine.$f("btn6")
+      def clickAndWait = (target: ClientWidget) => {
         click(target)
-        if (delay == null)
-          waitResponse()
-        else
-          sleep(delay)
+        waitResponse()
       }
       // add image and wait to load them all
-      clickAndWait(btn3, 2000)
-      clickAndWait(btn4, null)
+      clickAndWait(btn3)
+      sleep(2000)
+      clickAndWait(btn4)
 
       var $tb: JQuery = jq(tb.$n())
       var $tbs: JQuery = jq(tbs.$n())
@@ -160,17 +148,17 @@ class B50_ZK_596Test extends ZTL4ScalaTestCase {
           $tbs.outerWidth(true) + $tbar.outerWidth(true) <= $tb.outerWidth())
       }
 
-      clickAndWait(btn1, null)
+      clickAndWait(btn1)
       checkWidth()
-      clickAndWait(btn2, null)
+      clickAndWait(btn2)
       checkWidth()
-      clickAndWait(btn3, null)
+      clickAndWait(btn3)
       checkWidth()
-      clickAndWait(btn4, null)
+      clickAndWait(btn4)
       checkWidth()
-      clickAndWait(btn5, null)
+      clickAndWait(btn5)
       checkWidth()
-      clickAndWait(btn6, null)
+      clickAndWait(btn6)
       checkWidth()
     })
   }

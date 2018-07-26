@@ -47,10 +47,10 @@ class B50_3309256Test extends ZTL4ScalaTestCase {
         var dbx: Widget = engine.$f("dbx");
         var tbx: Widget = engine.$f("tbx");
 
-        verifyTrue("the text of the input element should be ready (length >= 8",
-          dbx.$n("real").attr("value").length() >= 8);
-        verifyTrue("the text of the input element should be ready (length >= 8",
-          tbx.$n("real").attr("value").length() >= 8);
+        verifyNotEquals("the text of the input element should be ready (length >= 8",
+          dbx.$n("real").attr("value"), "")
+        verifyNotEquals("the text of the input element should be ready (length >= 8",
+          tbx.$n("real").attr("value"), "")
         verifyNotContains("If the text of the input element should not contains single quote (')",
           dbx.$n("real").attr("value"), "'")
         verifyNotContains("If the text of the input element should not contains single quote (')",

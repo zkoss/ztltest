@@ -52,7 +52,7 @@ class B30_1876198Test extends ZTL4ScalaTestCase {
       focus(txtbox)
       blur(txtbox)
       waitResponse()
-      verifyTrue(jq(errlb).text().length() > 0)
+      verifyContains(jq(errlb).text(), "empty")
     })
   }
 }

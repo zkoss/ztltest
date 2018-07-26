@@ -47,12 +47,12 @@ class B50_3251564Test extends ZTL4ScalaTestCase {
 		"""
     val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     runZTL(zscript, () => {
-      var x = getElementPositionLeft(jq("@textbox")).intValue()
+      var x = jq("@textbox").positionLeft()
       typeKeys(jq("@textbox"), "")
       waitResponse(true)
       verifyTrue(jq(".z-errorbox").exists())
-      var y = getElementPositionLeft(jq(".z-errorbox")).intValue()
-      var y1 = getElementWidth(jq(".z-errorbox")).intValue()
+      var y = jq(".z-errorbox").positionLeft()
+      var y1 = jq(".z-errorbox").width()
       verifyTrue(x > y)
       verifyTolerant(x - y1, y, 1)
     })

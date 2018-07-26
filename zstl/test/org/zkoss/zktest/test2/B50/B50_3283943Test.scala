@@ -106,13 +106,16 @@ class B50_3283943Test extends ZTL4ScalaTestCase {
     """
 
     def executor = () => {
-      var (group1, group2, group3,
-      li1, li2, li3,
-      lb1s, lb1c, lb2s, lb2c) =
-        (engine.$f("group1"), engine.$f("group2"), engine.$f("group3"),
-          engine.$f("li1"), engine.$f("li2"), engine.$f("li3"),
-          engine.$f("lb1s"), engine.$f("lb1c"), engine.$f("lb2s"), engine.$f("lb2c"));
-
+      var group1 = engine.$f("group1")
+      var group2 = engine.$f("group2")
+      var group3 = engine.$f("group3")
+      var li1 = engine.$f("li1")
+      var li2 = engine.$f("li2")
+      var li3 = engine.$f("li3")
+      var lb1s =  engine.$f("lb1s")
+      var lb1c = engine.$f("lb1c")
+      var lb2s = engine.$f("lb2s")
+      var lb2c = engine.$f("lb2c")
       waitResponse();
 
       checkGridUuid(group1, lb1s, lb1c);

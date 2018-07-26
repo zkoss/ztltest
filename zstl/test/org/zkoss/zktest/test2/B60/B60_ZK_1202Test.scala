@@ -71,7 +71,7 @@ class B60_ZK_1202Test extends ZTL4ScalaTestCase {
         waitResponse()
         verifyTrue("No exceptions should occur when changing the selection in any order.", !jq(".z-window-modal").exists())
 
-        val verifyDayOk = (msg: String, days: List[String]) =>
+        def verifyDayOk(msg: String, days: List[String]) = {
           for (day <- days) {
             click(jq(".z-combobox:eq(1)").toWidget().$n("btn"))
             waitResponse()
@@ -81,6 +81,7 @@ class B60_ZK_1202Test extends ZTL4ScalaTestCase {
             waitResponse()
             verifyTrue("No exceptions should occur when changing the selection in any order.", !jq(".z-window-modal").exists())
           }
+        }
 
         verifyDayOk("If 'Regular Week' is selected in the first combobox, the second combobox should contain 'Sunday' through 'Saturday'.", regularDays)
 

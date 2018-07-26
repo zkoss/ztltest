@@ -43,9 +43,9 @@ Please type a word into the textbox, you shouldn't see the width of the popup is
       keyPress(cb.$n("real"), "A")
       waitResponse()
       verifyTrue(jq(jq(".z-combobox").toWidget().$n("pp")).exists())
-      verifyTrue(getElementWidth(jq(jq(".z-combobox").toWidget().$n("pp"))).intValue() > 0)
-      var cbx = getElementWidth(jq(".z-combobox")).intValue()
-      var pp = getElementWidth(jq(jq(".z-combobox").toWidget().$n("pp"))).intValue()
+      verifyTrue(jq(jq(".z-combobox").toWidget().$n("pp")).width() > 0)
+      var cbx = jq(".z-combobox").width()
+      var pp = jq(jq(".z-combobox").toWidget().$n("pp")).width()
       verifyTolerant(cbx, pp, 6)
     })
   }

@@ -43,7 +43,7 @@ class B50_3081315Test extends ZTL4ScalaTestCase {
 					Messagebox.QUESTION, new EventListener() {
 						public void onEvent(Event evt) {
 							if (Messagebox.YES == ((Integer) evt.getData())
-									.intValue()) {
+									) {
 								tab.close();
 							}
 						}

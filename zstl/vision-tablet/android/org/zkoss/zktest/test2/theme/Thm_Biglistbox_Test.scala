@@ -81,7 +81,7 @@ class Thm_Biglistbox_Test extends ZTL4ScalaTestCase {
 			Change cols: 
 			<selectbox model="${colsSize}">
 				<attribute name="onSelect">
-				int i = event.selectedObjects.iterator().next().intValue();
+				int i = event.selectedObjects.iterator().next();
 				if (biglist.frozenCols > i-1) {
 					self.selectedIndex = self.selectedIndex - 1;
 					alert("FrozenCols cannot be greater than Cols");

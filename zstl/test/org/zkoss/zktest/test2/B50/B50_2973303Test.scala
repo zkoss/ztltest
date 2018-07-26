@@ -49,7 +49,7 @@ class B50_2973303Test extends ZTL4ScalaTestCase {
     def executor = () => {
       var listbox: Widget = engine.$f("listbox");
       waitResponse();
-      verifyTrue(listbox.$n().attr("value").length() == 0);
+      verifyEquals(listbox.$n().attr("value"), "")
     }
 
     runZTL(zscript, executor);

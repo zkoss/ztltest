@@ -54,11 +54,8 @@ class B50_3020040Test extends ZTL4ScalaTestCase {
 
     """
     runZTL(zscript, () => {
-      var (btn: Widget,
-      box: Widget) = (
-        engine.$f("btn"),
-        engine.$f("box")
-      );
+      var btn: Widget = engine.$f("btn")
+      var box: Widget = engine.$f("box")
       waitResponse();
 
       click(btn);

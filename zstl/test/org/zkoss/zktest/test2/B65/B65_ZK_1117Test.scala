@@ -4,6 +4,7 @@ import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.unit.Element
 
 @Tags(tags = "B65-ZK-1117.zul")
 class B65_ZK_1117Test extends ZTL4ScalaTestCase {
@@ -26,56 +27,46 @@ class B65_ZK_1117Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        for (i <- 0 to 1)
-          spinnerTest(i)
+        spinnerTest("click1", jq(".z-spinner").toWidget().$n("btn-up"), jq(".z-spinner").toWidget().$n("real"));
+        spinnerTest("click2", jq(".z-doublespinner").toWidget().$n("btn-up"), jq(".z-doublespinner").toWidget().$n("real"));
       })
+    def spinnerTest(clickTxt: String, upperbtn: Element, snpinerinp: Element) {
+      // click button, you should get the spinner error message.
+      val clickbtn = jq(".z-button:contains(" + clickTxt + ")")
+      click(clickbtn)
+      waitResponse()
+      verifyTrue("Should show a alert box",
+        jq(".z-messagebox-window").isVisible())
+      click(jq(".z-messagebox-window .z-button"))
+      waitResponse()
 
-    def spinnerTest(nth: Int) {
-      if (nth != 1 && nth != 0) {
-        spinnerTest(0)
-      } else {
-        val (clickTxt, upperbtn, snpinerinp) = if (nth == 0)
-          ("click1", jq(".z-spinner").toWidget().$n("btn-up"), jq(".z-spinner").toWidget().$n("real"))
-        else
-          ("click2", jq(".z-doublespinner").toWidget().$n("btn-up"), jq(".z-doublespinner").toWidget().$n("real"))
+      // change the spinner value to 1,then click button, you should get alert : spinner value is 1
+      click(jq(upperbtn))
+      waitResponse()
+      blur(snpinerinp)
+      waitResponse()
+      click(clickbtn)
+      waitResponse()
+      verifyTrue("Should show a alert box",
+        jq(".z-messagebox-window").isVisible())
+      click(jq(".z-messagebox-window .z-button"))
 
-        // click button, you should get the spinner error message. 
-        val clickbtn = jq(".z-button:contains(" + clickTxt + ")")
-        click(clickbtn)
-        waitResponse()
-        verifyTrue("Should show a alert box",
-          jq(".z-messagebox-window").isVisible())
-        click(jq(".z-messagebox-window .z-button"))
-        waitResponse()
+      waitResponse()
+      // clear the spinner value to empty,then click button, you should get the spinner error messag.
+      focus(snpinerinp)
 
-        // change the spinner value to 1,then click button, you should get alert : spinner value is 1
-        click(jq(upperbtn))
-        waitResponse()
-        blur(snpinerinp)
-        waitResponse()
-        click(clickbtn)
-        waitResponse()
-        verifyTrue("Should show a alert box",
-          jq(".z-messagebox-window").isVisible())
-        click(jq(".z-messagebox-window .z-button"))
+      waitResponse()
+      sendKeys(snpinerinp, Keys.END + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE)
 
-        waitResponse()
-        // clear the spinner value to empty,then click button, you should get the spinner error messag.
-        focus(snpinerinp)
-
-        waitResponse()
-        sendKeys(snpinerinp, Keys.END + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE + "" + Keys.BACK_SPACE)
-
-        waitResponse()
-        verifyEquals(snpinerinp.attr("value"), "")
-        waitResponse()
-        click(clickbtn)
-        waitResponse()
-        verifyTrue("Should show a alert box",
-          jq(".z-messagebox-window").isVisible())
-        click(jq(".z-messagebox-window .z-button"))
-        waitResponse()
-      }
+      waitResponse()
+      verifyEquals(snpinerinp.attr("value"), "")
+      waitResponse()
+      click(clickbtn)
+      waitResponse()
+      verifyTrue("Should show a alert box",
+        jq(".z-messagebox-window").isVisible())
+      click(jq(".z-messagebox-window .z-button"))
+      waitResponse()
     }
 
   }

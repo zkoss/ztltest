@@ -31,15 +31,10 @@ class B50_3161535Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(
       () => {
-        var (c1: Widget,
-        l1: Widget,
-        l2: Widget,
-        l3: Widget) = (
-          engine.$f("c1"),
-          engine.$f("l1"),
-          engine.$f("l2"),
-          engine.$f("l3")
-        );
+        var c1: Widget = engine.$f("c1")
+        var l1: Widget = engine.$f("l1")
+        var l2: Widget = engine.$f("l2")
+        var l3: Widget = engine.$f("l3")
         var width = jq(c1.$n()).outerWidth();
         verifyTrue("first column shall align left, \noffsetLeft of first label= " +
           parseInt(l1.$n().attr("offsetLeft")) + " should smaller then 10",

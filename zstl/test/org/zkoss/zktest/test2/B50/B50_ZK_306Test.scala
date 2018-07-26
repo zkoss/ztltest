@@ -33,59 +33,6 @@ import org.zkoss.ztl.util.Scripts
 class B50_ZK_306Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript =
-      """
-			<zk>
-				<div>1. Click on a Treeitem in Tree 1 and click on "show selected" Button. You will see the selected item shown after the Button.</div>
-				<div>2. Click on another Treeitem in Tree 1 and click on "show selected" Button again. You should only see 1 Treeitem displayed after the Button. Otherwise it is a bug.</div>
-				<tree id="tree" width="830px">
-					<treecols>
-						<treecol hflex="3" label="Path" />
-						<treecol hflex="5" label="Description" />
-						<treecol hflex="2" label="Size" />
-					</treecols>
-				</tree>
-				<button id="btn" label="show selected">
-					<attribute name="onClick"><![CDATA[
-						Set s = tree.getModel().getSelection();
-						Iterator it = s.iterator();
-						StringBuffer sb = new StringBuffer();
-						while (it.hasNext())
-							sb.append(it.next()).append("\n");
-						tb.setValue(sb.toString());
-					]]></attribute>
-				</button>
-				<label id="tb" />
-				<div>3. In Tree 2, select 3 Treeitems, click on show selected Button.</div>
-				<div>4. Deselect one of them, and click on the Button again. You should see only 2 items printed out.</div>
-				<tree id="tree2" width="830px" checkmark="true" multiple="true">
-					<treecols>
-						<treecol hflex="3" label="Path" />
-						<treecol hflex="5" label="Description" />
-						<treecol hflex="2" label="Size" />
-					</treecols>
-				</tree>
-				<button id="btn2" label="show selected">
-					<attribute name="onClick"><![CDATA[
-						Set s = tree2.getModel().getSelection();
-						Iterator it = s.iterator();
-						StringBuffer sb = new StringBuffer();
-						while (it.hasNext())
-							sb.append(it.next()).append("\n");
-						tb2.setValue(sb.toString());
-					]]></attribute>
-				</button>
-				<label id="tb2" />
-				<zscript><![CDATA[
-					tree.setItemRenderer(new org.zkoss.zktest.test2.tree.DirectoryTreeitemRenderer());
-					tree.setModel(new org.zkoss.zul.DefaultTreeModel(org.zkoss.zktest.test2.tree.PackageData.getRoot()));
-					tree2.setItemRenderer(new org.zkoss.zktest.test2.tree.DirectoryTreeitemRenderer());
-					tree2.setModel(new org.zkoss.zul.DefaultTreeModel(org.zkoss.zktest.test2.tree.PackageData.getRoot()));
-    				tree2.getModel().setMultiple(true);
-				]]></zscript>
-			</zk>
-    """
-
     def executor = () => {
       var btn: Widget = engine.$f("btn");
       var btn2: Widget = engine.$f("btn2");
@@ -128,10 +75,10 @@ class B50_ZK_306Test extends ZTL4ScalaTestCase {
     }
 
     def checkNumber(wgt: Widget, cnt: java.lang.Integer) {
-      verifyTrue(jq(wgt.$n()).get(0).attr("innerHTML").split("@").length == cnt + 1)
+      verifyEquals(getEval("getAnnotCnt(" + wgt.$n() + ")"), cnt + 1)
     }
 
-    runZTL(zscript, executor);
+    runZTL(executor);
 
   }
 }

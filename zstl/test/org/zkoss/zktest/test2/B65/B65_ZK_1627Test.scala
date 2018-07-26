@@ -30,7 +30,7 @@ class B65_ZK_1627Test extends ZTL4ScalaTestCase {
         val dbLeft = db.offsetLeft()
         val pnt = jq(jq(".z-errorbox").toWidget().$n("p"))
         val pntMid = pnt.offsetLeft() + pnt.outerWidth() / 2.0
-        verifyTrue("you should see an error arrow points to the mid-bottom of the datebox.", (pntMid - dbLeft - db.outerWidth() / 2.0).abs <= 2)
+        verifyTrue("you should see an error arrow points to the mid-bottom of the datebox.", getEval("Math.abs(" + pntMid + "-" + dbLeft + "-" + db.outerWidth() + " / 2) <= 2"))
       })
 
   }

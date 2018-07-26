@@ -33,20 +33,12 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
     runZTL(() => {
-      var (tb1: Widget,
-      tb2: Widget,
-      tb3: Widget) = (
-        engine.$f("tb1"),
-        engine.$f("tb2"),
-        engine.$f("tb3")
-      );
-      var (tb1Inp: Element,
-      tb2Inp: Element,
-      tb3Inp: Element) = (
-        tb1.$n("real"),
-        tb2.$n("real"),
-        tb3.$n("real")
-      );
+      var tb1: Widget = engine.$f("tb1")
+      var tb2: Widget = engine.$f("tb2")
+      var tb3: Widget = engine.$f("tb3")
+      var tb1Inp: Element = tb1.$n("real")
+      var tb2Inp: Element = tb2.$n("real")
+      var tb3Inp: Element = tb3.$n("real")
 
       def clearAndInput(ele: Element, value: String) {
         ele.eval("focus()");
@@ -72,7 +64,7 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
         sendKeys(tb3Inp, Keys.RIGHT);
       }
       // move to the position after AM00/PM00
-      for (j <- 1 to 6) {
+      for (j <- 1 to 10) {
         sendKeys(tb3Inp, Keys.LEFT);
       }
       clickAndCheck(tb3.$n("btn-up"));
@@ -86,9 +78,12 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
 
       def clickAndCheck(ele: Element) {
         var checkStr = getEval("getNextAMPM()")
+        println(">>>>> check : " + checkStr)
+        waitResponse()
         click(ele)
         waitResponse()
         verifyContains("should change AM/PM", tb3Inp.attr("value"), checkStr);
+        println(">>>>> result : " + tb3Inp.attr("value"))
       }
     }
     )

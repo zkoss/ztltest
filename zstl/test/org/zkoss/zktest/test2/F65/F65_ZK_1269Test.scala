@@ -44,7 +44,7 @@ class F65_ZK_1269Test extends ZTL4ScalaTestCase {
           verifyTrue("should show component " + result + ".", jq(".z-cardlayout-inner:contains(" + result + ")").css("top") == "0px")
 
           // restore removeInp
-          sendKeys(removeInp, Keys.END + ("" + Keys.BACK_SPACE) * removeInp.`val`().length)
+          sendKeys(removeInp, Keys.END + "" + Keys.BACK_SPACE + Keys.BACK_SPACE + Keys.BACK_SPACE)
           waitResponse(true)
           blur(removeInp)
           waitResponse(true)
@@ -72,7 +72,7 @@ class F65_ZK_1269Test extends ZTL4ScalaTestCase {
           verifyTrue("should show component " + result + ".", jq(".z-cardlayout-inner:contains(" + result + ")").css("top") == "0px")
 
           // restore selectedInp
-          sendKeys(selectedInp, Keys.END + ("" + Keys.BACK_SPACE) * selectedInp.`val`().length)
+          sendKeys(selectedInp, Keys.END + "" + Keys.BACK_SPACE + Keys.BACK_SPACE + Keys.BACK_SPACE)
           waitResponse(true)
           blur(selectedInp)
           waitResponse(true)

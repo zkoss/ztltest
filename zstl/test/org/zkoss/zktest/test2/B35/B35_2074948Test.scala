@@ -68,12 +68,12 @@ class B35_2074948Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       // Record Menu Item position
-      var xMenu: Int = getElementPositionLeft(item).intValue();
-      var yMenu: Int = getElementPositionTop(item).intValue();
+      var xMenu: Int = jq(item).positionLeft()
+      var yMenu: Int = jq(item).positionTop()
 
       // Record Menu Popup position
-      var xPopup: Int = getElementPositionLeft(popup).intValue();
-      var yPopup: Int = getElementPositionTop(popup).intValue();
+      var xPopup: Int = jq(popup).positionLeft()
+      var yPopup: Int = jq(popup).positionTop()
 
       // The popup must be at the right of the menu item
       verifyTrue("The popup must be at right and below of the menu item", xPopup > xMenu)

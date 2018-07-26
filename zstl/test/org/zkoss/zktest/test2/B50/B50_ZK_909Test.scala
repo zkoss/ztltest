@@ -75,7 +75,7 @@ class B50_ZK_909Test extends ZTL4ScalaTestCase {
 
         click(savebtn)
         waitResponse()
-        verifyTrue("the value of first textbox should not be cleared.", textbox.`val`().length() != 0)
+        verifyContains("the value of first textbox should not be cleared.", textbox.`val`(), "1111")
 
       })
 

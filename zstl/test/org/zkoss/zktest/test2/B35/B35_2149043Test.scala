@@ -47,7 +47,8 @@ class B35_2149043Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
 
       // Record the image after the click on the button
-      val (height, width) = (jq("$f1").outerHeight(), jq("$f1").outerWidth())
+      val height = jq("$f1").outerHeight()
+      val width = jq("$f1").outerWidth()
       // Click on Change image button
       click(jq("@button"));
       waitResponse();

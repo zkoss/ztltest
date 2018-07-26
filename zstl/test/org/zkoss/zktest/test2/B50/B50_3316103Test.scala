@@ -69,15 +69,10 @@ class B50_3316103Test extends ZTL4ScalaTestCase {
     """
     runZTL(zscript,
       () => {
-        var (cbx: Widget,
-        dbx: Widget,
-        label2: Widget,
-        label3: Widget) = (
-          engine.$f("cbx"),
-          engine.$f("dbx"),
-          engine.$f("label2"),
-          engine.$f("label3")
-        );
+        var cbx: Widget = engine.$f("cbx")
+        var dbx: Widget = engine.$f("dbx")
+        var label2: Widget = engine.$f("label2")
+        var label3: Widget = engine.$f("label3")
         click(cbx.$n("btn"));
         waitResponse();
         click(jq(cbx.$n("pp")).find(".z-comboitem").get(1));
