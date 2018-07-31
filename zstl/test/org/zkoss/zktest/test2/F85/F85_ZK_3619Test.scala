@@ -23,15 +23,17 @@ class F85_ZK_3619Test extends ZTL4ScalaTestCase {
 			click(buttons.eq(0))
 			waitResponse()
 			
-			click(jq(".z-calendar-left"))
-			waitResponse()
+			for (i <- 0 to 1) {
+				click(jq(".z-calendar-left"))
+				waitResponse()
+			}
 			
 			testDisabled(jq(".z-calendar-cell:visible"))
 			
 			click(buttons.eq(1))
 			waitResponse()
 			
-			for (i <- 0 to 1) {
+			for (i <- 0 to 3) {
 				click(jq(".z-calendar-right"))
 				waitResponse()
 			}
