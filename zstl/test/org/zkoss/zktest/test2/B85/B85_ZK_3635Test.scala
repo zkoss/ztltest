@@ -12,6 +12,7 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B85
 
 import org.junit.Test
+import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B85_ZK_3635Test extends ZTL4ScalaTestCase {
@@ -34,7 +35,7 @@ class B85_ZK_3635Test extends ZTL4ScalaTestCase {
   }
 
   def pressTab()=  {
-    keyPressNative("9")
+    sendKeys(jq("body"), Keys.TAB)
     waitResponse(true)
   }
 }

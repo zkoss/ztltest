@@ -52,7 +52,7 @@ class B50_2931212Test extends ZTL4ScalaTestCase {
 </tabbox>
 
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tabs = ztl$engine.$f("tabs")
     val aa = ztl$engine.$f("aa")
     val bb = ztl$engine.$f("bb")

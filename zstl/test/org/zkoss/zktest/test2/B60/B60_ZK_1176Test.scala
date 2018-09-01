@@ -62,7 +62,7 @@ class B60_ZK_1176Test extends ZTL4ScalaTestCase {
 
         click(btn2)
         waitResponse()
-        verifyTrue(!btn2.is("[disabled]"))
+        verifyFalse(btn2.is("[disabled]"))
 
         val toolbarbtn1 = jq(".z-toolbarbutton:contains(Toolbarbutton #1)")
         val toolbarbtn2 = jq(".z-toolbarbutton:contains(Toolbarbutton #2)")
@@ -73,7 +73,7 @@ class B60_ZK_1176Test extends ZTL4ScalaTestCase {
 
         click(toolbarbtn2)
         waitResponse()
-        verifyTrue(!toolbarbtn2.is("[disabled=disabled]"))
+        verifyFalse(toolbarbtn2.is("[disabled=disabled]"))
 
       })
 

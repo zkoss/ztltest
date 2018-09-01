@@ -72,7 +72,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         var row1 = jq(".z-button").eq(0);
         click(row1);
         var errbox = jq(".z-error");
-        verifyTrue(!errbox.isVisible());
+        verifyFalse(errbox.isVisible());
       })
 
   }

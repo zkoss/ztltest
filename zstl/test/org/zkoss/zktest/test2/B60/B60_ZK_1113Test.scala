@@ -40,7 +40,7 @@ Copyright (C) 2012 Potix Corporation. All Rights Reserved.
         waitResponse()
         sendKeys(cb.toWidget().$n("inp"), Keys.ESCAPE)
         waitResponse()
-        verifyTrue("you should see nothing", !cb.exists)
+        verifyFalse("you should see nothing", cb.exists)
       })
 
   }

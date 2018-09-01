@@ -75,8 +75,9 @@ class F51_ZK_264Test extends ZTL4ScalaTestCase {
         def checkSeq(before: String, after: String) {
           var lbOne: JQuery = jq(".z-label:contains(" + before + ")");
           var lbTwo: JQuery = jq(".z-label:contains(" + after + ")");
-          if (before.equals(after))
+          if (before.equals(after)) {
             lbTwo = jq(jq(".z-label:contains(" + after + ")").get(1));
+          }
 
           verifyTrue("The labels should exist.",
             lbOne.exists() && lbTwo.exists());

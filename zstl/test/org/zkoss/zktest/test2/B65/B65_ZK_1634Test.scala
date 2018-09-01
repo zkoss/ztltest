@@ -117,7 +117,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
 
         verifyTrue("the node 2 label should change to New Node 2", jq(".z-treecell:contains(New Node 2)").exists())
         verifyTrue("still has child Node3", jq(".z-treecell:contains(Node 3)").exists())
-        verifyTrue("you should not see any exception dialog", !jq(".z-window-modal").exists())
+        verifyFalse("you should not see any exception dialog", jq(".z-window-modal").exists())
       })
 
   }

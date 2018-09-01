@@ -27,7 +27,7 @@ class HelloTest extends ZTL4ScalaTestCase {
 		</window>
 				  
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals("My First window", jq(".z-window-header").text())
       verifyEquals("Hello, World!", jq(".z-label").text())

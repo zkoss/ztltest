@@ -93,8 +93,9 @@ class B50_ZK_549Test extends ZTL4ScalaTestCase {
             jq(gbx).outerHeight(), 200);
 
           header = gbx.$n("title");
-          if (!header.exists())
+          if (!header.exists()) {
             header = jq(gbx).find(".z-caption").get(0);
+          }
           if (header.exists()) {
             click(header);
             waitResponse();

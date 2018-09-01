@@ -53,7 +53,7 @@ class B36_2779453Test extends ZTL4ScalaTestCase {
 				</window>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       click(widget(jq("@detail")).$n("icon"))
       waitResponse()

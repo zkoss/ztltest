@@ -79,7 +79,7 @@ Henry should <b>NOT</b> be selected.<br/>
 	</listbox>		
 </window>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val btn1 = ztl$engine.$f("btn1")
     val btn2 = ztl$engine.$f("btn2")
     val box = ztl$engine.$f("box")

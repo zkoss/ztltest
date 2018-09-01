@@ -56,7 +56,7 @@ class B30_2056760Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val listbox = ztl$engine.$f("listbox")
     runZTL(zscript, () => {
       verifyEquals("250", jq("@listbox").outerWidth())

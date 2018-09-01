@@ -47,7 +47,7 @@ Please open the treeitem "item" and you should see the treeitem "child item" is 
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals(1, jq("@treerow").length())
       click(jq(".z-treerow").toWidget().$n("icon"))

@@ -234,7 +234,7 @@ border="normal">
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
     runZTL(zscript, () => {
       verifyEquals(1, jq(".z-treerow").length())

@@ -33,7 +33,7 @@ class B50_3245960Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals("text", jq("textarea").text())
     })

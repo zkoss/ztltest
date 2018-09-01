@@ -71,7 +71,7 @@ class B30_1836257Test extends ZTL4ScalaTestCase {
         click(jq("@button"));
         waitResponse();
         //row1 must be invisible
-        verifyTrue(!jq("$row1").isVisible());
+        verifyFalse(jq("$row1").isVisible());
 
         verifyFalse(jq("@listitem:eq(0)").hasClass("z-listbox-odd"));
         verifyTrue(jq("@listitem:eq(1)").hasClass("z-listbox-odd"));

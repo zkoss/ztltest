@@ -45,8 +45,9 @@ class Z60_ChildrenComplexTest extends ZTL4ScalaTestCase {
     for (i <- 0 to nodes.size - 1) {
       var n = nodes.get(i)
       var str = "children1"
-      if (!children1)
+      if (!children1) {
         str = "children2"
+      }
       verifyEquals(str, w.attr("sclass"))
       var l = w.firstChild()
       verifyEquals(n.getName(), l.attr("value"))

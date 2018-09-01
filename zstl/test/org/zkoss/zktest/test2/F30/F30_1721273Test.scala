@@ -32,7 +32,7 @@ class F30_1721273Test extends ZTL4ScalaTestCase {
 			<textbox id="tb1" value="Support onOK event 1" onOK="alert(self.value);"/>
 		</zk>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tb1 = ztl$engine.$f("tb1")
     runZTL(zscript, () => {
       verifyFalse(jq("@window").exists())

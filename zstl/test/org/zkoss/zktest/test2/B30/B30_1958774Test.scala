@@ -187,7 +187,7 @@ class B30_1958774Test extends ZTL4ScalaTestCase {
 
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyTrue(jq("@window[title=\"tree demo\"]").exists())
       verifyFalse(jq("@window:not(@window[title=\"tree demo\"])").exists())

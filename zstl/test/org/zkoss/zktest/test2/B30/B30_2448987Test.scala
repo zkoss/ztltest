@@ -46,7 +46,7 @@ class B30_2448987Test extends ZTL4ScalaTestCase {
 				<listbox model="${model}"/>
 			</window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val testZul = ztl$engine.$f("testZul")
     runZTL(zscript, () => {
       verifyEquals("item4", jq(".z-listitem:eq(0)").text())

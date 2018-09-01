@@ -44,7 +44,7 @@ class B50_3259479Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals("HelloZK", jq("@label").text())
     })

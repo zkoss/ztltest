@@ -33,7 +33,7 @@ class B50_3284976Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       typeKeys(jq("@longbox"), "1-2")
       verifyTrue(jq(".z-errorbox").exists())

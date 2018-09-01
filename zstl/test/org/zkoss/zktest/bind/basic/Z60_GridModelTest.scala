@@ -39,7 +39,7 @@ class Z60_GridModelTest extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid")
       outerrows = outerbox.find("@rows").toWidget().firstChild()
       var itemLabel = Array("A", "C", "D")
-      verifyEquals(itemLabel.length, outerbox.find("@rows").toWidget().nChildren())
+      verifyEquals(3, outerbox.find("@rows").toWidget().nChildren())
       var outerrow = outerrows
 
       for (i <- 0 to itemLabel.length - 1) {
@@ -78,7 +78,7 @@ class Z60_GridModelTest extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid")
       outerrows = outerbox.find("@rows").toWidget().firstChild()
       itemLabel = Array("A", "C", "C1", "D")
-      verifyEquals(itemLabel.length, outerbox.find("@rows").toWidget().nChildren())
+      verifyEquals(4, outerbox.find("@rows").toWidget().nChildren())
       outerrow = outerrows
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i)
@@ -115,7 +115,7 @@ class Z60_GridModelTest extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid")
       outerrows = outerbox.find("@rows").toWidget().firstChild()
       itemLabel = Array("A", "C", "C12", "C1", "D")
-      verifyEquals(itemLabel.length, outerbox.find("@rows").toWidget().nChildren())
+      verifyEquals(5, outerbox.find("@rows").toWidget().nChildren())
       outerrow = outerrows
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i)

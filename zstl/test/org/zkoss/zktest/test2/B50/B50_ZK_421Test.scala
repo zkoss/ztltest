@@ -63,38 +63,20 @@ class B50_ZK_421Test extends ZTL4ScalaTestCase {
     def testSelect(lb: Widget, keep: java.lang.Boolean) {
       click(jq(lb.$n("rows")).find(".z-listitem").get(2));
       waitResponse();
-      click(jq("[name=" + jq(lb).find(".z-paging").attr("id") + "-next]"));
+      click(jq(lb).find(".z-paging-next"));
       waitResponse();
       click(jq(lb.$n("rows")).find(".z-listitem").get(2));
       waitResponse();
       verifyTrue(jq(lb).find(".z-listitem:eq(2)").hasClass("z-listitem-selected"));
-      click(jq("[name=" + jq(lb).find(".z-paging").attr("id") + "-prev]"));
+      click(jq(lb).find(".z-paging-previous"));
       waitResponse();
-      if (keep)
+      if (keep) {
         verifyTrue(jq(lb).find(".z-listitem:eq(2)").hasClass("z-listitem-selected"));
-      else
+      } else {
         verifyFalse(jq(lb).find(".z-listitem:eq(2)").hasClass("z-listitem-selected"));
+      }
     }
 
     runZTL(zscript, executor);
-
-    // Run syntax 2
-    /**
-      * runZTL(zscript,
-      * () => {
-      * var l1: Widget = engine.$f("l1");
-      * var l2: Widget = engine.$f("l2");
-      * waitResponse();
-      * var strClickBefor = getText(l1);
-      * click(l1);
-      * waitResponse();
-      * verifyNotEquals(strClickBefor, getText(l1));
-      * strClickBefor = getText(l2);
-      * click(l2);
-      * waitResponse();
-      * verifyNotEquals(strClickBefor, getText(l2));
-      * }
-      * );
-      */
   }
 }

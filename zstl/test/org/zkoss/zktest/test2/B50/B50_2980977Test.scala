@@ -46,7 +46,7 @@ class B50_2980977Test extends ZTL4ScalaTestCase {
 			onClick='row.setClass("abc")'/>
 			</zk>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val row = ztl$engine.$f("row")
     val btn = ztl$engine.$f("btn")
     val btn2 = ztl$engine.$f("btn2")
@@ -108,7 +108,7 @@ class B50_2980977Test extends ZTL4ScalaTestCase {
 			onClick='row.setClass("abc")'/>
 		</zk>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val row = ztl$engine.$f("row")
     val btn = ztl$engine.$f("btn")
     runZTL(zscript, () => {

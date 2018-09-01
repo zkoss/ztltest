@@ -41,15 +41,10 @@ class B30_1984643Test extends ZTL4ScalaTestCase {
     """
     runZTL(zscript, () => {
       var sb: Widget = engine.$f("sb");
-      def selectItem(item: String) {
-        var doms: JQuery = jq(":contains(" + item + ")");
-        var dom: Element = doms.get(doms.length() - 1);
-        click(sb.$n());
-        click(dom);
-        waitResponse();
-      }
       // Click on the listbox
-      selectItem("item 1");
+      click(sb.$n());
+      click(jq(":contains(item 1)"));
+      waitResponse();
       waitResponse();
 
       sendKeys(jq("@select"), Keys.ENTER);

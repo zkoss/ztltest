@@ -39,14 +39,14 @@ class B30_2522437Test extends ZTL4ScalaTestCase {
     """
     runZTL(zscript, () => {
       // Record the html of the page
-      val contentBefore = getBodyText();
+      val contentBefore = jq("body").text();
 
       // Click on the button
       click(jq("@button"));
       waitResponse();
 
       // Record again the html
-      val contentAfter = getBodyText();
+      val contentAfter = jq("body").text();
 
       // Verify that all is the same
       verifyEquals("The html content should not be changed", contentBefore, contentAfter)

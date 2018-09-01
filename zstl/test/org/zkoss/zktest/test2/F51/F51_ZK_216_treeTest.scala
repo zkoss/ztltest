@@ -46,10 +46,11 @@ class F51_ZK_216_treeTest extends ZTL4ScalaTestCase {
         var $childOne: JQuery = null
         var $childTwo: JQuery = null
         var status: String = ""
-        if (toOpen)
+        if (toOpen) {
           status = "opened"
-        else
+        } else {
           status = "closed"
+        }
         click($nodeOne.toWidget().$n("open"))
         waitResponse(true)
         // check only

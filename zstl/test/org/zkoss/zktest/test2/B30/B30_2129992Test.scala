@@ -94,7 +94,7 @@ class B30_2129992Test extends ZTL4ScalaTestCase {
 				</listbox>
 			</window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       sleep(1000); //for DataBinding
       for (i <- 0 until 3) {

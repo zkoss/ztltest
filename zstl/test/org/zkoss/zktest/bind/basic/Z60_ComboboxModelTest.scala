@@ -38,7 +38,7 @@ class Z60_ComboboxModelTest extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid").toWidget()
       outerrows = jq(outerbox).find("@rows").toWidget().firstChild()
       var itemLabel = Array("A", "C", "D")
-      verifyEquals(itemLabel.length, jq(outerbox).find("@rows").toWidget().nChildren())
+      verifyEquals(3, jq(outerbox).find("@rows").toWidget().nChildren())
       var outerrow = outerrows
 
       for (i <- 0 to itemLabel.length - 1) {
@@ -67,7 +67,7 @@ class Z60_ComboboxModelTest extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid").toWidget()
       outerrows = jq(outerbox).find("@rows").toWidget().firstChild()
       itemLabel = Array("A", "C", "C1", "D")
-      verifyEquals(itemLabel.length, jq(outerbox).find("@rows").toWidget().nChildren())
+      verifyEquals(4, jq(outerbox).find("@rows").toWidget().nChildren())
       outerrow = outerrows
       for (i <- 0 to itemLabel.length - 1) {
         var combobox = jq(outerrow).find("@combobox").toWidget()
@@ -94,7 +94,7 @@ class Z60_ComboboxModelTest extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid").toWidget()
       outerrows = jq(outerbox).find("@rows").toWidget().firstChild()
       itemLabel = Array("A", "C", "C12", "C1", "D")
-      verifyEquals(itemLabel.length, jq(outerbox).find("@rows").toWidget().nChildren())
+      verifyEquals(5, jq(outerbox).find("@rows").toWidget().nChildren())
       outerrow = outerrows
       for (i <- 0 to itemLabel.length - 1) {
         var combobox = jq(outerrow).find("@combobox").toWidget()

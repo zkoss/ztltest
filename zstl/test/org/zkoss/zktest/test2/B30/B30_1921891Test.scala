@@ -48,7 +48,7 @@ In 3.0.3 or earlier, ClassCastException is thrown - it is incorrect.
 </window>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val lb = ztl$engine.$f("lb")
     val li = ztl$engine.$f("li")
     runZTL(zscript, () => {

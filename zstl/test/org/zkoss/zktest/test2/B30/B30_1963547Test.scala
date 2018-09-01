@@ -44,7 +44,7 @@ It is true, if don't have any JS error after you go through the following steps
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val list = ztl$engine.$f("list")
     val list1 = ztl$engine.$f("list1")
     val list2 = ztl$engine.$f("list2")

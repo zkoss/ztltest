@@ -21,7 +21,7 @@ import org.zkoss.ztl.unit.Widget
 class B50_3283951Test extends ZTL4ScalaTestCase {
   @Test
   def testztl() = {
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
     val titem = ztl$engine.$f("titem")
     runZTL(() => {

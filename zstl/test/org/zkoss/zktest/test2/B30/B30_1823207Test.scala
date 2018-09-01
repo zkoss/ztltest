@@ -153,7 +153,7 @@ for(int i = 0; i < 20; i++)
 </window>
 </zk>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val testArticoloWind = ztl$engine.$f("testArticoloWind")
     val selectWidget = ztl$engine.$f("select")
     val parentsList = ztl$engine.$f("parentsList")

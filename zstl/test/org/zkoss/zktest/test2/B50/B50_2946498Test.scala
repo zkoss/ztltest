@@ -45,7 +45,7 @@ class B50_2946498Test extends ZTL4ScalaTestCase {
 				    You should see all of the popup windows with errors are closed.
 				</window>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val txb1 = ztl$engine.$f("txb1")
     val ltb = ztl$engine.$f("ltb")
     val txb2 = ztl$engine.$f("txb2")

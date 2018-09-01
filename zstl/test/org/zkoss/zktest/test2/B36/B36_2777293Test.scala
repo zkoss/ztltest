@@ -63,7 +63,7 @@ class B36_2777293Test extends ZTL4ScalaTestCase {
 				</tree>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
     runZTL(zscript, () => {
       click(jq("@button[label=\"Test new model\"]"))

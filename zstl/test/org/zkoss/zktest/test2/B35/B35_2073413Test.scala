@@ -158,7 +158,7 @@ new String[]{"15","[zk1 - Help] RE: SelectedItemConverter Question","2008/4/28 1
           verifyTrue(vis);
 
           //Open any detail
-          var det = widget(jq("$row" + i).find(" @detail")).$n("icon");
+          var det = jq("$row" + i).find(" @detail").toWidget.$n("icon");
           click(det);
           waitResponse();
 
@@ -215,7 +215,7 @@ new String[]{"15","[zk1 - Help] RE: SelectedItemConverter Question","2008/4/28 1
 
 
         //Close detail to check unopen never showup
-        var det = widget(jq("$row14").find("@detail")).$n("icon");
+        var det = jq("$row14").find("@detail").toWidget.$n("icon");
         click(det);
         waitResponse();
 

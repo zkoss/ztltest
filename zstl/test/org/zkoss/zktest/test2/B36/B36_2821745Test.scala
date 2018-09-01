@@ -39,7 +39,7 @@ class B36_2821745Test extends ZTL4ScalaTestCase {
 		    </groupbox>
 		</zk>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val list = ztl$engine.$f("list")
     val gb = ztl$engine.$f("gb")
     runZTL(zscript, () => {

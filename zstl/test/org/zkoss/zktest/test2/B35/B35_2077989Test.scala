@@ -19,7 +19,7 @@ import org.zkoss.ztl.unit.Widget
 class B35_2077989Test extends ZTL4ScalaTestCase {
   @Test
   def testhideWin() = {
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val win = ztl$engine.$f("win")
     val hidebtn = ztl$engine.$f("hidebtn")
     runZTL(() => {
@@ -31,7 +31,7 @@ class B35_2077989Test extends ZTL4ScalaTestCase {
   }
   @Test
   def testminWin() = {
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val win = ztl$engine.$f("win")
     val hidebtn = ztl$engine.$f("hidebtn")
     runZTL(() => {

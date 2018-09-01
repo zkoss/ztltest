@@ -42,16 +42,16 @@ class B36_2697462Test extends ZTL4ScalaTestCase {
 				</tree>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
     runZTL(zscript, () => {
       click(jq("@treerow").find(".z-treerow-checkbox:eq(0)"))
       waitResponse()
       click(jq("@treerow").find(".z-treerow-checkbox:eq(0)"))
       waitResponse()
-      click(jq("[name=" + jq("@paging").attr("id") + "-next]"))
+      click(jq("@paging").find(".z-paging-next"))
       waitResponse()
-      click(jq("[name=" + jq("@paging").attr("id") + "-prev]"))
+      click(jq("@paging").find(".z-paging-previous"))
       waitResponse()
       verifyFalse(jq("@treerow:eq(0)").hasClass("z-treerow-selected"))
     })

@@ -86,7 +86,7 @@ class B30_1701986Test extends ZTL4ScalaTestCase {
 			</button>
 			</window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val days = ztl$engine.$f("days")
     val beginDate = ztl$engine.$f("beginDate")
     val endDate = ztl$engine.$f("endDate")

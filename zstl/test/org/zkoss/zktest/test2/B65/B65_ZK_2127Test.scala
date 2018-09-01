@@ -14,7 +14,7 @@ class B65_ZK_2127Test extends ZTL4ScalaTestCase {
         click(jq(".z-radio:eq(1)").toWidget().$n("real"))
         waitResponse()
 
-        verifyTrue("the combobox should be enable", !jq(".z-combobox.z-combobox-disabled").exists)
+        verifyFalse("the combobox should be enable", jq(".z-combobox.z-combobox-disabled").exists)
       })
 
   }

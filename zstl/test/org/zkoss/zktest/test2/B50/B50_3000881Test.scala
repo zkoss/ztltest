@@ -38,7 +38,7 @@ class B50_3000881Test extends ZTL4ScalaTestCase {
 </tabbox>
 </hbox>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyFalse(jq("@tabbox").outerWidth() > 5000)
     })

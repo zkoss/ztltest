@@ -70,7 +70,7 @@ class B50_3292545Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals(300, jq("@combobox:eq(0)").outerWidth())
       verifyEquals(300, jq("@bandbox:eq(0)").outerWidth())

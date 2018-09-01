@@ -34,29 +34,28 @@ class B65_ZK_1715Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        val items = 1 to 5 map (n => jq(".z-listitem:contains(item " + n + ")"))
-        click(items(0))
+        click(jq(".z-listitem:contains(item 0)"))
         waitResponse()
-        sendKeys(items(1), Keys.DOWN)
+        sendKeys(jq(".z-listitem:contains(item 1)"), Keys.DOWN)
         waitResponse()
-        sendKeys(items(2), Keys.DOWN)
-        waitResponse()
-
-        val hasOneSeld = items(3).hasClass("z-listitem-selected") || items(4).hasClass("z-listitem-selected")
-        verifyTrue("'item 4' and 'item 5' should not be selected.", !hasOneSeld)
-
-        sendKeys(items(3), Keys.UP)
-        waitResponse()
-        sendKeys(items(1), Keys.SHIFT + "" + Keys.DOWN)
-        waitResponse()
-        sendKeys(items(2), Keys.SHIFT + "" + Keys.DOWN)
+        sendKeys(jq(".z-listitem:contains(item 2)"), Keys.DOWN)
         waitResponse()
 
-        verifyTrue("'item 4' and 'item 5' should not be selected.", !hasOneSeld)
+        val hasOneSeld = jq(".z-listitem:contains(item 3)").hasClass("z-listitem-selected") || jq(".z-listitem:contains(item 4)").hasClass("z-listitem-selected")
+        verifyFalse("'item 4' and 'item 5' should not be selected.", hasOneSeld)
 
-        click(items(2))
+        sendKeys(jq(".z-listitem:contains(item 3)"), Keys.UP)
         waitResponse()
-        sendKeys(items(2), Keys.PAGE_DOWN + "" + Keys.PAGE_DOWN)
+        sendKeys(jq(".z-listitem:contains(item 1)"), Keys.SHIFT + "" + Keys.DOWN)
+        waitResponse()
+        sendKeys(jq(".z-listitem:contains(item 2)"), Keys.SHIFT + "" + Keys.DOWN)
+        waitResponse()
+
+        verifyFalse("'item 4' and 'item 5' should not be selected.", hasOneSeld)
+
+        click(jq(".z-listitem:contains(item 2)"))
+        waitResponse()
+        sendKeys(jq(".z-listitem:contains(item 2)"), Keys.PAGE_DOWN + "" + Keys.PAGE_DOWN)
 
         verifyFalse("no exception", jq(".z-window-modal").exists());
       })

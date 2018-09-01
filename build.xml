@@ -88,6 +88,28 @@ Usage:
 			<arg line="./lib/run-maven.sh"/>
 		</exec>
 	</target>
+	<target name="genTestCafeScala" depends="init">
+		<java classname="org.zkoss.ztl.util.ZtlGenerator"
+			  fork="true">
+			<arg value="-testcafe"/>
+			<arg value="-src"/>
+			<arg value="./zstl/test"/>
+			<arg value="-dist"/>
+			<arg value="./codegen"/>
+			<classpath refid="dependency.classpath" />
+		</java>
+	</target>
+	<target name="runTestCafeScala" depends="init">
+		<exec executable="sh" dir="." failonerror="true">
+			<arg line="./lib/run-maven-testcafe.sh"/>
+			<arg value="${report.dir}"/>
+			<arg value="${test.dir}"/>
+			<arg value="${test.browser}"/>
+			<arg value="${test.openonce}"/>
+		</exec>
+	</target>
+	<target name="genTestCafeJS" depends="genTestCafeScala, runTestCafeScala">
+	</target>
 	<target name="run" depends="compileztl">
 		<echo>Tags: -Dtags=${tags}</echo>
 		<java classname="org.zkoss.ztl.util.ZtlGenerator"
@@ -116,24 +138,6 @@ Usage:
 			<arg value="${case}"/>
 		</exec>
 	</target>
-	<!-- use maven to run case
-	<target name="runcase">
-		<echo>Case: -Dcase=${case}</echo>
-		<java classname="org.zkoss.ztl.util.ZtlGenerator"
-           	fork="true">
-         <arg value="-run"/>
-         <arg value="${test.dir}"/>
-         <arg value="${case}"/>
-		 <classpath refid="dependency.classpath" />
-         <classpath>
-           <pathelement path="${test.dir}"/>
-			<fileset dir="${lib.dir}">
-				<include name="**/*.jar" />
-			</fileset>
-         </classpath>
-         <jvmarg value="-Dbrowser=${browser}"/>
-       </java>
-	</target> -->
 	<target name="junitTag" depends="generate,compileztl">
 		<junit printsummary="on" fork="true" forkmode="once" haltonfailure="false"
 			   showoutput="true">

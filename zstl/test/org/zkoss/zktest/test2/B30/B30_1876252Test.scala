@@ -45,7 +45,7 @@ class B30_1876252Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       var rowHeight = jq(".z-listitem").height()
       //make sure the row height in second listbox is same as first.

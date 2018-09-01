@@ -37,7 +37,7 @@ class Z60_CollectionIndexListbox2Test extends ZTL4ScalaTestCase {
       outerbox = jq("$outerbox").toWidget()
       outeritem = outerbox.firstChild() // header will be skipped
       var itemLabel = Array("A", "C", "D")
-      verifyEquals(itemLabel.length, outerbox.nChildren() - 1) // don't care header
+      verifyEquals(3, outerbox.nChildren() - 1) // don't care header
       for (i <- 0 to itemLabel.length - 1) {
         outeritem = outeritem.nextSibling()
         val outerl = itemLabel(i)
@@ -75,7 +75,7 @@ class Z60_CollectionIndexListbox2Test extends ZTL4ScalaTestCase {
       outerbox = jq("$outerbox").toWidget()
       outeritem = outerbox.firstChild() // header will be skipped
       itemLabel = Array("A", "C", "C1", "D")
-      verifyEquals(itemLabel.length, outerbox.nChildren() - 1) // don't care header
+      verifyEquals(4, outerbox.nChildren() - 1) // don't care header
       for (i <- 0 to itemLabel.length - 1) {
         outeritem = outeritem.nextSibling()
         val outerl = itemLabel(i)
@@ -107,13 +107,14 @@ class Z60_CollectionIndexListbox2Test extends ZTL4ScalaTestCase {
       }
       // ===============================add add before row
       outeritem = outerbox.firstChild().nextSibling() // skip header
-      outeritem = outeritem.nextSibling().nextSibling() // 3nd row
+      outeritem = outeritem.nextSibling()
+      outeritem = outeritem.nextSibling() // 3nd row
       click(jq(outeritem).find("@button").get(3)) // click the add after button on 2nd row
       waitResponse()
       outerbox = jq("$outerbox").toWidget()
       outeritem = outerbox.firstChild() // header will be skipped
       itemLabel = Array("A", "C", "C12", "C1", "D")
-      verifyEquals(itemLabel.length, outerbox.nChildren() - 1) // don't care header
+      verifyEquals(5, outerbox.nChildren() - 1) // don't care header
       for (i <- 0 to itemLabel.length - 1) {
         outeritem = outeritem.nextSibling()
         val outerl = itemLabel(i)

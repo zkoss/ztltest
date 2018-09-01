@@ -32,7 +32,7 @@ class Z60_TemplateListbox1Test extends ZTL4ScalaTestCase {
       var outeritems = outerbox.toWidget().firstChild() // include header
       outeritems = outeritems.nextSibling() // don't care header
       var itemLabel = Array("A", "B", "C", "D")
-      verifyEquals(itemLabel.length, outerbox.toWidget().nChildren() - 1)
+      verifyEquals(4, outerbox.toWidget().nChildren() - 1)
       var outeritem = outeritems
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i)
@@ -62,10 +62,11 @@ class Z60_TemplateListbox1Test extends ZTL4ScalaTestCase {
         verifyEquals("item index " + i, msg.attr("value"))
         // verify template
         cell = outeritem.lastChild()
-        if (i == 0 || i == 2)
+        if (i == 0 || i == 2) {
           verifyEquals("Model1", cell.attr("label"))
-        else
+        } else {
           verifyEquals("Model2", cell.attr("label"))
+        }
         outeritem = outeritem.nextSibling()
       }
     })

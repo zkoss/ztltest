@@ -15,13 +15,14 @@ it will be useful, but WITHOUT ANY WARRANTY.
 package org.zkoss.zktest.test2.B50
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags;
+import org.zkoss.ztl.annotation.{SeleniumOnly, Tags};
 
 /**
   *
   * @author jumperchen
   */
 @Tags(tags = "B50-ZK-692.zul,B,M,RemoveDesktop")
+@SeleniumOnly
 class B50_ZK_692Test extends ZTL4ScalaTestCase {
   def testCase() = {
     val zscript =

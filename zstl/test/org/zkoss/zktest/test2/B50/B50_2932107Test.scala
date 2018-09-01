@@ -55,7 +55,7 @@ class B50_2932107Test extends ZTL4ScalaTestCase {
 					</zscript>
 				</zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val listbox = ztl$engine.$f("listbox")
     val insideHeaderCombobox = ztl$engine.$f("insideHeaderCombobox")
     runZTL(zscript, () => {

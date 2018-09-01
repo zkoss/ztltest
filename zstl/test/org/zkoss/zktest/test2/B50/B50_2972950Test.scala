@@ -35,7 +35,7 @@ class B50_2972950Test extends ZTL4ScalaTestCase {
 					onClick="intbox.constraint = new SimpleConstraint(SimpleConstraint.NO_NEGATIVE)" />
 				</zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val intbox = ztl$engine.$f("intbox")
     val btn = ztl$engine.$f("btn")
     runZTL(zscript, () => {

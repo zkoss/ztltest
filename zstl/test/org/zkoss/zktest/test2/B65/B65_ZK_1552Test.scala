@@ -71,7 +71,7 @@ class B65_ZK_1552Test extends ZTL4ScalaTestCase {
           waitResponse()
           verScroll(center, 100)
           verScroll(center, 0)
-          verifyTrue("should not show the " + comp + " popup", !jq(wgt.$n("pp")).isVisible())
+          verifyFalse("should not show the " + comp + " popup", jq(wgt.$n("pp")).isVisible())
         }
       })
 

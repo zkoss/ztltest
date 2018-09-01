@@ -26,7 +26,7 @@ class B50_2916146Test extends ZTL4ScalaTestCase {
 <textbox width="500px" value="Please press Backspace, the browser should do nothing." focus="true" readonly="true"/>
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       //TODO ,even if keypressnative not works , it still pass the test
       sendKeys(jq("@textbox"), Keys.END)

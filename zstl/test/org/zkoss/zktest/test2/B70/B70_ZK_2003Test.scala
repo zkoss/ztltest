@@ -21,7 +21,7 @@ class B70_ZK_2003Test extends ZTL4ScalaTestCase {
           dragdropTo(split, p , np)
           waitResponse()
 
-          verifyTrue("the " + comp + " popup must be hidden", !jq(wgtpp).isVisible)
+          verifyFalse("the " + comp + " popup must be hidden", jq(wgtpp).isVisible)
         }
       })
 

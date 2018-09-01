@@ -52,10 +52,10 @@ class Z30_grid_0012Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyEquals(jq("@row").eq(0).outerHeight().toString(), "50")
-        verifyNotEquals(jq("@row").eq(0).outerHeight().toString(), "51")
-        verifyEquals(jq("@row").eq(1).outerHeight().toString(), "100")
-        verifyNotEquals(jq("@row").eq(1).outerHeight().toString(), "101")
+        verifyEquals(jq("@row").eq(0).outerHeight(), "50")
+        verifyNotEquals(jq("@row").eq(0).outerHeight(), "51")
+        verifyEquals(jq("@row").eq(1).outerHeight(), "100")
+        verifyNotEquals(jq("@row").eq(1).outerHeight(), "101")
       }
     );
   }

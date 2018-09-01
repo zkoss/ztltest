@@ -55,7 +55,7 @@ class B36_2794714Test extends ZTL4ScalaTestCase {
 				</button>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val listbox = ztl$engine.$f("listbox")
     val btn = ztl$engine.$f("btn")
     runZTL(zscript, () => {

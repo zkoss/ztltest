@@ -32,7 +32,7 @@ class B30_2099562Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val pm = ztl$engine.$f("pm")
     runZTL(zscript, () => {
       verifyTrue(jq("@progressmeter").outerHeight() >= 16)

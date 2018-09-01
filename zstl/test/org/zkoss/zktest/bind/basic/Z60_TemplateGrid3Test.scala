@@ -31,7 +31,7 @@ class Z60_TemplateGrid3Test extends ZTL4ScalaTestCase {
       var outerbox = jq("$outergrid").toWidget();
       var outerrows = jq(outerbox).find("@rows").toWidget().firstChild();
       var itemLabel = Array("A", "B", "C", "D");
-      verifyEquals(itemLabel.length, jq(outerbox).find("@rows").toWidget().nChildren());
+      verifyEquals(4, jq(outerbox).find("@rows").toWidget().nChildren());
       var outerrow = outerrows;
 
       for (i <- 0 to itemLabel.length - 1) {
@@ -43,10 +43,11 @@ class Z60_TemplateGrid3Test extends ZTL4ScalaTestCase {
         // verify template
         rowkid = outerrow.lastChild();
         var label = jq(rowkid).find("@label").toWidget(); // index button
-        if (outerl.equals("A") || i == 2)
+        if (outerl.equals("A") || i == 2) {
           verifyEquals("Model1", label.attr("value"));
-        else
+        } else {
           verifyEquals("Model2", label.attr("value"));
+        }
         outerrow = outerrow.nextSibling();
       }
       // ===========================================
@@ -55,7 +56,7 @@ class Z60_TemplateGrid3Test extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid").toWidget();
       outerrows = jq(outerbox).find("@rows").toWidget().firstChild();
       itemLabel = Array("X", "A", "C", "D");
-      verifyEquals(itemLabel.length, jq(outerbox).find("@rows").toWidget().nChildren());
+      verifyEquals(4, jq(outerbox).find("@rows").toWidget().nChildren());
       outerrow = outerrows;
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i);
@@ -66,10 +67,11 @@ class Z60_TemplateGrid3Test extends ZTL4ScalaTestCase {
         // verify template
         rowkid = outerrow.lastChild();
         var label = jq(rowkid).find("@label").toWidget(); // index button
-        if (outerl.equals("A") || i == 2)
+        if (outerl.equals("A") || i == 2) {
           verifyEquals("Model1", label.attr("value"));
-        else
+        } else {
           verifyEquals("Model2", label.attr("value"));
+        }
         outerrow = outerrow.nextSibling();
       }
       // ===========================================
@@ -78,7 +80,7 @@ class Z60_TemplateGrid3Test extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid").toWidget();
       outerrows = jq(outerbox).find("@rows").toWidget().firstChild();
       itemLabel = Array("A", "B", "C", "D");
-      verifyEquals(itemLabel.length, jq(outerbox).find("@rows").toWidget().nChildren());
+      verifyEquals(4, jq(outerbox).find("@rows").toWidget().nChildren());
       outerrow = outerrows;
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i);
@@ -89,10 +91,11 @@ class Z60_TemplateGrid3Test extends ZTL4ScalaTestCase {
         // verify template
         rowkid = outerrow.lastChild();
         var label = jq(rowkid).find("@label").toWidget(); // index button
-        if (outerl.equals("A") || i == 2)
+        if (outerl.equals("A") || i == 2) {
           verifyEquals("Model1", label.attr("value"));
-        else
+        } else {
           verifyEquals("Model2", label.attr("value"));
+        }
         outerrow = outerrow.nextSibling();
       }
     })

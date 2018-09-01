@@ -65,20 +65,22 @@ class B60_ZK_815Test extends ZTL4ScalaTestCase {
           sendKeys(item, Keys.PAGE_DOWN)
           waitResponse()
           val msg = jq(".z-vlayout:eq(" + index + ") .z-label:contains(onSelect)")
-          if (index != 2)
+          if (index != 2) {
             verifyEquals(msg.text(), "onSelect: Listbox " + (index + 1) + ": [Item 12]")
-          else
+          } else {
             verifyTrue(msg.exists())
+          }
           val txt = msg.text()
           for (i <- 1 to 12) {
             val seld = listbox.find(".z-listitem-selected")
             sendKeys(seld, Keys.DOWN)
           }
           waitResponse()
-          if (index != 2)
+          if (index != 2) {
             verifyEquals(msg.text(), "onSelect: Listbox " + (index + 1) + ": [Item 24]")
-          else
-            verifyTrue(msg != txt)
+          } else {
+            verifyNotEquals(msg.text(), txt)
+          }
         }
       })
   }

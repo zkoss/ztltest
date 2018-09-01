@@ -106,7 +106,7 @@ class F60_ZK_701_ListboxTest extends ZTL4ScalaTestCase {
         waitResponse();
         click(btn);
         waitResponse();
-        clonedGrid = widget(jq(jq(".z-listbox").get(0)));
+        clonedGrid = jq(".z-listbox").eq(0).toWidget;
         click(jq(clonedGrid).find(".z-listgroup:contains(Seafood)").toWidget().$n("img"));
         waitResponse();
         verifyTrue("Seafood group of cloned grid should be opened",

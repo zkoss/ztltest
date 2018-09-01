@@ -34,7 +34,7 @@ class B65_ZK_2001Test extends ZTL4ScalaTestCase {
         click(jq(".z-chosenbox"))
         waitResponse()
 
-        verifyTrue("the listitem should not be selected", !jq(".z-listitem-selected").exists)
+        verifyFalse("the listitem should not be selected", jq(".z-listitem-selected").exists)
       })
 
   }

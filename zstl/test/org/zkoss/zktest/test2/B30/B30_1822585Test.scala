@@ -53,7 +53,7 @@ Grid:onColSize event.getColIndex() alwyas return 1
 	</grid>
 </vbox>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val lab = ztl$engine.$f("lab")
     val cs = ztl$engine.$f("cs")
     val col1 = ztl$engine.$f("col1")

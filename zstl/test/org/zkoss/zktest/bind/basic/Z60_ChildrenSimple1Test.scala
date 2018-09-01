@@ -37,13 +37,13 @@ class Z60_ChildrenSimple1Test extends ZTL4ScalaTestCase {
       var cmd2 = jq("$cmd2").toWidget()
       var labels = jq(init).find("@label")
       var compare = Array("Item A", "Item B", "Item C")
-      verifyEquals(compare.length, labels.length())
-      for (i <- 0 to compare.length - 1) {
+      verifyEquals(3, labels.length())
+      for (i <- 0 to 2) {
         verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(load).find("@label")
-      verifyEquals(compare.length, labels.length())
-      for (i <- 0 to compare.length - 1) {
+      verifyEquals(3, labels.length())
+      for (i <- 0 to 2) {
         verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(aftercmd).find("@label")
@@ -52,14 +52,14 @@ class Z60_ChildrenSimple1Test extends ZTL4ScalaTestCase {
       waitResponse()
       labels = jq(init).find("@label")
       compare = Array("Item A", "Item B", "Item C")
-      verifyEquals(compare.length, labels.length())
-      for (i <- 0 to compare.length - 1) {
+      verifyEquals(3, labels.length())
+      for (i <- 0 to 2) {
         verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(load).find("@label")
       compare = Array("Item A", "Item B", "Item C", "Item D")
-      verifyEquals(compare.length, labels.length())
-      for (i <- 0 to compare.length - 1) {
+      verifyEquals(4, labels.length())
+      for (i <- 0 to 3) {
         verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(aftercmd).find("@label")
@@ -68,34 +68,34 @@ class Z60_ChildrenSimple1Test extends ZTL4ScalaTestCase {
       waitResponse()
       labels = jq(init).find("@label")
       compare = Array("Item A", "Item B", "Item C")
-      verifyEquals(compare.length, labels.length())
-      for (i <- 0 to compare.length - 1) {
+      verifyEquals(3, labels.length())
+      for (i <- 0 to 2) {
         verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(load).find("@label")
       compare = Array("Item A", "Item B", "Item C", "Item D")
-      verifyEquals(compare.length, labels.length())
-      for (i <- 0 to compare.length - 1) {
+      verifyEquals(4, labels.length())
+      for (i <- 0 to 3) {
         verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(aftercmd).find("@label")
       compare = Array("Item A", "Item B", "Item C", "Item D", "Item E")
-      verifyEquals(compare.length, labels.length())
-      for (i <- 0 to compare.length - 1) {
+      verifyEquals(5, labels.length())
+      for (i <- 0 to 4) {
         verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       click(cmd1)
       waitResponse()
       labels = jq(load).find("@label")
       compare = Array("Item A", "Item B", "Item C", "Item D", "Item E", "Item D")
-      verifyEquals(compare.length, labels.length())
-      for (i <- 0 to compare.length - 1) {
+      verifyEquals(6, labels.length())
+      for (i <- 0 to 5) {
         verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
       labels = jq(aftercmd).find("@label")
       compare = Array("Item A", "Item B", "Item C", "Item D", "Item E")
-      verifyEquals(compare.length, labels.length())
-      for (i <- 0 to compare.length - 1) {
+      verifyEquals(5, labels.length())
+      for (i <- 0 to 4) {
         verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
       }
     })

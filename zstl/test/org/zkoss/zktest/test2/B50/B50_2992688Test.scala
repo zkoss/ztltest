@@ -27,7 +27,7 @@ class B50_2992688Test extends ZTL4ScalaTestCase {
 			    <combobox id="cb" disabled="true"/> 
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cb = ztl$engine.$f("cb")
     runZTL(zscript, () => {
       verifyTrue(jq(cb.$n("real")).is("[disabled=disabled]"))

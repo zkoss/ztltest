@@ -103,7 +103,7 @@ class B50_2940707Test extends ZTL4ScalaTestCase {
 			onClick="item221.detach();item221parent.invalidate();"/>
 				</vbox>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
     val item221parent = ztl$engine.$f("item221parent")
     val item221 = ztl$engine.$f("item221")
@@ -210,7 +210,7 @@ class B50_2940707Test extends ZTL4ScalaTestCase {
 			onClick="item221.detach();item221parent.invalidate();"/>
 			</vbox>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
     val item221parent = ztl$engine.$f("item221parent")
     val item221 = ztl$engine.$f("item221")

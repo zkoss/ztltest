@@ -43,7 +43,7 @@ class B35_2080349Test extends ZTL4ScalaTestCase {
 </window>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val editPopup = ztl$engine.$f("editPopup")
     runZTL(zscript, () => {
       click(jq("@button"))

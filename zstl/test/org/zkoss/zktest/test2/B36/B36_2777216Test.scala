@@ -39,7 +39,7 @@ class B36_2777216Test extends ZTL4ScalaTestCase {
 				</button>
 			</window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val wnditemlist = ztl$engine.$f("wnditemlist")
     val itemlist = ztl$engine.$f("itemlist")
     val rows = ztl$engine.$f("rows")

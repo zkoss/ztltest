@@ -136,7 +136,7 @@ class PopupTest extends ZTL4ScalaTestCase {
 </window>
 		
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val demo = ztl$engine.$f("demo")
     val infos = ztl$engine.$f("infos")
     val demoView = ztl$engine.$f("demoView")

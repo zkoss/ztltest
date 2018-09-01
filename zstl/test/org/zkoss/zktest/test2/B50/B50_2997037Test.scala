@@ -45,7 +45,7 @@ longbox:<longbox id="longbx" width="300px"/>
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val longbx = ztl$engine.$f("longbx")
     val btn = ztl$engine.$f("btn")
     runZTL(zscript, () => {

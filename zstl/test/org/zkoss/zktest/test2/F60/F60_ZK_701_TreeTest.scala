@@ -94,12 +94,13 @@ class F60_ZK_701_TreeTest extends ZTL4ScalaTestCase {
         }
 
         def isSelected(wgt: Widget, content: String, selected: Boolean) {
-          if (selected)
+          if (selected) {
             verifyTrue("The item contains " + content + " should be selected",
               jq(wgt).find(".z-treerow-selected:contains(" + content + ")").exists());
-          else
+          } else {
             verifyFalse("The item contains " + content + " should not be selected",
               jq(wgt).find(".z-treerow-selected:contains(" + content + ")").exists());
+          }
         }
 
         def verifyOrder(wgt: Widget, content: String, order: Int) {
@@ -109,7 +110,7 @@ class F60_ZK_701_TreeTest extends ZTL4ScalaTestCase {
 
         selectItem(tree, "/src");
         clickAndWait(btn);
-        clonedTree = widget(jq(jq(".z-tree").get(0)));
+        clonedTree = jq(".z-tree").eq(0).toWidget;
 
         isSelected(tree, "/src", true);
         isSelected(clonedTree, "/src", true);

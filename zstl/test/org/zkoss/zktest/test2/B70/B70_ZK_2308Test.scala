@@ -29,7 +29,7 @@ class B70_ZK_2308Test extends ZTL4ScalaTestCase {
       sendKeys(input, Keys.ESCAPE);
       waitResponse();
 
-      verifyTrue("should see datebox popup closed.", !popup.isVisible());
+      verifyFalse("should see datebox popup closed.", popup.isVisible());
     })
 
   }

@@ -42,7 +42,7 @@ alert(event.data);
 </button>
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val div = ztl$engine.$f("div")
     runZTL(zscript, () => {
       click(jq("@button"))

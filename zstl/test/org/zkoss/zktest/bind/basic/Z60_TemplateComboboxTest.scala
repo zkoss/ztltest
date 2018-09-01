@@ -31,7 +31,7 @@ class Z60_TemplateCombobox extends ZTL4ScalaTestCase {
       var outerbox = jq("$outergrid").toWidget()
       var outerrows = jq(outerbox).find("@rows").toWidget().firstChild()
       var itemLabel = Array("A", "B", "C", "D")
-      verifyEquals(itemLabel.length, jq(outerbox).find("@rows").toWidget().nChildren())
+      verifyEquals(4, jq(outerbox).find("@rows").toWidget().nChildren())
       var outerrow = outerrows
       for (i <- 0 to itemLabel.length - 1) {
         var combobox = jq(outerrow).find("@combobox").toWidget()
@@ -41,10 +41,11 @@ class Z60_TemplateCombobox extends ZTL4ScalaTestCase {
         verifyEquals(4, comboitems.length())
         for (j <- 0 to 1) {
           var comboitem = comboitems.eq(j).toWidget()
-          if (j == 0 || j == 2)
+          if (j == 0 || j == 2) {
             verifyEquals("Model1-" + itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.attr("label"))
-          else
+          } else {
             verifyEquals("Model2-" + itemLabel(i) + " " + j + "-" + j + "-" + i, comboitem.attr("label"))
+          }
           verifyEquals(itemLabel(i) + " " + j, comboitem.attr("description"))
         }
         var btn = jq(outerrow).find("@button").toWidget() // index button

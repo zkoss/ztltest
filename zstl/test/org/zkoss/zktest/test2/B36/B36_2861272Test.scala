@@ -36,7 +36,7 @@ class B36_2861272Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals(2, jq("select option").length())
       verifyEquals("One", jq("select option:eq(0)").text())

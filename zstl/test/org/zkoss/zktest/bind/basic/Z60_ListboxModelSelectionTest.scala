@@ -46,19 +46,9 @@ class Z60_ListboxModelSelectionTest extends ZTL4ScalaTestCase {
       outeritems = outeritems.nextSibling() // don't care header
       outeritem = outeritems.nextSibling() // select 2nd
       // verifyEquals(outeritem.uuid(), outerbox.eval("getSelectedItem().uuid"))
-      verifyEquals(outeritem.uuid(), getListboxSelectedItem(outerbox).uuid())
+      verifyEquals(outeritem.uuid(), jq(outerbox).find(".z-listitem-selected").toWidget().uuid())
       verifyEquals("reloaded", msg.attr("value"))
     })
-  }
-
-  def getListboxSelectedItem(listbox: Widget): Widget = {
-    var listitems = listbox.firstChild(); // include header
-    for (i <- 0 to 3) {
-      listitems = listitems.nextSibling();
-      if (listitems.is("selected"))
-        return listitems;
-    }
-    return null;
   }
 
   def getListboxSelectedIndex(listbox: Widget): Int = {
@@ -66,8 +56,9 @@ class Z60_ListboxModelSelectionTest extends ZTL4ScalaTestCase {
     var selectedIndex = -1;
     for (i <- 0 to 3) {
       listitems = listitems.nextSibling();
-      if (listitems.is("selected"))
+      if (listitems.is("selected")) {
         selectedIndex = i;
+      }
     }
     return selectedIndex;
   }

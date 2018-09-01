@@ -37,7 +37,7 @@ If you can see the words, the bug is fixed.
 
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val testWindow = ztl$engine.$f("testWindow")
     val addBtn = ztl$engine.$f("addBtn")
     runZTL(zscript, () => {

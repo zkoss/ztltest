@@ -22,7 +22,7 @@ class B60_ZK_1531Test extends ZTL4ScalaTestCase {
         contextMenu(jq(".z-button"))
         waitResponse()
         verifyTrue("should only see 'Right clicked' message showed.", jq(".z-label:contains(Right Clicked)").exists())
-        verifyTrue("should only see 'Right clicked' message showed.", !jq(".z-label:contains(Left Clicked)").exists())
+        verifyFalse("should only see 'Right clicked' message showed.", jq(".z-label:contains(Left Clicked)").exists())
       })
 
   }

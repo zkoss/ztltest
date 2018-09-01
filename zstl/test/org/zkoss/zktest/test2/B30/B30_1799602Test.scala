@@ -45,7 +45,7 @@ If the popup of combox out of position, that is wrong.
 	</tabbox>
 </window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cb = ztl$engine.$f("cb")
     runZTL(zscript, () => {
       var offset1 = zk(cb).revisedOffset()

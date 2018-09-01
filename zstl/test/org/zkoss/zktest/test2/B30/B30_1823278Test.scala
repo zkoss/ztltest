@@ -40,7 +40,7 @@ class B30_1823278Test extends ZTL4ScalaTestCase {
 	</listbox>
 </zk>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val listbox = ztl$engine.$f("listbox")
     runZTL(zscript, () => {
       click(jq(".z-listitem:eq(0)"))
@@ -51,7 +51,7 @@ class B30_1823278Test extends ZTL4ScalaTestCase {
         sleep(30)
         temp = i
       }
-      var scrollTop = listbox.$n("body").attr("scrollTop").toInt
+      var scrollTop = parseInt(listbox.$n("body").attr("scrollTop"))
       verifyTrue("Times of pressing Down: " + temp + ", scrollTop: " + scrollTop, 150 < scrollTop)
       temp = 0
       for (i <- 0 until 15) {
@@ -59,7 +59,7 @@ class B30_1823278Test extends ZTL4ScalaTestCase {
         sleep(30)
         temp = i
       }
-      scrollTop = listbox.$n("body").attr("scrollTop").toInt
+      scrollTop = parseInt(listbox.$n("body").attr("scrollTop"))
       verifyTrue("Times of pressing Down: " + temp + ", scrollTop: " + scrollTop, 3 > scrollTop)
     })
   }

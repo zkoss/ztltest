@@ -23,12 +23,12 @@ class B50_2980894Test extends ZTL4ScalaTestCase {
       """
 			<datebox id="db" readonly="true" />
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val db = ztl$engine.$f("db")
     runZTL(zscript, () => {
       click(db.$n("btn"))
       waitResponse()
-      var cal = new Widget(db.$n("pp").firstChild().attr("id"))
+      var cal = jq(db.$n("pp").firstChild()).toWidget
       click(cal.$n("ty"))
       waitResponse()
       var mid = cal.$n("mid")

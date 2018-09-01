@@ -49,7 +49,7 @@ class B50_3057311Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val categoryLstBox = ztl$engine.$f("categoryLstBox")
     runZTL(zscript, () => {
       select(categoryLstBox, "ActionMovies")

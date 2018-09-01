@@ -53,7 +53,7 @@ class B50_3073199Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       click(jq("@column").eq(0))
       waitResponse()

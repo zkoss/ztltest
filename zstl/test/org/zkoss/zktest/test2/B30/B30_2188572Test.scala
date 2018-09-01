@@ -44,7 +44,7 @@ class B30_2188572Test extends ZTL4ScalaTestCase {
 				</hbox>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals("College: 0", jq(".z-listbox:eq(0) .z-listheader").text())
       verifyEquals("College: Best", jq(".z-listbox:eq(0) .z-listcell:eq(0)").text())

@@ -80,7 +80,7 @@ public class TestComposer extends GenericForwardComposer{
 
         click(jq(".z-listitem:eq(1)"))
         waitResponse()
-        verifyTrue(!pp0.exists() || jq(".z-menupopup:contains(context menu A)").css("display") == "none")
+        verifyTrue(isVisible(pp0))
         verifyTrue(jq(".z-menupopup:contains(menu A):eq(1)").css("display") != "none")
       })
 

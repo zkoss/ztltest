@@ -20,11 +20,11 @@ class B85_ZK_3656Test extends ZTL4ScalaTestCase {
       val rowHeight = jq(".z-listitem").outerHeight
       val listBody = jq("@listbox .z-listbox-body")
       val cm = jq(".z-listitem-checkbox > i")
-      listBody.scrollTop(rowHeight * 17) // just shows item 20
+      verScrollAbs(listBody, rowHeight * 17) // just shows item 20
       waitResponse()
       verifyTrue("The 20th checkbox status is wrong. (It should be checked)", cm.eq(20).isVisible)
 
-      listBody.scrollTop(rowHeight * 40) // just shows item 44
+      verScrollAbs(listBody, rowHeight * 40) // just shows item 44
       waitResponse()
       verifyTrue("The 44th checkbox status is wrong. (It should be checked)", cm.eq(44).isVisible)
     })

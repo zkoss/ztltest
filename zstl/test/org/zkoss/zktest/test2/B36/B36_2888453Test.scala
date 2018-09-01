@@ -33,7 +33,7 @@ please click the close button, and no JavaScript error is correct. (IE only)
 </window>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val win = ztl$engine.$f("win")
     runZTL(zscript, () => {
       click(jq("@button"))

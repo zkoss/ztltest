@@ -87,14 +87,14 @@ class B36_2874098Test extends ZTL4ScalaTestCase {
         var txt1 = jq("$tb");
         focus(txt1);
         waitResponse();
-        keyPress(txt1, "a");
+        typeKeys(txt1, "a");
         waitResponse();
 
         //Text b on Text2
         var txt2 = jq("$tb2");
         focus(txt2);
         waitResponse();
-        keyPress(txt2, "b");
+        typeKeys(txt2, "b");
         waitResponse();
 
         //Click save button

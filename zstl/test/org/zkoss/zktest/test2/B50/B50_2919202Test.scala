@@ -44,7 +44,7 @@ class B50_2919202Test extends ZTL4ScalaTestCase {
 				<button id="toggle" label="toggle" onClick="mylistbox.visible = !mylistbox.visible"/>
 				</vbox>			
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val mylistbox = ztl$engine.$f("mylistbox")
     val show = ztl$engine.$f("show")
     val close = ztl$engine.$f("close")

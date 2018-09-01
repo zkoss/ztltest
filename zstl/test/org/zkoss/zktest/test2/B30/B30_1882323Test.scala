@@ -43,7 +43,7 @@ class B30_1882323Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       // The cursor must be in the second position
-      verifyTrue(zk(jq("@intbox")).eval("getSelectionRange()[0]").toInt.toInt == 1);
+      verifyTrue(zk(jq("@intbox")).eval("getSelectionRange()[0]").toInt == 1);
 
       // Press the RIGHT key
       sendKeys(jq(".z-intbox").toElement(), Keys.RIGHT);

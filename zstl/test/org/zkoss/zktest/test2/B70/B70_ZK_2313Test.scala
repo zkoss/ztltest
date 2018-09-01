@@ -158,8 +158,9 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         while (index < 8) { //lists.length()
           val list = lists.eq(index);
           println(getScrollTop(list.toWidget()));
-          if (getScrollTop(list.toWidget()) == 0)
+          if (getScrollTop(list.toWidget()) == 0) {
             scrollFail = true;
+          }
           index += 1
         }
 
@@ -169,8 +170,9 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         while (index < 8) { //lists.length()
           val list = lists.eq(index);
           println(getScrollTop(list.toWidget()));
-          if (getScrollTop(list.toWidget()) > 0)
+          if (getScrollTop(list.toWidget()) > 0) {
             scrollFail = true;
+          }
           index += 1
         }
 
@@ -180,8 +182,9 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         while (index < 8) { //lists.length()
           val list = lists.eq(index);
           println(getScrollTop(list.toWidget()));
-          if (getScrollTop(list.toWidget()) == 0)
+          if (getScrollTop(list.toWidget()) == 0) {
             scrollFail = true;
+          }
           index += 1
         }
 

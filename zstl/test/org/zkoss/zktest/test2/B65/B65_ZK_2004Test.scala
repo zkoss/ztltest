@@ -43,7 +43,7 @@ class B65_ZK_2004Test extends ZTL4ScalaTestCase {
         }
         click(jq(".z-button"))
         waitResponse()
-        verifyTrue("The chosenbox should not contain selected items.", !jq(".z-chosenbox-item").exists)
+        verifyFalse("The chosenbox should not contain selected items.", jq(".z-chosenbox-item").exists)
       })
 
   }

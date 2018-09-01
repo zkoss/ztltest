@@ -56,7 +56,7 @@ page.addFunctionMapper(new MyFunction());
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals("MyFunction", jq("@label:last").text())
     })

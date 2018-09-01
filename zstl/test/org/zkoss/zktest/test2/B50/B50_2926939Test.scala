@@ -32,7 +32,7 @@ class B50_2926939Test extends ZTL4ScalaTestCase {
 					<paging mold="os" pageSize="10" totalSize="100" onPaging='alert(event.getActivePage() + " : " + self.getActivePage());'/>
 				</zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       for (i <- 2 until 11) {
         click(jq(".z-paging-button:contains(" + i + ")"))

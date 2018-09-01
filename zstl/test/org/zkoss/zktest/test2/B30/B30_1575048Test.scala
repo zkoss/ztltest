@@ -18,7 +18,7 @@ import org.zkoss.ztl.unit.Widget
 class B30_1575048Test extends ZTL4ScalaTestCase {
   @Test
   def testDelete() = {
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val userList = ztl$engine.$f("userList")
     val del = jq(".z-button:eq(0)")
     val itemId = ztl$engine.$f("itemId")
@@ -44,7 +44,7 @@ class B30_1575048Test extends ZTL4ScalaTestCase {
       typeKeys(itemName, "123")
       click(add)
       waitResponse()
-      click(paging.uuid() + "-next")
+      click(jq(paging).find(".z-paging-next"))
       waitResponse()
       verifyEquals("123", userList.lastChild().attr("label"))
       verifyEquals("5", paging.attr("totalSize"))

@@ -46,7 +46,7 @@ it.next(); it.set("new item0")'/>
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val testZul = ztl$engine.$f("testZul")
     runZTL(zscript, () => {
       click(jq("@button"))

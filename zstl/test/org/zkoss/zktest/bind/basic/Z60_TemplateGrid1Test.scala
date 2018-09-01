@@ -31,10 +31,10 @@ class Z60_TemplateGrid1Test extends ZTL4ScalaTestCase {
       var outerbox = jq("$outergrid")
       var outerrows = outerbox.find("@rows").toWidget().firstChild()
       var itemLabel = Array("A", "B", "C", "D")
-      verifyEquals(itemLabel.length, outerbox.find("@rows").toWidget().nChildren())
+      verifyEquals(4, outerbox.find("@rows").toWidget().nChildren())
       var outerrow = outerrows
 
-      for (i <- 0 to itemLabel.length - 1) {
+      for (i <- 0 to 3) {
         var outerl = itemLabel(i)
         var rowkid = outerrow.firstChild()
         verifyEquals("" + i, rowkid.attr("value")) // verify the index on label
@@ -64,10 +64,11 @@ class Z60_TemplateGrid1Test extends ZTL4ScalaTestCase {
         // verify template
         rowkid = outerrow.lastChild()
         var label = jq(rowkid).find("@label").toWidget() // index button
-        if (outerl.equals("A") || i == 2)
+        if (outerl.equals("A") || i == 2) {
           verifyEquals("Model1", label.attr("value"))
-        else
+        } else {
           verifyEquals("Model2", label.attr("value"))
+        }
         outerrow = outerrow.nextSibling()
       }
     })

@@ -74,7 +74,7 @@ class B30_2464484Test extends ZTL4ScalaTestCase {
 			<button id="btn" label="show select" onClick='alert(""+select.getDesc())'/>
 			</window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val r1 = ztl$engine.$f("r1")
     val r2 = ztl$engine.$f("r2")
     val btn = ztl$engine.$f("btn")

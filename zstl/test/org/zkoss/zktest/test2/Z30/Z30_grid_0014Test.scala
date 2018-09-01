@@ -124,15 +124,13 @@ class Z30_grid_0014Test extends ZTL4ScalaTestCase {
         });
 
 
-        val next = "[name=" + jq(".z-paging").attr("id") + "-next]"
-        clickThenValidate(next, () => {
+        clickThenValidate(".z-paging-next", () => {
           verifyEquals(jq("@row").length(), "5");
           verifyRowContent(Iterator("Item 6-L", "Item 7-L", "Item 8-L", "Item 9-L", "Updated 9"))
           invalidateTest(Iterator("Item 6-L", "Item 7-L", "Item 8-L", "Item 9-L", "Updated 9"))
         });
 
-        val prev = "[name=" + jq(".z-paging").attr("id") + "-prev]"
-        clickThenValidate(prev, () => {
+        clickThenValidate(".z-paging-previous", () => {
           verifyEquals(jq("@row").length(), "5");
           verifyRowContent(Iterator("Updated 0", "Item 2-L", "Item 3-L", "Item 4-L", "Item 5-L"))
           invalidateTest(Iterator("Updated 0", "Item 2-L", "Item 3-L", "Item 4-L", "Item 5-L"))

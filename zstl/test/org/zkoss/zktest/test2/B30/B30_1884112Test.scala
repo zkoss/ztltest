@@ -71,7 +71,7 @@ class B30_1884112Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       // Verify deleted element
-      verifyTrue(!jq(".z-label:contains(p-0_0)").exists());
+      verifyFalse(jq(".z-label:contains(p-0_0)").exists());
 
       // Remove 0/0/0
       // Click on third button. I search for .z-button because of a Selenium issue

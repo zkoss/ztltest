@@ -75,7 +75,6 @@ class F80_ZK_3133Test extends ZTL4ScalaTestCase {
       verifyTrue(zwin1w < zwin1orgw)
       verifyTrue(zwin2w < zwin2orgw)
 
-      refresh()
       waitForPageToLoad("10000");
       runRawZscript(zscript)
       waitResponse()

@@ -30,7 +30,7 @@ class B50_3004412Test extends ZTL4ScalaTestCase {
 				</popup>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cb = ztl$engine.$f("cb")
     val cbi = ztl$engine.$f("cbi")
     val popup = ztl$engine.$f("popup")

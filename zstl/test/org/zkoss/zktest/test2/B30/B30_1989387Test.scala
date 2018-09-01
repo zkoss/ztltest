@@ -54,7 +54,7 @@ new Center().setParent(b);
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val b = ztl$engine.$f("b")
     val c = ztl$engine.$f("c")
     runZTL(zscript, () => {

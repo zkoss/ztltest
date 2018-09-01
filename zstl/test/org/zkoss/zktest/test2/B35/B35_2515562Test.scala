@@ -37,7 +37,7 @@ Click the button. If the font-color of year is yellow, it is correct.
 		
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       click(jq(jq(".z-datebox").toWidget().$n("btn")))
       verifyEqualColor("yellow", jq(".z-calendar-text").css("color"))

@@ -63,7 +63,7 @@ class B50_ZK_403Test extends ZTL4ScalaTestCase {
 			</zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cb = ztl$engine.$f("cb")
     val cb2 = ztl$engine.$f("cb2")
     val cb3 = ztl$engine.$f("cb3")
@@ -73,7 +73,7 @@ class B50_ZK_403Test extends ZTL4ScalaTestCase {
       var cbs = Array(cb, cb2, cb3, cb4, cb5)
       for (i <- 0 until cbs.length) {
         click(cbs(i).$n("real"))
-        keyPress(cbs(i).$n("real"), "a")
+        typeKeys(cbs(i).$n("real"), "a")
         sleep(2000)
         verifyTrue(jq(cbs(i).$n("cave")).children().length() == 2)
       }

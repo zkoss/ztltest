@@ -35,7 +35,7 @@ It is correct if you see no JavaScript error, and OK to select items.
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val lb = ztl$engine.$f("lb")
     runZTL(zscript, () => {
       select(lb, "abc")

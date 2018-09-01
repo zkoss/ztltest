@@ -46,7 +46,7 @@ value should be "aa". (if the value is "a", it is wrong)
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val copy = ztl$engine.$f("copy")
     runZTL(zscript, () => {
       var inp = jq("@combobox").toWidget().$n("real")

@@ -74,7 +74,7 @@ NOTE: The mentioned bug occurs only if you add item via ListModel and ListDataEv
 <button label="invalidate" onClick="lb.invalidate()"/>
 </zk>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val lb = ztl$engine.$f("lb")
     val h1 = ztl$engine.$f("h1")
     val h2 = ztl$engine.$f("h2")

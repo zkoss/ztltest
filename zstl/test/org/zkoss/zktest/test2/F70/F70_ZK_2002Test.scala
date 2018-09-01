@@ -22,7 +22,7 @@ class F70_ZK_2002Test extends ZTL4ScalaTestCase {
 
       click(jq(".z-button:contains(remove First Tab)"))
       waitResponse()
-      verifyTrue("should see one 'New -- tab1' tab is removed.", !tb.find(".z-tab:contains(New -- Tab1)").exists)
+      verifyFalse("should see one 'New -- tab1' tab is removed.", tb.find(".z-tab:contains(New -- Tab1)").exists)
 
       click(jq(".z-button:contains(change model)"))
       waitResponse()

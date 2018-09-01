@@ -63,7 +63,7 @@ class B30_1599788Test extends ZTL4ScalaTestCase {
 				<button id="start" label="Starts timer" onClick="timer.start()"/>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val serverRows = ztl$engine.$f("serverRows")
     val rowNr = ztl$engine.$f("rowNr")
     val timer = ztl$engine.$f("timer")

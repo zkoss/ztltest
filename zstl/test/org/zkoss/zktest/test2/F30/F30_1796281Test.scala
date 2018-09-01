@@ -42,7 +42,7 @@ class F30_1796281Test extends ZTL4ScalaTestCase {
 				<button id="btn2" label="selectedIndex = 4" onClick="cbbox.selectedIndex = 4"/>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cbbox = ztl$engine.$f("cbbox")
     val c = ztl$engine.$f("c")
     val btn1 = ztl$engine.$f("btn1")

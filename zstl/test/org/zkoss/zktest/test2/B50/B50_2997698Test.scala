@@ -37,7 +37,7 @@ class B50_2997698Test extends ZTL4ScalaTestCase {
 <hbox># 1,234.6<decimalbox format="'#' #,##0.0" value="1234.56"/></hbox>
 </window>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       //strange, the result is different between FF and selenium started FF
       verifyEquals("% 1,235", jq("@window @decimalbox:eq(0)").`val`())

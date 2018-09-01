@@ -132,9 +132,9 @@ class F70_ZK_1974Test extends ZTL4ScalaTestCase {
             sleep(500)
 
             val tph = tb.find(".z-tabpanel").eq(tabIndex).height()
-            if (tabIndex == 0)
+            if (tabIndex == 0) {
               h = tph
-            else {
+            } else {
               verifyTrue("all heights of tabpanels should be same", h == tph)
             }
           }

@@ -33,7 +33,7 @@ class B30_1819264Test extends ZTL4ScalaTestCase {
 	</center>
 </borderlayout>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tb = ztl$engine.$f("tb")
     runZTL(zscript, () => {
       var center = jq(".z-center").toWidget()

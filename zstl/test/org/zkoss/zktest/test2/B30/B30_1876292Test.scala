@@ -38,12 +38,11 @@ class B30_1876292Test extends ZTL4ScalaTestCase {
 				</vbox>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cb1 = ztl$engine.$f("cb1")
     val reset = ztl$engine.$f("reset")
     runZTL(zscript, () => {
       /** set speed depended on test case setting */
-      setSpeed("200")
       var combobox = jq(jq(".z-combobox").toWidget().$n("real"))
       focus(combobox)
       sendKeys(combobox, "aaa")
@@ -51,9 +50,6 @@ class B30_1876292Test extends ZTL4ScalaTestCase {
       click(reset)
       waitResponse()
       verifyEquals("", combobox.`val`())
-
-      /** reset */
-      setSpeed("200")
     })
   }
 
@@ -78,7 +74,7 @@ class B30_1876292Test extends ZTL4ScalaTestCase {
 				</vbox>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cb1 = ztl$engine.$f("cb1")
     val reset = ztl$engine.$f("reset")
     runZTL(zscript, () => {
@@ -111,12 +107,10 @@ class B30_1876292Test extends ZTL4ScalaTestCase {
 				</vbox>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cb1 = ztl$engine.$f("cb1")
     val reset = ztl$engine.$f("reset")
     runZTL(zscript, () => {
-      /** set speed depended on test case setting */
-      setSpeed("200")
       var combobox = jq(jq(".z-combobox").toWidget().$n("real"))
       focus(combobox)
       sendKeys(combobox, "ttt")
@@ -124,9 +118,6 @@ class B30_1876292Test extends ZTL4ScalaTestCase {
       click(reset)
       waitResponse()
       verifyEquals("", combobox.`val`())
-
-      /** reset */
-      setSpeed("200")
     })
   }
 }

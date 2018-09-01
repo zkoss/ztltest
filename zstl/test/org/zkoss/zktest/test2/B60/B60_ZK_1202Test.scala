@@ -69,7 +69,7 @@ class B60_ZK_1202Test extends ZTL4ScalaTestCase {
 
         click(regular)
         waitResponse()
-        verifyTrue("No exceptions should occur when changing the selection in any order.", !jq(".z-window-modal").exists())
+        verifyFalse("No exceptions should occur when changing the selection in any order.", jq(".z-window-modal").exists())
 
         def verifyDayOk(msg: String, days: List[String]) = {
           for (day <- days) {
@@ -79,7 +79,7 @@ class B60_ZK_1202Test extends ZTL4ScalaTestCase {
             verifyNotEquals(msg, dayItem.css("display"), "none")
             click(dayItem)
             waitResponse()
-            verifyTrue("No exceptions should occur when changing the selection in any order.", !jq(".z-window-modal").exists())
+            verifyFalse("No exceptions should occur when changing the selection in any order.", jq(".z-window-modal").exists())
           }
         }
 
@@ -90,7 +90,7 @@ class B60_ZK_1202Test extends ZTL4ScalaTestCase {
 
         click(working)
         waitResponse()
-        verifyTrue("No exceptions should occur when changing the selection in any order.", !jq(".z-window-modal").exists())
+        verifyFalse("No exceptions should occur when changing the selection in any order.", jq(".z-window-modal").exists())
 
         verifyDayOk("If 'Working Week' is selected in the first combobox, the second combobox should contain 'Monday' through 'Friday'.", workingDays)
 

@@ -45,7 +45,7 @@ lst.add("item"+ j);
 </window>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val lb = ztl$engine.$f("lb")
     val btn = ztl$engine.$f("btn")
     runZTL(zscript, () => {

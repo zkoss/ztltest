@@ -30,7 +30,7 @@ class B36_2835471Test extends ZTL4ScalaTestCase {
 			</panelchildren>
 			</panel>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals("My First Window - Hello, World!", jq("@caption").text())
     })

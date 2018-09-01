@@ -78,7 +78,7 @@ class Z30_grid_0005Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        var checkId = jq("$checkbox").toWidget().uuid() + "-real";
+        var checkId = jq("$checkbox").toWidget().$n("real");
         var $jq = jq("$column");
         var $head = jq("$grid").toWidget().$n("head");
         var $body = jq("$grid").toWidget().$n("body");

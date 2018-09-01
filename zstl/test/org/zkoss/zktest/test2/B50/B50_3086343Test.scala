@@ -44,7 +44,7 @@ Then click the red area, it shall become the first child.
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val parent = ztl$engine.$f("parent")
     val first = ztl$engine.$f("first")
     val second = ztl$engine.$f("second")

@@ -81,7 +81,7 @@ class B50_2997034Test extends ZTL4ScalaTestCase {
 </div>
 </zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val div = ztl$engine.$f("div")
     val box = ztl$engine.$f("box")
     val li1 = ztl$engine.$f("li1")
@@ -91,12 +91,12 @@ class B50_2997034Test extends ZTL4ScalaTestCase {
         * we just use the li1's position top for scroll value.
         */
       div.$n().eval("scrollTop = " + jq(li1).positionTop())
-      var curScrollTop = div.$n().eval("scrollTop").toInt
+      var curScrollTop = parseInt(div.$n().eval("scrollTop"))
       curScrollTop -= 10
       div.$n().eval("scrollTop = " + curScrollTop)
       click(li1.$n("cm"))
       waitResponse()
-      verifyTolerant(curScrollTop, div.$n().eval("scrollTop").toInt, 10)
+      verifyTolerant(curScrollTop, parseInt(div.$n().eval("scrollTop")), 10)
     })
   }
 }

@@ -39,7 +39,7 @@ class B30_1888104Test extends ZTL4ScalaTestCase {
 				</window>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val mainWindow = ztl$engine.$f("mainWindow")
     val clickLbl = ztl$engine.$f("clickLbl")
     val mypopup = ztl$engine.$f("mypopup")

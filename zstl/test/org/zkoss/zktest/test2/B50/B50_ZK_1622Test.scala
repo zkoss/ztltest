@@ -15,11 +15,12 @@ class B50_ZK_1622Test extends ZTL4ScalaTestCase {
         val main = jq("@" + compName).toWidget()
         verScroll(main, 1)
         var cell = "treecell"
-        if (compName == "listbox")
+        if (compName == "listbox") {
           cell = "listcell"
+        }
         click(jq(".z-" + cell + ":contains(50)"))
         waitResponse()
-        click(jq("[name=" + jq(main).find(".z-paging").attr("id") + "-next]"))
+        click(jq(main).find(".z-paging-next"))
         waitResponse()
         verScroll(main, 1)
         println(jq(main.$n("cave")).outerHeight()) // content height

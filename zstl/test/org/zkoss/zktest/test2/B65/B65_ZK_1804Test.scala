@@ -25,13 +25,13 @@ class B65_ZK_1804Test extends ZTL4ScalaTestCase {
           click(cal.$n("right"))
         }
         waitResponse()
-        verifyTrue("Should not be able to select year greater than 2099", !jq("td:contains(2100)").exists)
+        verifyFalse("Should not be able to select year greater than 2099", jq("td:contains(2100)").exists)
 
         for (n <- 1 to 19) {
           click(cal.$n("left"))
         }
         waitResponse()
-        verifyTrue("Should not be able to select year less than 1900", !jq("td:contains(1899)").exists)
+        verifyFalse("Should not be able to select year less than 1900", jq("td:contains(1899)").exists)
       })
 
   }

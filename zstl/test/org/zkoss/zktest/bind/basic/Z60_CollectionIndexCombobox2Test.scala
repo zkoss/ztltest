@@ -37,8 +37,8 @@ class Z60_CollectionIndexCombobox2 extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid")
       outerrows = outerbox.find("@rows").children()
       var itemLabel = Array("A", "C", "D")
-      verifyEquals(itemLabel.length, outerrows.length())
-      for (i <- 0 to itemLabel.length - 1) {
+      verifyEquals(3, outerrows.length())
+      for (i <- 0 to 2) {
         var outerrow = outerrows.eq(i)
         var combobox = outerrow.find("@combobox")
         combobox.toWidget().eval("open()") // to show popu first so we can find comboitem in zkmax
@@ -63,8 +63,8 @@ class Z60_CollectionIndexCombobox2 extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid")
       outerrows = outerbox.find("@rows").children()
       itemLabel = Array("A", "C", "C1", "D")
-      verifyEquals(itemLabel.length, outerrows.length())
-      for (i <- 0 to itemLabel.length - 1) {
+      verifyEquals(4, outerrows.length())
+      for (i <- 0 to 3) {
         var outerrow = outerrows.eq(i)
         var combobox = outerrow.find("@combobox")
         combobox.toWidget().eval("open()") // to show popu first so we can find comboitem in zkmax
@@ -89,8 +89,8 @@ class Z60_CollectionIndexCombobox2 extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid")
       outerrows = outerbox.find("@rows").children()
       itemLabel = Array("A", "C", "C12", "C1", "D")
-      verifyEquals(itemLabel.length, outerrows.length())
-      for (i <- 0 to itemLabel.length - 1) {
+      verifyEquals(5, outerrows.length())
+      for (i <- 0 to 4) {
         var outerrow = outerrows.eq(i)
         var combobox = outerrow.find("@combobox")
         combobox.toWidget().eval("open()") // to show popu first so we can find comboitem in zkmax

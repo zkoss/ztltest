@@ -32,10 +32,10 @@ class Z60_CollectionIndexDefaultTest extends ZTL4ScalaTestCase {
       var outeritems = listbox.toWidget().firstChild() //include header
 
       var itemLabel = Array("A", "B", "C", "D")
-      verifyEquals(itemLabel.length, listbox.toWidget().nChildren() - 1)
+      verifyEquals(4, listbox.toWidget().nChildren() - 1)
 
       var outeritem = outeritems
-      for (i <- 0 to itemLabel.length - 1) {
+      for (i <- 0 to 3) {
         outeritem = outeritem.nextSibling()
         var outerl = itemLabel(i)
 
@@ -48,10 +48,10 @@ class Z60_CollectionIndexDefaultTest extends ZTL4ScalaTestCase {
       var grid = jq("$grid")
       var outerrows = grid.find("@rows").toWidget().firstChild()
 
-      verifyEquals(itemLabel.length, grid.find("@rows").toWidget().nChildren())
+      verifyEquals(4, grid.find("@rows").toWidget().nChildren())
 
       var outerrow = outerrows
-      for (i <- 0 to itemLabel.length - 1) {
+      for (i <- 0 to 3) {
         var outerl = itemLabel(i)
 
         var rowkid = outerrow.firstChild()
@@ -65,8 +65,8 @@ class Z60_CollectionIndexDefaultTest extends ZTL4ScalaTestCase {
       combobox.toWidget().eval("open()") //to show popu first so we can find comboitem in zkmax
       waitResponse()
       var comboitems = combobox.find("@comboitem")
-      verifyEquals(itemLabel.length, comboitems.length())
-      for (i <- 0 to itemLabel.length - 1) {
+      verifyEquals(4, comboitems.length())
+      for (i <- 0 to 3) {
         var comboitem = comboitems.eq(i).toWidget()
         verifyEquals(itemLabel(i), comboitem.attr("label"))
         verifyEquals("" + i, comboitem.attr("description"))

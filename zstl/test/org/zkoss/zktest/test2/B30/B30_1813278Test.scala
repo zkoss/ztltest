@@ -68,7 +68,7 @@ is the same as what is shown on the page<br/>
 </zk>
 
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val li1 = ztl$engine.$f("li1")
     val btn = ztl$engine.$f("btn")
     runZTL(zscript, () => {

@@ -28,7 +28,7 @@ class B36_2787876Test extends ZTL4ScalaTestCase {
 			<textbox id="txt_test" constraint="/[a-z\\]*/, server"></textbox>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val txt_test = ztl$engine.$f("txt_test")
     runZTL(zscript, () => {
       sendKeys(txt_test, "-")

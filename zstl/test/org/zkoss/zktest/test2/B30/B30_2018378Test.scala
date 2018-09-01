@@ -48,7 +48,7 @@ it.previous(); it.remove();'/>
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val testZul = ztl$engine.$f("testZul")
     runZTL(zscript, () => {
       verifyEquals("item0", jq("@listitem:first").text())

@@ -35,7 +35,7 @@ class B50_2926128Test extends ZTL4ScalaTestCase {
 					<datebox id="db" onCreate="db.setValue(new Date());"/>
 				</zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val btn1 = ztl$engine.$f("btn1")
     val btn2 = ztl$engine.$f("btn2")
     val btn3 = ztl$engine.$f("btn3")

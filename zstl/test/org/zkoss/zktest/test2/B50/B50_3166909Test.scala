@@ -94,7 +94,7 @@ class B50_3166909Test extends ZTL4ScalaTestCase {
 
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val parentsListBox = ztl$engine.$f("parentsListBox")
     val driversListbox = ztl$engine.$f("driversListbox")
     runZTL(zscript, () => {

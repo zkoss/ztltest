@@ -15,7 +15,7 @@ class B60_ZK_1227Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyTrue("should not see any error message.", !jq(".z-errorbox").exists())
+        verifyFalse("should not see any error message.", jq(".z-errorbox").exists())
       })
 
   }

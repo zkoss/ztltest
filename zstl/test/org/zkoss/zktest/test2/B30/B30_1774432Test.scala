@@ -76,7 +76,7 @@ class B30_1774432Test extends ZTL4ScalaTestCase {
 		<button id="redraw" label="redraw" onClick="t.invalidate()"/>
 		</window>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val t = ztl$engine.$f("t")
     val tc = ztl$engine.$f("tc")
     val item2 = ztl$engine.$f("item2")

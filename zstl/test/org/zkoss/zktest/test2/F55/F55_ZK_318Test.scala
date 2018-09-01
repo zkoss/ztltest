@@ -142,16 +142,16 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         clickAndWait(jq(".z-button:contains(change image)"))
 
         // step 12
-        findElement(messageBox).clear()
-        findElement(messageBoxTwo).clear()
+        messageBox.toElement().set("value", "")
+        messageBox.toElement().set("value", "")
         click(jq("@button:contains(open combobutton one)"))
         verifyEquals("", getValue(messageBox))
         verifyEquals("", getValue(messageBoxTwo))
         clickAndWait(jq(".z-label:contains(message box)"))
 
         // step 13
-        findElement(messageBox).clear()
-        findElement(messageBoxTwo).clear()
+        messageBox.toElement().set("value", "")
+        messageBox.toElement().set("value", "")
         click(jq("@button:contains(open combobutton two)"))
         verifyEquals("", getValue(messageBox))
         verifyEquals("", getValue(messageBoxTwo))

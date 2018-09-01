@@ -2,7 +2,7 @@ package org.zkoss.zktest.test2.B85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{SeleniumOnly, Tags}
 
 /* B85_ZK_3731Test.java
 
@@ -16,10 +16,11 @@ import org.zkoss.ztl.annotation.Tags
 Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
 @Tags(tags = "")
+@SeleniumOnly
 class B85_ZK_3731Test extends ZTL4ScalaTestCase {
   @Test
   def test()=  {
-    runZTL(executor = () => {
+    runZTL(() => {
       for (index <- 0 to 8) {
         click(jq("a").get(index));
         waitResponse();

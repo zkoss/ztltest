@@ -12,6 +12,7 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
+import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.Widget
 
@@ -31,12 +32,14 @@ class B50_3097199Test extends ZTL4ScalaTestCase {
 				</combobox>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cb = ztl$engine.$f("cb")
     runZTL(zscript, () => {
       var inp = cb.$n("real")
       typeKeys(inp, "Test")
-      keyPress(inp, "\\9")
+      waitResponse()
+      sendKeys(inp, Keys.TAB)
+      waitResponse()
       verifyTrue(jq(".z-errorbox").exists())
       verifyEquals("Please select", jq(".z-errorbox-content").html())
     })

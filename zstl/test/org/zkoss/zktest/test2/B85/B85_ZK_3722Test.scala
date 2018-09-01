@@ -24,7 +24,7 @@ class B85_ZK_3722Test extends ZTL4ScalaTestCase {
       waitResponse()
       //first row
 			for (i <- 0 to 6) { //cellSize - 1
-				var num = jq(".z-cell").eq(i).find("span").text().toInt
+				var num = parseInt(jq(".z-cell").eq(i).find("span").text())
 				waitResponse()
         verifyTolerant(jq(".z-cell").eq(i).offsetLeft(), getEval("pos0[monthStrArr[" + (num - 1) + "]]"), 1)
 			}
@@ -32,7 +32,7 @@ class B85_ZK_3722Test extends ZTL4ScalaTestCase {
       //grid1
 			for (i <- 0 to 43) { //rowinnerSize - 1
         var rowInners = jq(".z-grid:eq(0) .z-row-inner")
-				var num = rowInners.eq(i).find("span").text().toInt
+				var num = parseInt(rowInners.eq(i).find("span").text())
 				waitResponse()
         verifyTolerant(rowInners.eq(i).offsetLeft(), getEval("pos0[monthStrArr[" + (num - 1) + "]]"), 1)
 				if (num == 4 || num == 5) {
@@ -43,7 +43,7 @@ class B85_ZK_3722Test extends ZTL4ScalaTestCase {
       //grid2
       for (i <- 0 to 5) {
         var rowInners = jq(".z-grid:eq(1) .z-row-inner")
-        var num = rowInners.eq(i).find("span").text().toInt
+        var num = parseInt(rowInners.eq(i).find("span").text())
         waitResponse()
         verifyTolerant(rowInners.eq(i).offsetLeft(), getEval("pos1[monthStrArr[" + (num - 1) + "]]"), 1)
       }

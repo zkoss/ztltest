@@ -32,7 +32,7 @@ class B50_3006313Test extends ZTL4ScalaTestCase {
 				<intbox id="ib2" value="0"/>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val sld = ztl$engine.$f("sld")
     val btn1 = ztl$engine.$f("btn1")
     val ib1 = ztl$engine.$f("ib1")

@@ -29,7 +29,7 @@ class B50_2931348Test extends ZTL4ScalaTestCase {
 <iframe id="iframe1"/>
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val iframe1 = ztl$engine.$f("iframe1")
     runZTL(zscript, () => {
       click(jq("@button"))

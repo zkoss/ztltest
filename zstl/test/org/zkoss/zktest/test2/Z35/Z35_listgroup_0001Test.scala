@@ -114,7 +114,7 @@ class Z35_listgroup_0001Test extends ZTL4ScalaTestCase {
 				</listbox>
 			</window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val model1Btn = ztl$engine.$f("model1Btn")
     val model2Btn = ztl$engine.$f("model2Btn")
     val model3Btn = ztl$engine.$f("model3Btn")
@@ -129,40 +129,40 @@ class Z35_listgroup_0001Test extends ZTL4ScalaTestCase {
       click(model1Btn);
       waitResponse();
       var model1VerifyStr = jq("tr.z-listgroup:eq(0)").text();
-      verifyContains("jq(\"tr.z-listgroup:eq(0)\").text(): " +
+      verifyContains("jq('tr.z-listgroup:eq(0)').text(): " +
         model1VerifyStr, model1VerifyStr, "option")
       // data, head
       click(model2Btn)
       waitResponse();
       var model2VerifyStr = jq("tr.z-listgroup:eq(0)").text()
-      verifyContains("jq(\"tr.z-listgroup:eq(0)\").text(): " +
+      verifyContains("jq('tr.z-listgroup:eq(0)').text(): " +
         model2VerifyStr, model2VerifyStr, "Group")
       // data, head, foot
       click(model3Btn);
       waitResponse()
       var footerQty = jq("tr.z-listgroupfoot").length();
-      verifyTrue("jq(\"tr.z-listgroupfoot\").length(): " +
+      verifyTrue("jq('tr.z-listgroupfoot').length(): " +
         footerQty, footerQty == 4);
       // not all foot
       click(model4Btn)
       waitResponse();
       footerQty = jq("tr.z-listgroupfoot").length()
-      verifyTrue("jq(\"tr.z-listgroupfoot\").length(): " +
+      verifyTrue("jq('tr.z-listgroupfoot').length(): " +
         footerQty, footerQty == 2)
       var footerStr = jq("tr.z-listgroupfoot:eq(0)").text();
-      verifyContains("jq(\"tr.z-listgroupfoot:eq(0)\"): " +
+      verifyContains("jq('tr.z-listgroupfoot:eq(0)'): " +
         footerStr, footerStr, "A1")
       // not all foot 2
       click(model5Btn)
       waitResponse();
       footerQty = jq("tr.z-listgroupfoot").length()
-      verifyTrue("jq(\"tr.z-listgroupfoot\").length(): " +
+      verifyTrue("jq('tr.z-listgroupfoot').length(): " +
         footerQty, footerQty == 2)
       click(jq("tr.z-listgroup:eq(0)").toWidget().$n("img"))
       waitResponse();
       sleep(300);
       footerStr = jq("tr.z-listgroupfoot:eq(0)").text()
-      verifyContains("jq(\"tr.z-listgroupfoot:eq(0)\"): " +
+      verifyContains("jq('tr.z-listgroupfoot:eq(0)'): " +
         footerStr, footerStr, "B2")
       // Clear without any exceptions
       click(clearBtn);

@@ -107,7 +107,7 @@ class B30_2140491Test extends ZTL4ScalaTestCase {
 					<button id="saveButton" label="save"></button>
 			</window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val window = ztl$engine.$f("window")
     val listbox = ztl$engine.$f("listbox")
     val textboxDesc = ztl$engine.$f("textboxDesc")

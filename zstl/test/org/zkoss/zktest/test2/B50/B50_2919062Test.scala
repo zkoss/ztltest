@@ -29,7 +29,7 @@ Please type "-0" into the inputbox, and then click outside of it, you should not
 <intbox constraint="no negative"/>
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       typeKeys(jq("@intbox"), "-0");
       waitResponse();

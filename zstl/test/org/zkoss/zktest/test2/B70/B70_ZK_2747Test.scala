@@ -27,7 +27,7 @@ class B70_ZK_2747Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       verifyTrue(jq("#zk_showBusy").exists())
       sleep(3000)
-      verifyTrue(!jq("#zk_showBusy").exists())
+      verifyFalse(jq("#zk_showBusy").exists())
 
     })
   }

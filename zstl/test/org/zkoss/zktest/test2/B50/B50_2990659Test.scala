@@ -25,7 +25,7 @@ class B50_2990659Test extends ZTL4ScalaTestCase {
       """
 		<decimalbox id="db" format="R ##,###,###,###.00"/>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val db = ztl$engine.$f("db")
     runZTL(zscript, () => {
       sendKeys(db, "1111")

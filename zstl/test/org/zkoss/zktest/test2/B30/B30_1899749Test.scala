@@ -59,7 +59,7 @@ Case 2: With IE6,
 </window>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val sp = ztl$engine.$f("sp")
     val pm = ztl$engine.$f("pm")
     runZTL(zscript, () => {

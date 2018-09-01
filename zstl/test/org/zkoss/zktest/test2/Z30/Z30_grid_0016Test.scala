@@ -109,8 +109,7 @@ class Z30_grid_0016Test extends ZTL4ScalaTestCase {
           verifyEquals(jq("@row").length(), "20"); //paging
           verifyRowContent(list.iterator, 20)
         });
-
-        clickThenValidate("[name=" + jq(".z-paging").attr("id") + "-next]", () => {
+        clickThenValidate(".z-paging-next", () => {
           verifyEquals(jq("@rows").length(), "1");
           verifyEquals(jq("@row").length(), "2"); //paging
           verifyRowContent(Iterator("Item 21-L", "Item 22-L"), 2);

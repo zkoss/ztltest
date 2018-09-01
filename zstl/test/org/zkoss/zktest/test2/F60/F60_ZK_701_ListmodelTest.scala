@@ -94,12 +94,13 @@ class F60_ZK_701_ListmodelTest extends ZTL4ScalaTestCase {
         }
 
         def isSelected(wgt: Widget, content: String, selected: Boolean) {
-          if (selected)
+          if (selected) {
             verifyTrue("The item contains " + content + " should be selected",
               jq(wgt.$n()).find(".z-listitem-selected:contains(" + content + ")").exists());
-          else
+          } else {
             verifyFalse("The item contains " + content + " should not be selected",
               jq(wgt.$n()).find(".z-listitem-selected:contains(" + content + ")").exists());
+          }
         }
 
         def verifyOrder(wgt: Widget, content: String, order: Int) {
@@ -109,7 +110,7 @@ class F60_ZK_701_ListmodelTest extends ZTL4ScalaTestCase {
 
         selectItem(grid, "option 3");
         clickAndWait(btn);
-        clonedGrid = widget(jq(jq(".z-listbox").get(0)));
+        clonedGrid = jq(".z-listbox").eq(0).toWidget;
 
         isSelected(grid, "option 3", true);
         isSelected(clonedGrid, "option 3", true);

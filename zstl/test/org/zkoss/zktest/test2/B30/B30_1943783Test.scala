@@ -37,7 +37,7 @@ Press 'ESC' key and you will see a messagebox is shown.
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       sendKeys(jq("@timebox").find("input"), Keys.ENTER)
       waitResponse()

@@ -32,7 +32,7 @@ class Z60_ChildrenSimple2 extends ZTL4ScalaTestCase {
       var cmd3 = jq("$cmd3")
       var labels = dependency.find("@label")
       var compare = Array("Item A", "Item B", "Item C")
-      verifyEquals(compare.length, labels.length())
+      verifyEquals(3, labels.length())
       for (i <- 0 to 2) {
         verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
         var sclass = "c1"
@@ -45,7 +45,7 @@ class Z60_ChildrenSimple2 extends ZTL4ScalaTestCase {
       waitResponse()
       compare = Array("Item X", "Item A", "Item C")
       labels = dependency.find("@label")
-      verifyEquals(compare.length, labels.length())
+      verifyEquals(3, labels.length())
       for (i <- 0 to 2) {
         verifyEquals(compare(i), labels.eq(i).toWidget().attr("value"))
         var sclass = "c1"

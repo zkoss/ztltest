@@ -40,7 +40,7 @@ public void validate(Component comp, Object value)throws WrongValueException {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyFalse(jq(".z-error").exists())
     })

@@ -65,7 +65,7 @@ class B36_2688197Test extends ZTL4ScalaTestCase {
 
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val title = ztl$engine.$f("title")
     runZTL(zscript, () => {
       var setWidth = jq("@button[label=\"set width\"]")

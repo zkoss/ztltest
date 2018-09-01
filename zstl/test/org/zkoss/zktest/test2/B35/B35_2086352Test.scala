@@ -40,7 +40,7 @@ class B35_2086352Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val win = ztl$engine.$f("win")
     runZTL(zscript, () => {
       verifyFalse(win.$n("mask").exists())

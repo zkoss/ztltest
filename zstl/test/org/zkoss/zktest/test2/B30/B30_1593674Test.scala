@@ -30,7 +30,7 @@ class B30_1593674Test extends ZTL4ScalaTestCase {
 				</h:form>
 			</groupbox>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyTrue(jq(":submit").exists())
       click(jq(":submit"));

@@ -69,7 +69,7 @@ alert("exit");
 </window>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val win1 = ztl$engine.$f("win1")
     val Tab1 = ztl$engine.$f("Tab1")
     val tp1 = ztl$engine.$f("tp1")

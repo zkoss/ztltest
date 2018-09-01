@@ -87,7 +87,7 @@ Two listbox share the same selected variable. It used to cause NullPointerExcept
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val lb1 = ztl$engine.$f("lb1")
     val lb2 = ztl$engine.$f("lb2")
     runZTL(zscript, () => {

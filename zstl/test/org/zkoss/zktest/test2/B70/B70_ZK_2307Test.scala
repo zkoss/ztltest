@@ -12,7 +12,6 @@ class B70_ZK_2307Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       // don't support opera
-      val window = getWebDriver.manage().window()
       val originW = getWindowWidth()
       val originH = getWindowHeight()
       setWindowSize(500, originH)

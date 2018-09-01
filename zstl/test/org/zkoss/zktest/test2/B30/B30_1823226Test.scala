@@ -33,7 +33,7 @@ Splitter can be dragged over hbox border.
 		</hbox>
 	</window></zk>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val hsplitter = ztl$engine.$f("hsplitter")
     runZTL(zscript, () => {
       var width = jq("@box @label").parent().width()

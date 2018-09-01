@@ -31,7 +31,7 @@ class Z60_CollectionIndexGrid1 extends ZTL4ScalaTestCase {
       var outerbox = jq("$outergrid").toWidget()
       var outerrows = jq(outerbox).find("@rows").toWidget()
       val itemLabel = Array("A", "B", "C", "D")
-      verifyEquals(itemLabel.length, outerrows.nChildren())
+      verifyEquals(4, outerrows.nChildren())
       var outerrow = outerrows.firstChild()
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i)

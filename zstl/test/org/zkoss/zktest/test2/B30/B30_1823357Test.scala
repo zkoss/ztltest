@@ -40,7 +40,7 @@ class B30_1823357Test extends ZTL4ScalaTestCase {
 					<button label="test" onClick="Phi.setColspan(3)" />
 				</zk>
 			 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree2 = ztl$engine.$f("tree2")
     val Phi = ztl$engine.$f("Phi")
     runZTL(zscript, () => {

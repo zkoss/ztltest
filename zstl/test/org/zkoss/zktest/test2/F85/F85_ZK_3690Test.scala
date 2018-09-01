@@ -11,18 +11,17 @@ import org.zkoss.ztl.unit.JQuery
 @Tags(tags = "F85-ZK-3690.zul")
 class F85_ZK_3690Test extends ZTL4ScalaTestCase {
   @Test
-  def test()=  {
+  def test() = {
     runZTL(() => {
       val btns = jq("@button")
 
       // Listbox
       var elem = jq("@listbox")
       var body = elem.find(".z-listbox-body")
-      var rows = elem.find(".z-listitem")
+      var rowClz = ".z-listitem"
       click(btns.eq(0))
       waitResponse()
-      verifyTolerant(body.height(), calcRowsHeight(rows, 0, 3), 2)
-
+      verifyTolerant(body.height(), getEval("calcRowsHeight('" + rowClz + "')"), 2)
       click(btns.eq(1))
       waitResponse()
       verifyTolerant(body.height(), body.scrollHeight(), 2)
@@ -30,10 +29,10 @@ class F85_ZK_3690Test extends ZTL4ScalaTestCase {
       // Grid
       elem = jq("@grid")
       body = elem.find(".z-grid-body")
-      rows = elem.find(".z-row")
+      rowClz = ".z-row"
       click(btns.eq(2))
       waitResponse()
-      verifyTolerant(body.height(), calcRowsHeight(rows, 0, 3), 2)
+      verifyTolerant(body.height(), getEval("calcRowsHeight('" + rowClz + "')"), 2)
 
       click(btns.eq(3))
       waitResponse()
@@ -42,22 +41,14 @@ class F85_ZK_3690Test extends ZTL4ScalaTestCase {
       // Tree
       elem = jq("@tree")
       body = elem.find(".z-tree-body")
-      rows = elem.find(".z-treerow")
+      rowClz = ".z-treerow"
       click(btns.eq(4))
       waitResponse()
-      verifyTolerant(body.height(), calcRowsHeight(rows, 0, 3), 2)
+      verifyTolerant(body.height(), getEval("calcRowsHeight('" + rowClz + "')"), 2)
 
       click(btns.eq(5))
       waitResponse()
       verifyTolerant(body.height(), body.scrollHeight(), 2)
     })
-  }
-
-  def calcRowsHeight(rows: JQuery, start: Int, end: Int): Int = {
-    var height = 0
-    (start to end).foreach({
-      height += rows.eq(_).height()
-    })
-    height
   }
 }

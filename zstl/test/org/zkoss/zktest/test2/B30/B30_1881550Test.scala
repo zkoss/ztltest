@@ -50,7 +50,7 @@ class B30_1881550Test extends ZTL4ScalaTestCase {
 				</window>	
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val doModal = ztl$engine.$f("doModal")
     runZTL(zscript, () => {
       var rowId_01 = jq(".z-rows tr.z-row:eq(1)").attr("id")

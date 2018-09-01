@@ -54,14 +54,14 @@ class B50_ZK_381Test extends ZTL4ScalaTestCase {
 				</zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val menubar = ztl$engine.$f("menubar")
     runZTL(zscript, () => {
       var fullWidth = 0
       var i = jq(menubar.$n("cave")).children().length()
       var e = jq(menubar.$n("cave")).get(0).firstChild()
       for (j <- 0 until 3) {
-        fullWidth += e.attr("offsetWidth").toInt
+        fullWidth += parseInt(e.attr("offsetWidth"))
         e = e.nextSibling()
       }
       for (j <- 0 until 5) {
@@ -69,13 +69,13 @@ class B50_ZK_381Test extends ZTL4ScalaTestCase {
         sleep(500)
       }
       waitResponse()
-      verifyTolerant(menubar.$n("body").attr("scrollLeft").toInt, (fullWidth - menubar.$n("body").attr("offsetWidth").toInt), 16)
+      verifyTolerant(parseInt(menubar.$n("body").attr("scrollLeft")), fullWidth - parseInt(menubar.$n("body").attr("offsetWidth")), 16)
       for (j <- 0 until 5) {
         click(jq(".z-menubar").toWidget().$n("left"))
         sleep(500)
       }
       waitResponse()
-      verifyEquals(0, menubar.$n("body").attr("scrollLeft").toInt)
+      verifyEquals(0, menubar.$n("body").attr("scrollLeft"))
     })
   }
 }

@@ -75,7 +75,7 @@ Test xhtml component inside grid with annotation databinding (this bug generate 
 </groupbox>
 </zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val grid = ztl$engine.$f("grid")
     val listbox = ztl$engine.$f("listbox")
     runZTL(zscript, () => {

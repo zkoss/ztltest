@@ -38,7 +38,7 @@ class B30_1997828Test extends ZTL4ScalaTestCase {
 </window>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val any = ztl$engine.$f("any")
     runZTL(zscript, () => {
       click(jq("img"))

@@ -43,7 +43,7 @@ class B36_2799258Test extends ZTL4ScalaTestCase {
 			</listbox>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       var header = jq("@listheader:eq(0)")
       var x = header.outerWidth()

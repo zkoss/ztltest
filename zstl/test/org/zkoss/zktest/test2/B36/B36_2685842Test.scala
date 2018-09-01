@@ -62,7 +62,7 @@ class B36_2685842Test extends ZTL4ScalaTestCase {
 				</box>
 			</hbox>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val mainBox = ztl$engine.$f("mainBox")
     val mainWindow = ztl$engine.$f("mainWindow")
     val bidSessionSelectorTabBox = ztl$engine.$f("bidSessionSelectorTabBox")

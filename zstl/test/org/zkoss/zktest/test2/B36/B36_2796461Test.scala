@@ -34,7 +34,7 @@ class B36_2796461Test extends ZTL4ScalaTestCase {
 			<datebox id="db"/>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val db = ztl$engine.$f("db")
     runZTL(zscript, () => {
       click(db.$n("btn"))

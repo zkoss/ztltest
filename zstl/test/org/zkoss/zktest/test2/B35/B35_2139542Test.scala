@@ -30,7 +30,7 @@ class B35_2139542Test extends ZTL4ScalaTestCase {
 </hbox>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val db = ztl$engine.$f("db")
     runZTL(zscript, () => {
       click(jq("@button"))

@@ -59,7 +59,7 @@ class B50_3006772Test extends ZTL4ScalaTestCase {
 				</tree>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
     val ti1 = ztl$engine.$f("ti1")
     val tr1 = ztl$engine.$f("tr1")

@@ -82,7 +82,7 @@ class B30_1737660Test extends ZTL4ScalaTestCase {
 			</zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val winTest = ztl$engine.$f("winTest")
     runZTL(zscript, () => {
       for (i <- 0 until 2) { // 2 listbox

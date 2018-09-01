@@ -28,7 +28,7 @@ class B50_2950309Test extends ZTL4ScalaTestCase {
 				<button id="btn" label="disabled" onClick="db.disabled=!db.disabled" />
 			</zk>	
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val db = ztl$engine.$f("db")
     val btn = ztl$engine.$f("btn")
     runZTL(zscript, () => {

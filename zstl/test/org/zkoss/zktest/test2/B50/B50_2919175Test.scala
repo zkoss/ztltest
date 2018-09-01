@@ -36,7 +36,7 @@ class B50_2919175Test extends ZTL4ScalaTestCase {
 </combobox>
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       var combobox = jq(".z-combobox").toWidget()
       click(combobox.$n("btn"))

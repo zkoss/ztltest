@@ -36,7 +36,7 @@ class Z60_B01194NestedVMInitTest extends ZTL4ScalaTestCase {
       var outerDescTxb = jq("$outerDescTxb")
 
       var text = vmsDescTxb.toWidget().attr("value")
-      verifyTrue(text.length() > 0)
+      verifyNotEquals(text, "")
       verifyEquals(text, vmInnerVmDescTxb.toWidget().attr("value"))
       verifyEquals(text, vmInnerVmDescLb.toWidget().attr("value"))
       verifyEquals(text, outerDescTxb.toWidget().attr("value"))

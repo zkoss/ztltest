@@ -29,7 +29,7 @@ class B36_2660443Test extends ZTL4ScalaTestCase {
 				</menupopup>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tb = ztl$engine.$f("tb")
     val popup = ztl$engine.$f("popup")
     runZTL(zscript, () => {

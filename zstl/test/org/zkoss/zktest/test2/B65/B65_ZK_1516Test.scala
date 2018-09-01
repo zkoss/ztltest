@@ -20,7 +20,7 @@ class B65_ZK_1516Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyTrue(!jq(".z-loading").exists())
+        verifyFalse(jq(".z-loading").exists())
       })
 
   }

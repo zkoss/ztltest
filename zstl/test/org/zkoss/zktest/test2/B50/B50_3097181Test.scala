@@ -46,7 +46,7 @@ class B50_3097181Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val menubar = ztl$engine.$f("menubar")
     runZTL(zscript, () => {
       mouseOver(jq(".z-menu:eq(0)").toWidget().$n("a"))

@@ -61,7 +61,7 @@ class Z30_grid_0002Test extends ZTL4ScalaTestCase {
 				</grid>
 			</vbox>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val lab = ztl$engine.$f("lab")
     val label = ztl$engine.$f("label")
     val g = ztl$engine.$f("g")

@@ -36,7 +36,7 @@ class B50_2970902Test extends ZTL4ScalaTestCase {
 				</combobox>
 			</window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val win = ztl$engine.$f("win")
     val cb1 = ztl$engine.$f("cb1")
     val cb2 = ztl$engine.$f("cb2")

@@ -76,7 +76,7 @@ class B30_1906748Test extends ZTL4ScalaTestCase {
 			</window>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val oNumberLbl = ztl$engine.$f("oNumberLbl")
     val oNameLbl = ztl$engine.$f("oNameLbl")
     runZTL(zscript, () => {

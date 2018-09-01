@@ -39,7 +39,7 @@ class B65_ZK_1418Test extends ZTL4ScalaTestCase {
         click(jq("@button"))
         waitResponse()
 
-        verifyTrue("error messagebox should not show", !jq(".z-errorbox").exists())
+        verifyFalse("error messagebox should not show", jq(".z-errorbox").exists())
 
       })
 

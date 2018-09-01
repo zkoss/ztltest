@@ -46,7 +46,7 @@ class B50_3033022Test extends ZTL4ScalaTestCase {
 	</hbox>
 </zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tb2 = ztl$engine.$f("tb2")
     val tb3 = ztl$engine.$f("tb3")
     val tb4 = ztl$engine.$f("tb4")

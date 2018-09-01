@@ -46,7 +46,6 @@ class Z30_grid_0015Test extends ZTL4ScalaTestCase {
           "Item C.1",
           "Item D.1"
         ));
-        //"[name=" + jq(".z-paging").attr("id") + "-next]" (when using IR getting wrong, need to survey) 
         clickThenValidate(".z-paging-next", () => {
           verifyRowContent("$grid1", Iterator(
             "Item 5.1",
@@ -60,7 +59,6 @@ class Z30_grid_0015Test extends ZTL4ScalaTestCase {
           ));
         });
 
-        //"[name=" + jq(".z-paging").attr("id") + "-prev]"
         clickThenValidate(".z-paging-previous", () => {
           verifyRowContent("$grid1", Iterator(
             "Item 1.1",

@@ -26,13 +26,13 @@ class B36_2839335Test extends ZTL4ScalaTestCase {
 				<timebox/>
 			</zk>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       var inp = jq("@timebox").toWidget().$n("real")
       focus(inp)
       var old = jq(inp).`val`()
-      keyPress(inp, "A")
-      keyPress(inp, "X")
+      typeKeys(inp, "A")
+      typeKeys(inp, "X")
       waitResponse()
       verifyEquals(old, jq(inp).`val`())
     })

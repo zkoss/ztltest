@@ -46,7 +46,7 @@ class B50_2946917Test extends ZTL4ScalaTestCase {
 					<textbox id="tbx" constraint="${cst}"/>
 				</window>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val main = ztl$engine.$f("main")
     val tbx = ztl$engine.$f("tbx")
     runZTL(zscript, () => {

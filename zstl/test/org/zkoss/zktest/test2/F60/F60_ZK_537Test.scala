@@ -102,15 +102,16 @@ class F60_ZK_537Test extends ZTL4ScalaTestCase {
         def checkAlign(w1: Widget, w2: Widget, align: String) {
           var $w1: JQuery = jq(w1);
           var $w2: JQuery = jq(w2);
-          if ("top".equals(align))
+          if ("top".equals(align)) {
             verifyTrue("Should align top",
               ($w1.offsetTop() - $w2.offsetTop()) < 2);
-          else if ("middle".equals(align))
+          } else if ("middle".equals(align)) {
             verifyTrue("Should align middle",
               (($w1.offsetTop() + $w1.outerHeight() / 2) - ($w2.offsetTop() + $w2.outerHeight() / 2)) < 2);
-          else if ("bottom".equals(align))
+          } else if ("bottom".equals(align)) {
             verifyTrue("Should align bottom",
               (($w1.offsetTop() + $w1.outerHeight()) - ($w2.offsetTop() + $w2.outerHeight())) < 2);
+          }
         }
 
         checkAlign(lbOne, win1, "top");

@@ -13,18 +13,18 @@ class F70_ZK_2049Test extends ZTL4ScalaTestCase {
       val btn1 = jq(".z-button").eq(1)
       clickAt(btn, "5,5")
       waitResponse()
-      verifyTrue("open the menupopup", jq(".z-menupopup").exists)
+      verifyEquals("open the menupopup", true, jq(".z-menupopup").exists)
 
       clickAt(btn, "1,1")
       waitResponse(true)
-      verifyTrue("it will close", !jq(".z-menupopup").isVisible)
+      verifyEquals("it will close", false, jq(".z-menupopup").isVisible)
 
       contextMenuAt(btn1, "5,5")
       waitResponse()
-      verifyTrue("open the menupopup", jq(".z-menupopup").exists)
+      verifyEquals("open the menupopup", true, jq(".z-menupopup").exists)
       contextMenuAt(btn1, "1,1")
       waitResponse(true)
-      verifyTrue("it will close", !jq(".z-menupopup").isVisible)
+      verifyEquals("it will close", false, jq(".z-menupopup").isVisible)
     })
 
   }

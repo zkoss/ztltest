@@ -33,7 +33,7 @@ l.setValue("Just a \"test\" with quotes");
 </zscript>
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val l = ztl$engine.$f("l")
     val test = ztl$engine.$f("test")
     runZTL(zscript, () => {

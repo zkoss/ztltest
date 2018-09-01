@@ -19,7 +19,7 @@ import org.zkoss.ztl.unit.Widget
 class B50_3147909Test extends ZTL4ScalaTestCase {
   @Test
   def testztl() = {
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val inner = ztl$engine.$f("inner")
     runZTL(() => {
       dragdropTo(jq(inner), "3,3", "10,3")

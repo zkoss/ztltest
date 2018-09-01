@@ -79,7 +79,7 @@ Please check the dot in the tree displays correctly. (Item 2.2 should not connec
 </tree>
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
     runZTL(zscript, () => {
       verifyEquals(1, jq("@treecell[label=\"Item 3\"]").children().length());

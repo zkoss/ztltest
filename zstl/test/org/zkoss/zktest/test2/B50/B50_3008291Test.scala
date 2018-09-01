@@ -37,7 +37,7 @@ class B50_3008291Test extends ZTL4ScalaTestCase {
 	</window>
 	</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val lbx = ztl$engine.$f("lbx")
     runZTL(zscript, () => {
       var cell = jq("@window @listcell[label=\"-\"]:eq(1)")

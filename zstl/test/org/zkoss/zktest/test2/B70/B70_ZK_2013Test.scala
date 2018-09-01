@@ -72,7 +72,7 @@ model.add("C");
         waitResponse()
         click(jq(".z-tab:contains(Y)"))
         waitResponse()
-        verifyTrue("the 'C' tab will be remove", !jq(".z-tab:contains(C)").exists)
+        verifyFalse("the 'C' tab will be remove", jq(".z-tab:contains(C)").exists)
         verifyTrue("the 'create time' of the 'Y' tab is the same as before.", ytime == jq(".z-tabpanel").find(".z-label:contains(create)").text())
       })
 

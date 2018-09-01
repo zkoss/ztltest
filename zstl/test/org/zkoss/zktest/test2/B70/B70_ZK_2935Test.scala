@@ -1,6 +1,7 @@
 package org.zkoss.zktest.test2.B70
 
 import org.junit.Test
+import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
 
@@ -14,7 +15,7 @@ class B70_ZK_2935Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       verifyEquals("null", getEval("zk.currentFocus"));
-      keyPressNative("9")
+      sendKeys(jq("body"), Keys.TAB)
       waitResponse(true)
       verifyEquals("null", getEval("zk.currentFocus"));
     })

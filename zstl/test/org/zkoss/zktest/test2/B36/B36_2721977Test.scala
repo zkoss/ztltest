@@ -52,13 +52,11 @@ class B36_2721977Test extends ZTL4ScalaTestCase {
 			</window>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val txb1 = ztl$engine.$f("txb1")
     val txb2 = ztl$engine.$f("txb2")
     val btn = ztl$engine.$f("btn")
     runZTL(zscript, () => {
-      /** set speed depended on test case setting */
-      setSpeed("200")
       click(btn)
       waitResponse()
       verifyEquals(2, jq(".z-errorbox").length())
@@ -68,9 +66,6 @@ class B36_2721977Test extends ZTL4ScalaTestCase {
       click(btn)
       waitResponse()
       verifyEquals(2, jq(".z-errorbox").length())
-
-      /** reset */
-      setSpeed("200")
     })
   }
 }

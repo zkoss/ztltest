@@ -36,7 +36,7 @@ If the "Processing..." is never closed, that's a bug.
 """
     runZTL(zscript,
       () => {
-        verifyTrue(!jq(".z-loading").exists())
+        verifyFalse(jq(".z-loading").exists())
       })
 
   }

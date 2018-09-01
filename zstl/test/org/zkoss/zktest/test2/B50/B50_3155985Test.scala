@@ -53,7 +53,7 @@ class MyComposer extends org.zkoss.zk.ui.util.GenericForwardComposer {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val timer = ztl$engine.$f("timer")
     val btn = ztl$engine.$f("btn")
     val inf = ztl$engine.$f("inf")

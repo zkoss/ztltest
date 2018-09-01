@@ -40,7 +40,7 @@ class F30_1843802Test extends ZTL4ScalaTestCase {
 				<label id="lb" />
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cb = ztl$engine.$f("cb")
     val lb = ztl$engine.$f("lb")
     runZTL(zscript, () => {

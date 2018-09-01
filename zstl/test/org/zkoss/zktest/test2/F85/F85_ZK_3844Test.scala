@@ -12,11 +12,9 @@ class F85_ZK_3844Test extends ZTL4ScalaTestCase {
   @Test
   def test()=  {
     runZTL(() => {
-      (1 to 4).foreach(i => {
-        verifyTrue("button " + i + " icon missing",
-          jq("@button:eq(" + (i - 1) + ") i").width > 0)
-      })
-
+      for (i <- 1 to 4) {
+        verifyTrue("button " + i + " icon missing", jq("@button:eq(" + (i - 1) + ") i").width > 0)
+      }
       // For Screen Reader
       verifyTrue(jq("@label:contains(6. The following)").isVisible)
     })

@@ -38,7 +38,7 @@ class Z60_CollectionIndexGrid2 extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid").toWidget()
       outerrows = jq(outerbox).find("@rows").toWidget()
       var itemLabel = Array("A", "C", "D")
-      verifyEquals(itemLabel.length, outerrows.nChildren())
+      verifyEquals(3, outerrows.nChildren())
       var outerrow = outerrows.firstChild()
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i)
@@ -75,7 +75,7 @@ class Z60_CollectionIndexGrid2 extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid").toWidget()
       outerrows = jq(outerbox).find("@rows").toWidget()
       itemLabel = Array("A", "C", "C1", "D")
-      verifyEquals(itemLabel.length, outerrows.nChildren())
+      verifyEquals(4, outerrows.nChildren())
       outerrow = outerrows.firstChild()
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i)
@@ -112,7 +112,7 @@ class Z60_CollectionIndexGrid2 extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid").toWidget()
       outerrows = jq(outerbox).find("@rows").toWidget()
       itemLabel = Array("A", "C", "C12", "C1", "D")
-      verifyEquals(itemLabel.length, outerrows.nChildren())
+      verifyEquals(5, outerrows.nChildren())
       outerrow = outerrows.firstChild()
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i)

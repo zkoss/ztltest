@@ -48,7 +48,7 @@ class B50_2951184Test extends ZTL4ScalaTestCase {
 				    </tree>
 				</window>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals(1, jq(".z-treerow").length())
       click(jq(".z-treerow").toWidget().$n("icon"))

@@ -29,7 +29,7 @@ class B50_2922847Test extends ZTL4ScalaTestCase {
 						onClick='self.style = self.style.equals("font-weight:bold;") ? "font-weight:bold;":"font-weight:normal;"'/>
 				</zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tbtn = ztl$engine.$f("tbtn")
     runZTL(zscript, () => {
       verifyEquals("700", jq(".z-toolbarbutton-content").css("font-weight"))

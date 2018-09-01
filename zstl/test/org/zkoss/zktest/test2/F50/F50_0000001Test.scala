@@ -62,7 +62,7 @@ class F50_0000001Test extends ZTL4ScalaTestCase {
 			</window>
 		</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val w = ztl$engine.$f("w")
     val hideBtn = ztl$engine.$f("hideBtn")
     val invalidateBtn = ztl$engine.$f("invalidateBtn")

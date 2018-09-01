@@ -79,7 +79,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         val position1 = "10,10"
         dragdropToObject(src, target, position, position1)
         waitResponse()
-        verifyTrue("You should not see any dialog.", !jq(".z-window").exists)
+        verifyFalse("You should not see any dialog.", jq(".z-window").exists)
       })
 
   }

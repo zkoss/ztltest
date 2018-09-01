@@ -43,7 +43,7 @@ class B30_1786154Test extends ZTL4ScalaTestCase {
 	</grid>
 </zk> 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals("100 , 0", widget(jq("@button:eq(0)")).attr("label"))
       verifyEquals("101 , 0", widget(jq("@button:eq(1)")).attr("label"))

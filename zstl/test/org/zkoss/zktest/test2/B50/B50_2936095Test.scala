@@ -41,7 +41,7 @@ cb.appendChild (ci);
     </zscript>
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cb = ztl$engine.$f("cb")
     runZTL(zscript, () => {
       //Strange. throw exception in next statement. Then, how can we test if exist?

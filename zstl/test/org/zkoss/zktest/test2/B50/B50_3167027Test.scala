@@ -48,7 +48,7 @@ class B50_3167027Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val item = ztl$engine.$f("item")
     runZTL(zscript, () => {
       verifyFalse(jq("@treecell:eq(0)").exists())

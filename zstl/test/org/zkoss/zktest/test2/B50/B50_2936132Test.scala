@@ -81,7 +81,7 @@ class B50_2936132Test extends ZTL4ScalaTestCase {
 					</tree>
 				</zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val btn = ztl$engine.$f("btn")
     val treechildren1 = ztl$engine.$f("treechildren1")
     val treeitem2 = ztl$engine.$f("treeitem2")
@@ -160,7 +160,7 @@ class B50_2936132Test extends ZTL4ScalaTestCase {
 					</tree>
 				</zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val btn = ztl$engine.$f("btn")
     val treechildren1 = ztl$engine.$f("treechildren1")
     val treeitem2 = ztl$engine.$f("treeitem2")

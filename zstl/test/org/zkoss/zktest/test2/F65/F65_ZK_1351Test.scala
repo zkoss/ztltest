@@ -47,7 +47,7 @@ Copyright (C) 2012 Potix Corporation. All Rights Reserved.
       () => {
         click(jq(".z-button:contains(ZK-1351)"))
         waitResponse()
-        verifyTrue("You should see no buttons with the dialog", !jq(".z-messagebox-window .z-button").exists)
+        verifyFalse("You should see no buttons with the dialog", jq(".z-messagebox-window .z-button").exists)
       })
 
   }

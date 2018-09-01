@@ -5,7 +5,7 @@
 	<property name="target.dir" value="target/" />
 	<!-- lib.dir also need to change the setting in surefire plugin in pom.xml -->
 	<property name="lib.dir" value="lib/" />
-	<property name="test.dir" value="${target.dir}/classes" />
+	<property name="test.dir" value="${target.dir}classes" />
 	<property name="report.dir" value="report/" />
 	<property name="codegen.dir" value="codegen/" />
 	<property name="dist.dir" value="${target.dir}/dist" />

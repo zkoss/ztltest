@@ -59,7 +59,7 @@ http://www.zkoss.org/2005/zul/zul.xsd "
 		</zk:listbox>
 	</zk:window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val prova = ztl$engine.$f("prova")
     val vociPreventivoList = ztl$engine.$f("vociPreventivoList")
     runZTL(zscript, () => {

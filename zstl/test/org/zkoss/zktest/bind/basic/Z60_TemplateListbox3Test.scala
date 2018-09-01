@@ -36,7 +36,7 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
       var outerbox = jq("$outerbox").toWidget()
       var outeritems = outerbox.firstChild() // include header
       var itemLabel = Array("A", "B", "C", "D")
-      verifyEquals(itemLabel.length, outerbox.nChildren() - 1)
+      verifyEquals(4, outerbox.nChildren() - 1)
       var outeritem = outeritems
       for (i <- 0 to itemLabel.length - 1) {
         outeritem = outeritem.nextSibling()
@@ -47,10 +47,11 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
         verifyEquals(outerl, cell.attr("label")) // verify the label
         // verify template
         cell = outeritem.lastChild()
-        if (i == 0 || i == 2)
+        if (i == 0 || i == 2) {
           verifyEquals("Model1", cell.attr("label"))
-        else
+        } else {
           verifyEquals("Model2", cell.attr("label"))
+        }
       }
       // ==============================================
       click(jq(".z-button:contains(change1)"))
@@ -58,7 +59,7 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
       outerbox = jq("$outerbox").toWidget()
       outeritems = outerbox.firstChild() // include header
       itemLabel = Array("X", "A", "C", "D")
-      verifyEquals(itemLabel.length, outerbox.nChildren() - 1)
+      verifyEquals(4, outerbox.nChildren() - 1)
       outeritem = outeritems
       for (i <- 0 to itemLabel.length - 1) {
         outeritem = outeritem.nextSibling()
@@ -69,10 +70,11 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
         verifyEquals(outerl, cell.attr("label")) // verify the label
         // verify template
         cell = outeritem.lastChild()
-        if (outerl.equals("A") || i == 2)
+        if (outerl.equals("A") || i == 2) {
           verifyEquals("Model1", cell.attr("label"))
-        else
+        } else {
           verifyEquals("Model2", cell.attr("label"))
+        }
       }
       // ==============================================
       click(jq(".z-button:contains(change2)"))
@@ -80,7 +82,7 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
       outerbox = jq("$outerbox").toWidget()
       outeritems = outerbox.firstChild() // include header
       itemLabel = Array("A", "B", "C", "D")
-      verifyEquals(itemLabel.length, outerbox.nChildren() - 1)
+      verifyEquals(4, outerbox.nChildren() - 1)
       outeritem = outeritems
       for (i <- 0 to itemLabel.length - 1) {
         outeritem = outeritem.nextSibling()
@@ -91,10 +93,11 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
         verifyEquals(outerl, cell.attr("label")) // verify the label
         // verify template
         cell = outeritem.lastChild()
-        if (outerl.equals("A") || i == 2)
+        if (outerl.equals("A") || i == 2) {
           verifyEquals("Model1", cell.attr("label"))
-        else
+        } else {
           verifyEquals("Model2", cell.attr("label"))
+        }
       }
     })
   }

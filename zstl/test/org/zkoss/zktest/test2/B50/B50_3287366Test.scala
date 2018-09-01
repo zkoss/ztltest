@@ -85,7 +85,7 @@ class B50_3287366Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       sleep(1000); //for DataBinding
       verifyEquals("A", jq("@grid:eq(1) @row @label").text())

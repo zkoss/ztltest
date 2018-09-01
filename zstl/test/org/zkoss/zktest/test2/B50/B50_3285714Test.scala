@@ -34,55 +34,15 @@ class B50_3285714Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript =
-      """
-			<zk>
-				<html><![CDATA[
-					<ol>
-						<li>Drag the scroll to the middle. You should see row numbers are around 5,000. Otherwise it is a bug.</li>
-					</ol>
-				]]></html>
-				<zscript><![CDATA[
-					rows = new String[10000];
-					for(int i = 0; i < 10000; i++)
-						rows[i] = "Row " + i;
-				]]></zscript>
-				<grid id="grid" width="200px" height="300px">
-					<rows id="rows">
-						<row forEach="${rows}">
-							<label value="${each}" />
-						</row>
-					</rows>
-				</grid>
-			</zk>
-
-    """
-    runZTL(zscript,
-      () => {
+    runZTL(() => {
         var grid: Widget = engine.$f("grid");
         var rows: Widget = engine.$f("rows");
-
         verScroll(grid, 100)
-        sleep(600);
+        sleep(1000);
         verScroll(grid, 50)
-        sleep(600);
-
-        var rowCnt: Int = jq(rows.$n()).find(".z-row").length();
-        val top = getScrollTop(grid) - jq(grid.$n("tpad")).outerHeight();
-        def findTopRow(i: Int, max: Int): Element = {
-          var row: Element = jq(rows.$n()).find(".z-row").get(i);
-          if (parseInt(row.attr("offsetTop")) >= top
-            || (i + 1) >= max)
-            return row;
-          else
-            return findTopRow(i + 1, max);
-        }
-
-        var topRow: Element = findTopRow(0, rowCnt);
-        var content: String = getText(topRow);
-
-        var itemCnt: Integer = parseInt(content)
-        verifyTrue(getEval("Math.abs(5000 -" + itemCnt + ") <= 50"))
+        sleep(1000);
+        val top = getScrollTop(grid) - jq(grid.$n("tpad")).outerHeight()
+        verifyTrue(getEval("getTopRowTextAndVerify(0, " + top + ")"))
       }
     );
 

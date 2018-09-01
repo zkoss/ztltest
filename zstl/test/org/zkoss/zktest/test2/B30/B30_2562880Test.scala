@@ -40,7 +40,7 @@ class B30_2562880Test extends ZTL4ScalaTestCase {
 			</menupopup>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val lh = ztl$engine.$f("lh")
     val popup = ztl$engine.$f("popup")
     runZTL(zscript, () => {
@@ -49,7 +49,7 @@ class B30_2562880Test extends ZTL4ScalaTestCase {
       verifyTrue(isVisible(popup))
       clickAt(lh.$n("cave"), "2,2")
       waitResponse()
-      verifyTrue(!popup.exists() || !isVisible(popup))
+      verifyFalse(isVisible(popup))
     })
   }
 }

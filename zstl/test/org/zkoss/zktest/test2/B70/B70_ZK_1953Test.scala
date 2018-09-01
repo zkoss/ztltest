@@ -27,7 +27,7 @@ class B70_ZK_1953Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        verifyTrue("Listhead's checkmark should be invisible", !jq(".z-listheader-checked").exists)
+        verifyFalse("Listhead's checkmark should be invisible", jq(".z-listheader-checked").exists)
       })
 
   }

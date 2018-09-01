@@ -37,7 +37,7 @@ class B35_2480892Test extends ZTL4ScalaTestCase {
 			</ol>	
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals("Red", jq(".z-textbox:eq(0)").`val`())
       verifyEquals("Blue", jq(".z-textbox:eq(1)").`val`())

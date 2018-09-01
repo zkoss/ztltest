@@ -35,20 +35,18 @@ class B85_ZK_3604Test extends ZTL4ScalaTestCase {
 
       click(toggleBtn)
       waitResponse()
-      verify(Array(0, 0, 0): _*)
+      verifyEquals(0, jq(".z-listheader:eq(0)").width())
+      verifyEquals(0, jq(".z-listitem .z-listcell:first-child:eq(0)").width())
+      verifyEquals(0, jq(".z-listitem .z-listcell:first-child:eq(1)").width())
+      verifyFalse(jq(".z-listgroup.z-listgroup-open").exists())
 
       click(toggleBtn)
       waitResponse()
-      verify(Array(wListhead, wListcell, wGroupListcell): _*)
+      verifyEquals(wListhead, jq(".z-listheader:eq(0)").width())
+      verifyEquals(wListcell, jq(".z-listitem .z-listcell:first-child:eq(0)").width())
+      verifyEquals(wGroupListcell, jq(".z-listitem .z-listcell:first-child:eq(1)").width())
+      verifyFalse(jq(".z-listgroup.z-listgroup-open").exists())
 
     })
-  }
-
-  def verify(some: Int*) = {
-    println(some)
-    verifyEquals(some(0), jq(".z-listheader:eq(0)").width())
-    verifyEquals(some(1), jq(".z-listitem .z-listcell:first-child:eq(0)").width())
-    verifyEquals(some(2), jq(".z-listitem .z-listcell:first-child:eq(1)").width())
-    verifyFalse(jq(".z-listgroup.z-listgroup-open").exists())
   }
 }

@@ -49,7 +49,7 @@ class B36_2799334Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       // Verify that the popup textbox has focus
-      verifyTrue("The second textbox should have focus", "" != jq("$tb1").css("box-shadow"));
+      verifyNotEquals("The second textbox should have focus", "",  jq("$tb1").css("box-shadow"))
 
       // Click on step 3 textbox
       focus(jq("$tb2"));

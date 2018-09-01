@@ -51,7 +51,7 @@ class B36_2805177Test extends ZTL4ScalaTestCase {
 			</grid>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyTolerant(0, jq("div.z-listbox-body").outerHeight(), 1)
       verifyTolerant(0, jq("div.z-grid-body").outerHeight(), 1)

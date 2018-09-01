@@ -43,7 +43,7 @@ sp.setConstraint("min -10 max 10");
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val sp = ztl$engine.$f("sp")
     runZTL(zscript, () => {
       click(jq("@button"))

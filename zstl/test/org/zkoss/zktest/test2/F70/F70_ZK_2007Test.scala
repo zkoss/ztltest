@@ -15,26 +15,26 @@ class F70_ZK_2007Test extends ZTL4ScalaTestCase {
       val item2 = jq(".z-treerow:contains(Item2)")
       contextMenu(item)
       waitResponse()
-      verifyTrue("open the popup", jq(".z-popup").exists)
+      verifyEquals("open the popup", true, jq(".z-popup").exists)
 
       contextMenuAt(item, "0,0")
       waitResponse()
-      verifyTrue("it will close", !jq(".z-popup").isVisible())
+      verifyEquals("it will close", false, jq(".z-popup").isVisible())
 
       click(item1)
       waitResponse()
-      verifyTrue("open the context menu", jq(".z-menupopup").exists)
+      verifyEquals("open the context menu", true, jq(".z-menupopup").exists)
       clickAt(item1, "1,1")
       waitResponse()
-      verifyTrue("it will close", !jq(".z-menupopup").isVisible())
+      verifyEquals("it will close", false, jq(".z-menupopup").isVisible())
 
       contextMenu(item2)
       waitResponse()
-      verifyTrue("open the context menu", jq(".z-menupopup").exists)
+      verifyEquals("open the context menu", true, jq(".z-menupopup").exists)
 
       contextMenuAt(item2, "1,1")
       waitResponse()
-      verifyTrue("it will close", !jq(".z-menupopup").isVisible())
+      verifyEquals("it will close", false, jq(".z-menupopup").isVisible())
     })
 
   }

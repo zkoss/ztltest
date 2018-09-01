@@ -42,7 +42,7 @@ class B50_3242925Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       var x = jq("@splitter").width()
       dragdropTo(jq("@splitter"), "3,3", "50,3")

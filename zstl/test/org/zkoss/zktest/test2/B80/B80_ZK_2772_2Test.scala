@@ -32,8 +32,9 @@ class B80_ZK_2772_2Test extends ZTL4ScalaTestCase {
         //skip index 5~18
         var i = 0
         for (i <- 0 until 20) {
-          if (i < 5 || i > 18)
+          if (i < 5 || i > 18) {
             verifyTolerant(getEval("getRecordedColWidth(" + i + ")").toInt, cols.eq(i).outerWidth(), 1)
+          }
         }
         //scroll to left
         nativeFrozenScroll(jq(".z-grid"), -1000)

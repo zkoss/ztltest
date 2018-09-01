@@ -21,7 +21,7 @@ class B85_ZK_3608Test extends ZTL4ScalaTestCase {
       click(jq(".z-nav-content"))
       waitResponse(true)
 
-      jq(".z-west-body").scrollTop(1914)
+      verScrollAbs(jq(".z-west-body"), 1914)
       waitResponse(true)
 
       val lastItem = jq(".z-navitem:last-of-type")

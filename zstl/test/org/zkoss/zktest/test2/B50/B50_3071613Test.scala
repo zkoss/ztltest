@@ -42,13 +42,13 @@ class B50_3071613Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val myDeci = ztl$engine.$f("myDeci")
     runZTL(zscript, () => {
       typeKeys(jq("@decimalbox"), "12.123")
       waitResponse()
       verifyEquals("12.12", jq("@decimalbox").`val`())
-      findElement(jq("@decimalbox")).clear()
+      jq("@decimalbox").toWidget().toElement().set("value", "")
       waitResponse()
       typeKeys(jq("@decimalbox"), "12.125")
       waitResponse()

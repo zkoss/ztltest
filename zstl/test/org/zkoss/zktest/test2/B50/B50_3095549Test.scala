@@ -71,7 +71,7 @@ class B50_3095549Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val treechildren1 = ztl$engine.$f("treechildren1")
     runZTL(zscript, () => {
       click(jq(".z-treerow").toWidget().$n("icon"))
@@ -136,7 +136,7 @@ class B50_3095549Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val treechildren1 = ztl$engine.$f("treechildren1")
     runZTL(zscript, () => {
       click(jq("@button"))

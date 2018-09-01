@@ -31,7 +31,7 @@ class B36_2726542Test extends ZTL4ScalaTestCase {
 				After click the test button, you should see the message "top, 0".
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val outer = ztl$engine.$f("outer")
     val l1 = ztl$engine.$f("l1")
     runZTL(zscript, () => {

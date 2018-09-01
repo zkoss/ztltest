@@ -32,7 +32,7 @@ class B50_2900377Test extends ZTL4ScalaTestCase {
 				</panel>
 				</zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val panel = ztl$engine.$f("panel")
     runZTL(zscript, () => {
       verifyEquals("none", jq(jq(".z-panel").toWidget().$n("body")).css("display"));

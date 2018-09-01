@@ -32,7 +32,7 @@ class B50_2928109Test extends ZTL4ScalaTestCase {
 					</window>
 				</zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyTrue(jq(jq(".z-window-embedded").toWidget().$n("cave")).height() < 24)
     })

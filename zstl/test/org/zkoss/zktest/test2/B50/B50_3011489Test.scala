@@ -26,7 +26,7 @@ class B50_3011489Test extends ZTL4ScalaTestCase {
 			<zk><decimalbox format="##0.00%" value="3.5"/>
 			<button label="blur"/></zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       `type`(jq("@decimalbox"), "3.5")
       verifyEquals("350.00%", getValue(jq("@decimalbox ")))

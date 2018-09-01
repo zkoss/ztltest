@@ -38,7 +38,7 @@ class B30_1881553Test extends ZTL4ScalaTestCase {
 				<button id="threeHd" label="300" onClick='t.height = "300px"'/>
 			</window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val t = ztl$engine.$f("t")
     val oneHd = ztl$engine.$f("oneHd")
     val twoHd = ztl$engine.$f("twoHd")

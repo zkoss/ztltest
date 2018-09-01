@@ -62,7 +62,7 @@ class B50_ZK_941Test extends ZTL4ScalaTestCase {
         waitResponse()
         blur(dec1)
         waitResponse()
-        verifyTrue("should clear the error message", !jq(".z-errorbox").exists())
+        verifyFalse("should clear the error message", jq(".z-errorbox").exists())
 
       })
 

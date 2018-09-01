@@ -44,7 +44,7 @@ MyComposer mycomp = new MyComposer();
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val w2 = ztl$engine.$f("w2")
     runZTL(zscript, () => {
       verifyFalse(jq("@window:not(@window[title=\"ztl\"])").exists())

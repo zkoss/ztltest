@@ -150,7 +150,7 @@ class B50_3161667Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       for (i <- 0 until 14) {
         verifyEquals("Yes", jq("@row:eq(" + i + ") @label:eq(3)").text())

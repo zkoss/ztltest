@@ -77,7 +77,7 @@ Please click the "Click Me!" header of the nested listbox, and then no error app
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val lh = ztl$engine.$f("lh")
     runZTL(zscript, () => {
       click(jq("$lh"))

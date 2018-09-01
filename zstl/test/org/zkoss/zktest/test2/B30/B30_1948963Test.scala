@@ -44,7 +44,7 @@ class B30_1948963Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val time = ztl$engine.$f("time")
     runZTL(zscript, () => {
       focus(jq("@timebox").toWidget().$n("real"))

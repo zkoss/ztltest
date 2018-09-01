@@ -33,17 +33,15 @@ class B35_2280258Test extends ZTL4ScalaTestCase {
       waitResponse()
       var hbox = jq("$hb")
       //Cell width, locate with selector by id
-      var c1 = hbox.toWidget().firstChild().uuid();
-      var s = "td[id=\"" + c1 + "-chdex" + "\"]";
-      var ce1 = jq(s).width();
+      var c1 = hbox.toWidget().firstChild();
+      var ce1 = jq(c1.$n("chdex")).width();
 
-      var c2 = hbox.toWidget().lastChild().uuid();
-      var s1 = "td[id=\"" + c2 + "-chdex" + "\"]";
-      var ce2 = jq(s1).width();
+      var c2 = hbox.toWidget().lastChild();
+      var ce2 = jq(c2.$n("chdex")).width();
 
       //Cell text
-      var c1t = getText(c1);
-      var c2t = getText(c2);
+      var c1t = getText(jq(c1));
+      var c2t = getText(jq(c1));
 
       //Compare label and real width
       verifyTolerant(parseInt(c1t), ce1, 2);

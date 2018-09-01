@@ -17,7 +17,7 @@ class B60_ZK_919Test extends ZTL4ScalaTestCase {
         click(jq(".z-calendar:eq(" + i + ") .z-calendar-cell:contains(14)"))
         waitResponse()
       }
-      verifyTrue("should not see any error message.", !jq(".z-errorbox").exists())
+      verifyFalse("should not see any error message.", jq(".z-errorbox").exists())
     })
 
   }

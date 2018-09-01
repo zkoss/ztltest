@@ -59,7 +59,7 @@ alert("Removed..., and you shouldn't see the arrow icon");
 </window>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
     val ti = ztl$engine.$f("ti")
     val tr = ztl$engine.$f("tr")

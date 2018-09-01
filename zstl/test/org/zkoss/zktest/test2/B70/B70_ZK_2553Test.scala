@@ -45,7 +45,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     runZTL(zscript,
       () => {
         var errbox = jq(".z-error");
-        verifyTrue(!errbox.isVisible());
+        verifyFalse(errbox.isVisible());
       })
 
   }

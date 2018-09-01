@@ -49,7 +49,7 @@ You shall see "xyz,,true" shown after onOpen.
 </vbox>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val inf1 = ztl$engine.$f("inf1")
     val inf2 = ztl$engine.$f("inf2")
     runZTL(zscript, () => {

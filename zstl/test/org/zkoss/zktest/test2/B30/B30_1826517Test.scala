@@ -48,7 +48,7 @@ class B30_1826517Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val hd = ztl$engine.$f("hd")
     runZTL(zscript, () => {
       verifyFalse(jq("@listhead").isVisible())

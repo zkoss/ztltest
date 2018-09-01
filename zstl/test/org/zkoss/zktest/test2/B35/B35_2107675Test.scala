@@ -39,7 +39,7 @@ class B35_2107675Test extends ZTL4ScalaTestCase {
 	</zk>
 </zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyContains(jq("@label:eq(1)").text(), "Correct 4")
       verifyContains(jq("@label:eq(2)").text(), "Correct 3")

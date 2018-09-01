@@ -28,7 +28,7 @@ class B50_2975748Test extends ZTL4ScalaTestCase {
 			   <popup id="popup"/>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val btn = ztl$engine.$f("btn")
     val popup = ztl$engine.$f("popup")
     runZTL(zscript, () => {

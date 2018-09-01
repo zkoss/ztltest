@@ -39,7 +39,7 @@ class Z60_listboxModelTest extends ZTL4ScalaTestCase {
       outeritems = outerbox.toWidget().firstChild() // include header
       outeritems = outeritems.nextSibling() // don't care header
       var itemLabel = Array("A", "C", "D");
-      verifyEquals(itemLabel.length, outerbox.toWidget().nChildren() - 1)
+      verifyEquals(3, outerbox.toWidget().nChildren() - 1)
       outeritem = outeritems
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i)
@@ -79,7 +79,7 @@ class Z60_listboxModelTest extends ZTL4ScalaTestCase {
       outeritems = outerbox.toWidget().firstChild() // include header
       outeritems = outeritems.nextSibling() // don't care header
       itemLabel = Array("A", "C", "C1", "D")
-      verifyEquals(itemLabel.length, outerbox.toWidget().nChildren() - 1)
+      verifyEquals(4, outerbox.toWidget().nChildren() - 1)
       outeritem = outeritems
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i)
@@ -120,7 +120,7 @@ class Z60_listboxModelTest extends ZTL4ScalaTestCase {
       outeritems = outerbox.toWidget().firstChild() // include header
       outeritems = outeritems.nextSibling() // don't care header
       itemLabel = Array("A", "C", "C12", "C1", "D")
-      verifyEquals(itemLabel.length, outerbox.toWidget().nChildren() - 1)
+      verifyEquals(5, outerbox.toWidget().nChildren() - 1)
       outeritem = outeritems
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i)

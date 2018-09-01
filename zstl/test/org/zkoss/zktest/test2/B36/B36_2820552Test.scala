@@ -161,7 +161,7 @@ After loading the page, you should not see any error.
 			
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val panel = ztl$engine.$f("panel")
     val bd = ztl$engine.$f("bd")
     val search = ztl$engine.$f("search")

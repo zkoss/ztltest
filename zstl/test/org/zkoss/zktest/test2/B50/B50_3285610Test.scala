@@ -36,7 +36,7 @@ class B50_3285610Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val test1 = ztl$engine.$f("test1")
     val tb = ztl$engine.$f("tb")
     runZTL(zscript, () => {
@@ -44,11 +44,12 @@ class B50_3285610Test extends ZTL4ScalaTestCase {
       waitResponse()
       sendKeys(test1, Keys.TAB)
       waitResponse()
-      verifyTrue("" != jq(".z-textbox").css("box-shadow"))
-      if ("1px" == jq("input.z-textbox:eq(0)").css("border-width") || "1" == jq("input.z-textbox:eq(0)").css("border-width"))
+      verifyNotEquals("", jq(".z-textbox").css("box-shadow"))
+      if ("1px" == jq("input.z-textbox:eq(0)").css("border-width") || "1" == jq("input.z-textbox:eq(0)").css("border-width")) {
         verifyTrue(false)
-      else
+      } else {
         verifyTrue(true)
+      }
     })
   }
 }

@@ -22,7 +22,7 @@ class B65_ZK_1909Test extends ZTL4ScalaTestCase {
         waitResponse()
         blur(box)
 
-        verifyTrue("should not show any error message", !jq(".z-errbox").exists)
+        verifyFalse("should not show any error message", jq(".z-errbox").exists)
       })
 
   }

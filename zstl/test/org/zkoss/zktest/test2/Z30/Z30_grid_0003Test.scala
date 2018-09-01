@@ -52,7 +52,7 @@ class Z30_grid_0003Test extends ZTL4ScalaTestCase {
 				</vbox>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val btn1 = ztl$engine.$f("btn1")
     val btn2 = ztl$engine.$f("btn2")
     val g = ztl$engine.$f("g")
@@ -61,10 +61,10 @@ class Z30_grid_0003Test extends ZTL4ScalaTestCase {
       var rows = g.getChild("rows")
       var $paging = paging.$n()
       var uuid = paging.uuid()
-      var first = uuid + "-first"
-      var prev = uuid + "-prev"
-      var next = uuid + "-next"
-      var last = uuid + "-last"
+      var first = jq(paging).find(".z-paging-first")
+      var prev = jq(paging).find(".z-paging-previous")
+      var next = jq(paging).find(".z-paging-next")
+      var last = jq(paging).find(".z-paging-last")
       verifyEquals("400px", g.attr("width"))
       verifyEquals("13", rows.nChildren())
       verifyEquals("Option 130", rows.firstChild().firstChild().attr("value"))

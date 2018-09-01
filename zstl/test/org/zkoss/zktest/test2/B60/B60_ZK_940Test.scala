@@ -70,10 +70,10 @@ class B60_ZK_940Test extends ZTL4ScalaTestCase {
           click(item1)
           waitResponse()
           val items = jq(seltr + " " + seltr)
-          verifyTrue("should NOT see any of other Listitems/Treeitems selected.", !items.hasClass(cls + "-seld"))
+          verifyFalse("should NOT see any of other Listitems/Treeitems selected.", items.hasClass(cls + "-seld"))
           mouseOver(item1)
           waitResponse()
-          verifyTrue("the checkmark of other Listitems/Treeitems should NOT reflect hover state (blue color).", !items.hasClass(cls + "-over"))
+          verifyFalse("the checkmark of other Listitems/Treeitems should NOT reflect hover state (blue color).", items.hasClass(cls + "-over"))
         }
       })
   }

@@ -53,7 +53,7 @@ class B30_1744427Test extends ZTL4ScalaTestCase {
 				
 			</zk:window>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val codeFilterType = ztl$engine.$f("codeFilterType")
     val titleFilterType = ztl$engine.$f("titleFilterType")
     runZTL(zscript, () => {

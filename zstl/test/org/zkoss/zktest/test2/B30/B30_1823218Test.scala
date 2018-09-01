@@ -40,7 +40,7 @@ Notice: This only happens when there is tree columns
 	</window> 
 </zk>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
     val cols = ztl$engine.$f("cols")
     val btn1 = ztl$engine.$f("btn1")

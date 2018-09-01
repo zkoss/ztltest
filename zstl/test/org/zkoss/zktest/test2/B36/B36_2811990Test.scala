@@ -38,7 +38,7 @@ class B36_2811990Test extends ZTL4ScalaTestCase {
 			<button label="change slider's curpos to 10" onClick="sl.curpos=10"/>
 			</window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val sl = ztl$engine.$f("sl")
     runZTL(zscript, () => {
       var btn = jq("$sl").toWidget().$n("btn")

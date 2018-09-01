@@ -15,16 +15,15 @@ class B65_ZK_1324Test extends ZTL4ScalaTestCase {
       val btn = bndbx.$n("btn")
       val pp = bndbx.$n("pp")
       val inp = bndbx.$n("real")
-      val hasFocus = (inp: ClientWidget) => jq(inp).is(":focus")
       val ppBtn1 = jq(".z-button:eq(0)")
 
       click(btn)
       waitResponse()
-      verifyTrue("Bandbox input field should have focus", hasFocus(inp))
+      verifyTrue("Bandbox input field should have focus", jq(inp).is(":focus"))
 
       click(ppBtn1)
       waitResponse()
-      verifyTrue("Button1 should have focus", hasFocus(ppBtn1))
+      verifyTrue("Button1 should have focus", jq(ppBtn1).is(":focus"))
 
       click(jq("body"))
       waitResponse()
@@ -33,8 +32,8 @@ class B65_ZK_1324Test extends ZTL4ScalaTestCase {
       click(btn)
       waitResponse()
       verifyTrue("Click on the bandbox button to open the popup again.", jq(pp).isVisible)
-      verifyTrue("Bandbox input field should have focus", hasFocus(inp))
-      verifyFalse("Button1 should not have focus", hasFocus(ppBtn1))
+      verifyTrue("Bandbox input field should have focus", jq(inp).is(":focus"))
+      verifyFalse("Button1 should not have focus", jq(ppBtn1).is(":focus"))
     })
 
   }

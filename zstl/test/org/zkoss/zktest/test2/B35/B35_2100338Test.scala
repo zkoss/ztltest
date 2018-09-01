@@ -38,8 +38,8 @@ class B35_2100338Test extends ZTL4ScalaTestCase {
         val gm1 = jq("$gm1");
         val gm2 = jq("$gm2");
 
-        val lm_last = jq("[name=" + jq("$lb1").find(".z-paging").attr("id") + "-last]");
-        val gm_last = jq("[name=" + jq("$gd1").find(".z-paging").attr("id") + "-last]");
+        val lm_last = jq("$lb1").find(".z-paging").find(".z-paging-last");
+        val gm_last = jq("$gd1").find(".z-paging").find(".z-paging-last");
 
         //1 - click List Model 1
         click(lm1);

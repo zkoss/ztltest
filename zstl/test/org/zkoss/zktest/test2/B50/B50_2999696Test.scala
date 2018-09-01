@@ -60,10 +60,11 @@ class B50_2999696Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
-      if (jq(".z-window-highlighted").exists() || jq(".z-window-modal").exists())
+      if (jq(".z-window-highlighted").exists() || jq(".z-window-modal").exists()) {
         verifyTrue(false)
+      }
     })
   }
 }

@@ -36,7 +36,7 @@ onClick='lg.label="test"'/>
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val lg = ztl$engine.$f("lg")
     runZTL(zscript, () => {
       click(jq("@button"))

@@ -42,7 +42,7 @@ class B50_2961834Test extends ZTL4ScalaTestCase {
 				</button>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val mycombo = ztl$engine.$f("mycombo")
     val i1 = ztl$engine.$f("i1")
     val i2 = ztl$engine.$f("i2")

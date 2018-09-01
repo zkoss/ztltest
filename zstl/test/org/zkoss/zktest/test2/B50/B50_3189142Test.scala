@@ -36,11 +36,11 @@ Please type a word into the textbox, you shouldn't see the width of the popup is
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cb = ztl$engine.$f("cb")
     runZTL(zscript, () => {
       focus(cb.$n("real"))
-      keyPress(cb.$n("real"), "A")
+      typeKeys(cb.$n("real"), "A")
       waitResponse()
       verifyTrue(jq(jq(".z-combobox").toWidget().$n("pp")).exists())
       verifyTrue(jq(jq(".z-combobox").toWidget().$n("pp")).width() > 0)

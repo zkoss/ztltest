@@ -16,7 +16,7 @@ class B70_ZK_2096Test extends ZTL4ScalaTestCase {
           click(btn)
           waitResponse()
         }
-        verifyTrue("the z-treecols-bar should not be in front of treecol", !jq("[id$=hdfaker-bar] + [id$=hdfaker]").exists)
+        verifyFalse("the z-treecols-bar should not be in front of treecol", jq("[id$=hdfaker-bar] + [id$=hdfaker]").exists)
       })
 
   }

@@ -22,7 +22,7 @@ class B50_ZK_812Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyTrue("should not see java error.", !jq(".z-window-modal").exists())
+        verifyFalse("should not see java error.", jq(".z-window-modal").exists())
       })
 
   }

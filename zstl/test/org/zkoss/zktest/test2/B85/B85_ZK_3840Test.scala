@@ -12,7 +12,7 @@ class B85_ZK_3840Test extends ZTL4ScalaTestCase {
   @Test
   def test()=  {
     runZTL(() => {
-      val win = widget(jq("@window"))
+      val win = jq("@window").toWidget
       val btns = jq("@button")
       val div1 = jq("$div1")
       val w1 = div1.width()

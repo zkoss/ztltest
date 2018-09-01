@@ -45,7 +45,7 @@ class B50_3251564Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       var x = jq("@textbox").positionLeft()
       typeKeys(jq("@textbox"), "")

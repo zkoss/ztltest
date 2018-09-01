@@ -44,7 +44,7 @@ class B36_2713338Test extends ZTL4ScalaTestCase {
 					</button>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
     runZTL(zscript, () => {
       clickAt(jq("@treecell"), "50,2")

@@ -54,7 +54,7 @@ If you can use keyboard to up/down each item, that is correct.
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       click(jq(".z-listitem-selected"))
       verifyEquals(0, jq(".z-listitem-selected").eval("index()"))

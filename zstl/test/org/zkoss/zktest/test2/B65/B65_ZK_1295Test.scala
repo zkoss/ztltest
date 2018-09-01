@@ -30,7 +30,7 @@ class B65_ZK_1295Test extends ZTL4ScalaTestCase {
       () => {
         click(jq("$b2"))
         waitResponse()
-        verifyTrue("Button 'b1' should now be focused.", "" != jq(".z-button:eq(0)").css("box-shadow"))
+        verifyNotEquals("Button 'b1' should now be focused.", "", jq(".z-button:eq(0)").css("box-shadow"))
       })
 
   }

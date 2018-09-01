@@ -30,7 +30,7 @@ class B36_2837303Test extends ZTL4ScalaTestCase {
 			<progressmeter width="95%" value="50" />
 			</zk>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals(10, jq("@progressmeter:eq(0)").outerHeight())
       verifyTrue(jq("@progressmeter:eq(1)").outerHeight() > 10)

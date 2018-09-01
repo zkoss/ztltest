@@ -53,7 +53,7 @@ class B50_3025674Test extends ZTL4ScalaTestCase {
 				</label>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val selectList = ztl$engine.$f("selectList")
     val listhead = ztl$engine.$f("listhead")
     val auxhead = ztl$engine.$f("auxhead")

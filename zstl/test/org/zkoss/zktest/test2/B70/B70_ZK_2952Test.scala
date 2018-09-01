@@ -18,8 +18,8 @@ class B70_ZK_2952Test extends ZTL4ScalaTestCase {
         val errorbox = jq(".z-errorbox")
         val errorboxCloseBtn = errorbox.find(".z-errorbox-close")
         click(errorboxCloseBtn)
-        sleep(50)
-        verifyTrue(!errorbox.isVisible() && !errorbox.is(":animated"))
+        sleep(500)
+        verifyFalse(errorbox.isVisible())
       })
 
   }

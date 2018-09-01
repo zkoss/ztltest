@@ -56,7 +56,7 @@ class B30_1984025Test extends ZTL4ScalaTestCase {
 
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals("Ready", jq("@listfooter:visible").text())
     })

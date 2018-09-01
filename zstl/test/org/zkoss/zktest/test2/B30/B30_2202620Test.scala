@@ -31,7 +31,7 @@ class B30_2202620Test extends ZTL4ScalaTestCase {
 				<div id="info" style="border: 1px solid blue"/>
 			</window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val btn = ztl$engine.$f("btn")
     val info = ztl$engine.$f("info")
     runZTL(zscript, () => {

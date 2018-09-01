@@ -31,7 +31,6 @@ class B80_ZK_3143Test extends ZTL4ScalaTestCase {
   def test() = {
     runZTL(() => {
       val elements: JQuery = jq(".z-listitem-checkbox")
-      shiftKeyDown()
       var items: util.List[ClientWidget] = new util.ArrayList[ClientWidget]()
       items.add(elements.get(0))
       items.add(elements.get(5))

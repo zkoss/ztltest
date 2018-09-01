@@ -45,7 +45,7 @@ class B30_2026493Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       var body = jq("tbody:eq(0)").outerHeight()
       var paging = jq("div.z-paging").parent().outerHeight()

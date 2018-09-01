@@ -28,7 +28,7 @@ class B36_2788618Test extends ZTL4ScalaTestCase {
 			<datebox constraint="no future" id="db"/>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val db = ztl$engine.$f("db")
     runZTL(zscript, () => {
       click(db.$n("btn"))

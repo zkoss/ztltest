@@ -58,7 +58,7 @@ and tab2 will be selected
 </tabbox>
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tabbox = ztl$engine.$f("tabbox")
     val tab1 = ztl$engine.$f("tab1")
     val tab2 = ztl$engine.$f("tab2")

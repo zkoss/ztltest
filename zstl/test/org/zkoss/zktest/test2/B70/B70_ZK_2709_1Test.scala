@@ -30,7 +30,7 @@ class B70_ZK_2709_1Test extends ZTL4ScalaTestCase {
       //click on label!!!!!!
       clickAt(jq("@label"), "50,30")
       waitResponse()
-      keyPress(jq("input"), "selenium is really suck!!!!!!")
+      typeKeys(jq("input"), "selenium is really suck!!!!!!")
       waitResponse(true)
       blur(jq("input"))
       waitResponse(true)

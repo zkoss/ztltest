@@ -33,7 +33,7 @@ class B30_1736858Test extends ZTL4ScalaTestCase {
 		<label id="info"/>
 		</window>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val btn = ztl$engine.$f("btn")
     val info = ztl$engine.$f("info")
     runZTL(zscript, () => {

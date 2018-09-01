@@ -42,8 +42,8 @@ class Z60_B00605Test extends ZTL4ScalaTestCase {
       verifyEquals("A", engine.$f("lb1").attr("value"));
       verifyEquals("A", engine.$f("tb2").attr("value"));
       verifyEquals("A", engine.$f("lb2").attr("value"));
-      verifyTrue(!engine.$f("tb3").exists()); // no need to wait it is not exist in init
-      verifyTrue(!engine.$f("lb3").exists()); // no need to wait it is not exist in init
+      verifyFalse(engine.$f("tb3").exists()); // no need to wait it is not exist in init
+      verifyFalse(engine.$f("lb3").exists()); // no need to wait it is not exist in init
 
       `type`(engine.$f("tb1"), "JJ");
       waitResponse();

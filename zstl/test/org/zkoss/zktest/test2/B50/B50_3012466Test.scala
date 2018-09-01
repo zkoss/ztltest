@@ -32,14 +32,13 @@ Please select 'a' or 'b', you should see the result as you selected.
 </listbox>
 </zk>
 	 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
     runZTL(zscript, () => {
       select(jq("@select"), "b")
       waitResponse()
-      verifyEquals(getSelectedLabel(jq("@select")), "b");
+      verifyEquals(jq("@select").find("option:selected").attr("label"), "b");
       select(jq("@select"), "a")
       waitResponse()
-      verifyEquals(getSelectedLabel(jq("@select")), "a")
+      verifyEquals(jq("@select").find("option:selected").attr("label"), "a")
     })
   }
 }

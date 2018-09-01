@@ -36,7 +36,7 @@ Click
 and you shall see the above window disappears
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val mywin = ztl$engine.$f("mywin")
     runZTL(zscript, () => {
       verifyTrue(mywin.exists())

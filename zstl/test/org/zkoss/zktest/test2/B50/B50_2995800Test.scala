@@ -36,7 +36,7 @@ class B50_2995800Test extends ZTL4ScalaTestCase {
 				</portallayout>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val pl = ztl$engine.$f("pl")
     val panel = ztl$engine.$f("panel")
     runZTL(zscript, () => {

@@ -33,7 +33,7 @@ class B30_2009503Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       typeKeys(jq("@datebox").toWidget().$n("real"), "May/02/2008")
       waitResponse()

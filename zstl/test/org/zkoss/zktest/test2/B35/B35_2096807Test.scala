@@ -75,65 +75,54 @@ List items = new org.zkoss.zktest.test2.BigList(100); //a big list ofInteger
       () => {
 
         waitResponse();
-        var nextd = jq("[name=" + jq("@paging").attr("id") + "-next][disabled=disabled]")
-        var next = jq("[name=" + jq("@paging").attr("id") + "-next]")
-
+        var next = jq("@paging").find(".z-paging-next")
         //Previous disabled in first page
-        var firstd = jq("[name=" + jq("@paging").attr("id") + "-first][disabled=disabled]")
-        var first = jq("[name=" + jq("@paging").attr("id") + "-first]")
-
-        var lastd = jq("[name=" + jq("@paging").attr("id") + "-last][disabled=disabled]")
-        var last = jq("[name=" + jq("@paging").attr("id") + "-last]")
-
-        var prevd = jq("[name=" + jq("@paging").attr("id") + "-prev][disabled=disabled]")
-        var prev = jq("[name=" + jq("@paging").attr("id") + "-prev]")
+        var first = jq("@paging").find(".z-paging-first")
+        var last = jq("@paging").find(".z-paging-last")
+        var prev = jq("@paging").find(".z-paging-previous")
 
         //Verify disabled and enabled pagging buttons
-        var nd = nextd.exists();
         var n = next.exists();
-        verifyFalse(nd);
         verifyTrue(n);
+        verifyEquals("", next.attr("disabled"))
 
-        var ld = lastd.exists();
         var l = last.exists();
-        verifyFalse(ld);
         verifyTrue(l);
+        verifyEquals("", last.attr("disabled"))
 
         //first & prev are disabled
-        var fd = firstd.exists();
-        verifyTrue(fd);
+        verifyNotEquals("", first.attr("disabled"))
 
-        var pd = prevd.exists();
-        verifyTrue(pd);
+        verifyNotEquals("", prev.attr("disabled"))
 
         //click next button
         click(next);
         waitResponse();
 
         //Verify all pagging enabled
-        verifyFalse(nextd.exists());
+        verifyEquals("", next.attr("disabled"))
         verifyTrue(next.exists());
 
-        verifyFalse(lastd.exists());
+        verifyEquals("", last.attr("disabled"))
         verifyTrue(last.exists());
 
-        verifyFalse(firstd.exists());
+        verifyEquals("", first.attr("disabled"))
         verifyTrue(first.exists());
 
-        verifyFalse(prevd.exists());
+        verifyEquals("", prev.attr("disabled"))
         verifyTrue(prev.exists());
 
         click(last);
         waitResponse();
 
         //Verify last & next disabled
-        verifyTrue(nextd.exists());
-        verifyTrue(lastd.exists());
+        verifyNotEquals("", next.attr("disabled"))
+        verifyNotEquals("", last.attr("disabled"))
 
-        verifyFalse(firstd.exists());
+        verifyEquals("", first.attr("disabled"))
         verifyTrue(first.exists());
 
-        verifyFalse(prevd.exists());
+        verifyEquals("", prev.attr("disabled"))
         verifyTrue(prev.exists());
 
       }

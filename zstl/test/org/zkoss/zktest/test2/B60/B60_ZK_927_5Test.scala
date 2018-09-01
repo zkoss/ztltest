@@ -98,8 +98,9 @@ class B60_ZK_927_5Test extends ZTL4ScalaTestCase {
 
         def check(sbx: Widget, num: Int, checkLbl: Boolean) {
           verifyContains(sbx.$n().attr("selectedIndex"), num + "")
-          if (checkLbl)
+          if (checkLbl) {
             verifyContains(lbl.$n().attr("innerHTML"), num + "")
+          }
         }
 
         select(sel1, 2);

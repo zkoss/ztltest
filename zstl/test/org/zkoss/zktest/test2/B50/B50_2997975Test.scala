@@ -33,7 +33,7 @@ class B50_2997975Test extends ZTL4ScalaTestCase {
  onClick='b.buttonVisible = !b.buttonVisible;c.buttonVisible = !c.buttonVisible;d.buttonVisible = !d.buttonVisible;t.buttonVisible = !t.buttonVisible;s.buttonVisible = !s.buttonVisible'/>
 </zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val d = ztl$engine.$f("d")
     val c = ztl$engine.$f("c")
     val b = ztl$engine.$f("b")

@@ -76,7 +76,7 @@ class B36_2814504Test extends ZTL4ScalaTestCase {
 			<button label="invalidate" onClick='tree.invalidate()'/>
 			</window>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
     val i1 = ztl$engine.$f("i1")
     val i2 = ztl$engine.$f("i2")
@@ -86,7 +86,7 @@ class B36_2814504Test extends ZTL4ScalaTestCase {
       verifyContains(jq(jq("$i2").toWidget().$n("cave")).text(), "test1")
       click(jq("@window @button[label=\"change label\"]:eq(1)"))
       waitResponse()
-      click(jq("[name=" + jq("@paging").attr("id") + "-prev]"))
+      click(jq("@paging").find(".z-paging-previous"))
       waitResponse()
       verifyContains(jq(jq("$i1").toWidget().$n("cave")).text(), "test2")
     })

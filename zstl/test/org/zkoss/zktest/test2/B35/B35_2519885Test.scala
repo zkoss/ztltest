@@ -69,7 +69,7 @@ class B35_2519885Test extends ZTL4ScalaTestCase {
       verifyTrue("It should be three selected nodes", jq(".z-treerow-selected").length() == 3);
 
       // Click on next page button
-      click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
+      click(jq("@paging").find(".z-paging-next"));
       waitResponse();
 
       // Click on one more row
@@ -77,14 +77,14 @@ class B35_2519885Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       // Click on previous page button
-      click(jq("[name=" + jq("@paging").attr("id") + "-prev]"));
+      click(jq("@paging").find(".z-paging-previous"));
       waitResponse();
 
       // Verify again that there are three selected nodes
       verifyTrue("It should be three selected nodes", jq(".z-treerow-selected").length() == 3);
 
       // Click on next page button
-      click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
+      click(jq("@paging").find(".z-paging-next"));
       waitResponse();
 
       // Verify again that there is on selected node

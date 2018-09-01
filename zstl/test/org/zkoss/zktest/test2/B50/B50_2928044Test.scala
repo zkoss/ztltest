@@ -27,7 +27,7 @@ You can not type the words more than 3.
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val txt = ztl$engine.$f("txt")
     runZTL(zscript, () => {
       focus(txt)

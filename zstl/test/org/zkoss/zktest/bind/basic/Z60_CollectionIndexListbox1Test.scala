@@ -31,7 +31,7 @@ class Z60_CollectionIndexListbox1Test extends ZTL4ScalaTestCase {
       val outerbox = jq("$outerbox").toWidget()
       var outeritem = outerbox.firstChild() // header should be skipped
       val itemLabel = Array("A", "B", "C", "D")
-      verifyEquals(itemLabel.length, outerbox.nChildren() - 1) // skip header
+      verifyEquals(4, outerbox.nChildren() - 1) // skip header
       for (i <- 0 to itemLabel.length - 1) {
         outeritem = outeritem.nextSibling()
         val outerl = itemLabel(i)

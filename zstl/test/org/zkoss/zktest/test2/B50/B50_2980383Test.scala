@@ -69,7 +69,7 @@ class B50_2980383Test extends ZTL4ScalaTestCase {
 			</n:table>
 			</zk>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tabs = ztl$engine.$f("tabs")
     val last = ztl$engine.$f("last")
     runZTL(zscript, () => {

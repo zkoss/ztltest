@@ -31,7 +31,7 @@ class B36_2794303Test extends ZTL4ScalaTestCase {
 			</panel>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val panel = ztl$engine.$f("panel")
     runZTL(zscript, () => {
       verifyEquals(4, jq("@panel").find("i").length())

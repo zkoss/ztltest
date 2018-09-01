@@ -12,7 +12,8 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
                 Wed Jun 20 09:36:16 CST 2018, Created by klyve
 
 Copyright (C) 2018 Potix Corporation. All Rights Reserved.
-*/ class B85_ZK_3925Test extends ZTL4ScalaTestCase {
+*/
+class B85_ZK_3925Test extends ZTL4ScalaTestCase {
   def test()=  {
     runZTL(() => {
       click(jq("@panel").toWidget.$n("max"))

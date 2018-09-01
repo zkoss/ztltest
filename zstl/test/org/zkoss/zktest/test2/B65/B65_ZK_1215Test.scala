@@ -34,7 +34,7 @@ class B65_ZK_1215Test extends ZTL4ScalaTestCase {
         sendKeys(day, Keys.RIGHT)
         waitResponse()
 
-        verifyTrue("the selected css of '10/20' must be removed.", !day.hasClass("z-calendar-selected"))
+        verifyFalse("the selected css of '10/20' must be removed.", day.hasClass("z-calendar-selected"))
       })
 
   }

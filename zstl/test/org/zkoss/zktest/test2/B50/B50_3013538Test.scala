@@ -38,7 +38,7 @@ class B50_3013538Test extends ZTL4ScalaTestCase {
 				<label id="msg" style="color: red;"></label>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val btn = ztl$engine.$f("btn")
     val msg = ztl$engine.$f("msg")
     runZTL(zscript, () => {

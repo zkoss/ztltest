@@ -56,7 +56,7 @@ Please click addRow button, than you should see a paging toolbar.
 	</button>
 </div>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val grid = ztl$engine.$f("grid")
     val rows = ztl$engine.$f("rows")
     runZTL(zscript, () => {

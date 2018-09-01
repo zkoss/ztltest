@@ -27,7 +27,7 @@ class B65_ZK_1728Test extends ZTL4ScalaTestCase {
         waitResponse()
 
         val bothVisible = jq(".z-comboitem:contains(test1)").isVisible()
-        verifyTrue("you should not see 'test1' or 'test2'", !bothVisible)
+        verifyFalse("you should not see 'test1' or 'test2'", bothVisible)
       })
 
   }

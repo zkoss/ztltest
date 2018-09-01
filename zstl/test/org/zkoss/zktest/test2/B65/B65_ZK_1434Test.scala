@@ -56,7 +56,7 @@ class B65_ZK_1434Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyTrue("should not see 'a0 b0 c0' in one cell", !jq("td:contains(a0 b0 c0)").exists())
+        verifyFalse("should not see 'a0 b0 c0' in one cell", jq("td:contains(a0 b0 c0)").exists())
       })
 
   }

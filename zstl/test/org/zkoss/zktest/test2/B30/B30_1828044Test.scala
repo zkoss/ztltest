@@ -78,7 +78,7 @@ class B30_1828044Test extends ZTL4ScalaTestCase {
         click(jq("@button:eq(1)"))
         waitResponse()
         //Header must be invisible & cols too
-        verifyTrue(!jq("$cols").isVisible())
+        verifyFalse(jq("$cols").isVisible())
 
         click(jq("@button:eq(1)"))
         waitResponse()

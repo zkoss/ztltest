@@ -37,7 +37,7 @@ First
 <button label="append" onClick='new Label("Append "+ ++cnt).setParent(box)'/>
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val box = ztl$engine.$f("box")
     runZTL(zscript, () => {
       click(jq("@button[label=\"orient\"]"))

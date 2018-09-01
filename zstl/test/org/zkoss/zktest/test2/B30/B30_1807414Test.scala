@@ -61,20 +61,20 @@ class B30_1807414Test extends ZTL4ScalaTestCase {
   </zscript>
 </window>
     """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val x = ztl$engine.$f("x")
     val y = ztl$engine.$f("y")
     runZTL(zscript, () => {
       for (i <- 0 until 5) {
-        var text = jq("@row:eq(" + i + ") @label").text()
-        verifyContains(text, "A" + i)
-        verifyContains(text, "B" + i)
+        var textR = jq("@row:eq(" + i + ") @label").text()
+        verifyContains(textR, "A" + i)
+        verifyContains(textR, "B" + i)
       }
       verifyEquals("5", x.getChild("rows").nChildren())
       for (i <- 0 until 5) {
-        var text = jq("@listitem:eq(" + i + ") div").text()
-        verifyContains(text, "A" + i)
-        verifyContains(text, "B" + i)
+        var textL = jq("@listitem:eq(" + i + ") div").text()
+        verifyContains(textL, "A" + i)
+        verifyContains(textL, "B" + i)
       }
       verifyEquals("5", y.nChildren())
     })

@@ -28,7 +28,7 @@ be closed.
 <textbox id="tb" constraint="no empty"/>
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tb = ztl$engine.$f("tb")
     runZTL(zscript, () => {
       var eb = jq(".z-errorbox")

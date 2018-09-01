@@ -36,7 +36,7 @@ class B50_3035897Test extends ZTL4ScalaTestCase {
 </window>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       typeKeys(jq("@longbox"), "100%")
       waitResponse()

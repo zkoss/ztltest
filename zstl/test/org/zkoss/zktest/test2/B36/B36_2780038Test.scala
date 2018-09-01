@@ -29,7 +29,7 @@ class B36_2780038Test extends ZTL4ScalaTestCase {
 				<button label="zul click" onClick='org.zkoss.zul.Messagebox.show("are you sure to quit?","title",16|32,org.zkoss.zul.Messagebox.INFORMATION);'/>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       click(jq("@button[label=\"Zhtml click\"]"))
       waitResponse()

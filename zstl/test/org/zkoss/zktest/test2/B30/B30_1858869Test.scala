@@ -37,7 +37,7 @@ void test() {
 </window>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val w = ztl$engine.$f("w")
     val test = ztl$engine.$f("test")
     runZTL(zscript, () => {

@@ -32,25 +32,28 @@ class B30_1690583Test extends ZTL4ScalaTestCase {
 				<button label="toggle" id="btn" onClick="t.visible = !t.visible"/>
 			</vbox> 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val help = ztl$engine.$f("help")
     val t = ztl$engine.$f("t")
     val btn = ztl$engine.$f("btn")
     runZTL(zscript, () => {
       // Test visible
-      if (help.exists())
+      if (help.exists()) {
         verifyFalse(isVisible(help))
+      }
       verifyFalse(isVisible(t))
       click(btn)
       waitResponse()
-      if (help.exists())
+      if (help.exists()) {
         verifyFalse(isVisible(help))
+      }
       verifyTrue(isVisible(t))
       // Test invisible
       click(btn)
       waitResponse()
-      if (help.exists())
+      if (help.exists()) {
         verifyFalse(isVisible(help))
+      }
       verifyFalse(isVisible(t))
     })
   }

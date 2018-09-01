@@ -38,7 +38,7 @@ class B65_ZK_1732Test extends ZTL4ScalaTestCase {
         click(btn)
         waitResponse()
 
-        verifyTrue("should see a listbox hide", !jq(".z-listbox").isVisible())
+        verifyFalse("should see a listbox hide", jq(".z-listbox").isVisible())
       })
 
   }

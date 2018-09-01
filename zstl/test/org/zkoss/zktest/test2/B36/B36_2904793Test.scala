@@ -35,7 +35,7 @@ after input any words into following textbox." />
 </vbox>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val myTextbox = ztl$engine.$f("myTextbox")
     val changeEvtLabel = ztl$engine.$f("changeEvtLabel")
     val okEvtLabel = ztl$engine.$f("okEvtLabel")

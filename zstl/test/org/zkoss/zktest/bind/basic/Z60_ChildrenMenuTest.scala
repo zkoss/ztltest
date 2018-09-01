@@ -49,9 +49,9 @@ class Z60_ChildrenMenuTest extends ZTL4ScalaTestCase {
       for (i <- 0 to nodes.size() - 1) {
         var n = nodes.get(i)
         verifyEquals(n.getName(), w.attr("label"))
-        if (n.getChildren().size() == 0)
+        if (n.getChildren().size() == 0) {
           verifyEquals("zul.menu.Menuitem", w.eval("className"))
-        else {
+        } else {
           verifyEquals("zul.menu.Menu", w.eval("className"))
           click(w) // need to click if menu is in menu bar
           waitResponse()
@@ -70,8 +70,9 @@ class Z60_ChildrenMenuTest extends ZTL4ScalaTestCase {
       if (nested > 0) {
         for (i <- 0 to children - 1) {
           var cnt = children;
-          if (i == children - 1)
+          if (i == children - 1) {
             cnt = 0
+          }
           n.addChild(createMenuNode(name + "_" + i, cnt, nested - 1))
         }
       }

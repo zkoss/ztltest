@@ -117,7 +117,7 @@ class B30_1822517Test extends ZTL4ScalaTestCase {
 	<button id="btn3" onClick="change3()" label="change3"/>
 </window>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val l1 = ztl$engine.$f("l1")
     val l2 = ztl$engine.$f("l2")
     val btn1 = ztl$engine.$f("btn1")

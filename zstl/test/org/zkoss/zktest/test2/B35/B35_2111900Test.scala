@@ -37,7 +37,7 @@ class B35_2111900Test extends ZTL4ScalaTestCase {
 </window>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val copy = ztl$engine.$f("copy")
     runZTL(zscript, () => {
       var testWord = "i am tester~happy~tester~~"

@@ -61,7 +61,7 @@ Please click the "Text" header (it means upon the word.), and it should be sorte
 
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       clickAt(jq("@column:eq(0)"), "2,2")
       waitResponse()

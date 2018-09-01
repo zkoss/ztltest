@@ -50,12 +50,12 @@ class B50_3287082Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val msg = ztl$engine.$f("msg")
     runZTL(zscript, () => {
       click(jq("@bandbox").toWidget().$n("btn"));
       waitResponse()
-      typeKeys(jq("[name=" + jq(".z-paging").attr("id") + "-real]"), "2");
+      typeKeys(jq(".z-paging").toWidget.$n("real"), "2");
       waitResponse()
       verifyEquals(jq(msg).text(), "no fire")
     })

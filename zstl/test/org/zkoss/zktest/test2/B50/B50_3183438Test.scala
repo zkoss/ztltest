@@ -42,7 +42,7 @@ class B50_3183438Test extends ZTL4ScalaTestCase {
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       sleep(1000); //for DataBinding
       verifyEquals("B", jq(".z-textbox").`val`())

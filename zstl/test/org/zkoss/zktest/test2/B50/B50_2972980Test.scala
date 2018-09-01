@@ -34,7 +34,7 @@ class B50_2972980Test extends ZTL4ScalaTestCase {
 	<button label="add listener" onClick='d.setWidgetListener("onClick", "jq.alert(event.name)")'/>
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val d = ztl$engine.$f("d")
     runZTL(zscript, () => {
       click(jq("@button"))

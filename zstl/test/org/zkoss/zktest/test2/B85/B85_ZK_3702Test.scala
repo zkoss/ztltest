@@ -30,7 +30,7 @@ class B85_ZK_3702Test extends ZTL4ScalaTestCase {
       waitResponse()
       sendKeys(jq("@combobox").toWidget().$n("real"), Keys.CONTROL);
       waitResponse()
-      verifyTrue(!jq(".z-combobox-content").isVisible());
+      verifyFalse(jq(".z-combobox-content").isVisible());
     })
   }
 }

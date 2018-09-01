@@ -39,7 +39,7 @@ class Z60_TemplateGrid2Test extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid").toWidget();
       outerrows = jq(outerbox).find("@rows").toWidget().firstChild();
       var itemLabel = Array("A", "C", "D");
-      verifyEquals(itemLabel.length, jq(outerbox).find("@rows").toWidget().nChildren());
+      verifyEquals(3, jq(outerbox).find("@rows").toWidget().nChildren());
       var outerrow = outerrows;
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i);
@@ -71,10 +71,11 @@ class Z60_TemplateGrid2Test extends ZTL4ScalaTestCase {
         // verify template
         rowkid = outerrow.lastChild();
         var label = jq(rowkid).find("@label").toWidget(); // index button
-        if (outerl.equals("A") || i == 2)
+        if (outerl.equals("A") || i == 2) {
           verifyEquals("Model1", label.attr("value"));
-        else
+        } else {
           verifyEquals("Model2", label.attr("value"));
+        }
         outerrow = outerrow.nextSibling();
       }
       // =================================add after row
@@ -85,7 +86,7 @@ class Z60_TemplateGrid2Test extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid").toWidget();
       outerrows = jq(outerbox).find("@rows").toWidget().firstChild();
       itemLabel = Array("A", "C", "C1", "D");
-      verifyEquals(itemLabel.length, jq(outerbox).find("@rows").toWidget().nChildren());
+      verifyEquals(4, jq(outerbox).find("@rows").toWidget().nChildren());
       outerrow = outerrows;
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i);
@@ -95,10 +96,11 @@ class Z60_TemplateGrid2Test extends ZTL4ScalaTestCase {
         verifyEquals(outerl, rowkid.attr("value")); // verify the label on label
         rowkid = outerrow.lastChild();
         var label = jq(rowkid).find("@label").toWidget(); // index button
-        if (outerl.equals("A") || i == 2)
+        if (outerl.equals("A") || i == 2) {
           verifyEquals("Model1", label.attr("value"));
-        else
+        } else {
           verifyEquals("Model2", label.attr("value"));
+        }
         outerrow = outerrow.nextSibling();
       }
       // =================================add after row
@@ -109,7 +111,7 @@ class Z60_TemplateGrid2Test extends ZTL4ScalaTestCase {
       outerbox = jq("$outergrid").toWidget();
       outerrows = jq(outerbox).find("@rows").toWidget().firstChild();
       itemLabel = Array("A", "C", "C12", "C1", "D");
-      verifyEquals(itemLabel.length, jq(outerbox).find("@rows").toWidget().nChildren());
+      verifyEquals(5, jq(outerbox).find("@rows").toWidget().nChildren());
       outerrow = outerrows;
       for (i <- 0 to itemLabel.length - 1) {
         var outerl = itemLabel(i);
@@ -119,10 +121,11 @@ class Z60_TemplateGrid2Test extends ZTL4ScalaTestCase {
         verifyEquals(outerl, rowkid.attr("value")); // verify the label on label
         rowkid = outerrow.lastChild();
         var label = jq(rowkid).find("@label").toWidget(); // index button
-        if (outerl.equals("A") || i == 2)
+        if (outerl.equals("A") || i == 2) {
           verifyEquals("Model1", label.attr("value"));
-        else
+        } else {
           verifyEquals("Model2", label.attr("value"));
+        }
         outerrow = outerrow.nextSibling();
       }
     })

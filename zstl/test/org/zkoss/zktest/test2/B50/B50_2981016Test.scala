@@ -27,11 +27,11 @@ class B50_2981016Test extends ZTL4ScalaTestCase {
 				<combobox id="cb" width="80px" />
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cb = ztl$engine.$f("cb")
     runZTL(zscript, () => {
-      var inpWidth = Integer.valueOf(cb.$n("real").attr("offsetWidth"))
-      var btnWidth = Integer.valueOf(cb.$n("btn").attr("offsetWidth"));
+      var inpWidth = parseInt(cb.$n("real").attr("offsetWidth"))
+      var btnWidth = parseInt(cb.$n("btn").attr("offsetWidth"));
       verifyTolerant(inpWidth + btnWidth, 80, 2)
     })
   }

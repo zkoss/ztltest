@@ -15,7 +15,6 @@ class B70_ZK_2940Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       // A workaround for losing focus when page loaded
-      refresh()
       waitForPageToLoad("5000")
 
       val btns = jq("@button")

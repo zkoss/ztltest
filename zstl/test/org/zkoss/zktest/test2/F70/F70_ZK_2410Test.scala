@@ -1,6 +1,7 @@
 package org.zkoss.zktest.test2.F70
 
 import org.junit.Test
+import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.ZKTestCase
 import org.zkoss.ztl.annotation.Tags
@@ -14,9 +15,9 @@ class F70_ZK_2410Test extends ZTL4ScalaTestCase {
       val input = jq(".z-paging-input")
       click(input)
       waitResponse()
-      keyPressNative(ZKTestCase.TAB)
+      sendKeys(jq("body"), Keys.TAB)
       waitResponse()
-      keyPressNative(ZKTestCase.ENTER) //a little strange...we shouldn't focus button manually....
+      keyPressEnter(jq("body"))
       waitResponse()
       verifyEquals(jq(".z-paging-input").eval("val()"), "2")
     })

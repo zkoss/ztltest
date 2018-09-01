@@ -37,7 +37,7 @@ class B50_2990657Test extends ZTL4ScalaTestCase {
 				</zscript>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val combo = ztl$engine.$f("combo")
     runZTL(zscript, () => {
       focus(combo.$n("real"))

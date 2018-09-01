@@ -315,7 +315,7 @@ public class Dictionary {
 """
     runZTL(zscript,
       () => {
-        keyPress(jq(".z-combobox-input"), "aba");
+        typeKeys(jq(".z-combobox-input"), "aba");
         waitResponse();
         sleep(1000);
         val suggestion = jq(".z-comboitem-selected .z-comboitem-text").eq(0).html();

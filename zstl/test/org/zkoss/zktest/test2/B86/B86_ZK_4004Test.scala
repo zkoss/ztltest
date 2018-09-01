@@ -27,13 +27,7 @@ class B86_ZK_4004Test extends ZTL4ScalaTestCase {
       calcColumnWidth(gridWidth)
     })
   }
-
-  private def calcColumnWidth(gridWidth: Int): Unit = {
-    var width = 0
-    val cols = jq("@column").iterator()
-    while (cols.hasNext) {
-      width += cols.next().width()
-    }
-    verifyTolerant(gridWidth, width, 3)
+  def calcColumnWidth(gridWidth: Int): Unit = {
+    verifyTolerant(gridWidth, getEval("getTotalColumnWidth()"), 3)
   }
 }

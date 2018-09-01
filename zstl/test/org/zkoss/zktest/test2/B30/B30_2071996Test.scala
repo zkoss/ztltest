@@ -36,15 +36,16 @@ class B30_2071996Test extends ZTL4ScalaTestCase {
 	<paging onCreate='search.setMold("paging");search.paginal=self;search.pageSize=10;' />
 </zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val search = ztl$engine.$f("search")
     runZTL(zscript, () => {
-      click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
+      click(jq("@paging").find(".z-paging-next"));
       waitResponse()
-      click(jq("[name=" + jq("@paging").attr("id") + "-next]"));
+      click(jq("@paging").find(".z-paging-next"));
       waitResponse()
       for (i <- 1 until 6) {
-        click(jq("@listitem:eq(" + i + ")")); waitResponse()
+        click(jq("@listitem:eq(" + i + ")"));
+        waitResponse()
         verifyTrue(jq("@listitem:eq(" + i + ")").hasClass("z-listitem-selected"))
       }
     })

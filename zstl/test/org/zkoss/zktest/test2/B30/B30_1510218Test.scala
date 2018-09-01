@@ -60,7 +60,7 @@ class B30_1510218Test extends ZTL4ScalaTestCase {
 				</window>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val win = ztl$engine.$f("win")
     val popup = ztl$engine.$f("popup")
     val overlapped = ztl$engine.$f("overlapped")

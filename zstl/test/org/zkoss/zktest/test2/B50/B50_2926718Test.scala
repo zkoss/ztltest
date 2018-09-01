@@ -24,7 +24,7 @@ class B50_2926718Test extends ZTL4ScalaTestCase {
     var zscript =
       """
 <zk>You should see "$123.3" in the decimalbox: <decimalbox format="$###.##" value="123.30" width="150px" /></zk>			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals("$123.3", jq("@decimalbox").`val`());
     })

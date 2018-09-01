@@ -19,6 +19,7 @@ import java.util.Date
 import com.thoughtworks.selenium.Selenium
 import java.util.concurrent.Future
 
+import org.zkoss.ztl.testcafe.Widget$Cafe
 import org.zkoss.ztl.unit.Widget
 import org.zkoss.ztl.util.AggregateError
 
@@ -80,7 +81,6 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
               start(browser);
               windowFocus();
               windowMaximize();
-              _engine.set(new Widget(new StringBuffer("zk.Desktop._dt")));
               println(getTimeUUID() + "-" + luuid + ":log 4-2");
               if (!zscript.isEmpty())
                 runRawZscript(
@@ -143,14 +143,21 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
       enableTestCafe();
       if (!zscript.isEmpty())
         runRawZscript(zscript.toString)
-      _engine.set(new Widget(new StringBuffer("zk.Desktop._dt")));
       executor()
       generateCafeTest(target, ch.getCafeTestDir)
-
     }
   }
-  def engine(): Widget = _engine.get();
 
+  def engine(): Widget = {
+    val testingEnv = ch.getTestingEnvironment
+    if ("testcafe".equals(testingEnv)) {
+      enableTestCafe();
+      _engine.set(new Widget$Cafe(new StringBuffer("zk.Desktop._dt"), testCodeList));
+    } else {
+      _engine.set(new Widget(new StringBuffer("zk.Desktop._dt")));
+    }
+    return _engine.get();
+  }
   def getSelenium(): Selenium = selenium.get();
 
 }

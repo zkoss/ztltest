@@ -30,7 +30,7 @@ Please type some words into the textbox and press "Enter", you should not see an
 </zk>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       focus(jq("input.z-textbox"))
       sendKeys(jq("input.z-textbox"), "AAA", Keys.ENTER)

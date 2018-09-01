@@ -50,15 +50,15 @@ class B35_2086302Test extends ZTL4ScalaTestCase {
         //Verify dimensions 25%, 25%, 50%
         var w2w = jq("$w2").parent().outerWidth();
         println("w2w: " + w2w)
-        verifyTolerant((bl2w * .25).intValue(), w2w, 1);
+        verifyTolerant(parseInt(bl2w * .25 + ""), w2w, 1);
 
         var c2w = jq("$c2").parent().outerWidth() + 8;
         println("c2w: " + c2w)
-        verifyTolerant((bl2w * .25).intValue(), c2w, 1);
+        verifyTolerant(parseInt(bl2w * .25 + ""), c2w, 1);
 
         var e2w = jq(jq("$bl2").find("@east").toWidget().$n("cave")).outerWidth()
         println("e2w: " + e2w)
-        verifyTolerant((bl2w * .5).intValue(), e2w, 1);
+        verifyTolerant(parseInt(bl2w * 0.5 + ""), e2w, 1);
 
         //Verify no border
         var bl2east = jq("$bl2").find("@east");
@@ -73,11 +73,11 @@ class B35_2086302Test extends ZTL4ScalaTestCase {
         //Verify dimensions 30%, 40%, 30%
         var w3w = jq("$w3").parent().outerWidth()
         println("w3w: " + w3w)
-        verifyEquals((bl3w * .3).intValue(), w3w);
+        verifyEquals(parseInt(bl3w * 0.3 + ""), w3w);
 
         var c3w = jq(jq("$bl3").find("@center").toWidget().$n("cave")).outerWidth() + 8;
         println("c3w: " + c3w)
-        verifyTolerant((bl3w * .4).intValue(), c3w + 1, 1);
+        verifyTolerant(parseInt(bl3w * 0.4 + ""), c3w + 1, 1);
 
         var bl3center = jq("$bl3").find(".z-center");
 
@@ -88,7 +88,7 @@ class B35_2086302Test extends ZTL4ScalaTestCase {
         verifyEquals(bl3center.css("border-bottom-width"), "1px");
 
         var e3w = jq("$e3").parent().outerWidth()
-        verifyTolerant((bl3w * .3).intValue(), e3w, 1);
+        verifyTolerant(parseInt(bl3w * 0.3 + ""), e3w, 1);
 
         //Vertical dimensions
 
@@ -98,8 +98,8 @@ class B35_2086302Test extends ZTL4ScalaTestCase {
         println("Testing height : " + bl1h)
         println("bl2h" + bl2h)
         println("bl3h" + bl3h)
-        verifyEquals(bl2h, (bl1h / 2).intValue());
-        verifyEquals(bl3h, (bl1h / 2).intValue());
+        verifyEquals(bl2h, parseInt(bl1h / 2));
+        verifyEquals(bl3h, parseInt(bl1h / 2));
 
       }
     );

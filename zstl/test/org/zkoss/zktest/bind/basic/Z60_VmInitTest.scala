@@ -40,11 +40,6 @@ class Z60_VmInitTest extends ZTL4ScalaTestCase {
       verifyEquals("V1-AA", getValue(vm1_t1));
       verifyEquals("V1-AA", getText(vm1_l2));
       verifyEquals("V2", getText(vm1_l3));
-      //      
-      //		Assert.assertEquals("AA",findWidget("$vm1_l1").getText());
-      //		Assert.assertEquals("V1-AA",findWidget("$vm1_t1").getText());
-      //		Assert.assertEquals("V1-AA",findWidget("$vm1_l2").getText());
-      //		Assert.assertEquals("V2",findWidget("$vm1_l3").getText());
 
       `type`(vm1_t1, "OO")
       sendKeys(vm1_t1, Keys.TAB)
@@ -53,10 +48,6 @@ class Z60_VmInitTest extends ZTL4ScalaTestCase {
       verifyEquals("OO-AA", getText(vm1_l2));
       verifyEquals("V2", getText(vm1_l3));
 
-      //		findWidget("$vm1_t1").clear().keys("OO").tab();
-      //		Assert.assertEquals("OO-AA",findWidget("$vm1_t1").getText());
-      //		Assert.assertEquals("OO-AA",findWidget("$vm1_l2").getText());
-      //		Assert.assertEquals("V2",findWidget("$vm1_l3").getText());
 
       click(engine.$f("vm1_btn"))
       waitResponse()
@@ -72,14 +63,6 @@ class Z60_VmInitTest extends ZTL4ScalaTestCase {
       verifyEquals("V1-BB", getValue(vm2_t1));
       verifyEquals("V1-BB", getText(vm2_l2));
       verifyEquals("V2", getText(vm2_l3));
-      //		findWidget("$vm1_btn").click();
-      //		Assert.assertEquals("OO-AA",findWidget("$vm1_t1").getText());
-      //		Assert.assertEquals("OO-AA",findWidget("$vm1_l2").getText());
-      //		Assert.assertEquals("do command1 AA",findWidget("$vm1_l3").getText());
-      //		Assert.assertEquals("BB",findWidget("$vm2_l1").getText());
-      //		Assert.assertEquals("V1-BB",findWidget("$vm2_t1").getText());
-      //		Assert.assertEquals("V1-BB",findWidget("$vm2_l2").getText());
-      //		Assert.assertEquals("V2",findWidget("$vm2_l3").getText());
 
       `type`(vm2_t1, "OO")
       sendKeys(vm2_t1, Keys.TAB)
@@ -87,20 +70,12 @@ class Z60_VmInitTest extends ZTL4ScalaTestCase {
       verifyEquals("OO-BB", getValue(vm2_t1));
       verifyEquals("OO-BB", getText(vm2_l2));
       verifyEquals("V2", getText(vm2_l3));
-      //		findWidget("$vm2_t1").clear().keys("OO").tab();
-      //		Assert.assertEquals("OO-BB",findWidget("$vm2_t1").getText());
-      //		Assert.assertEquals("OO-BB",findWidget("$vm2_l2").getText());
-      //		Assert.assertEquals("V2",findWidget("$vm2_l3").getText());
 
       click(engine.$f("vm2_btn"))
       waitResponse()
       verifyEquals("OO-BB", getValue(vm2_t1));
       verifyEquals("OO-BB", getText(vm2_l2));
       verifyEquals("do command1 BB", getText(vm2_l3));
-      //    	findWidget("$vm2_btn").click();
-      //		Assert.assertEquals("OO-BB",findWidget("$vm2_t1").getText());
-      //		Assert.assertEquals("OO-BB",findWidget("$vm2_l2").getText());
-      //		Assert.assertEquals("do command1 BB",findWidget("$vm2_l3").getText());
 
       val vm3_l1 = engine.$f("vm3_l1")
       val vm3_t1 = engine.$f("vm3_t1")
@@ -110,10 +85,6 @@ class Z60_VmInitTest extends ZTL4ScalaTestCase {
       verifyEquals("V1-CC", getValue(vm3_t1));
       verifyEquals("V1-CC", getText(vm3_l2));
       verifyEquals("V2", getText(vm3_l3));
-      //		Assert.assertEquals("CC",findWidget("$vm3_l1").getText());
-      //		Assert.assertEquals("V1-CC",findWidget("$vm3_t1").getText());
-      //		Assert.assertEquals("V1-CC",findWidget("$vm3_l2").getText());
-      //		Assert.assertEquals("V2",findWidget("$vm3_l3").getText());
 
       `type`(vm3_t1, "OO")
       sendKeys(vm3_t1, Keys.TAB)
@@ -121,20 +92,12 @@ class Z60_VmInitTest extends ZTL4ScalaTestCase {
       verifyEquals("OO-CC", getValue(vm3_t1));
       verifyEquals("OO-CC", getText(vm3_l2));
       verifyEquals("V2", getText(vm3_l3));
-      //		findWidget("$vm3_t1").clear().keys("OO").tab();
-      //		Assert.assertEquals("OO-CC",findWidget("$vm3_t1").getText());
-      //		Assert.assertEquals("OO-CC",findWidget("$vm3_l2").getText());
-      //		Assert.assertEquals("V2",findWidget("$vm3_l3").getText());
 
       click(engine.$f("vm3_btn"))
       waitResponse()
       verifyEquals("OO-CC", getValue(vm3_t1));
       verifyEquals("OO-CC", getText(vm3_l2));
       verifyEquals("do command1 CC", getText(vm3_l3));
-      //		findWidget("$vm3_btn").click();
-      //		Assert.assertEquals("OO-CC",findWidget("$vm3_t1").getText());
-      //		Assert.assertEquals("OO-CC",findWidget("$vm3_l2").getText());
-      //		Assert.assertEquals("do command1 CC",findWidget("$vm3_l3").getText());
 
       val vm4_l1 = engine.$f("vm4_l1")
       val vm4_t1 = engine.$f("vm4_t1")
@@ -144,10 +107,6 @@ class Z60_VmInitTest extends ZTL4ScalaTestCase {
       verifyEquals("V1-XX", getValue(vm4_t1));
       verifyEquals("V1-XX", getText(vm4_l2));
       verifyEquals("V2", getText(vm4_l3));
-      //		Assert.assertEquals("XX",findWidget("$vm4_l1").getText());
-      //		Assert.assertEquals("V1-XX",findWidget("$vm4_t1").getText());
-      //		Assert.assertEquals("V1-XX",findWidget("$vm4_l2").getText());
-      //		Assert.assertEquals("V2",findWidget("$vm4_l3").getText());
 
       `type`(vm4_t1, "OO")
       sendKeys(vm4_t1, Keys.TAB)
@@ -155,20 +114,12 @@ class Z60_VmInitTest extends ZTL4ScalaTestCase {
       verifyEquals("OO-XX", getValue(vm4_t1));
       verifyEquals("OO-XX", getText(vm4_l2));
       verifyEquals("V2", getText(vm4_l3));
-      //    	findWidget("$vm4_t1").clear().keys("OO").tab();
-      //		Assert.assertEquals("OO-XX",findWidget("$vm4_t1").getText());
-      //		Assert.assertEquals("OO-XX",findWidget("$vm4_l2").getText());
-      //		Assert.assertEquals("V2",findWidget("$vm4_l3").getText());
 
       click(engine.$f("vm4_btn"))
       waitResponse()
       verifyEquals("OO-XX", getValue(vm4_t1));
       verifyEquals("OO-XX", getText(vm4_l2));
       verifyEquals("do command1 XX", getText(vm4_l3));
-      //    	findWidget("$vm4_btn").click();
-      //		Assert.assertEquals("OO-XX",findWidget("$vm4_t1").getText());
-      //		Assert.assertEquals("OO-XX",findWidget("$vm4_l2").getText());
-      //		Assert.assertEquals("do command1 XX",findWidget("$vm4_l3").getText());
     })
   }
 }

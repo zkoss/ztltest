@@ -34,12 +34,12 @@ class B65_ZK_1884Test extends ZTL4ScalaTestCase {
         val slider = jq(".z-slider-horizontal").toWidget()
         val btn = slider.$n("btn")
         val rail = slider.$n("inner")
-        val from = "2,2"
-        val to = "220,2"
-        dragdropToObject(btn, btn, from, to)
+        val fromPos = "2,2"
+        val toPos = "220,2"
+        dragdropToObject(btn, btn, fromPos, toPos)
         waitResponse()
 
-        val value = jq(".z-hbox .z-label:eq(0)").text().toInt
+        val value = parseInt(jq(".z-hbox .z-label:eq(0)").text())
         verifyTrue("its value should not be greater then 70", value <= 70)
       })
 

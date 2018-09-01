@@ -31,8 +31,8 @@ class Z60_CollectionIndexCombobox1 extends ZTL4ScalaTestCase {
       var outerbox = jq("$outergrid")
       var outerrows = outerbox.find("@rows").children()
       var itemLabel = Array("A", "B", "C", "D")
-      verifyEquals(itemLabel.length, outerrows.length())
-      for (i <- 0 to itemLabel.length - 1) {
+      verifyEquals(4, outerrows.length())
+      for (i <- 0 to 3) {
         var outerrow = outerrows.eq(i)
         var combobox = outerrow.find("@combobox")
         combobox.toWidget().eval("open()") // to show popu first so we can find comboitem in zkmax

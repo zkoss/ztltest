@@ -37,7 +37,7 @@ class B30_1876991Test extends ZTL4ScalaTestCase {
 				<intbox id="myIntbox" constraint="no negative,no zero"/>
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val myIntbox = ztl$engine.$f("myIntbox")
     runZTL(zscript, () => {
       sendKeys(myIntbox, "100")

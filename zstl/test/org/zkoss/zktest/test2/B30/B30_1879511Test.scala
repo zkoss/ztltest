@@ -30,7 +30,7 @@ class B30_1879511Test extends ZTL4ScalaTestCase {
 				<combobox id="cb1" constraint="strict" />
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val cb1 = ztl$engine.$f("cb1")
     runZTL(zscript, () => {
       click(cb1.$n("real"))

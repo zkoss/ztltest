@@ -43,7 +43,7 @@ result.value = lb.getSelectedItem().getLabel();
 </window>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val lb = ztl$engine.$f("lb")
     val result = ztl$engine.$f("result")
     runZTL(zscript, () => {

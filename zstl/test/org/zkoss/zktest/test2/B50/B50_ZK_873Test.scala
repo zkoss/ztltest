@@ -42,8 +42,8 @@ class B50_ZK_873Test extends ZTL4ScalaTestCase {
 
     runZTL(zscript,
       () => {
-        verifyTrue("should not see any selectall box in the list header", !jq(".z-listheader:contains(Name1) .z-listheader-img").exists())
-        verifyTrue("should not see any selectall box in the list header", !jq(".z-listheader:contains(Name2) .z-listheader-img").exists())
+        verifyFalse("should not see any selectall box in the list header", jq(".z-listheader:contains(Name1) .z-listheader-img").exists())
+        verifyFalse("should not see any selectall box in the list header", jq(".z-listheader:contains(Name2) .z-listheader-img").exists())
       })
 
   }

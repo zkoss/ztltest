@@ -46,7 +46,7 @@ mydiv.setVisible(true);
 </div>
 </zk>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val mydiv = ztl$engine.$f("mydiv")
     runZTL(zscript, () => {
       click(jq("@button"))

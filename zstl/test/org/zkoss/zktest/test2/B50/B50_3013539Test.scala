@@ -80,7 +80,7 @@ class B50_3013539Test extends ZTL4ScalaTestCase {
 		<button label="change label" onClick='tc.label = "ABC"' />
 	</zk>
 		 """
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
     val tc = ztl$engine.$f("tc")
     runZTL(zscript, () => {

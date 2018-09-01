@@ -29,7 +29,7 @@ class B30_2446672Test extends ZTL4ScalaTestCase {
 							onClick='alert("Defender")' />
 			</zk>
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     val tbb = ztl$engine.$f("tbb")
     runZTL(zscript, () => {
       click(tbb)

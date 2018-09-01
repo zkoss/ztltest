@@ -33,7 +33,7 @@ class B35_2148979Test extends ZTL4ScalaTestCase {
 </window>
 
 		"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals(3, jq(".z-window-icon").length())
       verifyTrue(jq(jq("@window").toWidget().$n("max")).isVisible())

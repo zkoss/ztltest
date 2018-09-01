@@ -35,7 +35,7 @@ class B50_2870663Test extends ZTL4ScalaTestCase {
 			<hbox>decimalbox: <decimalbox/></hbox>
 			</vbox>
 			"""
-    val ztl$engine = new Widget(new StringBuffer("zk.Desktop._dt"))
+    val ztl$engine = engine()
     runZTL(zscript, () => {
       verifyEquals("", getValue(jq("@doublebox")))
       verifyEquals("", getValue(jq("@decimalbox")))

@@ -14,24 +14,19 @@ class B86_ZK_4010Test extends ZTL4ScalaTestCase {
   def test(): Unit =  {
     runZTL(() => {
       // The width of column 1, 4, 6 and Aux 3 should be nearly 0
-      verifyTolerant(0, getWidth(jq("@listcell:eq(0)")), 1)
-      verifyTolerant(0, getWidth(jq("@listcell:eq(3)")), 1)
-      verifyTolerant(0, getWidth(jq("@listcell:eq(5)")), 1)
-      verifyTolerant(0, getWidth(jq("@auxheader:eq(2)")), 1)
+      verifyTolerant(0, jq("@listcell:eq(0)").attr("clientWidth"), 1)
+      verifyTolerant(0, jq("@listcell:eq(3)").attr("clientWidth"), 1)
+      verifyTolerant(0, jq("@listcell:eq(5)").attr("clientWidth"), 1)
+      verifyTolerant(0, jq("@auxheader:eq(2)").attr("clientWidth"), 1)
 
       click(jq("@button:contains(switch 1 visible)"))
       waitResponse()
-      verifyTrue(getWidth(jq("@listcell:eq(0)")) > 1)
+      verifyTrue(parseInt(jq("@listcell:eq(0)").attr("clientWidth")) > 1)
 
       click(jq("@button:contains(switch 6 visible)"))
       waitResponse()
-      verifyTrue(getWidth(jq("@listcell:eq(5)")) > 1)
-      verifyTrue(getWidth(jq("@auxheader:eq(2)")) > 1)
+      verifyTrue(parseInt(jq("@listcell:eq(5)").attr("clientWidth")) > 1)
+      verifyTrue(parseInt(jq("@auxheader:eq(2)").attr("clientWidth")) > 1)
     })
-  }
-
-  private def getWidth(elem: JQuery): Int = {
-    // Use clientWidth instead of width() to avoid negative bug https://stackoverflow.com/q/22832719
-    elem.toElement.attr("clientWidth").toInt
   }
 }
