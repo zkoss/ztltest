@@ -34,10 +34,10 @@ class B85_ZK_3589Test extends ZTL4ScalaTestCase {
   @Test
   def testScrollABit()=  {
     runZTL(() => {
+      getEval("window.scroll(0, 300)")
+      waitResponse()
       val lbl = jq("@label")
       click(lbl)
-      waitResponse()
-      getEval("window.scroll(0, 300)")
       waitResponse()
       verifyTrue("The popup should appear!", jq("@popup").isVisible)
 
