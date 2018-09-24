@@ -144,7 +144,7 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
       if (!zscript.isEmpty())
         runRawZscript(zscript.toString)
       executor()
-      generateCafeTest(target, ch.getCafeTestDir)
+      generateCafeTest(target.replace("zulCafe", "zul"), ch.getCafeTestDir)
     }
   }
 

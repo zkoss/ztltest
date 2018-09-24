@@ -13,15 +13,15 @@ class B70_ZK_2285Test extends ZTL4ScalaTestCase {
     runZTL(
       () => {
         // unsupport opera and safari
-        click(jq(".z-option:contains('test4')"))
+        click(jq(".z-option:contains(test4)"))
         waitResponse()
-        sendKeys(jq(".z-option:contains('test4')"), Keys.SHIFT + "" + Keys.ARROW_DOWN)
+        sendKeys(jq(".z-option:contains(test4)"), Keys.SHIFT + "" + Keys.ARROW_DOWN)
         waitResponse()
-        sendKeys(jq(".z-option:contains('test5')"), Keys.SHIFT + "" + Keys.ARROW_DOWN)
+        sendKeys(jq(".z-option:contains(test5)"), Keys.SHIFT + "" + Keys.ARROW_DOWN)
         waitResponse()
-        sendKeys(jq(".z-option:contains('test6')"), Keys.SHIFT + "" + Keys.ARROW_DOWN)
+        sendKeys(jq(".z-option:contains(test6)"), Keys.SHIFT + "" + Keys.ARROW_DOWN)
         waitResponse()
-        sendKeys(jq(".z-option:contains('test7')"), Keys.SHIFT + "" + Keys.ARROW_DOWN)
+        sendKeys(jq(".z-option:contains(test7)"), Keys.SHIFT + "" + Keys.ARROW_DOWN)
         waitResponse()
 
         click(jq("@button"))
