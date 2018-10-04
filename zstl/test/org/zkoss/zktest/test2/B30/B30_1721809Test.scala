@@ -23,8 +23,7 @@ class B30_1721809Test extends ZTL4ScalaTestCase {
       <window>
         button.onClick should always work.(Click more times)
         <separator />
-        <button id="btn" label="test" onClick="label.value += &quot; click&quot;" />
-        <label id="label" />
+        <button id="btn" label="test" onClick='Clients.log("click");' />
       </window>
     """
     val ztl$engine = engine()
@@ -33,10 +32,11 @@ class B30_1721809Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       var value = "click"
       for (i <- 1 until 5) {
-        click(btn)
+        click(jq("@button"))
         waitResponse()
-        verifyEquals(getText(label), value)
-        value += " click"
+        verifyEquals(getZKLog(), "click")
+        closeZKLog()
+        waitResponse()
       }
     })
   }
