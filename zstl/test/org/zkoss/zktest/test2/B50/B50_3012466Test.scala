@@ -35,10 +35,10 @@ Please select 'a' or 'b', you should see the result as you selected.
     runZTL(zscript, () => {
       select(jq("@select"), "b")
       waitResponse()
-      verifyEquals(jq("@select").find("option:selected").attr("label"), "b");
+      verifyEquals(jq("@select").find("option:selected").text(), "b")
       select(jq("@select"), "a")
       waitResponse()
-      verifyEquals(jq("@select").find("option:selected").attr("label"), "a")
+      verifyEquals(jq("@select").find("option:selected").text(), "a")
     })
   }
 }

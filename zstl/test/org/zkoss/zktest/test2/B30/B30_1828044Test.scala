@@ -64,16 +64,16 @@ class B30_1828044Test extends ZTL4ScalaTestCase {
         //col1 must be visible & col2 invisible
         var faker1 = jq(jq("$col1").toWidget().$n("hdfaker")).attr("style")
         var faker2 = jq(jq("$col2").toWidget().$n("hdfaker")).attr("style")
-        verifyNotContains(faker1, "hidden")
-        verifyContains(faker2, "hidden")
+        verifyNotContains(faker1, "collapse")
+        verifyContains(faker2, "collapse")
 
         click(jq("@button:eq(0)"))
         waitResponse()
         faker1 = jq(jq("$col1").toWidget().$n("hdfaker")).attr("style")
         faker2 = jq(jq("$col2").toWidget().$n("hdfaker")).attr("style")
         //col1 must be invisible & col2 visible
-        verifyNotContains(faker2, "hidden")
-        verifyContains(faker1, "hidden")
+        verifyNotContains(faker2, "collapse")
+        verifyContains(faker1, "collapse")
 
         click(jq("@button:eq(1)"))
         waitResponse()

@@ -48,10 +48,10 @@ class B85_ZK_3722Test extends ZTL4ScalaTestCase {
         verifyTolerant(rowInners.eq(i).offsetLeft(), getEval("pos1[monthStrArr[" + (num - 1) + "]]"), 1)
       }
 
-			verifyEquals("hidden", jq(".z-column:contains(\"Apr\"):eq(0)").css("visibility"))
-			verifyEquals("hidden", jq(".z-column:contains(\"May\"):eq(0)").css("visibility"))
-			verifyEquals("hidden", jq(".z-column:contains(\"Apr\"):eq(1)").css("visibility"))
-			verifyEquals("hidden", jq(".z-column:contains(\"May\"):eq(1)").css("visibility"))
+			verifyEquals("collapse", jq(jq(".z-column:contains(Apr):eq(0)").toWidget.$n("hdfaker")).css("visibility"))
+			verifyEquals("collapse", jq(jq(".z-column:contains(May):eq(0)").toWidget.$n("hdfaker")).css("visibility"))
+			verifyEquals("collapse", jq(jq(".z-column:contains(Apr):eq(1)").toWidget.$n("hdfaker")).css("visibility"))
+			verifyEquals("collapse", jq(jq(".z-column:contains(May):eq(1)").toWidget.$n("hdfaker")).css("visibility"))
 		})
 	}
 

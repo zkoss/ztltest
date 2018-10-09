@@ -112,7 +112,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
       mouseOver(listheader.eq(1));
       click(listheader.eq(1));
       waitResponse()
-      verifyEquals("hidden", jq("@listheader").css("visibility"))
+      verifyEquals("collapse", jq(listheader.eq(0).toWidget.$n("hdfaker")).css("visibility"))
     })
   }
 }

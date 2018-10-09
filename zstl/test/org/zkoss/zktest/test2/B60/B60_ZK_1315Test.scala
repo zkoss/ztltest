@@ -19,7 +19,7 @@ class B60_ZK_1315Test extends ZTL4ScalaTestCase {
       click(zmenuitem)
       waitResponse()
       val faker = jq(jq(".z-column:contains(Title)").toWidget().$n("hdfaker"))
-      verifyEquals("Hide 'Title' column by menupopup.", faker.css("visibility"), "hidden")
+      verifyEquals("Hide 'Title' column by menupopup.", faker.css("visibility"), "collapse")
 
       val publisher = jq("$col")
       click(publisher)
@@ -32,7 +32,7 @@ class B60_ZK_1315Test extends ZTL4ScalaTestCase {
       waitResponse()
       click(zmenuitem)
       waitResponse()
-      verifyNotEquals("Show 'Title' column by menupopup.", faker.css("visibility"), "hidden")
+      verifyNotEquals("Show 'Title' column by menupopup.", faker.css("visibility"), "collapse")
 
     })
 
