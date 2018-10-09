@@ -40,7 +40,6 @@ If the popup of combox out of position, that is wrong.
 					</rows>
 				</grid>
 			</tabpanel>
-
 		</tabpanels>
 	</tabbox>
 </window>
@@ -48,11 +47,13 @@ If the popup of combox out of position, that is wrong.
     val ztl$engine = engine()
     val cb = ztl$engine.$f("cb")
     runZTL(zscript, () => {
-      var offset1 = zk(cb).revisedOffset()
+      var offset1x = zk(cb).eval("revisedOffset()[0]")
+      var offset1y = zk(cb).eval("revisedOffset()[1]")
       click(cb.$n("btn"))
-      var offset2 = zk(cb.$n("pp")).revisedOffset()
-      verifyEquals(offset1(0), offset2(0));
-      verifyTolerant(offset1(1) + jq(cb).outerHeight(), offset2(1), 2)
+      var offset2x = zk(cb.$n("pp")).eval("revisedOffset()[0]")
+      var offset2y = zk(cb.$n("pp")).eval("revisedOffset()[1]")
+      verifyEquals(offset1x, offset2x);
+      verifyTolerant(parseInt(offset1y) + jq(cb).outerHeight(), offset2y, 2)
     })
   }
 }

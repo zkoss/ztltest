@@ -19,7 +19,7 @@ class F86_ZK_3978Test extends ZTL4ScalaTestCase {
       click(jq(".z-tree-icon:eq(0)"))
       waitResponse()
 
-      verifyEquals("OnDataLoading more than once", 1, getZKLog.split("\n").length)
+      verifyEquals("OnDataLoading more than once", 1, getEval("getZKLogLineCnt()"))
     })
   }
 }

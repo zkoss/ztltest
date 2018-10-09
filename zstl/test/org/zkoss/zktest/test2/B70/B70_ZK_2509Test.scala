@@ -39,11 +39,11 @@ class B70_ZK_2509Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         val grid = jq(".z-grid")
-        var width = jq(jq(".z-column").get(2)).width();
+        var cwidth = jq(jq(".z-column").get(2)).width();
         nativeFrozenScroll(grid, 2860);
         waitResponse();
         nativeFrozenScroll(grid, -2860);
-        verifyTrue(jq(jq(".z-column").get(2)).width() == width);
+        verifyTrue(jq(jq(".z-column").get(2)).width() == cwidth);
 
       })
 

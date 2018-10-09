@@ -88,14 +88,14 @@ left pane should not occupy the whole page, leaving no space to the right pane. 
     val split = ztl$engine.$f("split")
     val contents = ztl$engine.$f("contents")
     runZTL(zscript, () => {
-      var width = jq(tabbox).outerWidth()
+      var owidth = jq(tabbox).outerWidth()
       windowResizeTo(500, 500)
-      verifyTrue(width - jq(tabbox).outerWidth() < 2)
+      verifyTrue(owidth - jq(tabbox).outerWidth() < 2)
       windowMaximize()
-      verifyTrue(width - jq(tabbox).outerWidth() < 2)
-      width = jq(tabbox).outerWidth()
+      verifyTrue(owidth - jq(tabbox).outerWidth() < 2)
+      owidth = jq(tabbox).outerWidth()
       dragdropTo(split, "0,0", "-20,0")
-      verifyEquals(width - 20, jq(tabbox).outerWidth())
+      verifyEquals(owidth - 20, jq(tabbox).outerWidth())
     })
   }
 }

@@ -2,13 +2,14 @@ package org.zkoss.zktest.test2.F85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{SeleniumOnly, Tags}
 import org.zkoss.ztl.unit.JQuery
 
 /**
   * @author rudyhuang
   */
 @Tags(tags = "F85-ZK-3690.zul")
+@SeleniumOnly
 class F85_ZK_3690Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {

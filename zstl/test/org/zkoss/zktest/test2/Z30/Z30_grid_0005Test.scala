@@ -103,14 +103,14 @@ class Z30_grid_0005Test extends ZTL4ScalaTestCase {
         // check sizing
         click(checkId);
         waitResponse();
-        var width = $jq.width();
-        mouseMoveAt($jq.toWidget(), width + ",0");
+        var wd = $jq.width();
+        mouseMoveAt($jq.toWidget(), wd + ",0");
         waitResponse()
         verifyTrue($jq.hasClass("z-column-sizing"));
         //a workaround to chrome, move 10px per drag
-        dragdropTo(jq("$column").toWidget(), width + ",0", width - 10 + ",0");
-        dragdropTo(jq("$column").toWidget(), width - 10 + ",0", width - 20 + ",0");
-        verifyNotEquals(width, $jq.width());
+        dragdropTo(jq("$column").toWidget(), wd + ",0", wd - 10 + ",0");
+        dragdropTo(jq("$column").toWidget(), wd - 10 + ",0", wd - 20 + ",0");
+        verifyNotEquals(wd, $jq.width());
       }
     );
   }

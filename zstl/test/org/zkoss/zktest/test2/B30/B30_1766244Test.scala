@@ -19,56 +19,33 @@ import org.zkoss.ztl.unit.Widget
 class B30_1766244Test extends ZTL4ScalaTestCase {
   @Test
   def testScrolling() = {
-    var zscript =
-      """
-		<window title="Bug: combox in scrollable grid">
-		 <grid id="grid" height="105px">
-		  <columns>
-		   <column/><column/>
-		  </columns> 
-		  <rows>
-			<row>combobox
-			<combobox>
-			<comboitem label="First"/>
-			<comboitem label="Second"/>
-			<comboitem label="Third"/>
-			</combobox>
-			</row>
-			<row>datebox <datebox/></row>
-			<row>combobox
-			<combobox id="cb">
-			<comboitem label="First"/>
-			<comboitem label="Second"/>
-			<comboitem label="Third"/>
-			</combobox>
-			</row>
-			<row>combobox <combobox/></row>
-			<row>combobox <combobox/></row>
-			<row>combobox <combobox/></row>
-		  </rows>
-		 </grid>
-		</window>
-		 """
     val ztl$engine = engine()
     val grid = ztl$engine.$f("grid")
     val cb = ztl$engine.$f("cb")
-    runZTL(zscript, () => {
-      var offset1: Array[Int] = zk(cb).revisedOffset()
-      var offset2: Array[Int] = zk(cb.$n("btn")).revisedOffset()
+    runZTL(() => {
+      var offset1x = zk(cb).eval("revisedOffset()[0]")
+      var offset1y = zk(cb).eval("revisedOffset()[1]")
+      var offset2x = zk(cb.$n("btn")).eval("revisedOffset()[0]")
+      var offset2y = zk(cb.$n("btn")).eval("revisedOffset()[1]")
+
       grid.$n("body").eval("scrollTop = 20")
-      var offset3 = zk(cb).revisedOffset()
-      var offset4 = zk(cb.$n("btn")).revisedOffset()
-      verifyEquals(offset1(0), offset3(0))
-      verifyEquals(offset2(0), offset4(0))
-      verifyEquals(offset1(1) - 20, offset3(1))
-      verifyEquals(offset2(1) - 20, offset4(1))
+      var offset3x = zk(cb).eval("revisedOffset()[0]")
+      var offset3y = zk(cb).eval("revisedOffset()[1]")
+      var offset4x = zk(cb.$n("btn")).eval("revisedOffset()[0]")
+      var offset4y = zk(cb.$n("btn")).eval("revisedOffset()[1]")
+      verifyEquals(offset1x, offset3x)
+      verifyEquals(offset2x, offset4x)
+      verifyEquals(parseInt(offset1y) - 20, offset3y)
+      verifyEquals(parseInt(offset2y) - 20, offset4y)
       grid.$n("body").eval("scrollTop = 0")
-      offset3 = zk(cb).revisedOffset()
-      offset4 = zk(cb.$n("btn")).revisedOffset()
-      verifyEquals(offset1(0), offset3(0))
-      verifyEquals(offset1(1), offset3(1))
-      verifyEquals(offset2(0), offset4(0))
-      verifyEquals(offset2(1), offset4(1))
+      offset3x = zk(cb).eval("revisedOffset()[0]")
+      offset3y = zk(cb).eval("revisedOffset()[1]")
+      offset4x = zk(cb.$n("btn")).eval("revisedOffset()[0]")
+      offset4y = zk(cb.$n("btn")).eval("revisedOffset()[1]")
+      verifyEquals(offset1x, offset3x)
+      verifyEquals(offset1y, offset3y)
+      verifyEquals(offset2x, offset4x)
+      verifyEquals(offset2y, offset4y)
     })
   }
 }

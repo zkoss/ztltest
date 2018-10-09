@@ -11,8 +11,6 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
-;
-
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.Widget
@@ -40,9 +38,9 @@ class B50_2995800Test extends ZTL4ScalaTestCase {
     val pl = ztl$engine.$f("pl")
     val panel = ztl$engine.$f("panel")
     runZTL(zscript, () => {
-      var height = jq(pl.$n()).height()
+      var h = jq(pl.$n()).height()
       click(panel.$n("max"))
-      verifyEquals(height, jq(pl.$n()).height())
+      verifyEquals(h, jq(pl.$n()).height())
     })
   }
 }

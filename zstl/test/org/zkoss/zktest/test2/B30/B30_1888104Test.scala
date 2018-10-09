@@ -33,7 +33,7 @@ class B30_1888104Test extends ZTL4ScalaTestCase {
 					<label id="clickLbl" value="click me" popup="mypopup" />
 					<popup id="mypopup" style="border: visible">
 						<window width="200px">
-							<intbox id="myIntbox" constraint="no positive" />
+							<intbox id="myIntbox" constraint="no positive" value="0"/>
 						</window>
 					</popup>
 				</window>

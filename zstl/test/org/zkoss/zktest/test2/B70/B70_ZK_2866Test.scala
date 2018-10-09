@@ -17,26 +17,26 @@ class B70_ZK_2866Test extends ZTL4ScalaTestCase {
       val ahd = jq(".z-auxheader")
       for (i <- 1 to 11) {
         frozenScroll(jq("@grid"), i)
-        var width = 0
+        var cwidth = 0
         for (j <- 0 to 2) {
-          width += clmn.eq(j).outerWidth()
+          cwidth += clmn.eq(j).outerWidth()
         }
-        verifyTolerant(ahd.eq(2).outerWidth(), width, 2)
-        width = 0
+        verifyTolerant(ahd.eq(2).outerWidth(), cwidth, 2)
+        cwidth = 0
         for (j <- 3 to 5) {
-          width += clmn.eq(j).outerWidth()
+          cwidth += clmn.eq(j).outerWidth()
         }
-        verifyTolerant(ahd.eq(3).outerWidth(), width, 2)
-        width = 0
+        verifyTolerant(ahd.eq(3).outerWidth(), cwidth, 2)
+        cwidth = 0
         for (j <- 6 to 8) {
-          width += clmn.eq(j).outerWidth()
+          cwidth += clmn.eq(j).outerWidth()
         }
-        verifyTolerant(ahd.eq(4).outerWidth(), width, 2)
-        width = 0
+        verifyTolerant(ahd.eq(4).outerWidth(), cwidth, 2)
+        cwidth = 0
         for (j <- 9 to 11) {
-          width += clmn.eq(j).outerWidth()
+          cwidth += clmn.eq(j).outerWidth()
         }
-        verifyTolerant(ahd.eq(5).outerWidth(), width, 2)
+        verifyTolerant(ahd.eq(5).outerWidth(), cwidth, 2)
       }
     })
   }

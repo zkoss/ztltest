@@ -52,7 +52,7 @@ class B30_1823278Test extends ZTL4ScalaTestCase {
         temp = i
       }
       var scrollTop = parseInt(listbox.$n("body").attr("scrollTop"))
-      verifyTrue("Times of pressing Down: " + temp + ", scrollTop: " + scrollTop, 150 < scrollTop)
+      verifyTrue("Times of pressing Down: 15, scrollTop: " + scrollTop, 150 < scrollTop)
       temp = 0
       for (i <- 0 until 15) {
         sendKeys(jq(listbox), Keys.UP)
@@ -60,7 +60,7 @@ class B30_1823278Test extends ZTL4ScalaTestCase {
         temp = i
       }
       scrollTop = parseInt(listbox.$n("body").attr("scrollTop"))
-      verifyTrue("Times of pressing Down: " + temp + ", scrollTop: " + scrollTop, 3 > scrollTop)
+      verifyTrue("Times of pressing Down: 15, scrollTop: " + scrollTop, 3 > scrollTop)
     })
   }
 }
