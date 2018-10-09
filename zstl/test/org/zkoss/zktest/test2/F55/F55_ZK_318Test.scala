@@ -143,7 +143,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 
         // step 12
         messageBox.toElement().set("value", "")
-        messageBox.toElement().set("value", "")
+        messageBoxTwo.toElement().set("value", "")
         click(jq("@button:contains(open combobutton one)"))
         verifyEquals("", getValue(messageBox))
         verifyEquals("", getValue(messageBoxTwo))
@@ -151,7 +151,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 
         // step 13
         messageBox.toElement().set("value", "")
-        messageBox.toElement().set("value", "")
+        messageBoxTwo.toElement().set("value", "")
         click(jq("@button:contains(open combobutton two)"))
         verifyEquals("", getValue(messageBox))
         verifyEquals("", getValue(messageBoxTwo))
@@ -167,6 +167,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 
         // step 15
         clickAndWait(jq("@button:contains(change child)"))
+        clickAndWait(cbx.$n("real"))
         clickAndWait(jq(bd).toWidget.$n("btn"))
         verifyTrue("combobutton two should opened", jq(ppTwo.$n()).is(":visible"))
         clickAndWait(jq(bd2).toWidget.$n("btn"))

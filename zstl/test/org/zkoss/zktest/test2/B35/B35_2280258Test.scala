@@ -41,7 +41,7 @@ class B35_2280258Test extends ZTL4ScalaTestCase {
 
       //Cell text
       var c1t = getText(jq(c1));
-      var c2t = getText(jq(c1));
+      var c2t = getText(jq(c2));
 
       //Compare label and real width
       verifyTolerant(parseInt(c1t), ce1, 2);

@@ -56,7 +56,7 @@ class B50_ZK_528Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
 
       val emp = jq("@grid").toWidget().$n("empty")
-      val hiddenCol = jq("@grid").find("col[id*=hdfaker][style*=hidden]")
+      val hiddenCol = jq("@grid").find("col[id*=hdfaker][style*=collapse]")
       val column = jq("@grid").find(".z-column")
       verifyEquals(column.length() - hiddenCol.length(), 1);
       verifyNotContains(hiddenCol.attr("id"), jq(".z-column").attr("id"))
@@ -114,7 +114,7 @@ class B50_ZK_528Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
 
       val emp = jq(".z-listbox").toWidget().$n("empty")
-      val hiddenCol = jq("@listbox").find("col[id*=hdfaker][style*=hidden]")
+      val hiddenCol = jq("@listbox").find("col[id*=hdfaker][style*=collapse]")
       val column = jq("@listbox").find(".z-listheader")
       verifyEquals(column.length() - hiddenCol.length(), 1);
       verifyNotContains(hiddenCol.attr("id"), jq(".z-listheader").attr("id"))
