@@ -13,7 +13,8 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
                 Wed Aug 01 17:01:28 CST 2018, Created by klyve
 
 Copyright (C) 2018 Potix Corporation. All Rights Reserved.
-*/ class B86_ZK_3938Test extends ZTL4ScalaTestCase {
+*/
+class B86_ZK_3938Test extends ZTL4ScalaTestCase {
   @Test
   def test()= {
     runZTL(() => {
