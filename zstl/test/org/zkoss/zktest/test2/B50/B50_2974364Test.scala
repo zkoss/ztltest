@@ -62,11 +62,11 @@ class B50_2974364Test extends ZTL4ScalaTestCase {
       click(btn)
       waitResponse()
       verifyEqualColor("green", jq(bandinp).css("color"))
-      verifyEquals("700", jq(bandinp).css("font-weight"))
+      verifyContains("700bold", jq(bandinp).css("font-weight"))
       click(btn)
       waitResponse()
       verifyEquals(origColor, jq(bandinp).css("color"))
-      verifyEquals("400", jq(bandinp).css("font-weight"))
+      verifyContains("400normal", jq(bandinp).css("font-weight"))
     })
   }
 }

@@ -36,34 +36,34 @@ class B30_1882323Test extends ZTL4ScalaTestCase {
       sendKeys(jq(".z-intbox").toElement(), Keys.HOME);
       waitResponse();
       // The cursor must be in the first position
-      verifyTrue(zk(jq("@intbox")).eval("getSelectionRange()[0]").toInt == 0);
+      verifyEquals("0", zk(jq("@intbox")).eval("getSelectionRange()[0]"));
 
       // Press the RIGHT key
       sendKeys(jq(".z-intbox").toElement(), Keys.RIGHT);
       waitResponse();
 
       // The cursor must be in the second position
-      verifyTrue(zk(jq("@intbox")).eval("getSelectionRange()[0]").toInt == 1);
+      verifyEquals("1", zk(jq("@intbox")).eval("getSelectionRange()[0]"));
 
       // Press the RIGHT key
       sendKeys(jq(".z-intbox").toElement(), Keys.RIGHT);
       waitResponse();
 
       // The cursor must be in the third position
-      verifyTrue(zk(jq("@intbox")).eval("getSelectionRange()[0]").toInt == 2);
+      verifyEquals(2, zk(jq("@intbox")).eval("getSelectionRange()[0]"));
 
       // Press the LEFT key
       sendKeys(jq(".z-intbox").toElement(), Keys.LEFT);
       waitResponse();
 
       // The cursor must be in the second position
-      verifyTrue(zk(jq("@intbox")).eval("getSelectionRange()[0]").toInt == 1);
+      verifyEquals(1, zk(jq("@intbox")).eval("getSelectionRange()[0]"));
 
       // Press the HOME key
       sendKeys(jq(".z-intbox").toElement(), Keys.HOME);
       waitResponse();
       // The cursor must be in the first position
-      verifyTrue(zk(jq("@intbox")).eval("getSelectionRange()[0]").toInt == 0);
+      verifyEquals(0 ,zk(jq("@intbox")).eval("getSelectionRange()[0]"));
 
       // Press the RIGHT key
       sendKeys(jq(".z-intbox").toElement(), Keys.RIGHT);
@@ -75,13 +75,13 @@ class B30_1882323Test extends ZTL4ScalaTestCase {
       sendKeys(jq(".z-intbox").toElement(), Keys.DELETE);
       waitResponse();
       // The cursor must be in the first position
-      verifyTrue(zk(jq("@intbox")).eval("getSelectionRange()[0]").toInt == 2);
+      verifyEquals(2, zk(jq("@intbox")).eval("getSelectionRange()[0]"));
 
       // Press the END key
       sendKeys(jq(".z-intbox").toElement(), Keys.END);
       waitResponse();
       // The cursor must be in the last position (5-1 deleted)
-      verifyTrue(zk(jq("@intbox")).eval("getSelectionRange()[0]").toInt == 4);
+      verifyEquals(4, zk(jq("@intbox")).eval("getSelectionRange()[0]"));
 
     })
   }

@@ -57,8 +57,8 @@ class B50_ZK_435Test extends ZTL4ScalaTestCase {
     val div = ztl$engine.$f("div")
     val div2 = ztl$engine.$f("div2")
     runZTL(zscript, () => {
-      verifyTrue(div.$n().eval("childNodes.length").toInt == 1);
-      verifyTrue(div2.$n().eval("childNodes.length").toInt == 1)
+      verifyTrue(parseInt(div.$n().eval("childNodes.length")) == 1);
+      verifyTrue(parseInt(div2.$n().eval("childNodes.length")) == 1)
     })
   }
 }

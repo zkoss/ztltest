@@ -1,9 +1,9 @@
 /* B50_2936132Test.java
 
 	Purpose:
-		
+
 	Description:
-		
+
 	History:
 		May, 30, 2018 18:41:59 PM
 
@@ -15,12 +15,11 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
 
 
-class B50_2936132Test extends ZTL4ScalaTestCase {
+class B50_2936132_1Test extends ZTL4ScalaTestCase {
   @Test
-  def testtree() = {
+  def testtree1() = {
     var zscript =
       """
 				<zk>

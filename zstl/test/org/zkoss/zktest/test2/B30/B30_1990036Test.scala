@@ -53,7 +53,7 @@ class B30_1990036Test extends ZTL4ScalaTestCase {
       val zindex3: String = w3.css("z-index");
 
       // The z-index of window Three should be greater than the value of Window One
-      verifyTrue("The Window Three must be in front of Window One", zindex3.toInt > zindex1.toInt);
+      verifyTrue("The Window Three must be in front of Window One", parseInt(zindex3) > parseInt(zindex1));
     })
   }
 }

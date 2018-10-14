@@ -38,6 +38,8 @@ class B30_1995373Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       typeKeys(jq("input.z-intbox"), "%")
       waitResponse()
+      blur(jq("input.z-intbox"))
+      waitResponse()
       verifyTrue(jq(".z-errorbox").exists())
     })
   }

@@ -1,9 +1,9 @@
 /* B50_2940707Test.java
 
 	Purpose:
-		
+
 	Description:
-		
+
 	History:
 		May, 30, 2018 18:41:59 PM
 
@@ -15,12 +15,11 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
 
 
-class B50_2940707Test extends ZTL4ScalaTestCase {
+class B50_2940707_1Test extends ZTL4ScalaTestCase {
   @Test
-  def testztl() = {
+  def testztl1() = {
     var zscript =
       """
 				<vbox>
@@ -94,14 +93,14 @@ class B50_2940707Test extends ZTL4ScalaTestCase {
 			            <treeitem label="Item 3" />
 			        </treechildren>
 			    </tree>
-			   <button id="btn1" label="1. invalidate item 2.2"
+			    <button id="btn1" label="1. invalidate item 2.2"
 			onClick="item221parent.invalidate();"/>
 			    <button id="btn2" label="2. invalidate item 2.1 and item 2.2"
 			onClick="item221parent.parent.invalidate();"/>
 			    <button id="btn3" label="3. detach item 2.2.1" onClick="item221.detach();"/>
 			    <button id="btn4" label="4. detach item 2.2.1 and invalidate item 2.2"
 			onClick="item221.detach();item221parent.invalidate();"/>
-				</vbox>
+			</vbox>
 			"""
     val ztl$engine = engine()
     val tree = ztl$engine.$f("tree")
@@ -112,17 +111,31 @@ class B50_2940707Test extends ZTL4ScalaTestCase {
     val btn3 = ztl$engine.$f("btn3")
     val btn4 = ztl$engine.$f("btn4")
     runZTL(zscript, () => {
-      click(btn1)
-      waitResponse()
-      verifyEquals(8, jq(".z-treechildren tr.z-treerow").length())
-      click(btn2)
-      waitResponse()
-      verifyEquals(8, jq(".z-treechildren tr.z-treerow").length())
-      verifyContains(jq(".z-treechildren tr.z-treerow:eq(6)").text(), "Item 2.2.1")
-      click(btn3)
+      click(btn4)
       waitResponse()
       verifyEquals(7, jq(".z-treechildren tr.z-treerow").length())
       verifyContains(jq(".z-treechildren tr.z-treerow:eq(6)").text(), "Item 3")
+      click(jq(".z-treerow-checkbox:eq(2)"))
+      waitResponse()
+      click(jq(".z-treerow-checkbox:eq(3)"))
+      waitResponse()
+      click(jq(".z-treerow-checkbox:eq(4)"))
+      verifyEquals(3, jq(".z-treerow-selected").length())
+      click(btn2)
+      waitResponse()
+      verifyEquals(7, jq(".z-treechildren tr.z-treerow").length())
+      verifyEquals(3, jq(".z-treerow-selected").length())
+      verifyContains(jq(".z-treerow-selected:eq(0) .z-treecell").text(), "Item 2.1")
+      verifyContains(jq(".z-treerow-selected:eq(1) .z-treecell").text(), "Item 2.1.1")
+      verifyContains(jq(".z-treerow-selected:eq(2) .z-treecell").text(), "Item 2.1.2")
+      click(jq(".z-treerow-checkbox:eq(2)"))
+      waitResponse()
+      verifyEquals(2, jq(".z-treerow-selected").length())
+      click(btn2)
+      waitResponse()
+      verifyEquals(2, jq(".z-treerow-selected").length())
+      verifyContains(jq(".z-treerow-selected:eq(0) .z-treecell").text(), "Item 2.1")
+      verifyContains(jq(".z-treerow-selected:eq(1) .z-treecell").text(), "Item 2.1.2")
     })
   }
 }

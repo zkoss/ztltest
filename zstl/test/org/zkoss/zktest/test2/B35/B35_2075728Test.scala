@@ -124,9 +124,7 @@ Test Protal base Functionativity <br/>
 
         //3-drag & drop
         val l = c3.offsetLeft()
-        val t = 10
-
-        dragdropTo(jq(".z-panel-header-move:eq(0)"), c1.offsetLeft() + "," + t, l + "," + t)
+        dragdropTo(jq(".z-panel-header-move:eq(0)"), c1.offsetLeft() + "," + 10, l + "," + 10)
 
         waitResponse()
 

@@ -50,12 +50,12 @@ class B30_2487562Test extends ZTL4ScalaTestCase {
       // Press the HOME key
       sendKeys(tb, Keys.HOME);
       // The cursor must be in the first position
-      verifyTrue(zk_tb.eval("getSelectionRange()[0]").toInt == 0);
+      verifyEquals(0, zk_tb.eval("getSelectionRange()[0]"));
 
       // Press the END key
       sendKeys(tb, Keys.END);
       // The cursor must be in the last position (Jerry length == 5)
-      verifyTrue(zk_tb.eval("getSelectionRange()[0]").toInt == 5);
+      verifyEquals(5, zk_tb.eval("getSelectionRange()[0]"));
 
     })
   }

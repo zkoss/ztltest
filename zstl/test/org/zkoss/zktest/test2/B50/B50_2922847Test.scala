@@ -32,10 +32,10 @@ class B50_2922847Test extends ZTL4ScalaTestCase {
     val ztl$engine = engine()
     val tbtn = ztl$engine.$f("tbtn")
     runZTL(zscript, () => {
-      verifyEquals("700", jq(".z-toolbarbutton-content").css("font-weight"))
+      verifyContains("700bold", jq(".z-toolbarbutton-content").css("font-weight"))
       click(tbtn)
       waitResponse()
-      verifyEquals("400", jq(".z-toolbarbutton-content").css("font-weight"))
+      verifyContains("400normal", jq(".z-toolbarbutton-content").css("font-weight"))
     })
   }
 }

@@ -85,6 +85,8 @@ r3.removeChild(tb3);
       waitResponse();
 
       // Mouse over the column to see the menu popup
+      mouseOver(jq(engine.$f("col1")));
+      waitResponse();
       mouseOver(jq(engine.$f("col1").$n("btn")));
       waitResponse();
 

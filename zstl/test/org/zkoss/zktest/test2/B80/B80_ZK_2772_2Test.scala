@@ -19,7 +19,7 @@ class B80_ZK_2772_2Test extends ZTL4ScalaTestCase {
         //check the new column width
         var cols = jq(".z-column")
         for (i <- 0 until 20) {
-            verifyTolerant(getEval("getRecordedColWidth(" + i + ")").toInt, cols.eq(i).outerWidth(), 1)
+            verifyTolerant(parseInt(getEval("getRecordedColWidth(" + i + ")")), cols.eq(i).outerWidth(), 1)
         }
         //scroll to right
         nativeFrozenScroll(jq(".z-grid"), 1000)
@@ -33,7 +33,7 @@ class B80_ZK_2772_2Test extends ZTL4ScalaTestCase {
         var i = 0
         for (i <- 0 until 20) {
           if (i < 5 || i > 18) {
-            verifyTolerant(getEval("getRecordedColWidth(" + i + ")").toInt, cols.eq(i).outerWidth(), 1)
+            verifyTolerant(parseInt(getEval("getRecordedColWidth(" + i + ")")), cols.eq(i).outerWidth(), 1)
           }
         }
         //scroll to left
@@ -52,7 +52,7 @@ class B80_ZK_2772_2Test extends ZTL4ScalaTestCase {
         //check width should be the same
         cols = jq(".z-column")
         for (i <- 0 until 20) {
-          verifyTolerant(getEval("getRecordedColWidth(" + i + ")").toInt, cols.eq(i).outerWidth(), 1)
+          verifyTolerant(parseInt(getEval("getRecordedColWidth(" + i + ")")), cols.eq(i).outerWidth(), 1)
         }
       })
   }

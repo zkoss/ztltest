@@ -54,7 +54,7 @@ class B36_2799334Test extends ZTL4ScalaTestCase {
       // Click on step 3 textbox
       focus(jq("$tb2"));
       waitResponse();
-      verifyTrue("The text should be selected", zk(jq("$tb2")).eval("getSelectionRange()[1]").toInt == 50);
+      verifyEquals("The text should be selected", 50, zk(jq("$tb2")).eval("getSelectionRange()[1]"));
 
     })
   }

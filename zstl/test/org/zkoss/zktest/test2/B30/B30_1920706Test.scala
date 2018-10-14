@@ -83,7 +83,7 @@ new Datebox().setParent(row);
         click(btn)
         waitResponse()
         verifyEquals(size, $col1.outerWidth())
-        halfWidth = (jq(g1).innerWidth() - size) / 2
+        halfWidth = (jq(g1).innerWidth() - $col1.outerWidth()) / 2
         verifyEquals(halfWidth, $col2.outerWidth())
         verifyEquals(halfWidth, $col3.outerWidth())
       }

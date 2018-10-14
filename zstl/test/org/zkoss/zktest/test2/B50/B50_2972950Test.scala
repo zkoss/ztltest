@@ -44,6 +44,9 @@ class B50_2972950Test extends ZTL4ScalaTestCase {
       verifyFalse(jq(".z-error").exists())
       //type will blur the widget so dont need to press tab
       typeKeys(intbox, "-1")
+      waitResponse()
+      blur(intbox)
+      waitResponse()
       verifyTrue(jq(".z-errorbox").exists())
     })
   }

@@ -27,8 +27,7 @@ class B30_1766244Test extends ZTL4ScalaTestCase {
       var offset1y = zk(cb).eval("revisedOffset()[1]")
       var offset2x = zk(cb.$n("btn")).eval("revisedOffset()[0]")
       var offset2y = zk(cb.$n("btn")).eval("revisedOffset()[1]")
-
-      grid.$n("body").eval("scrollTop = 20")
+      verScrollAbs(grid, 20);
       var offset3x = zk(cb).eval("revisedOffset()[0]")
       var offset3y = zk(cb).eval("revisedOffset()[1]")
       var offset4x = zk(cb.$n("btn")).eval("revisedOffset()[0]")
@@ -37,7 +36,7 @@ class B30_1766244Test extends ZTL4ScalaTestCase {
       verifyEquals(offset2x, offset4x)
       verifyEquals(parseInt(offset1y) - 20, offset3y)
       verifyEquals(parseInt(offset2y) - 20, offset4y)
-      grid.$n("body").eval("scrollTop = 0")
+      verScrollAbs(grid, 0);
       offset3x = zk(cb).eval("revisedOffset()[0]")
       offset3y = zk(cb).eval("revisedOffset()[1]")
       offset4x = zk(cb.$n("btn")).eval("revisedOffset()[0]")

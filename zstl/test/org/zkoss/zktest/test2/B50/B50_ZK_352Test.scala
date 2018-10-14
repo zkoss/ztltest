@@ -45,7 +45,7 @@ class B50_ZK_352Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       lb.$n("body").eval("scrollLeft = 500")
       waitResponse()
-      verifyTrue(lb.$n("body").attr("scrollLeft").toInt < 110)
+      verifyTrue(parseInt(lb.$n("body").attr("scrollLeft")) < 110)
       verifyEquals(lh1.$n().attr("width"), "")
       verifyEquals(lh1.$n("cave").attr("width"), "")
       verifyEquals(lh2.$n().attr("width"), "")

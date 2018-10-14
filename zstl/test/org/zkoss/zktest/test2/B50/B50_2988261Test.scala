@@ -42,7 +42,7 @@ class B50_2988261Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       click(panel.$n("max"))
       click(cb.$n("btn"));
-      verifyTrue(jq(cb.$n("pp")).css("zIndex").toInt > jq(panel).css("zIndex").toInt)
+      verifyTrue(parseInt(jq(cb.$n("pp")).css("zIndex")) > parseInt(jq(panel).css("zIndex")))
     })
   }
 }

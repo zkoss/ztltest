@@ -64,12 +64,12 @@ is shorter and has a scroll bar
     runZTL(zscript, () => {
       val list = engine.$f("list")
       val height = jq(list).outerHeight
-      val scrollHeight = jq(list).scrollHeight()
+      val scrollH = jq(list).scrollHeight()
       click(jq("@button"))
       waitResponse()
       verifyTrue(height > jq(list).outerHeight)
       verifyTrue(200 > jq(list).outerHeight)
-      verifyTrue(scrollHeight > jq(list).scrollHeight)
+      verifyTrue(scrollH > jq(list).scrollHeight)
     })
   }
 }

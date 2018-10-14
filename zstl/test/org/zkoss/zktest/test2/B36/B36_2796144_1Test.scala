@@ -6,17 +6,21 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
 
 @Tags(tags = "B36-2796144.zul,datebox,timebox,calendar")
-class B36_2796144Test extends ZTL4ScalaTestCase {
+class B36_2796144_1Test extends ZTL4ScalaTestCase {
   @Test
-  def testTime1()=  {
+  def testTime2()=  {
     runZTL(() => {
       val returnDate = engine.$f("returnDate")
       val dateValue2 = engine.$f("dateValue2")
       val inp = returnDate.$n("real")
+      val timeInp = jq("@timebox").find("input")
       focus(inp)
       click(returnDate.$n("btn"))
       waitResponse()
-      val time = jq("@timebox").find("input").`val`()
+      click(timeInp)
+      sendKeys(timeInp, Keys.END)
+      sendKeys(timeInp, Keys.DOWN)
+      val time = timeInp.`val`()
       click(jq("td.z-calendar-selected"))
       waitResponse()
       sendKeys(inp, Keys.TAB)

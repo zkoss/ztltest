@@ -92,10 +92,10 @@ class Z_Userguide_FormTest extends ZTL4ScalaTestCase {
       /** spinner */
       click(jq(".z-spinner").toWidget.$n("btn-up"))
       waitResponse()
-      verifyTrue(3 < jq(jq("@spinner").toWidget.$n("real")).`val`().toInt)
+      verifyTrue(3 < parseInt(jq(jq("@spinner").toWidget.$n("real")).`val`()))
       clickAt(jq("@spinner").toWidget.$n("btn-down"), "5,5")
       waitResponse()
-      verifyTrue(4 >= jq(jq("@spinner").toWidget.$n("real")).`val`().toInt)
+      verifyTrue(4 >= parseInt(jq(jq("@spinner").toWidget.$n("real")).`val`()))
 
       /** colorbox */
       click(jq("@colorbox").toWidget.$n("currcolor"))

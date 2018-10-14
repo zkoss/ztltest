@@ -97,7 +97,7 @@ class B35_2075716Test extends ZTL4ScalaTestCase {
       var new_panel_width: Int = jq(".z-portalchildren:contains(portal 0)").width();
 
       // Record the remainder width
-      val remainder_width: Int = ((total_width - panel0_width) - 10);
+      val remainder_width: Int = (total_width - panel0_width) - 10;
 
       verifyTolerant(remainder_width / 2, new_panel_width, 2);
       verifyFalse(jq(".z-error").exists())
