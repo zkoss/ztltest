@@ -43,7 +43,7 @@ class B30_1819264Test extends ZTL4ScalaTestCase {
       verifyTrue(jq("@errorbox").exists())
       var str = jq("@errorbox").toElement().attr("style.top")
       var beforeTop = parseInt(str)
-      verScroll(center, 0.05)
+      verScroll(center, 5)
       verifyTolerant(jq(tb).offsetTop(), jq("@errorbox").offsetTop(), 1)
       verScroll(center, 0)
       str = jq("@errorbox").toElement().attr("style.top")

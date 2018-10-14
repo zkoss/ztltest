@@ -14,6 +14,7 @@ package org.zkoss.zktest.test2.B30
 ;
 
 import org.junit.Test
+import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.Widget
 
@@ -53,6 +54,8 @@ class B30_1888104Test extends ZTL4ScalaTestCase {
       typeKeys(myIntbox, "5")
       waitResponse(true)
       sleep(300)
+      sendKeys(myIntbox, Keys.TAB);
+      waitResponse()
       var errbox = jq(".z-errorbox")
       verifyTrue(errbox.exists())
       var errboxZIdx = parseInt(errbox.css("z-index"))

@@ -54,7 +54,7 @@ class B30_1882320Test extends ZTL4ScalaTestCase {
 
         waitResponse();
         //Compare with selection
-        verifyEquals(zk(jq("@textbox")).eval("getSelectionRange()"), "[1, 3]");
+        verifyEquals(zk(jq("@textbox")).eval("getSelectionRange().toString()"), "1,3");
       }
     );
   }
