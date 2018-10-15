@@ -38,10 +38,10 @@ class B50_3024208Test extends ZTL4ScalaTestCase {
     val ztl$engine = engine()
     val d = ztl$engine.$f("d")
     runZTL(zscript, () => {
-      var x = jq(d.$n("btn")).positionLeft()
+      var x = jq(d.$n("btn")).offsetLeft()
       mouseOver(d.$n("btn"))
       sleep(500)
-      var x1 = jq(d.$n("btn")).positionTop()
+      var x1 = jq(d.$n("btn")).offsetLeft()
       verifyEquals(x, x1)
     })
   }

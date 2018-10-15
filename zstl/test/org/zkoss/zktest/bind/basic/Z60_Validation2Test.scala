@@ -47,14 +47,6 @@ class Z60_Validation2Test extends ZTL4ScalaTestCase {
       verifyEquals("", getValue(t32));
       verifyEquals("", getText(msg1));
       verifyEquals("", getText(msg2));
-      //    	Assert.assertEquals("0",findWidget("$l11").getValue());
-      //		Assert.assertEquals("",findWidget("$l12").getValue());
-      //		Assert.assertEquals("0",findWidget("$t21").getValue());
-      //		Assert.assertEquals("",findWidget("$t22").getValue());
-      //		Assert.assertEquals("0",findWidget("$t31").getValue());
-      //		Assert.assertEquals("",findWidget("$t32").getValue());
-      //		Assert.assertEquals("",findWidget("$msg1").getValue());
-      //		Assert.assertEquals("",findWidget("$msg2").getValue());
 
       `type`(t21, "1")
       waitResponse()
@@ -66,15 +58,6 @@ class Z60_Validation2Test extends ZTL4ScalaTestCase {
       verifyEquals("", getValue(t32));
       verifyEquals("value 1 have to large than 10", getText(msg1));
       verifyEquals("", getText(msg2));
-      //		findWidget("$t21").clear().keys("1").tab();
-      //		Assert.assertEquals("0",findWidget("$l11").getValue());
-      //		Assert.assertEquals("",findWidget("$l12").getValue());
-      //		Assert.assertEquals("1",findWidget("$t21").getValue());
-      //		Assert.assertEquals("",findWidget("$t22").getValue());
-      //		Assert.assertEquals("0",findWidget("$t31").getValue());
-      //		Assert.assertEquals("",findWidget("$t32").getValue());
-      //		Assert.assertEquals("value 1 have to large than 10",findWidget("$msg1").getValue());
-      //		Assert.assertEquals("",findWidget("$msg2").getValue());
 
       `type`(t21, "12")
       waitResponse()
@@ -86,15 +69,6 @@ class Z60_Validation2Test extends ZTL4ScalaTestCase {
       verifyEquals("", getValue(t32));
       verifyEquals("", getText(msg1));
       verifyEquals("", getText(msg2));
-      //		findWidget("$t21").clear().keys("12").tab();
-      //		Assert.assertEquals("12",findWidget("$l11").getValue());
-      //		Assert.assertEquals("",findWidget("$l12").getValue());
-      //		Assert.assertEquals("12",findWidget("$t21").getValue());
-      //		Assert.assertEquals("",findWidget("$t22").getValue());
-      //		Assert.assertEquals("12",findWidget("$t31").getValue());
-      //		Assert.assertEquals("",findWidget("$t32").getValue());
-      //		Assert.assertEquals("",findWidget("$msg1").getValue());
-      //		Assert.assertEquals("",findWidget("$msg2").getValue());
 
       `type`(t22, "3")
       waitResponse()
@@ -106,15 +80,6 @@ class Z60_Validation2Test extends ZTL4ScalaTestCase {
       verifyEquals("", getValue(t32));
       verifyEquals("", getText(msg1));
       verifyEquals("value 2 have to large than 20", getText(msg2));
-      //		findWidget("$t22").clear().keys("3").tab();
-      //		Assert.assertEquals("12",findWidget("$l11").getValue());
-      //		Assert.assertEquals("",findWidget("$l12").getValue());
-      //		Assert.assertEquals("12",findWidget("$t21").getValue());
-      //		Assert.assertEquals("3",findWidget("$t22").getValue());
-      //		Assert.assertEquals("12",findWidget("$t31").getValue());
-      //		Assert.assertEquals("",findWidget("$t32").getValue());
-      //		Assert.assertEquals("",findWidget("$msg1").getValue());
-      //		Assert.assertEquals("value 2 have to large than 20",findWidget("$msg2").getValue());
 
       `type`(t22, "33")
       waitResponse()
@@ -126,15 +91,6 @@ class Z60_Validation2Test extends ZTL4ScalaTestCase {
       verifyEquals("33", getValue(t32));
       verifyEquals("", getText(msg1));
       verifyEquals("", getText(msg2));
-      //    	findWidget("$t22").clear().keys("33").tab();
-      //		Assert.assertEquals("12",findWidget("$l11").getValue());
-      //		Assert.assertEquals("33",findWidget("$l12").getValue());
-      //		Assert.assertEquals("12",findWidget("$t21").getValue());
-      //		Assert.assertEquals("33",findWidget("$t22").getValue());
-      //		Assert.assertEquals("12",findWidget("$t31").getValue());
-      //		Assert.assertEquals("33",findWidget("$t32").getValue());
-      //		Assert.assertEquals("",findWidget("$msg1").getValue());
-      //		Assert.assertEquals("",findWidget("$msg2").getValue());
     })
   }
 }

@@ -1,9 +1,9 @@
 /* B30_1876292Test.java
 
 	Purpose:
-		
+
 	Description:
-		
+
 	History:
 		May, 30, 2018 18:42:01 PM
 
@@ -13,12 +13,11 @@ package org.zkoss.zktest.test2.B30
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
 
 
-class B30_1876292Test extends ZTL4ScalaTestCase {
+class B30_1876292_2Test extends ZTL4ScalaTestCase {
   @Test
-  def testConstraint1() = {
+  def testConstraint3() = {
     var zscript =
       """
 			<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
@@ -42,10 +41,9 @@ class B30_1876292Test extends ZTL4ScalaTestCase {
     val cb1 = ztl$engine.$f("cb1")
     val reset = ztl$engine.$f("reset")
     runZTL(zscript, () => {
-      /** set speed depended on test case setting */
       var combobox = jq(jq(".z-combobox").toWidget().$n("real"))
       focus(combobox)
-      sendKeys(combobox, "aaa")
+      sendKeys(combobox, "ttt")
       blur(combobox)
       click(reset)
       waitResponse()

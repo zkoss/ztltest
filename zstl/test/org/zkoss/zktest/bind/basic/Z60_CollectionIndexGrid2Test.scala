@@ -22,7 +22,7 @@ import org.zkoss.ztl.annotation.Tags
  * @author pao
  */
 @Tags(tags = "zbind")
-class Z60_CollectionIndexGrid2 extends ZTL4ScalaTestCase {
+class Z60_CollectionIndexGrid2Test extends ZTL4ScalaTestCase {
   def testArg() = {
     val zul = """
       <include src="/bind/basic/collection-index-grid.zul"/>

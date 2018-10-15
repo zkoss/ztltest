@@ -84,11 +84,11 @@ List items = new org.zkoss.zktest.test2.BigList(100); //a big list ofInteger
         //Verify disabled and enabled pagging buttons
         var n = next.exists();
         verifyTrue(n);
-        verifyEquals("", next.attr("disabled"))
+        verifyContains("undefined", next.attr("disabled"))
 
         var l = last.exists();
         verifyTrue(l);
-        verifyEquals("", last.attr("disabled"))
+        verifyContains("undefined", last.attr("disabled"))
 
         //first & prev are disabled
         verifyNotEquals("", first.attr("disabled"))
@@ -100,16 +100,16 @@ List items = new org.zkoss.zktest.test2.BigList(100); //a big list ofInteger
         waitResponse();
 
         //Verify all pagging enabled
-        verifyEquals("", next.attr("disabled"))
+        verifyContains("undefined", next.attr("disabled"))
         verifyTrue(next.exists());
 
-        verifyEquals("", last.attr("disabled"))
+        verifyContains("undefined", last.attr("disabled"))
         verifyTrue(last.exists());
 
-        verifyEquals("", first.attr("disabled"))
+        verifyContains("undefined", first.attr("disabled"))
         verifyTrue(first.exists());
 
-        verifyEquals("", prev.attr("disabled"))
+        verifyContains("undefined", prev.attr("disabled"))
         verifyTrue(prev.exists());
 
         click(last);
@@ -119,10 +119,10 @@ List items = new org.zkoss.zktest.test2.BigList(100); //a big list ofInteger
         verifyNotEquals("", next.attr("disabled"))
         verifyNotEquals("", last.attr("disabled"))
 
-        verifyEquals("", first.attr("disabled"))
+        verifyContains("undefined", first.attr("disabled"))
         verifyTrue(first.exists());
 
-        verifyEquals("", prev.attr("disabled"))
+        verifyContains("undefined", prev.attr("disabled"))
         verifyTrue(prev.exists());
 
       }

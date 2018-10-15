@@ -1,9 +1,9 @@
 /* B50_3095549Test.java
 
 	Purpose:
-		
+
 	Description:
-		
+
 	History:
 		May, 30, 2018 18:42:00 PM
 
@@ -15,12 +15,11 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
 
 
-class B50_3095549Test extends ZTL4ScalaTestCase {
+class B50_3095549_1Test extends ZTL4ScalaTestCase {
   @Test
-  def testztl() = {
+  def testztl1() = {
     var zscript =
       """
 			
@@ -74,10 +73,9 @@ class B50_3095549Test extends ZTL4ScalaTestCase {
     val ztl$engine = engine()
     val treechildren1 = ztl$engine.$f("treechildren1")
     runZTL(zscript, () => {
-      click(jq(".z-treerow").toWidget().$n("icon"))
-      waitResponse()
-      verifyEquals(3, jq("@treerow").length())
       click(jq("@button"))
+      waitResponse()
+      click(jq(".z-treerow").toWidget().$n("icon"))
       waitResponse()
       verifyEquals(4, jq("@treerow").length())
       verifyContains(jq("@treerow:eq(3)").text(), "Item 1-3")

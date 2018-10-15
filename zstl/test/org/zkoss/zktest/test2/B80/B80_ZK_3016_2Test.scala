@@ -5,12 +5,14 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
 
 @Tags(tags = "B80-ZK-3016.zul")
-class B80_ZK_3016Test extends ZTL4ScalaTestCase {
+class B80_ZK_3016_2Test extends ZTL4ScalaTestCase {
   @Test
-  def testBtn1() = {
-    runZTL(
-      () => {
-        val $btn = jq("$btn1")
+  def testBtn3() = {
+    val zscript = """
+     <include src="/test2/B80-ZK-3016.zul"/>
+    """
+    runZTL(zscript, () => {
+        val $btn = jq("$btn3")
         verifyTrue($btn.exists())
         click($btn)
         waitResponse(true)

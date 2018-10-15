@@ -140,6 +140,12 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
 
       println(getTimeUUID() + "-" + luuid + ":log 7");
     } else if ("testcafe".equals(testingEnv)) { //testingEnv
+      //check ignore list
+      var testCaseName = getClass().getSimpleName().replaceAll("_", "-");
+      testCaseName = testCaseName.substring(0, testCaseName.length() - 8) + ".ztl";
+
+      val browsers = ConfigHelper.getInstance.getBrowsersForLazy("all", testCaseName, null)
+      if (browsers.size() == 0) return
       enableTestCafe();
       if (!zscript.isEmpty())
         runRawZscript(zscript.toString)

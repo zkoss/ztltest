@@ -38,11 +38,12 @@ class B50_3006313Test extends ZTL4ScalaTestCase {
     val ib1 = ztl$engine.$f("ib1")
     val ib2 = ztl$engine.$f("ib2")
     runZTL(zscript, () => {
-      dragdropTo(sld.$n("btn"), "0,0", "46,0")
+      dragdropTo(sld.$n("btn"), "1,1", "47,1")
+      waitResponse()
       click(btn1)
       waitResponse()
-      verifyEquals("75", jq(ib1).`val`())
-      verifyEquals("75", jq(ib2).`val`())
+      verifyTolerant(75, parseInt(jq(ib1).`val`()), 2)
+      verifyTolerant(75, parseInt(jq(ib2).`val`()), 2)
     })
   }
 }

@@ -23,11 +23,14 @@ import org.zkoss.ztl.annotation.Tags;
   * @author bobpeng
   */
 @Tags(tags = "")
-class B85_ZK_3676Test extends ZTL4ScalaTestCase {
+class B85_ZK_3676_1Test extends ZTL4ScalaTestCase {
   @Test
-  def test1() = {
-    runZTL(() => {
-      click(jq("$green"))
+  def test2() = {
+    val zscript = """
+     <include src="/test2/B85-ZK-3676.zul"/>
+    """
+    runZTL(zscript, () => {
+      click(jq("$red"))
       waitResponse();
       verifyFalse("Notification should be closed.", jq(".z-notification").isVisible());
     })

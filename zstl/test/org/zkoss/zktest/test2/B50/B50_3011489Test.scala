@@ -29,7 +29,8 @@ class B50_3011489Test extends ZTL4ScalaTestCase {
     val ztl$engine = engine()
     runZTL(zscript, () => {
       `type`(jq("@decimalbox"), "3.5")
-      verifyEquals("350.00%", getValue(jq("@decimalbox ")))
+      waitResponse()
+      verifyEquals("350.00%", jq("@decimalbox ").`val`())
     })
   }
 }

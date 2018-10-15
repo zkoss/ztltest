@@ -1,9 +1,9 @@
 /* B35_2077989Test.java
 
 	Purpose:
-		
+
 	Description:
-		
+
 	History:
 		May, 30, 2018 18:41:58 PM
 
@@ -13,18 +13,20 @@ package org.zkoss.zktest.test2.B35
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
 
 
-class B35_2077989Test extends ZTL4ScalaTestCase {
+class B35_2077989_1Test extends ZTL4ScalaTestCase {
   @Test
-  def testhideWin() = {
+  def testminWin() = {
     val ztl$engine = engine()
     val win = ztl$engine.$f("win")
     val hidebtn = ztl$engine.$f("hidebtn")
-    runZTL(() => {
+    val zscript = """
+     <include src="/test2/B35-2077989.zul"/>
+    """
+    runZTL(zscript, () => {
       verifyEquals(true, jq("$win").isVisible())
-      click(jq("$hidebtn"))
+      click(win.$n("min"))
       waitResponse()
       verifyEquals(false, jq("$win").isVisible());
     })

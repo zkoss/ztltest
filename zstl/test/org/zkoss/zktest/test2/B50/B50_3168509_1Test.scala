@@ -1,9 +1,9 @@
 /* B50_3168509Test.java
 
 	Purpose:
-		
+
 	Description:
-		
+
 	History:
 		May, 30, 2018 18:41:59 PM
 
@@ -13,12 +13,11 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
 
 
-class B50_3168509Test extends ZTL4ScalaTestCase {
+class B50_3168509_1Test extends ZTL4ScalaTestCase {
   @Test
-  def testztl() = {
+  def testztl1() = {
     var zscript =
       """
 			<zk>
@@ -38,12 +37,11 @@ class B50_3168509Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       click(db.$n("btn"))
       waitResponse()
-      click(jq(".z-calendar-selected").next())
+      var right = jq(".z-calendar").toWidget().$n("right")
+      click(right)
       waitResponse()
-      verifyEquals("01/01/2001", jq(jq(".z-datebox").toWidget().$n("real")).`val`())
-      click(db.$n("btn"))
-      waitResponse()
-      click(jq(".z-calendar-selected").next())
+      sleep(500)
+      click(jq(".z-calendar-cell.z-calendar-weekday:contains(2):eq(0)"))
       waitResponse()
       verifyEquals("01/02/2001", jq(jq(".z-datebox").toWidget().$n("real")).`val`())
     })

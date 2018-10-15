@@ -8,24 +8,22 @@ import org.zkoss.ztl.annotation.Tags
   * @author rudyhuang
   */
 @Tags(tags = "B85-ZK-3589.zul")
-class B85_ZK_3589Test extends ZTL4ScalaTestCase {
+class B85_ZK_3589_1Test extends ZTL4ScalaTestCase {
   @Test
   def testScrollOverViewport()=  {
-    runZTL(() => {
+    val zscript = """
+     <include src="/test2/B85-ZK-3589.zul"/>
+    """
+    runZTL(zscript, () => {
+      getEval("window.scroll(0, 300)")
+      waitResponse()
       val lbl = jq("@label")
-      val top = jq("$btnTop")
-      val bottom = jq("$btnBottom")
       click(lbl)
       waitResponse()
+      verifyTrue("The popup should appear!", jq("@popup").isVisible)
 
-      // To the bottom and click something
-      zk(bottom).eval("scrollIntoView();'test';")
-      waitResponse()
-      click(bottom)
-      waitResponse()
-
-      // To the top
-      zk(top).eval("scrollIntoView();'test';")
+      // Click the button that below the red line area
+      click(jq("$btnFixed"))
       waitResponse()
       verifyFalse("The popup still appears!", jq("@popup").isVisible)
     })

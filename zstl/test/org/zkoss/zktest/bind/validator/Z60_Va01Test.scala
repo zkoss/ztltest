@@ -21,7 +21,7 @@ import org.zkoss.ztl.annotation.Tags
  * @author pao
  */
 @Tags(tags = "zbind")
-class Z60_Va01 extends ZTL4ScalaTestCase {
+class Z60_Va01Test extends ZTL4ScalaTestCase {
   def testArg() = {
     val zul = """
       <include src="/bind/validator/va01.zul"/>

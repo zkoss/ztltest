@@ -21,7 +21,7 @@ import org.zkoss.ztl.annotation.Tags
  * @author pao
  */
 @Tags(tags = "zbind")
-class Z60_CollectionIndexCombobox2 extends ZTL4ScalaTestCase {
+class Z60_CollectionIndexCombobox2Test extends ZTL4ScalaTestCase {
   def testArg() = {
     val zul = """
       <include src="/bind/basic/collection-index-combobox.zul" />
