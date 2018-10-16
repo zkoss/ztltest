@@ -11,9 +11,9 @@ class B36_2796144_1Test extends ZTL4ScalaTestCase {
   def testTime2()=  {
     val zscript =
       """
-        |<include src="/test2/B36-2796144.zul"/>
+        <include src="/test2/B36-2796144.zul"/>
       """
-    runZTL(() => {
+    runZTL(zscript, () => {
       val returnDate = engine.$f("returnDate")
       val dateValue2 = engine.$f("dateValue2")
       val inp = returnDate.$n("real")
