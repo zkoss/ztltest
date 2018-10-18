@@ -72,7 +72,7 @@ class B30_1878840Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       var $jq = jq(engine.$f("list").$n("body"));
       // fix Firefox driver issue
-      getEval("doScrollDown()");
+      evalScript("doScrollDown()");
       // $jq.scrollTop($jq.scrollHeight());
       waitResponse();
       // Click on the first header to sort

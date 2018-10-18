@@ -89,13 +89,6 @@ class B60_ZK_927_5Test extends ZTL4ScalaTestCase {
         var set: Widget = engine.$f("set");
         var reload: Widget = engine.$f("reload");
 
-        def select(sbx: Widget, num: Int) {
-          focus(sbx);
-          sbx.$n().eval("selectedIndex = " + num);
-          blur(sbx);
-          waitResponse();
-        }
-
         def check(sbx: Widget, num: Int, checkLbl: Boolean) {
           verifyContains(sbx.$n().attr("selectedIndex"), num + "")
           if (checkLbl) {
@@ -104,7 +97,9 @@ class B60_ZK_927_5Test extends ZTL4ScalaTestCase {
         }
 
         select(sel1, 2);
+        blur(sel1);
         select(sel2, 2);
+        blur(sel2);
         check(sel1, 2, false);
         check(sel2, 2, true);
 

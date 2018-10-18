@@ -59,7 +59,7 @@ class B35_2078184Test extends ZTL4ScalaTestCase {
         }
 
         //Scroll down
-        jq("$div1").get(0).eval("scrollTop = 40");
+        verScrollNoBodyAbs(jq("$div1"), 40);
         waitResponse();
 
         //click spinner1 button down

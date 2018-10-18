@@ -11,7 +11,7 @@ class B80_ZK_2772Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       //save the original column width
-      getEval("recordColsWidth()")
+      evalScript("recordColsWidth()")
       //scroll to right
       nativeFrozenScroll(jq(".z-grid"), 400)
       waitResponse()
@@ -36,7 +36,7 @@ class B80_ZK_2772Test extends ZTL4ScalaTestCase {
       waitResponse()
       cols = jq(".z-column")
       //save column width
-      getEval("recordColsWidth()")
+      evalScript("recordColsWidth()")
       //sort column 7
       click(column7);
       waitResponse()

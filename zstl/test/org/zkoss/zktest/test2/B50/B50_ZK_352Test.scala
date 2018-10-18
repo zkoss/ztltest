@@ -43,13 +43,11 @@ class B50_ZK_352Test extends ZTL4ScalaTestCase {
     val lh1 = ztl$engine.$f("lh1")
     val lh2 = ztl$engine.$f("lh2")
     runZTL(zscript, () => {
-      lb.$n("body").eval("scrollLeft = 500")
+      horScrollAbs(lb, 500)
       waitResponse()
       verifyTrue(parseInt(lb.$n("body").attr("scrollLeft")) < 110)
-      verifyEquals(lh1.$n().attr("width"), "")
-      verifyEquals(lh1.$n("cave").attr("width"), "")
-      verifyEquals(lh2.$n().attr("width"), "")
-      verifyEquals(lh2.$n("cave").attr("width"), "")
+      verifyEquals(0, jq(lh1.$n()).outerWidth())
+      verifyEquals(0, jq(lh2.$n()).outerWidth())
     })
   }
 }

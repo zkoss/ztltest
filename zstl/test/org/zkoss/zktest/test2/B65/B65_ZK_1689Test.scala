@@ -60,7 +60,8 @@ class B65_ZK_1689Test extends ZTL4ScalaTestCase {
         click(jq(".z-button:contains(restore)"))
         waitResponse()
 
-        verifyTrue("the Left/Top value should not change", left == jq(".z-label:contains(px):eq(0)").text() && top == jq(".z-label:contains(px):eq(1)").text())
+        verifyEquals("the Left value should not change", left, jq(".z-label:contains(px):eq(0)").text())
+      verifyEquals("the Top value should not change", top, jq(".z-label:contains(px):eq(1)").text())
       })
 
   }

@@ -47,12 +47,12 @@ class B50_3251564Test extends ZTL4ScalaTestCase {
 		"""
     val ztl$engine = engine()
     runZTL(zscript, () => {
-      var x = jq("@textbox").positionLeft()
+      var x = jq("@textbox").offsetLeft()
       typeKeys(jq("@textbox"), "")
       waitResponse(true)
       verifyTrue(jq(".z-errorbox").exists())
       var y = jq(".z-errorbox").positionLeft()
-      var y1 = jq(".z-errorbox").width()
+      var y1 = jq(".z-errorbox").outerWidth()
       verifyTrue(x > y)
       verifyTolerant(x - y1, y, 1)
     })

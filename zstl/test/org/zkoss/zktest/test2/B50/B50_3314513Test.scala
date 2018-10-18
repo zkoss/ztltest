@@ -66,19 +66,16 @@ class B50_3314513Test extends ZTL4ScalaTestCase {
         var dbx3: Widget = engine.$f("dbx3")
         var dbx4: Widget = engine.$f("dbx4")
         click(dbx1.$n("real"));
-        dbx1.$n("real").eval("value = 'abc'");
-        click(outer);
+        `type`(dbx1.$n("real"),"abc")
         waitResponse();
         click(dbx2.$n("real"));
-        dbx2.$n("real").eval("value = 'abc'");
-        click(outer);
+        `type`(dbx2.$n("real"),"abc")
         waitResponse();
         click(dbx3.$n("real"));
-        dbx3.$n("real").eval("value = 'abc'");
-        click(outer);
+        `type`(dbx3.$n("real"),"abc")
         waitResponse();
         click(dbx4.$n("real"));
-        dbx4.$n("real").eval("value = 'abc'");
+        `type`(dbx4.$n("real"),"abc")
         click(outer);
         waitResponse();
 

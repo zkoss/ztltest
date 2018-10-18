@@ -47,12 +47,13 @@ class B65_ZK_1463Test extends ZTL4ScalaTestCase {
         waitResponse()
 
         val btn = jq("@button:contains(Save)")
-        val enabled = btn.toWidget().attr("disabled") == "false"
+        val disabled = jq(btn).attr("disabled")
         click(btn)
         waitResponse()
-        val clickWork = jq("@window").toWidget().is("visible")
+        val clickWork = jq("@window").isVisible()
 
-        verifyTrue("should be enabled and click-able", enabled && clickWork)
+        verifyFalse("should be enabled", disabled)
+        verifyTrue("should be click-able", clickWork)
       })
 
   }

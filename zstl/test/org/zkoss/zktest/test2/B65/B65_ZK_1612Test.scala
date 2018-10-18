@@ -70,7 +70,7 @@ void changeTitle(org.zkoss.zul.Panel thePanel)
         dragdropToObject(img, target, position, position)
         waitResponse()
 
-        verifyTrue("You should see the title of the right side panel is changed.", header.text() != headerText)
+        verifyNotEquals("You should see the title of the right side panel is changed.", header.text(), headerText)
       })
 
   }

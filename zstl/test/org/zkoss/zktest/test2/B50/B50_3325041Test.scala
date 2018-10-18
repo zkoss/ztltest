@@ -70,7 +70,7 @@ class B50_3325041Test extends ZTL4ScalaTestCase {
         inputClickCheck(doub.$n(), "1.23", btn3);
         def inputClickCheck(inp: Element, value: String, btn: Widget) {
           click(inp);
-          inp.eval("value=" + value);
+          `type`(inp, value);
           blur(inp);
 
           var vinp: String = inp.attr("value");

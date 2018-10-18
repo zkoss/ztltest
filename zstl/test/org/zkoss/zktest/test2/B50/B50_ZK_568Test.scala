@@ -75,7 +75,7 @@ class B50_ZK_568Test extends ZTL4ScalaTestCase {
       }
 
       clickAndWait(boxBtn);
-      pp.eval("scrollTop = " + jq(lastItem).get(0).attr("offsetTop"));
+      verScroll(pp, jq(lastItem).get(0).attr("offsetTop"));
       clickAndWait(lastItem);
       clickAndWait(boxBtn);
 

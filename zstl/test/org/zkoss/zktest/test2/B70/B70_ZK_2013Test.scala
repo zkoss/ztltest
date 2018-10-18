@@ -62,7 +62,7 @@ model.add("C");
         click(jq(".z-button:contains(Add)"))
         waitResponse()
         verifyTrue("you should see the 'Y' tab is added at the end of the tabs.", jq(".z-tab:contains(Y)").exists)
-        verifyTrue("The create time of the 'B' tab shoud not be changed.", time == jq(".z-tabpanel").find(".z-label:contains(create)").text())
+        verifyEquals("The create time of the 'B' tab shoud not be changed.", time, jq(".z-tabpanel").find(".z-label:contains(create)").text())
         click(jq(".z-tab:contains(Y)"))
         waitResponse()
         val ytime = jq(".z-tabpanel").find(".z-label:contains(create)").text()
@@ -73,7 +73,7 @@ model.add("C");
         click(jq(".z-tab:contains(Y)"))
         waitResponse()
         verifyFalse("the 'C' tab will be remove", jq(".z-tab:contains(C)").exists)
-        verifyTrue("the 'create time' of the 'Y' tab is the same as before.", ytime == jq(".z-tabpanel").find(".z-label:contains(create)").text())
+        verifyEquals("the 'create time' of the 'Y' tab is the same as before.", ytime, jq(".z-tabpanel").find(".z-label:contains(create)").text())
       })
 
   }

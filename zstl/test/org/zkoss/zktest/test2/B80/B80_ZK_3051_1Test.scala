@@ -40,7 +40,7 @@ if the top space is not enouth either, the popup will force show on the bottom o
     runZTL(zscript,
       () => {
         // jq cannot interact with elements inside iframe, have to execute native js
-        getEval("jq(\"iframe\").contents().find(\".z-combobox-button\")[0].click()")
+        evalScript("jq(\"iframe\").contents().find(\".z-combobox-button\")[0].click()")
         waitResponse()
         val h = getEval("jq(\"iframe\").contents().find(\".z-combobox\").outerHeight()")
         val top = getEval("jq(\"iframe\").contents().find(\".z-combobox-popup\").position().top")

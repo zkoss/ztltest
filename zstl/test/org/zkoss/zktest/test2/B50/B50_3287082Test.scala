@@ -55,7 +55,7 @@ class B50_3287082Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       click(jq("@bandbox").toWidget().$n("btn"));
       waitResponse()
-      typeKeys(jq(".z-paging").toWidget.$n("real"), "2");
+      typeKeys(jq(".z-paging-input"), "2");
       waitResponse()
       verifyEquals(jq(msg).text(), "no fire")
     })

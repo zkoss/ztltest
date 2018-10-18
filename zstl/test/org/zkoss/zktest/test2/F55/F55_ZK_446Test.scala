@@ -94,7 +94,7 @@ class F55_ZK_446Test extends ZTL4ScalaTestCase {
         inputAndCheck("ab", "1", false);
         inputAndCheck("cde", "2", false);
         inputAndCheck("A", "2", true);
-        tbx.$n().eval("value = \"\"");
+        evalScript(tbx.$n() + ".value=''")
         inputAndCheck("bc", "3", false);
         inputAndCheck("123", "3", true);
       }

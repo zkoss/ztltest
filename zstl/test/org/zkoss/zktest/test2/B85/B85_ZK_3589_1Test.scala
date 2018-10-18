@@ -15,7 +15,7 @@ class B85_ZK_3589_1Test extends ZTL4ScalaTestCase {
      <include src="/test2/B85-ZK-3589.zul"/>
     """
     runZTL(zscript, () => {
-      getEval("window.scroll(0, 300)")
+      evalScript("window.scroll(0, 300)")
       waitResponse()
       val lbl = jq("@label")
       click(lbl)

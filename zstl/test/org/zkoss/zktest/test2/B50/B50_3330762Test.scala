@@ -64,7 +64,7 @@ class B50_3330762Test extends ZTL4ScalaTestCase {
         var dsInp: Element = ds.$n("real");
 
         click(dsInp);
-        dsInp.eval("value=1");
+        `type`(dsInp, "1");
         click(outer);
         waitResponse();
         clickThenCheck("1.0");

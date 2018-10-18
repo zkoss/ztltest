@@ -108,13 +108,9 @@ class B60_ZK_1031Test extends ZTL4ScalaTestCase {
         var sbx: Widget = engine.$f("sbx");
         var btn: Widget = engine.$f("btn");
 
-        def select(num: Int) {
-          this.select(sbx, num);
-          click(outer);
-          waitResponse();
-        }
-
-        select(1);
+        select(sbx, 1);
+        click(outer);
+        waitResponse();
         verifyFalse("No exception",
           jq(".z-window-modal").exists());
         click(btn);

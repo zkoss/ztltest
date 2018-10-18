@@ -35,7 +35,7 @@ class B50_2890515Test extends ZTL4ScalaTestCase {
       var dtbx: Widget = engine.$f("dtbx")
 
       click(dtbx.$n("real"))
-      dtbx.$n("real").eval("value='20091102'")
+      `type`(dtbx.$n("real"), "20091102")
       blur(dtbx.$n("real"))
       waitResponse()
 
@@ -43,7 +43,7 @@ class B50_2890515Test extends ZTL4ScalaTestCase {
         jq(".z-errorbox").exists())
 
       click(dtbx.$n("real"))
-      dtbx.$n("real").eval("value='20091103'")
+      `type`(dtbx.$n("real"), "20091103")
       blur(dtbx.$n("real"))
       waitResponse()
 

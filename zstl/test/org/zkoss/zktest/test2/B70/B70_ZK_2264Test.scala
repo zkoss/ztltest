@@ -14,7 +14,7 @@ class B70_ZK_2264Test extends ZTL4ScalaTestCase {
         val grid = jq("@grid");
         // for fake scrollbar, we need to do some special steps to make it scroll like manually.
         // simulate mouse over that then we can do mouseDown()
-        grid.toWidget().eval("_scrollbar._mouseEnter()");
+        evalScript(grid.toWidget() + "._scrollbar._mouseEnter()");
         val indicator = jq(".z-scrollbar-indicator");
         // move to right side
         dragdropTo(indicator, "100,2", indicator.width() + ",2")
@@ -24,7 +24,7 @@ class B70_ZK_2264Test extends ZTL4ScalaTestCase {
         waitResponse();
 
         // move to left side
-        grid.toWidget().eval("_scrollbar._mouseEnter()");
+        evalScript(grid.toWidget() + "._scrollbar._mouseEnter()");
         dragdropTo(indicator, "2,2", indicator.width() + ",2")
         waitResponse();
 

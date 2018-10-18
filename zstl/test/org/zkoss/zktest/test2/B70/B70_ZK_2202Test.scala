@@ -20,7 +20,7 @@ class B70_ZK_2202Test extends ZTL4ScalaTestCase {
         sendKeys(jq(".z-timebox").toWidget.$n("real"),
           Keys.HOME + "" + Keys.ARROW_RIGHT + "" + Keys.ARROW_RIGHT + "" + Keys.ARROW_RIGHT + "" + Keys.ARROW_UP
             + "" + Keys.ENTER)
-        verifyTrue("the value of datebox should be updated", value != db.$n("real").attr("value"))
+        verifyNotEquals("the value of datebox should be updated", value, db.$n("real").attr("value"))
       })
 
   }

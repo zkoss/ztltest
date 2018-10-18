@@ -65,7 +65,7 @@ uiDecimalbox.getValue();
       var pc = engine.$f("pc").$n();
 
       // Scroll the panelchildren
-      pc.eval("scrollTop = " + jq(pc).scrollHeight());
+      verScrollAbs(pc, jq(pc).scrollHeight())
       waitResponse();
 
       // Click on submit button

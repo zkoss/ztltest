@@ -12,7 +12,7 @@ class B80_ZK_2772_2Test extends ZTL4ScalaTestCase {
     runZTL(
       () => {
         //save the original column width
-        getEval("recordColsWidth()")
+        evalScript("recordColsWidth()")
         //sort column 6
         click(jq(".z-column").eq(5));
         waitResponse()
@@ -45,7 +45,7 @@ class B80_ZK_2772_2Test extends ZTL4ScalaTestCase {
         dragdropTo(column7, column7.outerWidth() + "," + (column7.outerHeight() / 2), (column7.outerWidth() - 150) + "," + (column7.outerHeight() / 2))
         waitResponse()
         //save column width
-        getEval("recordColsWidth()")
+        evalScript("recordColsWidth()")
         //sort column 7
         click(column7);
         waitResponse()

@@ -36,7 +36,7 @@ class B36_2935398Test extends ZTL4ScalaTestCase {
         waitResponse();
         var b = jq("$div").height() + jq("$tb").height();
         //Scroll down
-        getEval("window.scrollTo(0, " + b + " )");
+        evalScript("window.scrollTo(0, " + b + " )");
         waitResponse();
 
         //Click button

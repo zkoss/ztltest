@@ -70,7 +70,7 @@ class B60_ZK_1053Test extends ZTL4ScalaTestCase {
         var sbx: Widget = engine.$f("sbx");
         var cbx: Widget = engine.$f("cbx");
 
-        focus(sbx);
+        click(sbx);
         waitResponse();
         verifyContains("You should see the msg become 'msg: Selectbox onFocus'",
           msg.$n().attr("innerHTML"), "msg: Selectbox onFocus")
@@ -79,7 +79,7 @@ class B60_ZK_1053Test extends ZTL4ScalaTestCase {
         verifyContains("You should see the msg become 'msg: Selectbox onBlur'",
           msg.$n().attr("innerHTML"), "msg: Selectbox onBlur")
 
-        focus(cbx.$n("inp"));
+        click(cbx.$n("inp"));
         waitResponse();
         verifyContains("You should see the msg become 'msg: Chosenbox onFocus'",
           msg.$n().attr("innerHTML"), "msg: Chosenbox onFocus")

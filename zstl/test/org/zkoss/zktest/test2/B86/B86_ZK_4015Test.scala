@@ -15,7 +15,7 @@ class B86_ZK_4015Test extends ZTL4ScalaTestCase {
       click(jq("@button"))
       waitResponse()
 
-      getEval("window.scroll(0, 10000)")
+      evalScript("window.scroll(0, 10000)")
       click(jq("@bandbox:last").toWidget.$n("btn"))
       waitResponse()
       verifyEquals(1, jq("@bandpopup:visible").length)

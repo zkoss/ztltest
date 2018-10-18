@@ -84,8 +84,8 @@ class B50_3290321Test extends ZTL4ScalaTestCase {
     val lb = ztl$engine.$f("lb")
     val sh = ztl$engine.$f("sh")
     runZTL(zscript, () => {
-      lb.$n("head").eval("scrollLeft = 3000")
-      lb.$n("body").eval("scrollLeft = 3000")
+      horScrollAbs(lb, 3000)
+      waitResponse()
       sleep(1000)
       var hsl = parseInt(lb.$n("head").attr("scrollTop"))
       clickAt(sh, hsl + ",20")

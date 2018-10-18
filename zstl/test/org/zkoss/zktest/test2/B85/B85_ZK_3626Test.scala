@@ -20,7 +20,7 @@ class B85_ZK_3626Test extends ZTL4ScalaTestCase {
   @Test
   def test()=  {
     runZTL(() => {
-      getEval("document.body.style.zoom = '150%'")
+      evalScript("document.body.style.zoom = '150%'")
       waitResponse()
       for (i <- 1 to 8) {
         jq(".z-menubar-right").eval("click()")
@@ -45,6 +45,7 @@ class B85_ZK_3626Test extends ZTL4ScalaTestCase {
       var tab8Height1 = jq(jq(".z-tabs:eq(1)").toWidget().lastChild).height()
       var tab8Top1 =  jq(jq(".z-tabs:eq(1)").toWidget().lastChild).offsetTop()
       verifyTrue(tabsTop1+ tabsHeight1 + 2 > (tab8Top1 + tab8Height1))
+      evalScript("document.body.style.zoom = '100%'")
     })
   }
 }

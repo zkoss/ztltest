@@ -20,7 +20,7 @@ class B85_ZK_3722Test extends ZTL4ScalaTestCase {
 	def test()=  {
 		runZTL(() => {
 			waitResponse()
-      getEval("recordWidths()")
+      evalScript("recordWidths()")
       waitResponse()
       //first row
 			for (i <- 0 to 6) { //cellSize - 1
