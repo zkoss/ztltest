@@ -10,17 +10,17 @@ class B70_ZK_2589Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
     runZTL(() => {
-      var tree = jq("@tree");
-      verScroll(tree, 10);
+      val tree = jq(".z-tree-body");
+      verScrollAbs(tree, (tree.scrollHeight() * .1).intValue());
 
       click(jq(".z-treerow .z-tree-icon").eq(7));
       waitResponse();
       click(jq(".z-treerow .z-tree-icon").eq(7));
       waitResponse();
-      verScroll(tree, 90);
+      verScrollAbs(tree, (tree.scrollHeight() * .9).intValue());
       waitResponse();
       sleep(1000);
-      verScroll(tree, 100);
+      verScrollAbs(tree, tree.scrollHeight());
       waitResponse();
       sleep(1000);
       verifyTrue(jq(".z-treerow").last().isVisible());
