@@ -44,7 +44,7 @@ class B70_ZK_2949Test extends ZTL4ScalaTestCase {
 
         verifyEquals(column1Width, grids.eq(0).find(".z-column").eq(0).width());
 
-        runScript("window.scrollTo(0,1000)");
+        evalScript("window.scrollTo(0,1000)");
         resizeColumn(grids.eq(3));
 
         val toggleButton2 = jq(".z-button:contains(toggle flag (mvc))");

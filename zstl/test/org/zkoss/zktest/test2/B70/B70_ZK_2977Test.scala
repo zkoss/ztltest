@@ -14,13 +14,13 @@ class B70_ZK_2977Test extends ZTL4ScalaTestCase {
         val combobox = jq(".z-combobox").eq(1);
         val comboboxButton = jq(".z-combobox-button").eq(1);
         val comboboxBottom = combobox.offsetTop() + combobox.height();
-        runScript("window.scrollTo(0," + (comboboxBottom + getWindowHeight()) + ")");
-        runScript("window.scrollBy(0,-" + combobox.height() + ")");
+        evalScript("window.scrollTo(0, 1005)");
+        evalScript("window.scrollBy(0,-" + combobox.height() + ")");
         click(comboboxButton);
         waitResponse(true);
-        runScript("window.scrollBy(0," + combobox.height() + ")");
-        val popup = jq(".z-combobox-popup");
-        verifyTrue(popup.offsetTop() >= comboboxBottom);
+        evalScript("window.scrollBy(0," + combobox.height() + ")");
+        val pp = jq(".z-combobox-popup");
+        verifyTrue(pp.offsetTop() >= comboboxBottom);
       })
   }
 }

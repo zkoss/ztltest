@@ -12,19 +12,18 @@ class B70_ZK_2418Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       val listbox = jq("@listbox").toWidget();
-      val firstitem = jq(".z-listitem").first();
+      val lastitem = jq(".z-listitem").children().last();
       val a = listbox.$n("a"); //button can be focused and sendKey
 
       mouseOver(listbox.$n("hor-embed"));
       waitResponse();
-      horScroll(listbox.$n("hor"), 1);
+      horScroll(listbox.$n("hor"), 100);
       waitResponse();
       // Although not selected the first item in Safari, the test case is still valid
-      click(firstitem);
+      click(listbox);
       focus(a);
       sendKeys(a, Keys.DOWN);
       waitResponse();
-      println(">>>> " + jq(listbox.$n("hor-embed")).css("left"))
       verifyNotEquals(0, jq(listbox.$n("hor-embed")).css("left"));
 
     })

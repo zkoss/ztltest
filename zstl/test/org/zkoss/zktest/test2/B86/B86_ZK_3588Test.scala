@@ -22,8 +22,8 @@ class B86_ZK_3588Test extends ZTL4ScalaTestCase {
 			val button = jq(".z-button")
 			click(button)
 			waitResponse()
-			verifyTolerant(jq(".z-listheader.z-frozen-col").width(), jq(".z-frozen-body:eq(0)").width(), 2)
-			verifyTolerant(jq(".z-column.z-frozen-col").width(), jq(".z-frozen-body:eq(1)").width(), 2)
+      verifyTolerant(jq(".z-listheader:eq(0)").width(), jq(".z-frozen-body:eq(0)").width(), 2)
+      verifyTolerant(jq(".z-column:eq(0)").width(), jq(".z-frozen-body:eq(1)").width(), 2)
 
 			nativeFrozenScroll(jq(".z-listbox"), 600)
 			waitResponse()

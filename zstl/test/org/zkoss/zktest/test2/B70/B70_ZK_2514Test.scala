@@ -11,23 +11,15 @@ class B70_ZK_2514Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       val vsplitter = jq(".z-splitter-horizontal")
-      var startL = vsplitter.positionLeft()
-      var startT = vsplitter.positionTop()
-      val endL = startL - 200;
-      dragdropTo(vsplitter, startL + "," + startT, endL + "," + startT)
+      dragdropTo(vsplitter, "3,3", "-200,3")
       waitResponse(true)
       val oldWidth = jq(".z-vbox").width()
-      startL = vsplitter.positionLeft()
-      startT = vsplitter.positionTop()
-      dragdropTo(vsplitter, startL + "," + startT, (startL + 30) + "," + startT)
+      dragdropTo(vsplitter, "3,3", "230,3")
       verifyTrue(jq(".z-vbox").width() - oldWidth > 0)
       waitResponse(true)
       val hsplitter = jq(".z-splitter-vertical")
       val oldHeight = jq(".z-vbox").height()
-      startL = hsplitter.positionLeft()
-      startT = hsplitter.positionTop()
-      val endT = startT - 100
-      dragdropTo(hsplitter, startL + "," + startT, startL + "," + endT)
+      dragdropTo(hsplitter, "3,3", "3,-100")
       verifyTrue(jq(".z-vbox").height() - oldHeight == 0)
 
     })

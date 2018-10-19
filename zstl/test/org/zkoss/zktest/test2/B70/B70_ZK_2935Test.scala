@@ -14,10 +14,10 @@ class B70_ZK_2935Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
     runZTL(() => {
-      verifyEquals("null", getEval("zk.currentFocus"));
+      verifyContains("nullundefined", getEval("zk.currentFocus"));
       sendKeys(jq("body"), Keys.TAB)
       waitResponse(true)
-      verifyEquals("null", getEval("zk.currentFocus"));
+      verifyContains("nullundefined", getEval("zk.currentFocus"));
     })
   }
 

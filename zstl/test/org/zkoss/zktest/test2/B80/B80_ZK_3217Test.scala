@@ -31,7 +31,7 @@ class B80_ZK_3217Test extends ZTL4ScalaTestCase {
       val clientHeight = parseInt(getEval("document.documentElement.clientHeight"))
       val offset = db.offsetTop() + db.outerHeight() - clientHeight
       val button = jq(".z-datebox-button")
-      runScript("window.scrollTo(0," + offset + ")")
+      evalScript("window.scrollTo(0," + offset + ")")
       click(button)
       val popup = jq(".z-datebox-popup")
       val orgHeight = popup.positionTop()

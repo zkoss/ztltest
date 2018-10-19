@@ -12,6 +12,7 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B30
 
 import org.junit.Test
+import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.Widget
 
@@ -22,8 +23,7 @@ class B30_2080346Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       var inp = jq("@combobox").toWidget().$n("real")
       focus(inp)
-      typeKeys(inp, "a")
-      blur(inp)
+      sendKeys(inp, "a" + Keys.ENTER)
       waitResponse()
       verifyEquals("aa", jq("$copy").`val`())
     })

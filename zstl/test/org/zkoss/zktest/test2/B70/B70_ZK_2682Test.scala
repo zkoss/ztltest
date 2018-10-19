@@ -12,7 +12,7 @@ class B70_ZK_2682Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       //open to check items number
       val combobox = jq("@combobox").toWidget
-      combobox.eval("open()") // to show popu first so we can find comboitem in zkmax
+      evalScript(combobox + ".open()") // to show popu first so we can find comboitem in zkmax
       waitResponse()
       val comboitems = jq(combobox).find("@comboitem")
       val grid_rows = jq("@grid:first").find("@row")

@@ -14,10 +14,10 @@ class B70_ZK_2652Test extends ZTL4ScalaTestCase {
 
       click(chosenbox);
       waitResponse();
-      var originTop = jq(".z-chosenbox-popup").css("top");
-      verScroll(jq("@window"), 0.7);
+      var originTop = jq(".z-chosenbox-popup").positionTop();
+      verScroll(jq("@window"), 70);
       waitResponse();
-      verifyTrue(jq(".z-chosenbox-popup").css("top") < originTop);
+      verifyTrue(jq(".z-chosenbox-popup").positionTop() < originTop);
     })
 
   }

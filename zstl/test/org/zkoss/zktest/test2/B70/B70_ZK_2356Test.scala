@@ -62,22 +62,21 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
     runZTL(zscript,
       () => {
         val menus = jq("@menu");
-        var top = -1;
         clickAt(menus.first(), "1,1");
         waitResponse();
-        top = jq("@menupopup").first().scrollTop();
+        var sTop = jq("@menupopup").first().scrollTop();
         clickAt(menus.first(), "1,1");
         waitResponse();
 
         clickAt(menus.eq(1), "1,1");
         waitResponse();
-        verifyTrue("menupopups should have same height of top.", jq("@menupopup").eq(1).scrollTop() == top);
+        verifyEquals("menupopups should have same height of top.", sTop, jq("@menupopup").eq(1).scrollTop());
         clickAt(menus.eq(1), "1,1");
         waitResponse();
 
         clickAt(menus.eq(2), "1,1");
         waitResponse();
-        verifyTrue("menupopups should have same height of top.", jq("@menupopup").eq(2).scrollTop() == top);
+        verifyEquals("menupopups should have same height of top.", sTop, jq("@menupopup").eq(2).scrollTop());
       })
 
   }
