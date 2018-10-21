@@ -35,7 +35,7 @@ class Z60_TemplateComboboxTest extends ZTL4ScalaTestCase {
       var outerrow = outerrows
       for (i <- 0 to itemLabel.length - 1) {
         var combobox = jq(outerrow).find("@combobox").toWidget()
-        combobox.eval("open()") // to show popu first so we can find comboitem in zkmax
+        evalScript(combobox + ".open()") // to show popu first so we can find comboitem in zkmax
         waitResponse(true)
         var comboitems = jq(combobox).find("@comboitem")
         verifyEquals(4, comboitems.length())

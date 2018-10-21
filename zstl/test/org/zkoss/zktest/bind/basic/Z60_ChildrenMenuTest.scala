@@ -56,7 +56,7 @@ class Z60_ChildrenMenuTest extends ZTL4ScalaTestCase {
           click(w) // need to click if menu is in menu bar
           waitResponse()
           // show menu popup
-          w.firstChild().eval("open()")
+          evalScript(w.firstChild() + ".open()")
           waitResponse()
           testMenu(n.getChildren(), w.firstChild())
         }

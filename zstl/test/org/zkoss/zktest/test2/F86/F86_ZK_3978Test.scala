@@ -15,7 +15,7 @@ class F86_ZK_3978Test extends ZTL4ScalaTestCase {
       verScroll(jq("@tree"), 50)
 
       closeZKLog()
-      jq(".z-tree-icon").get(0).eval("scrollIntoView()")
+      evalScript(jq(".z-tree-icon").get(0) + ".scrollIntoView()")
       click(jq(".z-tree-icon:eq(0)"))
       waitResponse()
 

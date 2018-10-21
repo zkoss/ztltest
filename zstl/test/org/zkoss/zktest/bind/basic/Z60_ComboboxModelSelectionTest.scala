@@ -31,16 +31,16 @@ class Z60_ComboboxModelSelectionTest extends ZTL4ScalaTestCase {
       var combobox1 = jq("$cb1")
       var combobox2 = jq("$cb2")
       verifyEquals("", jq("$msg").toWidget().attr("value"))
-      combobox1.toWidget().eval("open()") // has to wait for open
+      evalScript(combobox1.toWidget() + ".open()") // has to wait for open
       waitResponse()
       var items = combobox1.find("@comboitem")
-      combobox1.toWidget().eval("open()") // has to wait for open
+      evalScript(combobox1.toWidget() + ".open()") // has to wait for open
       waitResponse()
       click(items.eq(1).toWidget())
       waitResponse()
       verifyEquals("B", combobox1.toWidget().attr("value"))
       verifyEquals("A", combobox2.toWidget().attr("value"))
-      combobox1.toWidget().eval("open()") // has to wait for open
+      evalScript(combobox1.toWidget() + ".open()") // has to wait for open
       waitResponse()
       click(items.eq(2).toWidget())
       waitResponse()

@@ -43,7 +43,7 @@ class Z60_ComboboxModelTest extends ZTL4ScalaTestCase {
 
       for (i <- 0 to itemLabel.length - 1) {
         var combobox = jq(outerrow).find("@combobox").toWidget()
-        combobox.eval("open()") // to show popu first so we can find comboitem in zkmax
+        evalScript(combobox + ".open()") // to show popu first so we can find comboitem in zkmax
         waitResponse()
         var comboitems = jq(combobox).find("@comboitem")
         verifyEquals(2, comboitems.length())
@@ -71,7 +71,7 @@ class Z60_ComboboxModelTest extends ZTL4ScalaTestCase {
       outerrow = outerrows
       for (i <- 0 to itemLabel.length - 1) {
         var combobox = jq(outerrow).find("@combobox").toWidget()
-        combobox.eval("open()") // to show popu first so we can find comboitem in zkmax
+        evalScript(combobox + ".open()") // to show popu first so we can find comboitem in zkmax
         waitResponse()
         var comboitems = jq(combobox).find("@comboitem")
         verifyEquals(2, comboitems.length())
@@ -98,7 +98,7 @@ class Z60_ComboboxModelTest extends ZTL4ScalaTestCase {
       outerrow = outerrows
       for (i <- 0 to itemLabel.length - 1) {
         var combobox = jq(outerrow).find("@combobox").toWidget()
-        combobox.eval("open()") // to show popu first so we can find comboitem in zkmax
+        evalScript(combobox + ".open()") // to show popu first so we can find comboitem in zkmax
         waitResponse()
         var comboitems = jq(combobox).find("@comboitem")
         verifyEquals(2, comboitems.length())

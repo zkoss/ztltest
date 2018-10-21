@@ -161,7 +161,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         val bgColor = jq("@window .z-window-content").get(0).attr("style.backgroundColor")
         clickAndWait(jq(bd2).toWidget.$n("btn"))
         openMenu(Array(pp2About, pp2Menu, pp2ColorPicker, pp2ColorPicker))
-        jq(".z-colorpalette-color:eq(22)").get(0).eval("click();'dummy'")
+        evalScript(jq(".z-colorpalette-color:eq(22)").get(0) + ".click()")
         waitResponse()
         verifyNotEquals("The background color didn't change", bgColor, jq("@window .z-window-content").get(0).attr("style.backgroundColor"))
 

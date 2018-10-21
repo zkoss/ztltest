@@ -23,9 +23,9 @@ class B85_ZK_3626Test extends ZTL4ScalaTestCase {
       evalScript("document.body.style.zoom = '150%'")
       waitResponse()
       for (i <- 1 to 8) {
-        jq(".z-menubar-right").eval("click()")
-        jq(".z-tabbox-right-scroll").eval("click()")
-        jq(".z-tabbox-down-scroll").eval("click()")
+        evalScript(jq(".z-menubar-right") + ".click()")
+        evalScript(jq(".z-tabbox-right-scroll") + ".click()")
+        evalScript(jq(".z-tabbox-down-scroll") + ".click()")
         waitResponse()
       }
       var manubarBodyWidth = jq(".z-menubar-body").width()

@@ -15,7 +15,7 @@ class B70_ZK_2971Test extends ZTL4ScalaTestCase {
         var listboxs = jq(".z-listbox");
         var listbox2 = listboxs.eq(1);
         val start = listbox2.find(".z-listitem").eq(6)
-        start.get(0).eval("scrollIntoView()") // FIXME: Firefox workaround
+        evalScript(start.get(0) + ".scrollIntoView()")
         click(start)
         waitResponse()
         var real = listbox2.toWidget().$n("a")

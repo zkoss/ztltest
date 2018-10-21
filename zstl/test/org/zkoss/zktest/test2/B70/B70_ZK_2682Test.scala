@@ -35,13 +35,13 @@ class B70_ZK_2682Test extends ZTL4ScalaTestCase {
       verifyEquals(1, listbox_page_items.length())
 
       //click to check selection sync
-      combobox.eval("open()") // to show popu first so we can find comboitem in zkmax
+      evalScript(combobox + ".open()") // to show popu first so we can find comboitem in zkmax
       waitResponse()
       click(comboitems.last)
       waitResponse()
       verifyTrue(listbox_items.last.hasClass("z-listitem-selected"))
       verifyTrue(listbox_page_items.last.hasClass("z-listitem-selected"))
-      combobox.eval("open()") // to show popu first so we can find comboitem in zkmax
+      evalScript(combobox + ".open()") // to show popu first so we can find comboitem in zkmax
       waitResponse()
       verifyTrue(comboitems.last.hasClass("z-comboitem-selected"))
     })

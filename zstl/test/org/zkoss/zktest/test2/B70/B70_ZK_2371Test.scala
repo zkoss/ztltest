@@ -37,7 +37,7 @@ class B70_ZK_2371Test extends ZTL4ScalaTestCase {
     runZTL(zscript,
       () => {
         val btn = jq("@button");
-        zk(btn).eval("scrollIntoView();'test';");
+        evalScript(zk(btn) + ".scrollIntoView()")
         waitResponse();
         click(btn);
         waitResponse();

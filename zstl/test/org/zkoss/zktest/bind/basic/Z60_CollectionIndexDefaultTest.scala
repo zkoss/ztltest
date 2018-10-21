@@ -62,7 +62,7 @@ class Z60_CollectionIndexDefaultTest extends ZTL4ScalaTestCase {
       }
 
       var combobox = jq("$combobox")
-      combobox.toWidget().eval("open()") //to show popu first so we can find comboitem in zkmax
+      evalScript(combobox.toWidget() + ".open()") //to show popu first so we can find comboitem in zkmax
       waitResponse()
       var comboitems = combobox.find("@comboitem")
       verifyEquals(4, comboitems.length())

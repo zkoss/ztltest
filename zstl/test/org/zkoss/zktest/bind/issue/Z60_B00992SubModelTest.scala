@@ -36,7 +36,7 @@ class Z60_B00992SubModelTest extends ZTL4ScalaTestCase {
       waitResponse()
       verifyEquals("9", lab.toWidget().attr("value"))
 
-      combobox.toWidget().eval("open()")
+      evalScript(combobox.toWidget() + ".open()")
       waitResponse()
 
       var w = combobox.find("@comboitem").eq(10)

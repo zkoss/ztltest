@@ -19,13 +19,13 @@ class B85_ZK_3589Test extends ZTL4ScalaTestCase {
       waitResponse()
 
       // To the bottom and click something
-      zk(bottom).eval("scrollIntoView();'test';")
+      evalScript(zk(bottom) + ".scrollIntoView()")
       waitResponse()
       click(bottom)
       waitResponse()
 
       // To the top
-      zk(top).eval("scrollIntoView();'test';")
+      evalScript(zk(top) + ".scrollIntoView()")
       waitResponse()
       verifyFalse("The popup still appears!", jq("@popup").isVisible)
     })

@@ -38,7 +38,7 @@ class Z60_B01188MixingELWithRef2Test extends ZTL4ScalaTestCase {
       verifyEquals("0.Item 1", items.eq(0).find("@label").toWidget().attr("value"))
       verifyEquals("1.Item 2", items.eq(1).find("@label").toWidget().attr("value"))
 
-      jq("$combobox1").toWidget().eval("open()")
+      evalScript(jq("$combobox1").toWidget() + ".open()")
       waitResponse()
       items = jq("$combobox1").find("@comboitem")
       verifyEquals("0.Item 1", items.eq(0).toWidget().attr("label"))

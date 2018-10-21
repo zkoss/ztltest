@@ -67,11 +67,13 @@ class F85_ZK_3624Test extends ZTL4ScalaTestCase {
 	}
 	
 	def increaseByKeyboard()=  {
+    focus(jq(".z-spinner-input"))
 		sendKeys(jq(".z-spinner-input"), Keys.UP)
 		waitResponse()
 	}
 	
 	def decreaseByKeyboard()=  {
+    focus(jq(".z-spinner-input"))
 		sendKeys(jq(".z-spinner-input"), Keys.DOWN)
 		waitResponse()
 	}
