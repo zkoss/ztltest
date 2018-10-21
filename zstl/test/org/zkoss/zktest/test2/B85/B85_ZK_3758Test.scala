@@ -27,19 +27,18 @@ class B85_ZK_3758Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {
     runZTL(() => {
-      windowResizeTo(1000, 800)
       waitResponse()
       var headBtn = jq(".z-column .z-column-button").get(0)
       var prevGridHeight = jq(".z-grid").height()
 
-      mouseOver(headBtn)
+      mouseOver(jq(".z-column").eq(0))
       waitResponse()
       click(headBtn)
       waitResponse()
       click(jq(".z-menuitem.z-menuitem-checkable").get(1))
       waitResponse()
 
-      mouseOver(headBtn)
+      mouseOver(jq(".z-column").eq(0))
       waitResponse()
       click(headBtn)
       waitResponse()
@@ -47,7 +46,6 @@ class B85_ZK_3758Test extends ZTL4ScalaTestCase {
       waitResponse()
 
       var gridHeight = jq(".z-grid").height()
-      println(prevGridHeight, gridHeight)
       verifyTrue(prevGridHeight > gridHeight)
     })
   }

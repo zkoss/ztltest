@@ -19,8 +19,7 @@ class B85_ZK_3766Test extends ZTL4ScalaTestCase {
       val ppLeft = jq(".z-bandbox-popup.z-bandbox-open:visible").offsetLeft()
       val bbLeft = bandbox.offsetLeft()
       val delta = ppLeft - bbLeft
-      val tolerance = -5
-      verifyTrue("The popup should be positioned after_end, not after_start.", delta < tolerance)
+      verifyTrue("The popup should be positioned after_end, not after_start.", delta < -5)
     })
   }
 }

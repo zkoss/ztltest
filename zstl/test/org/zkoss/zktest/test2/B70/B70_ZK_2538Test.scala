@@ -66,11 +66,14 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """
     runZTL(zscript,
       () => {
+        sleep(3000)
+        waitResponse()
         var last_btn = jq(".z-paging-button.z-paging-last");
         click(last_btn);
         waitResponse();
         var row1 = jq(".z-button").eq(0);
         click(row1);
+        waitResponse()
         var errbox = jq(".z-error");
         verifyFalse(errbox.isVisible());
       })

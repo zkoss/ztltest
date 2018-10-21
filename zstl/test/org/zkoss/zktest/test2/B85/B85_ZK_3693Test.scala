@@ -10,9 +10,9 @@ class B85_ZK_3693Test extends ZTL4ScalaTestCase {
   def test() = {
     runZTL(() => {
       scrollDownAndClick("$lb", "$gr")
-      verScroll(jq("$lb_m"), .5)
+      verScroll(jq("$lb_m"), 50)
       waitResponse(true)
-      verScroll(jq("$gr_m"), .5)
+      verScroll(jq("$gr_m"), 50)
       waitResponse(true)
       val buttons = jq("@button")
       click(buttons.eq(0))
@@ -26,17 +26,14 @@ class B85_ZK_3693Test extends ZTL4ScalaTestCase {
   def scrollDownAndClick(listboxSelector: String, gridSelector: String) = {
     val listbox = jq(listboxSelector)
     val grid = jq(gridSelector)
-    verScroll(listbox, 1)
+    verScroll(listbox, 100)
     waitResponse(true)
-    verScroll(grid, 1)
+    verScroll(grid, 100)
     waitResponse(true)
-    val listitems = jq(listboxSelector + " .z-listitem")
-    val lastlistitem = listitems.eq(listitems.length() - 1)
-    val rows = jq(gridSelector + " .z-row")
-    val lastRow = rows.eq(rows.length() - 1)
-    click(lastlistitem)
+    val rows = jq(gridSelector).find(".z-row")
+    click(jq(listboxSelector).find(".z-listitem").last())
     waitResponse(true)
-    click(lastRow)
+    click(rows.last())
     waitResponse(true)
   }
 }

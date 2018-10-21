@@ -19,23 +19,38 @@ class B85_ZK_3865Test extends ZTL4ScalaTestCase {
   def test()=  {
     runZTL(() => {
       val outers = jq(".outer")
-      for (i <- 0 to 4) {
-        var widthToMinus = 0
-        var heightToMinus = 0
-        val outer = outers.eq(i)
-        val inner = outer.find(".inner")
-        val innerWidget = inner.toWidget
-        if (i == 0 || i == 1 || i == 4) {
-          widthToMinus += parseInt(inner.css("margin-left"))
-          widthToMinus += parseInt(inner.css("margin-right"))
-          verifyEquals(inner.width(), outer.width() - widthToMinus)
-        }
-        if (i == 2 || i == 3 || i == 4) {
-          heightToMinus += parseInt(inner.css("margin-top"))
-          heightToMinus += parseInt(inner.css("margin-bottom"))
-          verifyEquals(inner.height(), outer.height() - heightToMinus)
-        }
-      }
+      //0
+      var outer = outers.eq(0)
+      var inner = outer.find(".inner")
+      var widthToMinus = parseInt(inner.css("margin-left")) + parseInt(inner.css("margin-right"))
+      verifyEquals(inner.outerWidth(), outer.outerWidth() - widthToMinus)
+
+      //1
+      outer = outers.eq(1)
+      inner = outer.find(".inner")
+      widthToMinus = parseInt(inner.css("margin-left")) + parseInt(inner.css("margin-right"))
+      verifyEquals(inner.outerWidth(), outer.outerWidth() - widthToMinus)
+
+      //2
+      outer = outers.eq(2)
+      inner = outer.find(".inner")
+      var heightToMinus = parseInt(inner.css("margin-top")) + parseInt(inner.css("margin-bottom"))
+      verifyEquals(inner.outerHeight(), outer.outerHeight() - heightToMinus)
+
+      //3
+      outer = outers.eq(3)
+      inner = outer.find(".inner")
+      heightToMinus = parseInt(inner.css("margin-top")) + parseInt(inner.css("margin-bottom"))
+      verifyEquals(inner.outerHeight(), outer.outerHeight() - heightToMinus)
+
+      //4
+      outer = outers.eq(4)
+      inner = outer.find(".inner")
+      widthToMinus = parseInt(inner.css("margin-left")) + parseInt(inner.css("margin-right"))
+      heightToMinus = parseInt(inner.css("margin-top")) + parseInt(inner.css("margin-bottom"))
+      verifyEquals(inner.outerWidth(), outer.outerWidth() - widthToMinus)
+      verifyEquals(inner.outerHeight(), outer.outerHeight() - heightToMinus)
+
     })
   }
 }
