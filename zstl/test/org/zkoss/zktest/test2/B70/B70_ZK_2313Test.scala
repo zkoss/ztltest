@@ -150,17 +150,13 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         val b2 = jq("$b2");
         val b3 = jq("$b3");
         val lists = jq("@listbox");
-        var scrollFail = false;
 
         click(b1)
         waitResponse()
         var index = 0
         while (index < 8) { //lists.length()
           val list = lists.eq(index);
-          println(getScrollTop(list.toWidget()));
-          if (getScrollTop(list.toWidget()) == 0) {
-            scrollFail = true;
-          }
+          verifyNotEquals("scrolling should be changed after button click.", 0, getScrollTop(list.toWidget()))
           index += 1
         }
 
@@ -169,10 +165,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         index = 0
         while (index < 8) { //lists.length()
           val list = lists.eq(index);
-          println(getScrollTop(list.toWidget()));
-          if (getScrollTop(list.toWidget()) > 0) {
-            scrollFail = true;
-          }
+          verifyNotEquals("scrolling should be changed after button click.", 0, getScrollTop(list.toWidget()))
           index += 1
         }
 
@@ -181,14 +174,9 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         index = 0
         while (index < 8) { //lists.length()
           val list = lists.eq(index);
-          println(getScrollTop(list.toWidget()));
-          if (getScrollTop(list.toWidget()) == 0) {
-            scrollFail = true;
-          }
+          verifyNotEquals("scrolling should be changed after button click.", 0, getScrollTop(list.toWidget()))
           index += 1
         }
-
-        verifyFalse("scrolling should be changed after button click.", scrollFail);
       })
 
   }

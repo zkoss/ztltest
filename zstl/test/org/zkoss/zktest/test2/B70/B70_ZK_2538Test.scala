@@ -66,7 +66,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """
     runZTL(zscript,
       () => {
-        sleep(3000)
+        sleep(5000)
         waitResponse()
         var last_btn = jq(".z-paging-button.z-paging-last");
         click(last_btn);
