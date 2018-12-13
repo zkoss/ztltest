@@ -165,7 +165,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         index = 0
         while (index < 8) { //lists.length()
           val list = lists.eq(index);
-          verifyNotEquals("scrolling should be changed after button click.", 0, getScrollTop(list.toWidget()))
+          verifyEquals("scrolling should be changed after button click.", 0, getScrollTop(list.toWidget()))
           index += 1
         }
 
