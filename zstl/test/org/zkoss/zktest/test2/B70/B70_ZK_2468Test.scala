@@ -11,7 +11,11 @@ class B70_ZK_2468Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(
       () => {
-        verifyEquals(jq(".z-grid-body").width(), jq(".z-grid-body > table").width())
+        val columns = jq(".z-column")
+        val cells = jq(".z-row:eq(0) > .z-cell")
+        for (i <- 0 to 2) {
+          verifyTolerant(columns.eq(i).offsetLeft(), cells.eq(i).offsetLeft(), 1)
+        }
       })
 
   }
