@@ -69,12 +69,8 @@ class B65_ZK_1642Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        val col1 = jq(".z-treecol:eq(0)")
-        val col2 = jq(".z-treecol:eq(1)")
-        val col3 = jq(".z-treecol:eq(2)")
-        verifyTrue("Should see header width of 'col2' and 'col3' are equal to its content width", getEval("Math.abs(" + col1.width() + "-" + col2.width() + ") <= 3"))
-        verifyTrue("Should see header width of 'col2' and 'col3' are equal to its content width", getEval("Math.abs(" + col1.width() + "-" + col3.width() + ") <= 3"))
-        verifyTrue("Should see header width of 'col2' and 'col3' are equal to its content width", getEval("Math.abs(" + col2.width() + "-" + col3.width() + ") <= 3"))
+        verifyTolerant(jq(".z-treecol:eq(1)").width(), jq(".z-treecell:eq(1)").width(), 3)
+        verifyTolerant(jq(".z-treecol:eq(2)").width(), jq(".z-treecell:eq(2)").width(), 3)
       })
 
   }
