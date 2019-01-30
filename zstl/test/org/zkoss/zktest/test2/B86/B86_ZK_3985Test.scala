@@ -7,10 +7,10 @@ class B86_ZK_3985Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit = {
     runZTL(() => {
-      var listboxHeight: String = jq(".z-listbox").height().toString()
+      var listboxHeight = jq(".z-listbox").height()
       click(jq(".z-listcell").eq(0))
       waitResponse()
-      verifyContains(getZKLog(), listboxHeight)
+      verifyContains(getZKLog(), listboxHeight + "")
     })
   }
 }

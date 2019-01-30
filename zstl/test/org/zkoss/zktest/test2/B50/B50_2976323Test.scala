@@ -1,4 +1,4 @@
-package org.zkoss.zktest.test2.B85
+package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase

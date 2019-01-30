@@ -75,10 +75,12 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         verifyEquals("email only", jq(".z-errorbox-content").text());
 
         var ib = jq(".z-intbox");
+        waitResponse();
         sendKeys(ib, "-1");
         blur(ib);
         waitResponse();
         verifyEquals("no neg", jq(".z-errorbox-content").eq(1).text());
+        click(ib);
         sendKeys(ib, Keys.BACK_SPACE, Keys.BACK_SPACE);
         sendKeys(ib, "1");
         blur(ib);
@@ -113,6 +115,7 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
         blur(db2);
         waitResponse();
         verifyEquals("no before", jq(".z-errorbox-content").eq(4).text());
+        click(db2)
         sendKeys(db2, Keys.BACK_SPACE, Keys.BACK_SPACE, "21");
         blur(db2);
         waitResponse();

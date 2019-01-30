@@ -40,6 +40,8 @@ class B50_3035897Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       typeKeys(jq("@longbox"), "100%")
       waitResponse()
+      blur(jq("@longbox"));
+      waitResponse()
       verifyEquals("1", jq("@longbox").`val`())
     })
   }

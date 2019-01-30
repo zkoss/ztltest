@@ -1,3 +1,4 @@
+package org.zkoss.zktest.test2.B85
 /* B85_ZK_3792Test.java
 
         Purpose:

@@ -45,7 +45,9 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 """
     runZTL(zscript,
       () => {
-        verifyEquals("0\n1\n2\n", jq("$lbl").text())
+        click(jq("@button"))
+        waitResponse()
+        verifyEquals("true", getZKLog())
       })
   }
 }

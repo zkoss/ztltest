@@ -82,17 +82,12 @@ class B50_3290321Test extends ZTL4ScalaTestCase {
 		"""
     val ztl$engine = engine()
     val lb = ztl$engine.$f("lb")
-    val sh = ztl$engine.$f("sh")
     runZTL(zscript, () => {
       horScrollAbs(lb, 3000)
       waitResponse()
-      sleep(1000)
-      var hsl = parseInt(lb.$n("head").attr("scrollTop"))
-      clickAt(sh, hsl + ",20")
+      clickAt(lb, (jq(lb).outerWidth() - 5) + "," + 2)
       waitResponse()
-      var newHsl = parseInt(lb.$n("head").attr("scrollTop"))
-      verifyTrue(hsl == newHsl)
-      verifyTrue(jq(".z-listheader").toWidget().$n("sort-icon").exists())
+      verifyNotEquals(0, getScrollLeft(lb))
     })
   }
 }

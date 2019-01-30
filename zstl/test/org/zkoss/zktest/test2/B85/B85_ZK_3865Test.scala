@@ -23,34 +23,33 @@ class B85_ZK_3865Test extends ZTL4ScalaTestCase {
       var outer = outers.eq(0)
       var inner = outer.find(".inner")
       var widthToMinus = parseInt(inner.css("margin-left")) + parseInt(inner.css("margin-right"))
-      verifyEquals(inner.width(), outer.width() - widthToMinus)
+      verifyEquals(inner.outerWidth(), outer.innerWidth() - widthToMinus)
 
       //1
       outer = outers.eq(1)
       inner = outer.find(".inner")
       widthToMinus = parseInt(inner.css("margin-left")) + parseInt(inner.css("margin-right"))
-      verifyEquals(inner.width(), outer.width() - widthToMinus)
+      verifyEquals(inner.outerWidth(), outer.innerWidth() - widthToMinus)
 
       //2
       outer = outers.eq(2)
       inner = outer.find(".inner")
       var heightToMinus = parseInt(inner.css("margin-top")) + parseInt(inner.css("margin-bottom"))
-      verifyEquals(inner.height(), outer.height() - heightToMinus)
+      verifyEquals(inner.outerHeight(), outer.innerHeight() - heightToMinus)
 
       //3
       outer = outers.eq(3)
       inner = outer.find(".inner")
       heightToMinus = parseInt(inner.css("margin-top")) + parseInt(inner.css("margin-bottom"))
-      verifyEquals(inner.height(), outer.height() - heightToMinus)
+      verifyEquals(inner.outerHeight(), outer.innerHeight() - heightToMinus)
 
       //4
       outer = outers.eq(4)
       inner = outer.find(".inner")
       widthToMinus = parseInt(inner.css("margin-left")) + parseInt(inner.css("margin-right"))
       heightToMinus = parseInt(inner.css("margin-top")) + parseInt(inner.css("margin-bottom"))
-      verifyEquals(inner.width(), outer.width() - widthToMinus)
-      verifyEquals(inner.height(), outer.height() - heightToMinus)
-
+      verifyEquals(inner.outerWidth(), outer.outerWidth() - widthToMinus)
+      verifyEquals(inner.outerHeight(), outer.innerHeight() - heightToMinus)
     })
   }
 }

@@ -14,6 +14,7 @@ package org.zkoss.zktest.test2.B50
 ;
 
 import org.junit.Test
+import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.Widget
 
@@ -21,35 +22,13 @@ import org.zkoss.ztl.unit.Widget
 class B50_3251564Test extends ZTL4ScalaTestCase {
   @Test
   def testztl() = {
-    var zscript =
-      """
-			<zk>
-	<html><![CDATA[
-		<ol>
-			<li>Click on the Textbox on the right side and click somewhere else to show the Errorbox.</li>
-			<li>The Errorbox should appear within the browser screen (so you shoule be able to see it).</li>
-			<li>The Errorbox should NOT cover the Textbox.</li>
-		</ol>
-	]]></html>
-	<style>
-		body {
-			overflow: hidden;
-		}
-	</style>
-	<window border="normal">
-		<hlayout>
-			<div hflex="1" />
-			<textbox constraint="no empty" />
-		</hlayout>
-	</window>
-</zk>
-
-		"""
     val ztl$engine = engine()
-    runZTL(zscript, () => {
+    runZTL(() => {
       var x = jq("@textbox").offsetLeft()
       typeKeys(jq("@textbox"), "")
-      waitResponse(true)
+      waitResponse()
+      sendKeys(jq("@textbox"), Keys.TAB)
+      waitResponse()
       verifyTrue(jq(".z-errorbox").exists())
       var y = jq(".z-errorbox").positionLeft()
       var y1 = jq(".z-errorbox").outerWidth()

@@ -17,13 +17,13 @@ class B70_ZK_2574Test extends ZTL4ScalaTestCase {
         click(btn);
         waitResponse();
         verifyEquals("started", status.html());
-        sleep(2000);
+        sleep(2100);
         verifyEquals("finished", status.html());
 
         click(btn2);
         waitResponse();
         verifyEquals("started", status.html());
-        sleep(2000);
+        sleep(2100);
         verifyEquals("finished", status.html());
       })
 

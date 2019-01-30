@@ -103,24 +103,24 @@ class F60_ZK_469Test extends ZTL4ScalaTestCase {
         def clickAndVerify(btn: Widget, addX: Int, addY: Int) {
           click(btn);
           waitResponse();
-          w1x += addX
-          w1y += addY
-          w2x += addX
-          w2y += addY
-          w3x += addX
-          w3y += addY
+          var p1Left = parentLeft + w1x + addX
+          var p1Top = parentTop + w1x + addY
+          var p2Left = parentLeft + w2x + addX
+          var p2Top = parentTop + w2y + addY
+          var p3Left = parentLeft + w3x + addX
+          var p3Top = parentTop + w3y + addY
           verifyTrue("The position should be changed correctly",
-            getEval("Math.abs(" + jq(w1).offsetLeft() + "-" + parentLeft + "-" + w1x + ") < 2"))
+            getEval("Math.abs(" + jq(w1).offsetLeft() + "-" + p1Left + ") < 2"))
           verifyTrue("The position should be changed correctly",
-            getEval("Math.abs(" + jq(w1).offsetTop() + "-" + parentTop + "-" + w1y + ") < 2"))
+            getEval("Math.abs(" + jq(w1).offsetTop() + "-" + p1Top + ") < 2"))
           verifyTrue("The position should be changed correctly",
-            getEval("Math.abs(" + jq(w2).offsetLeft() + "-" + parentLeft + "-" + w2x + ") < 2"))
+            getEval("Math.abs(" + jq(w2).offsetLeft() + "-" + p2Left + ") < 2"))
           verifyTrue("The position should be changed correctly",
-            getEval("Math.abs(" + jq(w2).offsetTop() + "-" + parentTop + "-" + w2y + ") < 2"))
+            getEval("Math.abs(" + jq(w2).offsetTop() + "-" + p2Top + ") < 2"))
           verifyTrue("The position should be changed correctly",
-            getEval("Math.abs(" + jq(w3).offsetLeft() + "-" + parentLeft + "-" + w3x + ") < 2"))
+            getEval("Math.abs(" + jq(w3).offsetLeft() + "-" + p2Left + ") < 2"))
           verifyTrue("The position should be changed correctly",
-            getEval("Math.abs(" + jq(w3).offsetTop() + "-" + parentTop + "-" + w3y + ") < 2"))
+            getEval("Math.abs(" + jq(w3).offsetTop() + "-" + p3Top + ") < 2"))
         }
 
         clickAndVerify(btnOne, 100, 0);
