@@ -14,7 +14,7 @@ class F85_ZK_3739Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       val textbox = jq("@textbox")
       focus(textbox)
-      evalScript(zk(textbox) + ".setSelectionRange(2,2)")
+      zk(textbox).eval("setSelectionRange(2,2);1;")
 
       click(jq("@toolbarbutton:eq(0)"))
       waitResponse()
