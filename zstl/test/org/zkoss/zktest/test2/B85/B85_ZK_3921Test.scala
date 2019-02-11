@@ -27,7 +27,7 @@ class B85_ZK_3921Test extends ZTL4ScalaTestCase {
 	}
 	
 	def testWidget(widget: JQuery, button: JQuery)=  {
-		verScroll(widget, .5)
+		verScroll(widget, 50)
 		waitResponse()
 		
 		var scrollTop = widget.scrollTop()
@@ -37,7 +37,7 @@ class B85_ZK_3921Test extends ZTL4ScalaTestCase {
 		
 		verifyEquals(scrollTop, widget.scrollTop())
 		
-		verScroll(widget, 1)
+		verScroll(widget, 100)
 		waitResponse()
 		
 		scrollTop = widget.scrollTop()
