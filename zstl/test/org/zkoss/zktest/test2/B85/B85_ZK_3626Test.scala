@@ -30,10 +30,7 @@ class B85_ZK_3626Test extends ZTL4ScalaTestCase {
       }
       click(jq(".z-button"))
       waitResponse()
-      val result = getZKLog.split("\n")
-      for (i <- 0 to 2) {
-        verifyEquals("true", result(i))
-      }
+      verifyEquals("true,true,true", getZKLog())
       evalScript("document.body.style.zoom = '1'")
     })
   }
