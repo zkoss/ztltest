@@ -7,10 +7,23 @@ class B86_ZK_3985Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit = {
     runZTL(() => {
-      var listboxHeight = jq(".z-listbox").height()
+      val listboxHeight = jq(".z-listbox").height()
       click(jq(".z-listcell").eq(0))
       waitResponse()
-      verifyContains(getZKLog(), listboxHeight + "")
+      verifyContains(getZKLog, listboxHeight + "")
+      closeZKLog()
+
+      val gridHeight = jq(".z-grid").height()
+      click(jq(".z-cell").eq(0))
+      waitResponse()
+      verifyContains(getZKLog, gridHeight + "")
+      closeZKLog()
+
+      val treeHeight = jq(".z-tree").height()
+      click(jq(".z-treecell").eq(0))
+      waitResponse()
+      verifyContains(getZKLog, treeHeight + "")
+      closeZKLog()
     })
   }
 }
