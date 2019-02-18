@@ -2,13 +2,13 @@ package org.zkoss.zktest.test2.B86
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
-import org.zkoss.ztl.unit.JQuery
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
 /**
   * @author rudyhuang
   */
 @Tags(tags = "B86-ZK-4011-tree.zul")
+@IgnoreBrowsers("ie9,ie10,ie11")
 class B86_ZK_4011_treeTest extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit =  {
