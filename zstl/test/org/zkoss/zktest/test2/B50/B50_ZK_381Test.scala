@@ -57,19 +57,22 @@ class B50_ZK_381Test extends ZTL4ScalaTestCase {
     val ztl$engine = engine()
     val menubar = ztl$engine.$f("menubar")
     runZTL(zscript, () => {
-      var fullWidth = 0
       var i = jq(menubar.$n("cave")).children().length()
       var e = jq(menubar.$n("cave")).get(0).firstChild()
-      for (j <- 0 until 3) {
-        fullWidth += parseInt(e.attr("offsetWidth"))
-        e = e.nextSibling()
-      }
+      //0
+      var wd1 = parseInt(e.attr("offsetWidth"))
+      e = e.nextSibling()
+      //1
+      var wd2 = parseInt(e.attr("offsetWidth"))
+      e = e.nextSibling()
+      //2
+      var wd3 = parseInt(e.attr("offsetWidth"))
       for (j <- 0 until 5) {
         click(jq(".z-menubar").toWidget().$n("right"))
         sleep(500)
       }
       waitResponse()
-      verifyTolerant(parseInt(menubar.$n("body").attr("scrollLeft")), fullWidth - parseInt(menubar.$n("body").attr("offsetWidth")), 16)
+      verifyTolerant(parseInt(menubar.$n("body").attr("scrollLeft")), wd1 + wd2 + wd3 - jq(menubar.$n("body")).outerWidth(), 16)
       for (j <- 0 until 5) {
         click(jq(".z-menubar").toWidget().$n("left"))
         sleep(500)

@@ -27,7 +27,7 @@ class B85_ZK_3777Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {
     runZTL(() => {
-      dragdropTo(jq(".z-slider-button"), "0,0", "0,100")
+      dragdropTo(jq(".z-slider-button"), "1,1", "1,100")
       waitResponse();
       verifyContains("Zklog should contain 'Test'.", getZKLog(), "Test")
     })

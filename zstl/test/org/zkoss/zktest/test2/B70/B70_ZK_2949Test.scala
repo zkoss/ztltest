@@ -14,8 +14,8 @@ class B70_ZK_2949Test extends ZTL4ScalaTestCase {
       () => {
         def resizeColumn(grid: JQuery) = {
           val firstColumn = grid.find(".z-column").eq(0);
-          dragdropTo(firstColumn, (firstColumn.offsetLeft() + firstColumn.width() - 3) + "," + (firstColumn.offsetTop() + 5)
-            , (firstColumn.offsetLeft() + firstColumn.width() - 30) + "," + (firstColumn.offsetTop() + 5))
+          dragdropTo(firstColumn, (firstColumn.outerWidth()) + ",5"
+            , (firstColumn.outerWidth() - 30) + ",5")
           waitResponse();
         }
 
@@ -44,7 +44,7 @@ class B70_ZK_2949Test extends ZTL4ScalaTestCase {
 
         verifyEquals(column1Width, grids.eq(0).find(".z-column").eq(0).width());
 
-        evalScript("window.scrollTo(0,1000)");
+        evalScript("window.scrollTo(0,1200)");
         resizeColumn(grids.eq(3));
 
         val toggleButton2 = jq(".z-button:contains(toggle flag (mvc))");
