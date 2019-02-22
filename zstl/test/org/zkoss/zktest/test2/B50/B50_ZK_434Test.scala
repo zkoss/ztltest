@@ -35,26 +35,6 @@ class B50_ZK_434Test extends ZTL4ScalaTestCase {
     runZTL(
       () => {
         var tbInp = jq(".z-timebox-input").eq(0)
-
-        def toPos(pos: Int, inp: JQuery) {
-          click(tbInp)
-          waitResponse()
-          // move to the left most side
-          for (i <- 1 to 10) {
-            sendKeys(inp, Keys.LEFT)
-          }
-          // move to right
-          for (i <- 0 until pos) {
-            sendKeys(inp, Keys.RIGHT)
-          }
-        }
-
-        def delete(inp: JQuery, delCnt: Int) {
-          for (i <- 1 to delCnt) {
-            sendKeys(inp, Keys.DELETE)
-          }
-        }
-
         def inputThenVerify(inp: JQuery, value: String) {
           sendKeys(inp, value)
           waitResponse()
@@ -62,13 +42,21 @@ class B50_ZK_434Test extends ZTL4ScalaTestCase {
             inp.`val`(), "M 12:12:12")
         }
 
-        toPos(0, tbInp)
-        delete(tbInp, 2)
+        click(tbInp)
+        waitResponse()
+        // move to the left most side
+        sendKeys(tbInp, Keys.HOME)
+        waitResponse()
+        sendKeys(tbInp, Keys.DELETE)
+        waitResponse()
+        sendKeys(tbInp, Keys.DELETE)
+        waitResponse()
         inputThenVerify(tbInp, "121212")
 
-        toPos(3, tbInp)
-        delete(tbInp, 6)
-        toPos(3, tbInp)
+        sendKeys(tbInp, Keys.LEFT_CONTROL + "a")
+        waitResponse()
+        sendKeys(tbInp, Keys.DELETE)
+        waitResponse()
         inputThenVerify(tbInp, "121212")
       }
     )

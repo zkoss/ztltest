@@ -52,8 +52,6 @@ ListModelList model = new ListModelList(listShop);
         val chosenbox = jq(".z-chosenbox").toWidget().$n("inp")
         sendKeys(chosenbox, "S")
         waitResponse()
-        blur(chosenbox)
-        waitResponse()
         click(jq(".z-chosenbox-option:eq(0)"))
         waitResponse()
 

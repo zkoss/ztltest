@@ -42,13 +42,22 @@ class B50_ZK_430Test extends ZTL4ScalaTestCase {
 
       click(tb1Inp)
       waitResponse()
+      sendKeys(tb1Inp, Keys.LEFT_CONTROL + "a")
+      waitResponse()
+      sendKeys(tb1Inp, Keys.DELETE)
+      waitResponse()
       `type`(tb1Inp, "1212");
       waitResponse()
       verifyEquals("it should be able to type and display \"1212\" of first timebox.",
         "1212", tb1Inp.attr("value"))
       click(tb2Inp)
       waitResponse()
-      `type`(tb2Inp, "121212");
+      sendKeys(tb2Inp, Keys.LEFT_CONTROL + "a")
+      waitResponse()
+      sendKeys(tb2Inp, Keys.DELETE)
+      waitResponse()
+      sendKeys(tb2Inp, "121212");
+      waitResponse()
       waitResponse()
       verifyContains("Type 121212 into the timebox, it should be able to type and display \"PM 12:12:12\" or \"AM 12:12:12\" (depended on when you test it).",
         tb2Inp.attr("value"), "M 12:12:12")

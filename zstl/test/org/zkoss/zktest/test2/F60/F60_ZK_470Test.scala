@@ -90,19 +90,35 @@ class F60_ZK_470Test extends ZTL4ScalaTestCase {
         var parentW = jq(al.$n()).width();
         var parentH = jq(al.$n()).height();
 
-        def checkSize(win: Widget, winW: Number, winH: Number) {
-          verifyTrue("Ths window size should be " + winW,
-            getEval("Math.abs(" + jq(win).outerWidth() + " - " + winW + ") < 2"))
-          verifyTrue("Ths window size should be " + winH,
-            getEval("Math.abs(" + jq(win).outerHeight() + " - " + winH + ") < 2"))
-        }
+        verifyTrue("Ths window size should be " + (parentW - 100),
+          getEval("Math.abs(" + jq(win1).outerWidth() + " - " + (parentW - 100) + ") < 2"))
+        verifyTrue("Ths window size should be " + 200,
+          getEval("Math.abs(" + jq(win1).outerHeight() + " - " + 200 + ") < 2"))
 
-        checkSize(win1, parentW - 100, 200);
-        checkSize(win2, parentW * 0.5, parentH - 200);
-        checkSize(win3, parentW * 0.25, parentH * 0.2);
-        checkSize(win4, parentW * 0.25, parentH * 0.2);
-        checkSize(win5, parentW * 0.25, parentH * 0.2);
-        checkSize(win6, parentW * 0.25, parentH * 0.2);
+        verifyTrue("Ths window size should be " + (parentW * 0.5),
+          getEval("Math.abs(" + jq(win2).outerWidth() + " - " + (parentW * 0.5) + ") < 2"))
+        verifyTrue("Ths window size should be " + (parentH - 200),
+          getEval("Math.abs(" + jq(win2).outerHeight() + " - " + (parentH - 200) + ") < 2"))
+
+        verifyTrue("Ths window size should be " + (parentW * 0.25),
+          getEval("Math.abs(" + jq(win3).outerWidth() + " - " + (parentW * 0.25) + ") < 2"))
+        verifyTrue("Ths window size should be " + (parentH * 0.2),
+          getEval("Math.abs(" + jq(win3).outerHeight() + " - " + (parentH * 0.2) + ") < 2"))
+
+        verifyTrue("Ths window size should be " + (parentW * 0.25),
+          getEval("Math.abs(" + jq(win4).outerWidth() + " - " + (parentW * 0.25) + ") < 2"))
+        verifyTrue("Ths window size should be " + (parentH * 0.2),
+          getEval("Math.abs(" + jq(win4).outerHeight() + " - " + (parentH * 0.2) + ") < 2"))
+
+        verifyTrue("Ths window size should be " + (parentW * 0.25),
+          getEval("Math.abs(" + jq(win5).outerWidth() + " - " + (parentW * 0.25) + ") < 2"))
+        verifyTrue("Ths window size should be " + (parentH * 0.2),
+          getEval("Math.abs(" + jq(win5).outerHeight() + " - " + (parentH * 0.2) + ") < 2"))
+
+        verifyTrue("Ths window size should be " + (parentW * 0.25),
+          getEval("Math.abs(" + jq(win6).outerWidth() + " - " + (parentW * 0.25) + ") < 2"))
+        verifyTrue("Ths window size should be " + (parentH * 0.2),
+          getEval("Math.abs(" + jq(win6).outerHeight() + " - " + (parentH * 0.2) + ") < 2"))
       }
     );
   }

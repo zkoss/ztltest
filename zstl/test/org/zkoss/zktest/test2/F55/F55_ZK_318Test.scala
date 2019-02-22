@@ -114,7 +114,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
           jq(".z-colorpalette-popup").is(":visible"));
         // step 7
         clickAndWait(mbHelp);
-        openMenu(Array(".z-menu:contains(About)"));
+        openMenu(Array(".z-menu:contains(About1)"));
         clickAndWait(jq(".z-label:contains(message box)"));
 
         // step 8

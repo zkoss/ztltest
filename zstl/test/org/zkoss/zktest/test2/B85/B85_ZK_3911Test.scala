@@ -20,18 +20,18 @@ class B85_ZK_3911Test extends ZTL4ScalaTestCase {
 	@Test
 	def test()=  {
 		runZTL(() => {
-			val height = jq(".z-page").height()
+			val h = jq(".z-page").height()
 			val label = jq(".lb")
 			
 			windowMaximize()
 			waitResponse()
 			verifyEquals("desktop", label.text())
 			
-			windowResizeTo(768, height)
+			windowResizeTo(768, h)
 			waitResponse()
 			verifyEquals("tablet", label.text())
 			
-			windowResizeTo(414, height)
+			windowResizeTo(414, h)
 			waitResponse()
 			verifyEquals("mobile", label.text())
 		})

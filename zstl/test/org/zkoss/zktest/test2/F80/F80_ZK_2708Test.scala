@@ -12,8 +12,8 @@ class F80_ZK_2708Test extends ZTL4ScalaTestCase {
       () => {
         var rowlayout = jq(".z-rowlayout").eq(0);
         var totalWidth = rowlayout.outerWidth();
-        var childrenWidth = 0
-        for (i <- 0 to 11) {
+        var childrenWidth = rowlayout.children().eq(0).outerWidth(true)
+        for (i <- 1 to 11) {
           var rowchildren = rowlayout.children().eq(i);
           if (i > 0) {
             var rowchildrenpre = rowlayout.children().eq(i - 1);

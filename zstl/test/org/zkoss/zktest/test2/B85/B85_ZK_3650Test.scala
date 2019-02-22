@@ -29,14 +29,14 @@ class B85_ZK_3650Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       click(jq(".z-spinner-icon.z-spinner-up").get(0))
       waitResponse()
-      verifyNotEquals(1, jq(".z-spinner-input").`val`())
-      verifyNotEquals(1, jq(".z-textbox").`val`())
+      verifyEquals(1, jq(".z-spinner-input").`val`())
+      verifyEquals(1, jq(".z-textbox").`val`())
       click(jq("body"))
       waitResponse()
       click(jq(".z-spinner-icon.z-spinner-up").get(0))
       waitResponse()
-      verifyNotEquals(2, jq(".z-spinner-input").`val`())
-      verifyNotEquals(2, jq(".z-textbox").`val`())
+      verifyEquals(2, jq(".z-spinner-input").`val`())
+      verifyEquals(2, jq(".z-textbox").`val`())
     })
   }
 }

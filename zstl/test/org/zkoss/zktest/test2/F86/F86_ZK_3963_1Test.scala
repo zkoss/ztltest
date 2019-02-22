@@ -15,8 +15,29 @@ import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.JQuery
 
-class F86_ZK_3963_1Test extends F86_ZK_3963Test {
+class F86_ZK_3963_1Test extends ZTL4ScalaTestCase {
+  //copy from F86_ZK_3963Test - Start
+  val getSelectedItem = findButtonByContent("getSelectedItem()")
+  val getVisibleItemCount = findButtonByContent("getVisibleItemCount()")
+  val isOpen = findButtonByContent("isOpen")
+  val isSelected = findButtonByContent("isSelected")
 
+  def findButtonByContent(content: String): JQuery = {
+    return jq(".z-button:contains(" + content + ")")
+  }
+
+  def findNodeByContent(content: String): JQuery = {
+    return jq(".z-organigram:eq(0) .z-orgnode:contains(" + content + ")")
+  }
+
+  def clickAndVerifyLog(target: JQuery, log: String): Unit = {
+    click(target)
+    waitResponse()
+    verifyEquals(log, getZKLog)
+    closeZKLog()
+    waitResponse()
+  }
+  //copy from F86_ZK_3963Test - End
 	@Test
 	def testOrgitem(): Unit = {
     val zscript = """

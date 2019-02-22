@@ -67,19 +67,19 @@ class F60_ZK_83Test extends ZTL4ScalaTestCase {
         var btnTwo: Widget = engine.$f("btnTwo");
         var btnThree: Widget = engine.$f("btnThree");
         var btnFour: Widget = engine.$f("btnFour");
-
         def clickAndCheck(wgt: Widget, toCheck: Array[String], toClick: Array[String]) {
-          var offsetLeft: Int = 0;
-          var messagebox: JQuery = null;
           click(wgt);
           waitResponse();
-          messagebox = jq(".z-messagebox-window");
-          for (i <- 0 until toCheck.length) {
-            verifyTrue("Button " + toCheck(i) + " exists",
-              messagebox.find(".z-button:contains(" + toCheck(i) + ")").exists());
-            verifyTrue("Button should in correct order",
-              messagebox.find(".z-button:contains(" + toCheck(i) + ")").offsetLeft() > offsetLeft);
-            offsetLeft = messagebox.find(".z-button:contains(" + toCheck(i) + ")").offsetLeft();
+          var messagebox = jq(".z-messagebox-window");
+          var checkJq =  messagebox.find(".z-button:contains(" + toCheck(0) + ")")
+          var oLeft = checkJq.offsetLeft()
+          verifyTrue("Button " + toCheck(0) + " exists", checkJq.exists())
+          verifyTrue("Button should in correct order", checkJq.offsetLeft() > 0)
+          for (i <- 1 until toCheck.length) {
+            checkJq = messagebox.find(".z-button:contains(" + toCheck(i) + ")")
+            verifyTrue("Button " + toCheck(i) + " exists", checkJq.exists())
+            verifyTrue("Button should in correct order", checkJq.offsetLeft() > oLeft)
+            oLeft = checkJq.offsetLeft()
           }
           for (j <- 0 until toClick.length) {
             click(messagebox.find(".z-button:contains(" + toClick(j) + ")"));
