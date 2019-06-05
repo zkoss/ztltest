@@ -27,7 +27,7 @@ class B50_3131173Test extends ZTL4ScalaTestCase {
 
 
 <window title="tree demo" border="normal" width="100%" height="100%">
-	<tree id="tree" width="100%" height="200%" rows="30" multiple="true"
+	<tree id="tree" width="100%" height="200%" multiple="true"
 		checkmark="true">
 		
 		<attribute name="onSelect"><![CDATA[
