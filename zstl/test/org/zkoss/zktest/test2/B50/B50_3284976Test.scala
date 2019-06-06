@@ -35,7 +35,11 @@ class B50_3284976Test extends ZTL4ScalaTestCase {
 		"""
     val ztl$engine = engine()
     runZTL(zscript, () => {
-      typeKeys(jq("@longbox"), "1-2")
+      val lb = jq("@longbox")
+      typeKeys(lb, "1-2")
+      waitResponse()
+      blur(lb)
+      waitResponse()
       verifyTrue(jq(".z-errorbox").exists())
     })
   }

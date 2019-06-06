@@ -46,8 +46,8 @@ class B50_ZK_352Test extends ZTL4ScalaTestCase {
       horScrollAbs(lb, 500)
       waitResponse()
       verifyTrue(parseInt(lb.$n("body").attr("scrollLeft")) < 110)
-      verifyEquals(0, jq(lh1.$n()).outerWidth())
-      verifyEquals(0, jq(lh2.$n()).outerWidth())
+      verifyEquals(0, jq(lh1.$n()).width())
+      verifyEquals(0, jq(lh2.$n()).width())
     })
   }
 }

@@ -14,22 +14,15 @@ package org.zkoss.zktest.test2.B36
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
+import org.zkoss.ztl.annotation.SeleniumOnly
 
-
+@SeleniumOnly //https://github.com/DevExpress/testcafe/issues/2466
 class B36_2797773Test extends ZTL4ScalaTestCase {
   @Test
   def testpaste() = {
-    var zscript =
-      """
-			<zk>
-				now support copy paste by ctrl key in intbox
-				<intbox value="1234567"/><button id="blur" label="here"/>
-			</zk>
-		"""
     val ztl$engine = engine()
     val blur = ztl$engine.$f("blur")
-    runZTL(zscript, () => {
+    runZTL(() => {
       focus(jq("@intbox"))
       waitResponse()
       sendKeys(jq("@intbox"), Keys.LEFT_CONTROL + "a")

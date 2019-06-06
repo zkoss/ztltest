@@ -38,7 +38,7 @@ class B50_3006313Test extends ZTL4ScalaTestCase {
     val ib1 = ztl$engine.$f("ib1")
     val ib2 = ztl$engine.$f("ib2")
     runZTL(zscript, () => {
-      dragdropTo(sld.$n("btn"), "1,1", "47,1")
+      dragdropTo(sld.$n("btn"), "1,1", "55,1")
       waitResponse()
       click(btn1)
       waitResponse()
