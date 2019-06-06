@@ -33,7 +33,7 @@ class B65_ZK_1463Test extends ZTL4ScalaTestCase {
                     <button label="Open Editor 2" onClick="open2()"/>
                     <window id="win" mode="modal" width="30em" height="30ex" visible="false">
                       <vlayout vflex="1">
-                        <textbox id="tb" instant="true" rows="2" hflex="1" vflex="1" value="If you can click the 'Save' Button, and then it will close this window, that's correct."/>
+                        <textbox id="tb" instant="true" hflex="1" vflex="1" value="If you can click the 'Save' Button, and then it will close this window, that's correct."/>
                       </vlayout>
                       <hbox pack="end" width="100%">
                         <button id="btn" label="Save" onClick="close()" disabled="true"/>

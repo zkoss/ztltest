@@ -13,7 +13,7 @@ class B70_ZK_2129Test extends ZTL4ScalaTestCase {
       """<?page title="Colum headers height native scrollbar" contentType="text/html;charset=UTF-8"?>
 <zk>
 	<label value="Scroll to the right bound, height of the tree won't be changed"/>
-	<tree height="125px" width="300px" rows="8">
+	<tree height="125px" width="300px">
 	    <custom-attributes org.zkoss.zul.nativebar="true"/>
 	    <frozen columns="1"/>
 	    <treecols sizable="false">
