@@ -13,8 +13,10 @@ package org.zkoss.zktest.test2.F86
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.annotation.IgnoreBrowsers
 import org.zkoss.ztl.unit.JQuery
 
+@IgnoreBrowsers("ie9,ie10")
 class F86_ZK_3963Test extends ZTL4ScalaTestCase {
 	val getSelectedItem = findButtonByContent("getSelectedItem()")
 	val getItemCount = findButtonByContent("getItemCount()")
