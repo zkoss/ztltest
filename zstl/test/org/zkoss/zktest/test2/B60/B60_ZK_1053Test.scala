@@ -32,62 +32,30 @@ class B60_ZK_1053Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript =
-      """
-			<zk>
-				<div>Click on the selectbox component, you should see the msg become 'msg: Selectbox onFocus'</div>
-				<div>Click on the blank outside, you should see the msg become 'msg: Selectbox onBlur'</div>
-				<div>Click on the chosenbox component, you should see the msg become 'msg: Chosenbox onFocus'</div>
-				<div>Click on the blank outside, you should see the msg become 'msg: Chosenbox onBlur'</div>
-				
-				<label id="msg" value="msg:" />
-				<div></div>
-				Selectbox:
-				<selectbox id="sbx">
-					<attribute name="onFocus">
-						msg.setValue("msg: Selectbox onFocus");
-					</attribute>
-					<attribute name="onBlur">
-						msg.setValue("msg: Selectbox onBlur");
-					</attribute>
-				</selectbox>
-				<div></div>
-				Chosenbox
-				<chosenbox id="cbx">
-					<attribute name="onFocus">
-						msg.setValue("msg: Chosenbox onFocus");
-					</attribute>
-					<attribute name="onBlur">
-						msg.setValue("msg: Chosenbox onBlur");
-					</attribute>
-				</chosenbox>
-			</zk>
+    runZTL(() => {
+        var msg = jq("$msg")
+        var sbx = jq("@selectbox")
+        var cbx = jq("@chosenbox")
+        var btn = jq("@button")
 
-    """
-    runZTL(zscript,
-      () => {
-        var msg: Widget = engine.$f("msg");
-        var sbx: Widget = engine.$f("sbx");
-        var cbx: Widget = engine.$f("cbx");
-
-        click(sbx);
-        waitResponse();
+        click(sbx)
+        waitResponse()
         verifyContains("You should see the msg become 'msg: Selectbox onFocus'",
-          msg.$n().attr("innerHTML"), "msg: Selectbox onFocus")
-        blur(sbx);
-        waitResponse();
+          msg.html(), "msg: Selectbox onFocus")
+        click(btn)
+        waitResponse()
         verifyContains("You should see the msg become 'msg: Selectbox onBlur'",
-          msg.$n().attr("innerHTML"), "msg: Selectbox onBlur")
+          msg.html(), "msg: Selectbox onBlur")
 
-        click(cbx.$n("inp"));
-        waitResponse();
+        click(cbx)
+        waitResponse()
         verifyContains("You should see the msg become 'msg: Chosenbox onFocus'",
-          msg.$n().attr("innerHTML"), "msg: Chosenbox onFocus")
-        blur(cbx.$n("inp"));
-        waitResponse();
+          msg.html(), "msg: Chosenbox onFocus")
+        click(btn)
+        waitResponse()
         verifyContains("You should see the msg become 'msg: Chosenbox onBlur'",
-          msg.$n().attr("innerHTML"), "msg: Chosenbox onBlur")
+          msg.html(), "msg: Chosenbox onBlur")
       }
-    );
+    )
   }
 }

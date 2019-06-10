@@ -26,9 +26,9 @@ class F85_ZK_3778Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {
     runZTL(() => {
-      dragdropTo(jq(".z-slider-button:eq(0)"), "1,1", "1,100")
+      dragdropTo(jq(".z-slider-button:eq(0)"), "5,1", "5,100")
       waitResponse();
-      dragdropTo(jq(".z-slider-button:eq(1)"), "1,1", "1,100")
+      dragdropTo(jq(".z-slider-button:eq(1)"), "5,1", "5,100")
       waitResponse();
       verifyEquals("false\ntrue", getZKLog())
     })

@@ -39,6 +39,7 @@ if the top space is not enouth either, the popup will force show on the bottom o
     """
     runZTL(zscript,
       () => {
+        sleep(1000)
         // jq cannot interact with elements inside iframe, have to execute native js
         evalScript("jq(\"iframe\").contents().find(\".z-combobox-button\")[0].click()")
         waitResponse()

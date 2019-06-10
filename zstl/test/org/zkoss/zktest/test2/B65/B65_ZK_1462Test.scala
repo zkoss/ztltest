@@ -52,7 +52,7 @@ class B65_ZK_1462Test extends ZTL4ScalaTestCase {
 
         val movex = panel1.positionLeft() - panel2.positionLeft()
 
-        dragdropTo(panel2, "0,0", movex + ",0")
+        dragdropTo(panel2, "1,1", movex + ",1")
 
         val parent2 = panel2.parents(".z-portalchildren")
         val pc2 = jq(".z-portalchildren:eq(0)")
@@ -60,7 +60,7 @@ class B65_ZK_1462Test extends ZTL4ScalaTestCase {
 
         val movey = jq("@panel:contains(2)").find(".z-panel-header").positionTop() - jq("@panel:contains(1)").find(".z-panel-header").positionTop()
 
-        dragdropTo(panel1, "0,0", "0," + movey)
+        dragdropTo(panel1, "1,1", "1," + movey)
 
         val parent1 = panel1.parents(".z-portalchildren")
         val pc1 = jq(".z-portalchildren:eq(0)")

@@ -124,9 +124,8 @@ class B60_ZK_765Test extends ZTL4ScalaTestCase {
         verifyTrue("message should be 'selected index is 1, widget selected is true'",
           jq("$msg:contains(selected index is 1, widget selected is true)").exists());
 
-        sleep(10000);
         waitResponse();
-        runRawZscript(zscript);
+        refresh(zscript);
         waitResponse();
 
         clickAndWait(btnThree);

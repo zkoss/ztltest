@@ -158,6 +158,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
         clickAndWait(jq(".z-label:contains(message box)"))
 
         // step 14
+        clickAndWait(cbx.$n("real"))
         val bgColor = jq("@window .z-window-content").get(0).attr("style.backgroundColor")
         clickAndWait(jq(bd2).toWidget.$n("btn"))
         openMenu(Array(pp2About, pp2Menu, pp2ColorPicker, pp2ColorPicker))
@@ -167,7 +168,6 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
 
         // step 15
         clickAndWait(jq("@button:contains(change child)"))
-        clickAndWait(cbx.$n("real"))
         clickAndWait(jq(bd).toWidget.$n("btn"))
         verifyTrue("combobutton two should opened", jq(ppTwo.$n()).is(":visible"))
         clickAndWait(jq(bd2).toWidget.$n("btn"))

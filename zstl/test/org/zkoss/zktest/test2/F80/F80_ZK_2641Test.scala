@@ -111,10 +111,12 @@ class F80_ZK_2641Test extends ZTL4ScalaTestCase {
       verifyEquals("strict", jq(".z-errorbox-content").eq(6).text());
 
       var ib3 = jq(".z-intbox").eq(2);
-      click(jq(".z-button"));
+      click(jq(".z-button").eq(1));
       waitResponse();
       sendKeys(ib3, "-1");
 
+      waitResponse();
+      click(ib3);
       waitResponse();
       click(eBtn);
       waitResponse();

@@ -48,7 +48,7 @@ class B85_ZK_3865Test extends ZTL4ScalaTestCase {
       inner = outer.find(".inner")
       widthToMinus = parseInt(inner.css("margin-left")) + parseInt(inner.css("margin-right"))
       heightToMinus = parseInt(inner.css("margin-top")) + parseInt(inner.css("margin-bottom"))
-      verifyEquals(inner.outerWidth(), outer.outerWidth() - widthToMinus)
+      verifyEquals(inner.width(), outer.width() - widthToMinus)
       verifyEquals(inner.outerHeight(), outer.innerHeight() - heightToMinus)
     })
   }

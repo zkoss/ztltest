@@ -19,7 +19,7 @@ class B80_ZK_3250Test extends ZTL4ScalaTestCase {
         verifyEquals("", getZKLog())
 
         verScroll(jq(".z-listbox-body"), 100)
-        waitResponse()
+        sleep(1000)
         verifyEquals("after setItemsInvalid_", getZKLog())
         closeZKLog()
         waitResponse()
@@ -31,7 +31,7 @@ class B80_ZK_3250Test extends ZTL4ScalaTestCase {
         waitResponse()
 
         verScroll(jq(".z-listbox-body"), 0)
-        waitResponse()
+        sleep(1000)
         verifyEquals("after setItemsInvalid_", getZKLog())
         closeZKLog()
         waitResponse()

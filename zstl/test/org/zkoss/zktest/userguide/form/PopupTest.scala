@@ -11,8 +11,6 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.userguide.form
 
-;
-
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.Widget
@@ -66,8 +64,7 @@ class PopupTest extends ZTL4ScalaTestCase {
 					<hbox>
 						<image src="/img/Centigrade-Widget-Icons/QuestionmarkButton-16x16.png" tooltip="mail"
 							style="cursor: help" />
-						<label value="Move mouse Over Me!"
-							tooltip="mail" />
+						<label id="hoverLabel" value="Move mouse Over Me!" tooltip="mail" />
 					</hbox>
 				</hbox>
 			</row>
@@ -150,7 +147,7 @@ class PopupTest extends ZTL4ScalaTestCase {
     val tryBtn = ztl$engine.$f("tryBtn")
     val reloadBtn = ztl$engine.$f("reloadBtn")
     runZTL(zscript, () => {
-      mouseOver(jq("$view").find("@label:eq(2)"))
+      mouseMoveAt(jq("$hoverLabel"), "5,5")
       sleep(1000)
       verifyTrue(jq("$mail").isVisible())
       click(jq("$view").find("@textbox:eq(0)"))

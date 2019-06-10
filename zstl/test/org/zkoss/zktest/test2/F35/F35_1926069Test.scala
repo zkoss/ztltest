@@ -57,12 +57,12 @@ You shall see "xyz,,true" shown after onOpen.
       waitResponse()
       click(jq(".z-bandbox").toWidget().$n("btn"))
       waitResponse()
-      verifyEquals("abc,abc,true", jq(inf2).text())
+      verifyEquals("abc,,true", jq(inf2).text())
       typeKeys(jq("@combobox").toWidget().$n("real"), "xyz")
       waitResponse()
       click(jq(".z-combobox").toWidget().$n("btn"))
       waitResponse()
-      verifyEquals("xyz,xyz,true", jq(inf2).text())
+      verifyEquals("xyz,,true", jq(inf2).text())
     })
   }
 }
