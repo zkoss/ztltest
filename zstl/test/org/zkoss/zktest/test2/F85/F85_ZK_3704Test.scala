@@ -29,7 +29,7 @@ class F85_ZK_3704Test extends ZTL4ScalaTestCase {
 			
 			`type`(decimalboxTwo, testInput)
 			waitResponse()
-			verifyEquals("123 456,789", decimalboxTwo.`val`())
+			verifyEquals("123 456,789", decimalboxTwo.`val`())
 			
 			click(jq(".z-button"))
 			waitResponse()
