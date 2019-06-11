@@ -29,18 +29,16 @@ class Z60_CollectionIndexGrid2Test extends ZTL4ScalaTestCase {
 """
 
     runZTL(zul, () => {
-      var outerbox = jq("$outergrid").toWidget()
-      var outerrows = jq(outerbox).find("@rows").toWidget()
+      val outerrows = widget("$outergrid").getChild("rows")
       // =================================delete 2rd row
       var outeritem = outerrows.firstChild().nextSibling() // 2rd row
       click(jq(outeritem).find("@button").get(1)) // click the delete button on 2nd row
       waitResponse()
-      outerbox = jq("$outergrid").toWidget()
-      outerrows = jq(outerbox).find("@rows").toWidget()
+
       var itemLabel = Array("A", "C", "D")
       verifyEquals(3, outerrows.nChildren())
       var outerrow = outerrows.firstChild()
-      for (i <- 0 to itemLabel.length - 1) {
+      for (i <- itemLabel.indices) {
         var outerl = itemLabel(i)
         var rowkid = outerrow.firstChild()
         verifyEquals("" + i, rowkid.attr("value")) // verify the index on label
@@ -72,12 +70,11 @@ class Z60_CollectionIndexGrid2Test extends ZTL4ScalaTestCase {
       outeritem = outerrows.firstChild().nextSibling() // 2rd row
       click(jq(outeritem).find("@button").get(2)) // add after 2nd row
       waitResponse()
-      outerbox = jq("$outergrid").toWidget()
-      outerrows = jq(outerbox).find("@rows").toWidget()
+
       itemLabel = Array("A", "C", "C1", "D")
       verifyEquals(4, outerrows.nChildren())
       outerrow = outerrows.firstChild()
-      for (i <- 0 to itemLabel.length - 1) {
+      for (i <- itemLabel.indices) {
         var outerl = itemLabel(i)
         var rowkid = outerrow.firstChild()
         verifyEquals("" + i, rowkid.attr("value")) // verify the index on label
@@ -109,12 +106,11 @@ class Z60_CollectionIndexGrid2Test extends ZTL4ScalaTestCase {
       outeritem = outerrows.firstChild().nextSibling().nextSibling() // 3rd row
       click(jq(outeritem).find("@button").get(3)) // add before 3nd row
       waitResponse()
-      outerbox = jq("$outergrid").toWidget()
-      outerrows = jq(outerbox).find("@rows").toWidget()
+
       itemLabel = Array("A", "C", "C12", "C1", "D")
       verifyEquals(5, outerrows.nChildren())
       outerrow = outerrows.firstChild()
-      for (i <- 0 to itemLabel.length - 1) {
+      for (i <- itemLabel.indices) {
         var outerl = itemLabel(i)
         var rowkid = outerrow.firstChild()
         verifyEquals("" + i, rowkid.attr("value")) // verify the index on label
