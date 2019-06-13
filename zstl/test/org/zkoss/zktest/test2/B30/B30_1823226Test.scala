@@ -37,10 +37,10 @@ Splitter can be dragged over hbox border.
     val hsplitter = ztl$engine.$f("hsplitter")
     runZTL(zscript, () => {
       var width = jq("@box @label").parent().width()
-      dragdropTo(hsplitter, "0,0", "-20, 0")
+      dragdropTo(hsplitter, "1,1", "-19, 1")
       waitResponse()
       verifyEquals(width - 20, jq("@box @label").parent().width())
-      dragdropTo(hsplitter, "0,0", "20, 0")
+      dragdropTo(hsplitter, "1,1", "21, 1")
       waitResponse()
       verifyEquals(width, jq("@box @label").parent().width())
     })

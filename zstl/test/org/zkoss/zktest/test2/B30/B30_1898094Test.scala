@@ -43,8 +43,7 @@ class B30_1898094Test extends ZTL4ScalaTestCase {
    """
     runZTL(zscript,
       () => {
-
-        waitResponse();
+        sleep(1000)
 
         //Look for a textbox focused
         val b = jq("@textbox:focus");

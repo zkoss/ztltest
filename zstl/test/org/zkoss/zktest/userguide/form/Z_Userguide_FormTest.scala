@@ -50,31 +50,6 @@ class Z_Userguide_FormTest extends ZTL4ScalaTestCase {
       blur(decimalbox)
       verifyEquals("12.34", getValue(jq("@decimalbox")))
 
-      /** datebox (it may fail on different browser language)*/
-      //				if(!ZK.is("chrome") && !ZK.is("opera")) {
-      //				click(jq("$db").toWidget.$n("btn"));
-      //				click(jq("@calendar").find("td:eq(23)"));
-      //				vardbinp = jq("$db").toWidget.$n("real");
-      //				dbinp.toElement.set("value", "");
-      //				sendKeys(dbinp, "Jun 10, 2010");
-      //				waitResponse();
-      //				verifyEquals("Jun 10, 2010", getValue(jq("$db").toWidget.$n("real")));
-      //				click(jq("@select"));
-      //				waitResponse();
-      //				select(jq("@select"), "yyyy/MM/dd hh:mm a");
-      //				waitResponse();
-      //				String dateTimeStr = getValue(dbinp);
-      //				String datePattern = "[1-9][0-9][0-9][0-9]/((0[1-9])|(1[0-2]))/(([1-9])|(1[0-9])|(2[0-9])|(3[0-1]))" +
-      //				" ((0[1-9])|(1[0-2])):((0[0-9])|(1[0-9])|(2[0-9])|(3[0-9])|(4[0-9])|(5[0-9])) ((A|P)M)";
-      //				waitResponse();
-      //				verifyTrue("Date time: " + dateTimeStr, dateTimeStr.matches(datePattern));
-      //				select(jq("@select"), "yyyy/MM/dd");
-      //				waitResponse();
-      //				verifyContains(getValue(jq("$db").toWidget.$n("real")), "2010/06/10");
-      //				select(jq("@select"), "MM-dd-yy");
-      //				waitResponse();
-      //				verifyEquals("06-10-10", getValue(jq("$db").toWidget.$n("real")));
-      //				}
       /** constraint */
       val txt4 = jq("$view").find("@textbox:eq(4)")
       txt4.toElement.set("value", "")
@@ -103,11 +78,8 @@ class Z_Userguide_FormTest extends ZTL4ScalaTestCase {
       click(jq("@colorbox").toWidget.$n("currcolor"))
       click(jq(".z-colorbox").toWidget.$n("picker-btn"))
       waitResponse()
-      val r = getValue(jq(".z-colorpicker").toWidget.$n("r-inp"))
-      val g = getValue(jq(".z-colorpicker").toWidget.$n("g-inp"))
-      val b = getValue(jq(".z-colorpicker").toWidget.$n("b-inp"))
       val currColor = jq("@colorbox").toWidget.$n("currcolor").attr("style.backgroundColor")
-      verifyEqualColor("rgb(" + r + "," + g + "," + b + ")", currColor)
+      verifyEqualColor(jq("@colorbox").toWidget.attr("value"), currColor)
     })
   }
 }

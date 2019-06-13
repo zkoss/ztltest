@@ -13,12 +13,13 @@ class F86_ZK_3978Test extends ZTL4ScalaTestCase {
   def test(): Unit = {
     runZTL(() => {
       verScroll(jq("@tree"), 50)
-
       closeZKLog()
       evalScript(jq(".z-tree-icon").get(0) + ".scrollIntoView()")
+      waitResponse()
+      closeZKLog()
+      waitResponse()
       click(jq(".z-tree-icon:eq(0)"))
       waitResponse()
-
       verifyEquals("OnDataLoading more than once", 1, getEval("getZKLogLineCnt()"))
     })
   }
