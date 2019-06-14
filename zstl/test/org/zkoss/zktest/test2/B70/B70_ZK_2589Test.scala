@@ -17,14 +17,11 @@ class B70_ZK_2589Test extends ZTL4ScalaTestCase {
       waitResponse();
       click(jq(".z-treerow .z-tree-icon").eq(7));
       waitResponse();
-      verScroll(tree, 90);
-      waitResponse();
-      sleep(1000);
       verScroll(tree, 100);
       waitResponse();
       sleep(1000);
       verifyTrue(jq(".z-treerow").last().isVisible());
-      verifyTrue(jq(".z-treerow").last().find(".z-label").eq(0).text() == "test-60");
+      verifyEquals("test-60", jq(".z-treerow").last().find(".z-label").eq(0).text());
     })
 
   }

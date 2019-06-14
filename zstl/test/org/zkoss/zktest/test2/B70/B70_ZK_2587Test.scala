@@ -13,7 +13,7 @@ class B70_ZK_2587Test extends ZTL4ScalaTestCase {
       () => {
         val label = jq(".z-tabpanel .z-label")
         val tab = jq(".z-tab")
-        dragdropToObject(label, tab, "0,0", "0,0")
+        dragAndDropToObject(label, tab)
         waitResponse(true)
         verifyEquals("dropped: 'in tabbox'", jq(".z-tab .z-tab-text").text())
       })

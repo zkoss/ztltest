@@ -18,10 +18,8 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.{ClientWidget, Element, Widget}
-import org.zkoss.ztl._
-import org.zkoss.ztl.unit._
 import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.unit.{ClientWidget, Element, Widget}
 
 /**
   * A test class for bug ZK-568
@@ -34,34 +32,7 @@ class B50_ZK_568Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript =
-      """
-			<zk>
-			<div>1. Open combobox then select item50.</div>
-			<div>2. Open combobox again, you should see item50 in drop down list without scroll.</div>
-			<div>3. Click 'select item15' button.</div>
-			<div>4. Open combobox, you should see item15 in drop down list without scroll.</div>
-			<div></div>
-				<zscript>
-					<![CDATA[
-						String[] name = new String[50];
-						for(int i=0, len=name.length; i<len; i++) {
-							name[i] = "name" + (i+1);
-						}
-						ListModelList lm = new ListModelList(name);
-					]]>
-				</zscript>
-				<combobox id="box" width="150px" mold="rounded" model="${lm}" />
-			
-				<button id="btn" label="select item15">
-					<attribute name="onClick">
-						box.setSelectedIndex(14);
-					</attribute>
-				</button>
-			</zk>
-
-    """
-    runZTL(zscript, () => {
+    runZTL(() => {
       var box: Widget = engine.$f("box");
       var boxBtn: Element = box.$n("btn");
       var btn: Widget = engine.$f("btn");
@@ -75,7 +46,7 @@ class B50_ZK_568Test extends ZTL4ScalaTestCase {
       }
 
       clickAndWait(boxBtn);
-      verScroll(pp, jq(lastItem).get(0).attr("offsetTop"));
+      verScroll(pp, parseInt(jq(lastItem).get(0).attr("offsetTop")));
       clickAndWait(lastItem);
       clickAndWait(boxBtn);
 

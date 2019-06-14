@@ -14,50 +14,25 @@ package org.zkoss.zktest.test2.B30
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
 
 
 class B30_1823278Test extends ZTL4ScalaTestCase {
   @Test
   def testKeyDownUp() = {
-    var zscript =
-      """
-<zk>
-<zscript><![CDATA[
-	import java.util.ArrayList;
-	ArrayList list = new ArrayList();
-
-	for(int i=1;i<=50;i++)
-	{
-		list.add("entry "+i);
-	}
-]]></zscript>
-	<listbox id="listbox" width="250px" rows="6">
-		<listhead sizable="true">
-			<listheader label="name" sort="auto"/>
-		</listhead>
-		<listitem forEach="${list}" label="${each}"/>
-	</listbox>
-</zk>
-		 """
     val ztl$engine = engine()
     val listbox = ztl$engine.$f("listbox")
-    runZTL(zscript, () => {
+    runZTL(() => {
       click(jq(".z-listitem:eq(0)"))
       waitResponse()
-      var temp = 0
-      for (i <- 0 until 15) {
-        sendKeys(jq(listbox), Keys.DOWN)
+      for (_ <- 0 until 15) {
+        sendKeys(jq(listbox).find(".z-focus-a"), Keys.DOWN)
         sleep(30)
-        temp = i
       }
       var scrollTop = parseInt(listbox.$n("body").attr("scrollTop"))
       verifyTrue("Times of pressing Down: 15, scrollTop: " + scrollTop, 150 < scrollTop)
-      temp = 0
-      for (i <- 0 until 15) {
-        sendKeys(jq(listbox), Keys.UP)
+      for (_ <- 0 until 15) {
+        sendKeys(jq(listbox).find(".z-focus-a"), Keys.UP)
         sleep(30)
-        temp = i
       }
       scrollTop = parseInt(listbox.$n("body").attr("scrollTop"))
       verifyTrue("Times of pressing Down: 15, scrollTop: " + scrollTop, 3 > scrollTop)

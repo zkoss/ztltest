@@ -9,11 +9,7 @@ import org.zkoss.ztl.annotation.Tags
 class B36_2796144_1Test extends ZTL4ScalaTestCase {
   @Test
   def testTime2()=  {
-    val zscript =
-      """
-        <include src="/test2/B36-2796144.zul"/>
-      """
-    runZTL(zscript, () => {
+    runZTLinAction("test2/B36-2796144.zul", () => {
       val returnDate = engine.$f("returnDate")
       val dateValue2 = engine.$f("dateValue2")
       val inp = returnDate.$n("real")
@@ -22,8 +18,8 @@ class B36_2796144_1Test extends ZTL4ScalaTestCase {
       click(returnDate.$n("btn"))
       waitResponse()
       click(timeInp)
-      sendKeys(timeInp, Keys.END)
-      sendKeys(timeInp, Keys.DOWN)
+      sendKeys(timeInp, Keys.END, Keys.DOWN)
+      blur(timeInp)
       val time = timeInp.`val`()
       click(jq("td.z-calendar-selected"))
       waitResponse()

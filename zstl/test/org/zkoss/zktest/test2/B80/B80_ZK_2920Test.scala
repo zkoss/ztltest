@@ -24,12 +24,12 @@ class B80_ZK_2920Test extends ZTL4ScalaTestCase {
         click(chosenbox.eq(0))
         waitResponse(true)
         // make sure chosenbox is empty at first
-        verifyTrue(jq(".z-chosenbox-item").length() == 0)
+        verifyEquals(0, jq(".z-chosenbox-item").length())
         // select the first option from the chosenbox popup
         click(jq(".z-chosenbox-option").eq(0))
         waitResponse(true)
         // make sure one item is selected
-        verifyTrue(jq(".z-chosenbox-item").length() == 1)
+        verifyEquals(1, jq(".z-chosenbox-item").length())
         // click else where to close the chosenbox
         click(jq(".z-window-header"));
         waitResponse(true)
@@ -37,7 +37,7 @@ class B80_ZK_2920Test extends ZTL4ScalaTestCase {
         click(button)
         waitResponse(true)
         // make sure the item is still selected
-        verifyTrue(jq(".z-chosenbox-item").length() == 1)
+        verifyEquals(1, jq(".z-chosenbox-item").length())
       })
   }
 }
