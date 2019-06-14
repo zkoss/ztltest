@@ -17,9 +17,11 @@ class F85_ZK_3336Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       val tbeditor = jq("@tbeditor .z-tbeditor-editor")
       val textbox = jq("@textbox")
-
       tbeditor.toElement.set("innerHTML", "")
-      `type`(tbeditor, "Hello world")
+      waitResponse()
+      sendKeys(tbeditor, "Hello")
+      waitResponse()
+      click(jq("@button:eq(1)"))
       waitResponse()
       val textboxValue = textbox.toElement.attr("value")
       verifyContains("onChange should be working", textboxValue, tbeditor.text())

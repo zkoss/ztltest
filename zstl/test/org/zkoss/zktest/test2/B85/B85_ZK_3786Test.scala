@@ -16,13 +16,13 @@ package org.zkoss.zktest.test2.B85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags;
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags};
 
 /**
   *
   * @author bobpeng
   */
-@Tags(tags = "")
+@IgnoreBrowsers("ie9,ie10")
 class B85_ZK_3786Test extends ZTL4ScalaTestCase {
   @Test
   def test1() = {
