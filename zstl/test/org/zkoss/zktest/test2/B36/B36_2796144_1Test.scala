@@ -19,7 +19,6 @@ class B36_2796144_1Test extends ZTL4ScalaTestCase {
       waitResponse()
       click(timeInp)
       sendKeys(timeInp, Keys.END, Keys.DOWN)
-      blur(timeInp)
       val time = timeInp.`val`()
       click(jq("td.z-calendar-selected"))
       waitResponse()

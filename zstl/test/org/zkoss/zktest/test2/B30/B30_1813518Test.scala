@@ -11,7 +11,8 @@ class B30_1813518Test extends ZTL4ScalaTestCase {
       verifyContains("rgb(227, 235, 246)#e3ebf6", jq("@rows:eq(0) td").css("backgroundColor"))
       verifyEquals("", jq("@rows:eq(1) td").eval("get(1).style.border"))
       var color = jq("@rows:eq(1) td").css("color")
-      verifyContains("rgba(0, 0, 0, 0.9)#000000", color)
+      //for safari rgba(0, 0, 0, 0.901961)
+      verifyContains("rgba(0, 0, 0, 0.9)#000000rgba(0, 0, 0, 0.901961)", color)
       println(jq("@rows:eq(1) td").css("color"))
       verifyContains("transparent|rgb(255, 255, 255)|rgba(0, 0, 0, 0)|#ffffff", jq(
         "@rows:eq(1) td").css("backgroundColor"))
