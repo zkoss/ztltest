@@ -13,28 +13,16 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
 
 
 class B50_3004412Test extends ZTL4ScalaTestCase {
   @Test
   def testzindex() = {
-    var zscript =
-      """
-			<zk>
-				<combobox id="cb">
-					<comboitem tooltip="popup" label="test" id="cbi"/>
-				</combobox>
-				<popup id="popup">
-					<label value="popup"/>
-				</popup>
-			</zk>
-		"""
     val ztl$engine = engine()
     val cb = ztl$engine.$f("cb")
     val cbi = ztl$engine.$f("cbi")
     val popup = ztl$engine.$f("popup")
-    runZTL(zscript, () => {
+    runZTL(() => {
       click(cb.$n("btn"))
       waitResponse()
       mouseOver(cbi)
