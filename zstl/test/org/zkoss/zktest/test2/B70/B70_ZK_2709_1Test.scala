@@ -27,8 +27,7 @@ class B70_ZK_2709_1Test extends ZTL4ScalaTestCase {
   @Test
   def testCase() = {
     runZTL(() => {
-      //click on label!!!!!!
-      clickAt(jq("@label"), "50,30")
+      clickAt(jq("@div"), "50,30")
       waitResponse()
       typeKeys(jq("input"), "selenium is really suck!!!!!!")
       waitResponse(true)

@@ -19,7 +19,6 @@ package org.zkoss.zktest.test2.Z35
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
-import org.zkoss.ztl.util.Scripts
 
 /**
   * A test class for bug panel-002
@@ -32,53 +31,7 @@ class Z35_panel_002Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript =
-      """
-			<window>
-			<panel id="p1" title="Panel Component" border="normal" width="500px" height="150px">
-				<panelchildren>
-					1. Click "Change floatable" button and the panel should float.
-					<separator />
-					2. Click "Change movable" button and move the panel.(If the panel doesn't float, it shouldn't be able to move.)
-					<separator />
-					<button id="btnFloat" label="Change floatable">
-						<attribute name="onClick">
-								p1.floatable=!p1.floatable;
-						</attribute>
-					</button>
-					<button id="btnMove" label="Change movable">
-						<attribute name="onClick">	
-								p1.movable=!p1.movable;
-						</attribute>
-					</button>
-					<separator />
-					3. Click following buttons and it should work well.
-				</panelchildren>
-			</panel>
-					<button id="btn1" label="Change collapsible">
-						<attribute name="onClick">
-								p1.collapsible=!p1.collapsible;
-						</attribute>
-					</button>
-					<button id="btn2" label="Change minimizable">
-						<attribute name="onClick">
-								p1.minimizable=!p1.minimizable;
-						</attribute>
-					</button>
-					<button id="btn3" label="Change maximizable">
-						<attribute name="onClick">
-								p1.maximizable=!p1.maximizable;
-						</attribute>
-					</button>
-					<button id="btn4" label="Change closable">
-						<attribute name="onClick">
-								p1.closable=!p1.closable;
-						</attribute>
-					</button>
-			</window>
-    """;
-
-    runZTL(zscript,
+    runZTL(
       () => {
         def clickThenValidate(selector: String, validator: () => Unit) {
           clickAt(jq(selector), "2,2");

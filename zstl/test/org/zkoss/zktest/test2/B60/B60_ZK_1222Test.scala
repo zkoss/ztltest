@@ -18,7 +18,7 @@ class B60_ZK_1222Test extends ZTL4ScalaTestCase {
       verifyTrue("If you see the tooltip appearing and disappearing several times while it is loading, it is an error.", jq(".z-popup").exists())
       sleep(1500)
       verifyFalse(jq(".z-apply-mask").exists())
-      click(jq(".z-listitem:contains(Click - popup)"))
+      clickAt(jq(".z-listcell:contains(Click - popup)"), "2,2")
       waitResponse()
       sleep(2000)
       verifyTrue("Then, the tooltip should keep displaying until the mouse cursor is click outside the second data row.", isVisible(jq(".z-popup")))
