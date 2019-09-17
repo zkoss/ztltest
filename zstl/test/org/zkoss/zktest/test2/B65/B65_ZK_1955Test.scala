@@ -74,7 +74,7 @@ Copyright (C) 2013 Potix Corporation. All Rights Reserved.
         closeZKLog()
         click(bb.$n("btn"))
         waitResponse()
-        click(jq(bb.$n("pp")).find(".z-listitem"))
+        clickAt(jq(bb.$n("pp")).find(".z-listitem"), "5,5")
         waitResponse()
         sleep(300)
         verifyContains(getZKLog(), "focus is in bandbox")
