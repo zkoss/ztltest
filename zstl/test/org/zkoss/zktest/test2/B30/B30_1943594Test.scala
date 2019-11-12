@@ -17,7 +17,6 @@ package org.zkoss.zktest.test2.B30
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
-import org.zkoss.ztl.util.Scripts
 
 /**
   *
@@ -79,6 +78,8 @@ class B30_1943594Test extends ZTL4ScalaTestCase {
       click(jq(jq(".z-combobox").toWidget.$n("btn")))
       waitResponse()
       click(jq("@comboitem:eq(0)"))
+      sleep(1000) // wait for a mask disappear
+      waitResponse()
       click(jq("$a"))
       waitResponse()
       verifyTrue(jq(".z-messagebox").exists())

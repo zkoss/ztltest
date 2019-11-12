@@ -2,10 +2,8 @@ package org.zkoss.zktest.test2.B85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.ClientWidget
-import org.zkoss.ztl._
-import org.zkoss.ztl.unit._
 import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.unit.ClientWidget
 
 /**
   * @author rudyhuang
@@ -16,7 +14,7 @@ class B85_ZK_3773Test extends ZTL4ScalaTestCase {
   def test()=  {
     runZTL(() => {
       val themes = jq("@groupbox @button")
-      for (i <- 0 until 4) {
+      for (i <- 0 to 2) {
         testInTheme(themes.eq(i))
       }
       click(jq("$restore"))

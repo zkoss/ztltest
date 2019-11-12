@@ -14,8 +14,8 @@ class B65_ZK_1842Test extends ZTL4ScalaTestCase {
       click(open)
       waitResponse()
 
-      verScroll(jq(".z-listbox"), 1)
-      click(jq(".z-listitem:contains(i)"))
+      verScroll(jq(".z-listbox"), 100)
+      click(jq(".z-listitem-checkbox:last"))
       waitResponse()
 
       click(jq(".z-menuitem").toWidget().$n("a"))

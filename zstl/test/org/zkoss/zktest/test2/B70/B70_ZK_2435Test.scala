@@ -15,7 +15,7 @@ class B70_ZK_2435Test extends ZTL4ScalaTestCase {
       var input = jq("input");
       click(btn);
       waitResponse();
-      var john = jq(".z-listitem").first();
+      var john = jq(".z-listitem").first().find(".z-listcell");
       click(john);
       waitResponse();
       var listbox = jq("@listbox").toWidget();

@@ -47,7 +47,7 @@ class B36_2851102Test extends ZTL4ScalaTestCase {
         waitResponse()
 
         //Click close
-        click(jq(".z-errorbox").toWidget.$n("cls"))
+        clickAt(jq(".z-errorbox").toWidget.$n("cls"), "2,2")
         waitResponse()
 
         //Window not closed
