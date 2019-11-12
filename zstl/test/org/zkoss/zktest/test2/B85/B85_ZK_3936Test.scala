@@ -18,7 +18,10 @@ class B85_ZK_3936Test extends ZTL4ScalaTestCase {
  @Test
   def test()=  {
     runZTL(() => {
-      verifyEquals("60px", jq("$combo1").toWidget.$n("real").eval("style.width"))
-    });
+      val widthBeforeCloseTree = jq("$combo1").width()
+      click(jq(".z-icon-caret-down"))
+      waitResponse()
+      verifyEquals(widthBeforeCloseTree, jq("$combo1").width())
+    })
  }
 }
