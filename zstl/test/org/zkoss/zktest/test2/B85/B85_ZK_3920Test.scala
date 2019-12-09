@@ -2,7 +2,6 @@ package org.zkoss.zktest.test2.B85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
 
 /* B85_ZK_3920.java
 
@@ -19,17 +18,17 @@ class B85_ZK_3920Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {
     runZTL(() => {
-      var lbbody = jq(jq("@listbox").toWidget().$n("body"));
-      var fa = jq(".z-focus-a");
-      verScrollAbs(lbbody, 100);
-      waitResponse();
-      click(jq("@listitem:eq(4)"));
-      waitResponse();
-      verScrollAbs(lbbody, -100);
-      waitResponse();
-      click(jq(".z-listgroup-icon").get(1));
-      waitResponse();
-      verifyTrue(lbbody.height() + lbbody.offsetTop() - fa.height() - fa.offsetTop() >= 0);
+      val lb = jq("@listbox")
+      val lbbody = jq(lb.toWidget.$n("body"))
+      verScroll(lb, 1)
+      waitResponse()
+      click(jq("@listitem:contains(item 2-5)"))
+      waitResponse()
+      verScroll(jq("@listbox"), 0)
+      waitResponse()
+      click(jq(".z-listgroup-icon").get(1))
+      waitResponse()
+      verifyFalse(hasVScrollbar(lbbody))
     });
   }
 }
