@@ -20,7 +20,7 @@ class B85_ZK_3920Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       val lb = jq("@listbox")
       val lbbody = jq(lb.toWidget.$n("body"))
-      verScroll(lb, 1)
+      verScroll(lb, 100)
       waitResponse()
       click(jq("@listitem:contains(item 2-5)"))
       waitResponse()

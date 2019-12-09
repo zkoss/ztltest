@@ -18,9 +18,6 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.{Element, Widget}
-import org.zkoss.ztl._
-import org.zkoss.ztl.unit._
 import org.zkoss.ztl.annotation.Tags
 
 /**
@@ -35,16 +32,15 @@ class B50_3285714Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
     runZTL(() => {
-        var grid: Widget = engine.$f("grid");
-        var rows: Widget = engine.$f("rows");
+        val grid = jq("@grid")
         verScroll(grid, 100)
-        sleep(1000);
+        sleep(1000)
         verScroll(grid, 50)
-        sleep(1000);
-        val top = getScrollTop(grid) - jq(grid.$n("tpad")).outerHeight()
-        verifyTrue(getEval("getTopRowTextAndVerify(0, " + top + ")"))
+        sleep(1000)
+        val row5k = jq("@row:contains(Row 5000)")
+        verifyTrue(row5k.positionTop() > 0)
+        verifyTrue(row5k.positionTop() < grid.innerHeight())
       }
-    );
-
+    )
   }
 }
