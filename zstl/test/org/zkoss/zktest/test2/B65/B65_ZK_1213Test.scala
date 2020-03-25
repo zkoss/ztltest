@@ -9,23 +9,7 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript =
-      """<zk>
-				    <button label="change to US">
-				  		<attribute name="onClick"><![CDATA[
-				    		Locale locale = new Locale("en", "US");
-				    		Sessions.getCurrent().setAttribute("px_preferred_locale", locale);
-				    		Clients.reloadMessages(locale);
-				    		org.zkoss.util.Locales.setThreadLocal(locale);
-				  		]]></attribute>
-					</button>
-                    1. Select Dec 16 2012 and click right arrow, should see Jan 16 2013
-    				2. Select Jan 31 2012 and click right arrow, should see Feb 28 2013
-                    <calendar/>
-                  </zk>"""
-
-    runZTL(zscript,
-      () => {
+    runZTL(() => {
 
         click(jq(".z-button"))
         waitResponse()
@@ -34,6 +18,7 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
           * 1. Select Dec 16 2012 and click right arrow, should see Jan 16 2013
           * Note: dont simplify it cuz opera will throw exception
           */
+        val decade = "2010-2019"
         val year = "2012"
         val month = "Dec"
         val day = "16"
@@ -41,6 +26,14 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
         val dayOfNextMonth = "16"
 
         click(jq(".z-calendar").toWidget().$n("ty"))
+        waitResponse(true) // wait for animation
+        sleep(200);
+
+        click(jq(".z-calendar").toWidget().$n("tyd"))
+        waitResponse(true) // wait for animation
+        sleep(200);
+
+        click(jq(".z-calendar-cell:contains(" + decade + ")"))
         waitResponse(true) // wait for animation
         sleep(200);
 
@@ -72,6 +65,14 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
         val dayOfNextMonth1 = "29"
 
         click(jq(".z-calendar").toWidget().$n("ty"))
+        waitResponse(true) // wait for animation
+        sleep(200);
+
+        click(jq(".z-calendar").toWidget().$n("tyd"))
+        waitResponse(true) // wait for animation
+        sleep(200);
+
+        click(jq(".z-calendar-cell:contains(" + decade + ")"))
         waitResponse(true) // wait for animation
         sleep(200);
 

@@ -8,20 +8,12 @@ import org.zkoss.ztl.annotation.Tags
 class B65_ZK_1215Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript =
-      """<zk>
-	<label multiline="true">
-	1. Click a date (suppose 10/20), and keep cursor on it.
-	2. Use arrow keys to change the selected date, the selected css of "10/20" must be removed.
-	
-	Note: This test case is focus on "Use mouse and keyboard to control Calendar at the same time."
-		  Other Calendar's behavior (like change style when mouseOver, mouseOut) must be the same as original.
-	</label>
-    <calendar id="cal" onChange="in.value = cal.value" />
-</zk>"""
-    runZTL(zscript,
-      () => {
+    runZTL(() => {
         click(jq(".z-calendar-title .z-calendar-text:eq(1)"))
+        waitResponse(true) //wait animation
+        click(jq(".z-calendar-title .z-calendar-text:eq(0)"))
+        waitResponse(true) //wait animation
+        click(jq("td:contains(2010-2019)"))
         waitResponse(true) //wait animation
         click(jq("td:contains(2013)"))
         waitResponse(true) //wait animation
