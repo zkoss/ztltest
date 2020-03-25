@@ -11,9 +11,6 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
 
-        click(jq(".z-button"))
-        waitResponse()
-
         /**
           * 1. Select Dec 16 2012 and click right arrow, should see Jan 16 2013
           * Note: dont simplify it cuz opera will throw exception
