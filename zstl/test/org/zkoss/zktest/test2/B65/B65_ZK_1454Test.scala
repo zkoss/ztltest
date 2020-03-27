@@ -8,64 +8,31 @@ import org.zkoss.ztl.annotation.Tags
 class B65_ZK_1454Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript =
-      """<vlayout>
-                    <html>
-                      <p>Testing instructions:</p>
-                      <ol>
-                        <li>Expand the tree nodes until the scrollbar appears.</li>
-                        <li>Scroll down</li>
-                        <li>Switch to Tab 2</li>
-                        <li>Switch back to Tab 1</li>
-                      </ol>
-                      <p>The scrollbar should be at the previous position. Otherwise, it is a bug</p>
-                    </html>
-                    <tabbox width="400px" height="400px">
-                      <tabs>
-                        <tab label="Tab 1" closable="true"/>
-                        <tab label="Tab 2" closable="true"/>
-                      </tabs>
-                      <tabpanels>
-                        <tabpanel style="position: relative; overflow: auto;">
-                          <zscript>
-                            import org.zkoss.zktest.test2.BigList;
-			    import org.zkoss.zktest.test2.tree.BinaryTreeModel;
-			    import java.util.ArrayList;
-				BinaryTreeModel btm = new BinaryTreeModel(new ArrayList(new BigList(1000)));
-                          </zscript>
-                          <tree id="tree" model="${btm}"/>
-                        </tabpanel>
-                        <tabpanel>Close this panel</tabpanel>
-                      </tabpanels>
-                    </tabbox>
-                  </vlayout>
-"""
-    runZTL(zscript,
-      () => {
-        click(jq(".z-treerow:contains(1):eq(0)").toWidget().$n("icon"))
-        waitResponse()
-        click(jq(".z-treerow:contains(3):eq(0)").toWidget().$n("icon"))
-        waitResponse()
-        click(jq(".z-treerow:contains(7):eq(0)").toWidget().$n("icon"))
-        waitResponse()
-        click(jq(".z-treerow:contains(15):eq(0)").toWidget().$n("icon"))
-        waitResponse()
-        click(jq(".z-treerow:contains(31):eq(0)").toWidget().$n("icon"))
-        waitResponse()
-        click(jq(".z-treerow:contains(63):eq(0)").toWidget().$n("icon"))
-        waitResponse()
-        click(jq(".z-treerow:contains(127):eq(0)").toWidget().$n("icon"))
-        waitResponse()
-        click(jq(".z-treerow:contains(255):eq(0)").toWidget().$n("icon"))
-        waitResponse()
+    runZTL(() => {
+      click(jq(".z-treerow:contains(1):eq(0)").toWidget().$n("icon"))
+      waitResponse()
+      click(jq(".z-treerow:contains(3):eq(0)").toWidget().$n("icon"))
+      waitResponse()
+      click(jq(".z-treerow:contains(7):eq(0)").toWidget().$n("icon"))
+      waitResponse()
+      click(jq(".z-treerow:contains(15):eq(0)").toWidget().$n("icon"))
+      waitResponse()
+      click(jq(".z-treerow:contains(31):eq(0)").toWidget().$n("icon"))
+      waitResponse()
+      click(jq(".z-treerow:contains(63):eq(0)").toWidget().$n("icon"))
+      waitResponse()
+      click(jq(".z-treerow:contains(127):eq(0)").toWidget().$n("icon"))
+      waitResponse()
+      click(jq(".z-treerow:contains(255):eq(0)").toWidget().$n("icon"))
+      waitResponse()
 
-        jq(".z-tabpanel").toElement().set("scrollTop", 28)
-        click(jq(".z-tab:contains(2)"))
-        waitResponse()
-        click(jq(".z-tab:contains(1)"))
-        waitResponse()
-        verifyEquals("The scrollbar should be at the previous position", jq(".z-tabpanel").scrollTop(), 28)
-      })
+      jq(".z-tabpanel").toElement().set("scrollTop", 28)
+      click(jq(".z-tab:contains(2)"))
+      waitResponse()
+      click(jq(".z-tab:contains(1)"))
+      waitResponse()
+      verifyEquals("The scrollbar should be at the previous position", jq(".z-tabpanel").scrollTop(), 28)
+    })
 
   }
 }
