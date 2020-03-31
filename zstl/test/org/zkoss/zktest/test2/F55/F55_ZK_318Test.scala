@@ -18,10 +18,8 @@ package org.zkoss.zktest.test2.F55
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.{ClientWidget, Widget}
-import org.zkoss.ztl._
-import org.zkoss.ztl.unit._
 import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.unit.{ClientWidget, Widget}
 
 /**
   * A test class for bug ZK-318
@@ -131,7 +129,7 @@ class F55_ZK_318Test extends ZTL4ScalaTestCase {
           Array(messageBox));
         verifyTrue("combobutton one should opened",
           jq(ppOne.$n()).is(":visible"));
-        clickAndWait(li);
+        clickAndWait(li.firstChild());
         verifyFalse("combobutton one should opened",
           jq(ppOne.$n()).is(":visible"));
 
