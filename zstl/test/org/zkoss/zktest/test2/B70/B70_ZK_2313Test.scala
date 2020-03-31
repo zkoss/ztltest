@@ -9,9 +9,9 @@ class B70_ZK_2313Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
     runZTL(() => {
-      val b1 = jq("$b1");
-      val b2 = jq("$b2");
-      val b3 = jq("$b3");
+      val b1 = jq("@button:eq(0)");
+      val b2 = jq("@button:eq(1)");
+      val b3 = jq("@button:eq(2)");
       val lists = jq("@listbox");
       click(b1)
       waitResponse()
