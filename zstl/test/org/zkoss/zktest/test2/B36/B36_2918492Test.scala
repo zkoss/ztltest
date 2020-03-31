@@ -95,7 +95,7 @@ Copyright (C) 2009 Potix Corporation. All Rights Reserved.
       () => {
 
         waitResponse();
-
+        sleep(2000)
         //Click maximize button
         var btn = jq("$googletools").toWidget().$n("max");
         click(btn);

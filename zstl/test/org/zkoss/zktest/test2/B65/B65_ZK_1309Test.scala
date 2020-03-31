@@ -22,7 +22,7 @@ class B65_ZK_1309Test extends ZTL4ScalaTestCase {
 
         val dragHandle = jq(".z-window-header-move")
         dragdropTo(dragHandle, "2,2", "52,2")
-
+        waitResponse()
         verifyTrue("the mask of modal window can't disappear", jq(".z-modal-mask").isVisible())
         verifyFalse("should hide notification", jq(".z-notification").isVisible())
       })

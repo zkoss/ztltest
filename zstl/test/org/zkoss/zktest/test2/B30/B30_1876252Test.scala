@@ -11,42 +11,13 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B30
 
-;
-
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
-
 
 class B30_1876252Test extends ZTL4ScalaTestCase {
   @Test
   def testztl() = {
-    var zscript =
-      """
-			
-
-
-<zk xmlns:n="http://www.zkoss.org/2005/zk/native">
-	<div>
-		<label value="This case tests height of listbox is properly or not. First listbox's rows=1, it means height of this listbox
-		equals one row's height." />
-		<separator height="8px" />
-		<listbox rows="1">
-			<listitem label="Rows=1" />
-		</listbox>
-		<separator height="20px" />
-		<label value="If height of the following listbox can contain 2 rows, it is correct. You can use mouse over 'Rows=2' to 
-		check a row's height of this listbox." />
-		<separator height="8px" />
-		<listbox rows="2">
-			<listitem label="Rows=2" />
-		</listbox>
-	</div>
-</zk>
-
-		"""
-    val ztl$engine = engine()
-    runZTL(zscript, () => {
+    runZTL(() => {
       var rowHeight = jq(".z-listitem").height()
       //make sure the row height in second listbox is same as first.
       verifyEquals(rowHeight, jq(".z-listitem:eq(1)").height())

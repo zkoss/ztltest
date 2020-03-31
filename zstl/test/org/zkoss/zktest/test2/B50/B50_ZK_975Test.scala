@@ -8,23 +8,7 @@ class B50_ZK_975Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
     val zscript =
-      """<zk>
-                    <div>
-                      The three textboxes should have almost the same width.
-                    </div>
-                    <div width="300px">
-                      <textbox hflex="1" multiline="true" value="Textbox 1"/>
-                    </div>
-                    <div width="300px">
-                      <textbox mold="rounded" hflex="1" multiline="true" value="Textbox 2"/>
-                    </div>
-                    <div width="300px">
-                      <textbox mold="rounded" width="100%" multiline="true" value="Textbox 2"/>
-                    </div>
-                  </zk>"""
-
-    runZTL(zscript,
-      () => {
+    runZTL(() => {
         val width0 = jq(".z-textbox:eq(0)").width()
         val width1 = jq(".z-textbox:eq(1)").width()
         val width2 = jq(".z-textbox:eq(2)").width()

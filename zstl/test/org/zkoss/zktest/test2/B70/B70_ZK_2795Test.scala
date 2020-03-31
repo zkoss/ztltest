@@ -16,7 +16,7 @@ class B70_ZK_2795Test extends ZTL4ScalaTestCase {
       click(jq("@popup"))
       waitResponse()
 
-      click(jq("@textbox"))
+      clickAt(jq("@textbox"), "5,5")
       sendKeys(jq("@textbox"), "12")
       waitResponse()
 

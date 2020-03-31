@@ -35,9 +35,9 @@ class B70_ZK_2892Test extends ZTL4ScalaTestCase {
         verifyEquals("position top should be the same", w2pt, w3pt)
         verifyEquals(parseInt(w1zi) + 1, parseInt(w2zi))
         verifyEquals(parseInt(w2zi) + 1, parseInt(w3zi))
-        verifyTolerant(w1pw - w1w, w1pl * 2, 2)
-        verifyTolerant(w2pw - w2w, w2pl * 2, 2)
-        verifyTolerant(w3pw - w3w, w3pl * 2, 2)
+        verifyTolerant(w1pw - w1w, w1pl * 2, 3)
+        verifyTolerant(w2pw - w2w, w2pl * 2, 3)
+        verifyTolerant(w3pw - w3w, w3pl * 2, 3)
       })
   }
 }
