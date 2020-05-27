@@ -50,8 +50,8 @@ class B30_1721859Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       verifyTrue(jq(v1).outerWidth() - (jq(v1.$n().parentNode()).outerWidth() / 2) <= 2)
       verifyTrue(jq(v2).outerWidth() - (jq(v2.$n().parentNode()).outerWidth() / 2) <= 2)
-      verifyEquals(jq(v3.$n().parentNode()).outerWidth(), jq(v3).outerWidth())
-      verifyEquals(jq(v4.$n().parentNode()).outerWidth(), jq(v4).outerWidth())
+      verifyTolerant(jq(v3.$n().parentNode()).outerWidth(), jq(v3).outerWidth(), 1)
+      verifyTolerant(jq(v4.$n().parentNode()).outerWidth(), jq(v4).outerWidth(), 1)
     })
   }
 }

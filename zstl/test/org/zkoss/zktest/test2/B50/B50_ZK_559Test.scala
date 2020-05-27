@@ -30,43 +30,11 @@ import org.zkoss.ztl.unit.Widget
 class B50_ZK_559Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript =
-      """
-			<zk>
-				<div>
-					Chrome/Safari only. There should be no vertical gap between listbox and tabbox. 
-				</div>
-				<vbox id="vbox" width="400px" height="700px" style="border: 1px solid #EE1111">
-					<hbox id="hbox" vflex="2" hflex="1">
-						<listbox id="listbox" hflex="1" vflex="1">
-							<listhead>
-								<listheader label="Item 1" />
-							</listhead>
-							<listitem forEach="0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9">
-								<listcell label="${each}" />
-							</listitem>
-						</listbox>
-					</hbox>
-					<tabbox id="tabbox" vflex="5" hflex="1">
-						<tabs>
-							<tab label="Tab 1" />
-							<tab label="Tab 2" />
-						</tabs>
-						<tabpanels hflex="1" vflex="1">
-							<tabpanel style="overflow:auto" vflex="1" hflex="1" forEach="1,2">
-								Tabpanel Content
-							</tabpanel>
-						</tabpanels>
-					</tabbox>
-				</vbox>
-			</zk>
-
-    """
-    runZTL(zscript, () => {
+    runZTL(() => {
       var listbox: Widget = engine.$f("listbox");
       var tabbox: Widget = engine.$f("tabbox");
       verifyTrue("the gap between listbox and tabbox should not too large",
-        getEval("Math.abs(" + jq(tabbox.$n()).positionTop() + "-" + jq(listbox.$n()).height() + "-" + jq(listbox.$n()).positionTop() + ") < 15"))
+        getEval("Math.abs(" + jq(tabbox.$n()).offsetTop() + "-" + jq(listbox.$n()).height() + "-" + jq(listbox.$n()).offsetTop() + ") < 15"))
     })
   }
 
