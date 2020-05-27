@@ -31,20 +31,20 @@ class B80_ZK_3048Test extends ZTL4ScalaTestCase {
       listbox.get(0).set("scrollTop", 1000)
       waitResponse()
       var listitem = listbox.eq(0).find(".z-listitem").last()
-      verifyTolerant(listitem.positionTop() + listitem.outerHeight(), parseInt(listbox.get(0).attr("clientHeight")), 1)
+      verifyTolerant(listitem.offsetTop() + listitem.outerHeight(), listbox.eq(0).offsetTop() + listbox.eq(0).outerHeight(), 1)
 
 
       listbox.get(1).set("scrollLeft", 1000)
       waitResponse()
       listitem = listbox.eq(1).find(".z-listitem").first()
-      verifyTolerant(listitem.positionLeft() + listitem.outerWidth(), parseInt(listbox.get(1).attr("clientWidth")), 1)
+      verifyTolerant(listitem.offsetLeft() + listitem.outerWidth(), listbox.eq(1).offsetLeft() + listbox.eq(1).outerWidth(), 1)
 
       listbox.get(2).set("scrollTop", 1000)
       listbox.get(2).set("scrollLeft", 1000)
       waitResponse()
       listitem = listbox.eq(2).find(".z-listitem").last()
-      verifyTolerant(listitem.positionTop() + listitem.outerHeight(), parseInt(listbox.get(2).attr("clientHeight")), 1)
-      verifyTolerant(listitem.positionLeft() + listitem.outerWidth(), parseInt(listbox.get(2).attr("clientWidth")), 1)
+      verifyTolerant(listitem.offsetTop() + listitem.outerHeight(), listbox.eq(2).offsetTop() + listbox.eq(2).outerHeight(), 1)
+      verifyTolerant(listitem.offsetLeft() + listitem.outerWidth(), listbox.eq(2).offsetLeft() + listbox.eq(2).outerWidth(), 1)
     })
   }
 }
