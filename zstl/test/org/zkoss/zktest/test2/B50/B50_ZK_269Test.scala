@@ -15,7 +15,6 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
 
 
 class B50_ZK_269Test extends ZTL4ScalaTestCase {
@@ -44,8 +43,8 @@ class B50_ZK_269Test extends ZTL4ScalaTestCase {
       var lbw = jq(lb.$n()).width()
       var lhw = jq(lh.$n()).outerWidth()
       var lhw2 = jq(lh2.$n()).outerWidth()
-      verifyTrue(lhw == lhw2)
-      verifyTrue((lhw + lhw2) == lbw)
+      verifyTolerant(lhw, lhw2, 1)
+      verifyTolerant((lhw + lhw2), lbw, 1)
     })
   }
 }

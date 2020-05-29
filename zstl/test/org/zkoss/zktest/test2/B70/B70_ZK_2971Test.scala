@@ -53,17 +53,17 @@ class B70_ZK_2971Test extends ZTL4ScalaTestCase {
         val listbox1 = listboxs.eq(0)
         var listitem8 = listbox1.find(".z-listitem").eq(8)
         var listbody = listbox1.find(".z-listbox-body")
-        var viewTop = listbody.scrollTop()
+        var viewTop = listbody.offsetTop()
         var viewBottom = viewTop + listbody.height()
-        verifyTrue("The top edge of selected item should be inside the viewport of listbox-body.", listitem8.positionTop() >= viewTop)
-        verifyTrue("The bottom edge of selected item should be inside the viewport of listbox-body.", listitem8.positionTop() + listitem8.height() <= viewBottom)
+        verifyTrue("The top edge of selected item should be inside the viewport of listbox-body.", listitem8.offsetTop() >= viewTop)
+        verifyTrue("The bottom edge of selected item should be inside the viewport of listbox-body.", listitem8.offsetTop() + listitem8.height() <= viewBottom + 1)
 
         listitem8 = listbox2.find(".z-listitem").eq(8)
         listbody = listbox2.find(".z-listbox-body")
-        viewTop = listbody.scrollTop()
+        viewTop = listbody.offsetTop()
         viewBottom = viewTop + listbody.height()
-        verifyTrue("The top edge of selected item should be inside the viewport of listbox-body.", listitem8.positionTop() >= viewTop)
-        verifyTrue("The bottom edge of selected item should be inside the viewport of listbox-body.", listitem8.positionTop() + listitem8.height() <= viewBottom)
+        verifyTrue("The top edge of selected item should be inside the viewport of listbox-body.", listitem8.offsetTop() >= viewTop)
+        verifyTrue("The bottom edge of selected item should be inside the viewport of listbox-body.", listitem8.offsetTop() + listitem8.height() <= viewBottom + 1)
       })
   }
 }

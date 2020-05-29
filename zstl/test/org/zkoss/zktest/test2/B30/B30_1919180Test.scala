@@ -77,8 +77,8 @@ class B30_1919180Test extends ZTL4ScalaTestCase {
       verifyEquals(50, $col1.outerWidth())
 
       var halfWidth = (jq(g1).innerWidth() - 50) / 2
-      verifyEquals(halfWidth, $col2.outerWidth())
-      verifyEquals(halfWidth, $col3.outerWidth())
+      verifyTolerant(halfWidth, $col2.outerWidth(), 1)
+      verifyTolerant(halfWidth, $col3.outerWidth(), 1)
 
       // add row
       click(jq("@button:eq(0)"))
@@ -96,14 +96,14 @@ class B30_1919180Test extends ZTL4ScalaTestCase {
         val $row1 = jq(jq(".z-row:eq(0)").children().get(0))
         val $row2 = jq(jq(".z-row:eq(0)").children().get(1))
         val $row3 = jq(jq(".z-row:eq(0)").children().get(2))
-        verifyEquals(size, $col1.outerWidth())
-        verifyEquals(size, $row1.outerWidth())
+        verifyTolerant(size, $col1.outerWidth(), 1)
+        verifyTolerant(size, $row1.outerWidth(), 1)
 
         halfWidth = (jq(g1).innerWidth() - $col1.outerWidth()) / 2
-        verifyEquals(halfWidth, $col2.outerWidth())
-        verifyEquals(halfWidth, $row2.outerWidth())
-        verifyEquals(halfWidth, $col3.outerWidth())
-        verifyEquals(halfWidth, $row3.outerWidth())
+        verifyTolerant(halfWidth, $col2.outerWidth(), 1)
+        verifyTolerant(halfWidth, $row2.outerWidth(), 1)
+        verifyTolerant(halfWidth, $col3.outerWidth(), 1)
+        verifyTolerant(halfWidth, $row3.outerWidth(), 1)
       }
     })
   }

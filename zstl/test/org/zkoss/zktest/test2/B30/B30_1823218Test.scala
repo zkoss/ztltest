@@ -21,12 +21,11 @@ class B30_1823218Test extends ZTL4ScalaTestCase {
     val tree = ztl$engine.$f("tree")
     val btn1 = jq("@button").toWidget
     runZTL(() => {
-      verifyTrue(jq(tree.$n("body")).offsetTop() <=
-        jq(tree.$n("head")).offsetTop() + jq(tree.$n("head")).height())
+      verifyTolerant(jq(tree.$n("body")).offsetTop(), jq(tree.$n("head")).offsetTop() + jq(tree.$n("head")).height(), 1)
       click(btn1)
       waitResponse()
-      verifyEquals(jq(tree).width(), jq(tree.$n("body")).outerWidth())
-      verifyEquals(jq(tree).height(), jq(tree.$n("body")).outerHeight())
+      verifyTolerant(jq(tree).width(), jq(tree.$n("body")).outerWidth(), 1)
+      verifyTolerant(jq(tree).height(), jq(tree.$n("body")).outerHeight(), 1)
     })
   }
 }

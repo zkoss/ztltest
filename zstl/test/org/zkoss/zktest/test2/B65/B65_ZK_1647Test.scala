@@ -37,9 +37,9 @@ class B65_ZK_1647Test extends ZTL4ScalaTestCase {
 </zk>"""
     runZTL(zscript,
       () => {
-        verifyTrue("Should not see horizontal scrollbar showed.", jq(".z-tree-body").width() >= jq("z-treerow").width())
+        verifyTrue("Should not see horizontal scrollbar showed.", jq(".z-tree-body").width() >= jq(".z-treerow").width())
         val diff = (jq(".z-treecell[style*=pink]").outerWidth() - 2 * jq(".z-treecell[style*=cyan]").outerWidth())
-        verifyTrue("Pink area should be twice as wide as the blue area.", diff <= 1)
+        verifyTolerant(jq(".z-treecell[style*=pink]").outerWidth(), 2 * jq(".z-treecell[style*=cyan]").outerWidth(), 2);
       })
 
   }

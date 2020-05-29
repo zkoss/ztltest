@@ -11,8 +11,6 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B30
 
-;
-
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.unit.Widget
@@ -54,7 +52,6 @@ class B30_2041674Test extends ZTL4ScalaTestCase {
       mouseOver(jq(".z-menu").toWidget().$n("a"));
       waitResponse()
       mouseOver(jq(".z-menuitem:eq(0)"));
-      sleep(500)
       verifyTrue(jq(".z-menupopup").isVisible())
     })
   }

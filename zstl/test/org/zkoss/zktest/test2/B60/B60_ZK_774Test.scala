@@ -31,7 +31,7 @@ class B60_ZK_774Test extends ZTL4ScalaTestCase {
         val bodyHeight = jq(".z-panel-body").height()
         val panelchildrenHeight = jq(".z-panelchildren").outerHeight(false)
         val panelHeight = jq(".z-panel-bottom").height()
-        verifyEquals(bodyHeight, panelchildrenHeight + panelHeight)
+        verifyTolerant(bodyHeight, panelchildrenHeight + panelHeight, 1)
       })
 
   }

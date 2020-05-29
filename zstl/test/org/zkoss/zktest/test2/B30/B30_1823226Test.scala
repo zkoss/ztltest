@@ -39,10 +39,10 @@ Splitter can be dragged over hbox border.
       var width = jq("@box @label").parent().width()
       dragdropTo(hsplitter, "1,1", "-19, 1")
       waitResponse()
-      verifyEquals(width - 20, jq("@box @label").parent().width())
+      verifyTolerant(width - 20, jq("@box @label").parent().width(), 1)
       dragdropTo(hsplitter, "1,1", "21, 1")
       waitResponse()
-      verifyEquals(width, jq("@box @label").parent().width())
+      verifyTolerant(width, jq("@box @label").parent().width(), 1)
     })
   }
 }

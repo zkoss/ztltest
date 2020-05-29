@@ -95,7 +95,7 @@ left pane should not occupy the whole page, leaving no space to the right pane. 
       verifyTrue(owidth - jq(tabbox).outerWidth() < 2)
       owidth = jq(tabbox).outerWidth()
       dragdropTo(split, "0,0", "-20,0")
-      verifyEquals(owidth - 20, jq(tabbox).outerWidth())
+      verifyTolerant(owidth - 20, jq(tabbox).outerWidth(), 1)
     })
   }
 }

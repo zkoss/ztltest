@@ -38,8 +38,8 @@ class B50_3285714Test extends ZTL4ScalaTestCase {
         verScroll(grid, 50)
         sleep(1000)
         val row5k = jq("@row:contains(Row 5000)")
-        verifyTrue(row5k.positionTop() > 0)
-        verifyTrue(row5k.positionTop() < grid.innerHeight())
+        verifyTrue(row5k.offsetTop() > 0)
+        verifyTrue(row5k.offsetTop() < grid.innerHeight())
       }
     )
   }

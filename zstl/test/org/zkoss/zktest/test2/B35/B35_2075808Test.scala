@@ -30,9 +30,10 @@ class B35_2075808Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       // Record size proportions of the panels
-      val previousProportioncLef = jq("$cLef").width().toDouble / jq("$cLay").width().toDouble;
-      val previousProportioncMid = jq("$cMid").width().toDouble / jq("$cLay").width().toDouble;
-      val previousProportioncRig = jq("$cRig").width().toDouble / jq("$cLay").width().toDouble;
+      val pLefWd = jq("$cLef").width()
+      val pMidWd = jq("$cMid").width()
+      val pRigWd = jq("$cRig").width()
+      val pLayWd = jq("$cLay").width()
 
       // Click on first button
       click(engine.$f("modify"));
@@ -43,14 +44,16 @@ class B35_2075808Test extends ZTL4ScalaTestCase {
       waitResponse();
 
       // Record new size proportions of the panels
-      val lastProportioncLef = jq("$cLef").width().toDouble / jq("$cLay").width().toDouble;
-      val lastProportioncMid = jq("$cMid").width().toDouble / jq("$cLay").width().toDouble;
-      val lastProportioncRig = jq("$cRig").width().toDouble / jq("$cLay").width().toDouble;
+      val nLefWd = jq("$cLef").width()
+      val nMidWd = jq("$cMid").width()
+      val nRigWd = jq("$cRig").width()
+      val nLayWd = jq("$cLay").width()
 
       // Verify that the new proportions are equals than previously
-      verifyEquals("The proportion must be equal than before the clicks", previousProportioncLef, lastProportioncLef);
-      verifyEquals("The proportion must be equal than before the clicks", previousProportioncMid, lastProportioncMid);
-      verifyEquals("The proportion must be equal than before the clicks", previousProportioncRig, lastProportioncRig);
+      verifyEquals(pLefWd, nLefWd);
+      verifyEquals(pMidWd, nMidWd);
+      verifyEquals(pRigWd, nRigWd);
+      verifyEquals(pLayWd, nLayWd);
     })
   }
 }

@@ -21,12 +21,12 @@ class B50_3166873Test extends ZTL4ScalaTestCase {
     val s1 = ztl$engine.$f("s1")
     val s2 = ztl$engine.$f("s2")
     runZTL(() => {
-      var left = jq(s1).positionLeft()
-      var top = jq(s2).positionTop()
+      var left = jq(s1).offsetLeft()
+      var top = jq(s2).offsetTop()
       dragdropTo(s1, "3,3", "13,3")
       dragdropTo(s2, "3,3", "3,13")
-      verifyNotEquals(left, jq(s1).positionLeft())
-      verifyNotEquals(top, jq(s2).positionTop())
+      verifyNotEquals(left, jq(s1).offsetLeft())
+      verifyNotEquals(top, jq(s2).offsetTop())
     })
   }
 }

@@ -38,7 +38,7 @@ class B65_ZK_1650Test extends ZTL4ScalaTestCase {
         click(jq(".z-button:contains(show/hide)"))
         waitResponse()
 
-        val textbox1 = jq(".z-textbox[style*=rgb]").parent()
+        val textbox1 = jq(".z-textbox[style*=cyan]").parent()
         verifyTrue("should see space between two Textboxes.", vlayout.height() > textbox0.height() + textbox1.height())
 
         click(jq(".z-button:contains(show/hide)"))

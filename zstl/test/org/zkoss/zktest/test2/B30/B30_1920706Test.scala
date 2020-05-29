@@ -69,8 +69,8 @@ new Datebox().setParent(row);
       val $col3 = jq("$col3")
       verifyEquals(50, $col1.outerWidth())
       var halfWidth = (jq(g1).innerWidth() - 50) / 2
-      verifyEquals(halfWidth, $col2.outerWidth())
-      verifyEquals(halfWidth, $col3.outerWidth())
+      verifyTolerant(halfWidth, $col2.outerWidth(), 1)
+      verifyTolerant(halfWidth, $col3.outerWidth(), 1)
 
       val btn1 = jq("@button:eq(0)")
       val btn2 = jq("@button:eq(1)")
@@ -82,10 +82,10 @@ new Datebox().setParent(row);
       def checkSize(btn: JQuery, size: Int)=  {
         click(btn)
         waitResponse()
-        verifyEquals(size, $col1.outerWidth())
+        verifyTolerant(size, $col1.outerWidth(), 1)
         halfWidth = (jq(g1).innerWidth() - $col1.outerWidth()) / 2
-        verifyEquals(halfWidth, $col2.outerWidth())
-        verifyEquals(halfWidth, $col3.outerWidth())
+        verifyTolerant(halfWidth, $col2.outerWidth(), 1)
+        verifyTolerant(halfWidth, $col3.outerWidth(), 1)
       }
     })
   }
