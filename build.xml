@@ -201,6 +201,7 @@ Usage:
 			<arg value="${test.dir}"/>
 			<arg value="${test.browser}"/>
 			<arg value="${test.openonce}"/>
+			<arg value="${test.reportNameSuffix}"/>
 		</exec>
 	</target>
 	<target name="report" >

@@ -14,4 +14,5 @@
 	<property name="project.title" value="Zul Testing Language" />
 	<property name="test.browser" value="" />
 	<property name="test.openonce" value="" />
+	<property name="test.reportNameSuffix" value="" />
 </project>
