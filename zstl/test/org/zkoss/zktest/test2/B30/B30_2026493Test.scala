@@ -21,7 +21,7 @@ class B30_2026493Test extends ZTL4ScalaTestCase {
     val ztl$engine = engine()
     runZTL(() => {
       var body = jq("tbody:eq(0)").outerHeight()
-      var paging = jq("div.z-paging").parent().outerHeight()
+      var paging = jq(".z-paging").parent().outerHeight()
       var listbox = jq("div.z-listbox").outerHeight()
       verifyTolerant(listbox, body + paging, 2)
     })

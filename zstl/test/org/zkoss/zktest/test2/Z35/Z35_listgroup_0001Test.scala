@@ -172,11 +172,11 @@ class Z35_listgroup_0001Test extends ZTL4ScalaTestCase {
       // set Paging
       click(pagingBtn);
       waitResponse()
-      verifyTrue("Set paging failed", jq("div.z-paging").exists());
+      verifyTrue("Set paging failed", jq(".z-paging").exists());
       // invalidate
       click(invalidateBtn)
       waitResponse();
-      verifyTrue("The screen cannot has any change after clicking invalidate", jq("div.z-paging").exists())
+      verifyTrue("The screen cannot has any change after clicking invalidate", jq(".z-paging").exists())
     })
   }
 }

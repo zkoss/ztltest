@@ -21,35 +21,12 @@ import org.zkoss.ztl.unit.Widget
 class B50_3165081Test extends ZTL4ScalaTestCase {
   @Test
   def testztl() = {
-    var zscript =
-      """
-			
-
-<zk>
-	<html><![CDATA[
-		<ol>
-			<li>Try to drag all 4 splitters, you should not be able to move any of them.</li>
-		</ol>
-	]]></html>
-	<hbox width="200px" height="200px">
-		<splitter id="s1"/>
-		Content
-		<splitter id="s2"/>
-	</hbox>
-	<vbox width="200px" height="200px">
-		<splitter id="s3"/>
-		Content
-		<splitter id="s4"/>
-	</vbox>
-</zk>
-
-		"""
     val ztl$engine = engine()
     val s1 = ztl$engine.$f("s1")
     val s2 = ztl$engine.$f("s2")
     val s3 = ztl$engine.$f("s3")
     val s4 = ztl$engine.$f("s4")
-    runZTL(zscript, () => {
+    runZTL(() => {
       var s1l = jq(s1).positionLeft()
       var s2l = jq(s2).positionLeft()
       var s3t = jq(s3).positionTop()
