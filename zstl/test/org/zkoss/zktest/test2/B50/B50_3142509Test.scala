@@ -29,22 +29,6 @@ import org.zkoss.ztl.annotation.Tags
 class B50_3142509Test extends ZTL4ScalaTestCase {
 
   def testClick() = {
-    val zscript =
-      """
-
-			<zk>
-				<listbox mold="select" id="list">
-					<listhead/>
-					<listitem label="item1"/>
-					<listitem label="item2" selected="true"/>
-					<listitem label="item3"/>
-					<listitem label="item4"/>
-				</listbox>
-				<button id="btn" label="Please click to select item 4, if item 3 that's bug" onClick="list.selectedIndex=3"/>
-			</zk>
-			
-
-    """
 
     def executor = () => {
       var btn: Widget = engine.$f("btn")
@@ -55,7 +39,7 @@ class B50_3142509Test extends ZTL4ScalaTestCase {
       verifyEquals("item4", list.$n().attr("value"))
     }
 
-    runZTL(zscript, executor);
+    runZTL(executor);
 
   }
 }
