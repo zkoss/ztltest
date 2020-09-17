@@ -58,11 +58,11 @@ class ExampleTest extends ZTL4ScalaTestCase {
       var l2: Widget = engine.$f("l2");
       waitResponse();
       var strClickBefor = getText(l1);
-      click(l1);
+      clickAt(l1, "2,2");
       waitResponse();
       verifyNotEquals(strClickBefor, getText(l1));
       strClickBefor = getText(l2);
-      click(l2);
+      clickAt(l2, "2,2");
       waitResponse();
       verifyNotEquals(strClickBefor, getText(l2));
     });

@@ -30,6 +30,7 @@ class B85_ZK_3676_1Test extends ZTL4ScalaTestCase {
      <include src="/test2/B85-ZK-3676.zul"/>
     """
     runZTL(zscript, () => {
+      sleep(1000)
       click(jq("$red"))
       waitResponse();
       verifyFalse("Notification should be closed.", jq(".z-notification").isVisible());
