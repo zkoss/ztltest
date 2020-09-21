@@ -3,12 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.zkoss.ztl</groupId>
     <artifactId>ztltest</artifactId>
-    <version>3.9.1-SNAPSHOT</version>
+    <version>3.141.59-SNAPSHOT</version>
     <name>ZTL Test cases</name>
     <description>A sets of testing cases for ZK project</description>
     <properties>
-        <selenium.version>3.9.1</selenium.version>
+        <selenium.version>3.141.59</selenium.version>
         <scala.version>2.12.4</scala.version>
+		<commons-io>2.4</commons-io>
         <report.dir>report/</report.dir>
         <test.dir>target/classes</test.dir>
     </properties>
@@ -44,7 +45,7 @@
         <dependency>
             <groupId>org.zkoss.ztl</groupId>
             <artifactId>ztl</artifactId>
-            <version>3.9.1-SNAPSHOT</version>
+            <version>3.141.59-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -101,6 +102,11 @@
             <artifactId>scala-maven-plugin</artifactId>
             <version>3.3.1</version>
         </dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io}</version>
+		</dependency>
     </dependencies>
     <build>
         <sourceDirectory>zstl/src</sourceDirectory>
