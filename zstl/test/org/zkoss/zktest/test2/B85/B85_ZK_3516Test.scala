@@ -55,7 +55,7 @@ class B85_ZK_3516Test extends ZTL4ScalaTestCase {
   }
 
   def verify(wSplitter: Int) = {
-    verifyEquals(wSplitter, jq(".z-splitter-outer").width())
-    verifyEquals(jq(".z-div:eq(1)").width(), jq(".z-hbox").width())
+    verifyTolerant(wSplitter, jq(".z-splitter-outer").width(), 1)
+    verifyTolerant(jq(".z-div:eq(1)").width(), jq(".z-hbox").width(), 1)
   }
 }
