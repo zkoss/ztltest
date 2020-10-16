@@ -10,7 +10,7 @@ class B95_ZK_4665Test extends ZTL4ScalaTestCase {
   def test() = {
     runZTL(() => {
       waitResponse()
-      verifyEquals(jq("$p1").offsetTop(), (jq("$p2").offsetTop()))
+      verifyEquals(jq("$cMid").offsetTop(), (jq("$cRig").offsetTop()))
     })
   }
 }
