@@ -1,7 +1,5 @@
 package org.zkoss.zktest.test2.B50
 
-import java.util
-
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
@@ -21,7 +19,10 @@ class B50_ZK_338Test extends ZTL4ScalaTestCase {
       waitResponse()
       click(jq("@label"))
       waitResponse()
-      val origin: String = jq(".z-timebox").toWidget().$n("real").attr("value");
+      click(jq("$log"))
+      waitResponse()
+      val origin = getZKLog
+      closeZKLog()
 
       doubleClickAt(timeboxInput, "3,3")
       waitResponse()
@@ -38,7 +39,9 @@ class B50_ZK_338Test extends ZTL4ScalaTestCase {
       waitResponse()
       blur(timeboxInput)
       waitResponse()
-      verifyEquals(origin.substring(0, 1), jq(".z-timebox").toWidget().$n("real").attr("value").substring(0, 1))
+      click(jq("$log"))
+      waitResponse()
+      verifyEquals(origin, getZKLog)
     })
   }
 }
