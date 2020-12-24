@@ -31,7 +31,6 @@ import org.zkoss.ztl.util.AggregateError
 class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
   var ch = ConfigHelper.getInstance()
   target = ch.getServer() + ch.getContextPath() + "/" + ch.getAction()
-  _timeout = ch.getTimeout().toInt
   caseID = getClass().getSimpleName()
   val _engine = new ThreadLocal[Widget]();
 
@@ -118,7 +117,7 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
       executorService.shutdown();
 
       try {
-        if (!executorService.awaitTermination(_timeout, TimeUnit.MILLISECONDS))
+        if (!executorService.awaitTermination(ch.getTimeout().toInt, TimeUnit.MILLISECONDS))
           executorService.shutdownNow();
 
         detectException(futures);
