@@ -1,3 +1,3 @@
 #!/bin/bash
 mvn compile -DskipTests=true
-mvn surefire:test
+mvn surefire:test -P testcafe
