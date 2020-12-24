@@ -12,7 +12,7 @@ import org.zkoss.ztl.unit.JQuery
 class B50_ZK_580Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit = {
-    runZTL(executor = () => {
+    runZTL(() => {
       val textbox: JQuery = jq(".z-textbox")
       clickAt(textbox, "70,5")
       waitResponse()
