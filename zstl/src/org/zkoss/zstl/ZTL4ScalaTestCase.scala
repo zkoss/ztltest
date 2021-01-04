@@ -56,6 +56,8 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
       target = ch.getServer + ch.getContextPath + "/" + action;
     val testingEnv = ch.getTestingEnvironment
     if (testingEnv == null || "selenium".equals(testingEnv)) { //default
+      //update timeout
+      _timeout = ch.getTimeout().toInt
       val luuid = new Date().getTime();
       println(getTimeUUID() + "-" + luuid + ":log 1");
       val executorService = Executors.newCachedThreadPool();
@@ -117,7 +119,7 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
       executorService.shutdown();
 
       try {
-        if (!executorService.awaitTermination(ch.getTimeout().toInt, TimeUnit.MILLISECONDS))
+        if (!executorService.awaitTermination(_timeout, TimeUnit.MILLISECONDS))
           executorService.shutdownNow();
 
         detectException(futures);
