@@ -7,7 +7,7 @@ import org.zkoss.ztl.unit._
 import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
 @Tags(tags = "F65-ZK-2012.zul")
-@IgnoreBrowsers("chrome,ff,safari,edge,ie10,ie9")
+@IgnoreBrowsers("chrome,ff,safari,edge_legacy,ie10,ie9")
 class F65_ZK_2012Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {

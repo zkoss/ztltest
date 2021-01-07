@@ -7,7 +7,7 @@ import org.zkoss.ztl.annotation.IgnoreBrowsers
 /**
   * @author leonlee
   */
-@IgnoreBrowsers("chrome,safari,edge,ie11,ie10,ie9")
+@IgnoreBrowsers("chrome,safari,edge_legacy,ie11,ie10,ie9")
 class B50_ZK_521Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit = {

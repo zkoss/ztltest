@@ -55,6 +55,9 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
     if (action != null && !action.isEmpty)
       target = ch.getServer + ch.getContextPath + "/" + action;
     val testingEnv = ch.getTestingEnvironment
+    var annotIgnoreBrowsers = ""
+    if (this.getClass.isAnnotationPresent(classOf[IgnoreBrowsers]))
+      annotIgnoreBrowsers = this.getClass.getAnnotation(classOf[IgnoreBrowsers]).value();
     if (testingEnv == null || "selenium".equals(testingEnv)) { //default
       //update timeout
       _timeout = ch.getTimeout().toInt
@@ -63,9 +66,6 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
       val executorService = Executors.newCachedThreadPool();
       val browserSet = new HashSet[String];
       val futures = new ArrayList[Future[_]];
-      var annotIgnoreBrowsers = ""
-      if (this.getClass.isAnnotationPresent(classOf[IgnoreBrowsers]))
-        annotIgnoreBrowsers = this.getClass.getAnnotation(classOf[IgnoreBrowsers]).value();
       println("ignore browsers : " + annotIgnoreBrowsers);
       val browsers = getBrowsers(ch.getBrowser(), annotIgnoreBrowsers)
       for (browser <- browsers) {
@@ -151,7 +151,7 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
       if (!zscript.isEmpty())
         runRawZscript(zscript.toString)
       executor()
-      generateCafeTest(target.replace("zulCafe", "zul"), ch.getCafeTestDir)
+      generateCafeTest(target.replace("zulCafe", "zul"), ch.getCafeTestDir, annotIgnoreBrowsers)
     }
   }
 

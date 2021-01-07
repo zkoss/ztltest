@@ -9,7 +9,7 @@ import org.zkoss.ztl.unit.JQuery
 /**
   * @author leonlee
   */
-@IgnoreBrowsers("chrome,ff,safari,edge")
+@IgnoreBrowsers("chrome,ff,safari,edge_legacy")
 class B50_ZK_664Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit = {
