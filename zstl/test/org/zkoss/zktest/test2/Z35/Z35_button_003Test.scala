@@ -18,7 +18,7 @@ package org.zkoss.zktest.test2.Z35
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
 /**
   * A test class for bug button-003
@@ -27,81 +27,42 @@ import org.zkoss.ztl.annotation.Tags
   *
   */
 @Tags(tags = "Z35-button-003.zul,Z35,A,E,Button")
+@IgnoreBrowsers("ios,android")
 class Z35_button_003Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript =
-      """
-			<?page id="testZul" title=" New ZUL Title" cacheable="false" 
-				language="xul/html" zscriptLanguage="Java" contentType="text/html;charset=UTF-8"?>
-			<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
-			<zk xmlns="http://www.zkoss.org/2005/zul" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd">
-			  <window title="Test button reference to processes" border="normal" width="400px">
-			  Test button basic functions: onclick, disable, rightclick, doubleclick, onFocus(click near button and TAB into button), onBlur (TAB away from button), href should all be working, if any failed, its bug.
-			    <zscript><![CDATA[
-			  public void setMyLabel(String str){
-			    self.setLabel(str);
-			}
-			
-			  public void setDisableMe(){
-			    self.setDisabled(true);
-			    self.setLabel("Disabled OK");
-			}
-			
-			]]></zscript>
-			    <vbox>
-			      <hbox>
-			        <button id="btn1" label="ClickMe" onClick='setMyLabel("OnClick OK")'/>Single Click test</hbox>
-			      <hbox>
-			        <button id="btn2" label="ClickMe" onClick="setDisableMe()"/> Disable Test </hbox>
-			      <hbox>
-			        <button id="btn3" label="RightClickMe" onRightClick='setMyLabel("RightClick OK")'/> Right Click Test </hbox>
-			      <hbox>
-			        <button id="btn4" label="DoubleClickMe" onDoubleClick='setMyLabel("DoubleClick OK")'/> Double Click Test</hbox>
-			      <hbox>
-			        <button id="btn5" label="FocusOnMe" onFocus='setMyLabel("Focused OK")' tabindex="1"/>Focus gained Test </hbox>
-			      <hbox>
-			        <button id="btn6" label="BlurMe" onBlur='setMyLabel("Blurred OK")' tabindex="2"/>Focus lost Test </hbox>
-			      <hbox>
-			        <button id="btn7" label="http://www.google.com" href="http://www.google.com"/> Hyperlink Test </hbox>
-			    </vbox>
-			  </window>
-			</zk>
-
-    """;
-
-    runZTL(zscript,
+    runZTL(
       () => {
 
         click(jq("$btn1"))
         waitResponse()
-        verifyEquals(widget("$btn1").attr("label"), "OnClick OK");
+        verifyEquals(widget("$btn1").attr("label"), "OnClick OK")
 
         click(jq("$btn2"))
         waitResponse()
-        verifyTrue(widget("$btn2").is("disabled"));
+        verifyTrue(widget("$btn2").is("disabled"))
 
-        contextMenu(jq("$btn3"));
+        contextMenu(jq("$btn3"))
         waitResponse()
-        verifyEquals(widget("$btn3").attr("label"), "RightClick OK");
+        verifyEquals(widget("$btn3").attr("label"), "RightClick OK")
 
         doubleClick(jq("$btn4"))
         waitResponse()
-        verifyEquals(widget("$btn4").attr("label"), "DoubleClick OK");
+        verifyEquals(widget("$btn4").attr("label"), "DoubleClick OK")
 
         focus(jq("$btn5"))
         waitResponse()
-        verifyEquals(widget("$btn5").attr("label"), "Focused OK");
+        verifyEquals(widget("$btn5").attr("label"), "Focused OK")
 
         click(jq("$btn6"))
         waitResponse()
-        verifyEquals(widget("$btn6").attr("label"), "BlurMe");
+        verifyEquals(widget("$btn6").attr("label"), "BlurMe")
         blur(jq("$btn6"))
         waitResponse()
-        verifyEquals(widget("$btn6").attr("label"), "Blurred OK");
+        verifyEquals(widget("$btn6").attr("label"), "Blurred OK")
 
       }
-    );
+    )
   }
 }

@@ -3,9 +3,10 @@ package org.zkoss.zktest.test2.B70
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
 @Tags(tags = "B70-ZK-2285.zul")
+@IgnoreBrowsers("ios,android")
 class B70_ZK_2285Test extends ZTL4ScalaTestCase {
 
   @Test

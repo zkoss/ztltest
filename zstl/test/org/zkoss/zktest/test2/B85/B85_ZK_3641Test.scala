@@ -13,8 +13,10 @@ package org.zkoss.zktest.test2.B85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.annotation.IgnoreBrowsers
 import org.zkoss.ztl.unit.JQuery
 
+@IgnoreBrowsers("ios") // in iOS the autohide is broken, but it's okay since it won't block popups
 class B85_ZK_3641Test extends ZTL4ScalaTestCase {
 
 

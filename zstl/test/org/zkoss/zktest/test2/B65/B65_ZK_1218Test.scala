@@ -13,20 +13,14 @@ class B65_ZK_1218Test extends ZTL4ScalaTestCase {
       val doublebox = jq(".z-doublebox")
       val doublespinner = jq(".z-doublespinner-input")
 
-      sendKeys(doublebox, "1")
-      sendKeys(doublebox, ".")
-      sendKeys(doublebox, "224323423452352345345345634534634634")
-
+      click(doublebox)
+      typeKeys(doublebox, "1.224323423452352345345345634534634634")
       blur(doublebox)
       waitResponse()
       verifyTrue(jq(".z-errorbox:eq(0)").exists())
 
-
-      focus(doublespinner)
-      sendKeys(doublespinner, "1")
-      sendKeys(doublespinner, ".")
-      sendKeys(doublespinner, "224323423452352345345345634534634634")
-
+      click(doublespinner)
+      typeKeys(doublespinner, "1.224323423452352345345345634534634634")
       blur(doublespinner)
       waitResponse()
       verifyTrue(jq(".z-errorbox:eq(1)").exists())

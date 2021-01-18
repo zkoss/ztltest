@@ -18,13 +18,14 @@ package org.zkoss.zktest.test2.B30
 
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
 /**
   * @author Fernando Selvatici
   *
   */
 @Tags(tags = "B30-1882323.zul,B,E,Window,Button")
+@IgnoreBrowsers("ios,android")
 class B30_1882323Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {

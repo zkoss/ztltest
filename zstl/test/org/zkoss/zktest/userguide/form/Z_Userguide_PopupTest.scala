@@ -13,7 +13,9 @@ package org.zkoss.zktest.userguide.form
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.annotation.IgnoreBrowsers
 
+@IgnoreBrowsers("ios,android")
 class Z_Userguide_PopupTest extends ZTL4ScalaTestCase {
   @Test
   def testPopup() = {

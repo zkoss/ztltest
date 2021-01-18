@@ -16,14 +16,10 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
-import java.lang._
-
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 import org.zkoss.ztl.unit.Widget
-import org.zkoss.ztl._
-import org.zkoss.ztl.unit._
-import org.zkoss.ztl.annotation.Tags
 
 /**
   * A test class for bug ZK-391
@@ -32,6 +28,7 @@ import org.zkoss.ztl.annotation.Tags
   *
   */
 @Tags(tags = "B50-ZK-391.zul,A,E,Popup,onOpen")
+@IgnoreBrowsers("ios,android")
 class B50_ZK_391Test extends ZTL4ScalaTestCase {
 
   @Test

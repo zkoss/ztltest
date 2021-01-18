@@ -1,6 +1,9 @@
+package org.zkoss.zktest.test2.B85
+
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.annotation.IgnoreBrowsers
 
 /* B85_ZK_3702Test.java
 
@@ -13,7 +16,7 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 
 Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
-
+@IgnoreBrowsers("ios,android")
 class B85_ZK_3702Test extends ZTL4ScalaTestCase {
   @Test
   def test()=  {

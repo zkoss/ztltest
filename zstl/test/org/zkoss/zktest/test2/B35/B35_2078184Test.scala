@@ -18,8 +18,8 @@ package org.zkoss.zktest.test2.B35
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 import org.zkoss.ztl.unit.{Element, Widget}
-import org.zkoss.ztl.annotation.Tags
 
 /**
   * A test class for bug 2078184
@@ -28,6 +28,7 @@ import org.zkoss.ztl.annotation.Tags
   *
   */
 @Tags(tags = "B35-2078184.zul,A,E,Spinner")
+@IgnoreBrowsers("ios,android")
 class B35_2078184Test extends ZTL4ScalaTestCase {
 
   @Test

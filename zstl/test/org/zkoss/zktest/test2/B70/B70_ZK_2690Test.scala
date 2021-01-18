@@ -15,13 +15,14 @@ it will be useful, but WITHOUT ANY WARRANTY.
 package org.zkoss.zktest.test2.B70
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags;
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags};
 
 /**
   *
   * @author chunfu
   */
 @Tags(tags = "B70-ZK-2690.zul")
+@IgnoreBrowsers("ios,android")
 class B70_ZK_2690Test extends ZTL4ScalaTestCase {
   def testCase() = {
     runZTL(() => {

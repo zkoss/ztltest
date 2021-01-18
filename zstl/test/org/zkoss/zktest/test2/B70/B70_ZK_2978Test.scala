@@ -1,7 +1,6 @@
 package org.zkoss.zktest.test2.B70
 
 import org.junit.Test
-import org.openqa.selenium.Dimension
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
 
@@ -12,15 +11,13 @@ class B70_ZK_2978Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(
       () => {
-        setWindowSize(getWindowWidth(), 400)
-        sleep(500);
+        val groupboxCaption = jq(".z-caption")
+        click(groupboxCaption.eq(1))
+        waitResponse(true)
+        click(groupboxCaption.eq(0))
+        waitResponse(true)
 
-        val groupboxCaption = jq(".z-caption");
-        click(groupboxCaption);
-
-        waitResponse(true);
-
-        verifyTrue(hasVScrollbar(jq(".menuGroupboxContainer")));
+        verifyTrue(hasVScrollbar(jq(".menuGroupboxContainer")))
       })
 
   }

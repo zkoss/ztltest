@@ -11,42 +11,15 @@ Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B30
 
-;
-
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
+import org.zkoss.ztl.annotation.IgnoreBrowsers
 
-
+@IgnoreBrowsers("ios,android")
 class B30_1979239Test extends ZTL4ScalaTestCase {
   @Test
   def testztl() = {
-    var zscript =
-      """
-			
-
-
-<window>
-	The Tooltip function should work with a Menupopup/Menuitem
-<menubar id="menubar" autodrop="true">
-<menu label="Wiki">
-<menupopup>
-<menuitem tooltip="any" label="test"/>
-</menupopup>
-</menu>
-</menubar>
-<popup id="any" width="300px">
-<vbox>
-i am a Tooltip!.
-</vbox>
-</popup>
-</window>
-
-		"""
-    val ztl$engine = engine()
-    val menubar = ztl$engine.$f("menubar")
-    val any = ztl$engine.$f("any")
-    runZTL(zscript, () => {
+    runZTL(() => {
       mouseOver(jq(".z-menu").toWidget().$n("a"));
       sleep(500)
       mouseOver(jq(".z-menuitem"));
@@ -56,6 +29,3 @@ i am a Tooltip!.
     })
   }
 }
-
-
-

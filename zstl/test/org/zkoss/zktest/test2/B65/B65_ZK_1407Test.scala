@@ -10,29 +10,7 @@ class B65_ZK_1407Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript =
-      """<zk>
-                    <style>
-                      .buggy .z-combobox-input {
-						  background-color: yellow;
-					  }
-					
-					  .buggy .z-combobox-input:focus {
-						  background-color: green;
-					  }
-                    </style>
-                    <label multiline="true">
-                      1. Combobox's initial background color is yellow.
-	2. Click button to open dorp-down list, and Combobox's background color will transform to green.
-	3. Select a item, and then Combobox's background color must be still green.
-                    </label>
-                    <combobox sclass="buggy">
-                      <comboitem label="item 1"></comboitem>
-                      <comboitem label="item 2"></comboitem>
-                    </combobox>
-                  </zk>"""
-
-    runZTL(zscript,
+    runZTL(
       () => {
         // 1. Combobox's initial background color is yellow.
         val inp = jq(jq(".z-combobox").toWidget().$n("real"))

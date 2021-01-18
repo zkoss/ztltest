@@ -26,33 +26,22 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B30-1914078.zul,C,E,Window,Animation")
 class B30_1914078Test extends ZTL4ScalaTestCase {
   def testPosition() = {
-    val zscript =
-      """
-      <window title="Animation Effects" border="normal" xmlns:h="http://www.w3.org/1999/xhtml">
-        <h:p>Repeatedly click on "Toggle Visible" Button. If the Window pops up from top-right corner, it is a bug.</h:p>
-        <button label="Toggle Visible" onClick="win.visible = !win.visible"/>
-        <window id="win" border="normal" width="200px" position="center" mode="overlapped" visible="false">
-          <caption image="/test2/img/inet.png" label="Hi there!"/>
-          <checkbox label="Hello, Effects!"/>
-        </window>
-      </window>
-    """
-    runZTL(zscript, () => {
+    runZTL(() => {
       val btn = jq("@button");
       val win = jq("$win")
       val width = jq("body").width() / 2
       val height = jq("body").height() / 2
-      for (i <- 0 until 6) {
-        click(btn)
-        if (i % 2 == 0) {
-          waitResponse(true)
-          var left = win.offsetLeft()
-          var top = win.offsetTop()
-          verifyTrue(top > 100);
-          verifyTrue(top < height);
-          verifyTrue(left > 100);
-          verifyTrue(left < width);
-        }
+      for (_ <- 0 to 2) {
+        click(btn) // show
+        waitResponse(true)
+        var left = win.offsetLeft()
+        var top = win.offsetTop()
+        verifyTrue(top > 100);
+        verifyTrue(top < height);
+        verifyTrue(left > 100);
+        verifyTrue(left < width);
+        click(btn) // hide
+        waitResponse(true)
       }
     })
   }

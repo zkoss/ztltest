@@ -2,118 +2,15 @@ package org.zkoss.zktest.test2.B70
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
 @Tags(tags = "B70-ZK-2306.zul")
+@IgnoreBrowsers("ios,android")
 class B70_ZK_2160Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
-    val zscript =
-      """<?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-B70-ZK-2160.zul
-
-	Purpose:
-		
-	Description:
-		
-	History:
-		Wed, Apr 16, 2014  3:28:21 PM, Created by jumperchen
-
-Copyright (C)  Potix Corporation. All Rights Reserved.
-
--->
-<zk>
-  
-  <div> 
-
-    <hbox>
- 
-      <label multiline="true">
-      1. Shorten the borwser's height, make the menupopup open at left side by clicking the "Click Me" button.
-      2. Don't move the cursor, wait 2 seconds. The menupopup should not change its position.
-      </label>
-                
-    
-   
-    <menubar id="menubar">
-                <menu label="Click me">
-                    <menupopup>
-                        <menu label="Mouseover me">
-                            <menupopup>
-                               <menu label="And mouseover me">
-                                   <menupopup>
-                                       <menuitem label="Wait a moment"/>
-                                       <menuitem label="for timer to fire"/>
-                                       <menuitem label="and menu jumps"/>
-                                    </menupopup>
-                                </menu>
-                            </menupopup>
-                        </menu>
-                      
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                         <menu label="Try again here">
-                            <menupopup>
-                               <menu label="And mouseover me">
-                                   <menupopup>
-                                       <menuitem label="Wait a moment"/>
-                                       <menuitem label="for timer to fire"/>
-                                       <menuitem label="and menu jumps"/>
-                                    </menupopup>
-                                </menu>
-                            </menupopup>
-                        </menu>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                        <menuitem label="filler"/>
-                    </menupopup>
-                </menu>
-       
-
-            </menubar>
-      </hbox>
-   
-    <!-- refresh content every 5 seconds -->
-    <timer id="timer" delay="2000" repeats="true" onTimer=""/>
-    
-  </div>
-</zk>
-"""
-    runZTL(zscript,
+    runZTL(
       () => {
         windowResizeTo(1024, 300)
         waitResponse(true)

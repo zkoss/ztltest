@@ -18,7 +18,7 @@ package org.zkoss.zktest.test2.F55
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 import org.zkoss.ztl.unit.{ClientWidget, Widget}
 
 /**
@@ -28,6 +28,7 @@ import org.zkoss.ztl.unit.{ClientWidget, Widget}
   *
   */
 @Tags(tags = "F55-ZK-318.zul,F60,B,E,combobutton")
+@IgnoreBrowsers("ios,android")
 class F55_ZK_318Test extends ZTL4ScalaTestCase {
 
   @Test

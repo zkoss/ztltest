@@ -27,33 +27,7 @@ class B50_ZK_528Test extends ZTL4ScalaTestCase {
 
   @Test
   def testGridCase() = {
-    val zscript =
-      """
-			<div>
-				Grid
-				<grid emptyMessage="Empty Message">
-					<columns id="cols">
-						<column label="Column1"/>
-						<column label="if you can see this, that is a bug" visible="false"/>
-					</columns>
-					<rows id="rows"/>
-				</grid>
-				<button label="add row">
-					<attribute name="onClick">
-						rows.appendChild(new Row());
-			rows.lastChild.appendChild(new Label("test"));
-					</attribute>
-				</button>
-				<button label="clean rows" onClick="rows.getChildren().clear()"/>
-				<button label="add column">
-					<attribute name="onClick">
-						cols.appendChild(new Column("test"));
-					</attribute>
-				</button>
-				<button label="clean columns" onClick="cols.getChildren().clear()"/>
-			</div>
-		"""
-    runZTL(zscript, () => {
+    runZTL(() => {
 
       val emp = jq("@grid").toWidget().$n("empty")
       val hiddenCol = jq("@grid").find("col[id*=hdfaker][style*=collapse]")

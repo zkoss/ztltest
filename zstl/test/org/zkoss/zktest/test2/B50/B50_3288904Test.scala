@@ -14,31 +14,11 @@ package org.zkoss.zktest.test2.B50
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
-
 
 class B50_3288904Test extends ZTL4ScalaTestCase {
   @Test
   def testztl() = {
-    var zscript =
-      """
-			<zk>
-	<html><![CDATA[
-		<ol>
-			<li>Type '000' to the end of year (so it becomes 2011000, for example). Click outside the Datebox.</li>
-			<li>The year should be capped to '200000'. If the date value become 'undefined', it is a bug.</li>
-		</ol>
-	]]></html>
-	<zscript><![CDATA[
-		import java.util.Date;
-		Date d = new Date();
-	]]></zscript>
-	<datebox value="${d}" locale="en_US"/>
-</zk>
-
-		"""
-    val ztl$engine = engine()
-    runZTL(zscript, () => {
+    runZTL(() => {
       var inp = jq("@datebox").toWidget().$n("real")
       focus(inp)
       sendKeys(inp, Keys.END)

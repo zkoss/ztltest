@@ -2,9 +2,10 @@ package org.zkoss.zktest.test2.B60
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
 @Tags(tags = "B60-ZK-1222.zul")
+@IgnoreBrowsers("ios,android")
 class B60_ZK_1222Test extends ZTL4ScalaTestCase {
 
   @Test

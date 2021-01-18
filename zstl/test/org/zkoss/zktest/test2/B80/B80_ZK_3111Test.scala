@@ -1,7 +1,6 @@
 package org.zkoss.zktest.test2.B80
 
 import org.junit.Test
-import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
 
@@ -35,22 +34,7 @@ class B80_ZK_3111Test extends ZTL4ScalaTestCase {
         verifyEquals(0, jq("[title=\"Maximize\"]").length())
         verifyEquals(4, jq("[title=\"Restore\"]").length())
 
-        //4. test keyboard trigger
-        verifyEquals(10, jq("[title]").length())
-        click(jq(".z-textbox"))
-        waitResponse()
-        sendKeys(jq(":focus"), Keys.TAB)
-        waitResponse()
-        sendKeys(jq(":focus"), Keys.TAB)
-        waitResponse()
-        sendKeys(jq(":focus"), Keys.TAB)
-        waitResponse()
-        sendKeys(jq(":focus"), Keys.SPACE)
-        waitResponse()
-        verifyEquals(1, jq("[title=\"Maximize\"]").length())
-        verifyEquals(3, jq("[title=\"Restore\"]").length())
-
-        //5. test change locale
+        //4. test change locale
         click(jq(".z-textbox"))
         waitResponse()
         sendKeys(jq(".z-textbox"), "zh")

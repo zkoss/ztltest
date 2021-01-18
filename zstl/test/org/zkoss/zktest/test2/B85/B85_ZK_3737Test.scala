@@ -29,11 +29,11 @@ class B85_ZK_3737Test extends ZTL4ScalaTestCase {
     runZTL(() => {
       for (i <- 0 to 1) {
         var headerWidth = jq(".z-listheader:eq(" + i + ")").outerWidth();
-        verifyEquals(headerWidth, jq(".z-listcell:eq(" + i + ")").outerWidth())
-        verifyEquals(headerWidth, jq(".z-column:eq(" + i + ")").outerWidth())
-        verifyEquals(headerWidth, jq(".z-row-inner:eq(" + i + ")").outerWidth())
-        verifyEquals(headerWidth, jq(".z-treecol:eq(" + i + ")").outerWidth())
-        verifyEquals(headerWidth, jq(".z-treecell:eq(" + i + ")").outerWidth())
+        verifyTolerant(headerWidth, jq(".z-listcell:eq(" + i + ")").outerWidth(), 1)
+        verifyTolerant(headerWidth, jq(".z-column:eq(" + i + ")").outerWidth(), 1)
+        verifyTolerant(headerWidth, jq(".z-row-inner:eq(" + i + ")").outerWidth(), 1)
+        verifyTolerant(headerWidth, jq(".z-treecol:eq(" + i + ")").outerWidth(), 1)
+        verifyTolerant(headerWidth, jq(".z-treecell:eq(" + i + ")").outerWidth(), 1)
       }
     })
   }
