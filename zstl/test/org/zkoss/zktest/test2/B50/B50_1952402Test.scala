@@ -13,7 +13,7 @@ class B50_1952402Test extends ZTL4ScalaTestCase {
       click(jq("@button"))
       waitResponse()
 
-      val iframe = jq("@window @iframe")
+      val iframe = jq("@window iframe")
       evalScript(iframe + ".contents().find(\".z-button\").click()")
       waitResponse()
       val textboxVal = iframe.eval("contents().find(\".z-textbox\").val()")

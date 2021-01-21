@@ -11,10 +11,7 @@ class B50_ZK_842Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(
       () => {
-        val intbox = jq(".z-intbox")
-        sendKeys(intbox, "-1")
-        waitResponse()
-        blur(intbox)
+        `type`(jq(".z-intbox"), "-1")
         waitResponse()
         verifyTrue("should see an error message.", jq(".z-errorbox").exists())
       })

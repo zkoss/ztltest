@@ -15,8 +15,8 @@ class B60_ZK_1071Test extends ZTL4ScalaTestCase {
         waitResponse(true)
         click(jq(".z-listcell:contains(B)"))
         waitResponse()
-        verifyTrue("the bandbox value should become 'B'",
-          bb.toWidget().$n("real").attr("value") == "B")
+        verifyEquals("the bandbox value should become 'B'",
+          "B", bb.toWidget().$n("real").attr("value"))
         click(jq(".z-button:eq(0)"))
         waitResponse()
         verifyContains("it should pop up a 'value:B' messagebox",
