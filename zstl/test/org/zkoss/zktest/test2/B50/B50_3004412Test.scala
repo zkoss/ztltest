@@ -13,8 +13,9 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.annotation.IgnoreBrowsers
 
-
+@IgnoreBrowsers("ios,android")
 class B50_3004412Test extends ZTL4ScalaTestCase {
   @Test
   def testzindex() = {
