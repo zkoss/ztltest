@@ -17,7 +17,7 @@ class B70_ZK_2978Test extends ZTL4ScalaTestCase {
         click(groupboxCaption.eq(0))
         waitResponse(true)
 
-        verifyTrue(hasVScrollbar(jq(".menuGroupboxContainer")))
+        verifyTrue(hasVScrollbar(jq(".menuGroupboxContainer div")))
       })
 
   }
