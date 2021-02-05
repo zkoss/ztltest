@@ -25,7 +25,7 @@ import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
   *
   */
 @Tags(tags = "B30-1882323.zul,B,E,Window,Button")
-@IgnoreBrowsers("ios,android")
+@IgnoreBrowsers("ios,android,ff")
 class B30_1882323Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {

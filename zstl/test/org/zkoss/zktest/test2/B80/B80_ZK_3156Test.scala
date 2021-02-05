@@ -22,7 +22,7 @@ import org.zkoss.ztl.annotation.IgnoreBrowsers;
   *
   * @author Sefi
   */
-@IgnoreBrowsers("chrome,ff,safari,ie10,ie9")
+@IgnoreBrowsers("chrome,ff,safari,ie11,ie10,ie9")
 class B80_ZK_3156Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {
