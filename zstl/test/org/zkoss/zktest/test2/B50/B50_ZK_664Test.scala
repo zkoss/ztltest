@@ -25,6 +25,7 @@ class B50_ZK_664Test extends ZTL4ScalaTestCase {
 
       testFlow(jq("@textbox").eq(7), jq("@button").eq(6), jq("@button").eq(7))
       checkCount("17")
+      click(jq("$resetBtn"))
     })
   }
 
