@@ -9,7 +9,7 @@
     <properties>
         <selenium.version>3.141.59</selenium.version>
         <scala.version>2.12.4</scala.version>
-		<commons-io>2.4</commons-io>
+		<commons-io>2.7</commons-io>
         <report.dir>report/</report.dir>
         <test.dir>target/classes</test.dir>
     </properties>
