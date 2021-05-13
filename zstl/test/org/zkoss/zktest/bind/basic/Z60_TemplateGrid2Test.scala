@@ -26,7 +26,7 @@ class Z60_TemplateGrid2Test extends ZTL4ScalaTestCase {
   @Test
   def testArg() = {
     val zul = """
-      <include src="bind/basic/collection-template-grid.zul"/>
+      <include src="bind/databinding/collection/collection-template-grid.zul"/>
 """
 
     runZTL(zul, () => {

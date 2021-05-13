@@ -30,7 +30,7 @@ class Z60_ValidationMessagesTest extends ZTL4ScalaTestCase {
   @Test
   def testArg() = {
     val zul = """
-      <include src="bind/basic/validationmessages.zul"/>
+      <include src="bind/databinding/validator/validationmessages.zul"/>
 """
 
     runZTL(zul, () => {

@@ -24,7 +24,7 @@ import org.zkoss.ztl.annotation.Tags
 class Z60_CollectionIndexListbox1Test extends ZTL4ScalaTestCase {
   def testArg() = {
     val zul = """
-      <include src="/bind/basic/collection-index-listbox.zul"/>
+      <include src="/bind/databinding/collection/collection-index-listbox.zul"/>
 """
 
     runZTL(zul, () => {

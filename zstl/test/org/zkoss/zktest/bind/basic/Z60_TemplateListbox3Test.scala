@@ -29,7 +29,7 @@ class Z60_TemplateListbox3Test extends ZTL4ScalaTestCase {
   def testArg() = {
     val zul =
       """
-      <include src="bind/basic/collection-template-listbox.zul"/>
+      <include src="bind/databinding/collection/collection-template-listbox.zul"/>
 """
 
     runZTL(zul, () => {

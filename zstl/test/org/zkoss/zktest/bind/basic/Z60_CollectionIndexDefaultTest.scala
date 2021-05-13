@@ -24,7 +24,7 @@ import org.zkoss.ztl.annotation.Tags
 class Z60_CollectionIndexDefaultTest extends ZTL4ScalaTestCase {
   def testArg() = {
     val zul = """
-      <include src="/bind/basic/collection-index-default.zul"/>
+      <include src="/bind/databinding/collection/collection-index-default.zul"/>
 """
 
     runZTL(zul, () => {
