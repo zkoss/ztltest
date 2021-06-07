@@ -20,7 +20,7 @@ class F65_ZK_1825Test extends ZTL4ScalaTestCase {
         waitResponse(true)
         click(calendar0.find(".z-calendar-title .z-calendar-text:eq(0)"))
         waitResponse(true)
-        click(calendar0.find(".z-calendar-body td:contains(2010-2019)"))
+        click(calendar0.find(".z-calendar-body td[data-value=\"2010\"]"))
         waitResponse(true)
         click(calendar0.find(".z-calendar-body td:contains(2013)"))
         waitResponse(true)

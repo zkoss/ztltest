@@ -19,7 +19,7 @@ class B70_ZK_2026Test extends ZTL4ScalaTestCase {
         waitResponse()
         click(calendar0.find(".z-calendar-title .z-calendar-text:eq(0)"))
         waitResponse()
-        click(calendar0.find(".z-calendar-body td:contains(2010-2019)"))
+        click(calendar0.find(".z-calendar-body td[data-value=\"2010\"]"))
         waitResponse()
         click(calendar0.find(".z-calendar-body td:contains(2013)"))
         waitResponse()

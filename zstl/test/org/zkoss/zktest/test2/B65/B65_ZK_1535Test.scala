@@ -35,7 +35,7 @@ class B65_ZK_1535Test extends ZTL4ScalaTestCase {
         click(jq(".z-calendar-text").last());
         waitResponse(true)
         // 7. make sure we're seeing "1990-2099"
-        verifyEquals("should see 1990-2099", "1990-2099", jq(".z-calendar-text").last().text());
+        verifyEquals("should see 1990 - 2099", "1990 - 2099", jq(".z-calendar-text").last().text());
         // 8. go to 2013
         click(jq(".z-calendar-cell[data-value=2010]"))
         waitResponse(true)

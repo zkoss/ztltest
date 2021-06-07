@@ -15,7 +15,6 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
           * 1. Select Dec 16 2012 and click right arrow, should see Jan 16 2013
           * Note: dont simplify it cuz opera will throw exception
           */
-        val decade = "2010-2019"
         val year = "2012"
         val month = "Dec"
         val day = "16"
@@ -30,7 +29,7 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
         waitResponse(true) // wait for animation
         sleep(200);
 
-        click(jq(".z-calendar-cell:contains(" + decade + ")"))
+        click(jq(".z-calendar-cell[data-value=\"2010\"]"))
         waitResponse(true) // wait for animation
         sleep(200);
 
@@ -69,7 +68,7 @@ class B65_ZK_1213Test extends ZTL4ScalaTestCase {
         waitResponse(true) // wait for animation
         sleep(200);
 
-        click(jq(".z-calendar-cell:contains(" + decade + ")"))
+        click(jq(".z-calendar-cell[data-value=\"2010\"]"))
         waitResponse(true) // wait for animation
         sleep(200);
 

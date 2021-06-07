@@ -30,7 +30,7 @@ class B30_1984643Test extends ZTL4ScalaTestCase {
   def testClick() = {
     runZTL(() => {
       click(jq("@select"))
-      click(jq(":contains(item 1)"));
+      click(jq("option:contains(item 1)"));
       waitResponse();
       waitResponse();
 
