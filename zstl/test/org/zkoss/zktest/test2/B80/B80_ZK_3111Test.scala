@@ -11,14 +11,14 @@ class B80_ZK_3111Test extends ZTL4ScalaTestCase {
     runZTL(
       () => {
         //1. check init status
-        verifyEquals(10, jq("[title]").length()) // if title attribute exists, browser will display a tooltip on hover
+        verifyEquals(12, jq("[title]").length()) // if title attribute exists, browser will display a tooltip on hover
 
         //2. test collapse
         click(jq("[title=\"Collapse\"]"))
         waitResponse()
         click(jq("[title=\"Collapse\"]"))
         waitResponse()
-        verifyEquals(0, jq("[title=\"Collapse\"]").length())
+        verifyEquals(1, jq("[title=\"Collapse\"]").length())
         verifyEquals(2, jq("[title=\"Expand\"]").length())
 
         //3. test maximize
@@ -41,7 +41,7 @@ class B80_ZK_3111Test extends ZTL4ScalaTestCase {
         waitResponse()
         click(jq(".z-button"))
         waitResponse()
-        verifyEquals(10, jq("[title]").length())
+        verifyEquals(12, jq("[title]").length())
         verifyFalse(jq(".z-error").exists())
       })
   }
