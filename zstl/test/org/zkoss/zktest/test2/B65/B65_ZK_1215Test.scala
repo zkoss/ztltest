@@ -13,7 +13,7 @@ class B65_ZK_1215Test extends ZTL4ScalaTestCase {
         waitResponse(true) //wait animation
         click(jq(".z-calendar-title .z-calendar-text:eq(0)"))
         waitResponse(true) //wait animation
-        click(jq("td:contains(2010-2019)"))
+        click(jq("td:contains(2010 -2019)"))
         waitResponse(true) //wait animation
         click(jq("td:contains(2013)"))
         waitResponse(true) //wait animation
