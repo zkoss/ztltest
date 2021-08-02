@@ -49,7 +49,7 @@ class B36_3049167Test extends ZTL4ScalaTestCase {
 
       waitResponse();
 
-      var info = jq(".z-listbox .z-paging-info");
+      var info = jq(".z-listbox .z-paging-info > span:eq(0)");
       var infotxt = getText(info);
       var original = "[ 1 - 5 / 8 ]";
 
@@ -70,7 +70,7 @@ class B36_3049167Test extends ZTL4ScalaTestCase {
 
       waitResponse();
 
-      var info1 = jq(".z-grid .z-paging-info");
+      var info1 = jq(".z-grid .z-paging-info > span:eq(0)");
       var infotxt1 = getText(info1);
       var original1 = "[ 1 - 5 / 8 ]";
 
