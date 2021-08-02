@@ -76,11 +76,11 @@ pageSize
     val btn = ztl$engine.$f("btn")
     val tree = ztl$engine.$f("tree")
     runZTL(zscript, () => {
-      verifyEquals("[ 1 - 2 / 30 ]", jq(".z-paging-info").text())
+      verifyEquals("[ 1 - 2 / 30 ]", jq(".z-paging-info > span:eq(0)").text())
       verifyEquals(2, jq(".z-treechildren tr").length())
       click(btn)
       waitResponse()
-      verifyEquals("[ 1 - 10 / 30 ]", jq(".z-paging-info").text())
+      verifyEquals("[ 1 - 10 / 30 ]", jq(".z-paging-info > span:eq(0)").text())
       verifyEquals(10, jq(".z-treechildren tr").length())
     })
   }
