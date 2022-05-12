@@ -70,11 +70,11 @@ class B50_ZK_419Test extends ZTL4ScalaTestCase {
         for (i <- 1 to max) {
           click(btn1);
           waitResponse();
-          verifyEquals("new tab should added one by one while click add button", i, jq(".z-tabpanel").length());
+          verifyEquals("new tab should added one by one while click add button", i, jq("@tabpanel").length());
         }
         click(btn2);
         waitResponse();
-        verifyEquals("should keep the same after click invalidate button", max, jq(".z-tabpanel").length());
+        verifyEquals("should keep the same after click invalidate button", max, jq("@tabpanel").length());
       }
     );
 

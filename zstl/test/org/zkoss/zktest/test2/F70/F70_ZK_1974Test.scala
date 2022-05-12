@@ -128,18 +128,18 @@ class F70_ZK_1974Test extends ZTL4ScalaTestCase {
           click(tb.find(".z-tab:eq(0)"))
           waitResponse()
           sleep(500)
-          var tph = tb.find(".z-tabpanel").eq(0).height()
+          var tph = tb.find(".z-tabpanel-content").eq(0).height()
           for (tabIndex <- 1 to 2) {
             click(tb.find(".z-tab:eq(" + tabIndex + ")"))
             waitResponse()
             sleep(500)
 
-            val tphNew = tb.find(".z-tabpanel").eq(tabIndex).height()
+            val tphNew = tb.find(".z-tabpanel-content").eq(tabIndex).height()
             verifyEquals("all heights of tabpanels should be same", tph, tphNew)
           }
         }
         val tb = jq(".z-tabbox").eq(0)
-        val h = tb.find(".z-tabpanel").eq(2)
+        val h = tb.find(".z-tabpanel").eq(2).height()
 
         click(jq(".z-button"))
         waitResponse()
@@ -147,7 +147,7 @@ class F70_ZK_1974Test extends ZTL4ScalaTestCase {
         click(tb.find(".z-tab:eq(3)"))
         waitResponse()
 
-        verifyTrue("the height of 4th tabpanel should not be same as other's height", h.height() != tb.find(".z-tabpanel").eq(3).height())
+        verifyTrue("the height of 4th tabpanel should not be same as other's height", h != tb.find(".z-tabpanel").eq(3).height())
 
       })
 
