@@ -16,11 +16,11 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.{Element, Widget}
 import org.zkoss.ztl._
-import org.zkoss.ztl.unit._
 import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-629
@@ -30,6 +30,7 @@ import org.zkoss.ztl.annotation.Tags
   */
 @Tags(tags = "B50-ZK-629.zul,A,E,Doublebox,Decimalbox,Doublespinner,Locale")
 class B50_ZK_629Test extends ZTL4ScalaTestCase {
+  @Test
   def testNumberLocale() = {
     runZTL(() => {
       waitResponse();

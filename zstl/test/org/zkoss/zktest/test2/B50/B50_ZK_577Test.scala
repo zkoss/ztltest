@@ -16,11 +16,11 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
 import org.zkoss.ztl._
-import org.zkoss.ztl.unit._
 import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.unit._
 
 /**
   * A test class for bug ZK-577
@@ -30,6 +30,7 @@ import org.zkoss.ztl.annotation.Tags
   */
 @Tags(tags = "B50-ZK-577.zul,B,E,Datebox")
 class B50_ZK_577Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
     runZTL(() => {
       var dbx: Widget = engine.$f("dbx");

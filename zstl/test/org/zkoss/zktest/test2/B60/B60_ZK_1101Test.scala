@@ -1,11 +1,12 @@
 package org.zkoss.zktest.test2.B60
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
 
 @Tags(tags = "B60-ZK-1101.zul")
 class B60_ZK_1101Test extends ZTL4ScalaTestCase {
-
+  @Test
   def testClick() = {
     val zscript =
       """<zk>
