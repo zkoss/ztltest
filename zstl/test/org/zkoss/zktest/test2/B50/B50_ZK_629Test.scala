@@ -18,7 +18,7 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.{Element,Widget}
+import org.zkoss.ztl.unit.{Element, Widget}
 import org.zkoss.ztl.annotation.Tags
 
 /**
