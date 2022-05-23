@@ -14,6 +14,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2.B70
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags;
 
@@ -23,6 +24,7 @@ import org.zkoss.ztl.annotation.Tags;
   */
 @Tags(tags = "B70-ZK-2712.zul")
 class B70_ZK_2712Test extends ZTL4ScalaTestCase {
+  @Test
   def testCase() = {
     runZTL(() => {
       var tree = jq("@tree")

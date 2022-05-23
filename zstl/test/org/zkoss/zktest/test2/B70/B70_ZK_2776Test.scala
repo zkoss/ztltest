@@ -4,7 +4,7 @@ import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
 
-@Tags(tags = "B70-ZK-2775.zul")
+@Tags(tags = "B70-ZK-2776.zul")
 class B70_ZK_2776Test extends ZTL4ScalaTestCase {
 
   @Test

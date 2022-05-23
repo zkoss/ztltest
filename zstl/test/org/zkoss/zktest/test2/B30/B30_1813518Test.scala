@@ -1,8 +1,10 @@
 package org.zkoss.zktest.test2.B30
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 
 class B30_1813518Test extends ZTL4ScalaTestCase {
+  @Test
   def testClick() = {
     runZTLinAction("test2/B30-1813518.zhtml", () => {
       var borderCss = jq("@rows:eq(0) td").eval("get(0).style.border")

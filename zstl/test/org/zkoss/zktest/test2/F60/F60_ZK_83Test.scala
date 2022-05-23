@@ -16,11 +16,10 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.F60
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.{JQuery, Widget}
-import org.zkoss.ztl._
-import org.zkoss.ztl.unit._
 import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.unit.Widget
 
 /**
   * A test class for bug ZK-83
@@ -30,7 +29,7 @@ import org.zkoss.ztl.annotation.Tags
   */
 @Tags(tags = "F60-ZK-83.zul,F60,A,E,Messagebox")
 class F60_ZK_83Test extends ZTL4ScalaTestCase {
-
+  @Test
   def testClick() = {
     val zscript =
       """

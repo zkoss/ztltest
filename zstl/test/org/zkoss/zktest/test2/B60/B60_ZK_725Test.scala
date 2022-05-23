@@ -16,6 +16,7 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B60
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
 import org.zkoss.ztl.unit.Widget
@@ -28,7 +29,7 @@ import org.zkoss.ztl.unit.Widget
   */
 @Tags(tags = "B60-ZK-725.zul,A,E,sort")
 class B60_ZK_725Test extends ZTL4ScalaTestCase {
-
+  @Test
   def testClick() = {
     runZTL(
       () => {
