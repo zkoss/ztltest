@@ -23,7 +23,7 @@ class B30_2026493Test extends ZTL4ScalaTestCase {
       var body = jq("tbody:eq(0)").outerHeight()
       var paging = jq(".z-paging").parent().outerHeight()
       var listbox = jq("div.z-listbox").outerHeight()
-      verifyTolerant(listbox, body + paging, 2)
+      verifyTolerant(listbox, body + paging, 3) //float point number
     })
   }
 }

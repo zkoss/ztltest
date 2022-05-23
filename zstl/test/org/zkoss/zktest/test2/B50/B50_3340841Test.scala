@@ -16,6 +16,7 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 */
 package org.zkoss.zktest.test2.B50
 
+import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.Tags
 
@@ -27,7 +28,7 @@ import org.zkoss.ztl.annotation.Tags
   */
 @Tags(tags = "B50-3340841.zul,A,M,Listbox,Tree")
 class B50_3340841Test extends ZTL4ScalaTestCase {
-
+  @Test
   def testClick() = {
     val zscript =
       """
