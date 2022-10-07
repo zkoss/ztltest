@@ -18,6 +18,14 @@
             <id>zk repository</id>
             <url>http://mavensync.zkoss.org/maven2</url>
         </repository>
+        <repository>
+            <id>maven central</id>
+            <name>Maven2 Repository</name>
+            <url>https://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
     </repositories>
     <licenses>
         <license>
@@ -26,6 +34,13 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven central-plugin</id>
+            <name>Maven2 Repository</name>
+            <url>https://repo1.maven.org/maven2</url>
+        </pluginRepository>
+    </pluginRepositories>
     <dependencies>
         <dependency>
             <groupId>org.zkoss.ztl</groupId>
