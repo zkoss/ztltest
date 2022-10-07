@@ -18,14 +18,6 @@
             <id>zk repository</id>
             <url>http://mavensync.zkoss.org/maven2</url>
         </repository>
-        <repository>
-            <id>scala-tools.org</id>
-            <name>Scala-tools Maven2 Repository</name>
-            <url>http://scala-tools.org/repo-releases</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
     </repositories>
     <licenses>
         <license>
@@ -34,13 +26,6 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>scala-tools.org-plugin</id>
-            <name>Scala-tools Maven2 Repository</name>
-            <url>http://scala-tools.org/repo-releases</url>
-        </pluginRepository>
-    </pluginRepositories>
     <dependencies>
         <dependency>
             <groupId>org.zkoss.ztl</groupId>
