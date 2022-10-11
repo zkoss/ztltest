@@ -118,13 +118,6 @@
                 <version>4.7.2</version>
                 <executions>
                     <execution>
-                        <id>doc</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                    <execution>
                         <id>compile</id>
                         <goals>
                             <goal>compile</goal>
