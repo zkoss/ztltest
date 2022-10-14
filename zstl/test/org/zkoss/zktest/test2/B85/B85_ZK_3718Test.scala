@@ -15,6 +15,8 @@ class B85_ZK_3718Test extends ZTL4ScalaTestCase {
       val height = jq("@vlayout").height() // 500px
       val lastDiv = jq(".z-vlayout-inner:last")
       verifyTolerant(height, lastDiv.offsetTop() + lastDiv.height(), 3)
+      // NOTE: The tolerance of 3px is due to floating-point arithmetic imprecision (addition could overflow or underflow).
+      // The tolerance shouldn't be made bigger than 3px.
     })
   }
 }
