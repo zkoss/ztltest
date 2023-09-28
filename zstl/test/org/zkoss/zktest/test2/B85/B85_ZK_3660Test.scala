@@ -17,7 +17,7 @@ class B85_ZK_3660Test extends ZTL4ScalaTestCase {
 
   def runFittingTest(header: JQuery, body: JQuery) = {
 
-    val clickPosition = (header.offsetLeft() + header.width() - 3) + "," + (header.offsetTop() + 5)
+    val clickPosition = (header.offsetLeft() + header.width() - 10) + ",0"
 
     doubleClickAt(header, clickPosition)
     waitResponse(true)
@@ -25,7 +25,9 @@ class B85_ZK_3660Test extends ZTL4ScalaTestCase {
     click(body)
     waitResponse(true)
 
-    doubleClickAt(header, clickPosition)
+    val newClickPosition = (header.offsetLeft() + header.width() - 10) + ",0"
+
+    doubleClickAt(header, newClickPosition)
     waitResponse(true)
   }
 }
