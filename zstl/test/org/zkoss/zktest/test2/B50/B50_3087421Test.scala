@@ -22,16 +22,16 @@ class B50_3087421Test extends ZTL4ScalaTestCase {
     val btn1 = ztl$engine.$f("btn1")
     runZTL(() => {
       verifyFalse(btn.is("disabled"))
-      click(btn)
+      doubleClick(btn)
       waitResponse()
-      verifyEquals("disabled:true", getZKLog)
+      verifyEquals("disabled:false", getZKLog)
       verifyFalse(btn.is("disabled"))
 
       closeZKLog()
       verifyFalse(btn1.is("disabled"))
-      click(btn1)
+      doubleClick(btn1)
       waitResponse()
-      verifyEquals("disabled:true", getZKLog)
+      verifyEquals("disabled:false", getZKLog)
       verifyFalse(btn1.is("disabled"))
     })
   }
