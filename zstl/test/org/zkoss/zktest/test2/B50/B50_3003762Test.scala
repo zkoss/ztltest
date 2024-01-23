@@ -29,8 +29,10 @@ ZK Online Survey
 <radiogroup id="radio1" onCheck="choice.value = self.selectedItem.label"> 
 <grid> 
 <rows> 
-<row spans="5"> 
-Which one area would you like ZK to improve upon?</row> 
+<row>
+ <cell colSpan="5">
+Which one area would you like ZK to improve upon?
+</cell></row>
 <row> 
 <radio id="r1" label="IDE Support" /> 
 <radio label="Bug Fixing" /> 

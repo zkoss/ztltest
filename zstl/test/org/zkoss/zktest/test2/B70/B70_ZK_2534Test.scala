@@ -23,7 +23,7 @@ class B70_ZK_2534Test extends ZTL4ScalaTestCase {
 			<listcell />
 			<listcell label="David" />
 		</listitem>
-		<listitem checkable="false">
+		<listitem selectable="false">
 			<listcell />
 			<listcell label="Thomas" />
 		</listitem>
@@ -31,7 +31,7 @@ class B70_ZK_2534Test extends ZTL4ScalaTestCase {
 			<listcell />
 			<listcell label="Lukas" />
 		</listitem>
-		<listitem checkable="false">
+		<listitem selectable="false">
 			<listcell />
 			<listcell label="Jens" />
 		</listitem>

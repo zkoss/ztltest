@@ -14,14 +14,13 @@ package org.zkoss.zktest.test2.B50
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 
-
 class B50_2980977_1Test extends ZTL4ScalaTestCase {
   @Test
   def testSetSclass() = {
     var zscript =
       """
 		<zk>
-			<listbox fixedLayout="true">
+			<listbox setSizedByContent="false">
 				<listhead sizable="true">
 					<listheader align="center" width="40px"
 						image="/img/Centigrade-Widget-Icons/ArrowsUpDown-16x16.png" />
@@ -74,6 +73,3 @@ class B50_2980977_1Test extends ZTL4ScalaTestCase {
     })
   }
 }
-
-
-

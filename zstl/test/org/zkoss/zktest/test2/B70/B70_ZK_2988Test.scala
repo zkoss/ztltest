@@ -32,7 +32,7 @@ class B70_ZK_2988Test extends ZTL4ScalaTestCase {
 			<footer label="4" />
 		</foot>
 	</grid>
-	<script type="text/javascript">
+	<script>
 		function done() {
 			document.body.setAttribute("done", "true");
 		}

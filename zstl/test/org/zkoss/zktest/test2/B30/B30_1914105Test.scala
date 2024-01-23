@@ -24,23 +24,7 @@ import org.zkoss.ztl.annotation.Tags
 @Tags(tags = "B30-1914105.zul,B,E,Timebox")
 class B30_1914105Test extends ZTL4ScalaTestCase {
   def testCase() = {
-    val zscript =
-      """
-      <zk xmlns:n="http://www.zkoss.org/2005/zk/native">
-        1.click readonly,
-    	2.click timebox
-    	3.you still can change the value by key.
-        <n:h2>Readonly shall disable typing</n:h2>
-        <n:ol>
-          <n:li>When readonly, you can only click (cannot type)</n:li>
-          <n:li>When disable, you cannot do anything</n:li>
-        </n:ol>
-        <timebox id="tb" locale="en_US" format="hh:mm:ss"/>
-        <checkbox id="ck1" label="readonly" checked="tb.readonly" onCheck="tb.readonly = self.checked"/>
-        <checkbox id="ck2" label="disabled" checked="tb.disabled" onCheck="tb.disabled = self.checked"/>
-      </zk>
-    """
-    runZTL(zscript, () => {
+    runZTL(() => {
       val tb = engine.$f("tb")
       val ck1 = engine.$f("ck1")
       val ck2 = engine.$f("ck2")

@@ -9,46 +9,17 @@
 
 Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
-package org.zkoss.zktest.test2.B50
-
-;
+package org.zkoss.zktest.test2.B50;
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
-
 
 class B50_3192194Test extends ZTL4ScalaTestCase {
   @Test
   def testztl() = {
-    var zscript =
-      """
-			
-
-
-<zk>
-1. Please click the button "show current selection", you should see the dialog "[David]"
-<separator/>
-1. Please select the item("Steven") and click the button "show current selection", you should see the dialog "[Steven]"
-<separator/>
-<combobox id="combobox" width="100px">
-		<attribute name="onCreate"><![CDATA[
-			List list2 = new ArrayList();
-			list2.add("David");
-			list2.add("Thomas");
-			list2.add("Steven");
-			ListModelList lm2 = new ListModelList(list2);
-			lm2.addSelection(lm2.get(0));
-			combobox.setModel(lm2);
-		]]></attribute>
-	</combobox>
-	<button label="show current selection" onClick="alert(combobox.getModel().getSelection())"/>
-</zk>
-
-		"""
     val ztl$engine = engine()
     val combobox = ztl$engine.$f("combobox")
-    runZTL(zscript, () => {
+    runZTL(() => {
       click(jq("@button"))
       waitResponse()
       verifyEquals("[David]", getAlertMessage())
@@ -64,6 +35,3 @@ class B50_3192194Test extends ZTL4ScalaTestCase {
     })
   }
 }
-
-
-
