@@ -20,7 +20,7 @@ class B50_2980977_1Test extends ZTL4ScalaTestCase {
     var zscript =
       """
 		<zk>
-			<listbox setSizedByContent="false">
+			<listbox>
 				<listhead sizable="true">
 					<listheader align="center" width="40px"
 						image="/img/Centigrade-Widget-Icons/ArrowsUpDown-16x16.png" />

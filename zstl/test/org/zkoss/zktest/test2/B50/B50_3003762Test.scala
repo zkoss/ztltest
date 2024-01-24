@@ -30,7 +30,7 @@ ZK Online Survey
 <grid> 
 <rows> 
 <row>
- <cell colSpan="5">
+ <cell colspan="5">
 Which one area would you like ZK to improve upon?
 </cell></row>
 <row> 

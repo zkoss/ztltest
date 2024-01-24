@@ -38,7 +38,7 @@ class B30_2188572Test extends ZTL4ScalaTestCase {
 					<listhead>
 					<listheader label="${each}: ${forEachStatus.index}"/>
 					</listhead>
-					<listitem label="${forEachStatus.previous.each}: ${each}"
+					<listitem label="${forEachStatus.previous.current}: ${each}"
 						forEach="${grades[forEachStatus.index]}"/>
 					</listbox>
 				</hbox>

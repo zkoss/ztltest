@@ -28,27 +28,7 @@ import org.zkoss.ztl.annotation.Tags
 class B30_1884112Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {
-    val zscript =
-      """
-      <zk>
-        <window title="dynamic tree" border="normal" id="win">
-          <zscript>
-            import org.zkoss.zktest.test2.tree.*;
-		
-		
-		HostTreeModel model = new HostTreeModel();
-		HostIconTreeRenderer renderer = new HostIconTreeRenderer();
-          </zscript>
-          <tree treeitemRenderer="${renderer}" model="${model}">
-          </tree>
-          Please open "Group0->host-0" and then test each button.
-          <button label="add process icon at 0/0/3" onClick='model.addProcessType(0,0,3,"C")'/>
-          <button label="remove process icon at 0/0/0" onClick='model.removeProcessType(0,0,0,"C")'/>
-          <button label="update process icon at 0/0/0" onClick='model.updateProcessType(0,0,0,"C")'/>
-        </window>
-      </zk>
-    """
-    runZTL(zscript, () => {
+    runZTL(() => {
       // Get the first node
       click(jq(".z-treerow:contains(Group0)").toWidget().$n("icon"));
       waitResponse();
