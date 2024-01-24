@@ -34,7 +34,6 @@ class B30_1710925Test extends ZTL4ScalaTestCase {
 				Style s = new Style();
 				s.setContent("body {background: yellow}");
 				s.setId("style");
-				s.setDynamic(true);
 				s.setParent(w);
 					}</attribute>
 				</button>
