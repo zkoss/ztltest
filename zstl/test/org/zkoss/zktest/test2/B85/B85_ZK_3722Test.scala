@@ -41,8 +41,8 @@ class B85_ZK_3722Test extends ZTL4ScalaTestCase {
 			}
 
       //grid2
-      for (i <- 0 to 5) {
-        var rowInners = jq(".z-grid:eq(1) .z-row-inner")
+      for (i <- 1 to 6) {
+        var rowInners = jq(".z-grid:eq(1) .z-row td")
         var num = parseInt(rowInners.eq(i).find("span").text())
         waitResponse()
         verifyTolerant(rowInners.eq(i).offsetLeft(), getEval("pos1[monthStrArr[" + (num - 1) + "]]"), 1)
