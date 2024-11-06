@@ -12,13 +12,13 @@ class B80_ZK_2660Test extends ZTL4ScalaTestCase {
     runZTL(
       () => {
         val header = jq(".z-listheader").last()
-        val btn = jq(".z-listheader").last().find("a")
+        val btn = jq(".z-listheader").last().find(".z-icon-caret-down")
         sleep(1000)
         mouseOver(header)
         waitResponse()
         click(btn)
         waitResponse()
-        click(jq(".z-menuitem-checked").first().find("a"))
+        click(jq(".z-menuitem-checked").first().find(".z-icon-check"))
         waitResponse()
         click(jq(".z-button"))
         waitResponse()
