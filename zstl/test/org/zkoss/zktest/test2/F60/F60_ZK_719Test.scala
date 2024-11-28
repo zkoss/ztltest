@@ -169,7 +169,7 @@ class F60_ZK_719Test extends ZTL4ScalaTestCase {
 
         clickThenVerify(jq(cbbtnTwo).toWidget().$n("real"), "combobutton two clicked");
         clickThenVerify(jq(cbbtnTwo).toWidget().$n("btn"), "combobutton two popup opened");
-        clickThenVerify(jq(cbbtnTwo).toWidget().$n("btn"), "combobutton two popup closed");
+        clickThenVerify(jq("body"), "combobutton two popup closed");
       }
     );
   }

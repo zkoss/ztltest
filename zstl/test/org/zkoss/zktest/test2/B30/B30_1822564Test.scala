@@ -34,7 +34,7 @@ It still doesn't work even add row after creation.
 		new Textbox().setParent(row);
 		new Datebox().setParent(row);
 	};
-	
+
 	</zscript>
 	<vbox>
 		<div width="500px">
@@ -71,6 +71,7 @@ It still doesn't work even add row after creation.
       dragdropTo(col1, w + ",0", w + 10 + ",0")
       w += 10
       verifyTrue(w <= jq(col1).outerWidth())
+      sleep(1000) // for ios's slow response time (waitResponse is not enough)
       click(btn1)
       waitResponse()
       dragdropTo(col1, w + ",0", w + 10 + ",0")

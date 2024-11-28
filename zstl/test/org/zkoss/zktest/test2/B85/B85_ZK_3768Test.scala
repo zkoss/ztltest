@@ -19,7 +19,7 @@ class B85_ZK_3768Test extends ZTL4ScalaTestCase {
       val width0 = listheader.outerWidth()
       val height0 = listheader.outerHeight()
       dragdropTo(listheader, (width0 - 2) + "," + (height0 / 2), (width0 + 50) + "," + (height0 / 2))
-      waitResponse()
+      sleep(1000) // for ios's slow response time (waitResponse is not enough)
 
       click(jq("@button:eq(1)"))
       waitResponse()
