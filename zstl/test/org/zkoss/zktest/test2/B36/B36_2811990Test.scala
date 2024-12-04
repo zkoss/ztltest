@@ -44,7 +44,7 @@ class B36_2811990Test extends ZTL4ScalaTestCase {
       var btn = jq("$sl").toWidget().$n("btn")
       verifyEquals(jq(btn).attr("title"), "50")
       dragdropTo(jq(btn), "8,6", "45,8")
-      waitResponse()
+      sleep(1000) // for ios's slow response time (waitResponse is not enough)
       verifyEquals(jq(btn).attr("title"), "70")
       click(jq("@button"))
       waitResponse()

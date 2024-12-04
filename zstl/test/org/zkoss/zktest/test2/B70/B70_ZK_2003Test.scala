@@ -19,7 +19,7 @@ class B70_ZK_2003Test extends ZTL4ScalaTestCase {
           val p = "2,2"
           val np = "2,4"
           dragdropTo(split, p , np)
-          waitResponse()
+          sleep(1000) // for ios's slow response time (waitResponse is not enough)
 
           verifyFalse("the " + comp + " popup must be hidden", jq(wgtpp).isVisible)
         }

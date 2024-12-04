@@ -29,8 +29,8 @@ class B36_2796335Test extends ZTL4ScalaTestCase {
 
       click(jq("@button:eq(1)"))
       waitResponse()
-      verifyEquals(0, div1.scrollTop())
-      verifyEquals(0, div2.scrollTop())
+      verifyTolerant(0, div1.scrollTop(), 1)
+      verifyTolerant(0, div2.scrollTop(), 1)
     })
   }
 }

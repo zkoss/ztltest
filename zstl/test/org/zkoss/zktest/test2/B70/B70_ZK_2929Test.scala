@@ -2,9 +2,11 @@ package org.zkoss.zktest.test2.B70
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
+// since mobile will always have a scrollbar, and default to be invisible, so we ignore them
 @Tags(tags = "B70-ZK-2929.zul")
+@IgnoreBrowsers("ios,android")
 class B70_ZK_2929Test extends ZTL4ScalaTestCase {
 
   @Test

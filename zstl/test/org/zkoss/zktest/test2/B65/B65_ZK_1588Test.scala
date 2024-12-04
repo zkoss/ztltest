@@ -9,12 +9,11 @@ class B65_ZK_1588Test extends ZTL4ScalaTestCase {
   def testClick() = {
     val zscript =
       """<zk>
-	<window title="new page title" border="normal">
-		<div>
+	<div height="100%">
+		<div height="90%">
 			when click the button of bandbox, the popup should be above bandbox.
 		</div>
-		<vbox>
-			<separator height="700px" />
+		<div height="10%">
 			<bandbox id="bd" mold="rounded" xmlns:w="client">
 				<bandpopup>
 					<vbox>
@@ -68,8 +67,8 @@ class B65_ZK_1588Test extends ZTL4ScalaTestCase {
 					</vbox>
 				</bandpopup>
 			</bandbox>
-		</vbox>
-	</window>
+		</div>
+	</div>
 </zk>
     """
 

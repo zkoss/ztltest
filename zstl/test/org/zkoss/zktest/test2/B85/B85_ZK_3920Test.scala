@@ -2,6 +2,7 @@ package org.zkoss.zktest.test2.B85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.annotation.IgnoreBrowsers
 
 /* B85_ZK_3920.java
 
@@ -14,6 +15,9 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 
 Copyright (C) 2018 Potix Corporation. All Rights Reserved.
 */
+
+// since mobile will always have a scrollbar, and default to be invisible, so we ignore them
+@IgnoreBrowsers("ios,android")
 class B85_ZK_3920Test extends ZTL4ScalaTestCase {
   @Test
   def test() = {

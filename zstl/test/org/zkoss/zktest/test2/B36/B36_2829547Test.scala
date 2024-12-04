@@ -55,8 +55,10 @@ class B36_2829547Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       //fix ie9 issue
       click(widget("$startTime").$n("btn-up"))
+      focus(widget("$startTime").$n("real")) // for android behavior different from other browsers in testcafe
       blur(widget("$startTime").$n("real"))
       click(widget("$endTime").$n("btn-up"))
+      focus(widget("$endTime").$n("real")) // for android behavior different from other browsers in testcafe
       blur(widget("$endTime").$n("real"))
       click(jq("$runReport"))
       waitResponse()
