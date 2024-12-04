@@ -21,8 +21,9 @@ class B80_ZK_2772_2Test extends ZTL4ScalaTestCase {
         for (i <- 0 until 20) {
             verifyTolerant(parseInt(getEval("getRecordedColWidth(" + i + ")")), cols.eq(i).outerWidth(), 1)
         }
+
         //scroll to right
-        nativeFrozenScroll(jq(".z-grid"), 1000)
+        evalScript("zk.Widget.$('.z-frozen').$n('scrollX').scrollLeft = zk.Widget.$('.z-frozen').$n('scrollX').scrollWidth")
         waitResponse()
         //sort the last column
         click(jq(".z-column").last());
@@ -36,8 +37,9 @@ class B80_ZK_2772_2Test extends ZTL4ScalaTestCase {
             verifyTolerant(parseInt(getEval("getRecordedColWidth(" + i + ")")), cols.eq(i).outerWidth(), 1)
           }
         }
-        //scroll to left
-        nativeFrozenScroll(jq(".z-grid"), -1000)
+        //scroll to left, mobile has different scroll value
+        evalScript("var w = zk.mobile ? jq('.z-column:eq(5)').width() + jq('.z-column:eq(6)').width() : 0;" +
+          "zk.Widget.$('.z-frozen').$n('scrollX').scrollLeft = w;")
         waitResponse()
         //resize column 7
         val column7 = jq(".z-column").eq(6)
@@ -46,6 +48,8 @@ class B80_ZK_2772_2Test extends ZTL4ScalaTestCase {
         waitResponse()
         //save column width
         evalScript("recordColsWidth()")
+        // mobile screen width is too small, need to scroll to the specific coordinate
+        evalScript("if (zk.mobile) zk.Widget.$('.z-frozen').$n('scrollX').scrollLeft = jq('.z-column:eq(5)').width() + jq('.z-column:eq(6)').width() / 2;")
         //sort column 7
         click(column7);
         waitResponse()

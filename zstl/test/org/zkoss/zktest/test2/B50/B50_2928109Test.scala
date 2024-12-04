@@ -15,9 +15,10 @@ package org.zkoss.zktest.test2.B50
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.unit.Widget
+import org.zkoss.ztl.annotation.IgnoreBrowsers
 
-
+// ios testcafe has a probability to fail, move to zats solved the problem
+@IgnoreBrowsers("ios")
 class B50_2928109Test extends ZTL4ScalaTestCase {
   @Test
   def testclosed() = {

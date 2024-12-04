@@ -17,7 +17,7 @@ Copyright (C) 2011 Potix Corporation. All Rights Reserved.
 package org.zkoss.zktest.test2.B60
 
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 import org.zkoss.ztl.unit.{ClientWidget, Widget}
 
 /**
@@ -26,7 +26,10 @@ import org.zkoss.ztl.unit.{ClientWidget, Widget}
   * @author benbai
   *
   */
+
+// ios's refresh with testcafe will sometimes fail by `Unhandled promise rejection`, move to zats solved the problem
 @Tags(tags = "B60-ZK-765.zul,A,E,Listbox,ROD")
+@IgnoreBrowsers("ios")
 class B60_ZK_765Test extends ZTL4ScalaTestCase {
 
   def testClick() = {

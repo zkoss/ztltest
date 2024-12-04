@@ -11,6 +11,7 @@ class B65_ZK_1900Test extends ZTL4ScalaTestCase {
   def testClick() = {
     val zscript =
       """<zk>
+         <style>.z-comboitem {height: 150px;}</style>
 	<zscript><![CDATA[
 		class ItemComparator implements Comparator {
 			public int compare(Object text, Object label) {

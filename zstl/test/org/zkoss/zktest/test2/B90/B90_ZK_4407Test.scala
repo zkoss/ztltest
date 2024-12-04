@@ -4,8 +4,9 @@ import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
+// ios's refresh with testcafe will sometimes fail by `Unhandled promise rejection`, move to zats solved the problem
 @Tags(tags = "B90-ZK-4407.zul")
-@IgnoreBrowsers("ff,edge_legacy,ie11,ie10,ie9")
+@IgnoreBrowsers("ff,edge_legacy,ie11,ie10,ie9,ios")
 class B90_ZK_4407Test extends ZTL4ScalaTestCase {
   @Test
   def test(): Unit =  {
