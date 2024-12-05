@@ -2,9 +2,11 @@ package org.zkoss.zktest.test2.B65
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
+// ios testcafe sometimes cannot scroll to the bottom successfully, move to zats solved the problem
 @Tags(tags = "B65-ZK-1552.zul")
+@IgnoreBrowsers("ios")
 class B65_ZK_1552Test extends ZTL4ScalaTestCase {
 
   @Test
