@@ -132,7 +132,7 @@ class B50_ZK_596Test extends ZTL4ScalaTestCase {
       var btn6: Widget = engine.$f("btn6")
       def clickAndWait = (target: ClientWidget) => {
         click(target)
-        sleep(1000)
+        waitResponse()
       }
       // add image and wait to load them all
       clickAndWait(btn3)
@@ -144,7 +144,7 @@ class B50_ZK_596Test extends ZTL4ScalaTestCase {
       var $tbar: JQuery = jq(tbar.$n())
 
       def checkWidth = () => {
-        verifyTrue("the sum of tabs header width and toolbar width should smaller or equal to tabs width",
+        verifyTrue("the sum of tabs header width and toobar width should smaller or equal to tabs width",
           $tbs.outerWidth(true) + $tbar.outerWidth(true) <= $tb.outerWidth())
       }
 
