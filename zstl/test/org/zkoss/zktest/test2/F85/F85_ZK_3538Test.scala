@@ -13,7 +13,10 @@ package org.zkoss.zktest.test2.F85
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.annotation.IgnoreBrowsers
 
+// testcafe firefox's focus check will fail but it focused, move to zats solved the problem
+@IgnoreBrowsers("ff")
 class F85_ZK_3538Test extends ZTL4ScalaTestCase {
     @Test
     def test(): Unit = {
