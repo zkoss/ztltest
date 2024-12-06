@@ -18,7 +18,7 @@ package org.zkoss.zktest.test2.B36
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, NonConcurrent, Tags}
 
 /**
   * @author Fernando Selvatici
@@ -28,6 +28,7 @@ import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 // ios's focus in testcafe sometimes doesn't work, move to zats solved the problem
 @Tags(tags = "B36-2807475.zul,B,E,Window,Button")
 @IgnoreBrowsers("ios")
+@NonConcurrent
 class B36_2807475Test extends ZTL4ScalaTestCase {
   @Test
   def testClick() = {

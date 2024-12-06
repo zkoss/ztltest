@@ -58,6 +58,7 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
     var annotIgnoreBrowsers = ""
     if (this.getClass.isAnnotationPresent(classOf[IgnoreBrowsers]))
       annotIgnoreBrowsers = this.getClass.getAnnotation(classOf[IgnoreBrowsers]).value();
+    var annotNonConcurrent = this.getClass.isAnnotationPresent(classOf[NonConcurrent])
     if (testingEnv == null || "selenium".equals(testingEnv)) { //default
       //update timeout
       _timeout = ch.getTimeout().toInt
@@ -151,7 +152,7 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
       if (!zscript.isEmpty())
         runRawZscript(zscript.toString)
       executor()
-      generateCafeTest(target.replace("zulCafe", "zul"), ch.getCafeTestDir, annotIgnoreBrowsers)
+      generateCafeTest(target.replace("zulCafe", "zul"), ch.getCafeTestDir, annotIgnoreBrowsers, annotNonConcurrent)
     }
   }
 
