@@ -2,16 +2,17 @@ package org.zkoss.zktest.test2.B65
 
 import org.junit.Test
 import org.zkoss.zstl.ZTL4ScalaTestCase
-import org.zkoss.ztl.annotation.Tags
+import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
+// ios will popup the keyboard and make the test fail, but the behavior of this case to test is correct, so move to zats
 @Tags(tags = "B65-ZK-1900.zul")
+@IgnoreBrowsers("ios")
 class B65_ZK_1900Test extends ZTL4ScalaTestCase {
 
   @Test
   def testClick() = {
     val zscript =
       """<zk>
-         <style>.z-comboitem {height: 150px;}</style>
 	<zscript><![CDATA[
 		class ItemComparator implements Comparator {
 			public int compare(Object text, Object label) {
