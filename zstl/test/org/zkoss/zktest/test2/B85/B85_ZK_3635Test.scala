@@ -14,7 +14,9 @@ package org.zkoss.zktest.test2.B85
 import org.junit.Test
 import org.openqa.selenium.Keys
 import org.zkoss.zstl.ZTL4ScalaTestCase
+import org.zkoss.ztl.annotation.NonConcurrent
 
+@NonConcurrent
 class B85_ZK_3635Test extends ZTL4ScalaTestCase {
 
   @Test
