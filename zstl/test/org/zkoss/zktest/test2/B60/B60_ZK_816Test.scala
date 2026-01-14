@@ -19,7 +19,7 @@ class B60_ZK_816Test extends ZTL4ScalaTestCase {
         mouseOver(jq(".z-label:contains(new label):eq(3)"))
         waitResponse()
         sleep(2000)
-        verifyTrue(jq(".z-popup:contains(this is tool tip)").eq(0).is(":visible"))
+        verifyTrue(jq(".z-popup:contains(this is tool tip)").eq(1).is(":visible"))
       })
 
   }
