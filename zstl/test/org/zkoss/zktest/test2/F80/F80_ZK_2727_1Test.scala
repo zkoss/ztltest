@@ -5,21 +5,30 @@ import org.zkoss.zstl.ZTL4ScalaTestCase
 import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 
 @Tags(tags = "F80-ZK-2727.zul")
-@IgnoreBrowsers("ios,android")
-class F80_ZK_2727Test extends ZTL4ScalaTestCase {
+@IgnoreBrowsers("desktop")
+class F80_ZK_2727_1Test extends ZTL4ScalaTestCase{
   @Test
-  def testClick() = {
+  def testClickMobile() = {
     runZTL(() => {
       val sv = jq("@scrollview");
       var count = jq("@window").length();
-      horScrollNoBody(sv, 100);
+      var times = 0;
+      while (times < 10) {
+        dragdrop(sv, "-200,0");
+        waitResponse();
+        times += 1;
+      }
       verifyTrue(jq("@window").length() > count);
 
-      count = jq("@window").length();
       click(jq(".z-button"));
-      waitResponse()
-      verScrollNoBody(sv, 100);
-      waitResponse()
+      waitResponse();
+      count = jq("@window").length();
+      times = 0;
+      while (times < 10) {
+        dragdrop(sv, "0,-200");
+        waitResponse();
+        times += 1;
+      }
       verifyTrue(jq("@window").length() > count);
     })
   }
