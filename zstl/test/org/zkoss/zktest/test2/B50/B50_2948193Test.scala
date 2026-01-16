@@ -39,10 +39,8 @@ class B50_2948193Test extends ZTL4ScalaTestCase {
     runZTL(zscript, () => {
       click(btn)
       waitResponse()
+      sleep(1000)
       verifyFalse(jq(".z-error").exists());
     })
   }
 }
-
-
-

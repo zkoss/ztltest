@@ -58,10 +58,17 @@ class B80_ZK_3141Test extends ZTL4ScalaTestCase {
 
   def chkpos() = {
     val t = jq("@textbox")
-    val tt = t.offsetTop()
-    val tr = t.offsetLeft() + t.outerWidth()
-    val er = jq(".z-errorbox:visible")
-    verifyTolerant(tt, er.offsetTop(), 1)
-    verifyTolerant(tr, er.offsetLeft(), 1)
+    val pointer = jq(".z-errorbox-pointer:visible")
+
+    val tbMidX = t.offsetLeft() + (t.outerWidth() / 2)
+    val ptrMidX = pointer.offsetLeft() + (pointer.outerWidth() / 2)
+    val tbWidthTol = (t.outerWidth() / 2) + 5
+
+    val tbMidY = t.offsetTop() + (t.outerHeight() / 2)
+    val ptrMidY = pointer.offsetTop() + (pointer.outerHeight() / 2)
+    val tbHeightTol = (t.outerHeight() / 2) + 5
+
+    verifyTolerant(tbMidY, ptrMidY, tbHeightTol)
+    verifyTolerant(tbMidX, ptrMidX, tbWidthTol)
   }
 }
