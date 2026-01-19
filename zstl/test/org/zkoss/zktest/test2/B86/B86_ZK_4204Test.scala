@@ -13,6 +13,8 @@ class B86_ZK_4204Test extends ZTL4ScalaTestCase {
   def test(): Unit = {
     runZTL(() => {
       refresh()
+      waitForPageToLoad("2000")
+      refresh()
       waitForPageToLoad("10000")
       waitResponse()
       verifyNotEquals("rmDesktop not received.","", jq("$rmDesktopIndicator").html())
