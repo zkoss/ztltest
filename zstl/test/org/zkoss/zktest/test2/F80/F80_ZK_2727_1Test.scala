@@ -9,7 +9,10 @@ import org.zkoss.ztl.annotation.{IgnoreBrowsers, Tags}
 class F80_ZK_2727_1Test extends ZTL4ScalaTestCase{
   @Test
   def testClickMobile() = {
-    runZTL(() => {
+    val zscript =
+      """<include src="/test2/F80-ZK-2727.zul"/>
+      """
+    runZTL(zscript, () => {
       val sv = jq("@scrollview");
       var count = jq("@window").length();
       var times = 0;
