@@ -52,27 +52,8 @@ class ZTL4ScalaTestCase extends ZKParallelClientTestCase {
   }
 
   def runZTL(zscript: String, action: String, executor: () => Unit) {
-    if (action != null && action.nonEmpty) {
-      val tagsAnnot = this.getClass.getAnnotation(classOf[org.zkoss.ztl.annotation.Tags]);
-      var actionFromTag = "";
-
-      if (tagsAnnot != null) {
-        val fullTags = tagsAnnot.tags();
-        if (fullTags != null && fullTags.nonEmpty) {
-          val tagArray = fullTags.split(",");
-          val zultag = tagArray.find(_.endsWith(".zul"));
-
-          if (zultag.isDefined) {
-            actionFromTag = zultag.get.trim();
-          }
-        }
-      }
-      if (actionFromTag.nonEmpty) {
-        target = ch.getServer + ch.getContextPath + "/" + actionFromTag;
-      } else {
-        target = ch.getServer + ch.getContextPath + "/" + action;
-      }
-    }
+    if (action != null && !action.isEmpty)
+      target = ch.getServer + ch.getContextPath + "/" + action;
     val testingEnv = ch.getTestingEnvironment
     var annotIgnoreBrowsers = ""
     if (this.getClass.isAnnotationPresent(classOf[IgnoreBrowsers]))
