@@ -108,7 +108,19 @@ Usage:
 			<arg value="${test.openonce}"/>
 		</exec>
 	</target>
-	<target name="genTestCafeJS" depends="genTestCafeScala, runTestCafeScala">
+	<!-- Format generated TestCafe JS files with prettier -->
+	<target name="formatTestCafeJS">
+		<echo>Formatting TestCafe JS files with prettier...</echo>
+		<exec executable="npx" dir="." failonerror="false">
+			<arg value="prettier"/>
+			<arg value="--write"/>
+			<arg value="--tab-width=4"/>
+			<arg value="--use-tabs=true"/>
+			<arg value="./codegen/archive/testcafe/*.js"/>
+		</exec>
+		<echo>Formatting complete!</echo>
+	</target>
+	<target name="genTestCafeJS" depends="genTestCafeScala, runTestCafeScala, formatTestCafeJS">
 	</target>
 	<target name="run" depends="compileztl">
 		<echo>Tags: -Dtags=${tags}</echo>
