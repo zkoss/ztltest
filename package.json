@@ -1,0 +1,14 @@
+{
+  "name": "ztl-testcafe",
+  "version": "1.0.0",
+  "description": "ZTL Testcafe",
+  "scripts": {},
+  "author": "Potix Corporation <info@potix.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "testcafe": "~3.7.3",
+    "testcafe-browser-provider-android": "latest",
+    "color-string": "latest"
+  }
+}
