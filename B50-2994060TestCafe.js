@@ -1,0 +1,106 @@
+import { ClientFunction, Selector } from "testcafe";
+import * as ztl from "./module/ztl.js";
+fixture`ZTL TEST - B50-2994060TestCafe`
+	.page`http://localhost:8080/zktest/ztl.zul`.beforeEach(async () => {
+	await ClientFunction(() => {
+		window["%hammerhead%"].processors.DomProcessor.processJsAttrValue =
+			function (value, options) {
+				return value;
+			};
+	})();
+});
+test("B50-2994060TestCafe", async (t) => {
+	await ztl.initTest(t);
+	await ztl.runZscript(
+		t,
+		`<zk>
+			1. Mouse Click "Item 1" 
+			<tree id="tree" width="400px" rows="8">
+				<treecols sizable="true">
+					<treecol label="Name" />
+					<treecol label="Description" />
+				</treecols>
+				<treechildren>
+					<treeitem id="item1">
+						<treerow>
+							<treecell id="cell" label="Item 1" >
+								<attribute name="onClick">
+									item2.setDisabled(true);
+									item3.setDisabled(true);
+									item4.setDisabled(true);
+									item5.setDisabled(true);
+									item6.setDisabled(true);
+									item7.setDisabled(true);
+									item8.setDisabled(true);
+									String fun = 	"				function checkIfHasDuplicateTreeitem (rowsUuid, rowUuid, msgUuid) {"
+													+ "					var itemLength =  jq(rowsUuid).children(rowUuid).length;"
+													+ "					if (itemLength > 1)"
+													+ "						zk.Widget.$(msgUuid).setValue(\'Wrong: treeitem has duplicate treeitem\');	"
+													+ "				}";
+									String str = " checkIfHasDuplicateTreeitem(\'#" + tree.getUuid() + "-rows\', \'#" +
+														row.getUuid() + "\', \'" + 	msg.getUuid() + "\')";			
+									Clients.evalJavaScript(fun + str);
+								</attribute>
+							</treecell>
+							<treecell label="Item 1 description" />
+						</treerow>
+					</treeitem>
+					<treeitem id="item2">
+						<treerow>
+							<treecell label="Item 2" />
+							<treecell label="Item 2 description" />
+						</treerow>
+						<treechildren>
+							<treeitem id="item3">
+								<treerow id="row" >
+									<treecell label="Item 2.1" />
+								</treerow>
+								<treechildren>
+									<treeitem id="item4">
+										<treerow>
+											<treecell label="Item 2.1.1" />
+										</treerow>
+									</treeitem>
+									<treeitem id="item5">
+										<treerow>
+											<treecell label="Item 2.1.2" />
+										</treerow>
+									</treeitem>
+								</treechildren>
+							</treeitem>
+							<treeitem id="item6">
+								<treerow>
+									<treecell label="Item 2.2" />
+								</treerow>
+								<treechildren>
+									<treeitem id="item7">
+										<treerow>
+											<treecell label="Item 2.2.1" />
+										</treerow>
+									</treeitem>
+								</treechildren>
+							</treeitem>
+						</treechildren>
+					</treeitem>
+					<treeitem id="item8" label="Item 3" />
+				</treechildren>
+			</tree>
+			
+			<separator/>
+			2. If the tree has duplicate treeitem (example: has 2 "Item 2.1"), that\'s wrong, check if has error message : 
+			<label id="msg" style="color:red;"/>
+			
+			</zk>`,
+	);
+	await t.click(Selector(() => zk.Desktop._dt.$f("cell", true).$n()));
+	await ztl.waitResponse(t);
+	await t
+		.expect(ztl.normalizeText(""))
+		.eql(
+			ztl.normalizeText(
+				await ClientFunction(() =>
+					zk.Desktop._dt.$f("msg", true).getValue(),
+				)(),
+			),
+		);
+});

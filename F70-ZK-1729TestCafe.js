@@ -1,0 +1,77 @@
+import { ClientFunction, Selector } from "testcafe";
+import * as ztl from "./module/ztl.js";
+fixture`ZTL TEST - F70-ZK-1729TestCafe`
+	.page`http://localhost:8080/zktest/ztl.zul`.beforeEach(async () => {
+	await ClientFunction(() => {
+		window["%hammerhead%"].processors.DomProcessor.processJsAttrValue =
+			function (value, options) {
+				return value;
+			};
+	})();
+});
+test("F70-ZK-1729TestCafe", async (t) => {
+	await ztl.initTest(t);
+	await ztl.runZscript(
+		t,
+		`<window apply="org.zkoss.zktest.test2.F70_ZK_1729">
+	<div>
+	click the \'click me\' button and should not throw an exception 
+	</div>
+	<button id="btn" label="click me"></button><label id="lbl" value="the label will be \'Name Gender Age\'" />
+	<listbox id="box" multiple="true" checkmark="true">
+		<listhead id="head">
+			<listheader label="Name" />
+			<listheader label="Gender" />
+			<listheader label="Age" />
+		</listhead>
+		<listitem>
+			<listcell label="Mary" />
+			<listcell label="FEMALE" />
+			<listcell label="18" />
+		</listitem>
+		<listitem>
+			<listcell label="John" />
+			<listcell label="MALE" />
+			<listcell label="20" />
+		</listitem>
+		<listitem>
+			<listcell label="Jane" />
+			<listcell label="FEMALE" />
+			<listcell label="32" />
+		</listitem>
+		<listitem>
+			<listcell label="Henry" />
+			<listcell label="MALE" />
+			<listcell label="29" />
+		</listitem>
+		<listitem>
+			<listcell label="Mark" />
+			<listcell label="MALE" />
+			<listcell label="15" />
+		</listitem>
+		<listitem>
+			<listcell label="Jeffery" />
+			<listcell label="MALE" />
+			<listcell label="17" />
+		</listitem>
+		<listitem>
+			<listcell label="Rebecca" />
+			<listcell label="FEMALE" />
+			<listcell label="21" />
+		</listitem>
+	</listbox>
+</window>`,
+	);
+	await t.click(Selector(() => jq(".z-button")[0]));
+	await ztl.waitResponse(t);
+	await t
+		.expect(await ClientFunction(() => !!jq(".z-window-modal")[0])())
+		.notOk("no exception");
+	await t
+		.expect(
+			await ClientFunction(
+				() => !!jq(".z-label:contains(Name Gender Age)")[0],
+			)(),
+		)
+		.ok("the label will be 'Name Gender Age'");
+});

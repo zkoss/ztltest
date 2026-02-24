@@ -1,0 +1,134 @@
+import { ClientFunction, Selector } from "testcafe";
+import * as ztl from "./module/ztl.js";
+fixture`ZTL TEST - B80-ZK-2738TestCafe`
+	.page`http://localhost:8080/zktest/test2/B80-ZK-2738.zul`.beforeEach(
+	async () => {
+		await ClientFunction(() => {
+			window["%hammerhead%"].processors.DomProcessor.processJsAttrValue =
+				function (value, options) {
+					return value;
+				};
+		})();
+	},
+);
+test("B80-ZK-2738TestCafe", async (t) => {
+	await ztl.initTest(t);
+	await t
+		.expect(
+			ztl.normalizeText(
+				await ClientFunction(
+					() => jq(".z-div").eq(0).find(".z-label").length,
+				)(),
+			),
+		)
+		.eql(ztl.normalizeText("4"));
+	await t
+		.expect(
+			ztl.normalizeText(
+				await ClientFunction(
+					() => jq(".z-div").eq(1).find(".z-label").length,
+				)(),
+			),
+		)
+		.eql(ztl.normalizeText("4"));
+	await t
+		.expect(
+			ztl.normalizeText(
+				await ClientFunction(() =>
+					jq(".z-div")
+						.eq(1)
+						.find(".z-label")
+						.eq(0)
+						.text()
+						.replace(/\s/g, " "),
+				)(),
+			),
+		)
+		.eql(
+			ztl.normalizeText(
+				await ClientFunction(() =>
+					jq(".z-div")
+						.eq(0)
+						.find(".z-label")
+						.eq(0)
+						.text()
+						.replace(/\s/g, " "),
+				)(),
+			),
+		);
+	await t
+		.expect(
+			ztl.normalizeText(
+				await ClientFunction(() =>
+					jq(".z-div")
+						.eq(1)
+						.find(".z-label")
+						.eq(1)
+						.text()
+						.replace(/\s/g, " "),
+				)(),
+			),
+		)
+		.eql(
+			ztl.normalizeText(
+				await ClientFunction(() =>
+					jq(".z-div")
+						.eq(0)
+						.find(".z-label")
+						.eq(1)
+						.text()
+						.replace(/\s/g, " "),
+				)(),
+			),
+		);
+	await t
+		.expect(
+			ztl.normalizeText(
+				await ClientFunction(() =>
+					jq(".z-div")
+						.eq(1)
+						.find(".z-label")
+						.eq(2)
+						.text()
+						.replace(/\s/g, " "),
+				)(),
+			),
+		)
+		.eql(
+			ztl.normalizeText(
+				await ClientFunction(() =>
+					jq(".z-div")
+						.eq(0)
+						.find(".z-label")
+						.eq(2)
+						.text()
+						.replace(/\s/g, " "),
+				)(),
+			),
+		);
+	await t
+		.expect(
+			ztl.normalizeText(
+				await ClientFunction(() =>
+					jq(".z-div")
+						.eq(1)
+						.find(".z-label")
+						.eq(3)
+						.text()
+						.replace(/\s/g, " "),
+				)(),
+			),
+		)
+		.eql(
+			ztl.normalizeText(
+				await ClientFunction(() =>
+					jq(".z-div")
+						.eq(0)
+						.find(".z-label")
+						.eq(3)
+						.text()
+						.replace(/\s/g, " "),
+				)(),
+			),
+		);
+});

@@ -1,0 +1,58 @@
+import { ClientFunction, Selector } from "testcafe";
+import * as ztl from "./module/ztl.js";
+fixture`ZTL TEST - B70-ZK-2664TestCafe`
+	.page`http://localhost:8080/zktest/ztl.zul`.beforeEach(async () => {
+	await ClientFunction(() => {
+		window["%hammerhead%"].processors.DomProcessor.processJsAttrValue =
+			function (value, options) {
+				return value;
+			};
+	})();
+});
+test("B70-ZK-2664TestCafe", async (t) => {
+	await ztl.initTest(t);
+	await ztl.runZscript(
+		t,
+		`<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+B70-ZK-2664.zul
+
+	Purpose:
+		
+	Description:
+		
+	History:
+		Tue Jul 7 14:30:29 CST 2015, Created by jameschu
+
+Copyright (C)  Potix Corporation. All Rights Reserved.
+
+-->
+<zk>
+	<window border="normal" title="hello" apply="org.zkoss.bind.BindComposer" viewModel="@id(\'vm\') @init(\'org.zkoss.zktest.test2.B70_ZK_2664\')">
+		<label multiline="true">
+			1. click the "Remove" Button next to "item 2"
+			2. you should not see "item 1" focus
+		</label>
+		<grid model="@bind(vm.model)">
+			<columns>
+				<column label="Header" />
+			</columns>
+			<template name="model">
+				<row>
+					<hbox >
+						<textbox inplace="true" value="@bind(each)" />
+						<button onClick="@command(\'remove\',item = each)" label="Remove" />
+					</hbox>
+				</row>
+			</template>
+		</grid>
+	</window>
+</zk>`,
+	);
+	await t.click(Selector(() => jq("button").eq(1)[0]));
+	await ztl.waitResponse(t);
+	await t
+		.expect(await ClientFunction(() => jq("input").eq(0).is(":focus"))())
+		.notOk();
+});
