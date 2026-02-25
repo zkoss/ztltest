@@ -5,3 +5,4 @@ report/*
 *.iml
 .settings
 tmp
+node_modules/

@@ -6,6 +6,9 @@
   "author": "Potix Corporation <info@potix.com>",
   "license": "UNLICENSED",
   "private": true,
+  "imports": {
+    "#ztl": "./module/ztl.js"
+  },
   "devDependencies": {
     "testcafe": "~3.7.3",
     "testcafe-browser-provider-android": "latest",

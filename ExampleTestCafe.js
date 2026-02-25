@@ -1,5 +1,5 @@
 import { ClientFunction, Selector } from "testcafe";
-import * as ztl from "./module/ztl.js";
+import * as ztl from "#ztl";
 fixture`ZTL TEST - ExampleTestCafe`
 	.page`http://localhost:8080/zktest/ztl.zul`.beforeEach(async () => {
 	await ClientFunction(() => {
