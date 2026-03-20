@@ -17,7 +17,14 @@ How to run ztltest
 
 You need to first run the `zktest` web application from the [ZK repository](https://github.com/zkoss/zk) on your local machine. 
 
-The server should be available at `http://localhost:8080/zktest`. Each test file contains a URL pointing to this server (e.g., `http://localhost:8080/zktest/ztl.zul`), so make sure the server is up before running tests.
+The server should be available at `http://localhost:8080/zktest`. Each test file contains a URL pointing to this server, e.g.:
+
+```js
+fixture`ZTL TEST - B30-1455584TestCafe`
+    .page`http://localhost:8080/zktest/ztl.zul`
+```
+
+Make sure the server is up before running tests. Alternatively, if your server runs on a different host or port, you can modify the URL in the test file directly to point to your environment.
 
 #### 2. Install dependencies ####
 
@@ -58,3 +65,28 @@ The naming convention between the two is:
 | `B30-1455584TestCafe.js` | `B30_1455584Test.scala` |
 
 In general: replace `-` with `_`, drop the `TestCafe` suffix, and add `Test` in its place.
+
+#### What to refine ####
+
+The main part that may need refinement is the body of the `test()` block — this is where the actual test logic lives. For example:
+
+```js
+test("B30-1455584TestCafe", async (t) => {
+    await ztl.initTest(t);
+    await ztl.runZscript(t, `...`);
+
+    // interactions and assertions below
+    let strClickBefor_cafe = await ClientFunction(() =>
+        jq(zk.Desktop._dt.$f("l1", true)).text().replace(/\s/g, " "),
+    )();
+    await t.click(
+        Selector(() => zk.Desktop._dt.$f("l1", true).$n()),
+        { offsetX: 2, offsetY: 2 },
+    );
+    await ztl.waitResponse(t);
+    // ...
+});
+```
+
+The fixture header (`.page` URL, `beforeEach` setup) usually does not need to be changed. Focus on the `test()` body instead, for example — remove redundant `.replace(/\s/g, " ")`, 
+simplify duplicated `ClientFunction` calls, clean up unused variables, and make the assertions easier to read.
