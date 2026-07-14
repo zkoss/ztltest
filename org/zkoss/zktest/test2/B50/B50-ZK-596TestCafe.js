@@ -93,14 +93,47 @@ test("B50-ZK-596TestCafe", async (t) => {
 			</button>
 		</zk>`,
 	);
+
+	// ── ZK-596 call chain / why settle() is needed ─────────────────────────
+	// After a click changes the toolbar width, ZK clears the header overflow
+	// through an ASYNCHRONOUS path:
+	//   AU response -> zWatch.fire('onResponse', {timeout:0})  // setTimeout-deferred (au.ts)
+	//              -> Tabbox.onResponse()   // guard: if (toolbarWidth != _toolbarWidth)
+	//              -> getTabs().onSize() -> Tabs._fixWidth()  // re-clamp header to current toolbar
+	// But ztl.waitResponse only waits for zAu.processing() (AU/DOM applied); it does
+	// NOT wait for that deferred onResponse. So the measurement can land in the gap
+	// before onSize re-clamps, reading the stale (still-overflowing) width — most
+	// visible under TestCafe/mobile resource timing.
+	// Fix: synchronously replay ZK's resize sequence before measuring (same events
+	// that mount.ts _docResize fires on a real browser resize), closing that gap so
+	// we measure the final (re-clamped) width a real device would show.
+	// This is a test-scoped fix; the shared waitResponse is intentionally left
+	// untouched to avoid side effects on other tests.
+	const settle = ClientFunction(() => {
+		if (typeof zWatch !== "undefined" && zk.Desktop && zk.Desktop._dt) {
+			var dt = zk.Desktop._dt;
+			zWatch.fire("beforeSize", dt);
+			zWatch.fire("onSize", dt);
+			zWatch.fire("afterSize", dt);
+		}
+	});
+
+	// Local wrapper over ztl.waitResponse that also settles the layout (see note
+	// above). Used instead of ztl.waitResponse throughout this test so the shared
+	// helper stays untouched.
+	const waitResponse = async (t) => {
+		await ztl.waitResponse(t);
+		await settle();
+	};
+
 	await t.click(Selector(() => zk.Desktop._dt.$f("btn3", true).$n()));
-	await ztl.waitResponse(t);
+	await waitResponse(t);
 	await t
 		.wait(2000)
 		.click(Selector(() => zk.Desktop._dt.$f("btn4", true).$n()));
-	await ztl.waitResponse(t);
+	await waitResponse(t);
 	await t.click(Selector(() => zk.Desktop._dt.$f("btn1", true).$n()));
-	await ztl.waitResponse(t);
+	await waitResponse(t);
 	let verifyVariable_cafe_0_0 = await ClientFunction(() =>
 		jq(zk.Desktop._dt.$f("tbs", true).$n()).outerWidth(true),
 	)();
@@ -119,7 +152,7 @@ test("B50-ZK-596TestCafe", async (t) => {
 			"the sum of tabs header width and toobar width should smaller or equal to tabs width",
 		);
 	await t.click(Selector(() => zk.Desktop._dt.$f("btn2", true).$n()));
-	await ztl.waitResponse(t);
+	await waitResponse(t);
 	let verifyVariable_cafe_0_0t = await ClientFunction(() =>
 		jq(zk.Desktop._dt.$f("tbs", true).$n()).outerWidth(true),
 	)();
@@ -138,7 +171,7 @@ test("B50-ZK-596TestCafe", async (t) => {
 			"the sum of tabs header width and toobar width should smaller or equal to tabs width",
 		);
 	await t.click(Selector(() => zk.Desktop._dt.$f("btn3", true).$n()));
-	await ztl.waitResponse(t);
+	await waitResponse(t);
 	let verifyVariable_cafe_0_0tt = await ClientFunction(() =>
 		jq(zk.Desktop._dt.$f("tbs", true).$n()).outerWidth(true),
 	)();
@@ -157,7 +190,7 @@ test("B50-ZK-596TestCafe", async (t) => {
 			"the sum of tabs header width and toobar width should smaller or equal to tabs width",
 		);
 	await t.click(Selector(() => zk.Desktop._dt.$f("btn4", true).$n()));
-	await ztl.waitResponse(t);
+	await waitResponse(t);
 	let verifyVariable_cafe_0_0ttt = await ClientFunction(() =>
 		jq(zk.Desktop._dt.$f("tbs", true).$n()).outerWidth(true),
 	)();
@@ -176,7 +209,7 @@ test("B50-ZK-596TestCafe", async (t) => {
 			"the sum of tabs header width and toobar width should smaller or equal to tabs width",
 		);
 	await t.click(Selector(() => zk.Desktop._dt.$f("btn5", true).$n()));
-	await ztl.waitResponse(t);
+	await waitResponse(t);
 	let verifyVariable_cafe_0_0tttt = await ClientFunction(() =>
 		jq(zk.Desktop._dt.$f("tbs", true).$n()).outerWidth(true),
 	)();
@@ -195,7 +228,7 @@ test("B50-ZK-596TestCafe", async (t) => {
 			"the sum of tabs header width and toobar width should smaller or equal to tabs width",
 		);
 	await t.click(Selector(() => zk.Desktop._dt.$f("btn6", true).$n()));
-	await ztl.waitResponse(t);
+	await waitResponse(t);
 	let verifyVariable_cafe_0_0ttttt = await ClientFunction(() =>
 		jq(zk.Desktop._dt.$f("tbs", true).$n()).outerWidth(true),
 	)();
