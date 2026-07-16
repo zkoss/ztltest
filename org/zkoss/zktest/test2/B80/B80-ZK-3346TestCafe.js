@@ -76,10 +76,8 @@ test("B80-ZK-3346TestCafe", async (t) => {
 			await ClientFunction(() => jq(".z-popup:eq(0)").is(":visible"))(),
 		)
 		.ok();
-	await t.click(
-		Selector(() => jq(".z-div")[0]),
-		{ offsetX: 10, offsetY: 200 },
-	);
+	// Click a point that always exists on-screen and is outside the popup, to close it.
+	await t.click(Selector(() => document.body), { offsetX: 5, offsetY: 5 });
 	await ztl.waitResponse(t);
 	await t
 		.expect(
