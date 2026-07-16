@@ -31,7 +31,12 @@ test("B90-ZK-4407TestCafe", async (t) => {
 			),
 		)
 		.notEql(ztl.normalizeText("0"), "");
-	await t.wait(1000).click(Selector(() => jq("@button")[0]));
+	// scrollRestoration returns to 'auto' only after the widget's 1s timer, which
+	// a throttled/background mobile tab can delay well past 1s. Poll for it instead
+	// of waiting a fixed time, then read the value the button logs.
+	const scrollRestoration = ClientFunction(() => history.scrollRestoration);
+	await t.expect(scrollRestoration()).eql("auto", { timeout: 10000 });
+	await t.click(Selector(() => jq("@button")[0]));
 	await ztl.waitResponse(t);
 	await t
 		.expect(
