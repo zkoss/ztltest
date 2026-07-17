@@ -14,9 +14,13 @@ fixture`ZTL TEST - B86-ZK-4204TestCafe`
 );
 test("B86-ZK-4204TestCafe", async (t) => {
 	await ztl.initTest(t);
-	await t.eval(() => location.reload(true));
+	// Reload via navigateTo, not t.eval(() => location.reload()): an in-page
+	// reload aborts the proxy socket carrying the eval result, which WebKit
+	// surfaces as an "aborted/abortIncoming" unhandled rejection.
+	const pageUrl = "./B86-ZK-4204.zul";
+	await t.navigateTo(pageUrl);
 	await t.wait(2000);
-	await t.eval(() => location.reload(true));
+	await t.navigateTo(pageUrl);
 	await t.wait(10000);
 	await ztl.waitResponse(t);
 	await t
