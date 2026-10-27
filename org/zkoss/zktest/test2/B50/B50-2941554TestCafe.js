@@ -20,6 +20,7 @@ test("B50-2941554TestCafe", async (t) => {
 				    </tabs>
 				    <tabpanels>
 				        <tabpanel>
+				            <div height="80px"/>
 				            <textbox constraint="no empty, after_start" focus="true"/>
 				            <button id="btn" label="click me" popup="pp"/>
 				            <popup width="300px" id="pp">
