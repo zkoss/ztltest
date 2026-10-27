@@ -13,15 +13,15 @@ fixture`ZTL TEST - B80-ZK-3114TestCafe`
 );
 test("B80-ZK-3114TestCafe", async (t) => {
 	await ztl.initTest(t);
-	await t.click(Selector(() => jq("@chosenbox")[0]));
+	await t.click(Selector(() => zk.Widget.$(jq("@chosenbox")).$n("inp")));
 	await ztl.waitResponse(t);
 	await t.click(Selector(() => jq(".z-chosenbox-option:visible")[3]));
 	await ztl.waitResponse(t);
-	await t.click(Selector(() => jq("@chosenbox")[0]));
+	await t.click(Selector(() => zk.Widget.$(jq("@chosenbox")).$n("inp")));
 	await ztl.waitResponse(t);
 	await t.click(Selector(() => jq(".z-chosenbox-option:visible")[1]));
 	await ztl.waitResponse(t);
-	await t.click(Selector(() => jq("@chosenbox")[0]));
+	await t.click(Selector(() => zk.Widget.$(jq("@chosenbox")).$n("inp")));
 	await ztl.waitResponse(t);
 	await t.click(Selector(() => jq(".z-chosenbox-option:visible")[2]));
 	await ztl.waitResponse(t);

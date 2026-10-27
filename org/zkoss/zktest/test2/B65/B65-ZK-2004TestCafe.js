@@ -35,7 +35,7 @@ test("B65-ZK-2004TestCafe", async (t) => {
     </button>
 </window>`,
 	);
-	await t.click(Selector(() => zk.Widget.$(jq(".z-chosenbox")).$n()));
+	await t.click(Selector(() => zk.Widget.$(jq(".z-chosenbox")).$n("inp")));
 	await ztl.waitResponse(t);
 	await t.click(
 		Selector(
@@ -46,7 +46,7 @@ test("B65-ZK-2004TestCafe", async (t) => {
 		),
 	);
 	await ztl.waitResponse(t);
-	await t.click(Selector(() => zk.Widget.$(jq(".z-chosenbox")).$n()));
+	await t.click(Selector(() => zk.Widget.$(jq(".z-chosenbox")).$n("inp")));
 	await ztl.waitResponse(t);
 	await t.click(
 		Selector(
@@ -57,7 +57,7 @@ test("B65-ZK-2004TestCafe", async (t) => {
 		),
 	);
 	await ztl.waitResponse(t);
-	await t.click(Selector(() => zk.Widget.$(jq(".z-chosenbox")).$n()));
+	await t.click(Selector(() => zk.Widget.$(jq(".z-chosenbox")).$n("inp")));
 	await ztl.waitResponse(t);
 	await t.click(
 		Selector(
