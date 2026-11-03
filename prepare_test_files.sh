@@ -8,6 +8,8 @@ if [ -z "$A11Y_SERVER" ] || [ -z "$NO_A11Y_SERVER" ]; then
     exit 1
 fi
 
+# The copies write "]]>" as "]]\>", the same string at runtime. A literal "]]>" in code that TestCafe
+# quotes in a warning or failure would end the CDATA section of the xunit report early.
 find . -name "*TestCafe.js" -type f | while read -r file
 do
     echo "Processing file: $file"
@@ -23,6 +25,7 @@ do
     # ---- NO-A11Y ----
     sed -E "s/TestCafe/TestCafe(NO-A11y)/g" "$file" \
     | sed "s/localhost:8080/${NO_A11Y_SERVER}/g" \
+    | sed 's/]]>/]]\\>/g' \
     > "${new_name}-NoA11y.js"
 
     # ---- A11Y ----
@@ -30,10 +33,12 @@ do
         # macOS
         sed -i "" "s/TestCafe/TestCafe(A11y)/g" "$file"
         sed -i "" "s/localhost:8080/${A11Y_SERVER}/g" "$file"
+        sed -i "" 's/]]>/]]\\>/g' "$file"
     else
         # Linux
         sed -i "s/TestCafe/TestCafe(A11y)/g" "$file"
         sed -i "s/localhost:8080/${A11Y_SERVER}/g" "$file"
+        sed -i 's/]]>/]]\\>/g' "$file"
     fi
 
     mv "$file" "${new_name}-A11y.js"
