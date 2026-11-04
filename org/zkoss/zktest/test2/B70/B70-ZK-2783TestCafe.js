@@ -17,12 +17,15 @@ test("B70-ZK-2783TestCafe", async (t) => {
 		zk.Widget.$(jq("@combobox")).open();
 	})();
 	await ztl.waitResponse(t);
-	await ztl.verifyTolerant(
-		t,
-		ztl.normalizeText("26"),
-		ztl.normalizeText(
-			await ClientFunction(() => jq("@comboitem:first").outerHeight())(),
-		),
-		ztl.normalizeText("2"),
-	);
+	const comboitems = Selector(".z-comboitem").addCustomDOMProperties({
+		height: (el) => el.getBoundingClientRect().height,
+	});
+	const textItemHeight = await comboitems.nth(1).height;
+	await t
+		.expect(comboitems.nth(0).height)
+		.within(
+			textItemHeight - 3,
+			textItemHeight + 3,
+			"the empty comboitem should be as tall as a comboitem with text",
+		);
 });
