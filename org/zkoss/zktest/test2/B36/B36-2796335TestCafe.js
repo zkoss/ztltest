@@ -15,52 +15,27 @@ test("B36-2796335TestCafe", async (t) => {
 	await ztl.initTest(t);
 	await t.click(Selector(() => jq("@button:eq(0)")[0]));
 	await ztl.waitResponse(t);
-	let expectedDiv1_cafe_0 = await ClientFunction(() =>
-		jq("@div:eq(0)").outerHeight(),
-	)();
-	let expectedDiv1_cafe_1 = await ClientFunction(
-		() => jq("@div:eq(0)")[0].scrollHeight,
-	)();
-	let expectedDiv1_cafe = expectedDiv1_cafe_1 - expectedDiv1_cafe_0;
-	let expectedDiv2_cafe_2 = await ClientFunction(
-		() => jq("@div:eq(1)")[0].scrollHeight,
-	)();
-	let expectedDiv2_cafe_3 = await ClientFunction(() =>
-		jq("@div:eq(1)").outerHeight(),
-	)();
-	let expectedDiv2_cafe = expectedDiv2_cafe_2 - expectedDiv2_cafe_3;
-	await ztl.verifyTolerant(
-		t,
-		ztl.normalizeText(expectedDiv1_cafe),
-		ztl.normalizeText(
-			await ClientFunction(() => jq("@div:eq(0)").scrollTop())(),
-		),
-		ztl.normalizeText("1"),
-	);
-	await ztl.verifyTolerant(
-		t,
-		ztl.normalizeText(expectedDiv2_cafe),
-		ztl.normalizeText(
-			await ClientFunction(() => jq("@div:eq(1)").scrollTop())(),
-		),
-		ztl.normalizeText("1"),
-	);
+	const shownInBothDivs = (label) => {
+		const box = label.getBoundingClientRect();
+		return [jq("@div:eq(0)")[0], jq("@div:eq(1)")[0]].every((div) => {
+			const top = div.getBoundingClientRect().top + div.clientTop;
+			return (
+				box.top >= top - 1 && box.bottom <= top + div.clientHeight + 1
+			);
+		});
+	};
+	const bottomTarget = Selector(() => jq("$t2")[0]).addCustomDOMProperties({
+		shownInBothDivs,
+	});
+	const topTarget = Selector(() => jq("$t1")[0]).addCustomDOMProperties({
+		shownInBothDivs,
+	});
+	await t
+		.expect(bottomTarget.shownInBothDivs)
+		.ok("'Bottom Div target' should be scrolled into view");
 	await t.click(Selector(() => jq("@button:eq(1)")[0]));
 	await ztl.waitResponse(t);
-	await ztl.verifyTolerant(
-		t,
-		ztl.normalizeText("0"),
-		ztl.normalizeText(
-			await ClientFunction(() => jq("@div:eq(0)").scrollTop())(),
-		),
-		ztl.normalizeText("1"),
-	);
-	await ztl.verifyTolerant(
-		t,
-		ztl.normalizeText("0"),
-		ztl.normalizeText(
-			await ClientFunction(() => jq("@div:eq(1)").scrollTop())(),
-		),
-		ztl.normalizeText("1"),
-	);
+	await t
+		.expect(topTarget.shownInBothDivs)
+		.ok("'Top Div target' should be scrolled into view");
 });

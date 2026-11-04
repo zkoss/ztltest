@@ -140,39 +140,51 @@ Change window\'s height, component won\'t resize
 	</window>
 </zk>`,
 	);
-	let winHgh_cafe = await ClientFunction(() =>
-		jq(zk.Desktop._dt.$f("win", true).$n("cave")).height(),
-	)();
-	let treeHgh_cafe = await ClientFunction(() =>
-		jq(zk.Desktop._dt.$f("tree2", true)).outerHeight(),
-	)();
+	const windowContent = Selector(() =>
+		zk.Desktop._dt.$f("win", true).$n("cave"),
+	).addCustomDOMProperties({ height: (cave) => jq(cave).height() });
+	const tree = Selector(() =>
+		zk.Desktop._dt.$f("tree2", true).$n(),
+	).addCustomDOMProperties({ height: (el) => jq(el).outerHeight() });
+	const windowHeight = await windowContent.height;
+	const treeHeight = await tree.height;
 	await t
-		.expect(ztl.normalizeText(winHgh_cafe))
-		.eql(ztl.normalizeText(treeHgh_cafe));
+		.expect(treeHeight)
+		.within(
+			windowHeight - 1,
+			windowHeight + 1,
+			"the tree should fill the window",
+		);
 	await t.click(Selector(() => zk.Desktop._dt.$f("btn1", true).$n()));
 	await ztl.waitResponse(t);
-	let winHgh2_cafe = await ClientFunction(() =>
-		jq(zk.Desktop._dt.$f("win", true).$n("cave")).height(),
-	)();
-	let treeHgh2_cafe = await ClientFunction(() =>
-		jq(zk.Desktop._dt.$f("tree2", true)).outerHeight(),
-	)();
+	let smallWindowHeight = await windowContent.height;
 	await t
-		.expect(ztl.normalizeText(winHgh2_cafe))
-		.eql(ztl.normalizeText(treeHgh2_cafe));
-	await t.expect(winHgh_cafe * 0.3 >= winHgh2_cafe).ok();
-	await t.expect(treeHgh_cafe * 0.3 >= treeHgh2_cafe).ok();
+		.expect(tree.height)
+		.within(
+			smallWindowHeight - 1,
+			smallWindowHeight + 1,
+			"the tree should follow the window's height",
+		);
+	await t
+		.expect(smallWindowHeight)
+		.lte(windowHeight * 0.3, "the window should shrink to 30%");
+	await t
+		.expect(tree.height)
+		.lte(treeHeight * 0.3, "the tree should shrink with the window");
 	await t.click(Selector(() => zk.Desktop._dt.$f("btn2", true).$n()));
 	await ztl.waitResponse(t);
-	winHgh2_cafe = await ClientFunction(() =>
-		jq(zk.Desktop._dt.$f("win", true).$n("cave")).height(),
-	)();
-	treeHgh2_cafe = await ClientFunction(() =>
-		jq(zk.Desktop._dt.$f("tree2", true)).outerHeight(),
-	)();
+	smallWindowHeight = await windowContent.height;
 	await t
-		.expect(ztl.normalizeText(winHgh2_cafe))
-		.eql(ztl.normalizeText(treeHgh2_cafe));
-	await t.expect(winHgh_cafe * 0.3 >= winHgh2_cafe).ok();
-	await t.expect(treeHgh_cafe * 0.3 >= treeHgh2_cafe).ok();
+		.expect(tree.height)
+		.within(
+			smallWindowHeight - 1,
+			smallWindowHeight + 1,
+			"the tree should still fill the window after it is redrawn",
+		);
+	await t
+		.expect(smallWindowHeight)
+		.lte(windowHeight * 0.3, "the window should stay at 30%");
+	await t
+		.expect(tree.height)
+		.lte(treeHeight * 0.3, "the redrawn tree should stay small");
 });

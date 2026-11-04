@@ -16,30 +16,25 @@ test("B35-2075768TestCafe", async (t) => {
 	await t
 		.expect(await ClientFunction(() => !!jq(".z-west-noborder")[0])())
 		.ok("The west zone should not have a border");
-	let noBorderHeight_cafe = await ClientFunction(() =>
-		jq(".z-west-noborder").height(),
-	)();
-	let noBorderWidth_cafe = await ClientFunction(() =>
-		jq(".z-west-noborder").width(),
-	)();
+	const west = Selector(".z-west");
+	const noBorderHeight = await west.offsetHeight;
+	const noBorderWidth = await west.offsetWidth;
 	await t.click(Selector(() => jq("@button")[0]));
 	await ztl.waitResponse(t);
-	let borderHeight_cafe = await ClientFunction(() =>
-		jq(".z-west").height(),
-	)();
-	let borderWidth_cafe = await ClientFunction(() => jq(".z-west").width())();
 	await t
 		.expect(await ClientFunction(() => !!jq(".z-west-noborder")[0])())
 		.notOk("The west zone should have a border");
 	await t
-		.expect(noBorderHeight_cafe - borderHeight_cafe == 2)
-		.ok(
-			"The height of the west zone should be 2 pixels smaller than without the border",
+		.expect(west.offsetHeight)
+		.eql(
+			noBorderHeight,
+			"The west zone should keep its height with a border",
 		);
 	await t
-		.expect(noBorderWidth_cafe - borderWidth_cafe == 2)
-		.ok(
-			"The width of the west zone should be 2 pixels smaller than without the border",
+		.expect(west.offsetWidth)
+		.eql(
+			noBorderWidth,
+			"The west zone should keep its width with a border",
 		);
 	await t.click(Selector(() => jq("@button")[0]));
 	await ztl.waitResponse(t);

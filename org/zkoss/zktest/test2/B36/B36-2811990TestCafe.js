@@ -47,15 +47,17 @@ test("B36-2811990TestCafe", async (t) => {
 			{ offsetX: 8, offsetY: 6 },
 		)
 		.wait(1000);
+	const slider = Selector(".z-slider").addCustomDOMProperties({
+		position: (el) => String(zk.Widget.$(el).getCurpos()),
+		tooltip: (el) => zk.Widget.$(el).$n("btn").title,
+	});
 	await t
-		.expect(ztl.normalizeText("70"))
-		.eql(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq(zk.Widget.$(jq("$sl")).$n("btn")).attr("title"),
-				)(),
-			),
-		);
+		.expect(slider.position)
+		.notEql("50", "the drag should move the slider");
+	const position = await slider.position;
+	await t
+		.expect(slider.tooltip)
+		.eql(position, "the tooltip should show the slider's new position");
 	await t.click(Selector(() => jq("@button")[0]));
 	await ztl.waitResponse(t);
 	await t

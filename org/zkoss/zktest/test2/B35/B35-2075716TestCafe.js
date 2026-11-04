@@ -65,23 +65,18 @@ test("B35-2075716TestCafe", async (t) => {
         </zscript>
       </window>`,
 	);
-	let total_width_cafe = await ClientFunction(() =>
-		jq(".z-portallayout").width(),
-	)();
-	let panel0_width_cafe = await ClientFunction(() =>
-		jq(".z-portalchildren").width(),
-	)();
+	const columns = Selector(".z-portalchildren");
+	const totalWidth = await Selector(".z-portallayout").offsetWidth;
+	const firstColumnWidth = await columns.nth(0).offsetWidth;
 	await t.click(Selector(() => jq("@button:contains(add)")[0]));
 	await ztl.waitResponse(t);
-	let new_panel_width_cafe = await ClientFunction(() =>
-		jq(".z-portalchildren:contains(portal 0)").width(),
-	)();
-	let remainder_width_cafe = total_width_cafe - panel0_width_cafe - 10;
-	await ztl.verifyTolerant(
-		t,
-		ztl.normalizeText(remainder_width_cafe / 2),
-		ztl.normalizeText(new_panel_width_cafe),
-		ztl.normalizeText("2"),
-	);
+	const remainderWidth = totalWidth - firstColumnWidth;
+	await t
+		.expect(columns.withText("portal 0").offsetWidth)
+		.within(
+			remainderWidth / 2 - 2,
+			remainderWidth / 2 + 2,
+			"the new column should take half of the remaining width",
+		);
 	await t.expect(await ClientFunction(() => !!jq(".z-error")[0])()).notOk();
 });

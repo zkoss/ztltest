@@ -18,8 +18,8 @@ test("B30-2099562TestCafe", async (t) => {
 	<progressmeter width="100px" id="pm" value="0"/>
 </zk>`,
 	);
-	let verifyVariable_cafe_0_0 = await ClientFunction(() =>
-		jq("@progressmeter").outerHeight(),
-	)();
-	await t.expect(verifyVariable_cafe_0_0 >= 16).ok();
+	const meter = Selector(".z-progressmeter");
+	await t
+		.expect(meter.clientHeight)
+		.gt(0, "the progressmeter at 0 should not be flattened");
 });

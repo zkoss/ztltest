@@ -45,8 +45,11 @@ test("B30-1911129TestCafe", async (t) => {
 	await ztl.waitResponse(t);
 	await t.click(Selector(() => jq("$fm")[0]));
 	await ztl.waitResponse(t);
-	let ow_cafe = await ClientFunction(() => jq("$ms").width())();
-	let oh_cafe = await ClientFunction(() => jq("$ms").height())();
-	await t.expect(ow_cafe > 0).ok();
-	await t.expect(oh_cafe > 0).ok();
+	const separator = Selector(() => jq("$ms")[0]);
+	await t
+		.expect(separator.offsetWidth)
+		.gt(0, "the menuseparator should span the menupopup");
+	await t
+		.expect(separator.offsetHeight)
+		.gt(0, "the menuseparator should show");
 });

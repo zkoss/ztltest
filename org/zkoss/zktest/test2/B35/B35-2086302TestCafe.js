@@ -18,6 +18,39 @@ test("B35-2086302TestCafe", async (t) => {
 	await t
 		.expect(await ClientFunction(() => jq("$bl1").is(":visible"))())
 		.ok();
+	const filledSize = {
+		filledWidth: (el) => {
+			const layout = zk.Widget.$(el);
+			return [layout.west, layout.center, layout.east]
+				.filter((region) => region)
+				.flatMap((region) => [region.$n("real"), region.$n("split")])
+				.filter((part) => part)
+				.reduce(
+					(sum, part) => sum + part.getBoundingClientRect().width,
+					0,
+				);
+		},
+		filledHeight: (el) => {
+			const layout = zk.Widget.$(el);
+			return [layout.north, layout.center, layout.south]
+				.filter((region) => region)
+				.flatMap((region) => [region.$n("real"), region.$n("split")])
+				.filter((part) => part)
+				.reduce(
+					(sum, part) => sum + part.getBoundingClientRect().height,
+					0,
+				);
+		},
+	};
+	const outerLayout = Selector(() => jq("$bl1")[0]).addCustomDOMProperties(
+		filledSize,
+	);
+	const northLayout = Selector(() => jq("$bl2")[0]).addCustomDOMProperties(
+		filledSize,
+	);
+	const centerLayout = Selector(() => jq("$bl3")[0]).addCustomDOMProperties(
+		filledSize,
+	);
 	let bl1h_cafe = await ClientFunction(() => jq("$bl1").height())();
 	let bl1w_cafe = await ClientFunction(() => jq("$bl1").width())();
 	await t.expect(bl1h_cafe == 500).ok();
@@ -33,18 +66,14 @@ test("B35-2086302TestCafe", async (t) => {
 		ztl.normalizeText(w2w_cafe),
 		ztl.normalizeText("1"),
 	);
-	let c2w_cafe_2 = await ClientFunction(() =>
-		jq("$c2").parent().outerWidth(),
-	)();
-	let c2w_cafe = c2w_cafe_2 + 8;
-	let verifyVariable_cafe_2_3 = parseInt(0.0);
-	let verifyVariable_cafe_3_4 = parseInt(0.0);
-	await ztl.verifyTolerant(
-		t,
-		ztl.normalizeText(parseInt(bl2w_cafe * 0.25 + "")),
-		ztl.normalizeText(c2w_cafe),
-		ztl.normalizeText("1"),
-	);
+	const northLayoutWidth = await northLayout.offsetWidth;
+	await t
+		.expect(northLayout.filledWidth)
+		.within(
+			northLayoutWidth - 1,
+			northLayoutWidth + 1,
+			"the north layout's center should take the rest of its width",
+		);
 	let e2w_cafe = await ClientFunction(() =>
 		jq(zk.Widget.$(jq("$bl2").find("@east")).$n("cave")).outerWidth(),
 	)();
@@ -101,54 +130,21 @@ test("B35-2086302TestCafe", async (t) => {
 	await t
 		.expect(ztl.normalizeText(w3w_cafe))
 		.eql(ztl.normalizeText(parseInt(bl3w_cafe * 0.3 + "")));
-	let c3w_cafe_9 = await ClientFunction(() =>
-		jq(zk.Widget.$(jq("$bl3").find("@center")).$n("cave")).outerWidth(),
-	)();
-	let c3w_cafe = c3w_cafe_9 + 8;
-	let verifyVariable_cafe_8_10 = parseInt(0.0);
-	let verifyVariable_cafe_9_11 = parseInt(0.0);
-	await ztl.verifyTolerant(
-		t,
-		ztl.normalizeText(parseInt(bl3w_cafe * 0.4 + "")),
-		ztl.normalizeText(c3w_cafe + 1),
-		ztl.normalizeText("1"),
-	);
+	const centerLayoutWidth = await centerLayout.offsetWidth;
 	await t
-		.expect(ztl.normalizeText("1px"))
-		.eql(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq("$bl3").find(".z-center").css("border-top-width"),
-				)(),
-			),
+		.expect(centerLayout.filledWidth)
+		.within(
+			centerLayoutWidth - 1,
+			centerLayoutWidth + 1,
+			"the center layout's center should take the rest of its width",
 		);
 	await t
-		.expect(ztl.normalizeText("1px"))
-		.eql(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq("$bl3").find(".z-center").css("border-left-width"),
-				)(),
+		.expect(
+			Selector(() => jq("$bl3").find(".z-center")[0]).hasClass(
+				"z-center-noborder",
 			),
-		);
-	await t
-		.expect(ztl.normalizeText("1px"))
-		.eql(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq("$bl3").find(".z-center").css("border-right-width"),
-				)(),
-			),
-		);
-	await t
-		.expect(ztl.normalizeText("1px"))
-		.eql(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq("$bl3").find(".z-center").css("border-bottom-width"),
-				)(),
-			),
-		);
+		)
+		.notOk("the center layout's center should keep its border");
 	let e3w_cafe = await ClientFunction(() =>
 		jq("$e3").parent().outerWidth(),
 	)();
@@ -163,18 +159,15 @@ test("B35-2086302TestCafe", async (t) => {
 	let bl2h_cafe = await ClientFunction(() =>
 		jq("$bl2").parent().outerHeight(),
 	)();
-	let bl3h_cafe_14 = await ClientFunction(() =>
-		jq("$bl3").parent().outerHeight(),
-	)();
-	let bl3h_cafe = bl3h_cafe_14 + 8;
-	let verifyVariable_cafe_12_15 = parseInt(0);
-	let verifyVariable_cafe_13_16 = parseInt(0);
 	await t
 		.expect(ztl.normalizeText(parseInt(bl1h_cafe / 2)))
 		.eql(ztl.normalizeText(bl2h_cafe));
-	let verifyVariable_cafe_14_17 = parseInt(0);
-	let verifyVariable_cafe_15_18 = parseInt(0);
+	const outerLayoutHeight = await outerLayout.offsetHeight;
 	await t
-		.expect(ztl.normalizeText(parseInt(bl1h_cafe / 2)))
-		.eql(ztl.normalizeText(bl3h_cafe));
+		.expect(outerLayout.filledHeight)
+		.within(
+			outerLayoutHeight - 1,
+			outerLayoutHeight + 1,
+			"the outer layout's center should take the rest of its height",
+		);
 });

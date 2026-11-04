@@ -29,11 +29,22 @@ test("B30-1825896TestCafe", async (t) => {
 		cafeCoord_1[1] - cafeCoord_2[1],
 		{ offsetX: cafeCoord_2[0], offsetY: cafeCoord_2[1] },
 	);
-	let verifyVariable_cafe_0_0 = await ClientFunction(() =>
-		jq(".z-row-inner:eq(3)").find(".z-datebox").innerWidth(),
-	)();
-	let verifyVariable_cafe_1_1 = await ClientFunction(() =>
-		jq(".z-column:eq(3)").outerWidth(),
-	)();
-	await t.expect(verifyVariable_cafe_0_0 < verifyVariable_cafe_1_1).ok();
+	const columnRight = (await Selector(".z-column").nth(3).boundingClientRect)
+		.right;
+	const datebox = Selector(
+		() => jq(".z-row-inner:eq(3)").find(".z-datebox")[0],
+	).addCustomDOMProperties({
+		visibleRight: (box) => {
+			let right = box.getBoundingClientRect().right;
+			for (let el = box.parentElement; el; el = el.parentElement) {
+				if (getComputedStyle(el).overflowX !== "visible") {
+					right = Math.min(right, el.getBoundingClientRect().right);
+				}
+			}
+			return right;
+		},
+	});
+	await t
+		.expect(datebox.visibleRight)
+		.lte(columnRight + 1, "the datebox should not show past its column");
 });

@@ -48,28 +48,17 @@ test("B30-1813518TestCafe", async (t) => {
 			),
 		)
 		.eql(ztl.normalizeText(""));
-	let color_cafe = await ClientFunction(() =>
-		jq("@rows:eq(1) td").css("color"),
-	)();
+	const defaultRowCell = Selector(".z-rows")
+		.nth(1)
+		.find("td")
+		.addCustomDOMProperties({
+			ownColor: (td) => td.style.color,
+			ownBackground: (td) => td.style.backgroundColor,
+		});
 	await t
-		.expect(
-			ztl.normalizeText(
-				"rgba(0, 0, 0, 0.9)#000000rgba(0, 0, 0, 0.901961)",
-			),
-		)
-		.contains(ztl.normalizeText(color_cafe), "");
+		.expect(defaultRowCell.ownColor)
+		.eql("", "the default row should not take the custom row's colour");
 	await t
-		.expect(
-			ztl.normalizeText(
-				"transparent|rgb(255, 255, 255)|rgba(0, 0, 0, 0)|#ffffff",
-			),
-		)
-		.contains(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq("@rows:eq(1) td").css("backgroundColor"),
-				)(),
-			),
-			"",
-		);
+		.expect(defaultRowCell.ownBackground)
+		.eql("", "the default row should not take the custom row's background");
 });
