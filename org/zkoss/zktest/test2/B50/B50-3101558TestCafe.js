@@ -24,60 +24,10 @@ test("B50-3101558TestCafe", async (t) => {
  </div>
 </zk>`,
 	);
-	await t
-		.expect(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq(zk.Desktop._dt.$f("div", true).firstChild).width(),
-				)(),
-			),
-		)
-		.eql(ztl.normalizeText("35"));
-	await t
-		.expect(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq(
-						zk.Desktop._dt.$f("div", true).firstChild.nextSibling,
-					).width(),
-				)(),
-			),
-		)
-		.eql(ztl.normalizeText("35"));
-	await t
-		.expect(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq(
-						zk.Desktop._dt.$f("div", true).firstChild.nextSibling
-							.nextSibling,
-					).width(),
-				)(),
-			),
-		)
-		.eql(ztl.normalizeText("35"));
-	await t
-		.expect(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq(
-						zk.Desktop._dt.$f("div", true).firstChild.nextSibling
-							.nextSibling.nextSibling,
-					).width(),
-				)(),
-			),
-		)
-		.eql(ztl.normalizeText("35"));
-	await t
-		.expect(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq(
-						zk.Desktop._dt.$f("div", true).firstChild.nextSibling
-							.nextSibling.nextSibling.nextSibling,
-					).width(),
-				)(),
-			),
-		)
-		.eql(ztl.normalizeText("35"));
+	const div = Selector(() => zk.Desktop._dt.$f("div", true).$n());
+	for (let i = 0; i < 5; i++) {
+		await t
+			.expect(div.child(i).offsetWidth)
+			.eql(35, `widget ${i + 1} should be as wide as its width`);
+	}
 });
