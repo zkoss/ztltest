@@ -12,18 +12,24 @@ fixture`ZTL TEST - B70-ZK-2802TestCafe`
 test("B70-ZK-2802TestCafe", async (t) => {
 	await ztl.initTest(t);
 	await ztl.runZscript(t, `<include src="/test2/B70-ZK-2802.zul"/>`);
-	let verifyVariable_cafe_0_0 = await ClientFunction(() =>
-		jq("@toolbarbutton:first").outerHeight(),
-	)();
-	let verifyVariable_cafe_1_1 = await ClientFunction(() =>
-		jq("@toolbarbutton:first img").outerHeight(),
-	)();
-	await t.expect(verifyVariable_cafe_0_0 > verifyVariable_cafe_1_1).ok();
-	let verifyVariable_cafe_2_2 = await ClientFunction(() =>
-		jq("@toolbarbutton:first img").outerWidth(),
-	)();
-	let verifyVariable_cafe_3_3 = await ClientFunction(() =>
-		jq("@toolbarbutton:first").outerWidth(),
-	)();
-	await t.expect(verifyVariable_cafe_3_3 > verifyVariable_cafe_2_2).ok();
+	const image = Selector(".z-toolbarbutton img").addCustomDOMProperties({
+		loaded: (img) => img.complete && img.naturalWidth > 0,
+		insideButton: (img) => {
+			const i = img.getBoundingClientRect();
+			const b = img.closest(".z-toolbarbutton").getBoundingClientRect();
+			return (
+				i.top >= b.top &&
+				i.bottom <= b.bottom &&
+				i.left >= b.left &&
+				i.right <= b.right
+			);
+		},
+		naturalSize: (img) =>
+			img.width === img.naturalWidth && img.height === img.naturalHeight,
+	});
+	await t.expect(image.loaded).ok("the image should load");
+	await t
+		.expect(image.insideButton)
+		.ok("the toolbarbutton should show the whole image");
+	await t.expect(image.naturalSize).ok("the image should keep its own size");
 });
