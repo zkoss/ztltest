@@ -55,19 +55,11 @@ Copyright (C)  Potix Corporation. All Rights Reserved.
 	);
 	await t.click(Selector(() => jq(".z-combobox-button")[0]));
 	await ztl.waitResponse(t);
-	let verifyVariable_cafe_0_0 = await ClientFunction(
-		() => jq(".z-combobox-popup").offset().top,
-	)();
-	let verifyVariable_cafe_1_1 = await ClientFunction(() =>
-		jq(".z-combobox-popup").height(),
-	)();
-	let verifyVariable_cafe_2_2 = await ClientFunction(
-		() => jq("@combobox").offset().top,
-	)();
+	const comboboxTop = (await Selector(".z-combobox").boundingClientRect).top;
+	const popup = Selector(".z-combobox-popup").addCustomDOMProperties({
+		bottom: (el) => el.getBoundingClientRect().bottom,
+	});
 	await t
-		.expect(
-			verifyVariable_cafe_0_0 + verifyVariable_cafe_1_1 <
-				verifyVariable_cafe_2_2,
-		)
-		.ok("popup shouldn't overlap the input.");
+		.expect(popup.bottom)
+		.lte(comboboxTop + 1, "the popup should not overlap the input");
 });

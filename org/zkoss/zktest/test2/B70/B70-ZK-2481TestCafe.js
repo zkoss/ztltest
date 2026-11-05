@@ -61,8 +61,19 @@ test("B70-ZK-2481TestCafe", async (t) => {
 	);
 	await t.click(Selector(() => jq(".z-navbar:last a")[0]));
 	await ztl.waitResponse(t);
-	let verifyVariable_cafe_0_0 = await ClientFunction(
-		() => jq(".z-navbar:last>ul>li>ul").position().left,
-	)();
-	await t.expect(verifyVariable_cafe_0_0 != 0).ok();
+	const dropdown = Selector(
+		() => jq(".z-navbar:last>ul>li>ul")[0],
+	).addCustomDOMProperties({
+		insideWindow: (ul) => {
+			const box = ul.getBoundingClientRect();
+			return (
+				box.left >= 0 &&
+				box.right <= document.documentElement.clientWidth
+			);
+		},
+	});
+	await t.expect(dropdown.visible).ok("the nav should open");
+	await t
+		.expect(dropdown.insideWindow)
+		.ok("the opened nav should show all its items inside the window");
 });

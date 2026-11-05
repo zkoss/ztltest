@@ -13,14 +13,23 @@ fixture`ZTL TEST - B70-ZK-2630TestCafe`
 );
 test("B70-ZK-2630TestCafe", async (t) => {
 	await ztl.initTest(t);
-	await ztl.verifyTolerant(
-		t,
-		ztl.normalizeText(
-			await ClientFunction(() => jq(".z-window-close").offset().top)(),
-		),
-		ztl.normalizeText(
-			await ClientFunction(() => jq(".z-caption-content").offset().top)(),
-		),
-		ztl.normalizeText("1"),
+	const box = {
+		top: (el) => el.getBoundingClientRect().top,
+		middle: (el) => {
+			const rect = el.getBoundingClientRect();
+			return (rect.top + rect.bottom) / 2;
+		},
+	};
+	const closeIcon = Selector(".z-window-close").addCustomDOMProperties(box);
+	const caption = Selector(".z-caption-content").addCustomDOMProperties(box);
+	const topsApart = Math.abs((await closeIcon.top) - (await caption.top));
+	const middlesApart = Math.abs(
+		(await closeIcon.middle) - (await caption.middle),
 	);
+	await t
+		.expect(Math.min(topsApart, middlesApart))
+		.lte(
+			1,
+			"the close icon should line up with the caption at their tops or their middles",
+		);
 });

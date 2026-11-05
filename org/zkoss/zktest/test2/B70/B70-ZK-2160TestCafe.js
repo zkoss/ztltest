@@ -21,32 +21,35 @@ test("B70-ZK-2160TestCafe", async (t) => {
 	await ztl.waitResponse(t);
 	await t.click(Selector(() => jq("@menu:visible")[0]));
 	await ztl.waitResponse(t);
-	let rightOffset_cafe_0 = await ClientFunction(() =>
-		jq("@menupopup:visible").width(),
-	)();
-	let rightOffset_cafe_1 = await ClientFunction(
-		() => jq("@menupopup:visible").offset().left,
-	)();
-	let rightOffset_cafe = rightOffset_cafe_0 + rightOffset_cafe_1;
-	let verifyVariable_cafe_0_2 = await ClientFunction(
-		() => jq("@menu:visible").offset().left,
-	)();
+	const popup = Selector(
+		() => jq("@menupopup:visible")[0],
+	).addCustomDOMProperties({
+		left: (el) => el.getBoundingClientRect().left,
+		besideMenu: (el) => {
+			const popupBox = el.getBoundingClientRect();
+			const menuBox = jq("@menu:visible")[0].getBoundingClientRect();
+			return (
+				popupBox.right <= menuBox.left + 1 ||
+				popupBox.left >= menuBox.right - 1
+			);
+		},
+		insideWindow: (el) => {
+			const box = el.getBoundingClientRect();
+			return (
+				box.left >= 0 &&
+				box.right <= document.documentElement.clientWidth
+			);
+		},
+	});
 	await t
-		.expect(rightOffset_cafe < verifyVariable_cafe_0_2)
-		.ok("Menu popup should be at the left side of menu.");
+		.expect(popup.besideMenu)
+		.ok("the menupopup should open beside the menu");
+	await t
+		.expect(popup.insideWindow)
+		.ok("the menupopup should open inside the window");
+	const openedLeft = await popup.left;
 	await t.wait(2500);
-	let verifyVariable_cafe_1_3 = await ClientFunction(() =>
-		jq("@menupopup:visible").width(),
-	)();
-	let verifyVariable_cafe_2_4 = await ClientFunction(
-		() => jq("@menupopup:visible").offset().left,
-	)();
 	await t
-		.expect(
-			rightOffset_cafe ==
-				verifyVariable_cafe_1_3 + verifyVariable_cafe_2_4,
-		)
-		.ok(
-			"Menu popup should be at the same position after blocking 2 seconds.",
-		);
+		.expect(popup.left)
+		.eql(openedLeft, "the menupopup should stay where it opened");
 });

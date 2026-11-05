@@ -29,28 +29,27 @@ test("B50-3303725TestCafe", async (t) => {
 		},
 	);
 	await ztl.waitResponse(t);
-	let h1_cafe = await ClientFunction(() =>
-		jq(zk.Widget.$(jq(".z-portalchildren")).$n("cave")).height(),
-	)();
-	let h2_cafe_0 = await ClientFunction(() =>
-		jq(zk.Desktop._dt.$f("p3", true).$n()).outerHeight(),
-	)();
-	let h2_cafe_1 = await ClientFunction(() =>
-		jq(zk.Desktop._dt.$f("p1", true).$n()).outerHeight(),
-	)();
-	let h2_cafe_2 = await ClientFunction(() =>
-		jq(zk.Desktop._dt.$f("p2", true).$n()).outerHeight(),
-	)();
-	let h2_cafe = h2_cafe_1 + h2_cafe_2 + h2_cafe_0;
+	const column = Selector(() =>
+		zk.Widget.$(jq(".z-portalchildren")).$n("cave"),
+	).addCustomDOMProperties({
+		contentHeight: (cave) => jq(cave).height(),
+		panelsSpan: () => {
+			const boxes = ["p1", "p2", "p3"].map((id) =>
+				zk.Desktop._dt.$f(id, true).$n().getBoundingClientRect(),
+			);
+			return (
+				Math.max(boxes[0].bottom, boxes[1].bottom, boxes[2].bottom) -
+				Math.min(boxes[0].top, boxes[1].top, boxes[2].top)
+			);
+		},
+	});
+	const columnHeight = await column.contentHeight;
 	await t
-		.expect(
-			await ClientFunction(
-				() => eval("Math.abs(" + h1_cafe + " - " + h2_cafe + ") < 10"),
-				{ dependencies: { h1_cafe, h2_cafe } },
-			)(),
-		)
-		.ok(
-			"the sum of the height of the three panel (0) should close to the height of the Portallayout (0)",
+		.expect(column.panelsSpan)
+		.within(
+			columnHeight - 1,
+			columnHeight + 1,
+			"the three panels should fill the column from top to bottom",
 		);
 	await t
 		.expect(

@@ -51,11 +51,17 @@ public class SliderDoubleVM {
 	);
 	await t.hover(Selector(() => jq(".z-slider-button")[0]));
 	await ztl.waitResponse(t);
+	const slider = Selector(".z-slider").addCustomDOMProperties({
+		travel: (el) =>
+			el.clientWidth - el.querySelector(".z-slider-button").offsetWidth,
+	});
+	const fromTwoToThreeAndAHalf = Math.round(
+		((await slider.travel) * (3.5 - 2)) / 5,
+	);
 	await t.drag(
 		Selector(() => jq(".z-slider-button")[0]),
-		54,
+		fromTwoToThreeAndAHalf,
 		0,
-		{ offsetX: 1, offsetY: 1 },
 	);
 	await ztl.waitResponse(t);
 	await t

@@ -17,10 +17,18 @@ test("B70-ZK-2307TestCafe", async (t) => {
 	let originH_cafe = await ClientFunction(() => document.body.offsetHeight)();
 	await t.resizeWindow(500, originH_cafe);
 	await t.wait(500);
-	let h5l_cafe = await ClientFunction(() => jq("$h5").offset().left)();
-	let i5l_cafe = await ClientFunction(() => jq("$i5").offset().left)();
+	const leftEdge = { left: (el) => el.getBoundingClientRect().left };
+	const header = Selector(() => jq("$h5")[0]).addCustomDOMProperties(
+		leftEdge,
+	);
+	const cell = Selector(() => jq("$i5")[0]).addCustomDOMProperties(leftEdge);
+	const cellLeft = await cell.left;
 	await t
-		.expect(h5l_cafe == i5l_cafe)
-		.ok("list head and cell must align to same vertial line.");
+		.expect(header.left)
+		.within(
+			cellLeft - 0.5,
+			cellLeft + 0.5,
+			"the list head and its cell should start on the same vertical line",
+		);
 	await t.resizeWindow(originW_cafe, originH_cafe);
 });

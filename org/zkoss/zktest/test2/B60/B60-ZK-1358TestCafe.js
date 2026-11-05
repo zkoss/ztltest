@@ -30,14 +30,8 @@ test("B60-ZK-1358TestCafe", async (t) => {
                   </zk>`,
 	);
 	await t
-		.expect(ztl.normalizeText("block"))
-		.eql(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq(".z-window-modal").css("display"),
-				)(),
-			),
-		);
+		.expect(Selector(".z-window-modal").visible)
+		.ok("the modal window should show");
 	await t.click(Selector(() => jq("@button")[0]));
 	await ztl.waitResponse(t);
 	await t

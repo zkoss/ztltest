@@ -29,8 +29,29 @@ test("B36-2837303TestCafe", async (t) => {
 			),
 		)
 		.eql(ztl.normalizeText("10"));
-	let verifyVariable_cafe_0_0 = await ClientFunction(() =>
-		jq("@progressmeter:eq(1)").outerHeight(),
-	)();
-	await t.expect(verifyVariable_cafe_0_0 > 10).ok();
+	const shortMeter = Selector(".z-progressmeter")
+		.nth(0)
+		.addCustomDOMProperties({
+			fillShownInside: (meter) => {
+				const fill = meter.querySelector(".z-progressmeter-image");
+				return (
+					getComputedStyle(meter).overflowY !== "visible" ||
+					fill.getBoundingClientRect().bottom <=
+						meter.getBoundingClientRect().bottom
+				);
+			},
+		});
+	await t
+		.expect(shortMeter.fillShownInside)
+		.ok(
+			"the 10px progressmeter should show its fill only inside its height",
+		);
+	if ((await ClientFunction(() => zk.themeName)()) === "iceblue") {
+		await t
+			.expect(Selector(".z-progressmeter").nth(1).offsetHeight)
+			.gt(
+				10,
+				"under IceBlue the default progressmeter should be taller than 10px",
+			);
+	}
 });

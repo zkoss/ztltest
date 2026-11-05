@@ -13,28 +13,34 @@ fixture`ZTL TEST - B36-2818308TestCafe`
 );
 test("B36-2818308TestCafe", async (t) => {
 	await ztl.initTest(t);
+	const selectedRow = Selector(".z-treerow-selected").addCustomDOMProperties({
+		distanceToViewBottom: (row) => {
+			const body = row.closest(".z-tree-body");
+			const viewBottom =
+				body.getBoundingClientRect().top +
+				body.clientTop +
+				body.clientHeight;
+			return viewBottom - row.getBoundingClientRect().bottom;
+		},
+	});
 	await t.click(Selector(() => jq('@button[label="add under bottom"]')[0]));
 	await ztl.waitResponse(t);
-	let scrollTop_cafe = await ztl.getScrollTop({
-		locator: Selector(() => zk.Desktop._dt.$f("tree", true).$n()),
-	});
-	await ztl.verifyTolerant(
-		t,
-		ztl.normalizeText("215"),
-		ztl.normalizeText(scrollTop_cafe),
-		ztl.normalizeText("10"),
-	);
+	await t
+		.expect(selectedRow.distanceToViewBottom)
+		.within(
+			-1,
+			1,
+			"the tree should scroll just enough to show the selected row at its bottom",
+		);
 	await t.click(Selector(() => jq('@button[label="add under bottom"]')[0]));
 	await ztl.waitResponse(t);
-	scrollTop_cafe = await ztl.getScrollTop({
-		locator: Selector(() => zk.Desktop._dt.$f("tree", true).$n()),
-	});
-	await ztl.verifyTolerant(
-		t,
-		ztl.normalizeText("260"),
-		ztl.normalizeText(scrollTop_cafe),
-		ztl.normalizeText("10"),
-	);
+	await t
+		.expect(selectedRow.distanceToViewBottom)
+		.within(
+			-1,
+			1,
+			"the tree should scroll just enough to show the selected row at its bottom",
+		);
 	await t.click(Selector(() => jq('@button[label="add upon top"]')[0]));
 	await ztl.waitResponse(t);
 	await t.click(Selector(() => jq('@button[label="add upon top"]')[0]));
