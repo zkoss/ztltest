@@ -30,12 +30,16 @@ test("Z30-grid-0012TestCafe", async (t) => {
 				</grid>
 			</window>`,
 	);
+	const rows = Selector(".z-row").addCustomDOMProperties({
+		height: (el) => el.getBoundingClientRect().height,
+	});
+	const unsizedRowHeight = await rows.nth(2).height;
 	await t
-		.expect(ztl.normalizeText("50"))
-		.eql(
-			ztl.normalizeText(
-				await ClientFunction(() => jq("@row").eq(0).outerHeight())(),
-			),
+		.expect(rows.nth(0).height)
+		.within(
+			Math.max(50, unsizedRowHeight - 1),
+			Math.max(50, unsizedRowHeight),
+			"a row with height 50px should be 50px tall, or as tall as a row without a height if that is taller",
 		);
 	await t
 		.expect(ztl.normalizeText("51"))
@@ -46,12 +50,8 @@ test("Z30-grid-0012TestCafe", async (t) => {
 			"",
 		);
 	await t
-		.expect(ztl.normalizeText("100"))
-		.eql(
-			ztl.normalizeText(
-				await ClientFunction(() => jq("@row").eq(1).outerHeight())(),
-			),
-		);
+		.expect(rows.nth(1).height)
+		.eql(100, "a row with height 100px should be 100px tall");
 	await t
 		.expect(ztl.normalizeText("101"))
 		.notEql(

@@ -20,18 +20,11 @@ test("B85-ZK-3925TestCafe", async (t) => {
 		.click(Selector(() => zk.Widget.$(jq("@panel")).$n("max")));
 	await ztl.waitResponse(t);
 	await t.click(Selector(() => zk.Widget.$(jq("@panel")).$n("max")));
+	const panel = Selector(() => jq("@panel")[0]);
 	await t
-		.expect(
-			ztl.normalizeText(
-				await ClientFunction(() => jq("@panel").width())(),
-			),
-		)
-		.eql(ztl.normalizeText("400"));
+		.expect(panel.offsetWidth)
+		.eql(400, "the panel should get back its width of 400px");
 	await t
-		.expect(
-			ztl.normalizeText(
-				await ClientFunction(() => jq("@panel").height())(),
-			),
-		)
-		.eql(ztl.normalizeText("300"));
+		.expect(panel.offsetHeight)
+		.eql(300, "the panel should get back its height of 300px");
 });

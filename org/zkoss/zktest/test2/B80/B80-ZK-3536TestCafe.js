@@ -25,19 +25,21 @@ test("B80-ZK-3536TestCafe", async (t) => {
 	await ztl.waitResponse(t);
 	await t.click(Selector(() => jq(".z-menubar-right")[0]));
 	await ztl.waitResponse(t);
-	let verifyVariable_cafe_0_0 = await ClientFunction(() =>
-		jq(".z-menu:eq(11)").outerWidth(true),
-	)();
-	let verifyVariable_cafe_1_1 = await ClientFunction(
-		() => jq(".z-menubar-right").offset().left,
-	)();
-	let verifyVariable_cafe_2_2 = await ClientFunction(
-		() => jq(".z-menu:eq(11)").offset().left,
-	)();
+	const lastMenu = Selector(".z-menubar-content > ul > .z-menu")
+		.nth(-1)
+		.addCustomDOMProperties({
+			hiddenWidth: (menu) => {
+				const bar = menu.closest(".z-menubar");
+				const body = bar.querySelector(".z-menubar-body");
+				const arrow = bar.querySelector(".z-menubar-right");
+				const shownRight = Math.min(
+					body.getBoundingClientRect().right,
+					arrow.getBoundingClientRect().left,
+				);
+				return menu.getBoundingClientRect().right - shownRight;
+			},
+		});
 	await t
-		.expect(
-			verifyVariable_cafe_2_2 + verifyVariable_cafe_0_0 <
-				verifyVariable_cafe_1_1,
-		)
-		.ok();
+		.expect(lastMenu.hiddenWidth)
+		.lt(1, "the last menu should show whole, not under the scroll arrow");
 });

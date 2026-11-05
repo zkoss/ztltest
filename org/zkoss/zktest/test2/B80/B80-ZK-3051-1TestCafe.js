@@ -44,11 +44,16 @@ if the top space is not enouth either, the popup will force show on the bottom o
 		jq("iframe").contents().find(".z-combobox-button")[0].click();
 	})();
 	await ztl.waitResponse(t);
-	let h_cafe = await ClientFunction(() =>
-		jq("iframe").contents().find(".z-combobox").outerHeight(),
-	)();
-	let top_cafe = await ClientFunction(
-		() => jq("iframe").contents().find(".z-combobox-popup").position().top,
-	)();
-	await t.expect(ztl.normalizeText(top_cafe)).eql(ztl.normalizeText(h_cafe));
+	await t.switchToIframe("iframe");
+	const comboboxBottom = (await Selector(".z-combobox").boundingClientRect)
+		.bottom;
+	const popup = Selector(".z-combobox-popup").addCustomDOMProperties({
+		top: (el) => el.getBoundingClientRect().top,
+	});
+	await t
+		.expect(popup.top)
+		.eql(
+			comboboxBottom,
+			"the popup should open right below the input without covering it",
+		);
 });
