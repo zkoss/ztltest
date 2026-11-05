@@ -54,10 +54,15 @@ test("B36-2811990TestCafe", async (t) => {
 	await t
 		.expect(slider.position)
 		.notEql("50", "the drag should move the slider");
-	const position = await slider.position;
+	const movedTo = await slider.position;
 	await t
 		.expect(slider.tooltip)
-		.eql(position, "the tooltip should show the slider's new position");
+		.eql(movedTo, "the tooltip should show the slider's new position");
+	if ((await ClientFunction(() => zk.themeName)()) === "iceblue") {
+		await t
+			.expect(movedTo)
+			.eql("70", "under IceBlue the drag should land on 70");
+	}
 	await t.click(Selector(() => jq("@button")[0]));
 	await ztl.waitResponse(t);
 	await t
