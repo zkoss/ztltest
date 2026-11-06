@@ -27,7 +27,11 @@ test("B50-3141610TestCafe", async (t) => {
 			)(),
 		)
 		.notOk();
-	await t.click(Selector(() => zk.Widget.$(jq("@checkbox")).$n("real")));
+	const visibleCheckbox = Selector(() => {
+		const cb = zk.Widget.$(jq("@checkbox"));
+		return cb.$n("mold").offsetWidth ? cb.$n("mold") : cb.$n("real");
+	});
+	await t.click(visibleCheckbox);
 	await ztl.waitResponse(t);
 	await t
 		.expect(

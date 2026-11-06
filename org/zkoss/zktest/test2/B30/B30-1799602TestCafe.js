@@ -43,6 +43,7 @@ If the popup of combox out of position, that is wrong.
 		() => zk(zk.Desktop._dt.$f("cb", true)).revisedOffset()[1],
 	)();
 	await t.click(Selector(() => zk.Desktop._dt.$f("cb", true).$n("btn")));
+	await ztl.waitResponse(t);
 	let offset2x_cafe = await ClientFunction(
 		() => zk(zk.Desktop._dt.$f("cb", true).$n("pp")).revisedOffset()[0],
 	)();

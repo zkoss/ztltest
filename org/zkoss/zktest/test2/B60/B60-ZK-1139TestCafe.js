@@ -44,7 +44,13 @@ test("B60-ZK-1139TestCafe", async (t) => {
                     </window>
                   </zk>`,
 	);
-	await t.click(Selector(() => jq("input[type*=checkbox]")[0]));
+	const visibleCheckbox = Selector(() => {
+		const liChk = zk.Widget.$(jq("input[type*=checkbox]")[0]);
+		return liChk.$n("mold").offsetWidth
+			? liChk.$n("mold")
+			: liChk.$n("real");
+	});
+	await t.click(visibleCheckbox);
 	await ztl.waitResponse(t);
 	if (
 		await ClientFunction(

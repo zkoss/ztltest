@@ -19,7 +19,11 @@ test("B50-2976934TestCafe", async (t) => {
 						</div>
 					</zk>`,
 	);
-	await t.click(Selector(() => zk.Desktop._dt.$f("cb", true).$n("real")));
+	const visibleCheckbox = Selector(() => {
+		const cb = zk.Desktop._dt.$f("cb", true);
+		return cb.$n("mold").offsetWidth ? cb.$n("mold") : cb.$n("real");
+	});
+	await t.click(visibleCheckbox);
 	await t
 		.expect(
 			ztl.normalizeText(

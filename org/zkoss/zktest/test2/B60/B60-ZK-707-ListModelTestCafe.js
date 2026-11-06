@@ -154,7 +154,11 @@ test("B60-ZK-707-ListModelTestCafe", async (t) => {
 	await t
 		.expect(verifyVariable_cafe_2_2tt && verifyVariable_cafe_3_3tt)
 		.ok("Both first grid and second grid select the option_2");
-	await t.click(Selector(() => zk.Desktop._dt.$f("cbx", true).$n("real")));
+	const visibleCheckbox = Selector(() => {
+		const cbx = zk.Desktop._dt.$f("cbx", true);
+		return cbx.$n("mold").offsetWidth ? cbx.$n("mold") : cbx.$n("real");
+	});
+	await t.click(visibleCheckbox);
 	await ztl.waitResponse(t);
 	await t.click(
 		Selector(

@@ -17,14 +17,12 @@ test("F85-ZK-3778TestCafe", async (t) => {
 		Selector(() => jq(".z-slider-button:eq(0)")[0]),
 		0,
 		99,
-		{ offsetX: 5, offsetY: 1 },
 	);
 	await ztl.waitResponse(t);
 	await t.drag(
 		Selector(() => jq(".z-slider-button:eq(1)")[0]),
 		0,
 		99,
-		{ offsetX: 5, offsetY: 1 },
 	);
 	await ztl.waitResponse(t);
 	await t

@@ -204,10 +204,7 @@ test("Z35-panel-002TestCafe", async (t) => {
 		() => jq(".z-panel-header-move").length,
 	)();
 	await t.expect(verifyVariable_cafe_2_2 == 0).ok();
-	await t.click(
-		Selector(() => jq(zk.Widget.$(jq("@panel")).$n("exp"))[0]),
-		{ offsetX: 2, offsetY: 2 },
-	);
+	await t.click(Selector(() => jq(zk.Widget.$(jq("@panel")).$n("exp"))[0]));
 	await ztl.waitResponse(t);
 	await t.wait(200);
 	await t
@@ -215,10 +212,7 @@ test("Z35-panel-002TestCafe", async (t) => {
 			await ClientFunction(() => jq(".z-panel-body").is(":visible"))(),
 		)
 		.notOk();
-	await t.click(
-		Selector(() => jq(zk.Widget.$(jq("@panel")).$n("exp"))[0]),
-		{ offsetX: 2, offsetY: 2 },
-	);
+	await t.click(Selector(() => jq(zk.Widget.$(jq("@panel")).$n("exp"))[0]));
 	await ztl.waitResponse(t);
 	await t.wait(200);
 	await t

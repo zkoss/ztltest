@@ -144,15 +144,19 @@ test("Z30-grid-0026TestCafe", async (t) => {
 				)(),
 			),
 		);
-	await t.click(Selector(() => zk.Widget.$("$add").$n("real")));
+	const visibleCheckbox = Selector((selector) => {
+		const checkbox = zk.Widget.$(selector);
+		return checkbox.$n("mold").offsetWidth
+			? checkbox.$n("mold")
+			: checkbox.$n("real");
+	});
+	await t.click(visibleCheckbox("$add"));
 	await t
 		.expect(await ClientFunction(() => zk.Widget.$("$add").isChecked())())
 		.ok();
 	await t.click(Selector(() => jq("$btnStart")[0])).wait(3200);
 	let amount_cafe = await ClientFunction(() => jq("@row").length)();
-	await t
-		.click(Selector(() => zk.Widget.$("$add").$n("real")))
-		.click(Selector(() => zk.Widget.$("$remove").$n("real")));
+	await t.click(visibleCheckbox("$add")).click(visibleCheckbox("$remove"));
 	await t
 		.expect(
 			await ClientFunction(

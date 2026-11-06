@@ -36,7 +36,11 @@ test("B30-1914105TestCafe", async (t) => {
 			ztl.normalizeText("12:00:00"),
 			"value should start with 12:00:00",
 		);
-	await t.click(Selector(() => zk.Desktop._dt.$f("ck1", true).$n("real")));
+	const visibleCheckbox = Selector((id) => {
+		const ck = zk.Desktop._dt.$f(id, true);
+		return ck.$n("mold").offsetWidth ? ck.$n("mold") : ck.$n("real");
+	});
+	await t.click(visibleCheckbox("ck1"));
 	await ztl.waitResponse(t);
 	if (
 		await ClientFunction(
@@ -65,7 +69,7 @@ test("B30-1914105TestCafe", async (t) => {
 	await t
 		.expect(ztl.normalizeText("12:00:00"))
 		.notEql(ztl.normalizeText(value_cafe), "value should not be 12:00:00");
-	await t.click(Selector(() => zk.Desktop._dt.$f("ck2", true).$n("real")));
+	await t.click(visibleCheckbox("ck2"));
 	await ztl.waitResponse(t);
 	await t.click(Selector(() => zk.Widget.$(jq(".z-timebox")).$n("btn-up")));
 	await t

@@ -30,15 +30,9 @@ test("B70-ZK-2363TestCafe", async (t) => {
 	</window>
 </zk>`,
 	);
-	await t.click(
-		Selector(() => jq(".z-window-maximize")[0]),
-		{ offsetX: 1, offsetY: 1 },
-	);
+	await t.click(Selector(() => jq(".z-window-maximize")[0]));
 	await ztl.waitResponse(t);
-	await t.click(
-		Selector(() => jq(".z-window-maximized")[0]),
-		{ offsetX: 1, offsetY: 1 },
-	);
+	await t.click(Selector(() => jq(".z-window-maximized")[0]));
 	await ztl.waitResponse(t);
 	let width_cafe = await ClientFunction(() => jq("@window").width())();
 	await t.drag(

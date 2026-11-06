@@ -33,7 +33,13 @@ test("B70-ZK-2031TestCafe", async (t) => {
 	]]></zscript>
 </window>`,
 	);
-	await t.click(Selector(() => jq(".z-checkbox input")[0]));
+	const visibleCheckbox = Selector(() => {
+		const acceptTermBox = zk.Widget.$(jq(".z-checkbox input")[0]);
+		return acceptTermBox.$n("mold").offsetWidth
+			? acceptTermBox.$n("mold")
+			: acceptTermBox.$n("real");
+	});
+	await t.click(visibleCheckbox);
 	await ztl.waitResponse(t);
 	await t
 		.expect(await ClientFunction(() => !!jq(".z-button-image")[0])())

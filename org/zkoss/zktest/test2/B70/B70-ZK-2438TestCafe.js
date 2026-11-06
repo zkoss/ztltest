@@ -15,29 +15,21 @@ test("B70-ZK-2438TestCafe", async (t) => {
 	await ztl.initTest(t);
 	await t.click(Selector(() => jq(".z-detail")[0]));
 	await ztl.waitResponse(t);
-	let startL_cafe = await ClientFunction(
-		() => jq(".z-slider-button").last().position().left,
-	)();
-	let startT_cafe = await ClientFunction(
-		() => jq(".z-slider-button").last().position().top,
-	)();
-	let endL_cafe = startL_cafe + 60;
+	const slider = Selector(
+		() => jq(".z-slider").last()[0],
+	).addCustomDOMProperties({
+		travel: (el) =>
+			el.clientWidth - el.querySelector(".z-slider-button").offsetWidth,
+	});
+	const fromOneToTwo = Math.round(
+		((await slider.travel) * (2 - 1)) / (4 - 1),
+	);
 	await t.hover(Selector(() => jq(".z-slider-button").last()[0]));
 	await ztl.waitResponse(t);
-	let cafeCoord_1 = await ztl.convertCoordStrToArr(
-		endL_cafe + "," + startT_cafe,
-	);
-
-	let cafeCoord_2 = await ztl.convertCoordStrToArr(
-		startL_cafe + "," + startT_cafe,
-		true,
-	);
-
 	await t.drag(
 		Selector(() => jq(".z-slider-button").last()[0]),
-		cafeCoord_1[0] - cafeCoord_2[0],
-		cafeCoord_1[1] - cafeCoord_2[1],
-		{ offsetX: cafeCoord_2[0], offsetY: cafeCoord_2[1] },
+		fromOneToTwo,
+		0,
 	);
 	await ztl.waitResponse(t);
 	await t
