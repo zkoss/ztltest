@@ -22,6 +22,7 @@ test("B30-1914105TestCafe", async (t) => {
 	)
 		await t.click(Selector(() => zk.Desktop._dt.$f("tb", true).$n("real")));
 	await ztl.waitResponse(t);
+	await t.pressKey("home");
 	await t.pressKey("1 2 : 0 0 : 0 0");
 	await ztl.waitResponse(t);
 	await t
@@ -51,6 +52,7 @@ test("B30-1914105TestCafe", async (t) => {
 	)
 		await t.click(Selector(() => zk.Desktop._dt.$f("tb", true).$n("real")));
 	await ztl.waitResponse(t);
+	await t.pressKey("home");
 	await t.pressKey("1 2 : 0 0 : 0 1");
 	await t
 		.expect(ztl.normalizeText("12:00:00"))
