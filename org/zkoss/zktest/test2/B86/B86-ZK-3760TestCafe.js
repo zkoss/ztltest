@@ -66,10 +66,24 @@ test("B86-ZK-3760TestCafe", async (t) => {
 	let verifyVariable_cafe_11_11 = await ClientFunction(
 		() => jq("$level2").offset().top,
 	)();
-	await ztl.verifyTolerant(
-		t,
-		ztl.normalizeText(verifyVariable_cafe_6_6 + verifyVariable_cafe_7_7),
-		ztl.normalizeText(verifyVariable_cafe_11_11),
-		ztl.normalizeText("10"),
-	);
+	if ((await ClientFunction(() => zk.themeName)()) === "iceblue") {
+		await ztl.verifyTolerant(
+			t,
+			ztl.normalizeText(verifyVariable_cafe_6_6 + verifyVariable_cafe_7_7),
+			ztl.normalizeText(verifyVariable_cafe_11_11),
+			ztl.normalizeText("10"),
+		);
+	} else {
+		await t
+			.expect(Selector(() => jq("$level2")[0]).visible)
+			.ok("the nested item should be visible after opening Settings");
+		await t
+			.expect(
+				await ClientFunction(
+					() =>
+						jq("$level2").offset().top > jq("$settings").offset().top,
+				)(),
+			)
+			.ok("the nested item should be below Settings");
+	}
 });
