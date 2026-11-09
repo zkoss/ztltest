@@ -13,35 +13,15 @@ fixture`ZTL TEST - B70-ZK-2290TestCafe`
 );
 test("B70-ZK-2290TestCafe", async (t) => {
 	await ztl.initTest(t);
-	let actionVariable_cafe_0_0 = await ClientFunction(() =>
-		jq(".z-listheader").eq(1).width(),
-	)();
-	let actionVariable_cafe_1_1 = await ClientFunction(() =>
-		jq(".z-listheader").eq(6).width(),
-	)();
-	let actionVariable_cafe_2_2 = await ClientFunction(() =>
-		jq(".z-listheader").eq(1).width(),
-	)();
-	let actionVariable_cafe_3_3 = await ClientFunction(() =>
-		jq(".z-listheader").eq(6).width(),
-	)();
-	let cafeCoord_1 = await ztl.convertCoordStrToArr(
-		actionVariable_cafe_0_0 + ",10",
-		true,
-	);
-
-	let cafeCoord_2 = await ztl.convertCoordStrToArr(
-		actionVariable_cafe_3_3 + ",10",
-	);
-
+	// drop the column's right edge at the listbox's right edge, so the other columns leave the view at any window width
 	await t.dragToElement(
-		Selector(() => jq(".z-listheader").eq(1)[0]),
-		Selector(() => jq(".z-listheader").eq(6)[0]),
+		Selector(".z-listheader").nth(1),
+		Selector(".z-listbox-body"),
 		{
-			offsetX: cafeCoord_1[0],
-			offsetY: cafeCoord_1[1],
-			destinationOffsetX: cafeCoord_2[0],
-			destinationOffsetY: cafeCoord_2[1],
+			offsetX: -3,
+			offsetY: 10,
+			destinationOffsetX: -3,
+			destinationOffsetY: 10,
 		},
 	);
 	await ztl.waitResponse(t);
