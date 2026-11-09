@@ -90,3 +90,32 @@ test("B30-1455584TestCafe", async (t) => {
 
 The fixture header (`.page` URL, `beforeEach` setup) usually does not need to be changed. Focus on the `test()` body instead, for example — remove redundant `.replace(/\s/g, " ")`, 
 simplify duplicated `ClientFunction` calls, clean up unused variables, and make the assertions easier to read.
+
+#### Tests that apply only to IceBlue ####
+
+Prefer refining a test so its check holds under any theme. If the test's whole subject is IceBlue's own look, mark it
+with `//@iceblueOnly` in its first three lines, and start the test with a theme check and a comment that says why, as
+`F65-ZK-1277TestCafe.js` does:
+
+```js
+//@iceblueOnly
+...
+test("...", async (t) => {
+    // why the test applies only to IceBlue
+    if ((await ClientFunction(() => zk.themeName)()) !== "iceblue") {
+        return;
+    }
+    await ztl.initTest(t);
+```
+
+`prepare_test_files.sh` and `prepare_test_files.ps1` then make CI copies of it only for servers whose theme is
+`iceblue`. When you run it yourself under another theme, the theme check returns before any check and the test passes.
+
+A test that only partly depends on IceBlue is not marked. It keeps running under every theme, and only its
+IceBlue-specific check is wrapped in a theme check, as in `B80-ZK-3154TestCafe.js`:
+
+```js
+if ((await ClientFunction(() => zk.themeName)()) === "iceblue") {
+    // the check that holds only under IceBlue
+}
+```

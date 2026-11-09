@@ -1,3 +1,4 @@
+//@iceblueOnly
 import { ClientFunction, Selector } from "testcafe";
 import * as ztl from "#ztl";
 fixture`ZTL TEST - F65-ZK-1277TestCafe`
@@ -12,6 +13,10 @@ fixture`ZTL TEST - F65-ZK-1277TestCafe`
 	},
 );
 test("F65-ZK-1277TestCafe", async (t) => {
+	// ZK-1277 gave IceBlue's rows, groups and group footers equal heights in CSS; Marble pads group rows less by spec
+	if ((await ClientFunction(() => zk.themeName)()) !== "iceblue") {
+		return;
+	}
 	await ztl.initTest(t);
 	await ztl.verifyTolerant(
 		t,
