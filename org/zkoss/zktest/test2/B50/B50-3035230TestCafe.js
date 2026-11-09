@@ -55,56 +55,29 @@ test("B50-3035230TestCafe", async (t) => {
 	</hbox>
 </zk>`,
 	);
-	let verifyVariable_cafe_0_0 = await ClientFunction(() =>
-		jq(zk.Desktop._dt.$f("c2", true)).outerWidth(),
-	)();
-	let verifyVariable_cafe_1_1 = await ClientFunction(() =>
-		jq(zk.Desktop._dt.$f("c1", true)).outerWidth(),
-	)();
+	// the header labels differ ("col 1", "col 2"), so compare each column's width beside its own header text
+	const widthBesideText = ClientFunction((id) => {
+		const col = zk.Desktop._dt.$f(id, true);
+		return jq(col).outerWidth() - zk(col.$n("cave")).textWidth();
+	});
 	await t
 		.expect(
-			await ClientFunction(
-				() =>
-					eval(
-						"Math.abs(" +
-							verifyVariable_cafe_1_1 +
-							"-" +
-							verifyVariable_cafe_0_0 +
-							") <= 3",
-					),
-				{
-					dependencies: {
-						verifyVariable_cafe_1_1,
-						verifyVariable_cafe_0_0,
-					},
-				},
-			)(),
+			Math.abs(
+				(await widthBesideText("c1")) - (await widthBesideText("c2")),
+			),
 		)
-		.ok();
-	let verifyVariable_cafe_2_2 = await ClientFunction(() =>
-		jq(zk.Desktop._dt.$f("c3", true)).outerWidth(),
-	)();
-	let verifyVariable_cafe_3_3 = await ClientFunction(() =>
-		jq(zk.Desktop._dt.$f("c4", true)).outerWidth(),
-	)();
+		.lte(
+			3,
+			"both columns of the 300px grid should be sized by their content",
+		);
 	await t
 		.expect(
-			await ClientFunction(
-				() =>
-					eval(
-						"Math.abs(" +
-							verifyVariable_cafe_2_2 +
-							"-" +
-							verifyVariable_cafe_3_3 +
-							") <= 3",
-					),
-				{
-					dependencies: {
-						verifyVariable_cafe_2_2,
-						verifyVariable_cafe_3_3,
-					},
-				},
-			)(),
+			Math.abs(
+				(await widthBesideText("c3")) - (await widthBesideText("c4")),
+			),
 		)
-		.ok();
+		.lte(
+			3,
+			"both columns of the grid in the 300px div should be sized by their content",
+		);
 });
