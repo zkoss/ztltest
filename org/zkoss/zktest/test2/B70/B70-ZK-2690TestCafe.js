@@ -17,26 +17,19 @@ test("B70-ZK-2690TestCafe", async (t) => {
 		console.log("This issue is ignored in current browser! (ios,android)");
 		return;
 	}
+	const auxheaderWidth = ClientFunction(() =>
+		jq(".z-auxheader").eq(1).width(),
+	);
 	await ClientFunction(() => {
 		jq(
 			zk.Widget.$(jq(jq("@grid")).find(".z-frozen")).$n("scrollX"),
 		)[0].scrollLeft = "300.0";
 	})();
-	await ztl.waitResponse(t);
-	await ztl.waitResponse(t);
-	let verifyVariable_cafe_0_0 = await ClientFunction(() =>
-		jq(".z-auxheader").eq(1).width(),
-	)();
-	await t.expect(verifyVariable_cafe_0_0 < 1).ok();
+	await t.expect(auxheaderWidth()).lt(1);
 	await ClientFunction(() => {
 		jq(
 			zk.Widget.$(jq(jq("@grid")).find(".z-frozen")).$n("scrollX"),
 		)[0].scrollLeft = "-300.0";
 	})();
-	await ztl.waitResponse(t);
-	await ztl.waitResponse(t);
-	let verifyVariable_cafe_1_1 = await ClientFunction(() =>
-		jq(".z-auxheader").eq(1).width(),
-	)();
-	await t.expect(verifyVariable_cafe_1_1 > 1).ok();
+	await t.expect(auxheaderWidth()).gt(1);
 });
