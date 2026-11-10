@@ -23,30 +23,15 @@ test("F85-ZK-3711-2TestCafe", async (t) => {
 	await ztl.waitResponse(t);
 	await t.click(Selector(() => jq("@button").eq(1)[0]));
 	await ztl.waitResponse(t);
+	const log = Selector("#zk_log");
 	await ClientFunction(() => {
 		window.history.back();
 	})();
 	await ztl.waitResponse(t);
-	await t
-		.expect(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq("#zk_log").length > 0 ? jq("#zk_log").val().trim() : "",
-				)(),
-			),
-		)
-		.contains(ztl.normalizeText('{"f1":1,'), "It should be f1=1.");
+	await t.expect(log.value).contains('{"f1":1,', "It should be f1=1.");
 	await ClientFunction(() => {
 		window.history.forward();
 	})();
 	await ztl.waitResponse(t);
-	await t
-		.expect(
-			ztl.normalizeText(
-				await ClientFunction(() =>
-					jq("#zk_log").length > 0 ? jq("#zk_log").val().trim() : "",
-				)(),
-			),
-		)
-		.contains(ztl.normalizeText('{"f1":3,'), "It should be f1=3.");
+	await t.expect(log.value).contains('{"f1":3,', "It should be f1=3.");
 });
